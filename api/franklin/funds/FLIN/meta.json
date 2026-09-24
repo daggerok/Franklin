@@ -1,78 +1,207 @@
 {
-  "ticker": "FLIN",
-  "name": "Franklin FTSE India ETF",
-  "category": "India Equity",
+ "ticker": "FLIN",
+ "name": "Franklin FTSE India ETF",
+ "category": "[5](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN#footnote_5)",
+ "categoryPath": "[5](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN#footnote_5)",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN",
-  "cusip": "35473P769",
+  "holdingsSource": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLIN?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": null
+ },
+ "identifiers": {
+  "cusip": "CUSIPCODE",
   "isin": "US35473P7693",
-  "bloomberg": "FLIN US",
-  "benchmark": "FTSE India Capped Index-NR",
-  "exchange": "NYSE Arca",
-  "inceptionDate": "2018-02-06",
+  "benchmark": "FTSE India Capped Index-NR"
+ },
+ "expenseRatio": {
+  "display": "0.19%",
+  "value": 0.19,
+  "gross": 0.19,
+  "net": 0.19
+ },
+ "nav": {
+  "display": "$34.85",
+  "value": 34.85,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "$2.60 B",
+  "value": 2600000000,
   "asOfDate": "2026-09-22",
-  "nav": "$34.85",
-  "navValue": 34.85,
-  "aum": "$2.60 Billion",
-  "aumValue": 2600000000,
-  "ter": "0.19%",
-  "terValue": 0.19,
-  "distributions": {
-    "frequency": "Quarterly",
-    "exDate": "2026-09-18",
-    "dividend": 0.15
+  "source": "official product page Total Net Assets"
+ },
+ "yields": {
+  "dividendYield": 0.42,
+  "dividendYieldText": "0.42%",
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": 2.09,
+  "secYieldText": "2.09%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "Sep 22 2026",
+   "ytd": -10.39,
+   "ytdText": "-10.39%",
+   "yr1": -3.94,
+   "yr1Text": "-3.94%",
+   "yr3": 5.33,
+   "yr3Text": "5.33%",
+   "yr5": 3.05,
+   "yr5Text": "3.05%",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 5.93,
+   "sinceInceptionText": "5.93%"
   },
-  "returns": {
-    "monthEnd": {
-      "asOfDate": "2026-08-31",
-      "mo1": -1.2,
-      "qtd": -2.3,
-      "ytd": -10.39,
-      "yr1": -3.94,
-      "yr3": 5.33,
-      "yr5": 3.05,
-      "yr10": null,
-      "sinceInception": 5.93
-    },
-    "quarterEnd": {
-      "asOfDate": "2026-06-30",
-      "mo1": null,
-      "qtd": null,
-      "ytd": null,
-      "yr1": -2.1,
-      "yr3": 6.1,
-      "yr5": 3.5,
-      "yr10": null,
-      "sinceInception": 6.1
-    }
-  },
-  "metrics": {
-    "tr1y": -3.94,
-    "tr3y": 16.85,
-    "tr5y": 16.2,
-    "tr10y": null,
-    "cagr3y": 5.33,
-    "cagr5y": 3.05,
-    "cagr10y": null,
-    "siAnn": 5.93,
-    "dividendYield": 0.42,
-    "secYield": 2.09,
-    "dividendYieldText": "0.42%",
-    "secYieldText": "2.09%"
-  },
-  "holdings": {
-    "pages": [
-      "holdings/001.json"
-    ],
-    "total": 10,
-    "asOfDate": "2026-09-22",
-    "source": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN"
-  },
-  "history": {
-    "pages": [
-      "history/001.json"
-    ],
-    "total": 20,
-    "asOfDate": "2026-09-22",
-    "source": "https://query2.finance.yahoo.com/v8/finance/chart/FLIN?range=max&interval=1d"
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 5.93,
+   "sinceInceptionText": "5.93%"
   }
+ },
+ "distributions": {
+  "frequency": "Semi-Annual This fund is an ex-Dividend fund",
+  "frequencyCode": "06 - Semi-annually",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.1520",
+    "searchIndex": "dec 19 2025 0.152"
+   },
+   {
+    "Ex-Date": "Jun 20 2025",
+    "Dividend": "0.0640",
+    "searchIndex": "jun 20 2025 0.064"
+   },
+   {
+    "Ex-Date": "Dec 20 2024",
+    "Dividend": "0.2440",
+    "searchIndex": "dec 20 2024 0.244"
+   },
+   {
+    "Ex-Date": "Jun 21 2024",
+    "Dividend": "0.3540",
+    "searchIndex": "jun 21 2024 0.354"
+   },
+   {
+    "Ex-Date": "Dec 28 2023",
+    "Dividend": "0.0050",
+    "searchIndex": "dec 28 2023 0.005"
+   },
+   {
+    "Ex-Date": "Dec 15 2023",
+    "Dividend": "0.2500",
+    "searchIndex": "dec 15 2023 0.25"
+   },
+   {
+    "Ex-Date": "Dec 16 2022",
+    "Dividend": "0.2120",
+    "searchIndex": "dec 16 2022 0.212"
+   },
+   {
+    "Ex-Date": "Dec 30 2021",
+    "Dividend": "0.0140",
+    "searchIndex": "dec 30 2021 0.014"
+   },
+   {
+    "Ex-Date": "Dec 13 2021",
+    "Dividend": "0.6610",
+    "searchIndex": "dec 13 2021 0.661"
+   },
+   {
+    "Ex-Date": "Jun 10 2021",
+    "Dividend": "0.0460",
+    "searchIndex": "jun 10 2021 0.046"
+   },
+   {
+    "Ex-Date": "Dec 14 2020",
+    "Dividend": "0.0580",
+    "searchIndex": "dec 14 2020 0.058"
+   },
+   {
+    "Ex-Date": "Jun 11 2020",
+    "Dividend": "0.1210",
+    "searchIndex": "jun 11 2020 0.121"
+   },
+   {
+    "Ex-Date": "Dec 11 2019",
+    "Dividend": "0.0320",
+    "searchIndex": "dec 11 2019 0.032"
+   },
+   {
+    "Ex-Date": "Jun 11 2019",
+    "Dividend": "0.1750",
+    "searchIndex": "jun 11 2019 0.175"
+   },
+   {
+    "Ex-Date": "Dec 20 2018",
+    "Dividend": "0.1370",
+    "searchIndex": "dec 20 2018 0.137"
+   },
+   {
+    "Ex-Date": "Jun 20 2018",
+    "Dividend": "0.0660",
+    "searchIndex": "jun 20 2018 0.066"
+   }
+  ],
+  "latestDividend": "0.152",
+  "exDate": "Dec 19 2025"
+ },
+ "holdings": {
+  "totalRows": 10,
+  "pageSize": 250,
+  "pageCount": 1,
+  "pages": [
+   "./holdings/001.json"
+  ],
+  "asOfDate": "2026-09-22",
+  "asOf": "Sep 22 2026",
+  "source": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN"
+ },
+ "history": {
+  "totalRows": 2166,
+  "pageSize": 1000,
+  "pageCount": 3,
+  "pages": [
+   "./history/001.json",
+   "./history/002.json",
+   "./history/003.json"
+  ],
+  "asOf": "Sep 23 2026",
+  "source": "Yahoo Finance public chart API"
+ }
 }

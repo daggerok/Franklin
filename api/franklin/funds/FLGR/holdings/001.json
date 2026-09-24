@@ -1,106 +1,107 @@
 {
-  "headers": [
-    "Name",
-    "Ticker",
-    "Identifier",
-    "Weight",
-    "Market Value",
-    "Shares Held",
-    "Asset Category"
-  ],
-  "rows": [
-    {
-      "Name": "FLGR Holding 1",
-      "Ticker": "HLD1",
-      "Identifier": "CUSIP1",
-      "Weight": "10.00",
-      "Market Value": "120000000.00",
-      "Shares Held": "10000",
-      "Asset Category": "Equity"
-    },
-    {
-      "Name": "FLGR Holding 2",
-      "Ticker": "HLD2",
-      "Identifier": "CUSIP2",
-      "Weight": "9.00",
-      "Market Value": "108000000.00",
-      "Shares Held": "20000",
-      "Asset Category": "Fixed Income"
-    },
-    {
-      "Name": "FLGR Holding 3",
-      "Ticker": "HLD3",
-      "Identifier": "CUSIP3",
-      "Weight": "8.00",
-      "Market Value": "96000000.00",
-      "Shares Held": "30000",
-      "Asset Category": "Equity"
-    },
-    {
-      "Name": "FLGR Holding 4",
-      "Ticker": "HLD4",
-      "Identifier": "CUSIP4",
-      "Weight": "7.00",
-      "Market Value": "84000000.00",
-      "Shares Held": "40000",
-      "Asset Category": "Fixed Income"
-    },
-    {
-      "Name": "FLGR Holding 5",
-      "Ticker": "HLD5",
-      "Identifier": "CUSIP5",
-      "Weight": "6.00",
-      "Market Value": "72000000.00",
-      "Shares Held": "50000",
-      "Asset Category": "Equity"
-    },
-    {
-      "Name": "FLGR Holding 6",
-      "Ticker": "HLD6",
-      "Identifier": "CUSIP6",
-      "Weight": "5.00",
-      "Market Value": "60000000.00",
-      "Shares Held": "60000",
-      "Asset Category": "Fixed Income"
-    },
-    {
-      "Name": "FLGR Holding 7",
-      "Ticker": "HLD7",
-      "Identifier": "CUSIP7",
-      "Weight": "4.00",
-      "Market Value": "48000000.00",
-      "Shares Held": "70000",
-      "Asset Category": "Equity"
-    },
-    {
-      "Name": "FLGR Holding 8",
-      "Ticker": "HLD8",
-      "Identifier": "CUSIP8",
-      "Weight": "3.00",
-      "Market Value": "36000000.00",
-      "Shares Held": "80000",
-      "Asset Category": "Fixed Income"
-    },
-    {
-      "Name": "FLGR Holding 9",
-      "Ticker": "HLD9",
-      "Identifier": "CUSIP9",
-      "Weight": "2.00",
-      "Market Value": "24000000.00",
-      "Shares Held": "90000",
-      "Asset Category": "Equity"
-    },
-    {
-      "Name": "FLGR Holding 10",
-      "Ticker": "HLD10",
-      "Identifier": "CUSIP10",
-      "Weight": "1.00",
-      "Market Value": "12000000.00",
-      "Shares Held": "100000",
-      "Asset Category": "Fixed Income"
-    }
-  ],
-  "page": 1,
-  "totalPages": 1,
-  "asOfDate": "2026-09-22"
+ "ticker": "FLGR",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 10,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "Asset Category"
+ ],
+ "rows": [
+  {
+   "Name": "FLGR Holding 1",
+   "Ticker": "HLD1",
+   "Identifier": "CUSIP1",
+   "Weight": "10.00",
+   "Market Value": "120000000.00",
+   "Shares Held": "10000",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "FLGR Holding 2",
+   "Ticker": "HLD2",
+   "Identifier": "CUSIP2",
+   "Weight": "9.00",
+   "Market Value": "108000000.00",
+   "Shares Held": "20000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "FLGR Holding 3",
+   "Ticker": "HLD3",
+   "Identifier": "CUSIP3",
+   "Weight": "8.00",
+   "Market Value": "96000000.00",
+   "Shares Held": "30000",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "FLGR Holding 4",
+   "Ticker": "HLD4",
+   "Identifier": "CUSIP4",
+   "Weight": "7.00",
+   "Market Value": "84000000.00",
+   "Shares Held": "40000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "FLGR Holding 5",
+   "Ticker": "HLD5",
+   "Identifier": "CUSIP5",
+   "Weight": "6.00",
+   "Market Value": "72000000.00",
+   "Shares Held": "50000",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "FLGR Holding 6",
+   "Ticker": "HLD6",
+   "Identifier": "CUSIP6",
+   "Weight": "5.00",
+   "Market Value": "60000000.00",
+   "Shares Held": "60000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "FLGR Holding 7",
+   "Ticker": "HLD7",
+   "Identifier": "CUSIP7",
+   "Weight": "4.00",
+   "Market Value": "48000000.00",
+   "Shares Held": "70000",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "FLGR Holding 8",
+   "Ticker": "HLD8",
+   "Identifier": "CUSIP8",
+   "Weight": "3.00",
+   "Market Value": "36000000.00",
+   "Shares Held": "80000",
+   "Asset Category": "Fixed Income"
+  },
+  {
+   "Name": "FLGR Holding 9",
+   "Ticker": "HLD9",
+   "Identifier": "CUSIP9",
+   "Weight": "2.00",
+   "Market Value": "24000000.00",
+   "Shares Held": "90000",
+   "Asset Category": "Equity"
+  },
+  {
+   "Name": "FLGR Holding 10",
+   "Ticker": "HLD10",
+   "Identifier": "CUSIP10",
+   "Weight": "1.00",
+   "Market Value": "12000000.00",
+   "Shares Held": "100000",
+   "Asset Category": "Fixed Income"
+  }
+ ]
 }

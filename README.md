@@ -94,3 +94,31 @@ franklintempleton.com is behind a WAF that may return 403 to bare `fetch`. The u
 ### GitHub Pages
 
 The repository is configured for GitHub Pages deploy from root (static). The `api/franklin/` folder is committed and served as static JSON alongside `index.html` and `app.tsx` (Babel standalone, no build step).
+
+<!-- message:
+1)
+why I see only 3 funds?
+why this run:
+```bash
+CONCURRENCY=10 ./scripts/update-data.ts
+```
+doesn't force to fetch full data for all Franklin ETFs available?
+we must have infor about all the funds, if its too much for you to fetch - ask me, I will be doing it locally and then
+I will push into a branch that data so it will be available in ./api folder!
+2)
+I want to see a line per ETF of logs for ./scripts/update-data.ts script, so I will konw when it fetching the data for
+a fund or it hangs or anything else... at the moment I see next log output:
+```
+❯ CONCURRENCY=10 ./scripts/update-data.ts
+[config  ] Franklin updater: MAX_FETCHES=0 REQUEST_SLEEP=1.5 CONCURRENCY=10 EDGAR_FALLBACK=true SKIP_FRANKLIN=false SKIP_YAHOO=false
+[catalog ] previous index: 3 funds
+[catalog ] failed to fetch franklintempleton.com finder: Franklin product finder: no ETF rows found
+[catalog ] using previous index fallback: 3 funds
+[filter  ] 3 of 3 funds pass filters
+[edgar   ] SEC fund ticker table: 28550 share classes
+[edgar   ] SEC company ticker table: 10461 issuer names
+[nport   ] FLIN failed: [edgar   ] FLIN accession: 404 Not Found — NoSuchKey The specified key does not exist. edgar/data/940400/000094040026035205/0000940400-26-035205.txt 0EP3CPATG7RFW8D5 1+37g+Bjg8fTnXeEm1NHGMJOW9w6mXoDkWsy4
+[nport   ] FLGR failed: [edgar   ] FLGR accession: 404 Not Found — NoSuchKey The specified key does not exist. edgar/data/940400/000094040026035205/0000940400-26-035205.txt 0EP3CPATG7RFW8D5 1+37g+Bjg8fTnXeEm1NHGMJOW9w6mXoDkWsy4
+[summary ] updated=3 unchanged=0 failed=0 skipped=0 indexChanged=true funds=3 holdings=30 history=5188 source=previous index (catalog fetch failed)
+```
+-->
