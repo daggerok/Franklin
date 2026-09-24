@@ -19,6 +19,7 @@ import {
   totalToAnnualized,
   stripProxyPreamble,
   htmlToText,
+  parseFranklinHoldings,
 } from './update-data';
 
 describe('parseRange', () => {
@@ -269,5 +270,49 @@ describe('helpers', () => {
 
   test('htmlToText', () => {
     expect(htmlToText('<div>Hello<br>World</div>')).toContain('Hello');
+  });
+});
+
+describe('Franklin official holdings', () => {
+  const flauHoldings = `
+Title: FLAU Franklin FTSE Australia ETF
+Markdown Content:
+# Portfolio Holdings
+As of September 21, 2026
+| Security Name | Weight (%) | Market Value ($) | Quantity |
+| --- | --- | --- | --- |
+| BHP GROUP LTD | 13.46% | $27,530,012 | 629,391 |
+| COMMONWEALTH BANK OF AUSTRALIA | 8.36% | $17,102,277 | 98,432 |
+| CSL LTD | 6.21% | $12,704,123 | 45,123 |
+`;
+
+  const flinHoldings = `
+Markdown Content:
+| Security Name | Weight (%) | Market Value ($) | Notional Exposure | Quantity |
+| --- | --- | --- | --- | --- |
+| HDFC BANK LTD | 5.29% | 137.14M USD | 137.14M | 5.20M |
+| RELIANCE INDUSTRIES LTD | 4.85% | 125.60M USD | 125.60M | 4.10M |
+`;
+
+  test('parses FLAU holdings with dollar amounts and commas', () => {
+    const holdings = parseFranklinHoldings(flauHoldings);
+    expect(holdings.length).toBe(3);
+    expect(holdings[0].name).toBe('BHP GROUP LTD');
+    expect(holdings[0].pctVal).toBe('13.46');
+    expect(Number(holdings[0].valUSD)).toBeCloseTo(27530012, 0);
+    expect(Number(holdings[0].balance)).toBeCloseTo(629391, 0);
+  });
+
+  test('parses FLIN holdings with M suffix', () => {
+    const holdings = parseFranklinHoldings(flinHoldings);
+    expect(holdings.length).toBe(2);
+    expect(holdings[0].name).toBe('HDFC BANK LTD');
+    expect(holdings[0].pctVal).toBe('5.29');
+    expect(Number(holdings[0].valUSD)).toBeCloseTo(137140000, -3);
+    expect(Number(holdings[0].balance)).toBeCloseTo(5200000, -3);
+  });
+
+  test('returns empty when no holdings table', () => {
+    expect(parseFranklinHoldings('no table here')).toEqual([]);
   });
 });

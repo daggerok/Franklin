@@ -1,5 +1,42 @@
 #!/usr/bin/env -S bun --use-system-ca
 
+// Embed system CA by default so user does NOT need to pass --use-system-ca or NODE_USE_SYSTEM_CA=1
+// Bun v1.2.23+ supports --use-system-ca flag and NODE_USE_SYSTEM_CA=1 env var.
+// When run via `bun ./scripts/update-data.ts` the shebang is ignored, so we auto-restart with flag if needed.
+// See https://bun.com/blog/bun-v1.2.23#use-system-ca and https://github.com/oven-sh/bun/issues/30313
+const _env = (typeof process !== 'undefined' ? (process as any).env : {}) as Record<string, string | undefined>;
+if (!_env.NODE_USE_SYSTEM_CA) {
+  _env.NODE_USE_SYSTEM_CA = '1';
+}
+// Only auto-restart for direct script execution, NOT for `bun test` which has different argv handling
+// In `bun test`, process.argv is [bun, testFile] without subcommand, so we must NOT spawn or we break test runner
+const _isTestRunner = typeof process !== 'undefined' && ((process as any).argv?.some((a: string) => a.includes('update-data.test.ts')) || (process as any).env?.BUN_TEST === '1' || (globalThis as any).Bun?.isMainThread === false);
+const _isDirectRun = typeof process !== 'undefined' && (process as any).argv?.some((a: string) => a.includes('update-data.ts') && !a.includes('test'));
+if (!_env.FRANKLIN_REEXEC && !_isTestRunner) {
+  // If not already re-executed and flag not present, try to re-exec with --use-system-ca
+  // This makes `bun ./scripts/update-data.ts` work without manual flag.
+  // No top-level await here – use Bun.spawnSync synchronously to keep module sync for bun:test
+  try {
+    const hasFlag = typeof process !== 'undefined' && (process as any).argv?.some((a: string) => a === '--use-system-ca');
+    if (!hasFlag) {
+      const bunGlobal = (globalThis as any).Bun;
+      if (bunGlobal && typeof bunGlobal.spawnSync === 'function') {
+        // Only re-exec if we're running as main script (not imported)
+        const isMain = typeof (globalThis as any).Bun !== 'undefined' ? (import.meta as any).main : true;
+        if (isMain) {
+          _env.FRANKLIN_REEXEC = '1';
+          const args = ['--use-system-ca', ...((process as any).argv?.slice(1) || [])];
+          const result = bunGlobal.spawnSync(['bun', ...args], { stdio: ['inherit', 'inherit', 'inherit'], env: _env as any });
+          if (typeof process !== 'undefined') {
+            (process as any).exit((result as any).status ?? 0);
+          }
+        }
+      }
+    }
+  } catch {
+    // If re-exec fails, continue with env var set (may still work for Node's fetch)
+  }
+}
 
 const FRANKLIN_SERIES_MAP: Record<string, { cik: string; seriesId: string; classId: string; acc?: string; reportDate?: string }> = {
   // Franklin Templeton ETF Trust (CIK 0001655589)
@@ -114,15 +151,17 @@ if (typeof process !== 'undefined' && process.env) {
 //                 https://www.franklintempleton.com/investments/options/exchange-traded-funds (81 ETFs)
 //   product page  https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/...
 //                 (Fund Profile, CUSIP/ISIN, expense, NAV, AUM, yields, frequency, returns)
-//   holdings      SEC EDGAR Form N-PORT-P for the exact series (official, quarterly)
-//                 — Franklin publishes no direct per-fund holdings CSV; the SEC filing is the
-//                 authoritative daily holdings disclosure (same as Goldman Sachs / Schwab fallback)
+//   holdings      Franklin official product page Portfolio tab (daily, primary)
+//                 | Security Name | Weight (%) | Market Value ($) | Quantity |  (e.g. FLAU 101 holdings, FLIN 280)
+//                 plus SEC EDGAR Form N-PORT-P for the exact series via FRANKLIN_SERIES_MAP
+//                 (multi-trust mapping, 108 holdings for FLAU, quarterly fallback when official daily unavailable)
 //   history       Yahoo Finance public chart API (daily close, adj close, volume, dividends, splits)
 //   distributions Yahoo dividend events + official distribution frequency from product page
 //
 // Issuer requests are made directly with a browser-like User-Agent first; when
 // the issuer answers with a bot-wall, the same URL is read through the read-only
 // r.jina.ai rendering proxy (identical to daggerok/WisdomTree). SEC and Yahoo stay direct.
+// Bun v1.2.23+ system CA is embedded by default via shebang, package.json, workflow, and auto-restart guard.
 //
 // Usage: bun ./scripts/update-data.ts [--help]
 
@@ -1028,6 +1067,111 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
 
 export function parseProductPage(text: string, ticker: string): ProductPageSummary {
   return parseFranklinProductPage(text, ticker);
+}
+
+// Franklin official holdings from product page Portfolio tab
+// The page (via r.jina.ai markdown) contains a table like:
+// | Security Name | Weight (%) ... | Market Value ($) ... | Notional Exposure ... | Quantity ... |
+// | --- | --- | --- | --- | --- |
+// | BHP GROUP LTD | 13.57% | 29.38M USD | ... | 671.70K |
+// | BHP GROUP LTD | 13.46% | $27,530,012 | ... | 629,391 |
+// We parse it as primary holdings source (daily), SEC N-PORT-P as fallback (quarterly)
+function parseFranklinAmount(raw: string): number | null {
+  const cleaned = cleanText(raw).replace(/USD|\$/gi, '').trim();
+  if (!cleaned) return null;
+  // Handle "29.38M", "671.70K", "137,140,723"
+  const m = /([-+]?\d[\d,]*\.?\d*)\s*([KMB])?/i.exec(cleaned);
+  if (!m) return numberOrNull(cleaned);
+  const num = numberOrNull(m[1]);
+  if (num === null) return null;
+  const suffix = (m[2] || '').toUpperCase();
+  if (suffix === 'K') return num * 1e3;
+  if (suffix === 'M') return num * 1e6;
+  if (suffix === 'B') return num * 1e9;
+  return num;
+}
+
+export function parseFranklinHoldings(text: string): JsonRecord[] {
+  const source = stripProxyPreamble(text);
+  const lines = source.split('\n').map(l => l.trim()).filter(Boolean);
+  const holdings: JsonRecord[] = [];
+
+  // Find holdings table header – may appear multiple times, take first with Security Name + Weight
+  let headerIdx = -1;
+  let headerCells: string[] = [];
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (!line.includes('|')) continue;
+    const lower = line.toLowerCase();
+    if (lower.includes('security name') && lower.includes('weight')) {
+      const cells = line.split('|').map(c => cleanText(c)).filter(c => c !== '');
+      if (cells.length >= 2) {
+        headerIdx = i;
+        headerCells = cells;
+        break;
+      }
+    }
+  }
+  if (headerIdx === -1) return [];
+
+  let dataStart = headerIdx + 1;
+  if (dataStart < lines.length && /^[\s|:-]+$/.test(lines[dataStart])) {
+    dataStart++;
+  }
+
+  for (let i = dataStart; i < lines.length; i++) {
+    const line = lines[i];
+    if (!line.startsWith('|')) break;
+    if (line.toLowerCase().includes('security name')) break;
+    if (/^[\s|:-]+$/.test(line)) continue;
+    const cells = line.split('|').map(c => cleanText(c)).filter(c => c !== '');
+    if (cells.length < 2) continue;
+    const getCell = (aliases: string[]): string => {
+      for (const alias of aliases) {
+        const idx = headerCells.findIndex(h => h.toLowerCase().includes(alias.toLowerCase()));
+        if (idx >= 0 && idx < cells.length) return cells[idx];
+      }
+      return '';
+    };
+
+    let name = getCell(['security name', 'name']) || cells[0] || '';
+    let weight = getCell(['weight']) || cells[1] || '';
+    let marketValue = getCell(['market value']) || cells[2] || '';
+    let quantity = getCell(['quantity']) || cells[cells.length - 1] || '';
+
+    const weightNum = (() => {
+      const m = /([-+]?\d+(?:\.\d+)?)\s*%/.exec(weight);
+      if (m) return m[1];
+      const n = numberOrNull(weight);
+      return n !== null ? String(n) : weight;
+    })();
+
+    if (!name || name.toLowerCase().includes('security name')) continue;
+    if (name.length > 200) continue;
+    if (/franklintempleton\.com/i.test(name)) continue;
+
+    const mvParsed = parseFranklinAmount(marketValue);
+    const qtyParsed = parseFranklinAmount(quantity);
+
+    holdings.push({
+      name,
+      cusip: '',
+      ticker: '',
+      isin: '',
+      sedol: '',
+      balance: qtyParsed !== null ? String(qtyParsed) : quantity,
+      valUSD: mvParsed !== null ? String(mvParsed) : (marketValue.replace(/[^0-9.\-]/g, '') || '0'),
+      pctVal: weightNum,
+      assetCat: '',
+      issuerCat: '',
+      invCountry: '',
+      identifier: '',
+      rawMarketValue: marketValue,
+      rawQuantity: quantity,
+    });
+  }
+
+  return holdings;
 }
 
 export function parseFundName(source: string, ticker: string): string | null {
@@ -1957,13 +2101,15 @@ async function main(): Promise<void> {
     let chart: ParsedChart | null = null;
     let nport: ParsedNport | null = null;
 
-    // 1) Product page – logs are tabulated issuer candidate lines inside fetchIssuerText
+    // 1) Product page – official daily holdings + summary (primary source)
+    let franklinPageText: string | null = null;
     if (!config.skipFranklin) {
       try {
         const page = await fetchIssuerText(fund.fundPage, `[product ] ${ticker}`, config, (text) => {
           const lower = text.toLowerCase();
           return lower.includes(ticker.toLowerCase()) && (lower.includes('cusip') || lower.includes('nav') || lower.includes('expense'));
         }, 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', { maxProxies: PRODUCT_PROXY_COUNT });
+        franklinPageText = page.text;
         summary = parseFranklinProductPage(page.text, ticker);
         // Merge into catalog fund – only valid names/categories, never URL paths or JS bundles
         if (summary.name && isValidFundName(summary.name)) fund.name = summary.name;
@@ -1981,6 +2127,23 @@ async function main(): Promise<void> {
         if (summary.distributionYield !== null) fund.dividendYield = summary.distributionYield;
         if (summary.secYield !== null) fund.secYield = summary.secYield;
         if (summary.inception) fund.inception = summary.inception;
+
+        // Try official holdings from product page Portfolio tab (daily, more recent than SEC quarterly)
+        // The page via r.jina.ai contains markdown table: | Security Name | Weight (%) | Market Value | Quantity |
+        try {
+          const franklinHoldings = parseFranklinHoldings(page.text);
+          if (franklinHoldings.length) {
+            const companyMap = await fetchCompanyTickerMap(config).catch(() => new Map<string, string>());
+            holdingsRows = fillNportTickers(franklinHoldings, companyMap);
+            // Try to extract as-of date from holdings section: "As of September 21, 2026"
+            const asOfMatch = /Holdings\s+As of\s+([A-Za-z]+\s+\d{1,2},\s+\d{4})/i.exec(page.text) || /As of\s+([A-Za-z]+\s+\d{1,2},\s+\d{4})/i.exec(page.text);
+            holdingsAsOf = asOfMatch ? toIsoDate(asOfMatch[1]) : (summary.totalHoldingsAsOfDate || null);
+            holdingsSource = `Franklin Templeton official product page Portfolio holdings (daily${holdingsAsOf ? `, ${holdingsAsOf}` : ''})`;
+          }
+        } catch (e) {
+          console.warn(`[franklin] ${ticker} holdings parse failed: ${e instanceof Error ? e.message : String(e)}`);
+        }
+
         if (config.storeRawDownloads) {
           await mkdir(new URL('raw/', API_ROOT), { recursive: true });
           await writeFile(new URL(`raw/${ticker}-product.html`, API_ROOT), page.text, 'utf8');
@@ -1990,8 +2153,9 @@ async function main(): Promise<void> {
       }
     }
 
-    // 2) Holdings via SEC N-PORT-P – no per-stage log, only final summary
-    if (config.edgarFallback) {
+    // 2) Holdings via SEC N-PORT-P – fallback when official daily holdings not available or empty
+    // We keep SEC mapping for all 81 funds via FRANKLIN_SERIES_MAP (multi-trust, 108 holdings for FLAU)
+    if (!holdingsRows.length && config.edgarFallback) {
       try {
         const result = await fetchNportForFund(fund, config);
         if (result && result.parsed.holdings.length) {

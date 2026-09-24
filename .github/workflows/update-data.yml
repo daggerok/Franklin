@@ -150,6 +150,7 @@ jobs:
   update-data:
     runs-on: ubuntu-latest
     env:
+      NODE_USE_SYSTEM_CA: '1'
       MAX_FETCHES: ${{ inputs.max_fetches || '0' }}
       REQUEST_SLEEP: ${{ inputs.request_sleep || '1.5' }}
       AUM: ${{ inputs.aum || ':' }}
@@ -188,16 +189,16 @@ jobs:
           bun-version: latest
 
       - name: Validate inline browser script
-        run: bun ./scripts/check-index.ts
+        run: bun --use-system-ca ./scripts/check-index.ts
 
       - name: Run updater unit tests
-        run: bun test scripts/update-data.test.ts
+        run: bun --use-system-ca test scripts/update-data.test.ts
 
       - name: Type-check updater and tests
         run: bunx tsc --noEmit --target es2022 --module esnext --moduleResolution bundler --types bun,node --skipLibCheck scripts/update-data.ts scripts/update-data.test.ts scripts/check-index.ts
 
       - name: Generate api/franklin static data
-        run: bun ./scripts/update-data.ts
+        run: bun --use-system-ca ./scripts/update-data.ts
 
       - name: Commit updated data
         run: |
