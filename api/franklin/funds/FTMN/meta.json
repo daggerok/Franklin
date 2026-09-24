@@ -11,10 +11,10 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftmn/SINGLCLASS/ftmn-etf/FTMN",
-  "holdingsSource": "not available",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028334, report period 2026-05-31)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FTMN?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": null
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-05-31"
  },
  "identifiers": {
   "cusip": null,
@@ -44,13 +44,13 @@
  "aum": {
   "display": "—",
   "value": null,
-  "asOfDate": null,
-  "source": "not available"
+  "asOfDate": "2026-05-31",
+  "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYieldKind": "official 12-month yield from product page",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -152,13 +152,15 @@
   "exDate": "Sep 1 2026"
  },
  "holdings": {
-  "totalRows": 0,
+  "totalRows": 186,
   "pageSize": 250,
   "pageCount": 1,
-  "pages": [],
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "not available"
+  "pages": [
+   "./holdings/001.json"
+  ],
+  "asOfDate": "2026-05-31",
+  "asOf": "May 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028334, report period 2026-05-31)"
  },
  "history": {
   "totalRows": 217,

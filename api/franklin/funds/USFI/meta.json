@@ -1,8 +1,8 @@
 {
  "ticker": "USFI",
- "name": "BrandywineGLOBAL - U.S. Fixed Income ETF",
- "category": "Morningstar Category",
- "categoryPath": "Morningstar Category",
+ "name": "BrandywineGLOBAL - U.S. Fixed Income ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36405/SINGLCLASS/brandywine-global-u-s-fixed-income-etf/USFI",
  "factSheet": null,
  "source": {
@@ -11,10 +11,10 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36405/SINGLCLASS/brandywine-global-u-s-fixed-income-etf/USFI",
-  "holdingsSource": "not available",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035159, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/USFI?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": null
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
   "cusip": "CUSIPCODE",
@@ -44,21 +44,21 @@
  "aum": {
   "display": "$9.53 M",
   "value": 9530000,
-  "asOfDate": null,
-  "source": "not available"
+  "asOfDate": "2026-06-30",
+  "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 3.98,
   "dividendYieldText": "3.98%",
   "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": 3,
-  "secYieldText": "3.00%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
+  "secYield": 30,
+  "secYieldText": "30.00%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
-   "asOfDate": "Sep 22 2026",
+   "asOfDate": "—",
    "ytd": 3.47,
    "ytdText": "3.47%",
    "yr1": 4.19,
@@ -89,7 +89,7 @@
   }
  },
  "distributions": {
-  "frequency": ", if any Monthly",
+  "frequency": "Monthly This fund is an ex-Dividend fund",
   "frequencyCode": "01 - Monthly",
   "paymentsPerYear": null,
   "headers": [
@@ -292,13 +292,15 @@
   "exDate": "Sep 1 2026"
  },
  "holdings": {
-  "totalRows": 0,
+  "totalRows": 58,
   "pageSize": 250,
   "pageCount": 1,
-  "pages": [],
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "not available"
+  "pages": [
+   "./holdings/001.json"
+  ],
+  "asOfDate": "2026-06-30",
+  "asOf": "Jun 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035159, report period 2026-06-30)"
  },
  "history": {
   "totalRows": 792,

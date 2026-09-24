@@ -1,6 +1,6 @@
 {
  "ticker": "BUYZ",
- "name": "Exchange Traded Funds",
+ "name": "BUYZ ETF",
  "category": "Asset Class",
  "categoryPath": "Asset Class",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/buyz/SINGLCLASS/buyz-etf/BUYZ",
@@ -11,10 +11,10 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/buyz/SINGLCLASS/buyz-etf/BUYZ",
-  "holdingsSource": "not available",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035151, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BUYZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": null
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
   "cusip": null,
@@ -44,8 +44,8 @@
  "aum": {
   "display": "—",
   "value": null,
-  "asOfDate": null,
-  "source": "not available"
+  "asOfDate": "2026-06-30",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035151, report period 2026-06-30)"
  },
  "yields": {
   "dividendYield": null,
@@ -112,13 +112,15 @@
   "exDate": "Dec 20 2024"
  },
  "holdings": {
-  "totalRows": 0,
+  "totalRows": 58,
   "pageSize": 250,
   "pageCount": 1,
-  "pages": [],
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "not available"
+  "pages": [
+   "./holdings/001.json"
+  ],
+  "asOfDate": "2026-06-30",
+  "asOf": "Jun 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035151, report period 2026-06-30)"
  },
  "history": {
   "totalRows": 1651,

@@ -1,8 +1,8 @@
 {
  "ticker": "FLGR",
- "name": "Franklin U.S. Large Cap Multifactor Index ETF",
- "category": "ETF",
- "categoryPath": "ETF",
+ "name": "FLGR ETF",
+ "category": "Asset Class",
+ "categoryPath": "Asset Class",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/27774/SINGLCLASS/franklin-u-s-large-cap-multifactor-index-etf/FLGR",
  "factSheet": null,
  "source": {
@@ -11,10 +11,10 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/27774/SINGLCLASS/franklin-u-s-large-cap-multifactor-index-etf/FLGR",
-  "holdingsSource": "not available",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035167, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLGR?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": null
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
   "cusip": "35473P123",
@@ -44,13 +44,13 @@
  "aum": {
   "display": "$1.20 B",
   "value": 1200000000,
-  "asOfDate": null,
-  "source": "official product page Total Net Assets"
+  "asOfDate": "2026-06-30",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035167, report period 2026-06-30)"
  },
  "yields": {
   "dividendYield": 1.42,
   "dividendYieldText": "1.42%",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": 1.21,
   "secYieldText": "1.21%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page"
@@ -58,7 +58,7 @@
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
-   "asOfDate": "Sep 22 2026",
+   "asOfDate": "—",
    "ytd": 12.3,
    "ytdText": "12.30%",
    "yr1": 18.5,
@@ -172,13 +172,15 @@
   "exDate": "Jun 26 2026"
  },
  "holdings": {
-  "totalRows": 0,
+  "totalRows": 66,
   "pageSize": 250,
   "pageCount": 1,
-  "pages": [],
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "not available"
+  "pages": [
+   "./holdings/001.json"
+  ],
+  "asOfDate": "2026-06-30",
+  "asOf": "Jun 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035167, report period 2026-06-30)"
  },
  "history": {
   "totalRows": 2230,
