@@ -1,8 +1,8 @@
 {
  "ticker": "DVAL",
- "name": "Franklin DVAL ETF",
- "category": "ETF",
- "categoryPath": "ETF",
+ "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/dval/SINGLCLASS/dval-etf",
+ "category": "TM ratings:**",
+ "categoryPath": "TM ratings:**",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/dval/SINGLCLASS/dval-etf/DVAL",
  "factSheet": null,
  "source": {
@@ -12,7 +12,7 @@
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/dval/SINGLCLASS/dval-etf/DVAL",
   "holdingsSource": "not available",
-  "historySource": "previous run",
+  "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/DVAL?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
  },
@@ -45,12 +45,12 @@
   "display": "—",
   "value": null,
   "asOfDate": null,
-  "source": "official product page Total Net Assets"
+  "source": "not available"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -89,16 +89,37 @@
   }
  },
  "distributions": {
-  "frequency": "—",
-  "frequencyCode": "00 - —",
-  "paymentsPerYear": null,
+  "frequency": "Annually",
+  "frequencyCode": "12 - Annually",
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Dividend"
   ],
-  "rows": [],
-  "latestDividend": "—",
-  "exDate": "—"
+  "rows": [
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.2880",
+    "searchIndex": "dec 19 2025 0.288"
+   },
+   {
+    "Ex-Date": "Dec 20 2024",
+    "Dividend": "0.3810",
+    "searchIndex": "dec 20 2024 0.381"
+   },
+   {
+    "Ex-Date": "Dec 15 2023",
+    "Dividend": "0.1430",
+    "searchIndex": "dec 15 2023 0.143"
+   },
+   {
+    "Ex-Date": "Dec 12 2022",
+    "Dividend": "1.5030",
+    "searchIndex": "dec 12 2022 1.503"
+   }
+  ],
+  "latestDividend": "0.288",
+  "exDate": "Dec 19 2025"
  },
  "holdings": {
   "totalRows": 0,
@@ -110,11 +131,13 @@
   "source": "not available"
  },
  "history": {
-  "totalRows": 0,
+  "totalRows": 976,
   "pageSize": 1000,
   "pageCount": 1,
-  "pages": [],
-  "asOf": "—",
-  "source": "previous run"
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 23 2026",
+  "source": "Yahoo Finance public chart API"
  }
 }

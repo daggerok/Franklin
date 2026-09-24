@@ -12,7 +12,7 @@
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/xdat/SINGLCLASS/xdat-etf/XDAT",
   "holdingsSource": "not available",
-  "historySource": "previous run",
+  "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/XDAT?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
  },
@@ -89,16 +89,22 @@
   }
  },
  "distributions": {
-  "frequency": "—",
-  "frequencyCode": "00 - —",
-  "paymentsPerYear": null,
+  "frequency": "Annually",
+  "frequencyCode": "12 - Annually",
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Dividend"
   ],
-  "rows": [],
-  "latestDividend": "—",
-  "exDate": "—"
+  "rows": [
+   {
+    "Ex-Date": "Dec 20 2024",
+    "Dividend": "0.0320",
+    "searchIndex": "dec 20 2024 0.032"
+   }
+  ],
+  "latestDividend": "0.032",
+  "exDate": "Dec 20 2024"
  },
  "holdings": {
   "totalRows": 0,
@@ -110,11 +116,14 @@
   "source": "not available"
  },
  "history": {
-  "totalRows": 0,
+  "totalRows": 1428,
   "pageSize": 1000,
-  "pageCount": 1,
-  "pages": [],
-  "asOf": "—",
-  "source": "previous run"
+  "pageCount": 2,
+  "pages": [
+   "./history/001.json",
+   "./history/002.json"
+  ],
+  "asOf": "Sep 23 2026",
+  "source": "Yahoo Finance public chart API"
  }
 }

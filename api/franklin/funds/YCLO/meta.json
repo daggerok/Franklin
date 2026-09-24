@@ -12,7 +12,7 @@
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/yclo/SINGLCLASS/yclo-etf/YCLO",
   "holdingsSource": "not available",
-  "historySource": "previous run",
+  "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/YCLO?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
  },
@@ -89,16 +89,32 @@
   }
  },
  "distributions": {
-  "frequency": "—",
-  "frequencyCode": "00 - —",
-  "paymentsPerYear": null,
+  "frequency": "Quarterly",
+  "frequencyCode": "04 - Quarterly",
+  "paymentsPerYear": 4,
   "headers": [
    "Ex-Date",
    "Dividend"
   ],
-  "rows": [],
-  "latestDividend": "—",
-  "exDate": "—"
+  "rows": [
+   {
+    "Ex-Date": "Sep 1 2026",
+    "Dividend": "0.1060",
+    "searchIndex": "sep 1 2026 0.106"
+   },
+   {
+    "Ex-Date": "Aug 3 2026",
+    "Dividend": "0.0950",
+    "searchIndex": "aug 3 2026 0.095"
+   },
+   {
+    "Ex-Date": "Jul 1 2026",
+    "Dividend": "0.0790",
+    "searchIndex": "jul 1 2026 0.079"
+   }
+  ],
+  "latestDividend": "0.106",
+  "exDate": "Sep 1 2026"
  },
  "holdings": {
   "totalRows": 0,
@@ -110,11 +126,13 @@
   "source": "not available"
  },
  "history": {
-  "totalRows": 0,
+  "totalRows": 76,
   "pageSize": 1000,
   "pageCount": 1,
-  "pages": [],
-  "asOf": "—",
-  "source": "previous run"
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 23 2026",
+  "source": "Yahoo Finance public chart API"
  }
 }

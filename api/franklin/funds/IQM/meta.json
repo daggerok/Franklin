@@ -1,8 +1,8 @@
 {
  "ticker": "IQM",
- "name": "Franklin IQM ETF",
- "category": "ETF",
- "categoryPath": "ETF",
+ "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/iqm/SINGLCLASS/iqm-etf",
+ "category": "TM ratings:**",
+ "categoryPath": "TM ratings:**",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/iqm/SINGLCLASS/iqm-etf/IQM",
  "factSheet": null,
  "source": {
@@ -12,7 +12,7 @@
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/iqm/SINGLCLASS/iqm-etf/IQM",
   "holdingsSource": "not available",
-  "historySource": "previous run",
+  "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/IQM?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
  },
@@ -45,12 +45,12 @@
   "display": "—",
   "value": null,
   "asOfDate": null,
-  "source": "official product page Total Net Assets"
+  "source": "not available"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -89,16 +89,27 @@
   }
  },
  "distributions": {
-  "frequency": "—",
-  "frequencyCode": "00 - —",
-  "paymentsPerYear": null,
+  "frequency": "Semi-annually",
+  "frequencyCode": "06 - Semi-annually",
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"
   ],
-  "rows": [],
-  "latestDividend": "—",
-  "exDate": "—"
+  "rows": [
+   {
+    "Ex-Date": "Dec 13 2021",
+    "Dividend": "0.0940",
+    "searchIndex": "dec 13 2021 0.094"
+   },
+   {
+    "Ex-Date": "Dec 14 2020",
+    "Dividend": "0.0040",
+    "searchIndex": "dec 14 2020 0.004"
+   }
+  ],
+  "latestDividend": "0.094",
+  "exDate": "Dec 13 2021"
  },
  "holdings": {
   "totalRows": 0,
@@ -110,11 +121,14 @@
   "source": "not available"
  },
  "history": {
-  "totalRows": 0,
+  "totalRows": 1651,
   "pageSize": 1000,
-  "pageCount": 1,
-  "pages": [],
-  "asOf": "—",
-  "source": "previous run"
+  "pageCount": 2,
+  "pages": [
+   "./history/001.json",
+   "./history/002.json"
+  ],
+  "asOf": "Sep 23 2026",
+  "source": "Yahoo Finance public chart API"
  }
 }

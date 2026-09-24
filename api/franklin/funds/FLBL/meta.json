@@ -1,8 +1,8 @@
 {
  "ticker": "FLBL",
- "name": "Franklin FLBL ETF",
- "category": "ETF",
- "categoryPath": "ETF",
+ "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/flbl/SINGLCLASS/flbl-etf",
+ "category": "TM ratings:**",
+ "categoryPath": "TM ratings:**",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flbl/SINGLCLASS/flbl-etf/FLBL",
  "factSheet": null,
  "source": {
@@ -12,7 +12,7 @@
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flbl/SINGLCLASS/flbl-etf/FLBL",
   "holdingsSource": "not available",
-  "historySource": "previous run",
+  "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLBL?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
  },
@@ -45,12 +45,12 @@
   "display": "—",
   "value": null,
   "asOfDate": null,
-  "source": "official product page Total Net Assets"
+  "source": "not available"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -89,16 +89,507 @@
   }
  },
  "distributions": {
-  "frequency": "—",
-  "frequencyCode": "00 - —",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"
   ],
-  "rows": [],
-  "latestDividend": "—",
-  "exDate": "—"
+  "rows": [
+   {
+    "Ex-Date": "Sep 1 2026",
+    "Dividend": "0.1280",
+    "searchIndex": "sep 1 2026 0.128"
+   },
+   {
+    "Ex-Date": "Aug 3 2026",
+    "Dividend": "0.1410",
+    "searchIndex": "aug 3 2026 0.141"
+   },
+   {
+    "Ex-Date": "Jul 1 2026",
+    "Dividend": "0.1270",
+    "searchIndex": "jul 1 2026 0.127"
+   },
+   {
+    "Ex-Date": "Jun 1 2026",
+    "Dividend": "0.1630",
+    "searchIndex": "jun 1 2026 0.163"
+   },
+   {
+    "Ex-Date": "May 1 2026",
+    "Dividend": "0.1530",
+    "searchIndex": "may 1 2026 0.153"
+   },
+   {
+    "Ex-Date": "Apr 1 2026",
+    "Dividend": "0.1460",
+    "searchIndex": "apr 1 2026 0.146"
+   },
+   {
+    "Ex-Date": "Mar 2 2026",
+    "Dividend": "0.1280",
+    "searchIndex": "mar 2 2026 0.128"
+   },
+   {
+    "Ex-Date": "Feb 2 2026",
+    "Dividend": "0.1140",
+    "searchIndex": "feb 2 2026 0.114"
+   },
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.1870",
+    "searchIndex": "dec 19 2025 0.187"
+   },
+   {
+    "Ex-Date": "Dec 1 2025",
+    "Dividend": "0.1350",
+    "searchIndex": "dec 1 2025 0.135"
+   },
+   {
+    "Ex-Date": "Nov 3 2025",
+    "Dividend": "0.1660",
+    "searchIndex": "nov 3 2025 0.166"
+   },
+   {
+    "Ex-Date": "Oct 1 2025",
+    "Dividend": "0.1310",
+    "searchIndex": "oct 1 2025 0.131"
+   },
+   {
+    "Ex-Date": "Sep 2 2025",
+    "Dividend": "0.1320",
+    "searchIndex": "sep 2 2025 0.132"
+   },
+   {
+    "Ex-Date": "Aug 1 2025",
+    "Dividend": "0.1440",
+    "searchIndex": "aug 1 2025 0.144"
+   },
+   {
+    "Ex-Date": "Jul 1 2025",
+    "Dividend": "0.1360",
+    "searchIndex": "jul 1 2025 0.136"
+   },
+   {
+    "Ex-Date": "Jun 2 2025",
+    "Dividend": "0.1410",
+    "searchIndex": "jun 2 2025 0.141"
+   },
+   {
+    "Ex-Date": "May 1 2025",
+    "Dividend": "0.1470",
+    "searchIndex": "may 1 2025 0.147"
+   },
+   {
+    "Ex-Date": "Apr 1 2025",
+    "Dividend": "0.1230",
+    "searchIndex": "apr 1 2025 0.123"
+   },
+   {
+    "Ex-Date": "Mar 3 2025",
+    "Dividend": "0.1200",
+    "searchIndex": "mar 3 2025 0.12"
+   },
+   {
+    "Ex-Date": "Feb 3 2025",
+    "Dividend": "0.1330",
+    "searchIndex": "feb 3 2025 0.133"
+   },
+   {
+    "Ex-Date": "Dec 13 2024",
+    "Dividend": "0.1600",
+    "searchIndex": "dec 13 2024 0.16"
+   },
+   {
+    "Ex-Date": "Dec 2 2024",
+    "Dividend": "0.1280",
+    "searchIndex": "dec 2 2024 0.128"
+   },
+   {
+    "Ex-Date": "Nov 1 2024",
+    "Dividend": "0.1720",
+    "searchIndex": "nov 1 2024 0.172"
+   },
+   {
+    "Ex-Date": "Oct 1 2024",
+    "Dividend": "0.1590",
+    "searchIndex": "oct 1 2024 0.159"
+   },
+   {
+    "Ex-Date": "Sep 3 2024",
+    "Dividend": "0.1630",
+    "searchIndex": "sep 3 2024 0.163"
+   },
+   {
+    "Ex-Date": "Aug 1 2024",
+    "Dividend": "0.1660",
+    "searchIndex": "aug 1 2024 0.166"
+   },
+   {
+    "Ex-Date": "Jul 1 2024",
+    "Dividend": "0.1480",
+    "searchIndex": "jul 1 2024 0.148"
+   },
+   {
+    "Ex-Date": "Jun 3 2024",
+    "Dividend": "0.1540",
+    "searchIndex": "jun 3 2024 0.154"
+   },
+   {
+    "Ex-Date": "May 1 2024",
+    "Dividend": "0.1970",
+    "searchIndex": "may 1 2024 0.197"
+   },
+   {
+    "Ex-Date": "Apr 1 2024",
+    "Dividend": "0.1560",
+    "searchIndex": "apr 1 2024 0.156"
+   },
+   {
+    "Ex-Date": "Mar 1 2024",
+    "Dividend": "0.1720",
+    "searchIndex": "mar 1 2024 0.172"
+   },
+   {
+    "Ex-Date": "Feb 1 2024",
+    "Dividend": "0.1780",
+    "searchIndex": "feb 1 2024 0.178"
+   },
+   {
+    "Ex-Date": "Dec 15 2023",
+    "Dividend": "0.1510",
+    "searchIndex": "dec 15 2023 0.151"
+   },
+   {
+    "Ex-Date": "Dec 1 2023",
+    "Dividend": "0.1640",
+    "searchIndex": "dec 1 2023 0.164"
+   },
+   {
+    "Ex-Date": "Nov 1 2023",
+    "Dividend": "0.1750",
+    "searchIndex": "nov 1 2023 0.175"
+   },
+   {
+    "Ex-Date": "Oct 2 2023",
+    "Dividend": "0.1690",
+    "searchIndex": "oct 2 2023 0.169"
+   },
+   {
+    "Ex-Date": "Sep 1 2023",
+    "Dividend": "0.1880",
+    "searchIndex": "sep 1 2023 0.188"
+   },
+   {
+    "Ex-Date": "Aug 1 2023",
+    "Dividend": "0.1560",
+    "searchIndex": "aug 1 2023 0.156"
+   },
+   {
+    "Ex-Date": "Jul 3 2023",
+    "Dividend": "0.1670",
+    "searchIndex": "jul 3 2023 0.167"
+   },
+   {
+    "Ex-Date": "Jun 1 2023",
+    "Dividend": "0.1940",
+    "searchIndex": "jun 1 2023 0.194"
+   },
+   {
+    "Ex-Date": "May 1 2023",
+    "Dividend": "0.1830",
+    "searchIndex": "may 1 2023 0.183"
+   },
+   {
+    "Ex-Date": "Apr 3 2023",
+    "Dividend": "0.1890",
+    "searchIndex": "apr 3 2023 0.189"
+   },
+   {
+    "Ex-Date": "Mar 1 2023",
+    "Dividend": "0.1370",
+    "searchIndex": "mar 1 2023 0.137"
+   },
+   {
+    "Ex-Date": "Feb 1 2023",
+    "Dividend": "0.1590",
+    "searchIndex": "feb 1 2023 0.159"
+   },
+   {
+    "Ex-Date": "Dec 16 2022",
+    "Dividend": "0.1740",
+    "searchIndex": "dec 16 2022 0.174"
+   },
+   {
+    "Ex-Date": "Dec 1 2022",
+    "Dividend": "0.1550",
+    "searchIndex": "dec 1 2022 0.155"
+   },
+   {
+    "Ex-Date": "Nov 1 2022",
+    "Dividend": "0.1270",
+    "searchIndex": "nov 1 2022 0.127"
+   },
+   {
+    "Ex-Date": "Oct 3 2022",
+    "Dividend": "0.1090",
+    "searchIndex": "oct 3 2022 0.109"
+   },
+   {
+    "Ex-Date": "Sep 1 2022",
+    "Dividend": "0.1230",
+    "searchIndex": "sep 1 2022 0.123"
+   },
+   {
+    "Ex-Date": "Aug 1 2022",
+    "Dividend": "0.1030",
+    "searchIndex": "aug 1 2022 0.103"
+   },
+   {
+    "Ex-Date": "Jul 1 2022",
+    "Dividend": "0.0900",
+    "searchIndex": "jul 1 2022 0.09"
+   },
+   {
+    "Ex-Date": "Jun 1 2022",
+    "Dividend": "0.1020",
+    "searchIndex": "jun 1 2022 0.102"
+   },
+   {
+    "Ex-Date": "May 2 2022",
+    "Dividend": "0.0670",
+    "searchIndex": "may 2 2022 0.067"
+   },
+   {
+    "Ex-Date": "Apr 1 2022",
+    "Dividend": "0.0910",
+    "searchIndex": "apr 1 2022 0.091"
+   },
+   {
+    "Ex-Date": "Mar 1 2022",
+    "Dividend": "0.0630",
+    "searchIndex": "mar 1 2022 0.063"
+   },
+   {
+    "Ex-Date": "Feb 1 2022",
+    "Dividend": "0.0690",
+    "searchIndex": "feb 1 2022 0.069"
+   },
+   {
+    "Ex-Date": "Dec 17 2021",
+    "Dividend": "0.0680",
+    "searchIndex": "dec 17 2021 0.068"
+   },
+   {
+    "Ex-Date": "Dec 1 2021",
+    "Dividend": "0.0740",
+    "searchIndex": "dec 1 2021 0.074"
+   },
+   {
+    "Ex-Date": "Oct 29 2021",
+    "Dividend": "0.0720",
+    "searchIndex": "oct 29 2021 0.072"
+   },
+   {
+    "Ex-Date": "Sep 30 2021",
+    "Dividend": "0.0810",
+    "searchIndex": "sep 30 2021 0.081"
+   },
+   {
+    "Ex-Date": "Aug 31 2021",
+    "Dividend": "0.0830",
+    "searchIndex": "aug 31 2021 0.083"
+   },
+   {
+    "Ex-Date": "Jul 30 2021",
+    "Dividend": "0.0800",
+    "searchIndex": "jul 30 2021 0.08"
+   },
+   {
+    "Ex-Date": "Jun 30 2021",
+    "Dividend": "0.0810",
+    "searchIndex": "jun 30 2021 0.081"
+   },
+   {
+    "Ex-Date": "May 28 2021",
+    "Dividend": "0.0680",
+    "searchIndex": "may 28 2021 0.068"
+   },
+   {
+    "Ex-Date": "Apr 30 2021",
+    "Dividend": "0.0690",
+    "searchIndex": "apr 30 2021 0.069"
+   },
+   {
+    "Ex-Date": "Mar 31 2021",
+    "Dividend": "0.0520",
+    "searchIndex": "mar 31 2021 0.052"
+   },
+   {
+    "Ex-Date": "Feb 26 2021",
+    "Dividend": "0.0220",
+    "searchIndex": "feb 26 2021 0.022"
+   },
+   {
+    "Ex-Date": "Jan 29 2021",
+    "Dividend": "0.1420",
+    "searchIndex": "jan 29 2021 0.142"
+   },
+   {
+    "Ex-Date": "Nov 30 2020",
+    "Dividend": "0.0620",
+    "searchIndex": "nov 30 2020 0.062"
+   },
+   {
+    "Ex-Date": "Oct 30 2020",
+    "Dividend": "0.0660",
+    "searchIndex": "oct 30 2020 0.066"
+   },
+   {
+    "Ex-Date": "Sep 30 2020",
+    "Dividend": "0.0620",
+    "searchIndex": "sep 30 2020 0.062"
+   },
+   {
+    "Ex-Date": "Aug 31 2020",
+    "Dividend": "0.0540",
+    "searchIndex": "aug 31 2020 0.054"
+   },
+   {
+    "Ex-Date": "Jul 31 2020",
+    "Dividend": "0.0630",
+    "searchIndex": "jul 31 2020 0.063"
+   },
+   {
+    "Ex-Date": "Jun 30 2020",
+    "Dividend": "0.0580",
+    "searchIndex": "jun 30 2020 0.058"
+   },
+   {
+    "Ex-Date": "May 29 2020",
+    "Dividend": "0.0610",
+    "searchIndex": "may 29 2020 0.061"
+   },
+   {
+    "Ex-Date": "Apr 30 2020",
+    "Dividend": "0.0680",
+    "searchIndex": "apr 30 2020 0.068"
+   },
+   {
+    "Ex-Date": "Mar 31 2020",
+    "Dividend": "0.0760",
+    "searchIndex": "mar 31 2020 0.076"
+   },
+   {
+    "Ex-Date": "Feb 28 2020",
+    "Dividend": "0.0720",
+    "searchIndex": "feb 28 2020 0.072"
+   },
+   {
+    "Ex-Date": "Jan 31 2020",
+    "Dividend": "0.1560",
+    "searchIndex": "jan 31 2020 0.156"
+   },
+   {
+    "Ex-Date": "Dec 30 2019",
+    "Dividend": "0.0070",
+    "searchIndex": "dec 30 2019 0.007"
+   },
+   {
+    "Ex-Date": "Nov 29 2019",
+    "Dividend": "0.0710",
+    "searchIndex": "nov 29 2019 0.071"
+   },
+   {
+    "Ex-Date": "Oct 31 2019",
+    "Dividend": "0.0930",
+    "searchIndex": "oct 31 2019 0.093"
+   },
+   {
+    "Ex-Date": "Sep 30 2019",
+    "Dividend": "0.0780",
+    "searchIndex": "sep 30 2019 0.078"
+   },
+   {
+    "Ex-Date": "Aug 30 2019",
+    "Dividend": "0.0810",
+    "searchIndex": "aug 30 2019 0.081"
+   },
+   {
+    "Ex-Date": "Jul 31 2019",
+    "Dividend": "0.1000",
+    "searchIndex": "jul 31 2019 0.1"
+   },
+   {
+    "Ex-Date": "Jun 28 2019",
+    "Dividend": "0.0840",
+    "searchIndex": "jun 28 2019 0.084"
+   },
+   {
+    "Ex-Date": "May 31 2019",
+    "Dividend": "0.1910",
+    "searchIndex": "may 31 2019 0.191"
+   },
+   {
+    "Ex-Date": "Apr 30 2019",
+    "Dividend": "0.0780",
+    "searchIndex": "apr 30 2019 0.078"
+   },
+   {
+    "Ex-Date": "Mar 29 2019",
+    "Dividend": "0.0850",
+    "searchIndex": "mar 29 2019 0.085"
+   },
+   {
+    "Ex-Date": "Feb 28 2019",
+    "Dividend": "0.0810",
+    "searchIndex": "feb 28 2019 0.081"
+   },
+   {
+    "Ex-Date": "Jan 31 2019",
+    "Dividend": "0.0480",
+    "searchIndex": "jan 31 2019 0.048"
+   },
+   {
+    "Ex-Date": "Dec 28 2018",
+    "Dividend": "0.1320",
+    "searchIndex": "dec 28 2018 0.132"
+   },
+   {
+    "Ex-Date": "Nov 30 2018",
+    "Dividend": "0.0550",
+    "searchIndex": "nov 30 2018 0.055"
+   },
+   {
+    "Ex-Date": "Oct 31 2018",
+    "Dividend": "0.0830",
+    "searchIndex": "oct 31 2018 0.083"
+   },
+   {
+    "Ex-Date": "Sep 28 2018",
+    "Dividend": "0.0670",
+    "searchIndex": "sep 28 2018 0.067"
+   },
+   {
+    "Ex-Date": "Aug 31 2018",
+    "Dividend": "0.1050",
+    "searchIndex": "aug 31 2018 0.105"
+   },
+   {
+    "Ex-Date": "Jul 31 2018",
+    "Dividend": "0.0750",
+    "searchIndex": "jul 31 2018 0.075"
+   },
+   {
+    "Ex-Date": "Jun 29 2018",
+    "Dividend": "0.0180",
+    "searchIndex": "jun 29 2018 0.018"
+   }
+  ],
+  "latestDividend": "0.128",
+  "exDate": "Sep 1 2026"
  },
  "holdings": {
   "totalRows": 0,
@@ -110,11 +601,15 @@
   "source": "not available"
  },
  "history": {
-  "totalRows": 0,
+  "totalRows": 2088,
   "pageSize": 1000,
-  "pageCount": 1,
-  "pages": [],
-  "asOf": "—",
-  "source": "previous run"
+  "pageCount": 3,
+  "pages": [
+   "./history/001.json",
+   "./history/002.json",
+   "./history/003.json"
+  ],
+  "asOf": "Sep 23 2026",
+  "source": "Yahoo Finance public chart API"
  }
 }

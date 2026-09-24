@@ -12,7 +12,7 @@
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/pemx/SINGLCLASS/pemx-etf/PEMX",
   "holdingsSource": "not available",
-  "historySource": "previous run",
+  "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PEMX?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
  },
@@ -89,16 +89,32 @@
   }
  },
  "distributions": {
-  "frequency": "—",
-  "frequencyCode": "00 - —",
-  "paymentsPerYear": null,
+  "frequency": "Annually",
+  "frequencyCode": "12 - Annually",
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Dividend"
   ],
-  "rows": [],
-  "latestDividend": "—",
-  "exDate": "—"
+  "rows": [
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "4.5010",
+    "searchIndex": "dec 19 2025 4.501"
+   },
+   {
+    "Ex-Date": "Dec 27 2024",
+    "Dividend": "2.5730",
+    "searchIndex": "dec 27 2024 2.573"
+   },
+   {
+    "Ex-Date": "Dec 26 2023",
+    "Dividend": "0.3300",
+    "searchIndex": "dec 26 2023 0.33"
+   }
+  ],
+  "latestDividend": "4.501",
+  "exDate": "Dec 19 2025"
  },
  "holdings": {
   "totalRows": 0,
@@ -110,11 +126,13 @@
   "source": "not available"
  },
  "history": {
-  "totalRows": 0,
+  "totalRows": 831,
   "pageSize": 1000,
   "pageCount": 1,
-  "pages": [],
-  "asOf": "—",
-  "source": "previous run"
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 23 2026",
+  "source": "Yahoo Finance public chart API"
  }
 }

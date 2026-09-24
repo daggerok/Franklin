@@ -1,6 +1,6 @@
 {
  "ticker": "FGDL",
- "name": "Franklin FGDL ETF",
+ "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/fgdl/SINGLCLASS/fgdl-etf",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/fgdl/SINGLCLASS/fgdl-etf/FGDL",
@@ -12,7 +12,7 @@
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/fgdl/SINGLCLASS/fgdl-etf/FGDL",
   "holdingsSource": "not available",
-  "historySource": "previous run",
+  "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FGDL?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
  },
@@ -45,12 +45,12 @@
   "display": "—",
   "value": null,
   "asOfDate": null,
-  "source": "official product page Total Net Assets"
+  "source": "not available"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "not published",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -110,11 +110,14 @@
   "source": "not available"
  },
  "history": {
-  "totalRows": 0,
+  "totalRows": 1061,
   "pageSize": 1000,
-  "pageCount": 1,
-  "pages": [],
-  "asOf": "—",
-  "source": "previous run"
+  "pageCount": 2,
+  "pages": [
+   "./history/001.json",
+   "./history/002.json"
+  ],
+  "asOf": "Sep 23 2026",
+  "source": "Yahoo Finance public chart API"
  }
 }

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-24T03:40:46.886Z",
+ "generatedAt": "2026-09-24T03:54:00.593Z",
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
@@ -11,7 +11,7 @@
  "counts": {
   "funds": 81,
   "holdings": 30,
-  "history": 5188
+  "history": 117245
  },
  "funds": [
   {
@@ -36,9 +36,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-annually",
+    "exDate": "Dec 20 2024",
+    "dividend": "0.026"
    },
    "returns": {
     "monthEnd": {
@@ -88,9 +88,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-annually",
    "holdings": 0,
-   "history": 0
+   "history": 1651
   },
   {
    "ticker": "DIEM",
@@ -114,9 +114,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Sep 18 2026",
+    "dividend": "0.23"
    },
    "returns": {
     "monthEnd": {
@@ -166,14 +166,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 2590
   },
   {
    "ticker": "DIVI",
-   "name": "Franklin DIVI ETF",
-   "category": "ETF",
+   "name": "DIVI ETF",
+   "category": "table_morningstar-table_component_ts.063ec800971d3d14.js\",\"apps_core-web_src_app_components_products_performance_performance_component_ts.f82897fc04f24e37.js\",\"apps_core-web_src_app_components_products_portfolio_portfolio_component_ts.a4dfd66f92cc1ad3.js\",\"apps_core-web_src_app_components_products_pricing_pricing_component_ts.4ceb68eee1eec75c.js\",\"apps_core-web_src_app_components_products_product-cards_product-cards_component_ts.e102f7332ac280f1.js\",\"apps_core-web_src_app_components_secondary-menu_secondary-menu_component_ts.1901b32bea150e1f.js\",\"apps_core-web_src_app_pages_gateway-page_gateway-page_component_ts.dcf05cc67a7fcdbb.js\",\"common.91cf7c4d0c050e8e.js\",\"default-dist_libs_ng_ui-insights_fesm2022_frk-ng-ui-insights_mjs.23ec7a48479dd22b.js\",\"default-dist_libs_ng_ui-literature_fesm2022_frk-ng-ui-literature_mjs.2517fd2a7b6a7295.js\",\"default-dist_libs_ng_ui-products-listing_fesm2022_frk-ng-ui-products-listing_mjs.bcdb8d984e42cd18.js\",\"default-dist_libs_ng_ui-products_fesm2022_frk-ng-ui-products_mjs.45c4ce457c55a07a.js\",\"default-dist_libs_shared_data-services_products_esm_js.70c9d83219a2665a.js\",\"default-node_modules_pnpm_html2canvas_1_4_1_node_modules_html2canvas_dist_html2canvas_js.c604f40b87af6edf.js\",\"default-node_modules_pnpm_jspdf_4_1_0_node_modules_jspdf_dist_jspdf_es_min_js-node_modules_pn-40b5e8.7d2f14fb7e8d7f45.js\",\"default-node_modules_pnpm_lodash-es_4_17_21_node_modules_lodash-es__baseIteratee_js-node_modu-85b28e.7873d14217087905.js\",\"default-node_modules_pnpm_xlsx_0_18_5_node_modules_xlsx_xlsx_mjs.3c742b207335a6b9.js\",\"dist_libs_ng_ui-interactive_esm2022_muni-ladder-tool_frk-ng-ui-interactive-muni-ladder-tool_mjs.b6a6259d65e0da1a.js\",\"dist_libs_ng_ui-interactive_esm2022_tax-aware-tool_frk-ng-ui-interactive-tax-aware-tool_mjs.703c606b1d2ef531.js\",\"dist_libs_ng_ui-interactive_esm2022_us-servicing_frk-ng-ui-interactive-us-servicing_mjs.a327f23558fb4161.js\",\"dist_libs_ng_ui-interactive_esm2022_us-tax-listing_frk-ng-ui-interactive-us-tax-listing_mjs.f9315b3c38bf8112.js\",\"dist_libs_ng_ui-site-search_fesm2022_frk-ng-ui-site-search_mjs.55d502ae5198adc7.js\",\"main.f09e5fef4315f55f.js\",\"node_modules_pnpm_canvg_3_0_11_node_modules_canvg_lib_index_es_js.0dd1aa1ecac61806.js\",\"node_modules_pnpm_date-fns_4_1_0_node_modules_date-fns_subYears_js.0c772544b60835f4.js\",\"node_modules_pnpm_dompurify_3_3_1_node_modules_dompurify_dist_purify_es_mjs.ba1f8ee0d2f1dcd6.js\",\"node_modules_pnpm_duetds_date-picker_1_4_0_node_modules_duetds_date-picker_dist_esm_duet-date-3357d5.ebbdbc0fef914296.js\",\"node_modules_pnpm_highcharts_12_6_0_jspdf_4_1_0_node_modules_highcharts_esm_highcharts_js.cf1d94357f060eb0.js\",\"node_modules_pnpm_highcharts_12_6_0_jspdf_4_1_0_node_modules_highcharts_modules_accessibility_js.b0d57b1875883bac.js\",\"node_modules_pnpm_highcharts_12_6_0_jspdf_4_1_0_node_modules_highcharts_modules_annotations_js.b828a9279baf1775.js\",\"node_modules_pnpm_prism_web-components_https_nexus1_corp_frk_com_repository_prism-web-compone-42c4bf.8e3f0063ac80c58a.js\",\"polyfills-css-shim.79a999ed75ca0961.js\",\"polyfills.8a1309d3a6425f58.js\",\"runtime.abcbf84f1e19ade8.js\"];",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/divi/SINGLCLASS/divi-etf/DIVI",
    "dataFile": "./funds/DIVI/meta.json",
    "cusip": null,
@@ -189,12 +189,12 @@
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
-   "premiumDiscount": "—",
-   "premiumDiscountValue": null,
+   "premiumDiscount": "100.00%",
+   "premiumDiscountValue": 100,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Sep 18 2026",
+    "dividend": "0.214"
    },
    "returns": {
     "monthEnd": {
@@ -240,18 +240,18 @@
     "siAnn": null,
     "dividendYield": null,
     "dividendYieldText": "—",
-    "secYield": null,
-    "secYieldText": "—",
+    "secYield": 30,
+    "secYieldText": "30.00%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 2590
   },
   {
    "ticker": "DVAL",
-   "name": "Franklin DVAL ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/dval/SINGLCLASS/dval-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/dval/SINGLCLASS/dval-etf/DVAL",
    "dataFile": "./funds/DVAL/meta.json",
    "cusip": null,
@@ -263,16 +263,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Annually",
+    "exDate": "Dec 19 2025",
+    "dividend": "0.288"
    },
    "returns": {
     "monthEnd": {
@@ -322,9 +322,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Annually",
    "holdings": 0,
-   "history": 0
+   "history": 976
   },
   {
    "ticker": "EZBC",
@@ -402,7 +402,7 @@
    },
    "distributionFrequency": "—",
    "holdings": 0,
-   "history": 0
+   "history": 676
   },
   {
    "ticker": "EZET",
@@ -480,7 +480,7 @@
    },
    "distributionFrequency": "—",
    "holdings": 0,
-   "history": 0
+   "history": 544
   },
   {
    "ticker": "EZPZ",
@@ -558,12 +558,12 @@
    },
    "distributionFrequency": "—",
    "holdings": 0,
-   "history": 0
+   "history": 397
   },
   {
    "ticker": "FFOG",
-   "name": "Franklin FFOG ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/ffog/SINGLCLASS/ffog-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ffog/SINGLCLASS/ffog-etf/FFOG",
    "dataFile": "./funds/FFOG/meta.json",
    "cusip": null,
@@ -575,7 +575,7 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
@@ -636,11 +636,11 @@
    },
    "distributionFrequency": "—",
    "holdings": 0,
-   "history": 0
+   "history": 721
   },
   {
    "ticker": "FGDL",
-   "name": "Franklin FGDL ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/fgdl/SINGLCLASS/fgdl-etf",
    "category": "ETF",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/fgdl/SINGLCLASS/fgdl-etf/FGDL",
    "dataFile": "./funds/FGDL/meta.json",
@@ -714,11 +714,11 @@
    },
    "distributionFrequency": "—",
    "holdings": 0,
-   "history": 0
+   "history": 1061
   },
   {
    "ticker": "FLAU",
-   "name": "Franklin FLAU ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/flau/SINGLCLASS/flau-etf",
    "category": "ETF",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flau/SINGLCLASS/flau-etf/FLAU",
    "dataFile": "./funds/FLAU/meta.json",
@@ -738,9 +738,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-annually",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.485"
    },
    "returns": {
     "monthEnd": {
@@ -790,9 +790,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-annually",
    "holdings": 0,
-   "history": 0
+   "history": 2230
   },
   {
    "ticker": "FLAX",
@@ -816,9 +816,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-annually",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.198"
    },
    "returns": {
     "monthEnd": {
@@ -868,14 +868,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-annually",
    "holdings": 0,
-   "history": 0
+   "history": 2166
   },
   {
    "ticker": "FLBL",
-   "name": "Franklin FLBL ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/flbl/SINGLCLASS/flbl-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flbl/SINGLCLASS/flbl-etf/FLBL",
    "dataFile": "./funds/FLBL/meta.json",
    "cusip": null,
@@ -887,16 +887,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Monthly",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.128"
    },
    "returns": {
     "monthEnd": {
@@ -946,13 +946,13 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Monthly",
    "holdings": 0,
-   "history": 0
+   "history": 2088
   },
   {
    "ticker": "FLBR",
-   "name": "Franklin FLBR ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/flbr/SINGLCLASS/flbr-etf",
    "category": "ETF",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flbr/SINGLCLASS/flbr-etf/FLBR",
    "dataFile": "./funds/FLBR/meta.json",
@@ -972,9 +972,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.261"
    },
    "returns": {
     "monthEnd": {
@@ -1024,14 +1024,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 2230
   },
   {
    "ticker": "FLCA",
-   "name": "Franklin FLCA ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/flca/SINGLCLASS/flca-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flca/SINGLCLASS/flca-etf/FLCA",
    "dataFile": "./funds/FLCA/meta.json",
    "cusip": null,
@@ -1043,16 +1043,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-annually",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.392"
    },
    "returns": {
     "monthEnd": {
@@ -1102,14 +1102,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-annually",
    "holdings": 0,
-   "history": 0
+   "history": 2230
   },
   {
    "ticker": "FLCB",
-   "name": "Franklin FLCB ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/flcb/SINGLCLASS/flcb-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flcb/SINGLCLASS/flcb-etf/FLCB",
    "dataFile": "./funds/FLCB/meta.json",
    "cusip": null,
@@ -1121,16 +1121,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Monthly",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.072"
    },
    "returns": {
     "monthEnd": {
@@ -1180,14 +1180,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Monthly",
    "holdings": 0,
-   "history": 0
+   "history": 1761
   },
   {
    "ticker": "FLCH",
-   "name": "Franklin FLCH ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/flch/SINGLCLASS/flch-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flch/SINGLCLASS/flch-etf/FLCH",
    "dataFile": "./funds/FLCH/meta.json",
    "cusip": null,
@@ -1199,16 +1199,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-annually",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.142"
    },
    "returns": {
     "monthEnd": {
@@ -1258,14 +1258,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-annually",
    "holdings": 0,
-   "history": 0
+   "history": 2230
   },
   {
    "ticker": "FLCO",
-   "name": "Franklin FLCO ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/flco/SINGLCLASS/flco-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flco/SINGLCLASS/flco-etf/FLCO",
    "dataFile": "./funds/FLCO/meta.json",
    "cusip": null,
@@ -1277,16 +1277,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Monthly",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.08"
    },
    "returns": {
     "monthEnd": {
@@ -1336,14 +1336,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Monthly",
    "holdings": 0,
-   "history": 0
+   "history": 2504
   },
   {
    "ticker": "FLEE",
-   "name": "Franklin FLEE ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/flee/SINGLCLASS/flee-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flee/SINGLCLASS/flee-etf/FLEE",
    "dataFile": "./funds/FLEE/meta.json",
    "cusip": null,
@@ -1355,16 +1355,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-annually",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.869"
    },
    "returns": {
     "monthEnd": {
@@ -1414,14 +1414,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-annually",
    "holdings": 0,
-   "history": 0
+   "history": 2201
   },
   {
    "ticker": "FLEU",
-   "name": "Franklin FLEU ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/fleu/SINGLCLASS/fleu-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/fleu/SINGLCLASS/fleu-etf/FLEU",
    "dataFile": "./funds/FLEU/meta.json",
    "cusip": null,
@@ -1433,16 +1433,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-annually",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.576"
    },
    "returns": {
     "monthEnd": {
@@ -1492,14 +1492,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-annually",
    "holdings": 0,
-   "history": 0
+   "history": 2230
   },
   {
    "ticker": "FLGB",
-   "name": "Franklin FLGB ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/flgb/SINGLCLASS/flgb-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flgb/SINGLCLASS/flgb-etf/FLGB",
    "dataFile": "./funds/FLGB/meta.json",
    "cusip": null,
@@ -1511,16 +1511,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-annually",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.466"
    },
    "returns": {
     "monthEnd": {
@@ -1570,9 +1570,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-annually",
    "holdings": 0,
-   "history": 0
+   "history": 2230
   },
   {
    "ticker": "FLGR",
@@ -1596,9 +1596,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-annually",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.999"
    },
    "returns": {
     "monthEnd": {
@@ -1648,7 +1648,7 @@
     "secYieldText": "1.21%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-annually",
    "holdings": 10,
    "history": 2230
   },
@@ -1674,9 +1674,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Monthly",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.062"
    },
    "returns": {
     "monthEnd": {
@@ -1726,14 +1726,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Monthly",
    "holdings": 0,
-   "history": 0
+   "history": 1578
   },
   {
    "ticker": "FLHY",
-   "name": "Franklin FLHY ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/flhy/SINGLCLASS/flhy-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flhy/SINGLCLASS/flhy-etf/FLHY",
    "dataFile": "./funds/FLHY/meta.json",
    "cusip": null,
@@ -1745,16 +1745,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Monthly",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.125"
    },
    "returns": {
     "monthEnd": {
@@ -1804,9 +1804,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Monthly",
    "holdings": 0,
-   "history": 0
+   "history": 2079
   },
   {
    "ticker": "FLIA",
@@ -1830,9 +1830,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Irregular",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.038"
    },
    "returns": {
     "monthEnd": {
@@ -1882,9 +1882,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Irregular",
    "holdings": 0,
-   "history": 0
+   "history": 2088
   },
   {
    "ticker": "FLIN",
@@ -1908,9 +1908,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-Annual This fund is an ex-Dividend fund",
+    "exDate": "Dec 19 2025",
+    "dividend": "0.152"
    },
    "returns": {
     "monthEnd": {
@@ -1960,7 +1960,7 @@
     "secYieldText": "2.09%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-Annual This fund is an ex-Dividend fund",
    "holdings": 10,
    "history": 2166
   },
@@ -1986,9 +1986,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-annually",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.286"
    },
    "returns": {
     "monthEnd": {
@@ -2038,9 +2038,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-annually",
    "holdings": 0,
-   "history": 0
+   "history": 2230
   },
   {
    "ticker": "FLJP",
@@ -2064,9 +2064,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-annually",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.169"
    },
    "returns": {
     "monthEnd": {
@@ -2116,9 +2116,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-annually",
    "holdings": 0,
-   "history": 0
+   "history": 2230
   },
   {
    "ticker": "FLKR",
@@ -2142,9 +2142,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-annually",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.298"
    },
    "returns": {
     "monthEnd": {
@@ -2194,9 +2194,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-annually",
    "holdings": 0,
-   "history": 0
+   "history": 2201
   },
   {
    "ticker": "FLLA",
@@ -2220,9 +2220,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.369"
    },
    "returns": {
     "monthEnd": {
@@ -2272,9 +2272,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 1996
   },
   {
    "ticker": "FLMB",
@@ -2298,9 +2298,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Monthly",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.077"
    },
    "returns": {
     "monthEnd": {
@@ -2350,9 +2350,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Monthly",
    "holdings": 0,
-   "history": 0
+   "history": 2274
   },
   {
    "ticker": "FLMI",
@@ -2376,9 +2376,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Monthly",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.08"
    },
    "returns": {
     "monthEnd": {
@@ -2428,9 +2428,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Monthly",
    "holdings": 0,
-   "history": 0
+   "history": 2267
   },
   {
    "ticker": "FLMX",
@@ -2454,9 +2454,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.721"
    },
    "returns": {
     "monthEnd": {
@@ -2506,9 +2506,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 2230
   },
   {
    "ticker": "FLQL",
@@ -2532,9 +2532,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Sep 18 2026",
+    "dividend": "0.194"
    },
    "returns": {
     "monthEnd": {
@@ -2584,14 +2584,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 2363
   },
   {
    "ticker": "FLQM",
-   "name": "Franklin FLQM ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/flqm/SINGLCLASS/flqm-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flqm/SINGLCLASS/flqm-etf/FLQM",
    "dataFile": "./funds/FLQM/meta.json",
    "cusip": null,
@@ -2603,16 +2603,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Sep 18 2026",
+    "dividend": "0.187"
    },
    "returns": {
     "monthEnd": {
@@ -2662,9 +2662,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 2363
   },
   {
    "ticker": "FLQS",
@@ -2688,9 +2688,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Sep 18 2026",
+    "dividend": "0.196"
    },
    "returns": {
     "monthEnd": {
@@ -2740,9 +2740,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 2363
   },
   {
    "ticker": "FLRU",
@@ -2844,9 +2844,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-annually",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.588"
    },
    "returns": {
     "monthEnd": {
@@ -2896,9 +2896,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-annually",
    "holdings": 0,
-   "history": 0
+   "history": 1996
   },
   {
    "ticker": "FLSP",
@@ -2922,9 +2922,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Annually",
+    "exDate": "Dec 19 2025",
+    "dividend": "0.713"
    },
    "returns": {
     "monthEnd": {
@@ -2974,14 +2974,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Annually",
    "holdings": 0,
-   "history": 0
+   "history": 1695
   },
   {
    "ticker": "FLSW",
-   "name": "Franklin FLSW ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/flsw/SINGLCLASS/flsw-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flsw/SINGLCLASS/flsw-etf/FLSW",
    "dataFile": "./funds/FLSW/meta.json",
    "cusip": null,
@@ -2993,16 +2993,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-annually",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.94"
    },
    "returns": {
     "monthEnd": {
@@ -3052,13 +3052,13 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-annually",
    "holdings": 0,
-   "history": 0
+   "history": 2166
   },
   {
    "ticker": "FLTW",
-   "name": "Franklin FLTW ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/fltw/SINGLCLASS/fltw-etf",
    "category": "ETF",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/fltw/SINGLCLASS/fltw-etf/FLTW",
    "dataFile": "./funds/FLTW/meta.json",
@@ -3078,9 +3078,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-annually",
+    "exDate": "Jun 26 2026",
+    "dividend": "0.184"
    },
    "returns": {
     "monthEnd": {
@@ -3130,14 +3130,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-annually",
    "holdings": 0,
-   "history": 0
+   "history": 2201
   },
   {
    "ticker": "FLUD",
-   "name": "Franklin FLUD ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/flud/SINGLCLASS/flud-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flud/SINGLCLASS/flud-etf/FLUD",
    "dataFile": "./funds/FLUD/meta.json",
    "cusip": null,
@@ -3149,16 +3149,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Monthly",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.08"
    },
    "returns": {
     "monthEnd": {
@@ -3208,13 +3208,13 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Monthly",
    "holdings": 0,
-   "history": 0
+   "history": 1552
   },
   {
    "ticker": "FRIZ",
-   "name": "Franklin FRIZ ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/friz/SINGLCLASS/friz-etf",
    "category": "ETF",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/friz/SINGLCLASS/friz-etf/FRIZ",
    "dataFile": "./funds/FRIZ/meta.json",
@@ -3234,9 +3234,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Sep 18 2026",
+    "dividend": "0.059"
    },
    "returns": {
     "monthEnd": {
@@ -3286,9 +3286,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 266
   },
   {
    "ticker": "FSML",
@@ -3312,9 +3312,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Sep 18 2026",
+    "dividend": "0.029"
    },
    "returns": {
     "monthEnd": {
@@ -3364,9 +3364,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 194
   },
   {
    "ticker": "FTCA",
@@ -3390,9 +3390,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Irregular",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.024"
    },
    "returns": {
     "monthEnd": {
@@ -3442,14 +3442,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Irregular",
    "holdings": 0,
-   "history": 0
+   "history": 227
   },
   {
    "ticker": "FTMA",
-   "name": "Franklin FTMA ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/ftma/SINGLCLASS/ftma-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftma/SINGLCLASS/ftma-etf/FTMA",
    "dataFile": "./funds/FTMA/meta.json",
    "cusip": null,
@@ -3461,16 +3461,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Irregular",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.026"
    },
    "returns": {
     "monthEnd": {
@@ -3520,9 +3520,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Irregular",
    "holdings": 0,
-   "history": 0
+   "history": 216
   },
   {
    "ticker": "FTMH",
@@ -3546,9 +3546,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Irregular",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.044"
    },
    "returns": {
     "monthEnd": {
@@ -3598,9 +3598,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Irregular",
    "holdings": 0,
-   "history": 0
+   "history": 227
   },
   {
    "ticker": "FTMN",
@@ -3624,9 +3624,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Irregular",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.017"
    },
    "returns": {
     "monthEnd": {
@@ -3676,9 +3676,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Irregular",
    "holdings": 0,
-   "history": 0
+   "history": 217
   },
   {
    "ticker": "FTMS",
@@ -3702,9 +3702,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Irregular",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.027"
    },
    "returns": {
     "monthEnd": {
@@ -3754,9 +3754,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Irregular",
    "holdings": 0,
-   "history": 0
+   "history": 227
   },
   {
    "ticker": "FTMU",
@@ -3780,9 +3780,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Irregular",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.026"
    },
    "returns": {
     "monthEnd": {
@@ -3832,14 +3832,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Irregular",
    "holdings": 0,
-   "history": 0
+   "history": 227
   },
   {
    "ticker": "FTNJ",
-   "name": "Franklin FTNJ ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/ftnj/SINGLCLASS/ftnj-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftnj/SINGLCLASS/ftnj-etf/FTNJ",
    "dataFile": "./funds/FTNJ/meta.json",
    "cusip": null,
@@ -3851,16 +3851,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Irregular",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.024"
    },
    "returns": {
     "monthEnd": {
@@ -3910,9 +3910,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Irregular",
    "holdings": 0,
-   "history": 0
+   "history": 217
   },
   {
    "ticker": "FTNY",
@@ -3936,9 +3936,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Irregular",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.025"
    },
    "returns": {
     "monthEnd": {
@@ -3988,9 +3988,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Irregular",
    "holdings": 0,
-   "history": 0
+   "history": 227
   },
   {
    "ticker": "FTOH",
@@ -4014,9 +4014,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Irregular",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.025"
    },
    "returns": {
     "monthEnd": {
@@ -4066,9 +4066,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Irregular",
    "holdings": 0,
-   "history": 0
+   "history": 217
   },
   {
    "ticker": "FTPA",
@@ -4092,9 +4092,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Irregular",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.024"
    },
    "returns": {
     "monthEnd": {
@@ -4144,9 +4144,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Irregular",
    "holdings": 0,
-   "history": 0
+   "history": 217
   },
   {
    "ticker": "FTSD",
@@ -4170,9 +4170,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Monthly",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.297"
    },
    "returns": {
     "monthEnd": {
@@ -4222,13 +4222,13 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Monthly",
    "holdings": 0,
-   "history": 0
+   "history": 3238
   },
   {
    "ticker": "HELX",
-   "name": "Franklin HELX ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/helx/SINGLCLASS/helx-etf",
    "category": "ETF",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/helx/SINGLCLASS/helx-etf/HELX",
    "dataFile": "./funds/HELX/meta.json",
@@ -4248,9 +4248,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Annually",
+    "exDate": "Dec 30 2025",
+    "dividend": "0.143"
    },
    "returns": {
     "monthEnd": {
@@ -4300,14 +4300,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Annually",
    "holdings": 0,
-   "history": 0
+   "history": 1651
   },
   {
    "ticker": "INCE",
-   "name": "Franklin INCE ETF",
-   "category": "ETF",
+   "name": "INCE ETF",
+   "category": "table_morningstar-table_component_ts.063ec800971d3d14.js\",\"apps_core-web_src_app_components_products_performance_performance_component_ts.f82897fc04f24e37.js\",\"apps_core-web_src_app_components_products_portfolio_portfolio_component_ts.a4dfd66f92cc1ad3.js\",\"apps_core-web_src_app_components_products_pricing_pricing_component_ts.4ceb68eee1eec75c.js\",\"apps_core-web_src_app_components_products_product-cards_product-cards_component_ts.e102f7332ac280f1.js\",\"apps_core-web_src_app_components_secondary-menu_secondary-menu_component_ts.1901b32bea150e1f.js\",\"apps_core-web_src_app_pages_gateway-page_gateway-page_component_ts.dcf05cc67a7fcdbb.js\",\"common.91cf7c4d0c050e8e.js\",\"default-dist_libs_ng_ui-insights_fesm2022_frk-ng-ui-insights_mjs.23ec7a48479dd22b.js\",\"default-dist_libs_ng_ui-literature_fesm2022_frk-ng-ui-literature_mjs.2517fd2a7b6a7295.js\",\"default-dist_libs_ng_ui-products-listing_fesm2022_frk-ng-ui-products-listing_mjs.bcdb8d984e42cd18.js\",\"default-dist_libs_ng_ui-products_fesm2022_frk-ng-ui-products_mjs.45c4ce457c55a07a.js\",\"default-dist_libs_shared_data-services_products_esm_js.70c9d83219a2665a.js\",\"default-node_modules_pnpm_html2canvas_1_4_1_node_modules_html2canvas_dist_html2canvas_js.c604f40b87af6edf.js\",\"default-node_modules_pnpm_jspdf_4_1_0_node_modules_jspdf_dist_jspdf_es_min_js-node_modules_pn-40b5e8.7d2f14fb7e8d7f45.js\",\"default-node_modules_pnpm_lodash-es_4_17_21_node_modules_lodash-es__baseIteratee_js-node_modu-85b28e.7873d14217087905.js\",\"default-node_modules_pnpm_xlsx_0_18_5_node_modules_xlsx_xlsx_mjs.3c742b207335a6b9.js\",\"dist_libs_ng_ui-interactive_esm2022_muni-ladder-tool_frk-ng-ui-interactive-muni-ladder-tool_mjs.b6a6259d65e0da1a.js\",\"dist_libs_ng_ui-interactive_esm2022_tax-aware-tool_frk-ng-ui-interactive-tax-aware-tool_mjs.703c606b1d2ef531.js\",\"dist_libs_ng_ui-interactive_esm2022_us-servicing_frk-ng-ui-interactive-us-servicing_mjs.a327f23558fb4161.js\",\"dist_libs_ng_ui-interactive_esm2022_us-tax-listing_frk-ng-ui-interactive-us-tax-listing_mjs.f9315b3c38bf8112.js\",\"dist_libs_ng_ui-site-search_fesm2022_frk-ng-ui-site-search_mjs.55d502ae5198adc7.js\",\"main.f09e5fef4315f55f.js\",\"node_modules_pnpm_canvg_3_0_11_node_modules_canvg_lib_index_es_js.0dd1aa1ecac61806.js\",\"node_modules_pnpm_date-fns_4_1_0_node_modules_date-fns_subYears_js.0c772544b60835f4.js\",\"node_modules_pnpm_dompurify_3_3_1_node_modules_dompurify_dist_purify_es_mjs.ba1f8ee0d2f1dcd6.js\",\"node_modules_pnpm_duetds_date-picker_1_4_0_node_modules_duetds_date-picker_dist_esm_duet-date-3357d5.ebbdbc0fef914296.js\",\"node_modules_pnpm_highcharts_12_6_0_jspdf_4_1_0_node_modules_highcharts_esm_highcharts_js.cf1d94357f060eb0.js\",\"node_modules_pnpm_highcharts_12_6_0_jspdf_4_1_0_node_modules_highcharts_modules_accessibility_js.b0d57b1875883bac.js\",\"node_modules_pnpm_highcharts_12_6_0_jspdf_4_1_0_node_modules_highcharts_modules_annotations_js.b828a9279baf1775.js\",\"node_modules_pnpm_prism_web-components_https_nexus1_corp_frk_com_repository_prism-web-compone-42c4bf.8e3f0063ac80c58a.js\",\"polyfills-css-shim.79a999ed75ca0961.js\",\"polyfills.8a1309d3a6425f58.js\",\"runtime.abcbf84f1e19ade8.js\"];",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ince/SINGLCLASS/ince-etf/INCE",
    "dataFile": "./funds/INCE/meta.json",
    "cusip": null,
@@ -4323,12 +4323,12 @@
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
-   "premiumDiscount": "—",
-   "premiumDiscountValue": null,
+   "premiumDiscount": "100.00%",
+   "premiumDiscountValue": 100,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Monthly",
+    "exDate": "Aug 31 2026",
+    "dividend": "0.3"
    },
    "returns": {
     "monthEnd": {
@@ -4374,18 +4374,18 @@
     "siAnn": null,
     "dividendYield": null,
     "dividendYieldText": "—",
-    "secYield": null,
-    "secYieldText": "—",
+    "secYield": 30,
+    "secYieldText": "30.00%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Monthly",
    "holdings": 0,
-   "history": 0
+   "history": 2513
   },
   {
    "ticker": "INCM",
-   "name": "Franklin INCM ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/incm/SINGLCLASS/incm-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/incm/SINGLCLASS/incm-etf/INCM",
    "dataFile": "./funds/INCM/meta.json",
    "cusip": null,
@@ -4397,16 +4397,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Monthly",
+    "exDate": "Aug 31 2026",
+    "dividend": "0.13"
    },
    "returns": {
     "monthEnd": {
@@ -4456,14 +4456,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Monthly",
    "holdings": 0,
-   "history": 0
+   "history": 825
   },
   {
    "ticker": "IQM",
-   "name": "Franklin IQM ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/iqm/SINGLCLASS/iqm-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/iqm/SINGLCLASS/iqm-etf/IQM",
    "dataFile": "./funds/IQM/meta.json",
    "cusip": null,
@@ -4475,16 +4475,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Semi-annually",
+    "exDate": "Dec 13 2021",
+    "dividend": "0.094"
    },
    "returns": {
     "monthEnd": {
@@ -4534,14 +4534,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Semi-annually",
    "holdings": 0,
-   "history": 0
+   "history": 1651
   },
   {
    "ticker": "LRGE",
-   "name": "Franklin LRGE ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/lrge/SINGLCLASS/lrge-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/lrge/SINGLCLASS/lrge-etf/LRGE",
    "dataFile": "./funds/LRGE/meta.json",
    "cusip": null,
@@ -4553,16 +4553,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Annually",
+    "exDate": "Dec 26 2025",
+    "dividend": "0.104"
    },
    "returns": {
     "monthEnd": {
@@ -4612,9 +4612,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Annually",
    "holdings": 0,
-   "history": 0
+   "history": 2341
   },
   {
    "ticker": "LVHD",
@@ -4638,9 +4638,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Aug 6 2026",
+    "dividend": "0.383"
    },
    "returns": {
     "monthEnd": {
@@ -4690,14 +4690,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 2698
   },
   {
    "ticker": "LVHI",
-   "name": "Franklin LVHI ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/lvhi/SINGLCLASS/lvhi-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/lvhi/SINGLCLASS/lvhi-etf/LVHI",
    "dataFile": "./funds/LVHI/meta.json",
    "cusip": null,
@@ -4709,16 +4709,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Sep 3 2026",
+    "dividend": "0.361"
    },
    "returns": {
     "monthEnd": {
@@ -4768,9 +4768,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 2552
   },
   {
    "ticker": "MULT",
@@ -4794,9 +4794,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Monthly",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.12"
    },
    "returns": {
     "monthEnd": {
@@ -4846,9 +4846,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Monthly",
    "holdings": 0,
-   "history": 0
+   "history": 268
   },
   {
    "ticker": "PBDC",
@@ -4872,9 +4872,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Jul 7 2026",
+    "dividend": "0.696"
    },
    "returns": {
     "monthEnd": {
@@ -4924,9 +4924,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 997
   },
   {
    "ticker": "PEMX",
@@ -4950,9 +4950,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Annually",
+    "exDate": "Dec 19 2025",
+    "dividend": "4.501"
    },
    "returns": {
     "monthEnd": {
@@ -5002,14 +5002,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Annually",
    "holdings": 0,
-   "history": 0
+   "history": 831
   },
   {
    "ticker": "PGRI",
-   "name": "Franklin PGRI ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/pgri/SINGLCLASS/pgri-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/pgri/SINGLCLASS/pgri-etf/PGRI",
    "dataFile": "./funds/PGRI/meta.json",
    "cusip": null,
@@ -5021,16 +5021,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Annually",
+    "exDate": "Dec 19 2025",
+    "dividend": "0.03"
    },
    "returns": {
     "monthEnd": {
@@ -5080,9 +5080,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Annually",
    "holdings": 0,
-   "history": 0
+   "history": 229
   },
   {
    "ticker": "PGRO",
@@ -5106,9 +5106,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Annually",
+    "exDate": "Dec 19 2025",
+    "dividend": "0.009"
    },
    "returns": {
     "monthEnd": {
@@ -5158,9 +5158,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Annually",
    "holdings": 0,
-   "history": 0
+   "history": 1337
   },
   {
    "ticker": "PVAL",
@@ -5184,9 +5184,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Jul 7 2026",
+    "dividend": "0.126"
    },
    "returns": {
     "monthEnd": {
@@ -5236,9 +5236,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 1337
   },
   {
    "ticker": "SOEZ",
@@ -5262,9 +5262,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Irregular",
+    "exDate": "Sep 21 2026",
+    "dividend": "0.068"
    },
    "returns": {
     "monthEnd": {
@@ -5314,13 +5314,13 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Irregular",
    "holdings": 0,
-   "history": 0
+   "history": 201
   },
   {
    "ticker": "SQLV",
-   "name": "Franklin SQLV ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/sqlv/SINGLCLASS/sqlv-etf",
    "category": "ETF",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/sqlv/SINGLCLASS/sqlv-etf/SQLV",
    "dataFile": "./funds/SQLV/meta.json",
@@ -5340,9 +5340,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Sep 14 2026",
+    "dividend": "0.152"
    },
    "returns": {
     "monthEnd": {
@@ -5392,13 +5392,13 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 2311
   },
   {
    "ticker": "TEMD",
-   "name": "Franklin TEMD ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/temd/SINGLCLASS/temd-etf",
    "category": "ETF",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/temd/SINGLCLASS/temd-etf/TEMD",
    "dataFile": "./funds/TEMD/meta.json",
@@ -5418,9 +5418,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Irregular",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.119"
    },
    "returns": {
     "monthEnd": {
@@ -5470,14 +5470,14 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Irregular",
    "holdings": 0,
-   "history": 0
+   "history": 168
   },
   {
    "ticker": "TINS",
-   "name": "Franklin TINS ETF",
-   "category": "ETF",
+   "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/tins/SINGLCLASS/tins-etf",
+   "category": "TM ratings:**",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/tins/SINGLCLASS/tins-etf/TINS",
    "dataFile": "./funds/TINS/meta.json",
    "cusip": null,
@@ -5489,16 +5489,16 @@
    "aum": "—",
    "aumValue": null,
    "asOfDate": "—",
-   "inceptionDate": "—",
+   "inceptionDate": "Sep 23 2026",
    "exchange": "NYSEArca",
    "closePrice": "—",
    "closePriceValue": null,
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Annually",
+    "exDate": "Dec 19 2025",
+    "dividend": "0.061"
    },
    "returns": {
     "monthEnd": {
@@ -5548,9 +5548,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Annually",
    "holdings": 0,
-   "history": 0
+   "history": 229
   },
   {
    "ticker": "UDIV",
@@ -5574,9 +5574,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Sep 18 2026",
+    "dividend": "0.182"
    },
    "returns": {
     "monthEnd": {
@@ -5626,9 +5626,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 2590
   },
   {
    "ticker": "USFI",
@@ -5652,9 +5652,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Monthly This fund is an ex-Dividend fund",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.056"
    },
    "returns": {
     "monthEnd": {
@@ -5704,7 +5704,7 @@
     "secYieldText": "30.00%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Monthly This fund is an ex-Dividend fund",
    "holdings": 10,
    "history": 792
   },
@@ -5730,9 +5730,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Sep 18 2026",
+    "dividend": "0.144"
    },
    "returns": {
     "monthEnd": {
@@ -5782,9 +5782,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 2590
   },
   {
    "ticker": "WABF",
@@ -5808,9 +5808,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Monthly",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.09"
    },
    "returns": {
     "monthEnd": {
@@ -5860,9 +5860,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Monthly",
    "holdings": 0,
-   "history": 0
+   "history": 753
   },
   {
    "ticker": "XDAT",
@@ -5886,9 +5886,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Annually",
+    "exDate": "Dec 20 2024",
+    "dividend": "0.032"
    },
    "returns": {
     "monthEnd": {
@@ -5938,9 +5938,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Annually",
    "holdings": 0,
-   "history": 0
+   "history": 1428
   },
   {
    "ticker": "XIDV",
@@ -5964,9 +5964,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Sep 18 2026",
+    "dividend": "0.319"
    },
    "returns": {
     "monthEnd": {
@@ -6016,9 +6016,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 418
   },
   {
    "ticker": "XRPZ",
@@ -6096,7 +6096,7 @@
    },
    "distributionFrequency": "—",
    "holdings": 0,
-   "history": 0
+   "history": 207
   },
   {
    "ticker": "XUDV",
@@ -6120,9 +6120,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Sep 18 2026",
+    "dividend": "0.256"
    },
    "returns": {
     "monthEnd": {
@@ -6172,9 +6172,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 418
   },
   {
    "ticker": "YCLO",
@@ -6198,9 +6198,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Quarterly",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.106"
    },
    "returns": {
     "monthEnd": {
@@ -6250,9 +6250,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Quarterly",
    "holdings": 0,
-   "history": 0
+   "history": 76
   },
   {
    "ticker": "YLDE",
@@ -6276,9 +6276,9 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "—",
-    "exDate": "—",
-    "dividend": "—"
+    "frequency": "Monthly",
+    "exDate": "Sep 1 2026",
+    "dividend": "0.323"
    },
    "returns": {
     "monthEnd": {
@@ -6328,9 +6328,9 @@
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "—",
+   "distributionFrequency": "Monthly",
    "holdings": 0,
-   "history": 0
+   "history": 2343
   }
  ]
 }

@@ -12,7 +12,7 @@
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/pval/SINGLCLASS/pval-etf/PVAL",
   "holdingsSource": "not available",
-  "historySource": "previous run",
+  "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PVAL?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
  },
@@ -89,16 +89,97 @@
   }
  },
  "distributions": {
-  "frequency": "—",
-  "frequencyCode": "00 - —",
-  "paymentsPerYear": null,
+  "frequency": "Quarterly",
+  "frequencyCode": "04 - Quarterly",
+  "paymentsPerYear": 4,
   "headers": [
    "Ex-Date",
    "Dividend"
   ],
-  "rows": [],
-  "latestDividend": "—",
-  "exDate": "—"
+  "rows": [
+   {
+    "Ex-Date": "Jul 7 2026",
+    "Dividend": "0.1260",
+    "searchIndex": "jul 7 2026 0.126"
+   },
+   {
+    "Ex-Date": "Apr 7 2026",
+    "Dividend": "0.1400",
+    "searchIndex": "apr 7 2026 0.14"
+   },
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.1120",
+    "searchIndex": "dec 19 2025 0.112"
+   },
+   {
+    "Ex-Date": "Oct 6 2025",
+    "Dividend": "0.1030",
+    "searchIndex": "oct 6 2025 0.103"
+   },
+   {
+    "Ex-Date": "Jul 7 2025",
+    "Dividend": "0.1400",
+    "searchIndex": "jul 7 2025 0.14"
+   },
+   {
+    "Ex-Date": "Apr 4 2025",
+    "Dividend": "0.1010",
+    "searchIndex": "apr 4 2025 0.101"
+   },
+   {
+    "Ex-Date": "Dec 5 2024",
+    "Dividend": "0.1550",
+    "searchIndex": "dec 5 2024 0.155"
+   },
+   {
+    "Ex-Date": "Sep 6 2024",
+    "Dividend": "0.1210",
+    "searchIndex": "sep 6 2024 0.121"
+   },
+   {
+    "Ex-Date": "Jun 6 2024",
+    "Dividend": "0.1110",
+    "searchIndex": "jun 6 2024 0.111"
+   },
+   {
+    "Ex-Date": "Mar 6 2024",
+    "Dividend": "0.1110",
+    "searchIndex": "mar 6 2024 0.111"
+   },
+   {
+    "Ex-Date": "Dec 6 2023",
+    "Dividend": "0.2120",
+    "searchIndex": "dec 6 2023 0.212"
+   },
+   {
+    "Ex-Date": "Sep 7 2023",
+    "Dividend": "0.1110",
+    "searchIndex": "sep 7 2023 0.111"
+   },
+   {
+    "Ex-Date": "Jun 6 2023",
+    "Dividend": "0.0970",
+    "searchIndex": "jun 6 2023 0.097"
+   },
+   {
+    "Ex-Date": "Dec 27 2022",
+    "Dividend": "0.0140",
+    "searchIndex": "dec 27 2022 0.014"
+   },
+   {
+    "Ex-Date": "Dec 6 2022",
+    "Dividend": "0.1460",
+    "searchIndex": "dec 6 2022 0.146"
+   },
+   {
+    "Ex-Date": "Dec 6 2021",
+    "Dividend": "0.1320",
+    "searchIndex": "dec 6 2021 0.132"
+   }
+  ],
+  "latestDividend": "0.126",
+  "exDate": "Jul 7 2026"
  },
  "holdings": {
   "totalRows": 0,
@@ -110,11 +191,14 @@
   "source": "not available"
  },
  "history": {
-  "totalRows": 0,
+  "totalRows": 1337,
   "pageSize": 1000,
-  "pageCount": 1,
-  "pages": [],
-  "asOf": "—",
-  "source": "previous run"
+  "pageCount": 2,
+  "pages": [
+   "./history/001.json",
+   "./history/002.json"
+  ],
+  "asOf": "Sep 23 2026",
+  "source": "Yahoo Finance public chart API"
  }
 }

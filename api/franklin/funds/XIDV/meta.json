@@ -12,7 +12,7 @@
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/xidv/SINGLCLASS/xidv-etf/XIDV",
   "holdingsSource": "not available",
-  "historySource": "previous run",
+  "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/XIDV?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
  },
@@ -89,16 +89,52 @@
   }
  },
  "distributions": {
-  "frequency": "—",
-  "frequencyCode": "00 - —",
-  "paymentsPerYear": null,
+  "frequency": "Quarterly",
+  "frequencyCode": "04 - Quarterly",
+  "paymentsPerYear": 4,
   "headers": [
    "Ex-Date",
    "Dividend"
   ],
-  "rows": [],
-  "latestDividend": "—",
-  "exDate": "—"
+  "rows": [
+   {
+    "Ex-Date": "Sep 18 2026",
+    "Dividend": "0.3190",
+    "searchIndex": "sep 18 2026 0.319"
+   },
+   {
+    "Ex-Date": "Jun 26 2026",
+    "Dividend": "1.5180",
+    "searchIndex": "jun 26 2026 1.518"
+   },
+   {
+    "Ex-Date": "Mar 20 2026",
+    "Dividend": "0.0600",
+    "searchIndex": "mar 20 2026 0.06"
+   },
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.3420",
+    "searchIndex": "dec 19 2025 0.342"
+   },
+   {
+    "Ex-Date": "Sep 19 2025",
+    "Dividend": "0.3060",
+    "searchIndex": "sep 19 2025 0.306"
+   },
+   {
+    "Ex-Date": "Jun 20 2025",
+    "Dividend": "0.9120",
+    "searchIndex": "jun 20 2025 0.912"
+   },
+   {
+    "Ex-Date": "Mar 21 2025",
+    "Dividend": "0.0180",
+    "searchIndex": "mar 21 2025 0.018"
+   }
+  ],
+  "latestDividend": "0.319",
+  "exDate": "Sep 18 2026"
  },
  "holdings": {
   "totalRows": 0,
@@ -110,11 +146,13 @@
   "source": "not available"
  },
  "history": {
-  "totalRows": 0,
+  "totalRows": 418,
   "pageSize": 1000,
   "pageCount": 1,
-  "pages": [],
-  "asOf": "—",
-  "source": "previous run"
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 23 2026",
+  "source": "Yahoo Finance public chart API"
  }
 }

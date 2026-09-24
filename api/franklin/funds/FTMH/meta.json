@@ -12,7 +12,7 @@
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftmh/SINGLCLASS/ftmh-etf/FTMH",
   "holdingsSource": "not available",
-  "historySource": "previous run",
+  "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FTMH?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
  },
@@ -89,16 +89,67 @@
   }
  },
  "distributions": {
-  "frequency": "—",
-  "frequencyCode": "00 - —",
+  "frequency": "Irregular",
+  "frequencyCode": "99 - Irregular",
   "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
   ],
-  "rows": [],
-  "latestDividend": "—",
-  "exDate": "—"
+  "rows": [
+   {
+    "Ex-Date": "Sep 1 2026",
+    "Dividend": "0.0440",
+    "searchIndex": "sep 1 2026 0.044"
+   },
+   {
+    "Ex-Date": "Aug 3 2026",
+    "Dividend": "0.0510",
+    "searchIndex": "aug 3 2026 0.051"
+   },
+   {
+    "Ex-Date": "Jul 1 2026",
+    "Dividend": "0.0440",
+    "searchIndex": "jul 1 2026 0.044"
+   },
+   {
+    "Ex-Date": "Jun 1 2026",
+    "Dividend": "0.0380",
+    "searchIndex": "jun 1 2026 0.038"
+   },
+   {
+    "Ex-Date": "May 1 2026",
+    "Dividend": "0.0480",
+    "searchIndex": "may 1 2026 0.048"
+   },
+   {
+    "Ex-Date": "Apr 1 2026",
+    "Dividend": "0.0470",
+    "searchIndex": "apr 1 2026 0.047"
+   },
+   {
+    "Ex-Date": "Mar 2 2026",
+    "Dividend": "0.0420",
+    "searchIndex": "mar 2 2026 0.042"
+   },
+   {
+    "Ex-Date": "Feb 2 2026",
+    "Dividend": "0.0450",
+    "searchIndex": "feb 2 2026 0.045"
+   },
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.0550",
+    "searchIndex": "dec 19 2025 0.055"
+   },
+   {
+    "Ex-Date": "Dec 1 2025",
+    "Dividend": "0.0450",
+    "searchIndex": "dec 1 2025 0.045"
+   }
+  ],
+  "latestDividend": "0.044",
+  "exDate": "Sep 1 2026"
  },
  "holdings": {
   "totalRows": 0,
@@ -110,11 +161,13 @@
   "source": "not available"
  },
  "history": {
-  "totalRows": 0,
+  "totalRows": 227,
   "pageSize": 1000,
   "pageCount": 1,
-  "pages": [],
-  "asOf": "—",
-  "source": "previous run"
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 23 2026",
+  "source": "Yahoo Finance public chart API"
  }
 }

@@ -1,8 +1,8 @@
 {
  "ticker": "LRGE",
- "name": "Franklin LRGE ETF",
- "category": "ETF",
- "categoryPath": "ETF",
+ "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/lrge/SINGLCLASS/lrge-etf",
+ "category": "TM ratings:**",
+ "categoryPath": "TM ratings:**",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/lrge/SINGLCLASS/lrge-etf/LRGE",
  "factSheet": null,
  "source": {
@@ -12,7 +12,7 @@
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/lrge/SINGLCLASS/lrge-etf/LRGE",
   "holdingsSource": "not available",
-  "historySource": "previous run",
+  "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/LRGE?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
  },
@@ -45,12 +45,12 @@
   "display": "—",
   "value": null,
   "asOfDate": null,
-  "source": "official product page Total Net Assets"
+  "source": "not available"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -89,16 +89,72 @@
   }
  },
  "distributions": {
-  "frequency": "—",
-  "frequencyCode": "00 - —",
-  "paymentsPerYear": null,
+  "frequency": "Annually",
+  "frequencyCode": "12 - Annually",
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Dividend"
   ],
-  "rows": [],
-  "latestDividend": "—",
-  "exDate": "—"
+  "rows": [
+   {
+    "Ex-Date": "Dec 26 2025",
+    "Dividend": "0.1040",
+    "searchIndex": "dec 26 2025 0.104"
+   },
+   {
+    "Ex-Date": "Dec 26 2024",
+    "Dividend": "0.1320",
+    "searchIndex": "dec 26 2024 0.132"
+   },
+   {
+    "Ex-Date": "Dec 26 2023",
+    "Dividend": "0.0640",
+    "searchIndex": "dec 26 2023 0.064"
+   },
+   {
+    "Ex-Date": "Dec 27 2022",
+    "Dividend": "0.8210",
+    "searchIndex": "dec 27 2022 0.821"
+   },
+   {
+    "Ex-Date": "Jun 27 2022",
+    "Dividend": "0.0020",
+    "searchIndex": "jun 27 2022 0.002"
+   },
+   {
+    "Ex-Date": "Dec 27 2021",
+    "Dividend": "0.7300",
+    "searchIndex": "dec 27 2021 0.73"
+   },
+   {
+    "Ex-Date": "Dec 28 2020",
+    "Dividend": "0.1850",
+    "searchIndex": "dec 28 2020 0.185"
+   },
+   {
+    "Ex-Date": "Dec 26 2019",
+    "Dividend": "0.1400",
+    "searchIndex": "dec 26 2019 0.14"
+   },
+   {
+    "Ex-Date": "Dec 31 2018",
+    "Dividend": "0.0110",
+    "searchIndex": "dec 31 2018 0.011"
+   },
+   {
+    "Ex-Date": "Dec 26 2018",
+    "Dividend": "0.6020",
+    "searchIndex": "dec 26 2018 0.602"
+   },
+   {
+    "Ex-Date": "Dec 26 2017",
+    "Dividend": "0.1100",
+    "searchIndex": "dec 26 2017 0.11"
+   }
+  ],
+  "latestDividend": "0.104",
+  "exDate": "Dec 26 2025"
  },
  "holdings": {
   "totalRows": 0,
@@ -110,11 +166,15 @@
   "source": "not available"
  },
  "history": {
-  "totalRows": 0,
+  "totalRows": 2341,
   "pageSize": 1000,
-  "pageCount": 1,
-  "pages": [],
-  "asOf": "—",
-  "source": "previous run"
+  "pageCount": 3,
+  "pages": [
+   "./history/001.json",
+   "./history/002.json",
+   "./history/003.json"
+  ],
+  "asOf": "Sep 23 2026",
+  "source": "Yahoo Finance public chart API"
  }
 }

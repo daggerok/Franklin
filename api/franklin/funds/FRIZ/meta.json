@@ -1,6 +1,6 @@
 {
  "ticker": "FRIZ",
- "name": "Franklin FRIZ ETF",
+ "name": "franklintempleton.com/investments/options/exchange-traded-funds/products/friz/SINGLCLASS/friz-etf",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/friz/SINGLCLASS/friz-etf/FRIZ",
@@ -12,7 +12,7 @@
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/friz/SINGLCLASS/friz-etf/FRIZ",
   "holdingsSource": "not available",
-  "historySource": "previous run",
+  "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FRIZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
  },
@@ -45,12 +45,12 @@
   "display": "—",
   "value": null,
   "asOfDate": null,
-  "source": "official product page Total Net Assets"
+  "source": "not available"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -89,16 +89,42 @@
   }
  },
  "distributions": {
-  "frequency": "—",
-  "frequencyCode": "00 - —",
-  "paymentsPerYear": null,
+  "frequency": "Quarterly",
+  "frequencyCode": "04 - Quarterly",
+  "paymentsPerYear": 4,
   "headers": [
    "Ex-Date",
    "Dividend"
   ],
-  "rows": [],
-  "latestDividend": "—",
-  "exDate": "—"
+  "rows": [
+   {
+    "Ex-Date": "Sep 18 2026",
+    "Dividend": "0.0590",
+    "searchIndex": "sep 18 2026 0.059"
+   },
+   {
+    "Ex-Date": "Jun 18 2026",
+    "Dividend": "0.0820",
+    "searchIndex": "jun 18 2026 0.082"
+   },
+   {
+    "Ex-Date": "Mar 20 2026",
+    "Dividend": "0.0450",
+    "searchIndex": "mar 20 2026 0.045"
+   },
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.0780",
+    "searchIndex": "dec 19 2025 0.078"
+   },
+   {
+    "Ex-Date": "Sep 19 2025",
+    "Dividend": "0.0090",
+    "searchIndex": "sep 19 2025 0.009"
+   }
+  ],
+  "latestDividend": "0.059",
+  "exDate": "Sep 18 2026"
  },
  "holdings": {
   "totalRows": 0,
@@ -110,11 +136,13 @@
   "source": "not available"
  },
  "history": {
-  "totalRows": 0,
+  "totalRows": 266,
   "pageSize": 1000,
   "pageCount": 1,
-  "pages": [],
-  "asOf": "—",
-  "source": "previous run"
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 23 2026",
+  "source": "Yahoo Finance public chart API"
  }
 }
