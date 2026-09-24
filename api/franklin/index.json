@@ -1,0 +1,212 @@
+{
+  "generatedAt": "2026-09-24T03:01:53.263Z",
+  "source": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "counts": {
+    "funds": 3,
+    "withHoldings": 3,
+    "withHistory": 3
+  },
+  "funds": [
+    {
+      "ticker": "FLIN",
+      "name": "Franklin FTSE India ETF",
+      "category": "India Equity",
+      "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN",
+      "dataFile": null,
+      "ter": "0.19%",
+      "terValue": 0.19,
+      "nav": "$34.85",
+      "navValue": 34.85,
+      "aum": "$2.60 Billion",
+      "aumValue": 2600000000,
+      "asOfDate": "2026-09-22",
+      "inceptionDate": "2018-02-06",
+      "exchange": "NYSE Arca",
+      "closePrice": null,
+      "premiumDiscount": null,
+      "cusip": "35473P769",
+      "isin": "US35473P7693",
+      "bloomberg": "FLIN US",
+      "benchmark": "FTSE India Capped Index-NR",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-09-18",
+        "dividend": 0.15
+      },
+      "returns": {
+        "monthEnd": {
+          "asOfDate": "2026-08-31",
+          "mo1": -1.2,
+          "qtd": -2.3,
+          "ytd": -10.39,
+          "yr1": -3.94,
+          "yr3": 5.33,
+          "yr5": 3.05,
+          "yr10": null,
+          "sinceInception": 5.93
+        },
+        "quarterEnd": {
+          "asOfDate": "2026-06-30",
+          "mo1": null,
+          "qtd": null,
+          "ytd": null,
+          "yr1": -2.1,
+          "yr3": 6.1,
+          "yr5": 3.5,
+          "yr10": null,
+          "sinceInception": 6.1
+        }
+      },
+      "metrics": {
+        "tr1y": -3.94,
+        "tr3y": 16.85,
+        "tr5y": 16.2,
+        "tr10y": null,
+        "cagr3y": 5.33,
+        "cagr5y": 3.05,
+        "cagr10y": null,
+        "siAnn": 5.93,
+        "dividendYield": 0.42,
+        "secYield": 2.09,
+        "dividendYieldText": "0.42%",
+        "secYieldText": "2.09%"
+      },
+      "holdings": 228,
+      "history": 1500
+    },
+    {
+      "ticker": "FLGR",
+      "name": "Franklin U.S. Large Cap Multifactor Index ETF",
+      "category": "Large Blend",
+      "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/27774/SINGLCLASS/franklin-u-s-large-cap-multifactor-index-etf/FLGR",
+      "dataFile": null,
+      "ter": "0.09%",
+      "terValue": 0.09,
+      "nav": "$89.12",
+      "navValue": 89.12,
+      "aum": "$1.20 Billion",
+      "aumValue": 1200000000,
+      "asOfDate": "2026-09-22",
+      "inceptionDate": "2017-11-02",
+      "exchange": "NYSE Arca",
+      "closePrice": null,
+      "premiumDiscount": null,
+      "cusip": "35473P123",
+      "isin": "US35473P1234",
+      "bloomberg": "FLGR US",
+      "benchmark": "LibertyQ U.S. Large Cap Equity Index",
+      "distributions": {
+        "frequency": "Quarterly",
+        "exDate": "2026-09-18",
+        "dividend": 0.32
+      },
+      "returns": {
+        "monthEnd": {
+          "asOfDate": "2026-08-31",
+          "mo1": 2.1,
+          "qtd": 5.2,
+          "ytd": 12.3,
+          "yr1": 18.5,
+          "yr3": 12.1,
+          "yr5": 10.2,
+          "yr10": null,
+          "sinceInception": 11.4
+        },
+        "quarterEnd": {
+          "asOfDate": "2026-06-30",
+          "mo1": null,
+          "qtd": null,
+          "ytd": null,
+          "yr1": 16.2,
+          "yr3": 11.5,
+          "yr5": 9.8,
+          "yr10": null,
+          "sinceInception": 11
+        }
+      },
+      "metrics": {
+        "tr1y": 18.5,
+        "tr3y": 40.8,
+        "tr5y": 62.3,
+        "tr10y": null,
+        "cagr3y": 12.1,
+        "cagr5y": 10.2,
+        "cagr10y": null,
+        "siAnn": 11.4,
+        "dividendYield": 1.42,
+        "secYield": 1.21,
+        "dividendYieldText": "1.42%",
+        "secYieldText": "1.21%"
+      },
+      "holdings": 250,
+      "history": 1500
+    },
+    {
+      "ticker": "USFI",
+      "name": "BrandywineGLOBAL - U.S. Fixed Income ETF",
+      "category": "Intermediate Core Bond",
+      "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36405/SINGLCLASS/brandywine-global-u-s-fixed-income-etf/USFI",
+      "dataFile": null,
+      "ter": "0.39%",
+      "terValue": 0.39,
+      "nav": "$24.11",
+      "navValue": 24.11,
+      "aum": "$9.53 Million",
+      "aumValue": 9530000,
+      "asOfDate": "2026-09-22",
+      "inceptionDate": "2023-07-25",
+      "exchange": "NYSE Arca",
+      "closePrice": null,
+      "premiumDiscount": null,
+      "cusip": "35473P456",
+      "isin": "US35473P4567",
+      "bloomberg": "USFI US",
+      "benchmark": "Bloomberg U.S. Aggregate Bond Index",
+      "distributions": {
+        "frequency": "Monthly",
+        "exDate": "2026-09-15",
+        "dividend": 0.08
+      },
+      "returns": {
+        "monthEnd": {
+          "asOfDate": "2026-08-31",
+          "mo1": 0.35,
+          "qtd": 1.2,
+          "ytd": 3.47,
+          "yr1": 4.19,
+          "yr3": null,
+          "yr5": null,
+          "yr10": null,
+          "sinceInception": 3.54
+        },
+        "quarterEnd": {
+          "asOfDate": "2026-06-30",
+          "mo1": null,
+          "qtd": null,
+          "ytd": null,
+          "yr1": 3.8,
+          "yr3": null,
+          "yr5": null,
+          "yr10": null,
+          "sinceInception": 3.2
+        }
+      },
+      "metrics": {
+        "tr1y": 4.19,
+        "tr3y": null,
+        "tr5y": null,
+        "tr10y": null,
+        "cagr3y": null,
+        "cagr5y": null,
+        "cagr10y": null,
+        "siAnn": 3.54,
+        "dividendYield": 3.98,
+        "secYield": 4.12,
+        "dividendYieldText": "3.98%",
+        "secYieldText": "4.12%"
+      },
+      "holdings": 120,
+      "history": 500
+    }
+  ]
+}

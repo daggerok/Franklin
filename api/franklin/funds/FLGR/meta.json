@@ -1,0 +1,78 @@
+{
+  "ticker": "FLGR",
+  "name": "Franklin U.S. Large Cap Multifactor Index ETF",
+  "category": "Large Blend",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/27774/SINGLCLASS/franklin-u-s-large-cap-multifactor-index-etf/FLGR",
+  "cusip": "35473P123",
+  "isin": "US35473P1234",
+  "bloomberg": "FLGR US",
+  "benchmark": "LibertyQ U.S. Large Cap Equity Index",
+  "exchange": "NYSE Arca",
+  "inceptionDate": "2017-11-02",
+  "asOfDate": "2026-09-22",
+  "nav": "$89.12",
+  "navValue": 89.12,
+  "aum": "$1.20 Billion",
+  "aumValue": 1200000000,
+  "ter": "0.09%",
+  "terValue": 0.09,
+  "distributions": {
+    "frequency": "Quarterly",
+    "exDate": "2026-09-18",
+    "dividend": 0.32
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "2026-08-31",
+      "mo1": 2.1,
+      "qtd": 5.2,
+      "ytd": 12.3,
+      "yr1": 18.5,
+      "yr3": 12.1,
+      "yr5": 10.2,
+      "yr10": null,
+      "sinceInception": 11.4
+    },
+    "quarterEnd": {
+      "asOfDate": "2026-06-30",
+      "mo1": null,
+      "qtd": null,
+      "ytd": null,
+      "yr1": 16.2,
+      "yr3": 11.5,
+      "yr5": 9.8,
+      "yr10": null,
+      "sinceInception": 11
+    }
+  },
+  "metrics": {
+    "tr1y": 18.5,
+    "tr3y": 40.8,
+    "tr5y": 62.3,
+    "tr10y": null,
+    "cagr3y": 12.1,
+    "cagr5y": 10.2,
+    "cagr10y": null,
+    "siAnn": 11.4,
+    "dividendYield": 1.42,
+    "secYield": 1.21,
+    "dividendYieldText": "1.42%",
+    "secYieldText": "1.21%"
+  },
+  "holdings": {
+    "pages": [
+      "holdings/001.json"
+    ],
+    "total": 10,
+    "asOfDate": "2026-09-22",
+    "source": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/27774/SINGLCLASS/franklin-u-s-large-cap-multifactor-index-etf/FLGR"
+  },
+  "history": {
+    "pages": [
+      "history/001.json"
+    ],
+    "total": 20,
+    "asOfDate": "2026-09-22",
+    "source": "https://query2.finance.yahoo.com/v8/finance/chart/FLGR?range=max&interval=1d"
+  }
+}

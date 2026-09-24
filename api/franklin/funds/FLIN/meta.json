@@ -1,0 +1,78 @@
+{
+  "ticker": "FLIN",
+  "name": "Franklin FTSE India ETF",
+  "category": "India Equity",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN",
+  "cusip": "35473P769",
+  "isin": "US35473P7693",
+  "bloomberg": "FLIN US",
+  "benchmark": "FTSE India Capped Index-NR",
+  "exchange": "NYSE Arca",
+  "inceptionDate": "2018-02-06",
+  "asOfDate": "2026-09-22",
+  "nav": "$34.85",
+  "navValue": 34.85,
+  "aum": "$2.60 Billion",
+  "aumValue": 2600000000,
+  "ter": "0.19%",
+  "terValue": 0.19,
+  "distributions": {
+    "frequency": "Quarterly",
+    "exDate": "2026-09-18",
+    "dividend": 0.15
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "2026-08-31",
+      "mo1": -1.2,
+      "qtd": -2.3,
+      "ytd": -10.39,
+      "yr1": -3.94,
+      "yr3": 5.33,
+      "yr5": 3.05,
+      "yr10": null,
+      "sinceInception": 5.93
+    },
+    "quarterEnd": {
+      "asOfDate": "2026-06-30",
+      "mo1": null,
+      "qtd": null,
+      "ytd": null,
+      "yr1": -2.1,
+      "yr3": 6.1,
+      "yr5": 3.5,
+      "yr10": null,
+      "sinceInception": 6.1
+    }
+  },
+  "metrics": {
+    "tr1y": -3.94,
+    "tr3y": 16.85,
+    "tr5y": 16.2,
+    "tr10y": null,
+    "cagr3y": 5.33,
+    "cagr5y": 3.05,
+    "cagr10y": null,
+    "siAnn": 5.93,
+    "dividendYield": 0.42,
+    "secYield": 2.09,
+    "dividendYieldText": "0.42%",
+    "secYieldText": "2.09%"
+  },
+  "holdings": {
+    "pages": [
+      "holdings/001.json"
+    ],
+    "total": 10,
+    "asOfDate": "2026-09-22",
+    "source": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN"
+  },
+  "history": {
+    "pages": [
+      "history/001.json"
+    ],
+    "total": 20,
+    "asOfDate": "2026-09-22",
+    "source": "https://query2.finance.yahoo.com/v8/finance/chart/FLIN?range=max&interval=1d"
+  }
+}

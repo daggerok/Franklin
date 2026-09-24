@@ -1,0 +1,78 @@
+{
+  "ticker": "USFI",
+  "name": "BrandywineGLOBAL - U.S. Fixed Income ETF",
+  "category": "Intermediate Core Bond",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36405/SINGLCLASS/brandywine-global-u-s-fixed-income-etf/USFI",
+  "cusip": "35473P456",
+  "isin": "US35473P4567",
+  "bloomberg": "USFI US",
+  "benchmark": "Bloomberg U.S. Aggregate Bond Index",
+  "exchange": "NYSE Arca",
+  "inceptionDate": "2023-07-25",
+  "asOfDate": "2026-09-22",
+  "nav": "$24.11",
+  "navValue": 24.11,
+  "aum": "$9.53 Million",
+  "aumValue": 9530000,
+  "ter": "0.39%",
+  "terValue": 0.39,
+  "distributions": {
+    "frequency": "Monthly",
+    "exDate": "2026-09-15",
+    "dividend": 0.08
+  },
+  "returns": {
+    "monthEnd": {
+      "asOfDate": "2026-08-31",
+      "mo1": 0.35,
+      "qtd": 1.2,
+      "ytd": 3.47,
+      "yr1": 4.19,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": 3.54
+    },
+    "quarterEnd": {
+      "asOfDate": "2026-06-30",
+      "mo1": null,
+      "qtd": null,
+      "ytd": null,
+      "yr1": 3.8,
+      "yr3": null,
+      "yr5": null,
+      "yr10": null,
+      "sinceInception": 3.2
+    }
+  },
+  "metrics": {
+    "tr1y": 4.19,
+    "tr3y": null,
+    "tr5y": null,
+    "tr10y": null,
+    "cagr3y": null,
+    "cagr5y": null,
+    "cagr10y": null,
+    "siAnn": 3.54,
+    "dividendYield": 3.98,
+    "secYield": 4.12,
+    "dividendYieldText": "3.98%",
+    "secYieldText": "4.12%"
+  },
+  "holdings": {
+    "pages": [
+      "holdings/001.json"
+    ],
+    "total": 10,
+    "asOfDate": "2026-09-22",
+    "source": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36405/SINGLCLASS/brandywine-global-u-s-fixed-income-etf/USFI"
+  },
+  "history": {
+    "pages": [
+      "history/001.json"
+    ],
+    "total": 20,
+    "asOfDate": "2026-09-22",
+    "source": "https://query2.finance.yahoo.com/v8/finance/chart/USFI?range=max&interval=1d"
+  }
+}
