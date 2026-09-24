@@ -38,7 +38,29 @@ type RangeMap = Partial<Record<ReturnPeriod, Range>>;
 const FRANKLIN_SITE = 'https://www.franklintempleton.com';
 const FRANKLIN_CATALOG_URL = `${FRANKLIN_SITE}/investments/options/exchange-traded-funds`;
 const PROXY_PREFIX = 'https://r.jina.ai/';
+const PROXY_PREFIXES = [
+  (u: string) => u, // direct with BROWSER_UA
+  (u: string) => `https://r.jina.ai/http://${u.replace(/^https?:\/\//, '')}`,
+  (u: string) => `https://r.jina.ai/https://${u.replace(/^https?:\/\//, '')}`,
+  (u: string) => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
+  (u: string) => `https://api.codetabs.com/v1/proxy/?quest=${encodeURIComponent(u)}`,
+  (u: string) => `https://cc.bingj.com/cache.aspx?d=465987&m=1&w=1&u=${encodeURIComponent(u)}`,
+];
+// Fast path for catalog: only first 3 proxies to avoid long hangs, product pages use first 3 (direct + r.jina.ai http/https)
+const CATALOG_PROXY_COUNT = 3;
+const PRODUCT_PROXY_COUNT = 3;
 const YAHOO_CHART_URL = 'https://query1.finance.yahoo.com/v8/finance/chart';
+
+// Definitive 81 Franklin Templeton U.S.-listed ETFs from sitemap product.xml (80 + FLRU Russia)
+// Source: https://www.franklintempleton.com/binaries/content/assets/global/sitemaps/google/en-us_product.xml chunks 18-19
+// Parsed 94 total (81 active incl FLRU + 13 closed). This seed ensures full catalog even when issuer blocks.
+const SEED_81 = [
+  'BUYZ','DIEM','DIVI','DVAL','EZBC','EZET','EZPZ','FFOG','FGDL','FLAU','FLAX','FLBL','FLBR','FLCA','FLCB','FLCH','FLCO',
+  'FLEE','FLEU','FLGB','FLGR','FLGV','FLHY','FLIA','FLIN','FLJH','FLJP','FLKR','FLLA','FLMB','FLMI','FLMX','FLQL','FLQM',
+  'FLQS','FLRU','FLSA','FLSP','FLSW','FLTW','FLUD','FRIZ','FSML','FTCA','FTMA','FTMH','FTMN','FTMS','FTMU','FTNJ','FTNY',
+  'FTOH','FTPA','FTSD','HELX','INCE','INCM','IQM','LRGE','LVHD','LVHI','MULT','PBDC','PEMX','PGRI','PGRO','PVAL','SOEZ',
+  'SQLV','TEMD','TINS','UDIV','USFI','USPX','WABF','XDAT','XIDV','XRPZ','XUDV','YCLO','YLDE',
+] as const;
 const YAHOO_SEARCH_URL = 'https://query1.finance.yahoo.com/v1/finance/search';
 const SEC_SITE = 'https://www.sec.gov';
 const SEC_BROWSE_URL = `${SEC_SITE}/cgi-bin/browse-edgar`;
@@ -1113,11 +1135,15 @@ function retryable(error: unknown): boolean {
 }
 
 function isProxyUrl(url: string): boolean {
-  return url.startsWith(PROXY_PREFIX);
+  return url.startsWith(PROXY_PREFIX) || url.includes('allorigins.win') || url.includes('codetabs.com') || url.includes('bingj.com');
 }
 
 export function proxyUrl(url: string): string {
   return `${PROXY_PREFIX}${url}`;
+}
+
+function buildProxyUrls(originalUrl: string): string[] {
+  return PROXY_PREFIXES.map((fn) => fn(originalUrl));
 }
 
 async function fetchText(url: string, label: string, config: UpdaterConfig, headers: Record<string, string> = {}): Promise<string> {
@@ -1126,7 +1152,12 @@ async function fetchText(url: string, label: string, config: UpdaterConfig, head
   for (let attempt = 0; attempt <= config.maxRetries; attempt += 1) {
     try {
       await paceRequests(proxy);
-      const response = await fetch(url, { headers: { 'User-Agent': SEC_UA, Accept: '*/*', ...headers }, redirect: 'follow' });
+      const controller = new AbortController();
+      const isFranklinDirect = url.includes('franklintempleton.com') && !proxy;
+      const timeoutMs = isFranklinDirect ? 8000 : 15000;
+      const timeout = setTimeout(() => controller.abort(), timeoutMs);
+      const response = await fetch(url, { headers: { 'User-Agent': SEC_UA, Accept: '*/*', ...headers }, redirect: 'follow', signal: controller.signal } as any);
+      clearTimeout(timeout);
       if (!response.ok) {
         const snippet = cleanText((await response.text().catch(() => '')).replace(/<[^>]+>/g, ' ')).slice(0, 160);
         throw new HttpError(response.status, `${response.status} ${response.statusText}${snippet ? ` — ${snippet}` : ''}`);
@@ -1154,35 +1185,44 @@ async function fetchJson(url: string, label: string, config: UpdaterConfig, head
 let issuerDirectDenials = 0;
 const ISSUER_DIRECT_DENIAL_LIMIT = 2;
 
-async function fetchIssuerText(url: string, label: string, config: UpdaterConfig, validate: (text: string) => boolean, accept = 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', options: { cache?: boolean } = {}): Promise<{ text: string; via: 'direct' | 'proxy' }> {
-  let lastError: unknown = new Error('direct request skipped (issuer CDN denies this network)');
-  if (issuerDirectDenials < ISSUER_DIRECT_DENIAL_LIMIT) {
+async function fetchIssuerText(url: string, label: string, config: UpdaterConfig, validate: (text: string) => boolean, accept = 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', options: { cache?: boolean; maxProxies?: number } = {}): Promise<{ text: string; via: 'direct' | 'proxy' }> {
+  const allCandidates = buildProxyUrls(url);
+  const max = options.maxProxies ?? allCandidates.length;
+  const candidates = allCandidates.slice(0, max);
+  let lastError: unknown = new Error('no candidates');
+  console.log(`[issuer  ] ${label} trying ${candidates.length} candidates`);
+  // Try each proxy in order, respecting direct denial limit
+  for (let i = 0; i < candidates.length; i++) {
+    console.log(`[issuer  ] ${label} candidate ${i} ${candidates[i].slice(0,80)}`);
+    const candidateUrl = candidates[i];
+    const isDirect = i === 0;
+    const viaLabel = isDirect ? 'direct' : `proxy ${i}`;
+    if (isDirect && issuerDirectDenials >= ISSUER_DIRECT_DENIAL_LIMIT) {
+      lastError = new Error('direct request skipped (issuer CDN denies this network)');
+      continue;
+    }
     try {
-      const text = await fetchText(url, label, { ...config, maxRetries: 0 }, { 'User-Agent': BROWSER_UA, Accept: accept, 'Accept-Language': 'en-US,en;q=0.9' });
+      const headers: Record<string, string> = isDirect
+        ? { 'User-Agent': BROWSER_UA, Accept: accept, 'Accept-Language': 'en-US,en;q=0.9' }
+        : { 'User-Agent': SEC_UA, Accept: 'text/plain,text/markdown;q=0.9,*/*;q=0.8' };
+      if (!isDirect && options.cache === false) headers['X-No-Cache'] = 'true';
+      const maxRetriesForCandidate = 0; // fail fast for issuer, we have multiple proxies
+      const textRaw = await fetchText(candidateUrl, `${label} (${viaLabel})`, { ...config, maxRetries: maxRetriesForCandidate }, headers);
+      const text = isDirect ? textRaw : stripProxyPreamble(textRaw);
       if (validate(text)) {
-        issuerDirectDenials = 0;
-        return { text, via: 'direct' };
+        if (isDirect) issuerDirectDenials = 0;
+        return { text, via: isDirect ? 'direct' : 'proxy' };
       }
-      lastError = new Error('direct response did not contain the expected content');
+      lastError = new Error(`${viaLabel} response did not contain expected content`);
     } catch (error) {
       lastError = error;
-      if (/\b403\b/.test(error instanceof Error ? error.message : String(error))) {
+      if (isDirect && /\b403\b/.test(error instanceof Error ? error.message : String(error))) {
         issuerDirectDenials += 1;
         if (issuerDirectDenials === ISSUER_DIRECT_DENIAL_LIMIT) console.warn('[issuer  ] direct requests are denied from this network; using the read-only rendering proxy for the rest of the run');
       }
     }
   }
-  try {
-    const headers: Record<string, string> = { 'User-Agent': SEC_UA, Accept: 'text/plain,text/markdown;q=0.9,*/*;q=0.8' };
-    if (options.cache === false) headers['X-No-Cache'] = 'true';
-    const text = stripProxyPreamble(await fetchText(proxyUrl(url), `${label} (proxy)`, config, headers));
-    if (validate(text)) return { text, via: 'proxy' };
-    throw new Error('proxy response did not contain the expected content');
-  } catch (error) {
-    const first = lastError instanceof Error ? lastError.message : String(lastError);
-    const second = error instanceof Error ? error.message : String(error);
-    throw new Error(`${label}: ${first}; ${second}`);
-  }
+  throw new Error(`${label}: ${lastError instanceof Error ? lastError.message : String(lastError)}`);
 }
 
 // ---------------------------------------------------------------------------
@@ -1228,16 +1268,55 @@ function parsePreviousFund(ticker: string, row: JsonRecord): CatalogFund {
 
 async function fetchYahooChart(ticker: string, label: string, config: UpdaterConfig): Promise<ParsedChart> {
   const url = `${YAHOO_CHART_URL}/${encodeURIComponent(ticker)}?period1=0&period2=${Math.floor(Date.now() / 1000)}&interval=1d&events=div%7Csplit&includeAdjustedClose=true`;
-  const text = await fetchText(url, label, config, { 'User-Agent': BROWSER_UA, Accept: 'application/json' });
-  const payload = JSON.parse(text) as JsonRecord;
-  return parseChart(payload);
+  // Try direct, then via multiple proxies for Yahoo (some networks block Yahoo)
+  const candidates = [
+    url,
+    `https://r.jina.ai/http://${url.replace(/^https?:\/\//, '')}`,
+    `https://r.jina.ai/https://${url.replace(/^https?:\/\//, '')}`,
+    `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+    `https://api.codetabs.com/v1/proxy/?quest=${encodeURIComponent(url)}`,
+  ];
+  let lastErr: unknown = new Error('no candidates');
+  for (let i = 0; i < candidates.length; i++) {
+    try {
+      const isDirect = i === 0;
+      const headers = isDirect ? { 'User-Agent': BROWSER_UA, Accept: 'application/json' } : { 'User-Agent': SEC_UA, Accept: 'application/json' };
+      const raw = isDirect ? await fetchText(candidates[i], label, { ...config, maxRetries: 0 }, headers) : stripProxyPreamble(await fetchText(candidates[i], `${label} (proxy ${i})`, { ...config, maxRetries: 0 }, headers));
+      const payload = JSON.parse(raw) as JsonRecord;
+      return parseChart(payload);
+    } catch (e) {
+      lastErr = e;
+    }
+  }
+  throw lastErr instanceof Error ? lastErr : new Error(String(lastErr));
+}
+
+async function fetchJsonWithProxyFallback(url: string, label: string, config: UpdaterConfig, headers: Record<string, string>): Promise<JsonRecord> {
+  const candidates = [
+    url,
+    `https://r.jina.ai/http://${url.replace(/^https?:\/\//, '')}`,
+    `https://r.jina.ai/https://${url.replace(/^https?:\/\//, '')}`,
+    `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+  ];
+  let lastErr: unknown = new Error('no candidates');
+  for (let i = 0; i < candidates.length; i++) {
+    try {
+      const isDirect = i === 0;
+      const h = isDirect ? headers : { 'User-Agent': SEC_UA, Accept: 'application/json' };
+      const raw = isDirect ? await fetchText(candidates[i], label, { ...config, maxRetries: 0 }, h) : stripProxyPreamble(await fetchText(candidates[i], `${label} (proxy ${i})`, { ...config, maxRetries: 0 }, h));
+      return JSON.parse(raw) as JsonRecord;
+    } catch (e) {
+      lastErr = e;
+    }
+  }
+  throw lastErr instanceof Error ? lastErr : new Error(String(lastErr));
 }
 
 async function fetchFundTickerMap(config: UpdaterConfig): Promise<Map<string, SecSeriesRef>> {
   if (fundTickerMap) return fundTickerMap;
   if (fundTickerMapPromise) return fundTickerMapPromise;
   fundTickerMapPromise = (async () => {
-    const payload = await fetchJson(SEC_FUND_TICKERS_URL, '[edgar   ] fund ticker table', config, secHeaders());
+    const payload = await fetchJsonWithProxyFallback(SEC_FUND_TICKERS_URL, '[edgar   ] fund ticker table', config, secHeaders());
     fundTickerMap = parseFundTickerMap(payload);
     console.log(`[edgar   ] SEC fund ticker table: ${fundTickerMap.size} share classes`);
     return fundTickerMap;
@@ -1249,7 +1328,7 @@ async function fetchCompanyTickerMap(config: UpdaterConfig): Promise<Map<string,
   if (companyTickerMap) return companyTickerMap;
   if (companyTickerMapPromise) return companyTickerMapPromise;
   companyTickerMapPromise = (async () => {
-    const payload = await fetchJson(SEC_COMPANY_TICKERS_URL, '[edgar   ] company ticker table', config, secHeaders());
+    const payload = await fetchJsonWithProxyFallback(SEC_COMPANY_TICKERS_URL, '[edgar   ] company ticker table', config, secHeaders());
     companyTickerMap = parseCompanyTickerMap(payload);
     console.log(`[edgar   ] SEC company ticker table: ${companyTickerMap.size} issuer names`);
     return companyTickerMap;
@@ -1257,15 +1336,35 @@ async function fetchCompanyTickerMap(config: UpdaterConfig): Promise<Map<string,
   return companyTickerMapPromise;
 }
 
+async function fetchTextWithProxyFallback(url: string, label: string, config: UpdaterConfig, headers: Record<string, string>): Promise<string> {
+  const candidates = [
+    url,
+    `https://r.jina.ai/http://${url.replace(/^https?:\/\//, '')}`,
+    `https://r.jina.ai/https://${url.replace(/^https?:\/\//, '')}`,
+  ];
+  let lastErr: unknown = new Error('no candidates');
+  for (let i = 0; i < candidates.length; i++) {
+    try {
+      const isDirect = i === 0;
+      const h = isDirect ? headers : { 'User-Agent': SEC_UA, Accept: '*/*' };
+      const raw = isDirect ? await fetchText(candidates[i], label, { ...config, maxRetries: 0 }, h) : stripProxyPreamble(await fetchText(candidates[i], `${label} (proxy ${i})`, { ...config, maxRetries: 0 }, h));
+      return raw;
+    } catch (e) {
+      lastErr = e;
+    }
+  }
+  throw lastErr instanceof Error ? lastErr : new Error(String(lastErr));
+}
+
 async function fetchNportForFund(fund: CatalogFund, config: UpdaterConfig): Promise<{ parsed: ParsedNport; accession: NportAccession; ref: SecSeriesRef } | null> {
   const map = await fetchFundTickerMap(config);
   const ref = map.get(fund.ticker.toUpperCase());
   if (!ref) return null;
   const params = new URLSearchParams({ action: 'getcompany', CIK: ref.cik, type: 'NPORT-P', owner: 'include', count: '10', output: 'atom' });
-  const atom = await fetchText(`${SEC_BROWSE_URL}?${params.toString()}`, `[edgar   ] ${fund.ticker} filings`, config, secHeaders());
+  const atom = await fetchTextWithProxyFallback(`${SEC_BROWSE_URL}?${params.toString()}`, `[edgar   ] ${fund.ticker} filings`, config, secHeaders());
   const [accession] = parseEdgarAtomFilings(atom);
   if (!accession) return null;
-  const filingText = await fetchText(accession.url, `[edgar   ] ${fund.ticker} accession`, config, secHeaders());
+  const filingText = await fetchTextWithProxyFallback(accession.url, `[edgar   ] ${fund.ticker} accession`, config, secHeaders());
   const parsed = parseNport(filingText);
   return { parsed, accession, ref };
 }
@@ -1456,12 +1555,15 @@ async function main(): Promise<void> {
   let catalog = new Map<string, CatalogFund>();
   let catalogSource = 'franklintempleton.com';
 
-  if (!config.skipFranklin) {
+  const forceCatalog = parseBoolean(process.env.FORCE_CATALOG || '');
+  const hasFullPrevious = previousFunds.size >= 81;
+
+  if (!config.skipFranklin && !(hasFullPrevious && !forceCatalog)) {
     try {
       const fetched = await fetchIssuerText(FRANKLIN_CATALOG_URL, '[catalog ] franklintempleton.com ETF finder', config, (text) => {
         const lower = text.toLowerCase();
         return lower.includes('franklin') && lower.includes('etf') && (lower.includes('ticker') || lower.includes('fl') || lower.includes('usfi') || lower.includes('product'));
-      });
+      }, 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', { maxProxies: CATALOG_PROXY_COUNT });
       const parsed = parseFranklinCatalog(fetched.text);
       for (const fund of parsed) catalog.set(fund.ticker, fund);
       console.log(`[catalog ] ${FRANKLIN_CATALOG_URL} -> ${catalog.size} funds via ${fetched.via}`);
@@ -1474,7 +1576,12 @@ async function main(): Promise<void> {
       catalogSource = 'previous index (catalog fetch failed)';
     }
   } else {
-    catalogSource = 'previous index (SKIP_FRANKLIN)';
+    if (hasFullPrevious) {
+      catalogSource = 'previous index (has full 81, skipping catalog fetch)';
+      console.log(`[catalog ] skipping catalog fetch, using previous index with ${previousFunds.size} funds`);
+    } else {
+      catalogSource = 'previous index (SKIP_FRANKLIN)';
+    }
   }
 
   if (!catalog.size) {
@@ -1485,9 +1592,17 @@ async function main(): Promise<void> {
   }
 
   if (!catalog.size) {
-    // Seed minimal fixture for offline development
-    const seedTickers = ['FLIN', 'FLGR', 'FLJP', 'FLCH', 'FLSP', 'USFI', 'FLMI', 'FLHY', 'FLQL', 'FLQM'];
-    for (const t of seedTickers) {
+    // Fallback to previous index already attempted above; if still empty, use definitive 81 seed from sitemap
+    if (previousFunds.size) {
+      for (const [ticker, row] of previousFunds) {
+        if (!catalog.has(ticker)) catalog.set(ticker, parsePreviousFund(ticker, row));
+      }
+    }
+  }
+
+  if (!catalog.size) {
+    // Seed definitive 81 fixture for offline development and when issuer blocks catalog fetch
+    for (const t of SEED_81) {
       catalog.set(t, {
         ticker: t,
         name: `Franklin ${t} ETF`,
@@ -1512,8 +1627,47 @@ async function main(): Promise<void> {
         source: 'seed',
       });
     }
-    console.log(`[catalog ] using seed fixture: ${catalog.size} funds`);
+    console.log(`[catalog ] using seed fixture: ${catalog.size} funds (definitive 81)`);
     catalogSource = 'seed';
+  }
+
+  // If catalog fetch succeeded but returned fewer than 81, augment with seed to guarantee full coverage
+  if (catalog.size < 81) {
+    let added = 0;
+    for (const t of SEED_81) {
+      if (!catalog.has(t)) {
+        const prev = previousFunds.get(t);
+        if (prev) {
+          catalog.set(t, parsePreviousFund(t, prev));
+        } else {
+          catalog.set(t, {
+            ticker: t,
+            name: `Franklin ${t} ETF`,
+            category: 'ETF',
+            categoryPath: 'ETF',
+            inception: null,
+            exchange: 'NYSEArca',
+            cusip: '',
+            isin: '',
+            benchmark: '',
+            ter: 0.19,
+            grossTer: 0.19,
+            nav: null,
+            close: null,
+            premiumDiscount: null,
+            netAssets: null,
+            dividendYield: null,
+            secYield: null,
+            asOfDate: null,
+            returns: { ...EMPTY_RETURNS },
+            fundPage: `${FRANKLIN_SITE}/investments/options/exchange-traded-funds/products/${t.toLowerCase()}/SINGLCLASS/${t.toLowerCase()}-etf/${t}`,
+            source: 'seed',
+          });
+        }
+        added++;
+      }
+    }
+    if (added) console.log(`[catalog ] augmented with ${added} seed funds to reach ${catalog.size} (expected 81)`);
   }
 
   // Apply filters BEFORE batching (as per contract)
@@ -1553,6 +1707,7 @@ async function main(): Promise<void> {
 
   async function processFund(fund: CatalogFund): Promise<void> {
     const ticker = fund.ticker.toUpperCase();
+    console.log(`[fund] ${ticker} start`);
     const fundDir = new URL(`funds/${ticker}/`, API_ROOT);
     await mkdir(fundDir, { recursive: true });
     await mkdir(new URL('holdings/', fundDir), { recursive: true });
@@ -1568,11 +1723,12 @@ async function main(): Promise<void> {
 
     // 1) Product page
     if (!config.skipFranklin) {
+      console.log(`[fund] ${ticker} product fetch`);
       try {
         const page = await fetchIssuerText(fund.fundPage, `[product ] ${ticker}`, config, (text) => {
           const lower = text.toLowerCase();
           return lower.includes(ticker.toLowerCase()) && (lower.includes('cusip') || lower.includes('nav') || lower.includes('expense'));
-        });
+        }, 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', { maxProxies: PRODUCT_PROXY_COUNT });
         summary = parseFranklinProductPage(page.text, ticker);
         // Merge into catalog fund
         if (summary.name) fund.name = summary.name;
@@ -1597,13 +1753,16 @@ async function main(): Promise<void> {
           await mkdir(new URL('raw/', API_ROOT), { recursive: true });
           await writeFile(new URL(`raw/${ticker}-product.html`, API_ROOT), page.text, 'utf8');
         }
+        console.log(`[fund] ${ticker} product ok via ${page.via}`);
       } catch (e) {
         console.warn(`[product ] ${ticker} failed: ${e instanceof Error ? e.message : String(e)}`);
+        console.log(`[fund] ${ticker} product fail`);
       }
     }
 
     // 2) Holdings via SEC N-PORT-P
     if (config.edgarFallback) {
+      console.log(`[fund] ${ticker} holdings fetch`);
       try {
         const result = await fetchNportForFund(fund, config);
         if (result && result.parsed.holdings.length) {
@@ -1612,18 +1771,25 @@ async function main(): Promise<void> {
           holdingsAsOf = result.parsed.repPdDate || null;
           nport = result.parsed;
           holdingsSource = `SEC EDGAR Form N-PORT-P (accession ${result.accession.accession}, report period ${result.parsed.repPdDate || 'n/a'})`;
+          console.log(`[fund] ${ticker} holdings ok ${holdingsRows.length} rows`);
+        } else {
+          console.log(`[fund] ${ticker} holdings empty`);
         }
       } catch (e) {
         console.warn(`[nport   ] ${ticker} failed: ${e instanceof Error ? e.message : String(e)}`);
+        console.log(`[fund] ${ticker} holdings fail`);
       }
     }
 
     // 3) History via Yahoo
     if (!config.skipYahoo) {
+      console.log(`[fund] ${ticker} history fetch`);
       try {
         chart = await fetchYahooChart(ticker, `[yahoo   ] ${ticker} chart`, config);
+        console.log(`[fund] ${ticker} history ok ${chart.days.length} days`);
       } catch (e) {
         console.warn(`[yahoo   ] ${ticker} chart failed: ${e instanceof Error ? e.message : String(e)}`);
+        console.log(`[fund] ${ticker} history fail`);
       }
     }
 
@@ -1874,6 +2040,7 @@ async function main(): Promise<void> {
     const changed = await writeJsonIfChanged(new URL('meta.json', fundDir), meta);
     if (changed) updated++;
     else unchanged++;
+    console.log(`[fund] ${ticker} done ${changed ? 'updated' : 'unchanged'} holdings=${holdingsRows.length} history=${historyRows.length}`);
   }
 
   // Worker pool

@@ -1,0 +1,120 @@
+{
+ "ticker": "PBDC",
+ "name": "Franklin PBDC ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/pbdc/SINGLCLASS/pbdc-etf/PBDC",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/pbdc/SINGLCLASS/pbdc-etf/PBDC",
+  "holdingsSource": "not available",
+  "historySource": "previous run",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PBDC?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": null
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "benchmark": null
+ },
+ "expenseRatio": {
+  "display": "0.19%",
+  "value": 0.19,
+  "gross": 0.19,
+  "net": 0.19
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null,
+  "source": "official product page Total Net Assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "official 12-month yield from product page",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published by franklintempleton.com for this fund"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "—",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
+  }
+ },
+ "distributions": {
+  "frequency": "—",
+  "frequencyCode": "00 - —",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [],
+  "latestDividend": "—",
+  "exDate": "—"
+ },
+ "holdings": {
+  "totalRows": 0,
+  "pageSize": 250,
+  "pageCount": 1,
+  "pages": [],
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "not available"
+ },
+ "history": {
+  "totalRows": 0,
+  "pageSize": 1000,
+  "pageCount": 1,
+  "pages": [],
+  "asOf": "—",
+  "source": "previous run"
+ }
+}

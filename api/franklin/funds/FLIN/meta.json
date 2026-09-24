@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "CUSIPCODE",
   "isin": "US35473P7693",
-  "benchmark": "FTSE India Capped Index-NR"
+  "benchmark": null
  },
  "expenseRatio": {
   "display": "0.19%",
@@ -50,7 +50,7 @@
  "yields": {
   "dividendYield": 0.42,
   "dividendYieldText": "0.42%",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYieldKind": "official 12-month yield from product page",
   "secYield": 2.09,
   "secYieldText": "2.09%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page"
@@ -89,97 +89,16 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-Annual This fund is an ex-Dividend fund",
-  "frequencyCode": "06 - Semi-annually",
+  "frequency": "—",
+  "frequencyCode": "00 - —",
   "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
   ],
-  "rows": [
-   {
-    "Ex-Date": "Dec 19 2025",
-    "Dividend": "0.1520",
-    "searchIndex": "dec 19 2025 0.152"
-   },
-   {
-    "Ex-Date": "Jun 20 2025",
-    "Dividend": "0.0640",
-    "searchIndex": "jun 20 2025 0.064"
-   },
-   {
-    "Ex-Date": "Dec 20 2024",
-    "Dividend": "0.2440",
-    "searchIndex": "dec 20 2024 0.244"
-   },
-   {
-    "Ex-Date": "Jun 21 2024",
-    "Dividend": "0.3540",
-    "searchIndex": "jun 21 2024 0.354"
-   },
-   {
-    "Ex-Date": "Dec 28 2023",
-    "Dividend": "0.0050",
-    "searchIndex": "dec 28 2023 0.005"
-   },
-   {
-    "Ex-Date": "Dec 15 2023",
-    "Dividend": "0.2500",
-    "searchIndex": "dec 15 2023 0.25"
-   },
-   {
-    "Ex-Date": "Dec 16 2022",
-    "Dividend": "0.2120",
-    "searchIndex": "dec 16 2022 0.212"
-   },
-   {
-    "Ex-Date": "Dec 30 2021",
-    "Dividend": "0.0140",
-    "searchIndex": "dec 30 2021 0.014"
-   },
-   {
-    "Ex-Date": "Dec 13 2021",
-    "Dividend": "0.6610",
-    "searchIndex": "dec 13 2021 0.661"
-   },
-   {
-    "Ex-Date": "Jun 10 2021",
-    "Dividend": "0.0460",
-    "searchIndex": "jun 10 2021 0.046"
-   },
-   {
-    "Ex-Date": "Dec 14 2020",
-    "Dividend": "0.0580",
-    "searchIndex": "dec 14 2020 0.058"
-   },
-   {
-    "Ex-Date": "Jun 11 2020",
-    "Dividend": "0.1210",
-    "searchIndex": "jun 11 2020 0.121"
-   },
-   {
-    "Ex-Date": "Dec 11 2019",
-    "Dividend": "0.0320",
-    "searchIndex": "dec 11 2019 0.032"
-   },
-   {
-    "Ex-Date": "Jun 11 2019",
-    "Dividend": "0.1750",
-    "searchIndex": "jun 11 2019 0.175"
-   },
-   {
-    "Ex-Date": "Dec 20 2018",
-    "Dividend": "0.1370",
-    "searchIndex": "dec 20 2018 0.137"
-   },
-   {
-    "Ex-Date": "Jun 20 2018",
-    "Dividend": "0.0660",
-    "searchIndex": "jun 20 2018 0.066"
-   }
-  ],
-  "latestDividend": "0.152",
-  "exDate": "Dec 19 2025"
+  "rows": [],
+  "latestDividend": "—",
+  "exDate": "—"
  },
  "holdings": {
   "totalRows": 10,
