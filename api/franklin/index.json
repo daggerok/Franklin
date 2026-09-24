@@ -173,7 +173,7 @@
     {
       "ticker": "DIVI",
       "name": "DIVI ETF",
-      "category": "table_morningstar-table_component_ts.063ec800971d3d14.js\",\"apps_core-web_src_app_components_products_performance_performance_component_ts.f82897fc04f24e37.js\",\"apps_core-web_src_app_components_products_portfolio_portfolio_component_ts.a4dfd66f92cc1ad3.js\",\"apps_core-web_src_app_components_products_pricing_pricing_component_ts.4ceb68eee1eec75c.js\",\"apps_core-web_src_app_components_products_product-cards_product-cards_component_ts.e102f7332ac280f1.js\",\"apps_core-web_src_app_components_secondary-menu_secondary-menu_component_ts.1901b32bea150e1f.js\",\"apps_core-web_src_app_pages_gateway-page_gateway-page_component_ts.dcf05cc67a7fcdbb.js\",\"common.91cf7c4d0c050e8e.js\",\"default-dist_libs_ng_ui-insights_fesm2022_frk-ng-ui-insights_mjs.23ec7a48479dd22b.js\",\"default-dist_libs_ng_ui-literature_fesm2022_frk-ng-ui-literature_mjs.2517fd2a7b6a7295.js\",\"default-dist_libs_ng_ui-products-listing_fesm2022_frk-ng-ui-products-listing_mjs.bcdb8d984e42cd18.js\",\"default-dist_libs_ng_ui-products_fesm2022_frk-ng-ui-products_mjs.45c4ce457c55a07a.js\",\"default-dist_libs_shared_data-services_products_esm_js.70c9d83219a2665a.js\",\"default-node_modules_pnpm_html2canvas_1_4_1_node_modules_html2canvas_dist_html2canvas_js.c604f40b87af6edf.js\",\"default-node_modules_pnpm_jspdf_4_1_0_node_modules_jspdf_dist_jspdf_es_min_js-node_modules_pn-40b5e8.7d2f14fb7e8d7f45.js\",\"default-node_modules_pnpm_lodash-es_4_17_21_node_modules_lodash-es__baseIteratee_js-node_modu-85b28e.7873d14217087905.js\",\"default-node_modules_pnpm_xlsx_0_18_5_node_modules_xlsx_xlsx_mjs.3c742b207335a6b9.js\",\"dist_libs_ng_ui-interactive_esm2022_muni-ladder-tool_frk-ng-ui-interactive-muni-ladder-tool_mjs.b6a6259d65e0da1a.js\",\"dist_libs_ng_ui-interactive_esm2022_tax-aware-tool_frk-ng-ui-interactive-tax-aware-tool_mjs.703c606b1d2ef531.js\",\"dist_libs_ng_ui-interactive_esm2022_us-servicing_frk-ng-ui-interactive-us-servicing_mjs.a327f23558fb4161.js\",\"dist_libs_ng_ui-interactive_esm2022_us-tax-listing_frk-ng-ui-interactive-us-tax-listing_mjs.f9315b3c38bf8112.js\",\"dist_libs_ng_ui-site-search_fesm2022_frk-ng-ui-site-search_mjs.55d502ae5198adc7.js\",\"main.f09e5fef4315f55f.js\",\"node_modules_pnpm_canvg_3_0_11_node_modules_canvg_lib_index_es_js.0dd1aa1ecac61806.js\",\"node_modules_pnpm_date-fns_4_1_0_node_modules_date-fns_subYears_js.0c772544b60835f4.js\",\"node_modules_pnpm_dompurify_3_3_1_node_modules_dompurify_dist_purify_es_mjs.ba1f8ee0d2f1dcd6.js\",\"node_modules_pnpm_duetds_date-picker_1_4_0_node_modules_duetds_date-picker_dist_esm_duet-date-3357d5.ebbdbc0fef914296.js\",\"node_modules_pnpm_highcharts_12_6_0_jspdf_4_1_0_node_modules_highcharts_esm_highcharts_js.cf1d94357f060eb0.js\",\"node_modules_pnpm_highcharts_12_6_0_jspdf_4_1_0_node_modules_highcharts_modules_accessibility_js.b0d57b1875883bac.js\",\"node_modules_pnpm_highcharts_12_6_0_jspdf_4_1_0_node_modules_highcharts_modules_annotations_js.b828a9279baf1775.js\",\"node_modules_pnpm_prism_web-components_https_nexus1_corp_frk_com_repository_prism-web-compone-42c4bf.8e3f0063ac80c58a.js\",\"polyfills-css-shim.79a999ed75ca0961.js\",\"polyfills.8a1309d3a6425f58.js\",\"runtime.abcbf84f1e19ade8.js\"];",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/divi/SINGLCLASS/divi-etf/DIVI",
       "dataFile": "./funds/DIVI/meta.json",
       "cusip": null,
@@ -251,7 +251,7 @@
     {
       "ticker": "DVAL",
       "name": "Franklin U.S. Large Cap Multifactor Index ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/dval/SINGLCLASS/dval-etf/DVAL",
       "dataFile": "./funds/DVAL/meta.json",
       "cusip": null,
@@ -563,7 +563,7 @@
     {
       "ticker": "FFOG",
       "name": "Franklin Focused Growth ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ffog/SINGLCLASS/ffog-etf/FFOG",
       "dataFile": "./funds/FFOG/meta.json",
       "cusip": null,
@@ -875,7 +875,7 @@
     {
       "ticker": "FLBL",
       "name": "Franklin FLBL ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flbl/SINGLCLASS/flbl-etf/FLBL",
       "dataFile": "./funds/FLBL/meta.json",
       "cusip": null,
@@ -1031,7 +1031,7 @@
     {
       "ticker": "FLCA",
       "name": "Franklin FTSE Canada ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flca/SINGLCLASS/flca-etf/FLCA",
       "dataFile": "./funds/FLCA/meta.json",
       "cusip": null,
@@ -1109,7 +1109,7 @@
     {
       "ticker": "FLCB",
       "name": "Franklin FLCB ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flcb/SINGLCLASS/flcb-etf/FLCB",
       "dataFile": "./funds/FLCB/meta.json",
       "cusip": null,
@@ -1187,7 +1187,7 @@
     {
       "ticker": "FLCH",
       "name": "Franklin FTSE China ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flch/SINGLCLASS/flch-etf/FLCH",
       "dataFile": "./funds/FLCH/meta.json",
       "cusip": null,
@@ -1265,7 +1265,7 @@
     {
       "ticker": "FLCO",
       "name": "Franklin FTSE China ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flco/SINGLCLASS/flco-etf/FLCO",
       "dataFile": "./funds/FLCO/meta.json",
       "cusip": null,
@@ -1343,7 +1343,7 @@
     {
       "ticker": "FLEE",
       "name": "Franklin FTSE Europe ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flee/SINGLCLASS/flee-etf/FLEE",
       "dataFile": "./funds/FLEE/meta.json",
       "cusip": null,
@@ -1421,7 +1421,7 @@
     {
       "ticker": "FLEU",
       "name": "Franklin FTSE Europe ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/fleu/SINGLCLASS/fleu-etf/FLEU",
       "dataFile": "./funds/FLEU/meta.json",
       "cusip": null,
@@ -1499,7 +1499,7 @@
     {
       "ticker": "FLGB",
       "name": "Franklin FTSE United Kingdom ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flgb/SINGLCLASS/flgb-etf/FLGB",
       "dataFile": "./funds/FLGB/meta.json",
       "cusip": null,
@@ -1577,7 +1577,7 @@
     {
       "ticker": "FLGR",
       "name": "Franklin U.S. Large Cap Multifactor Index ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/27774/SINGLCLASS/franklin-u-s-large-cap-multifactor-index-etf/FLGR",
       "dataFile": "./funds/FLGR/meta.json",
       "cusip": "35473P123",
@@ -1733,7 +1733,7 @@
     {
       "ticker": "FLHY",
       "name": "Franklin High Yield Corporate ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flhy/SINGLCLASS/flhy-etf/FLHY",
       "dataFile": "./funds/FLHY/meta.json",
       "cusip": null,
@@ -1889,7 +1889,7 @@
     {
       "ticker": "FLIN",
       "name": "Franklin FTSE India ETF",
-      "category": "[5](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN#footnote_5)",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN",
       "dataFile": "./funds/FLIN/meta.json",
       "cusip": "CUSIPCODE",
@@ -2591,7 +2591,7 @@
     {
       "ticker": "FLQM",
       "name": "Franklin U.S. Mid Cap Multifactor Index ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flqm/SINGLCLASS/flqm-etf/FLQM",
       "dataFile": "./funds/FLQM/meta.json",
       "cusip": null,
@@ -2981,7 +2981,7 @@
     {
       "ticker": "FLSW",
       "name": "Franklin FTSE Switzerland ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flsw/SINGLCLASS/flsw-etf/FLSW",
       "dataFile": "./funds/FLSW/meta.json",
       "cusip": null,
@@ -3137,7 +3137,7 @@
     {
       "ticker": "FLUD",
       "name": "Franklin USD Investment Grade Corporate ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flud/SINGLCLASS/flud-etf/FLUD",
       "dataFile": "./funds/FLUD/meta.json",
       "cusip": null,
@@ -3449,7 +3449,7 @@
     {
       "ticker": "FTMA",
       "name": "Franklin U.S. Core Dividend Tilt Index ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftma/SINGLCLASS/ftma-etf/FTMA",
       "dataFile": "./funds/FTMA/meta.json",
       "cusip": null,
@@ -3839,7 +3839,7 @@
     {
       "ticker": "FTNJ",
       "name": "Franklin U.S. Core Dividend Tilt Index ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftnj/SINGLCLASS/ftnj-etf/FTNJ",
       "dataFile": "./funds/FTNJ/meta.json",
       "cusip": null,
@@ -4307,7 +4307,7 @@
     {
       "ticker": "INCE",
       "name": "INCE ETF",
-      "category": "table_morningstar-table_component_ts.063ec800971d3d14.js\",\"apps_core-web_src_app_components_products_performance_performance_component_ts.f82897fc04f24e37.js\",\"apps_core-web_src_app_components_products_portfolio_portfolio_component_ts.a4dfd66f92cc1ad3.js\",\"apps_core-web_src_app_components_products_pricing_pricing_component_ts.4ceb68eee1eec75c.js\",\"apps_core-web_src_app_components_products_product-cards_product-cards_component_ts.e102f7332ac280f1.js\",\"apps_core-web_src_app_components_secondary-menu_secondary-menu_component_ts.1901b32bea150e1f.js\",\"apps_core-web_src_app_pages_gateway-page_gateway-page_component_ts.dcf05cc67a7fcdbb.js\",\"common.91cf7c4d0c050e8e.js\",\"default-dist_libs_ng_ui-insights_fesm2022_frk-ng-ui-insights_mjs.23ec7a48479dd22b.js\",\"default-dist_libs_ng_ui-literature_fesm2022_frk-ng-ui-literature_mjs.2517fd2a7b6a7295.js\",\"default-dist_libs_ng_ui-products-listing_fesm2022_frk-ng-ui-products-listing_mjs.bcdb8d984e42cd18.js\",\"default-dist_libs_ng_ui-products_fesm2022_frk-ng-ui-products_mjs.45c4ce457c55a07a.js\",\"default-dist_libs_shared_data-services_products_esm_js.70c9d83219a2665a.js\",\"default-node_modules_pnpm_html2canvas_1_4_1_node_modules_html2canvas_dist_html2canvas_js.c604f40b87af6edf.js\",\"default-node_modules_pnpm_jspdf_4_1_0_node_modules_jspdf_dist_jspdf_es_min_js-node_modules_pn-40b5e8.7d2f14fb7e8d7f45.js\",\"default-node_modules_pnpm_lodash-es_4_17_21_node_modules_lodash-es__baseIteratee_js-node_modu-85b28e.7873d14217087905.js\",\"default-node_modules_pnpm_xlsx_0_18_5_node_modules_xlsx_xlsx_mjs.3c742b207335a6b9.js\",\"dist_libs_ng_ui-interactive_esm2022_muni-ladder-tool_frk-ng-ui-interactive-muni-ladder-tool_mjs.b6a6259d65e0da1a.js\",\"dist_libs_ng_ui-interactive_esm2022_tax-aware-tool_frk-ng-ui-interactive-tax-aware-tool_mjs.703c606b1d2ef531.js\",\"dist_libs_ng_ui-interactive_esm2022_us-servicing_frk-ng-ui-interactive-us-servicing_mjs.a327f23558fb4161.js\",\"dist_libs_ng_ui-interactive_esm2022_us-tax-listing_frk-ng-ui-interactive-us-tax-listing_mjs.f9315b3c38bf8112.js\",\"dist_libs_ng_ui-site-search_fesm2022_frk-ng-ui-site-search_mjs.55d502ae5198adc7.js\",\"main.f09e5fef4315f55f.js\",\"node_modules_pnpm_canvg_3_0_11_node_modules_canvg_lib_index_es_js.0dd1aa1ecac61806.js\",\"node_modules_pnpm_date-fns_4_1_0_node_modules_date-fns_subYears_js.0c772544b60835f4.js\",\"node_modules_pnpm_dompurify_3_3_1_node_modules_dompurify_dist_purify_es_mjs.ba1f8ee0d2f1dcd6.js\",\"node_modules_pnpm_duetds_date-picker_1_4_0_node_modules_duetds_date-picker_dist_esm_duet-date-3357d5.ebbdbc0fef914296.js\",\"node_modules_pnpm_highcharts_12_6_0_jspdf_4_1_0_node_modules_highcharts_esm_highcharts_js.cf1d94357f060eb0.js\",\"node_modules_pnpm_highcharts_12_6_0_jspdf_4_1_0_node_modules_highcharts_modules_accessibility_js.b0d57b1875883bac.js\",\"node_modules_pnpm_highcharts_12_6_0_jspdf_4_1_0_node_modules_highcharts_modules_annotations_js.b828a9279baf1775.js\",\"node_modules_pnpm_prism_web-components_https_nexus1_corp_frk_com_repository_prism-web-compone-42c4bf.8e3f0063ac80c58a.js\",\"polyfills-css-shim.79a999ed75ca0961.js\",\"polyfills.8a1309d3a6425f58.js\",\"runtime.abcbf84f1e19ade8.js\"];",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ince/SINGLCLASS/ince-etf/INCE",
       "dataFile": "./funds/INCE/meta.json",
       "cusip": null,
@@ -4385,7 +4385,7 @@
     {
       "ticker": "INCM",
       "name": "Franklin Income Focus ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/incm/SINGLCLASS/incm-etf/INCM",
       "dataFile": "./funds/INCM/meta.json",
       "cusip": null,
@@ -4463,7 +4463,7 @@
     {
       "ticker": "IQM",
       "name": "Franklin Intelligent Machines ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/iqm/SINGLCLASS/iqm-etf/IQM",
       "dataFile": "./funds/IQM/meta.json",
       "cusip": null,
@@ -4541,7 +4541,7 @@
     {
       "ticker": "LRGE",
       "name": "Franklin U.S. Large Cap Multifactor Index ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/lrge/SINGLCLASS/lrge-etf/LRGE",
       "dataFile": "./funds/LRGE/meta.json",
       "cusip": null,
@@ -4697,7 +4697,7 @@
     {
       "ticker": "LVHI",
       "name": "Franklin International Low Volatility High Dividend Index ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/lvhi/SINGLCLASS/lvhi-etf/LVHI",
       "dataFile": "./funds/LVHI/meta.json",
       "cusip": null,
@@ -5009,7 +5009,7 @@
     {
       "ticker": "PGRI",
       "name": "Franklin U.S. Equity Index ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/pgri/SINGLCLASS/pgri-etf/PGRI",
       "dataFile": "./funds/PGRI/meta.json",
       "cusip": null,
@@ -5477,7 +5477,7 @@
     {
       "ticker": "TINS",
       "name": "Franklin Intelligent Machines ETF",
-      "category": "TM ratings:**",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/tins/SINGLCLASS/tins-etf/TINS",
       "dataFile": "./funds/TINS/meta.json",
       "cusip": null,
@@ -5633,7 +5633,7 @@
     {
       "ticker": "USFI",
       "name": "BrandywineGLOBAL - U.S. Fixed Income ETF",
-      "category": "[8](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36405/SINGLCLASS/brandywine-global-u-s-fixed-income-etf/USFI#footnote_8)",
+      "category": "ETF",
       "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36405/SINGLCLASS/brandywine-global-u-s-fixed-income-etf/USFI",
       "dataFile": "./funds/USFI/meta.json",
       "cusip": "CUSIPCODE",

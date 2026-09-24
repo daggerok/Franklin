@@ -692,6 +692,39 @@ function isValidFundName(value: string): boolean {
   return true;
 }
 
+function isValidCategory(value: string): boolean {
+  const v = cleanText(value);
+  if (!v) return false;
+  if (v.length > 60) return false;
+  if (v.length < 2) return false;
+  if (/franklintempleton\.com/i.test(v)) return false;
+  if (/https?:\/\//i.test(v)) return false;
+  if (/node_modules/i.test(v)) return false;
+  if (/\.js\b/i.test(v)) return false;
+  if (/dist\/libs/i.test(v)) return false;
+  if (/apps_core/i.test(v)) return false;
+  if (v.includes('/') && v.includes('.js')) return false;
+  if (v.includes('**')) return false;
+  if (/^[\[\]\"']/.test(v)) return false;
+  if (v.startsWith('table_')) return false;
+  if (/\.mjs\b/i.test(v)) return false;
+  if (v.includes('ratings:**') || v.toLowerCase().includes('tm ratings')) return false;
+  // Reject if it looks like a footnote link: [5](https://...)
+  if (/^\[\d+\]\(https?:\/\//.test(v)) return false;
+  // Reject if contains multiple commas and quotes (JS bundle list)
+  if ((v.match(/,/g) || []).length > 3 && v.includes('.js')) return false;
+  // Valid categories are typically short like "Equity", "Fixed Income", "N/A", "India Equity", etc.
+  // Allow letters, spaces, &, -, /, parentheses
+  if (!/^[A-Za-z0-9\s&\/\-\(\)]+$/.test(v)) {
+    // Allow "N/A" and similar
+    if (v !== 'N/A' && !/^[A-Za-z\s&\-]+$/.test(v)) {
+      // If contains invalid chars like ", \, etc, reject
+      if (/[\"'`\[\]{}]/.test(v)) return false;
+    }
+  }
+  return true;
+}
+
 export function parseFranklinProductPage(text: string, ticker: string): ProductPageSummary {
   const original = String(text ?? '');
   const source = stripProxyPreamble(original);
@@ -755,8 +788,9 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
   const exchangeLabel = lookupLabel(lines, 'Listing Exchange') || lookupLabel(lines, /^Exchange$/i);
   const inceptionLabel = lookupLabel(lines, 'Fund Inception Date') || lookupLabel(lines, 'Inception Date');
   const benchmarkLabel = lookupLabel(lines, 'Benchmark') || lookupLabel(lines, 'Underlying Index');
-  const categoryLabel = lookupLabel(lines, 'Morningstar Category') || lookupLabel(lines, 'Morningstar');
-  const assetClassLabel = lookupLabel(lines, 'Asset Class') || lookupLabel(lines, /^Asset Class$/i);
+  // Strict category parsing: only exact "Morningstar Category", not generic "Morningstar" which matches rating disclaimer
+  const categoryLabelRaw = lookupLabel(lines, 'Morningstar Category');
+  const assetClassLabelRaw = lookupLabel(lines, 'Asset Class');
   const etfTypeLabel = lookupLabel(lines, 'ETF Type');
   const navLabel = lookupLabel(lines, /^NAV$/i) || lookupLabel(lines, 'NAV Calculation');
   const marketPriceLabel = lookupLabel(lines, 'Market Price') || lookupLabel(lines, 'Market Price Return');
@@ -802,8 +836,11 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
   const isin = extractIsin(labelText(isinLabel));
   const exchange = labelText(exchangeLabel) || 'NYSEArca';
   const benchmark = labelText(benchmarkLabel);
-  const morningstarCategory = labelText(categoryLabel) || labelText(assetClassLabel) || 'ETF';
-  const assetClass = labelText(assetClassLabel) || morningstarCategory;
+  // Validate categories – reject JS bundle garbage and footnote links
+  const rawMorningstar = labelText(categoryLabelRaw);
+  const rawAsset = labelText(assetClassLabelRaw);
+  const morningstarCategory = isValidCategory(rawMorningstar) ? rawMorningstar : (isValidCategory(rawAsset) ? rawAsset : 'ETF');
+  const assetClass = isValidCategory(rawAsset) ? rawAsset : (isValidCategory(rawMorningstar) ? rawMorningstar : 'ETF');
   const etfType = labelText(etfTypeLabel) || 'ETF';
 
   const inception = firstDate(labelText(inceptionLabel)) || firstDate(source);
@@ -1791,14 +1828,14 @@ async function main(): Promise<void> {
           return lower.includes(ticker.toLowerCase()) && (lower.includes('cusip') || lower.includes('nav') || lower.includes('expense'));
         }, 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', { maxProxies: PRODUCT_PROXY_COUNT });
         summary = parseFranklinProductPage(page.text, ticker);
-        // Merge into catalog fund – only valid names, never URL paths
+        // Merge into catalog fund – only valid names/categories, never URL paths or JS bundles
         if (summary.name && isValidFundName(summary.name)) fund.name = summary.name;
         if (summary.cusip) fund.cusip = summary.cusip;
         if (summary.isin) fund.isin = summary.isin;
         if (summary.exchange) fund.exchange = summary.exchange;
         if (summary.benchmark) fund.benchmark = summary.benchmark;
-        if (summary.morningstarCategory) { fund.category = summary.morningstarCategory; fund.categoryPath = summary.morningstarCategory; }
-        else if (summary.assetClass) { fund.category = summary.assetClass; fund.categoryPath = summary.assetClass; }
+        if (summary.morningstarCategory && isValidCategory(summary.morningstarCategory)) { fund.category = summary.morningstarCategory; fund.categoryPath = summary.morningstarCategory; }
+        else if (summary.assetClass && isValidCategory(summary.assetClass)) { fund.category = summary.assetClass; fund.categoryPath = summary.assetClass; }
         if (summary.totalExpenseRatio !== null) { fund.ter = summary.totalExpenseRatio; fund.grossTer = summary.grossExpenseRatio ?? summary.totalExpenseRatio; }
         if (summary.totalNetAssets !== null) fund.netAssets = summary.totalNetAssets;
         if (summary.nav !== null) fund.nav = summary.nav;
