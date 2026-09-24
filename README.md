@@ -1,7 +1,7 @@
 # Franklin
 
 <!-- message:
-implement ProShares brand ETFs site similar to how I build lots of other such sites
+implement Franklin brand ETFs site similar to how I build lots of other such sites
 
 <prerequisites_task>
 do a research on how was implemented these repositories:
@@ -17,6 +17,8 @@ do a research on how was implemented these repositories:
 - https://github.com/daggerok/WisdomTree
 - https://github.com/daggerok/VanEck
 - https://github.com/daggerok/Goldman-Sachs
+- https://github.com/daggerok/Neos
+- https://github.com/daggerok/ProShares
 
 you can check how does they similar looking for to each other and that similarity for me is very important
 </prerequisites_task>
@@ -24,11 +26,11 @@ you can check how does they similar looking for to each other and that similarit
 what is needed:
 
 <requirements>
-you must take in consideration when will be building our app: https://www.proshares.com/our-etfs/find-proshares-etfs
+you must take in consideration when will be building our app: https://www.franklintempleton.com/investments/options/exchange-traded-funds
 
 please make sure you used exactly same approaches and make sure you have done a research on how its best of all to get needed data 1st official and 2nd only if not everything is existen, then in addition you can use also some other publicly available or non official or calculated data...
 
-scripts must contains at least update-data.test.ts update-data.ts file
+scripts must contain at least update-data.test.ts update-data.ts file
 
 there should be index.html and app,tsx without ts config because we are using bun, so check carefully all my repos to make exactly similar solution but only different brand and all should works and looks exactly same as what I listed above (all of listed repos has https://daggerok.github.io/{name} published static web site, all data used by these sites are updated seapratly with a specific github workflow job
 
