@@ -1,173 +1,173 @@
 {
-    "ticker": "FTMA",
-    "name": "Franklin U.S. Core Dividend Tilt Index ETF",
-    "category": "ETF",
-    "categoryPath": "ETF",
-    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftma/SINGLCLASS/ftma-etf/FTMA",
-    "factSheet": null,
-    "source": {
-        "provider": "Franklin Templeton",
-        "market": "us",
-        "site": "https://www.franklintempleton.com",
-        "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-        "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftma/SINGLCLASS/ftma-etf/FTMA",
-        "holdingsSource": "not available",
-        "historySource": "Yahoo Finance public chart API",
-        "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FTMA?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-        "nportDoc": null
-    },
-    "identifiers": {
-        "cusip": null,
-        "isin": null,
-        "benchmark": null
-    },
-    "expenseRatio": {
-        "display": "0.19%",
-        "value": 0.19,
-        "gross": 0.19,
-        "net": 0.19
-    },
-    "nav": {
-        "display": "\u2014",
-        "value": null,
-        "asOfDate": null
-    },
-    "marketPrice": {
-        "display": "\u2014",
-        "value": null,
-        "asOfDate": null
-    },
-    "premiumDiscount": {
-        "display": "\u2014",
-        "value": null
-    },
-    "aum": {
-        "display": "\u2014",
-        "value": null,
-        "asOfDate": null,
-        "source": "not available"
-    },
-    "yields": {
-        "dividendYield": null,
-        "dividendYieldText": "\u2014",
-        "dividendYieldKind": "indicated from Yahoo dividends",
-        "secYield": null,
-        "secYieldText": "\u2014",
-        "secYieldKind": "not published by franklintempleton.com for this fund"
-    },
-    "returns": {
-        "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
-        "monthEnd": {
-            "asOfDate": "\u2014",
-            "ytd": null,
-            "ytdText": "\u2014",
-            "yr1": null,
-            "yr1Text": "\u2014",
-            "yr3": null,
-            "yr3Text": "\u2014",
-            "yr5": null,
-            "yr5Text": "\u2014",
-            "yr10": null,
-            "yr10Text": "\u2014",
-            "sinceInception": null,
-            "sinceInceptionText": "\u2014"
-        },
-        "quarterEnd": {
-            "asOfDate": "",
-            "ytd": null,
-            "ytdText": "\u2014",
-            "yr1": null,
-            "yr1Text": "\u2014",
-            "yr3": null,
-            "yr3Text": "\u2014",
-            "yr5": null,
-            "yr5Text": "\u2014",
-            "yr10": null,
-            "yr10Text": "\u2014",
-            "sinceInception": null,
-            "sinceInceptionText": "\u2014"
-        }
-    },
-    "distributions": {
-        "frequency": "Irregular",
-        "frequencyCode": "99 - Irregular",
-        "paymentsPerYear": null,
-        "headers": [
-            "Ex-Date",
-            "Dividend"
-        ],
-        "rows": [
-            {
-                "Ex-Date": "Sep 1 2026",
-                "Dividend": "0.0260",
-                "searchIndex": "sep 1 2026 0.026"
-            },
-            {
-                "Ex-Date": "Aug 3 2026",
-                "Dividend": "0.0310",
-                "searchIndex": "aug 3 2026 0.031"
-            },
-            {
-                "Ex-Date": "Jul 1 2026",
-                "Dividend": "0.0270",
-                "searchIndex": "jul 1 2026 0.027"
-            },
-            {
-                "Ex-Date": "Jun 1 2026",
-                "Dividend": "0.0270",
-                "searchIndex": "jun 1 2026 0.027"
-            },
-            {
-                "Ex-Date": "May 1 2026",
-                "Dividend": "0.0270",
-                "searchIndex": "may 1 2026 0.027"
-            },
-            {
-                "Ex-Date": "Apr 1 2026",
-                "Dividend": "0.0270",
-                "searchIndex": "apr 1 2026 0.027"
-            },
-            {
-                "Ex-Date": "Mar 2 2026",
-                "Dividend": "0.0250",
-                "searchIndex": "mar 2 2026 0.025"
-            },
-            {
-                "Ex-Date": "Feb 2 2026",
-                "Dividend": "0.0240",
-                "searchIndex": "feb 2 2026 0.024"
-            },
-            {
-                "Ex-Date": "Dec 19 2025",
-                "Dividend": "0.0340",
-                "searchIndex": "dec 19 2025 0.034"
-            },
-            {
-                "Ex-Date": "Dec 1 2025",
-                "Dividend": "0.0150",
-                "searchIndex": "dec 1 2025 0.015"
-            }
-        ],
-        "latestDividend": "0.026",
-        "exDate": "Sep 1 2026"
-    },
-    "holdings": {
-        "totalRows": 0,
-        "pageSize": 250,
-        "pageCount": 1,
-        "pages": [],
-        "asOfDate": null,
-        "asOf": "\u2014",
-        "source": "not available"
-    },
-    "history": {
-        "totalRows": 216,
-        "pageSize": 1000,
-        "pageCount": 1,
-        "pages": [
-            "./history/001.json"
-        ],
-        "asOf": "Sep 23 2026",
-        "source": "Yahoo Finance public chart API"
-    }
+ "ticker": "FTMA",
+ "name": "Exchange Traded Funds",
+ "category": "Asset Class",
+ "categoryPath": "Asset Class",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftma/SINGLCLASS/ftma-etf/FTMA",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftma/SINGLCLASS/ftma-etf/FTMA",
+  "holdingsSource": "not available",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FTMA?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": null
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "benchmark": null
+ },
+ "expenseRatio": {
+  "display": "0.19%",
+  "value": 0.19,
+  "gross": 0.19,
+  "net": 0.19
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null,
+  "source": "not available"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published by franklintempleton.com for this fund"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "—",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
+  }
+ },
+ "distributions": {
+  "frequency": "Irregular",
+  "frequencyCode": "99 - Irregular",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Sep 1 2026",
+    "Dividend": "0.0260",
+    "searchIndex": "sep 1 2026 0.026"
+   },
+   {
+    "Ex-Date": "Aug 3 2026",
+    "Dividend": "0.0310",
+    "searchIndex": "aug 3 2026 0.031"
+   },
+   {
+    "Ex-Date": "Jul 1 2026",
+    "Dividend": "0.0270",
+    "searchIndex": "jul 1 2026 0.027"
+   },
+   {
+    "Ex-Date": "Jun 1 2026",
+    "Dividend": "0.0270",
+    "searchIndex": "jun 1 2026 0.027"
+   },
+   {
+    "Ex-Date": "May 1 2026",
+    "Dividend": "0.0270",
+    "searchIndex": "may 1 2026 0.027"
+   },
+   {
+    "Ex-Date": "Apr 1 2026",
+    "Dividend": "0.0270",
+    "searchIndex": "apr 1 2026 0.027"
+   },
+   {
+    "Ex-Date": "Mar 2 2026",
+    "Dividend": "0.0250",
+    "searchIndex": "mar 2 2026 0.025"
+   },
+   {
+    "Ex-Date": "Feb 2 2026",
+    "Dividend": "0.0240",
+    "searchIndex": "feb 2 2026 0.024"
+   },
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.0340",
+    "searchIndex": "dec 19 2025 0.034"
+   },
+   {
+    "Ex-Date": "Dec 1 2025",
+    "Dividend": "0.0150",
+    "searchIndex": "dec 1 2025 0.015"
+   }
+  ],
+  "latestDividend": "0.026",
+  "exDate": "Sep 1 2026"
+ },
+ "holdings": {
+  "totalRows": 0,
+  "pageSize": 250,
+  "pageCount": 1,
+  "pages": [],
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "not available"
+ },
+ "history": {
+  "totalRows": 216,
+  "pageSize": 1000,
+  "pageCount": 1,
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 23 2026",
+  "source": "Yahoo Finance public chart API"
+ }
 }

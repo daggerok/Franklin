@@ -1,235 +1,235 @@
 {
-    "ticker": "FLBR",
-    "name": "Franklin FTSE Brazil ETF",
-    "category": "ETF",
-    "categoryPath": "ETF",
-    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flbr/SINGLCLASS/flbr-etf/FLBR",
-    "factSheet": null,
-    "source": {
-        "provider": "Franklin Templeton",
-        "market": "us",
-        "site": "https://www.franklintempleton.com",
-        "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-        "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flbr/SINGLCLASS/flbr-etf/FLBR",
-        "holdingsSource": "not available",
-        "historySource": "Yahoo Finance public chart API",
-        "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLBR?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-        "nportDoc": null
-    },
-    "identifiers": {
-        "cusip": null,
-        "isin": null,
-        "benchmark": null
-    },
-    "expenseRatio": {
-        "display": "0.19%",
-        "value": 0.19,
-        "gross": 0.19,
-        "net": 0.19
-    },
-    "nav": {
-        "display": "\u2014",
-        "value": null,
-        "asOfDate": null
-    },
-    "marketPrice": {
-        "display": "\u2014",
-        "value": null,
-        "asOfDate": null
-    },
-    "premiumDiscount": {
-        "display": "\u2014",
-        "value": null
-    },
-    "aum": {
-        "display": "\u2014",
-        "value": null,
-        "asOfDate": null,
-        "source": "not available"
-    },
-    "yields": {
-        "dividendYield": null,
-        "dividendYieldText": "\u2014",
-        "dividendYieldKind": "indicated from Yahoo dividends",
-        "secYield": null,
-        "secYieldText": "\u2014",
-        "secYieldKind": "not published by franklintempleton.com for this fund"
-    },
-    "returns": {
-        "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
-        "monthEnd": {
-            "asOfDate": "\u2014",
-            "ytd": null,
-            "ytdText": "\u2014",
-            "yr1": null,
-            "yr1Text": "\u2014",
-            "yr3": null,
-            "yr3Text": "\u2014",
-            "yr5": null,
-            "yr5Text": "\u2014",
-            "yr10": null,
-            "yr10Text": "\u2014",
-            "sinceInception": null,
-            "sinceInceptionText": "\u2014"
-        },
-        "quarterEnd": {
-            "asOfDate": "",
-            "ytd": null,
-            "ytdText": "\u2014",
-            "yr1": null,
-            "yr1Text": "\u2014",
-            "yr3": null,
-            "yr3Text": "\u2014",
-            "yr5": null,
-            "yr5Text": "\u2014",
-            "yr10": null,
-            "yr10Text": "\u2014",
-            "sinceInception": null,
-            "sinceInceptionText": "\u2014"
-        }
-    },
-    "distributions": {
-        "frequency": "Quarterly",
-        "frequencyCode": "04 - Quarterly",
-        "paymentsPerYear": 4,
-        "headers": [
-            "Ex-Date",
-            "Dividend"
-        ],
-        "rows": [
-            {
-                "Ex-Date": "Jun 26 2026",
-                "Dividend": "0.2610",
-                "searchIndex": "jun 26 2026 0.261"
-            },
-            {
-                "Ex-Date": "Dec 30 2025",
-                "Dividend": "0.4600",
-                "searchIndex": "dec 30 2025 0.46"
-            },
-            {
-                "Ex-Date": "Dec 19 2025",
-                "Dividend": "0.5730",
-                "searchIndex": "dec 19 2025 0.573"
-            },
-            {
-                "Ex-Date": "Jun 20 2025",
-                "Dividend": "0.4350",
-                "searchIndex": "jun 20 2025 0.435"
-            },
-            {
-                "Ex-Date": "Dec 20 2024",
-                "Dividend": "0.5630",
-                "searchIndex": "dec 20 2024 0.563"
-            },
-            {
-                "Ex-Date": "Jun 21 2024",
-                "Dividend": "0.5230",
-                "searchIndex": "jun 21 2024 0.523"
-            },
-            {
-                "Ex-Date": "Dec 15 2023",
-                "Dividend": "0.7170",
-                "searchIndex": "dec 15 2023 0.717"
-            },
-            {
-                "Ex-Date": "Jun 16 2023",
-                "Dividend": "1.1350",
-                "searchIndex": "jun 16 2023 1.135"
-            },
-            {
-                "Ex-Date": "Dec 16 2022",
-                "Dividend": "1.0400",
-                "searchIndex": "dec 16 2022 1.04"
-            },
-            {
-                "Ex-Date": "Jun 17 2022",
-                "Dividend": "1.0260",
-                "searchIndex": "jun 17 2022 1.026"
-            },
-            {
-                "Ex-Date": "Dec 30 2021",
-                "Dividend": "0.1110",
-                "searchIndex": "dec 30 2021 0.111"
-            },
-            {
-                "Ex-Date": "Dec 13 2021",
-                "Dividend": "1.0130",
-                "searchIndex": "dec 13 2021 1.013"
-            },
-            {
-                "Ex-Date": "Jun 10 2021",
-                "Dividend": "0.4080",
-                "searchIndex": "jun 10 2021 0.408"
-            },
-            {
-                "Ex-Date": "Dec 14 2020",
-                "Dividend": "0.2680",
-                "searchIndex": "dec 14 2020 0.268"
-            },
-            {
-                "Ex-Date": "Jun 11 2020",
-                "Dividend": "0.2610",
-                "searchIndex": "jun 11 2020 0.261"
-            },
-            {
-                "Ex-Date": "Dec 30 2019",
-                "Dividend": "0.0590",
-                "searchIndex": "dec 30 2019 0.059"
-            },
-            {
-                "Ex-Date": "Dec 11 2019",
-                "Dividend": "0.5630",
-                "searchIndex": "dec 11 2019 0.563"
-            },
-            {
-                "Ex-Date": "Jun 11 2019",
-                "Dividend": "0.3780",
-                "searchIndex": "jun 11 2019 0.378"
-            },
-            {
-                "Ex-Date": "Dec 20 2018",
-                "Dividend": "0.5180",
-                "searchIndex": "dec 20 2018 0.518"
-            },
-            {
-                "Ex-Date": "Jun 20 2018",
-                "Dividend": "0.3630",
-                "searchIndex": "jun 20 2018 0.363"
-            },
-            {
-                "Ex-Date": "Dec 28 2017",
-                "Dividend": "0.0360",
-                "searchIndex": "dec 28 2017 0.036"
-            },
-            {
-                "Ex-Date": "Dec 20 2017",
-                "Dividend": "0.0700",
-                "searchIndex": "dec 20 2017 0.07"
-            }
-        ],
-        "latestDividend": "0.261",
-        "exDate": "Jun 26 2026"
-    },
-    "holdings": {
-        "totalRows": 0,
-        "pageSize": 250,
-        "pageCount": 1,
-        "pages": [],
-        "asOfDate": null,
-        "asOf": "\u2014",
-        "source": "not available"
-    },
-    "history": {
-        "totalRows": 2230,
-        "pageSize": 1000,
-        "pageCount": 3,
-        "pages": [
-            "./history/001.json",
-            "./history/002.json",
-            "./history/003.json"
-        ],
-        "asOf": "Sep 23 2026",
-        "source": "Yahoo Finance public chart API"
-    }
+ "ticker": "FLBR",
+ "name": "Exchange Traded Funds",
+ "category": "Asset Class",
+ "categoryPath": "Asset Class",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flbr/SINGLCLASS/flbr-etf/FLBR",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flbr/SINGLCLASS/flbr-etf/FLBR",
+  "holdingsSource": "not available",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLBR?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": null
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "benchmark": null
+ },
+ "expenseRatio": {
+  "display": "0.19%",
+  "value": 0.19,
+  "gross": 0.19,
+  "net": 0.19
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null,
+  "source": "not available"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published by franklintempleton.com for this fund"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "—",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "frequencyCode": "04 - Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Jun 26 2026",
+    "Dividend": "0.2610",
+    "searchIndex": "jun 26 2026 0.261"
+   },
+   {
+    "Ex-Date": "Dec 30 2025",
+    "Dividend": "0.4600",
+    "searchIndex": "dec 30 2025 0.46"
+   },
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.5730",
+    "searchIndex": "dec 19 2025 0.573"
+   },
+   {
+    "Ex-Date": "Jun 20 2025",
+    "Dividend": "0.4350",
+    "searchIndex": "jun 20 2025 0.435"
+   },
+   {
+    "Ex-Date": "Dec 20 2024",
+    "Dividend": "0.5630",
+    "searchIndex": "dec 20 2024 0.563"
+   },
+   {
+    "Ex-Date": "Jun 21 2024",
+    "Dividend": "0.5230",
+    "searchIndex": "jun 21 2024 0.523"
+   },
+   {
+    "Ex-Date": "Dec 15 2023",
+    "Dividend": "0.7170",
+    "searchIndex": "dec 15 2023 0.717"
+   },
+   {
+    "Ex-Date": "Jun 16 2023",
+    "Dividend": "1.1350",
+    "searchIndex": "jun 16 2023 1.135"
+   },
+   {
+    "Ex-Date": "Dec 16 2022",
+    "Dividend": "1.0400",
+    "searchIndex": "dec 16 2022 1.04"
+   },
+   {
+    "Ex-Date": "Jun 17 2022",
+    "Dividend": "1.0260",
+    "searchIndex": "jun 17 2022 1.026"
+   },
+   {
+    "Ex-Date": "Dec 30 2021",
+    "Dividend": "0.1110",
+    "searchIndex": "dec 30 2021 0.111"
+   },
+   {
+    "Ex-Date": "Dec 13 2021",
+    "Dividend": "1.0130",
+    "searchIndex": "dec 13 2021 1.013"
+   },
+   {
+    "Ex-Date": "Jun 10 2021",
+    "Dividend": "0.4080",
+    "searchIndex": "jun 10 2021 0.408"
+   },
+   {
+    "Ex-Date": "Dec 14 2020",
+    "Dividend": "0.2680",
+    "searchIndex": "dec 14 2020 0.268"
+   },
+   {
+    "Ex-Date": "Jun 11 2020",
+    "Dividend": "0.2610",
+    "searchIndex": "jun 11 2020 0.261"
+   },
+   {
+    "Ex-Date": "Dec 30 2019",
+    "Dividend": "0.0590",
+    "searchIndex": "dec 30 2019 0.059"
+   },
+   {
+    "Ex-Date": "Dec 11 2019",
+    "Dividend": "0.5630",
+    "searchIndex": "dec 11 2019 0.563"
+   },
+   {
+    "Ex-Date": "Jun 11 2019",
+    "Dividend": "0.3780",
+    "searchIndex": "jun 11 2019 0.378"
+   },
+   {
+    "Ex-Date": "Dec 20 2018",
+    "Dividend": "0.5180",
+    "searchIndex": "dec 20 2018 0.518"
+   },
+   {
+    "Ex-Date": "Jun 20 2018",
+    "Dividend": "0.3630",
+    "searchIndex": "jun 20 2018 0.363"
+   },
+   {
+    "Ex-Date": "Dec 28 2017",
+    "Dividend": "0.0360",
+    "searchIndex": "dec 28 2017 0.036"
+   },
+   {
+    "Ex-Date": "Dec 20 2017",
+    "Dividend": "0.0700",
+    "searchIndex": "dec 20 2017 0.07"
+   }
+  ],
+  "latestDividend": "0.261",
+  "exDate": "Jun 26 2026"
+ },
+ "holdings": {
+  "totalRows": 0,
+  "pageSize": 250,
+  "pageCount": 1,
+  "pages": [],
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "not available"
+ },
+ "history": {
+  "totalRows": 2230,
+  "pageSize": 1000,
+  "pageCount": 3,
+  "pages": [
+   "./history/001.json",
+   "./history/002.json",
+   "./history/003.json"
+  ],
+  "asOf": "Sep 23 2026",
+  "source": "Yahoo Finance public chart API"
+ }
 }

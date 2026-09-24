@@ -1,8 +1,8 @@
 {
  "ticker": "FLSP",
- "name": "Franklin FLSP ETF",
- "category": "ETF",
- "categoryPath": "ETF",
+ "name": "Exchange Traded Funds",
+ "category": "Asset Class",
+ "categoryPath": "Asset Class",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flsp/SINGLCLASS/flsp-etf/FLSP",
  "factSheet": null,
  "source": {
@@ -45,12 +45,12 @@
   "display": "—",
   "value": null,
   "asOfDate": null,
-  "source": "official product page Total Net Assets"
+  "source": "not available"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -89,16 +89,57 @@
   }
  },
  "distributions": {
-  "frequency": "—",
-  "frequencyCode": "00 - —",
-  "paymentsPerYear": null,
+  "frequency": "Annually",
+  "frequencyCode": "12 - Annually",
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Dividend"
   ],
-  "rows": [],
-  "latestDividend": "—",
-  "exDate": "—"
+  "rows": [
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.7130",
+    "searchIndex": "dec 19 2025 0.713"
+   },
+   {
+    "Ex-Date": "Dec 20 2024",
+    "Dividend": "0.2830",
+    "searchIndex": "dec 20 2024 0.283"
+   },
+   {
+    "Ex-Date": "Dec 15 2023",
+    "Dividend": "0.2570",
+    "searchIndex": "dec 15 2023 0.257"
+   },
+   {
+    "Ex-Date": "Dec 12 2022",
+    "Dividend": "0.4620",
+    "searchIndex": "dec 12 2022 0.462"
+   },
+   {
+    "Ex-Date": "Dec 13 2021",
+    "Dividend": "0.0200",
+    "searchIndex": "dec 13 2021 0.02"
+   },
+   {
+    "Ex-Date": "Jun 10 2021",
+    "Dividend": "0.2390",
+    "searchIndex": "jun 10 2021 0.239"
+   },
+   {
+    "Ex-Date": "Dec 14 2020",
+    "Dividend": "1.5370",
+    "searchIndex": "dec 14 2020 1.537"
+   },
+   {
+    "Ex-Date": "Jun 11 2020",
+    "Dividend": "0.0510",
+    "searchIndex": "jun 11 2020 0.051"
+   }
+  ],
+  "latestDividend": "0.713",
+  "exDate": "Dec 19 2025"
  },
  "holdings": {
   "totalRows": 0,
