@@ -676,16 +676,76 @@ export function parseCatalogText(text: string): CatalogFund[] {
 // Product page parsing
 // ---------------------------------------------------------------------------
 
+function isValidFundName(value: string): boolean {
+  const v = cleanText(value);
+  if (!v) return false;
+  if (v.length > 120) return false;
+  if (v.length < 5) return false;
+  if (/franklintempleton\.com/i.test(v)) return false;
+  if (/https?:\/\//i.test(v)) return false;
+  if (v.includes('/') && v.includes('.com')) return false;
+  // URL path like franklintempleton.com/.../fltw-etf should be rejected (contains / and -etf but no space)
+  if (v.includes('/') && !v.includes(' ')) return false;
+  if (/^[\w.-]+\/[\w\/.-]+$/.test(v) && !v.includes(' ')) return false;
+  // Must contain ETF or be at least 2 words
+  if (!/\bETF\b/i.test(v) && v.split(/\s+/).length < 2) return false;
+  return true;
+}
+
 export function parseFranklinProductPage(text: string, ticker: string): ProductPageSummary {
-  const source = stripProxyPreamble(text);
+  const original = String(text ?? '');
+  const source = stripProxyPreamble(original);
   const cleaned = htmlToText(source);
   const lines = toTextLines(cleaned + '\n' + source.replace(/<[^>]+>/g, '\n'));
 
   const name = (() => {
-    const m = /(?:Franklin|BrandywineGLOBAL|ClearBridge|Western Asset|Putnam)[^\n]*?\bETF\b/i.exec(cleaned);
-    if (m) return cleanText(m[0]);
-    const titleMatch = /Title:\s*([^\n]+?)\s*-\s*[A-Z]{2,6}\s*\|/i.exec(source);
-    if (titleMatch) return cleanText(titleMatch[1]);
+    // 1) Title: line from jina.ai preamble (original, not stripped)
+    const titleMatch = /Title:\s*([^\n]+?)\s*(?:\|\s*Franklin|\s*-\s*[A-Z]{2,6}\s*(?:\||$))/i.exec(original);
+    if (titleMatch) {
+      const cand = cleanText(titleMatch[1].split('|')[0].split(' - ')[0]);
+      if (isValidFundName(cand)) return cand;
+    }
+    const title2 = /Title:\s*([^\n]+?)\s*-\s*[A-Z]{2,6}\s*\|/i.exec(original);
+    if (title2) {
+      const cand = cleanText(title2[1]);
+      if (isValidFundName(cand)) return cand;
+    }
+    // 2) Markdown heading: "# FLTW Franklin FTSE Taiwan ETF" or "# Franklin FTSE Taiwan ETF - FLTW"
+    for (const line of lines) {
+      const txt = line.text;
+      // Heading often starts with # and contains ticker and ETF
+      if (/^#+\s*/.test(txt) && /\bETF\b/i.test(txt)) {
+        // Remove leading # and ticker
+        let cand = txt.replace(/^#+\s*/, '').trim();
+        cand = cand.replace(new RegExp(`^${ticker}\\s+`, 'i'), '').trim();
+        cand = cand.replace(new RegExp(`\\s*-?\\s*${ticker}\\s*$`, 'i'), '').trim();
+        cand = cleanText(cand);
+        if (isValidFundName(cand)) return cand;
+      }
+    }
+    // 3) Look for lines with Franklin/Brandywine... + ETF but without URL markers
+    const candidates: string[] = [];
+    for (const line of lines) {
+      const txt = line.text;
+      if (txt.length > 120) continue;
+      if (/franklintempleton\.com/i.test(txt)) continue;
+      if (/https?:\/\//i.test(txt)) continue;
+      if (txt.includes('/') && txt.includes('.com')) continue;
+      const m = /(?:Franklin|BrandywineGLOBAL|ClearBridge|Western Asset|Putnam)[^|\n]{0,80}?\bETF\b[^\n|]{0,20}/i.exec(txt);
+      if (m) {
+        const cand = cleanText(m[0]);
+        if (isValidFundName(cand)) candidates.push(cand);
+      }
+    }
+    if (candidates.length) {
+      // Prefer shortest that looks like a proper name (contains space, not just ticker)
+      candidates.sort((a, b) => a.length - b.length);
+      for (const cand of candidates) {
+        if (cand.split(/\s+/).length >= 2) return cand;
+      }
+      return candidates[0];
+    }
+    // 4) Fallback to ticker ETF, but try to improve from slug if available
     return `${ticker} ETF`;
   })();
 
@@ -1196,9 +1256,7 @@ async function fetchIssuerText(url: string, label: string, config: UpdaterConfig
   const max = options.maxProxies ?? allCandidates.length;
   const candidates = allCandidates.slice(0, max);
   let lastError: unknown = new Error('no candidates');
-  // Tabulated candidate logs: [issuer  ] [product ] TICKER candidate 1/3 https://...
   for (let i = 0; i < candidates.length; i++) {
-    console.log(`[issuer  ] ${label} candidate ${i + 1}/${candidates.length} ${candidates[i]}`);
     const candidateUrl = candidates[i];
     const isDirect = i === 0;
     const viaLabel = isDirect ? 'direct' : `proxy ${i}`;
@@ -1733,8 +1791,8 @@ async function main(): Promise<void> {
           return lower.includes(ticker.toLowerCase()) && (lower.includes('cusip') || lower.includes('nav') || lower.includes('expense'));
         }, 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', { maxProxies: PRODUCT_PROXY_COUNT });
         summary = parseFranklinProductPage(page.text, ticker);
-        // Merge into catalog fund
-        if (summary.name) fund.name = summary.name;
+        // Merge into catalog fund – only valid names, never URL paths
+        if (summary.name && isValidFundName(summary.name)) fund.name = summary.name;
         if (summary.cusip) fund.cusip = summary.cusip;
         if (summary.isin) fund.isin = summary.isin;
         if (summary.exchange) fund.exchange = summary.exchange;
@@ -2030,8 +2088,8 @@ async function main(): Promise<void> {
     const changed = await writeJsonIfChanged(new URL('meta.json', fundDir), meta);
     if (changed) updated++;
     else unchanged++;
-    // Tabulated final line: [fund    ]            FLTW updated holdings=0 history=2201
-    console.log(`[fund    ]            ${ticker} ${changed ? 'updated' : 'unchanged'} holdings=${holdingsRows.length} history=${historyRows.length}`);
+    // Single line per ETF as requested: [issuer  ] FLTW updated holdings=0 history=2201
+    console.log(`[issuer  ] ${ticker} ${changed ? 'updated' : 'unchanged'} holdings=${holdingsRows.length} history=${historyRows.length}`);
   }
 
   // Worker pool
