@@ -89,97 +89,16 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
-  "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "frequency": "—",
+  "frequencyCode": "00 - —",
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
   ],
-  "rows": [
-   {
-    "Ex-Date": "Jun 26 2026",
-    "Dividend": "0.5880",
-    "searchIndex": "jun 26 2026 0.588"
-   },
-   {
-    "Ex-Date": "Dec 19 2025",
-    "Dividend": "0.4070",
-    "searchIndex": "dec 19 2025 0.407"
-   },
-   {
-    "Ex-Date": "Jun 20 2025",
-    "Dividend": "0.8520",
-    "searchIndex": "jun 20 2025 0.852"
-   },
-   {
-    "Ex-Date": "Dec 20 2024",
-    "Dividend": "0.5180",
-    "searchIndex": "dec 20 2024 0.518"
-   },
-   {
-    "Ex-Date": "Jun 21 2024",
-    "Dividend": "0.5410",
-    "searchIndex": "jun 21 2024 0.541"
-   },
-   {
-    "Ex-Date": "Dec 15 2023",
-    "Dividend": "0.6390",
-    "searchIndex": "dec 15 2023 0.639"
-   },
-   {
-    "Ex-Date": "Jun 16 2023",
-    "Dividend": "0.4830",
-    "searchIndex": "jun 16 2023 0.483"
-   },
-   {
-    "Ex-Date": "Dec 16 2022",
-    "Dividend": "0.2990",
-    "searchIndex": "dec 16 2022 0.299"
-   },
-   {
-    "Ex-Date": "Jun 17 2022",
-    "Dividend": "0.3330",
-    "searchIndex": "jun 17 2022 0.333"
-   },
-   {
-    "Ex-Date": "Dec 30 2021",
-    "Dividend": "0.0200",
-    "searchIndex": "dec 30 2021 0.02"
-   },
-   {
-    "Ex-Date": "Dec 13 2021",
-    "Dividend": "0.3090",
-    "searchIndex": "dec 13 2021 0.309"
-   },
-   {
-    "Ex-Date": "Jun 10 2021",
-    "Dividend": "0.3550",
-    "searchIndex": "jun 10 2021 0.355"
-   },
-   {
-    "Ex-Date": "Dec 14 2020",
-    "Dividend": "0.1750",
-    "searchIndex": "dec 14 2020 0.175"
-   },
-   {
-    "Ex-Date": "Jun 11 2020",
-    "Dividend": "0.3940",
-    "searchIndex": "jun 11 2020 0.394"
-   },
-   {
-    "Ex-Date": "Dec 11 2019",
-    "Dividend": "0.3600",
-    "searchIndex": "dec 11 2019 0.36"
-   },
-   {
-    "Ex-Date": "Jun 11 2019",
-    "Dividend": "0.4680",
-    "searchIndex": "jun 11 2019 0.468"
-   }
-  ],
-  "latestDividend": "0.588",
-  "exDate": "Jun 26 2026"
+  "rows": [],
+  "latestDividend": "—",
+  "exDate": "—"
  },
  "holdings": {
   "totalRows": 0,

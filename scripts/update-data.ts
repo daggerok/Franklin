@@ -843,7 +843,7 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
   const assetClass = isValidCategory(rawAsset) ? rawAsset : (isValidCategory(rawMorningstar) ? rawMorningstar : 'ETF');
   const etfType = labelText(etfTypeLabel) || 'ETF';
 
-  const inception = firstDate(labelText(inceptionLabel)) || firstDate(source);
+  const inception = firstDate(labelText(inceptionLabel));
   const nav = labelNumber(navLabel);
   const marketPrice = labelNumber(marketPriceLabel);
   const totalNetAssets = (() => {
