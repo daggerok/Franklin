@@ -1,6 +1,12 @@
-#!/usr/bin/env bun
+#!/usr/bin/env -S bun --use-system-ca
 
 // Franklin Templeton U.S.-listed ETF static data updater.
+// Embedded TLS fix: Bun v1.2.23+ supports --use-system-ca flag and NODE_USE_SYSTEM_CA=1 env var
+// to use OS CA store. We set env var here so script user does NOT need to pass flag manually.
+// See https://bun.com/blog/bun-v1.2.23#use-system-ca and https://github.com/oven-sh/bun/issues/30313
+if (typeof process !== 'undefined' && process.env) {
+  process.env.NODE_USE_SYSTEM_CA = process.env.NODE_USE_SYSTEM_CA || '1';
+}
 //
 // The browser application is deliberately static. This script builds the feed
 // under api/franklin/** from public issuer/SEC/market-data sources:
@@ -1190,10 +1196,9 @@ async function fetchIssuerText(url: string, label: string, config: UpdaterConfig
   const max = options.maxProxies ?? allCandidates.length;
   const candidates = allCandidates.slice(0, max);
   let lastError: unknown = new Error('no candidates');
-  console.log(`[issuer  ] ${label} trying ${candidates.length} candidates`);
-  // Try each proxy in order, respecting direct denial limit
+  // Tabulated candidate logs: [issuer  ] [product ] TICKER candidate 1/3 https://...
   for (let i = 0; i < candidates.length; i++) {
-    console.log(`[issuer  ] ${label} candidate ${i} ${candidates[i].slice(0,80)}`);
+    console.log(`[issuer  ] ${label} candidate ${i + 1}/${candidates.length} ${candidates[i]}`);
     const candidateUrl = candidates[i];
     const isDirect = i === 0;
     const viaLabel = isDirect ? 'direct' : `proxy ${i}`;
@@ -1707,7 +1712,6 @@ async function main(): Promise<void> {
 
   async function processFund(fund: CatalogFund): Promise<void> {
     const ticker = fund.ticker.toUpperCase();
-    console.log(`[fund] ${ticker} start`);
     const fundDir = new URL(`funds/${ticker}/`, API_ROOT);
     await mkdir(fundDir, { recursive: true });
     await mkdir(new URL('holdings/', fundDir), { recursive: true });
@@ -1721,9 +1725,8 @@ async function main(): Promise<void> {
     let chart: ParsedChart | null = null;
     let nport: ParsedNport | null = null;
 
-    // 1) Product page
+    // 1) Product page – logs are tabulated issuer candidate lines inside fetchIssuerText
     if (!config.skipFranklin) {
-      console.log(`[fund] ${ticker} product fetch`);
       try {
         const page = await fetchIssuerText(fund.fundPage, `[product ] ${ticker}`, config, (text) => {
           const lower = text.toLowerCase();
@@ -1746,23 +1749,17 @@ async function main(): Promise<void> {
         if (summary.distributionYield !== null) fund.dividendYield = summary.distributionYield;
         if (summary.secYield !== null) fund.secYield = summary.secYield;
         if (summary.inception) fund.inception = summary.inception;
-        if (summary.returns) {
-          // Keep catalog returns as primary, but fill missing from product page if any
-        }
         if (config.storeRawDownloads) {
           await mkdir(new URL('raw/', API_ROOT), { recursive: true });
           await writeFile(new URL(`raw/${ticker}-product.html`, API_ROOT), page.text, 'utf8');
         }
-        console.log(`[fund] ${ticker} product ok via ${page.via}`);
       } catch (e) {
         console.warn(`[product ] ${ticker} failed: ${e instanceof Error ? e.message : String(e)}`);
-        console.log(`[fund] ${ticker} product fail`);
       }
     }
 
-    // 2) Holdings via SEC N-PORT-P
+    // 2) Holdings via SEC N-PORT-P – no per-stage log, only final summary
     if (config.edgarFallback) {
-      console.log(`[fund] ${ticker} holdings fetch`);
       try {
         const result = await fetchNportForFund(fund, config);
         if (result && result.parsed.holdings.length) {
@@ -1771,25 +1768,18 @@ async function main(): Promise<void> {
           holdingsAsOf = result.parsed.repPdDate || null;
           nport = result.parsed;
           holdingsSource = `SEC EDGAR Form N-PORT-P (accession ${result.accession.accession}, report period ${result.parsed.repPdDate || 'n/a'})`;
-          console.log(`[fund] ${ticker} holdings ok ${holdingsRows.length} rows`);
-        } else {
-          console.log(`[fund] ${ticker} holdings empty`);
         }
       } catch (e) {
         console.warn(`[nport   ] ${ticker} failed: ${e instanceof Error ? e.message : String(e)}`);
-        console.log(`[fund] ${ticker} holdings fail`);
       }
     }
 
-    // 3) History via Yahoo
+    // 3) History via Yahoo – no per-stage log
     if (!config.skipYahoo) {
-      console.log(`[fund] ${ticker} history fetch`);
       try {
         chart = await fetchYahooChart(ticker, `[yahoo   ] ${ticker} chart`, config);
-        console.log(`[fund] ${ticker} history ok ${chart.days.length} days`);
       } catch (e) {
         console.warn(`[yahoo   ] ${ticker} chart failed: ${e instanceof Error ? e.message : String(e)}`);
-        console.log(`[fund] ${ticker} history fail`);
       }
     }
 
@@ -2040,7 +2030,8 @@ async function main(): Promise<void> {
     const changed = await writeJsonIfChanged(new URL('meta.json', fundDir), meta);
     if (changed) updated++;
     else unchanged++;
-    console.log(`[fund] ${ticker} done ${changed ? 'updated' : 'unchanged'} holdings=${holdingsRows.length} history=${historyRows.length}`);
+    // Tabulated final line: [fund    ]            FLTW updated holdings=0 history=2201
+    console.log(`[fund    ]            ${ticker} ${changed ? 'updated' : 'unchanged'} holdings=${holdingsRows.length} history=${historyRows.length}`);
   }
 
   // Worker pool
