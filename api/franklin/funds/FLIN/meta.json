@@ -1,8 +1,8 @@
 {
  "ticker": "FLIN",
- "name": "FLIN ETF",
- "category": "March 31",
- "categoryPath": "March 31",
+ "name": "Franklin FTSE India ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN",
  "factSheet": null,
  "source": {
@@ -33,9 +33,10 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$34.24",
+  "value": 34.24,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -50,7 +51,7 @@
  "yields": {
   "dividendYield": 0.42,
   "dividendYieldText": "0.42%",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYieldKind": "official 12-month distribution yield from the product page",
   "secYield": 2.09,
   "secYieldText": "2.09%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page"
@@ -58,7 +59,7 @@
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
-   "asOfDate": "—",
+   "asOfDate": "Jun 30 2026",
    "ytd": -10.39,
    "ytdText": "-10.39%",
    "yr1": -3.94,
@@ -67,8 +68,8 @@
    "yr3Text": "5.33%",
    "yr5": 3.05,
    "yr5Text": "3.05%",
-   "yr10": 5.93,
-   "yr10Text": "5.93%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 5.93,
    "sinceInceptionText": "5.93%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": ", if any Semiannually",
+  "frequency": "Semi-annually",
   "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"

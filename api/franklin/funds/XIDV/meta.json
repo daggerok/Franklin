@@ -1,6 +1,6 @@
 {
  "ticker": "XIDV",
- "name": "Franklin International Dividend Booster Index ETF - NAV Return (%)",
+ "name": "Franklin International Dividend Booster Index ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/42138/SINGLCLASS/franklin-international-dividend-booster-index-etf/XIDV",
@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P371",
   "isin": "US35473P3718",
-  "benchmark": "**Fund** | **Benchmark**"
+  "benchmark": null
  },
  "expenseRatio": {
   "display": "0.19%",
@@ -33,9 +33,10 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$38.30",
+  "value": 38.3,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,12 +49,12 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": 30,
-  "secYieldText": "30.00%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "dividendYield": 3.33,
+  "dividendYieldText": "3.33%",
+  "dividendYieldKind": "indicated: latest distribution 0.3190 x 4/year / last close 38.30",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published by franklintempleton.com for this fund"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -67,8 +68,8 @@
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
-   "yr10": 39.56,
-   "yr10Text": "39.56%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 39.56,
    "sinceInceptionText": "39.56%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly This fund is an ex-Dividend fund",
+  "frequency": "Quarterly",
   "frequencyCode": "04 - Quarterly",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 4,
   "headers": [
    "Ex-Date",
    "Dividend"

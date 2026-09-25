@@ -1,8 +1,8 @@
 {
  "ticker": "FLEU",
  "name": "Franklin FTSE Eurozone ETF",
- "category": "March 31",
- "categoryPath": "March 31",
+ "category": "ETF",
+ "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26347/SINGLCLASS/franklin-ftse-eurozone-etf/FLEU",
  "factSheet": null,
  "source": {
@@ -33,9 +33,10 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$35.24",
+  "value": 35.24,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYield": 3.26,
+  "dividendYieldText": "3.26%",
+  "dividendYieldKind": "indicated: latest distribution 0.5760 x 2/year / NAV 35.30",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -67,8 +68,8 @@
    "yr3Text": "19.62%",
    "yr5": 12.38,
    "yr5Text": "12.38%",
-   "yr10": 10.92,
-   "yr10Text": "10.92%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 10.92,
    "sinceInceptionText": "10.92%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": ", if any Semiannually",
+  "frequency": "Semi-annually",
   "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"

@@ -1,6 +1,6 @@
 {
  "ticker": "FTSD",
- "name": "FTSD ETF",
+ "name": "Franklin Short Duration U.S. Government ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/18000/SINGLCLASS/franklin-short-duration-u-s-government-etf/FTSD",
@@ -33,9 +33,10 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$88.95",
+  "value": 88.95,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,12 +49,12 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": 30,
-  "secYieldText": "30.00%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "dividendYield": 4.01,
+  "dividendYieldText": "4.01%",
+  "dividendYieldKind": "indicated: latest distribution 0.2970 x 12/year / last close 88.95",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published by franklintempleton.com for this fund"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Monthly This fund is an ex-Dividend fund",
+  "frequency": "Monthly",
   "frequencyCode": "01 - Monthly",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"

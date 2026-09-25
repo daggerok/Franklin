@@ -1,8 +1,8 @@
 {
  "ticker": "YLDE",
  "name": "Franklin ClearBridge Enhanced Income ETF",
- "category": "As of 09/23/2026 (Updated Daily)",
- "categoryPath": "As of 09/23/2026 (Updated Daily)",
+ "category": "ETF",
+ "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/91629/SINGLCLASS/franklin-clearbridge-enhanced-income-etf/YLDE",
  "factSheet": null,
  "source": {
@@ -33,9 +33,10 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$55.13",
+  "value": 55.13,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,12 +49,12 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYield": 7.01,
+  "dividendYieldText": "7.01%",
+  "dividendYieldKind": "indicated: latest distribution 0.3230 x 12/year / NAV 55.31",
   "secYield": 3,
   "secYieldText": "3.00%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -67,8 +68,8 @@
    "yr3Text": "15.54%",
    "yr5": 10.31,
    "yr5Text": "10.31%",
-   "yr10": 12.18,
-   "yr10Text": "12.18%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 12.18,
    "sinceInceptionText": "12.18%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": ", if any Monthly",
+  "frequency": "Monthly",
   "frequencyCode": "01 - Monthly",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"

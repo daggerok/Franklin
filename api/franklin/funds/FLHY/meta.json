@@ -1,8 +1,8 @@
 {
  "ticker": "FLHY",
- "name": "FLHY ETF",
- "category": "As of 09/23/2026 (Updated Daily)",
- "categoryPath": "As of 09/23/2026 (Updated Daily)",
+ "name": "Franklin High Yield Corporate ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26729/SINGLCLASS/franklin-high-yield-corporate-etf/FLHY",
  "factSheet": null,
  "source": {
@@ -33,9 +33,10 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$23.62",
+  "value": 23.62,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,9 +49,9 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035118, report period 2026-06-30)"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYield": 6.35,
+  "dividendYieldText": "6.35%",
+  "dividendYieldKind": "indicated: latest distribution 0.1250 x 12/year / last close 23.62",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -67,8 +68,8 @@
    "yr3Text": "8.78%",
    "yr5": 4.6,
    "yr5Text": "4.60%",
-   "yr10": 5.93,
-   "yr10Text": "5.93%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 5.93,
    "sinceInceptionText": "5.93%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": ", if any Monthly",
+  "frequency": "Monthly",
   "frequencyCode": "01 - Monthly",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"

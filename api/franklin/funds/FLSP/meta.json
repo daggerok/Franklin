@@ -1,6 +1,6 @@
 {
  "ticker": "FLSP",
- "name": "Franklin Systematic Style Premia ETF - NAV Return (%)",
+ "name": "Franklin Systematic Style Premia ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/28388/SINGLCLASS/franklin-systematic-style-premia-etf/FLSP",
@@ -33,9 +33,10 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$28.60",
+  "value": 28.6,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYield": 2.49,
+  "dividendYieldText": "2.49%",
+  "dividendYieldKind": "indicated: latest distribution 0.7130 x 1/year / last close 28.60",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -67,8 +68,8 @@
    "yr3Text": "9.51%",
    "yr5": 8.16,
    "yr5Text": "8.16%",
-   "yr10": 4.36,
-   "yr10Text": "4.36%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 4.36,
    "sinceInceptionText": "4.36%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Annually This fund is an ex-Dividend fund",
+  "frequency": "Annually",
   "frequencyCode": "12 - Annually",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Dividend"

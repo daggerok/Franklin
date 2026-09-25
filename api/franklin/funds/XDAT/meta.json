@@ -1,8 +1,8 @@
 {
  "ticker": "XDAT",
- "name": "XDAT ETF",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
+ "name": "Franklin Exponential Data ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/30780/SINGLCLASS/franklin-exponential-data-etf/XDAT",
  "factSheet": null,
  "source": {
@@ -33,9 +33,10 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$28.51",
+  "value": 28.51,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYield": 0.11,
+  "dividendYieldText": "0.11%",
+  "dividendYieldKind": "indicated: latest distribution 0.0320 x 1/year / last close 28.51",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"

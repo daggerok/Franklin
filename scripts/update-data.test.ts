@@ -15,6 +15,17 @@ import {
   parseFundTickerMap,
   frequencyCodeLabel,
   inferDistributionFrequency,
+  normalizeDistributionFrequency,
+  paymentsPerYearFor,
+  resolveFundName,
+  cleanFundName,
+  fundNameFromPageSlug,
+  resolveCategory,
+  tenYearEligible,
+  plausibleSecYield,
+  plausibleDividendYield,
+  plausiblePremiumDiscount,
+  plausibleBenchmark,
   annualizedToTotal,
   totalToAnnualized,
   stripProxyPreamble,
@@ -202,6 +213,52 @@ SEC 30-Day Yield 2.09%
     expect(summary.morningstarCategory).toBe('India Equity');
     expect(summary.distributionFrequency).toContain('Quarterly');
     expect(summary.secYield).toBe(2.09);
+    // "NAV $34.85" shares a line with its label in the real page markdown.
+    expect(summary.nav).toBe(34.85);
+    expect(summary.marketPrice).toBe(34.82);
+  });
+
+  test('parses YTD when the value sits behind a footnote sentence', () => {
+    const page = `
+# TEST  Franklin Test ETF
+## Price
+As of 09/23/2026
+NAV $20.00
+YTD Total Returns At NAV [1]
+[1] The fund's total return assumes reinvestment of distributions and does not
+reflect brokerage commissions, which would reduce returns.
+4.20%
+As of 09/23/2026
+`;
+    const summary = parseProductPage(page, 'TEST');
+    expect(summary.returns.ytd).toBe(4.2);
+  });
+
+  test('parses YTD from its own line when the label line carries no value', () => {
+    const page = `
+# TEST  Franklin Test ETF
+## Performance
+YTD Total Returns At Market Price [1]
+-7.35%
+1 Year
+12.10%
+`;
+    const summary = parseProductPage(page, 'TEST');
+    expect(summary.returns.ytd).toBe(-7.35);
+    expect(summary.returns.yr1).toBe(12.1);
+  });
+
+  test('does not borrow the YTD value as a 1-year return', () => {
+    const page = `
+# TEST  Franklin Test ETF
+## Performance
+YTD Total Returns At NAV [1]
+-7.35%
+1 Year
+`;
+    const summary = parseProductPage(page, 'TEST');
+    expect(summary.returns.ytd).toBe(-7.35);
+    expect(summary.returns.yr1).toBeNull();
   });
 
   test('parses FLTW product page with YTD 81.22% and NAV 110.52', () => {
@@ -309,6 +366,134 @@ describe('distribution frequency', () => {
     expect(frequencyCodeLabel('Semi-annually')).toBe('06 - Semi-annually');
     expect(frequencyCodeLabel('Annually')).toBe('12 - Annually');
     expect(frequencyCodeLabel('—')).toBe('00 - —');
+  });
+
+  test('normalizeDistributionFrequency strips the page furniture', () => {
+    expect(normalizeDistributionFrequency('Annually This fund is an ex-Dividend fund')).toBe('Annually');
+    expect(normalizeDistributionFrequency('Monthly This fund is an ex-Dividend fund')).toBe('Monthly');
+    expect(normalizeDistributionFrequency(', if any Semiannually')).toBe('Semi-annually');
+    expect(normalizeDistributionFrequency(', if any Monthly')).toBe('Monthly');
+    expect(normalizeDistributionFrequency('Semi-Annual This fund is an ex-Dividend fund')).toBe('Semi-annually');
+    expect(normalizeDistributionFrequency('Quarterly')).toBe('Quarterly');
+    expect(normalizeDistributionFrequency('Irregular')).toBe('Irregular');
+    expect(normalizeDistributionFrequency('—')).toBe('—');
+    expect(normalizeDistributionFrequency('')).toBe('—');
+  });
+
+  test('paymentsPerYearFor maps the canonical label', () => {
+    expect(paymentsPerYearFor('Monthly')).toBe(12);
+    expect(paymentsPerYearFor('Quarterly')).toBe(4);
+    expect(paymentsPerYearFor(', if any Semiannually')).toBe(2);
+    expect(paymentsPerYearFor('Annually This fund is an ex-Dividend fund')).toBe(1);
+    expect(paymentsPerYearFor('—')).toBeNull();
+  });
+});
+
+describe('published names and categories', () => {
+  test('cleanFundName drops the product-page section suffix', () => {
+    expect(cleanFundName('Franklin Disruptive Commerce ETF - NAV Return (%)')).toBe('Franklin Disruptive Commerce ETF');
+    expect(cleanFundName('Franklin Ethereum ETF - NAV Return')).toBe('Franklin Ethereum ETF');
+    expect(cleanFundName('FLTW Franklin FTSE Taiwan ETF - FLTW', 'FLTW')).toBe('Franklin FTSE Taiwan ETF');
+    expect(cleanFundName('Franklin FTSE Australia ETF')).toBe('Franklin FTSE Australia ETF');
+  });
+
+  test('fundNameFromPageSlug rebuilds the official name', () => {
+    expect(fundNameFromPageSlug('https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/31714/SINGLCLASS/franklin-responsibly-sourced-gold-etf/FGDL')).toBe('Franklin Responsibly Sourced Gold ETF');
+    expect(fundNameFromPageSlug('https://www.franklintempleton.com/x/products/26360/SINGLCLASS/franklin-ftse-germany-etf/FLGR')).toBe('Franklin FTSE Germany ETF');
+    expect(fundNameFromPageSlug('https://www.franklintempleton.com/x/products/123/SINGLCLASS/franklin-u-s-core-bond-etf/FLCB')).toBe('Franklin U.S. Core Bond ETF');
+  });
+
+  test('resolveFundName prefers the slug when the scraped name is wrong or truncated', () => {
+    const fgdl = 'https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/31714/SINGLCLASS/franklin-responsibly-sourced-gold-etf/FGDL';
+    const flca = 'https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26352/SINGLCLASS/franklin-ftse-canada-etf/FLCA';
+    const flgr = 'https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26360/SINGLCLASS/franklin-ftse-germany-etf/FLGR';
+    expect(resolveFundName('Franklin ETF and Index Investmen', fgdl, 'FGDL')).toBe('Franklin Responsibly Sourced Gold ETF');
+    expect(resolveFundName('Exchange Traded Funds', flca, 'FLCA')).toBe('Franklin FTSE Canada ETF');
+    expect(resolveFundName('FLGR ETF', flgr, 'FLGR')).toBe('Franklin FTSE Germany ETF');
+    // A correct scraped name is kept as is.
+    expect(resolveFundName('Franklin FTSE Taiwan ETF - NAV Return (%)', 'https://www.franklintempleton.com/x/products/26351/SINGLCLASS/franklin-ftse-taiwan-etf/FLTW', 'FLTW')).toBe('Franklin FTSE Taiwan ETF');
+  });
+
+  test('resolveCategory rejects page furniture and numeric garbage', () => {
+    expect(resolveCategory('India Equity')).toBe('India Equity');
+    expect(resolveCategory('Asset Class')).toBe('ETF');
+    expect(resolveCategory('As of 09/23/2026 (Updated Daily)')).toBe('ETF');
+    expect(resolveCategory('March 31')).toBe('ETF');
+    expect(resolveCategory('665.32')).toBe('ETF');
+    expect(resolveCategory('287142124.29')).toBe('ETF');
+    expect(resolveCategory('page. If so preload resources')).toBe('ETF');
+    expect(resolveCategory('Fiscal Year End', 'Ethnic and Thematic')).toBe('ETF');
+    expect(resolveCategory('', null, undefined)).toBe('ETF');
+  });
+
+  test('tenYearEligible guards the 10-year slot', () => {
+    expect(tenYearEligible('2015-01-02')).toBe(true);
+    expect(tenYearEligible('2020-02-25')).toBe(false);
+    expect(tenYearEligible('2017-11-02')).toBe(false);
+    expect(tenYearEligible(null)).toBe(true);
+  });
+});
+
+describe('yield plausibility', () => {
+  test('the label artifact and out-of-range values are dropped', () => {
+    expect(plausibleSecYield(30)).toBeNull();
+    expect(plausibleSecYield(2.09)).toBe(2.09);
+    expect(plausibleSecYield(0)).toBeNull();
+    expect(plausibleSecYield(null)).toBeNull();
+    expect(plausibleDividendYield(30)).toBe(30);
+    expect(plausibleDividendYield(61)).toBeNull();
+    expect(plausiblePremiumDiscount(100)).toBeNull();
+    expect(plausiblePremiumDiscount(0.12)).toBe(0.12);
+    expect(plausiblePremiumDiscount(-6)).toBeNull();
+    expect(plausibleBenchmark('FTSE India Capped Index-NR')).toBe('FTSE India Capped Index-NR');
+    expect(plausibleBenchmark("index are as of the ETF's/ETP's last trading day before the ")).toBeNull();
+    expect(plausibleBenchmark('')).toBeNull();
+  });
+});
+
+describe('product page yields', () => {
+  test('SEC and 12-month yields stay on their percent value', () => {
+    const page = `
+# FLIN Franklin FTSE India ETF
+## Distributions
+Distribution Frequency Quarterly
+SEC 30-Day Yield 2.09%
+12-Month Yield 0.42%
+`;
+    const summary = parseProductPage(page, 'FLIN');
+    expect(summary.secYield).toBe(2.09);
+    expect(summary.distributionYield).toBe(0.42);
+    expect(summary.distributionFrequency).toBe('Quarterly');
+  });
+
+  test('the 30 of "SEC 30-Day Yield" never becomes the SEC yield', () => {
+    const page = `
+# EZET Franklin Ethereum ETF
+## Distributions
+| SEC 30-Day Yield | |
+| 30-Day Yield as of 08/31/2026 | — |
+`;
+    const summary = parseProductPage(page, 'EZET');
+    expect(summary.secYield).toBeNull();
+  });
+
+  test('a fund younger than ten years has no 10-year figure', () => {
+    const page = `
+# FLTW Franklin FTSE Taiwan ETF
+Fund Inception Date 11/02/2017
+Market Price Return
+NAV Return
+- 96.86%1 Year
+- 44.10%3 Years
+- 20.96%5 Years
+- —10 Years
+- 19.77%Since Inception
+`;
+    const summary = parseProductPage(page, 'FLTW');
+    expect(summary.returns.yr1).toBe(96.86);
+    expect(summary.returns.yr5).toBe(20.96);
+    expect(summary.returns.yr10).toBeNull();
+    expect(summary.returns.sinceInception).toBe(19.77);
   });
 });
 

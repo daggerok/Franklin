@@ -1,8 +1,8 @@
 {
  "ticker": "FLCO",
  "name": "Franklin Investment Grade Corporate ETF",
- "category": "As of 09/23/2026 (Updated Daily)",
- "categoryPath": "As of 09/23/2026 (Updated Daily)",
+ "category": "ETF",
+ "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/21558/SINGLCLASS/franklin-investment-grade-corporate-etf/FLCO",
  "factSheet": null,
  "source": {
@@ -33,9 +33,10 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$20.45",
+  "value": 20.45,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYield": 4.66,
+  "dividendYieldText": "4.66%",
+  "dividendYieldKind": "indicated: latest distribution 0.0800 x 12/year / NAV 20.59",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -67,8 +68,8 @@
    "yr3Text": "4.71%",
    "yr5": -0.5,
    "yr5Text": "-0.50%",
-   "yr10": 2.02,
-   "yr10Text": "2.02%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 2.02,
    "sinceInceptionText": "2.02%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": ", if any Monthly",
+  "frequency": "Monthly",
   "frequencyCode": "01 - Monthly",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"

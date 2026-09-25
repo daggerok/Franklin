@@ -673,6 +673,52 @@ function labelNumber(label: JsonRecord | null): number | null {
   return firstNumber(label.value ?? label.text ?? '') ?? numberOrNull(label.value);
 }
 
+// Sanity bounds for published yields. They also drop the legacy "30" artifact
+// that an earlier parser read out of the "SEC 30-Day Yield" label.
+const MAX_PUBLISHED_SEC_YIELD = 25;
+const MAX_PUBLISHED_DIVIDEND_YIELD = 60;
+
+export function plausibleSecYield(value: unknown): number | null {
+  const parsed = numberOrNull(value);
+  if (parsed === null || parsed <= 0 || parsed > MAX_PUBLISHED_SEC_YIELD) return null;
+  return parsed;
+}
+
+export function plausibleDividendYield(value: unknown): number | null {
+  const parsed = numberOrNull(value);
+  if (parsed === null || parsed <= 0 || parsed > MAX_PUBLISHED_DIVIDEND_YIELD) return null;
+  return parsed;
+}
+
+// The product page sometimes ships a sentence instead of the benchmark name
+// ("index are as of the ETF's/ETP's last trading day before the ...").
+export function plausibleBenchmark(value: unknown): string | null {
+  const text = cleanText(value);
+  if (!text || text.length > 80) return null;
+  if (/https?:|\*\*|©|\bas of\b|last trading day|for more information|disclosure/i.test(text)) return null;
+  if (text.split(/\s+/).length > 12) return null;
+  return text;
+}
+
+// A daily ETF premium/discount is a fraction of a percent; larger numbers are
+// mis-parsed neighbouring cells (the previous feed carried 100.00%).
+export function plausiblePremiumDiscount(value: unknown): number | null {
+  const parsed = numberOrNull(value);
+  if (parsed === null || Math.abs(parsed) > 5) return null;
+  return parsed;
+}
+
+// Yield rows are published as percentages. Anchoring on the "%" sign keeps the
+// label digits out of the value: "SEC 30-Day Yield" must never parse as 30.
+function percentValue(label: JsonRecord | null): number | null {
+  if (!label) return null;
+  const match = /([-+]?\d+(?:\.\d+)?)\s*%/.exec(labelText(label));
+  if (!match) return null;
+  const value = numberOrNull(match[1]);
+  if (value === null || Math.abs(value) > 100) return null;
+  return value;
+}
+
 function labelAsOf(label: JsonRecord | null): string | null {
   if (!label) return null;
   const raw = String(label.asOf ?? label.asOfDate ?? label.text ?? '');
@@ -1079,16 +1125,193 @@ function isValidCategory(value: string): boolean {
   if (/^\[\d+\]\(https?:\/\//.test(v)) return false;
   // Reject if contains multiple commas and quotes (JS bundle list)
   if ((v.match(/,/g) || []).length > 3 && v.includes('.js')) return false;
-  // Valid categories are typically short like "Equity", "Fixed Income", "N/A", "India Equity", etc.
-  // Allow letters, spaces, &, -, /, parentheses
-  if (!/^[A-Za-z0-9\s&\/\-\(\)]+$/.test(v)) {
-    // Allow "N/A" and similar
-    if (v !== 'N/A' && !/^[A-Za-z\s&\-]+$/.test(v)) {
-      // If contains invalid chars like ", \, etc, reject
-      if (/[\"'`\[\]{}]/.test(v)) return false;
+  // A category is a short phrase of words: "Equity", "Fixed Income", "India
+  // Equity", "Intermediate Core Bond". Anything with digits, URLs or sentence
+  // punctuation ("As of 09/23/2026 (Updated Daily)", "page. If so preload
+  // resources", "665.32") is a mis-parsed neighbouring cell, not a category.
+  if (/\d/.test(v)) return false;
+  if (/[/%.$:;|@#()\[\]{}\"']/.test(v)) return false;
+  if (v.split(/\s+/).length > 4) return false;
+  if (!/^[A-Za-z][A-Za-z .&'\-]*$/.test(v)) return false;
+  const lower = v.toLowerCase().trim();
+  const furniture = [
+    'asset class', 'fiscal year', 'fiscal year end', 'etf type', 'indexed', 'active', 'passive',
+    'updated daily', 'morningstar category', 'distribution frequency', 'dividend frequency',
+    'listing exchange', 'fund inception', 'inception date', 'expense ratio', 'gross expense',
+    'net expense', 'net assets', 'total net assets', 'shares outstanding', 'benchmark',
+    'cusip', 'isin', 'ticker', 'nav', 'market price', 'premium', 'discount', 'holdings',
+    'sector', 'top sectors', 'fund description', 'overview', 'price', 'performance',
+  ];
+  if (furniture.includes(lower)) return false;
+  if (/\b(page|resources|preload|updated|daily)\b/.test(lower)) return false;
+  // Page furniture rows end with their label word ("... Class", "... End").
+  if (/(\bclass|\bdate|\bratio|\bexchange|\bfrequency|\byield|\bend|\bcategory|\btype|\bassets|\boutstanding)$/.test(lower)) return false;
+  // Only publish values that look like an asset class / Morningstar category:
+  // "Equity", "Fixed Income", "India Equity", "Large Blend", "Digital Assets".
+  return /income|equity|bond|blend|growth|value|sector|allocation|commodit|derivative|trading|digital|assets|technology|health|energy|real estate|municipal|money market|target|convertible|nontraditional|market neutral|long-short|leveraged|inverse|precious metals|bank loan|corporate|government|high yield|emerging|foreign|world|large|mid|small|diversified|specialty|strateg|infrastructure|utilities|natural resources|consumer|financial|industrial|communication|index/.test(lower);
+}
+
+// The finder groups funds as "Equity", "Fixed Income", ... and the product page
+// publishes "Morningstar Category". Only a value that survives isValidCategory
+// is published; the neutral 'ETF' fallback is preferred over a wrong label.
+export function resolveCategory(...candidates: unknown[]): string {
+  for (const candidate of candidates) {
+    const value = cleanText(candidate);
+    if (isValidCategory(value)) return value;
+  }
+  return 'ETF';
+}
+
+const NAME_ACRONYMS: Record<string, string> = {
+  etf: 'ETF', etfs: 'ETFs', bdc: 'BDC', clo: 'CLO', ftse: 'FTSE', us: 'U.S.', usa: 'U.S.A.',
+  ai: 'AI', esg: 'ESG', reit: 'REIT', reits: 'REITs', nft: 'NFT', ml: 'ML',
+};
+
+// "franklin-u-s-core-bond-etf" -> "Franklin U.S. Core Bond ETF". The product URL
+// slug carries the official fund name, so it is the fallback whenever the page
+// text yields a wrong or truncated name ("Exchange Traded Funds", "FLCA ETF").
+export function fundNameFromPageSlug(fundPage: unknown, ticker = ''): string {
+  const url = cleanText(fundPage);
+  const match = /\/([a-z0-9][a-z0-9-]*?)\/([A-Z0-9]{2,6})\/?(?:[?#].*)?$/i.exec(url);
+  const slug = match ? match[1].toLowerCase() : '';
+  if (!slug) return '';
+  if (ticker && slug === ticker.toLowerCase()) return '';
+  const words = slug.split('-').filter(Boolean);
+  if (!words.length) return '';
+  const out: string[] = [];
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+    if (word === 'u' && words[i + 1] === 's' && words[i + 2] === 'a') { out.push('U.S.A.'); i += 2; continue; }
+    if (word === 'u' && words[i + 1] === 's') { out.push('U.S.'); i++; continue; }
+    if (NAME_ACRONYMS[word]) { out.push(NAME_ACRONYMS[word]); continue; }
+    out.push(word.charAt(0).toUpperCase() + word.slice(1));
+  }
+  const name = cleanText(out.join(' '));
+  return name && /\bETF\b|\bFund\b|\bTrust\b/i.test(name) ? name : '';
+}
+
+/** Product pages append the section they were opened with ("- NAV Return (%)"). */
+export function cleanFundName(raw: unknown, ticker = ''): string {
+  let name = cleanText(raw).replace(/\*+/g, '');
+  if (!name) return '';
+  if (ticker) {
+    const safeTicker = ticker.replace(/[^A-Za-z0-9]/g, '');
+    if (safeTicker) name = name.replace(new RegExp(`^${safeTicker}\\s+`, 'i'), '');
+  }
+  name = name.replace(/\s*[-\u2013\u2014:|]\s*(NAV|Market\s*Price)\b[^,;]*$/i, '');
+  name = name.replace(/\s*\(%\)\s*$/i, '');
+  name = name.replace(/\s*[-\u2013\u2014]\s*[A-Z0-9]{2,6}\s*$/, '');
+  name = cleanText(name);
+  return isValidFundName(name) ? name : '';
+}
+
+function significantWords(value: string): string[] {
+  const stop = new Set(['and', 'the', 'of', 'for', 'etf', 'etfs', 'fund', 'funds', 'index']);
+  return cleanText(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .split(/\s+/)
+    .filter((word) => word.length >= 3 && !stop.has(word));
+}
+
+/**
+ * Product-page titles are unreliable ("Exchange Traded Funds", "FLCA ETF").
+ * Keep the scraped name when it clearly describes the fund (at least two
+ * significant words in common with the URL slug), otherwise publish the slug.
+ */
+export function resolveFundName(raw: unknown, fundPage: unknown, ticker: string): string {
+  const cleaned = cleanFundName(raw, ticker);
+  const slugName = fundNameFromPageSlug(fundPage, ticker);
+  if (!cleaned) return slugName || `${ticker} ETF`;
+  if (!slugName) return cleaned;
+  const slugWords = new Set(significantWords(slugName));
+  const shared = significantWords(cleaned).filter((word) => slugWords.has(word));
+  return shared.length >= 2 ? cleaned : slugName;
+}
+
+/** 10-year figures only exist once the fund is ten years old. */
+export function tenYearEligible(inception: unknown, now = Date.now()): boolean {
+  const iso = toIsoDate(inception);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(iso)) return true;
+  const started = Date.parse(`${iso}T00:00:00Z`);
+  if (Number.isNaN(started)) return true;
+  return now - started >= 10 * 365.25 * 24 * 3600 * 1000;
+}
+
+// "Morningstar Category" and "Asset Class" are rendered as a label/value list,
+// but the value is not always on the label line, so scan a few lines and keep
+// the first candidate that really looks like a category.
+function lookupCategoryValue(lines: TextLine[], pattern: string | RegExp): string {
+  const isString = typeof pattern === 'string';
+  const test = (text: string): boolean => (isString ? text.toLowerCase().includes((pattern as string).toLowerCase()) : (pattern as RegExp).test(text));
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const haystack = line.cells.length >= 2 ? line.cells.join(' | ') : line.text;
+    if (!test(haystack)) continue;
+    const candidates: string[] = [];
+    if (line.cells.length >= 2) {
+      const idx = line.cells.findIndex(test);
+      if (idx >= 0 && idx + 1 < line.cells.length) candidates.push(line.cells.slice(idx + 1).join(' '));
+    }
+    if (isString) {
+      const at = haystack.toLowerCase().indexOf((pattern as string).toLowerCase());
+      if (at >= 0) candidates.push(haystack.slice(at + (pattern as string).length));
+    } else {
+      const match = (pattern as RegExp).exec(haystack);
+      if (match && match.index !== undefined) candidates.push(haystack.slice(match.index + match[0].length));
+    }
+    for (let j = 1; j <= 4; j++) {
+      const next = lines[i + j];
+      if (!next) break;
+      if (/^(?:Morningstar Category|Asset Class|Fiscal Year|ETF Type|Fund Inception|Listing Exchange)/i.test(next.text)) break;
+      if (next.cells.length === 0 && next.text.length <= 45) candidates.push(next.text);
+    }
+    for (const candidate of candidates) {
+      const value = cleanText(candidate).replace(/^[:\-|\s]+/, '').trim();
+      if (isValidCategory(value)) return value;
     }
   }
-  return true;
+  return '';
+}
+
+// The page repeats the frequency: the Overview row ("Dividend Frequency, if any
+// Monthly This fund is an ex-Dividend fund") and the Distributions block
+// ("Distribution Frequency Monthly"). Both carry page furniture, so every
+// candidate is normalized and only the canonical word is returned; the
+// Distributions block wins because it is the authoritative row.
+function extractDistributionFrequency(lines: TextLine[]): string | null {
+  const collect = (pattern: RegExp): string[] => {
+    const found: string[] = [];
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      const haystack = line.cells.length >= 2 ? line.cells.join(' | ') : line.text;
+      if (!pattern.test(haystack)) continue;
+      if (line.cells.length >= 2) {
+        const idx = line.cells.findIndex((cell) => pattern.test(cell));
+        found.push(idx >= 0 && idx + 1 < line.cells.length ? line.cells.slice(idx + 1).join(' ') : haystack);
+      } else {
+        found.push(line.text);
+      }
+      // The value often continues on one of the next lines.
+      for (let j = 1; j <= 2; j++) {
+        const next = lines[i + j];
+        if (!next) break;
+        if (/frequency/i.test(next.text)) break;
+        if (next.text.length <= 60) found.push(next.text);
+      }
+      if (found.length > 6) break;
+    }
+    return found;
+  };
+  const firstCanonical = (candidates: string[]): string | null => {
+    for (const candidate of candidates) {
+      const normalized = normalizeDistributionFrequency(candidate);
+      if (normalized !== '—') return normalized;
+    }
+    return null;
+  };
+  return firstCanonical(collect(/distribution frequency/i))
+    ?? firstCanonical(collect(/dividend frequency|frequency,?\s*if any/i));
 }
 
 export function parseFranklinProductPage(text: string, ticker: string): ProductPageSummary {
@@ -1158,7 +1381,10 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
   const categoryLabelRaw = lookupLabel(lines, 'Morningstar Category');
   const assetClassLabelRaw = lookupLabel(lines, 'Asset Class');
   const etfTypeLabel = lookupLabel(lines, 'ETF Type');
-  const navLabel = lookupLabel(lines, /^NAV$/i) || lookupLabel(lines, 'NAV Calculation');
+  // "NAV $34.85" (value on the same line), "NAV  $0.42(0.38%)" (the day change,
+  // the actual NAV on the next line) and a bare "NAV" label cell must all be
+  // recognised; "NAV Return" lines from the performance block must not be.
+  const navLabel = lookupLabel(lines, /^NAV\b(?!\s*(?:Return|Calculation))/i) || lookupLabel(lines, 'NAV Calculation');
   const marketPriceLabel = lookupLabel(lines, 'Market Price') || lookupLabel(lines, 'Market Price Return');
   const totalNetAssetsLabel = lookupLabel(lines, 'Total Net Assets');
   const grossExpenseLabel = lookupLabel(lines, 'Gross Expense Ratio');
@@ -1169,7 +1395,7 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
   const frequencyLabel = lookupLabel(lines, /Distribution Frequency/i) || lookupLabel(lines, 'Dividend Frequency');
   const holdingsLabel = lookupLabel(lines, 'Number of Holdings') || lookupLabel(lines, /Number of Holdings|Holdings/i);
   const sharesLabel = lookupLabel(lines, 'Shares Outstanding');
-  const premiumLabel = lookupLabel(lines, 'Premium / Discount') || lookupLabel(lines, /Premium/i);
+  const premiumLabel = lookupLabel(lines, 'Premium / Discount') || lookupLabel(lines, /Premium\s*(?:\/|and)?\s*Discount/i);
 
   const extractCusip = (raw: string): string => {
     const upper = String(raw ?? '').toUpperCase();
@@ -1203,9 +1429,9 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
   const exchange = labelText(exchangeLabel) || 'NYSEArca';
   const benchmark = labelText(benchmarkLabel);
   // Validate categories – reject JS bundle garbage and footnote links
-  const rawMorningstar = labelText(categoryLabelRaw);
-  const rawAsset = labelText(assetClassLabelRaw);
-  const morningstarCategory = isValidCategory(rawMorningstar) ? rawMorningstar : (isValidCategory(rawAsset) ? rawAsset : 'ETF');
+  const rawMorningstar = lookupCategoryValue(lines, 'Morningstar Category') || labelText(categoryLabelRaw);
+  const rawAsset = lookupCategoryValue(lines, 'Asset Class') || labelText(assetClassLabelRaw);
+  const morningstarCategory = isValidCategory(rawMorningstar) ? rawMorningstar : 'ETF';
   const assetClass = isValidCategory(rawAsset) ? rawAsset : (isValidCategory(rawMorningstar) ? rawMorningstar : 'ETF');
   const etfType = labelText(etfTypeLabel) || 'ETF';
 
@@ -1272,13 +1498,15 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
   })();
   const grossExpense = labelNumber(grossExpenseLabel);
   const netExpense = labelNumber(netExpenseLabel) ?? grossExpense;
-  const secYield = labelNumber(secYieldLabel);
-  const distributionYield = labelNumber(distributionYieldLabel);
-  const distributionRate = labelNumber(distributionRateLabel);
-  const frequencyRaw = labelText(frequencyLabel) || null;
+  // Yields are percentages: labelNumber would happily read the "30" of
+  // "SEC 30-Day Yield", so the value must be anchored on the "%" sign.
+  const secYield = percentValue(secYieldLabel);
+  const distributionYield = percentValue(distributionYieldLabel);
+  const distributionRate = percentValue(distributionRateLabel);
+  const frequencyRaw = extractDistributionFrequency(lines) || normalizeDistributionFrequency(labelText(frequencyLabel));
   const totalHoldings = labelNumber(holdingsLabel);
   const sharesOutstanding = labelNumber(sharesLabel);
-  const premiumDiscount = labelNumber(premiumLabel);
+  const premiumDiscount = plausiblePremiumDiscount(percentValue(premiumLabel));
 
   // Returns – product page contains:
   // YTD Total Returns At NAV 81.22% As of 09/23/2026
@@ -1289,22 +1517,49 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
   const returns: CatalogReturns = { ...EMPTY_RETURNS };
   const fullText = lines.map(l => l.text).join('\n');
 
-  // YTD from product page header – allow footnote [1] and newlines, non-greedy
-  const ytdMatch = /YTD Total Returns At (?:NAV|Market Price)[\s\S]{0,50}?([-+]?\d+(?:\.\d+)?)\s*%/i.exec(fullText);
-  if (ytdMatch) {
-    const v = numberOrNull(ytdMatch[1]);
-    if (v !== null) returns.ytd = v;
-  }
+  // YTD from the product page. The value either follows the "YTD Total Returns
+  // At NAV/Market Price" label (often behind a footnote marker, sometimes after
+  // a sentence of footnote copy) or sits on a line of its own; parse both so a
+  // longer footnote does not silently drop the value.
+  const extractYtd = (): number | null => {
+    const direct = /YTD Total Returns At (?:NAV|Market Price)[\s\S]{0,160}?([-+]?\d+(?:\.\d+)?)\s*%/i.exec(fullText);
+    if (direct) {
+      const v = numberOrNull(direct[1]);
+      if (v !== null) return v;
+    }
+    const periodStop = /1\s*Year|3\s*Years?|5\s*Years?|10\s*Years?|Since\s*Inception|Expense Ratio|Net Assets/i;
+    for (let i = 0; i < lines.length; i++) {
+      const txt = lines[i].text;
+      if (!/YTD/i.test(txt)) continue;
+      if (periodStop.test(txt)) continue;
+      for (let j = 0; j <= 2; j++) {
+        const line = lines[i + j];
+        if (!line) break;
+        if (j > 0 && periodStop.test(line.text)) break;
+        const m = /([-+]?\d+(?:\.\d+)?)\s*%/.exec(line.text);
+        if (m) {
+          const v = numberOrNull(m[1]);
+          if (v !== null) return v;
+        }
+      }
+    }
+    return null;
+  };
+  const ytdValue = extractYtd();
+  if (ytdValue !== null) returns.ytd = ytdValue;
 
   // Helper to extract returns like "96.86%1 Year" or "44.10%3 Years" etc.
+  // Both directions are line-anchored: the value must not be carried over from
+  // the previous period ("YTD -7.35%" followed by "1 Year" must not become
+  // the 1-year return).
   const extractReturn = (labelRegex: RegExp): number | null => {
-    const re = new RegExp(`([-+]?\\d+(?:\\.\\d+)?)\\s*%\\s*${labelRegex.source}`, 'i');
+    const re = new RegExp(`([-+]?\\d+(?:\\.\\d+)?)[ \\t]*%[ \\t]*${labelRegex.source}`, 'i');
     const m = re.exec(fullText);
     if (m) {
       const v = numberOrNull(m[1]);
       if (v !== null) return v;
     }
-    const re2 = new RegExp(`${labelRegex.source}[^\\d\\-—]*([-+]?\\d+(?:\\.\\d+)?)\\s*%`, 'i');
+    const re2 = new RegExp(`${labelRegex.source}[^\\d\\-—]{0,40}?([-+]?\\d+(?:\\.\\d+)?)[ \\t]*%`, 'i');
     const m2 = re2.exec(fullText);
     if (m2) {
       const v = numberOrNull(m2[1]);
@@ -1346,10 +1601,14 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
     }
   }
 
+  // A fund younger than ten years has no 10-year return; the live performance
+  // block prints the since-inception value in that slot.
+  if (!tenYearEligible(inception)) returns.yr10 = null;
+
   const factSheet = linkUrls(source, /fact-sheet|FactSheet/i)[0] || null;
 
   return {
-    name: name || `${ticker} ETF`,
+    name: cleanFundName(name, ticker) || `${ticker} ETF`,
     cusip: /^[A-Z0-9]{9}$/.test(cusip) ? cusip : '',
     isin: /^[A-Z0-9]{12}$/.test(isin) ? isin : '',
     exchange: exchange || 'NYSEArca',
@@ -1782,6 +2041,35 @@ export function frequencyCodeLabel(raw: string): string {
   return raw;
 }
 
+// Live product pages render the frequency row with page furniture around the
+// distribution word, e.g.
+//   "Dividend Frequency, if any Monthly This fund is an ex-Dividend fund"
+//   "Distribution Frequency Semi-annually"
+// Only the canonical word is published in the feed; everything else must never
+// reach the Frequency column.
+export function normalizeDistributionFrequency(raw: unknown): string {
+  const text = cleanText(raw).toLowerCase();
+  if (!text || text === '—' || text === '-' || text === 'n/a' || text === 'null') return '—';
+  if (/semi[\s-]?annual|semiannual|half[\s-]?year/.test(text)) return 'Semi-annually';
+  if (/month/.test(text)) return 'Monthly';
+  if (/quarter/.test(text)) return 'Quarterly';
+  if (/annual|yearly/.test(text)) return 'Annually';
+  if (/irregular/.test(text)) return 'Irregular';
+  if (/\bnone\b/.test(text)) return 'None';
+  if (/unknown/.test(text)) return 'Unknown';
+  return '—';
+}
+
+export function paymentsPerYearFor(frequency: unknown): number | null {
+  switch (normalizeDistributionFrequency(frequency)) {
+    case 'Monthly': return 12;
+    case 'Quarterly': return 4;
+    case 'Semi-annually': return 2;
+    case 'Annually': return 1;
+    default: return null;
+  }
+}
+
 // ---------------------------------------------------------------------------
 // HTTP layer with proxy fallback
 // ---------------------------------------------------------------------------
@@ -1919,11 +2207,15 @@ function parsePreviousFund(ticker: string, row: JsonRecord): CatalogFund {
     ter: typeof row.terValue === 'number' ? row.terValue : numberOrNull(row.ter),
     grossTer: typeof row.terValue === 'number' ? row.terValue : numberOrNull(row.ter),
     nav: typeof row.navValue === 'number' ? row.navValue : numberOrNull(row.nav),
-    close: typeof row.closePriceValue === 'number' ? row.closePriceValue : numberOrNull(row.closePrice),
-    premiumDiscount: typeof row.premiumDiscountValue === 'number' ? row.premiumDiscountValue : null,
+    close: row.closePriceSource === undefined
+      ? (typeof row.closePriceValue === 'number' ? row.closePriceValue : numberOrNull(row.closePrice))
+      : (String(row.closePriceSource).startsWith('official') ? numberOrNull(row.closePriceValue) : null),
+    premiumDiscount: plausiblePremiumDiscount(row.premiumDiscountValue),
     netAssets: typeof row.aumValue === 'number' ? row.aumValue : numberOrNull(row.aum),
-    dividendYield: row.metrics?.dividendYield ?? null,
-    secYield: row.metrics?.secYield ?? null,
+    dividendYield: row.dividendYieldSource === undefined
+      ? plausibleDividendYield(row.metrics?.dividendYield)
+      : (row.dividendYieldSource === 'official' ? plausibleDividendYield(row.metrics?.dividendYield) : null),
+    secYield: plausibleSecYield(row.metrics?.secYield),
     asOfDate: row.asOfDate || null,
     returns: {
       ytd: row.metrics?.ytd ?? row.returns?.monthEnd?.ytd ?? null,
@@ -2437,6 +2729,12 @@ async function main(): Promise<void> {
     let holdingsSource = 'not available';
     let chart: ParsedChart | null = null;
     let nport: ParsedNport | null = null;
+    // Official daily holdings table from the product page Portfolio tab. Kept in
+    // the processFund scope (not inside the product-page try block) because the
+    // SEC fallback below re-uses it.
+    let officialDailyHoldings: JsonRecord[] = [];
+    let officialDailyAsOf: string | null = null;
+    let officialDailySource = '';
 
     // 1) Product page – official daily holdings + summary (primary source)
     let franklinPageText: string | null = null;
@@ -2448,14 +2746,17 @@ async function main(): Promise<void> {
         }, 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', { maxProxies: PRODUCT_PROXY_COUNT });
         franklinPageText = page.text;
         summary = parseFranklinProductPage(page.text, ticker);
-        // Merge into catalog fund – only valid names/categories, never URL paths or JS bundles
-        if (summary.name && isValidFundName(summary.name)) fund.name = summary.name;
+        // Merge into catalog fund – only valid names/categories, never URL paths or JS bundles.
+        // The catalog name (finder table) stays authoritative; the product page
+        // only fills a name the catalog could not provide.
+        const pageName = resolveFundName(summary.name, fund.fundPage, ticker);
+        if (!isValidFundName(fund.name) && pageName) fund.name = pageName;
         if (summary.cusip) fund.cusip = summary.cusip;
         if (summary.isin) fund.isin = summary.isin;
         if (summary.exchange) fund.exchange = summary.exchange;
         if (summary.benchmark) fund.benchmark = summary.benchmark;
-        if (summary.morningstarCategory && isValidCategory(summary.morningstarCategory)) { fund.category = summary.morningstarCategory; fund.categoryPath = summary.morningstarCategory; }
-        else if (summary.assetClass && isValidCategory(summary.assetClass)) { fund.category = summary.assetClass; fund.categoryPath = summary.assetClass; }
+        const pageCategory = resolveCategory(summary.morningstarCategory, summary.assetClass);
+        if (pageCategory !== 'ETF') { fund.category = pageCategory; fund.categoryPath = pageCategory; }
         if (summary.totalExpenseRatio !== null) { fund.ter = summary.totalExpenseRatio; fund.grossTer = summary.grossExpenseRatio ?? summary.totalExpenseRatio; }
         if (summary.totalNetAssets !== null) fund.netAssets = summary.totalNetAssets;
         if (summary.nav !== null) fund.nav = summary.nav;
@@ -2476,9 +2777,6 @@ async function main(): Promise<void> {
 
         // Try official holdings from product page Portfolio tab (daily, more recent than SEC quarterly)
         // The page via r.jina.ai contains markdown table: | Security Name | Weight (%) | Market Value | Quantity |
-        let officialDailyHoldings: JsonRecord[] = [];
-        let officialDailyAsOf: string | null = null;
-        let officialDailySource: string = '';
         try {
           const franklinHoldings = parseFranklinHoldings(page.text);
           if (franklinHoldings.length) {
@@ -2545,14 +2843,24 @@ async function main(): Promise<void> {
       prevMeta = JSON.parse(await readFile(new URL('meta.json', fundDir), 'utf8')) as JsonRecord;
     } catch {}
 
-    // Determine distribution frequency
-    let distributionFrequency = summary?.distributionFrequency || summary?.dividendFrequencyRaw || null;
-    if (!distributionFrequency && chart?.dividends?.length) {
-      distributionFrequency = inferDistributionFrequency(chart.dividends);
+    // Determine distribution frequency. Only the canonical word is published:
+    // the pages ship page furniture around it ("Monthly This fund is an
+    // ex-Dividend fund", ", if any Semiannually"). The previous meta is the last
+    // resort so a run without page access never downgrades the feed.
+    const frequencyCandidates = [
+      summary?.distributionFrequency,
+      summary?.dividendFrequencyRaw,
+      chart?.dividends?.length ? inferDistributionFrequency(chart.dividends) : null,
+      prevMeta?.distributions?.frequency,
+    ];
+    let distributionFrequency = '—';
+    for (const candidate of frequencyCandidates) {
+      const normalized = normalizeDistributionFrequency(candidate);
+      if (normalized !== '—') { distributionFrequency = normalized; break; }
     }
-    if (!distributionFrequency) distributionFrequency = '—';
 
     const frequencyCode = frequencyCodeLabel(distributionFrequency);
+    const paymentsPerYear = paymentsPerYearFor(distributionFrequency);
 
     // Build history rows
     const historyRows: JsonRecord[] = [];
@@ -2666,25 +2974,67 @@ async function main(): Promise<void> {
           searchIndex: `${formatDate(new Date(div.epoch * 1000).toISOString().slice(0, 10))} ${div.amount}`.toLowerCase(),
         });
       }
+    } else if (Array.isArray(prevMeta?.distributions?.rows)) {
+      // Keep the committed distribution history when Yahoo is skipped/unreachable.
+      for (const row of prevMeta.distributions.rows as JsonRecord[]) distributionRows.push(row);
     }
 
     const latestDividend = distributionRows.length ? numberOrNull(distributionRows[0].Dividend) : null;
     const exDate = distributionRows.length ? (distributionRows[0]['Ex-Date'] as string) : '—';
+
+    // Close price: the official Market Price when the product page published
+    // one, otherwise the last close of the price history (Yahoo Finance).
+    const lastHistoryClose = historyRows.length ? numberOrNull(historyRows[historyRows.length - 1].Close) : null;
+    const closePrice = fund.close ?? lastHistoryClose;
+    const closePriceKind = fund.close !== null
+      ? 'official product page Market Price'
+      : (lastHistoryClose !== null ? 'last close from the Yahoo Finance price history' : null);
+
+    // Dividend yield: the official 12-month yield when the product page
+    // publishes one, otherwise the indicated yield documented in the README and
+    // the column tooltip (latest distribution x payments per year / price).
+    const yieldPrice = fund.close ?? fund.nav ?? closePrice ?? numberOrNull(prevMeta?.marketPrice?.value) ?? numberOrNull(prevMeta?.nav?.value) ?? null;
+    const yieldPriceLabel = fund.close !== null ? 'market price' : fund.nav !== null ? 'NAV' : closePrice !== null ? 'last close' : 'price from the previous run';
+    let dividendYield = plausibleDividendYield(fund.dividendYield);
+    let dividendYieldKind = 'not published by franklintempleton.com for this fund';
+    if (dividendYield !== null) {
+      dividendYieldKind = 'official 12-month distribution yield from the product page';
+    } else if (latestDividend !== null && paymentsPerYear && yieldPrice) {
+      const indicated = round((latestDividend * paymentsPerYear / yieldPrice) * 100, 2);
+      if (indicated > 0 && indicated <= MAX_PUBLISHED_DIVIDEND_YIELD) {
+        dividendYield = indicated;
+        dividendYieldKind = `indicated: latest distribution ${latestDividend.toFixed(4)} x ${paymentsPerYear}/year / ${yieldPriceLabel} ${yieldPrice.toFixed(2)}`;
+      }
+    }
+    if (dividendYield === null && !distributionRows.length) dividendYieldKind = 'this fund has no distribution history';
+    else if (dividendYield === null) dividendYieldKind = 'not computable: no distribution price (NAV/market price) in the feed';
 
     // Returns: use catalog returns + derived from Yahoo if needed
     const ytd = fund.returns.ytd;
     const yr1 = fund.returns.yr1;
     const yr3 = fund.returns.yr3;
     const yr5 = fund.returns.yr5;
-    const yr10 = fund.returns.yr10;
+    // The pages print the since-inception value in the 10-year slot of young
+    // funds; a fund younger than ten years cannot have a 10-year return.
+    const yr10 = tenYearEligible(fund.inception) ? fund.returns.yr10 : null;
     const si = fund.returns.sinceInception;
+    const secYield = plausibleSecYield(fund.secYield);
+    fund.premiumDiscount = plausiblePremiumDiscount(fund.premiumDiscount);
+
+    // Published identifiers: scraped name/category first, then the product URL
+    // slug / neutral fallback so no page furniture reaches the catalog.
+    const fundName = resolveFundName(fund.name, fund.fundPage, ticker);
+    const fundCategory = resolveCategory(fund.category, fund.categoryPath, summary?.morningstarCategory, summary?.assetClass);
+    fund.name = fundName;
+    fund.category = fundCategory;
+    fund.categoryPath = fundCategory;
 
     // Build meta.json
     const meta = {
       ticker,
-      name: fund.name,
-      category: fund.category,
-      categoryPath: fund.categoryPath,
+      name: fundName,
+      category: fundCategory,
+      categoryPath: fundCategory,
       fundPage: fund.fundPage,
       factSheet: summary?.factSheet || null,
       source: {
@@ -2696,12 +3046,12 @@ async function main(): Promise<void> {
         holdingsSource,
         historySource: chart ? 'Yahoo Finance public chart API' : (prevMeta?.source?.historySource || 'previous run'),
         yahooChart: `${YAHOO_CHART_URL}/${ticker}?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true`,
-        nportDoc: nport ? `SEC EDGAR N-PORT-P ${nport.repPdDate}` : null,
+        nportDoc: nport ? `SEC EDGAR N-PORT-P ${nport.repPdDate}` : (cleanText(prevMeta?.source?.nportDoc) || null),
       },
       identifiers: {
         cusip: fund.cusip || summary?.cusip || null,
         isin: fund.isin || summary?.isin || null,
-        benchmark: fund.benchmark || summary?.benchmark || null,
+        benchmark: plausibleBenchmark(fund.benchmark) || plausibleBenchmark(summary?.benchmark) || plausibleBenchmark(prevMeta?.identifiers?.benchmark) || null,
       },
       expenseRatio: {
         display: fund.ter !== null ? `${fund.ter.toFixed(2)}%` : '—',
@@ -2712,12 +3062,15 @@ async function main(): Promise<void> {
       nav: {
         display: fund.nav !== null ? `$${fund.nav.toFixed(2)}` : '—',
         value: fund.nav,
-        asOfDate: summary?.navAsOfDate || null,
+        asOfDate: summary?.navAsOfDate || cleanText(prevMeta?.nav?.asOfDate) || null,
       },
       marketPrice: {
-        display: fund.close !== null ? `$${fund.close.toFixed(2)}` : '—',
-        value: fund.close,
-        asOfDate: summary?.marketPriceAsOfDate || null,
+        display: closePrice !== null ? `$${closePrice.toFixed(2)}` : '—',
+        value: closePrice,
+        asOfDate: closePriceKind && !closePriceKind.startsWith('official')
+          ? (historyRows.length ? toIsoDate(historyRows[historyRows.length - 1].Date) : null)
+          : (summary?.marketPriceAsOfDate || cleanText(prevMeta?.marketPrice?.asOfDate) || null),
+        source: closePriceKind,
       },
       premiumDiscount: {
         display: fund.premiumDiscount !== null ? `${fund.premiumDiscount.toFixed(2)}%` : '—',
@@ -2726,16 +3079,18 @@ async function main(): Promise<void> {
       aum: {
         display: formatAumDisplay(fund.netAssets),
         value: fund.netAssets,
-        asOfDate: summary?.totalNetAssetsAsOfDate || holdingsAsOf || null,
-        source: summary?.totalNetAssets !== null ? 'official product page Total Net Assets' : holdingsSource,
+        asOfDate: summary?.totalNetAssetsAsOfDate || cleanText(prevMeta?.aum?.asOfDate) || holdingsAsOf || null,
+        source: summary?.totalNetAssets !== null && summary?.totalNetAssets !== undefined
+          ? 'official product page Total Net Assets'
+          : cleanText(prevMeta?.aum?.source) || holdingsSource,
       },
       yields: {
-        dividendYield: fund.dividendYield,
-        dividendYieldText: fund.dividendYield !== null ? `${fund.dividendYield.toFixed(2)}%` : '—',
-        dividendYieldKind: summary?.distributionYield !== null ? 'official 12-month yield from product page' : chart?.dividends?.length ? 'indicated from Yahoo dividends' : 'not published',
-        secYield: fund.secYield,
-        secYieldText: fund.secYield !== null ? `${fund.secYield.toFixed(2)}%` : '—',
-        secYieldKind: fund.secYield !== null ? `SEC Yield (30 Day) published on the official product page${summary?.secYieldAsOfDate ? ` as of ${formatDate(summary.secYieldAsOfDate)}` : ''}` : 'not published by franklintempleton.com for this fund',
+        dividendYield,
+        dividendYieldText: dividendYield !== null ? `${dividendYield.toFixed(2)}%` : '—',
+        dividendYieldKind,
+        secYield,
+        secYieldText: secYield !== null ? `${secYield.toFixed(2)}%` : '—',
+        secYieldKind: secYield !== null ? `SEC Yield (30 Day) published on the official product page${summary?.secYieldAsOfDate ? ` as of ${formatDate(summary.secYieldAsOfDate)}` : ''}` : 'not published by franklintempleton.com for this fund',
       },
       returns: {
         derivedFrom: 'official Franklin Templeton product finder (market price) + Yahoo Finance fallback',
@@ -2773,7 +3128,7 @@ async function main(): Promise<void> {
       distributions: {
         frequency: distributionFrequency,
         frequencyCode,
-        paymentsPerYear: distributionFrequency === 'Monthly' ? 12 : distributionFrequency === 'Quarterly' ? 4 : distributionFrequency === 'Semi-annually' ? 2 : distributionFrequency === 'Annually' ? 1 : null,
+        paymentsPerYear,
         headers: ['Ex-Date', 'Dividend'],
         rows: distributionRows,
         latestDividend: latestDividend !== null ? `${latestDividend}` : '—',
@@ -2843,26 +3198,34 @@ async function main(): Promise<void> {
     const ter = fund.ter ?? meta?.expenseRatio?.value ?? null;
     const nav = fund.nav ?? meta?.nav?.value ?? null;
     const aum = fund.netAssets ?? meta?.aum?.value ?? null;
-    const secYield = fund.secYield ?? meta?.yields?.secYield ?? null;
-    const divYield = fund.dividendYield ?? meta?.yields?.dividendYield ?? null;
+    const secYield = plausibleSecYield(fund.secYield ?? meta?.yields?.secYield);
+    const divYield = plausibleDividendYield(fund.dividendYield ?? meta?.yields?.dividendYield);
+
+    // Only publish values that pass the plausibility checks, whatever the meta
+    // or the previous index carried.
+    const fundName = resolveFundName(fund.name, fund.fundPage, ticker);
+    const fundCategory = resolveCategory(fund.category, fund.categoryPath, meta?.category);
 
     const ytd = fund.returns.ytd ?? meta?.returns?.monthEnd?.ytd ?? null;
     const tr1y = fund.returns.yr1 ?? null;
     const tr3y = fund.returns.yr3 ? annualizedToTotal(fund.returns.yr3, 3) : null;
     const tr5y = fund.returns.yr5 ? annualizedToTotal(fund.returns.yr5, 5) : null;
-    const tr10y = fund.returns.yr10 ? annualizedToTotal(fund.returns.yr10, 10) : null;
+    const yr10 = tenYearEligible(fund.inception) ? (fund.returns.yr10 ?? null) : null;
+    const tr10y = yr10 ? annualizedToTotal(yr10, 10) : null;
     const cagr3y = fund.returns.yr3 ?? null;
     const cagr5y = fund.returns.yr5 ?? null;
-    const cagr10y = fund.returns.yr10 ?? null;
+    const cagr10y = yr10;
     const siAnn = fund.returns.sinceInception ?? null;
 
-    const freq = meta?.distributions?.frequency || fund.categoryPath || '—';
+    const closePriceValue = fund.close ?? meta?.marketPrice?.value ?? null;
+
+    const freq = normalizeDistributionFrequency(meta?.distributions?.frequency ?? fund.categoryPath ?? '—');
     const freqCode = frequencyCodeLabel(freq);
 
     indexFunds.push({
       ticker,
-      name: fund.name,
-      category: fund.category,
+      name: fundName,
+      category: fundCategory,
       fundPage: fund.fundPage,
       dataFile: `./funds/${ticker}/meta.json`,
       cusip: fund.cusip || meta?.identifiers?.cusip || null,
@@ -2876,10 +3239,11 @@ async function main(): Promise<void> {
       asOfDate: meta?.holdings?.asOf || meta?.aum?.asOfDate || '—',
       inceptionDate: fund.inception ? formatDate(fund.inception) : (meta?.returns?.monthEnd?.inceptionDate ? formatDate(meta.returns.monthEnd.inceptionDate) : '—'),
       exchange: fund.exchange || meta?.identifiers?.exchange || 'NYSEArca',
-      closePrice: meta?.marketPrice?.display || (fund.close !== null ? `$${fund.close.toFixed(2)}` : '—'),
-      closePriceValue: fund.close ?? meta?.marketPrice?.value ?? null,
-      premiumDiscount: meta?.premiumDiscount?.display || '—',
-      premiumDiscountValue: meta?.premiumDiscount?.value ?? null,
+      closePrice: closePriceValue !== null ? `$${closePriceValue.toFixed(2)}` : (meta?.marketPrice?.display || '—'),
+      closePriceValue,
+      closePriceSource: meta?.marketPrice?.source || (fund.close !== null ? 'official product page Market Price' : null),
+      premiumDiscount: fund.premiumDiscount !== null ? `${fund.premiumDiscount.toFixed(2)}%` : (meta?.premiumDiscount?.display || '—'),
+      premiumDiscountValue: plausiblePremiumDiscount(fund.premiumDiscount ?? meta?.premiumDiscount?.value),
       distributions: {
         frequency: freq,
         exDate: meta?.distributions?.exDate || '—',
@@ -2933,6 +3297,9 @@ async function main(): Promise<void> {
         secYieldText: secYield !== null ? `${secYield.toFixed(2)}%` : '—',
         returnsBasis: 'official Franklin Templeton product finder (market price) + Yahoo Finance fallback',
       },
+      dividendYieldSource: typeof meta?.yields?.dividendYieldKind === 'string' && String(meta.yields.dividendYieldKind).startsWith('indicated')
+        ? 'indicated'
+        : (divYield !== null ? 'official' : null),
       distributionFrequency: freq,
       holdings: holdingsCount,
       history: historyCount,

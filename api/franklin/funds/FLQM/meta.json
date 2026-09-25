@@ -1,6 +1,6 @@
 {
  "ticker": "FLQM",
- "name": "FLQM ETF",
+ "name": "Franklin U.S. Mid Cap Multifactor Index ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/25772/SINGLCLASS/franklin-u-s-mid-cap-multifactor-index-etf/FLQM",
@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P884",
   "isin": "US35473P8840",
-  "benchmark": "**Fund** | **Benchmark**"
+  "benchmark": null
  },
  "expenseRatio": {
   "display": "0.30%",
@@ -33,9 +33,10 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$58.21",
+  "value": 58.21,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,12 +49,12 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": 30,
-  "secYieldText": "30.00%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "dividendYield": 1.29,
+  "dividendYieldText": "1.29%",
+  "dividendYieldKind": "indicated: latest distribution 0.1870 x 4/year / last close 58.21",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published by franklintempleton.com for this fund"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -67,8 +68,8 @@
    "yr3Text": "12.21%",
    "yr5": 7.12,
    "yr5Text": "7.12%",
-   "yr10": 11.28,
-   "yr10Text": "11.28%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 11.28,
    "sinceInceptionText": "11.28%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": ", if any Quarterly",
+  "frequency": "Quarterly",
   "frequencyCode": "04 - Quarterly",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 4,
   "headers": [
    "Ex-Date",
    "Dividend"

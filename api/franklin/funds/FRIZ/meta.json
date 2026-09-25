@@ -1,6 +1,6 @@
 {
  "ticker": "FRIZ",
- "name": "Franklin Dividend Growth ETF - NAV Return (%)",
+ "name": "Franklin Dividend Growth ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47537/SINGLCLASS/franklin-dividend-growth-etf/FRIZ",
@@ -33,9 +33,10 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$26.59",
+  "value": 26.59,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,12 +49,12 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": 30,
-  "secYieldText": "30.00%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "dividendYield": 0.89,
+  "dividendYieldText": "0.89%",
+  "dividendYieldKind": "indicated: latest distribution 0.0590 x 4/year / last close 26.59",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published by franklintempleton.com for this fund"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -67,8 +68,8 @@
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
-   "yr10": 10.45,
-   "yr10Text": "10.45%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 10.45,
    "sinceInceptionText": "10.45%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly This fund is an ex-Dividend fund",
+  "frequency": "Quarterly",
   "frequencyCode": "04 - Quarterly",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 4,
   "headers": [
    "Ex-Date",
    "Dividend"

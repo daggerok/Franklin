@@ -1,6 +1,6 @@
 {
  "ticker": "FLBR",
- "name": "Franklin FTSE Brazil ETF - NAV Return (%)",
+ "name": "Franklin FTSE Brazil ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26363/SINGLCLASS/franklin-ftse-brazil-etf/FLBR",
@@ -33,9 +33,10 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$23.00",
+  "value": 23,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYield": 2.27,
+  "dividendYieldText": "2.27%",
+  "dividendYieldKind": "indicated: latest distribution 0.2610 x 2/year / last close 23.00",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -67,8 +68,8 @@
    "yr3Text": "13.53%",
    "yr5": 8.75,
    "yr5Text": "8.75%",
-   "yr10": 5.45,
-   "yr10Text": "5.45%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 5.45,
    "sinceInceptionText": "5.45%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-Annual This fund is an ex-Dividend fund",
+  "frequency": "Semi-annually",
   "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"

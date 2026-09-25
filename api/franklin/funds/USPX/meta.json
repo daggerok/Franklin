@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": null,
   "isin": null,
-  "benchmark": "s: An intuitive framework for incorporating digital assets into diversified portfolios](https://www.franklintempleton.com/articles/2025/multi-asset/intuitive-framework-for-incorporating-digital-assets-into-diversified-portfolios)"
+  "benchmark": null
  },
  "expenseRatio": {
   "display": "0.19%",
@@ -33,9 +33,10 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$67.24",
+  "value": 67.24,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYield": 0.86,
+  "dividendYieldText": "0.86%",
+  "dividendYieldKind": "indicated: latest distribution 0.1440 x 4/year / NAV 67.18",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
