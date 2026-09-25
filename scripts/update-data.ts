@@ -1,4 +1,5 @@
 #!/usr/bin/env -S bun --use-system-ca
+import { printConfig, createReporter } from './update-output.ts';
 
 // Embed system CA by default so user does NOT need to pass --use-system-ca or NODE_USE_SYSTEM_CA=1
 // Bun v1.2.23+ supports --use-system-ca flag and NODE_USE_SYSTEM_CA=1 env var.
@@ -2533,21 +2534,7 @@ async function main(): Promise<void> {
   const config = parseConfig();
   requestSleepSeconds = config.requestSleep;
 
-  const configLines: string[] = [
-    `[ config ] Franklin updater:`,
-    `            MAX_FETCHES=${config.maxFetches}`,
-    `            REQUEST_SLEEP=${config.requestSleep}`,
-    `            CONCURRENCY=${config.concurrency}`,
-    `            EDGAR_FALLBACK=${config.edgarFallback}`,
-    `            SKIP_FRANKLIN=${config.skipFranklin}`,
-    `            SKIP_YAHOO=${config.skipYahoo}`,
-  ];
-  if (config.tickers) configLines.push(`            TICKERS=${[...config.tickers].join(' ')}`);
-  if (config.category) configLines.push(`            CATEGORY=${config.category}`);
-  if (config.historyRange) configLines.push(`            HISTORY_RANGE=${config.historyRange}`);
-  if (config.holdingsPageSize) configLines.push(`            HOLDINGS_PAGE_SIZE=${config.holdingsPageSize}`);
-  if (config.historyPageSize) configLines.push(`            HISTORY_PAGE_SIZE=${config.historyPageSize}`);
-  console.log(configLines.join('\n'));
+  printConfig('Franklin', config);
 
   await ensureApiRoot();
 
@@ -2729,6 +2716,7 @@ async function main(): Promise<void> {
   const queue = [...toProcess];
   const workers: Promise<void>[] = [];
 
+  const output = createReporter(API_ROOT, totalToProcess);
   async function processFund(fund: CatalogFund): Promise<void> {
     const ticker = fund.ticker.toUpperCase();
     const fundDir = new URL(`funds/${ticker}/`, API_ROOT);
@@ -3161,10 +3149,7 @@ async function main(): Promise<void> {
     if (changed) updated++;
     else unchanged++;
     fundCompletedCount++;
-    const padTotal = Math.max(2, String(totalToProcess).length);
-    const iStr = String(fundCompletedCount).padStart(padTotal, ' ');
-    const tStr = String(totalToProcess).padStart(padTotal, ' ');
-    console.log(`[ ${iStr}/${tStr}  ] ${ticker.padEnd(5)} ${(changed ? 'updated' : 'unchanged').padEnd(9)} holdings=${holdingsRows.length.toString().padEnd(4)} history=${historyRows.length}`);
+
   }
 
   // Worker pool
@@ -3174,10 +3159,12 @@ async function main(): Promise<void> {
         while (queue.length) {
           const fund = queue.shift();
           if (!fund) break;
+          const before = await output.before(fund.ticker);
           try {
             await processFund(fund);
+            await output.result(fund.ticker, before);
           } catch (e) {
-            console.error(`[error   ] ${fund.ticker} failed: ${e instanceof Error ? e.message : String(e)}`);
+            await output.result(fund.ticker, before, 'failed', String(e));
             failed++;
           }
         }
