@@ -1,0 +1,160 @@
+{
+ "ticker": "XIDV",
+ "name": "Franklin International Dividend Booster Index ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/42138/SINGLCLASS/franklin-international-dividend-booster-index-etf/XIDV",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/42138/SINGLCLASS/franklin-international-dividend-booster-index-etf/XIDV",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035105, report period 2026-06-30)",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/XIDV?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+ },
+ "identifiers": {
+  "cusip": "35473P371",
+  "isin": "US35473P3718",
+  "benchmark": "**Fund** | **Benchmark**"
+ },
+ "expenseRatio": {
+  "display": "0.19%",
+  "value": 0.19,
+  "gross": 0.19,
+  "net": 0.19
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "$45.96 M",
+  "value": 45960000,
+  "asOfDate": "2026-09-23",
+  "source": "official product page Total Net Assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": 30,
+  "secYieldText": "30.00%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": 29.5,
+   "yr1Text": "29.50%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": 39.56,
+   "yr10Text": "39.56%",
+   "sinceInception": 39.56,
+   "sinceInceptionText": "39.56%"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 39.56,
+   "sinceInceptionText": "39.56%"
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly This fund is an ex-Dividend fund",
+  "frequencyCode": "04 - Quarterly",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Sep 18 2026",
+    "Dividend": "0.3190",
+    "searchIndex": "sep 18 2026 0.319"
+   },
+   {
+    "Ex-Date": "Jun 26 2026",
+    "Dividend": "1.5180",
+    "searchIndex": "jun 26 2026 1.518"
+   },
+   {
+    "Ex-Date": "Mar 20 2026",
+    "Dividend": "0.0600",
+    "searchIndex": "mar 20 2026 0.06"
+   },
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.3420",
+    "searchIndex": "dec 19 2025 0.342"
+   },
+   {
+    "Ex-Date": "Sep 19 2025",
+    "Dividend": "0.3060",
+    "searchIndex": "sep 19 2025 0.306"
+   },
+   {
+    "Ex-Date": "Jun 20 2025",
+    "Dividend": "0.9120",
+    "searchIndex": "jun 20 2025 0.912"
+   },
+   {
+    "Ex-Date": "Mar 21 2025",
+    "Dividend": "0.0180",
+    "searchIndex": "mar 21 2025 0.018"
+   }
+  ],
+  "latestDividend": "0.319",
+  "exDate": "Sep 18 2026"
+ },
+ "holdings": {
+  "totalRows": 87,
+  "pageSize": 250,
+  "pageCount": 1,
+  "pages": [
+   "./holdings/001.json"
+  ],
+  "asOfDate": "2026-06-30",
+  "asOf": "Jun 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035105, report period 2026-06-30)"
+ },
+ "history": {
+  "totalRows": 419,
+  "pageSize": 1000,
+  "pageCount": 1,
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 24 2026",
+  "source": "Yahoo Finance public chart API"
+ }
+}

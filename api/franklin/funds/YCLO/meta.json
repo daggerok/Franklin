@@ -1,0 +1,140 @@
+{
+ "ticker": "YCLO",
+ "name": "Franklin BSP CLO ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/50418/SINGLCLASS/franklin-bsp-clo-etf/YCLO",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/50418/SINGLCLASS/franklin-bsp-clo-etf/YCLO",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035144, report period 2026-06-30)",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/YCLO?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+ },
+ "identifiers": {
+  "cusip": "35473P298",
+  "isin": "US35473P2983",
+  "benchmark": "JP Morgan CLO IG index"
+ },
+ "expenseRatio": {
+  "display": "0.35%",
+  "value": 0.35,
+  "gross": 0.35,
+  "net": 0.35
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "$50.42 M",
+  "value": 50420000,
+  "asOfDate": "2026-08-31",
+  "source": "official product page Total Net Assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": 30,
+  "secYieldText": "30.00%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": 1.7,
+   "yr10Text": "1.70%",
+   "sinceInception": 1.7,
+   "sinceInceptionText": "1.70%"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 1.7,
+   "sinceInceptionText": "1.70%"
+  }
+ },
+ "distributions": {
+  "frequency": "Monthly This fund is an ex-Dividend fund",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Sep 1 2026",
+    "Dividend": "0.1060",
+    "searchIndex": "sep 1 2026 0.106"
+   },
+   {
+    "Ex-Date": "Aug 3 2026",
+    "Dividend": "0.0950",
+    "searchIndex": "aug 3 2026 0.095"
+   },
+   {
+    "Ex-Date": "Jul 1 2026",
+    "Dividend": "0.0790",
+    "searchIndex": "jul 1 2026 0.079"
+   }
+  ],
+  "latestDividend": "0.106",
+  "exDate": "Sep 1 2026"
+ },
+ "holdings": {
+  "totalRows": 49,
+  "pageSize": 250,
+  "pageCount": 1,
+  "pages": [
+   "./holdings/001.json"
+  ],
+  "asOfDate": "2026-06-30",
+  "asOf": "Jun 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035144, report period 2026-06-30)"
+ },
+ "history": {
+  "totalRows": 77,
+  "pageSize": 1000,
+  "pageCount": 1,
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 24 2026",
+  "source": "Yahoo Finance public chart API"
+ }
+}

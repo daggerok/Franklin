@@ -1,0 +1,193 @@
+{
+ "ticker": "FLJH",
+ "name": "FLJH ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26355/SINGLCLASS/franklin-ftse-japan-hedged-etf/FLJH",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26355/SINGLCLASS/franklin-ftse-japan-hedged-etf/FLJH",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035143, report period 2026-06-30)",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLJH?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+ },
+ "identifiers": {
+  "cusip": "35473P637",
+  "isin": "US35473P6372",
+  "benchmark": null
+ },
+ "expenseRatio": {
+  "display": "0.09%",
+  "value": 0.09,
+  "gross": 0.09,
+  "net": 0.09
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "$228.97 M",
+  "value": 228970000,
+  "asOfDate": "2026-06-30",
+  "source": "official product page Total Net Assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "official 12-month yield from product page",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published by franklintempleton.com for this fund"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": 42.37,
+   "yr1Text": "42.37%",
+   "yr3": 28.51,
+   "yr3Text": "28.51%",
+   "yr5": 22.65,
+   "yr5Text": "22.65%",
+   "yr10": 15.26,
+   "yr10Text": "15.26%",
+   "sinceInception": 15.26,
+   "sinceInceptionText": "15.26%"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 15.26,
+   "sinceInceptionText": "15.26%"
+  }
+ },
+ "distributions": {
+  "frequency": "Semi-annually",
+  "frequencyCode": "06 - Semi-annually",
+  "paymentsPerYear": 2,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Jun 26 2026",
+    "Dividend": "0.2860",
+    "searchIndex": "jun 26 2026 0.286"
+   },
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.8410",
+    "searchIndex": "dec 19 2025 0.841"
+   },
+   {
+    "Ex-Date": "Jun 20 2025",
+    "Dividend": "0.6280",
+    "searchIndex": "jun 20 2025 0.628"
+   },
+   {
+    "Ex-Date": "Dec 20 2024",
+    "Dividend": "0.2100",
+    "searchIndex": "dec 20 2024 0.21"
+   },
+   {
+    "Ex-Date": "Jun 21 2024",
+    "Dividend": "0.7540",
+    "searchIndex": "jun 21 2024 0.754"
+   },
+   {
+    "Ex-Date": "Dec 15 2023",
+    "Dividend": "6.3830",
+    "searchIndex": "dec 15 2023 6.383"
+   },
+   {
+    "Ex-Date": "Jun 16 2023",
+    "Dividend": "0.3200",
+    "searchIndex": "jun 16 2023 0.32"
+   },
+   {
+    "Ex-Date": "Dec 16 2022",
+    "Dividend": "5.5530",
+    "searchIndex": "dec 16 2022 5.553"
+   },
+   {
+    "Ex-Date": "Jun 17 2022",
+    "Dividend": "0.9250",
+    "searchIndex": "jun 17 2022 0.925"
+   },
+   {
+    "Ex-Date": "Dec 13 2021",
+    "Dividend": "0.4060",
+    "searchIndex": "dec 13 2021 0.406"
+   },
+   {
+    "Ex-Date": "Dec 20 2018",
+    "Dividend": "1.2460",
+    "searchIndex": "dec 20 2018 1.246"
+   },
+   {
+    "Ex-Date": "Jun 20 2018",
+    "Dividend": "0.0110",
+    "searchIndex": "jun 20 2018 0.011"
+   },
+   {
+    "Ex-Date": "Dec 20 2017",
+    "Dividend": "0.0130",
+    "searchIndex": "dec 20 2017 0.013"
+   }
+  ],
+  "latestDividend": "0.286",
+  "exDate": "Jun 26 2026"
+ },
+ "holdings": {
+  "totalRows": 486,
+  "pageSize": 250,
+  "pageCount": 2,
+  "pages": [
+   "./holdings/001.json",
+   "./holdings/002.json"
+  ],
+  "asOfDate": "2026-06-30",
+  "asOf": "Jun 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035143, report period 2026-06-30)"
+ },
+ "history": {
+  "totalRows": 2231,
+  "pageSize": 1000,
+  "pageCount": 3,
+  "pages": [
+   "./history/001.json",
+   "./history/002.json",
+   "./history/003.json"
+  ],
+  "asOf": "Sep 24 2026",
+  "source": "Yahoo Finance public chart API"
+ }
+}

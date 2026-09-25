@@ -1,0 +1,7 @@
+# Bun config – embed system CA by default so franklintempleton.com / sec.gov work without manual flags
+# Bun v1.2.23+ supports --use-system-ca flag and NODE_USE_SYSTEM_CA=1 env var.
+# The updater script also auto-restarts with --use-system-ca when needed (see scripts/update-data.ts)
+# and package.json scripts set NODE_USE_SYSTEM_CA=1 + --use-system-ca by default.
+
+[install]
+# keep default install settings

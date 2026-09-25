@@ -1,0 +1,167 @@
+{
+ "ticker": "FLSP",
+ "name": "Franklin Systematic Style Premia ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/28388/SINGLCLASS/franklin-systematic-style-premia-etf/FLSP",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/28388/SINGLCLASS/franklin-systematic-style-premia-etf/FLSP",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035127, report period 2026-06-30)",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLSP?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+ },
+ "identifiers": {
+  "cusip": "35473P546",
+  "isin": "US35473P5465",
+  "benchmark": "ICE BofA US 3-Month Treasury Bill Index"
+ },
+ "expenseRatio": {
+  "display": "0.65%",
+  "value": 0.65,
+  "gross": 0.65,
+  "net": 0.65
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "$1.11 B",
+  "value": 1110000000,
+  "asOfDate": "2026-08-31",
+  "source": "official product page Total Net Assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published by franklintempleton.com for this fund"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": 15.11,
+   "yr1Text": "15.11%",
+   "yr3": 9.51,
+   "yr3Text": "9.51%",
+   "yr5": 8.16,
+   "yr5Text": "8.16%",
+   "yr10": 4.36,
+   "yr10Text": "4.36%",
+   "sinceInception": 4.36,
+   "sinceInceptionText": "4.36%"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 4.36,
+   "sinceInceptionText": "4.36%"
+  }
+ },
+ "distributions": {
+  "frequency": "Annually This fund is an ex-Dividend fund",
+  "frequencyCode": "12 - Annually",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.7130",
+    "searchIndex": "dec 19 2025 0.713"
+   },
+   {
+    "Ex-Date": "Dec 20 2024",
+    "Dividend": "0.2830",
+    "searchIndex": "dec 20 2024 0.283"
+   },
+   {
+    "Ex-Date": "Dec 15 2023",
+    "Dividend": "0.2570",
+    "searchIndex": "dec 15 2023 0.257"
+   },
+   {
+    "Ex-Date": "Dec 12 2022",
+    "Dividend": "0.4620",
+    "searchIndex": "dec 12 2022 0.462"
+   },
+   {
+    "Ex-Date": "Dec 13 2021",
+    "Dividend": "0.0200",
+    "searchIndex": "dec 13 2021 0.02"
+   },
+   {
+    "Ex-Date": "Jun 10 2021",
+    "Dividend": "0.2390",
+    "searchIndex": "jun 10 2021 0.239"
+   },
+   {
+    "Ex-Date": "Dec 14 2020",
+    "Dividend": "1.5370",
+    "searchIndex": "dec 14 2020 1.537"
+   },
+   {
+    "Ex-Date": "Jun 11 2020",
+    "Dividend": "0.0510",
+    "searchIndex": "jun 11 2020 0.051"
+   }
+  ],
+  "latestDividend": "0.713",
+  "exDate": "Dec 19 2025"
+ },
+ "holdings": {
+  "totalRows": 329,
+  "pageSize": 250,
+  "pageCount": 2,
+  "pages": [
+   "./holdings/001.json",
+   "./holdings/002.json"
+  ],
+  "asOfDate": "2026-06-30",
+  "asOf": "Jun 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035127, report period 2026-06-30)"
+ },
+ "history": {
+  "totalRows": 1696,
+  "pageSize": 1000,
+  "pageCount": 2,
+  "pages": [
+   "./history/001.json",
+   "./history/002.json"
+  ],
+  "asOf": "Sep 24 2026",
+  "source": "Yahoo Finance public chart API"
+ }
+}

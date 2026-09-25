@@ -1,0 +1,182 @@
+{
+ "ticker": "LRGE",
+ "name": "ClearBridge Large Cap Growth Select ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/91630/SINGLCLASS/clearbridge-large-cap-growth-select-etf/LRGE",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/91630/SINGLCLASS/clearbridge-large-cap-growth-select-etf/LRGE",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035182, report period 2026-06-30)",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/LRGE?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+ },
+ "identifiers": {
+  "cusip": "524682200",
+  "isin": null,
+  "benchmark": "Russell 1000 Growth Index"
+ },
+ "expenseRatio": {
+  "display": "0.48%",
+  "value": 0.48,
+  "gross": 0.48,
+  "net": 0.48
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "$391.01 M",
+  "value": 391010000,
+  "asOfDate": "2026-08-31",
+  "source": "official product page Total Net Assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published by franklintempleton.com for this fund"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": 11.42,
+   "yr1Text": "11.42%",
+   "yr3": 17.52,
+   "yr3Text": "17.52%",
+   "yr5": 9.34,
+   "yr5Text": "9.34%",
+   "yr10": 15.43,
+   "yr10Text": "15.43%",
+   "sinceInception": 15.43,
+   "sinceInceptionText": "15.43%"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 15.43,
+   "sinceInceptionText": "15.43%"
+  }
+ },
+ "distributions": {
+  "frequency": ", if any Annually",
+  "frequencyCode": "12 - Annually",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Dec 26 2025",
+    "Dividend": "0.1040",
+    "searchIndex": "dec 26 2025 0.104"
+   },
+   {
+    "Ex-Date": "Dec 26 2024",
+    "Dividend": "0.1320",
+    "searchIndex": "dec 26 2024 0.132"
+   },
+   {
+    "Ex-Date": "Dec 26 2023",
+    "Dividend": "0.0640",
+    "searchIndex": "dec 26 2023 0.064"
+   },
+   {
+    "Ex-Date": "Dec 27 2022",
+    "Dividend": "0.8210",
+    "searchIndex": "dec 27 2022 0.821"
+   },
+   {
+    "Ex-Date": "Jun 27 2022",
+    "Dividend": "0.0020",
+    "searchIndex": "jun 27 2022 0.002"
+   },
+   {
+    "Ex-Date": "Dec 27 2021",
+    "Dividend": "0.7300",
+    "searchIndex": "dec 27 2021 0.73"
+   },
+   {
+    "Ex-Date": "Dec 28 2020",
+    "Dividend": "0.1850",
+    "searchIndex": "dec 28 2020 0.185"
+   },
+   {
+    "Ex-Date": "Dec 26 2019",
+    "Dividend": "0.1400",
+    "searchIndex": "dec 26 2019 0.14"
+   },
+   {
+    "Ex-Date": "Dec 31 2018",
+    "Dividend": "0.0110",
+    "searchIndex": "dec 31 2018 0.011"
+   },
+   {
+    "Ex-Date": "Dec 26 2018",
+    "Dividend": "0.6020",
+    "searchIndex": "dec 26 2018 0.602"
+   },
+   {
+    "Ex-Date": "Dec 26 2017",
+    "Dividend": "0.1100",
+    "searchIndex": "dec 26 2017 0.11"
+   }
+  ],
+  "latestDividend": "0.104",
+  "exDate": "Dec 26 2025"
+ },
+ "holdings": {
+  "totalRows": 29,
+  "pageSize": 250,
+  "pageCount": 1,
+  "pages": [
+   "./holdings/001.json"
+  ],
+  "asOfDate": "2026-06-30",
+  "asOf": "Jun 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035182, report period 2026-06-30)"
+ },
+ "history": {
+  "totalRows": 2342,
+  "pageSize": 1000,
+  "pageCount": 3,
+  "pages": [
+   "./history/001.json",
+   "./history/002.json",
+   "./history/003.json"
+  ],
+  "asOf": "Sep 24 2026",
+  "source": "Yahoo Finance public chart API"
+ }
+}

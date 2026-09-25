@@ -1,0 +1,315 @@
+{
+ "ticker": "USFI",
+ "name": "BrandywineGLOBAL - U.S. Fixed Income ETF",
+ "category": "As of 09/23/2026 (Updated Daily)",
+ "categoryPath": "As of 09/23/2026 (Updated Daily)",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36405/SINGLCLASS/brandywine-global-u-s-fixed-income-etf/USFI",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36405/SINGLCLASS/brandywine-global-u-s-fixed-income-etf/USFI",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035159, report period 2026-06-30)",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/USFI?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+ },
+ "identifiers": {
+  "cusip": "35473P413",
+  "isin": "US35473P4138",
+  "benchmark": "Bloomberg U.S. Aggregate Index"
+ },
+ "expenseRatio": {
+  "display": "0.39%",
+  "value": 0.39,
+  "gross": 0.39,
+  "net": 0.39
+ },
+ "nav": {
+  "display": "$23.82",
+  "value": 23.82,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "$9.53 M",
+  "value": 9530000,
+  "asOfDate": "2026-09-23",
+  "source": "official product page Total Net Assets"
+ },
+ "yields": {
+  "dividendYield": 3.98,
+  "dividendYieldText": "3.98%",
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": 3,
+  "secYieldText": "3.00%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": 3.47,
+   "ytdText": "3.47%",
+   "yr1": 3.47,
+   "yr1Text": "3.47%",
+   "yr3": 4.19,
+   "yr3Text": "4.19%",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": 3.54,
+   "yr10Text": "3.54%",
+   "sinceInception": 3.54,
+   "sinceInceptionText": "3.54%"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 3.54,
+   "sinceInceptionText": "3.54%"
+  }
+ },
+ "distributions": {
+  "frequency": ", if any Monthly",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Sep 1 2026",
+    "Dividend": "0.0560",
+    "searchIndex": "sep 1 2026 0.056"
+   },
+   {
+    "Ex-Date": "Aug 3 2026",
+    "Dividend": "0.1100",
+    "searchIndex": "aug 3 2026 0.11"
+   },
+   {
+    "Ex-Date": "Jul 1 2026",
+    "Dividend": "0.0980",
+    "searchIndex": "jul 1 2026 0.098"
+   },
+   {
+    "Ex-Date": "Jun 1 2026",
+    "Dividend": "0.0980",
+    "searchIndex": "jun 1 2026 0.098"
+   },
+   {
+    "Ex-Date": "May 1 2026",
+    "Dividend": "0.1220",
+    "searchIndex": "may 1 2026 0.122"
+   },
+   {
+    "Ex-Date": "Apr 1 2026",
+    "Dividend": "0.0810",
+    "searchIndex": "apr 1 2026 0.081"
+   },
+   {
+    "Ex-Date": "Mar 2 2026",
+    "Dividend": "0.0730",
+    "searchIndex": "mar 2 2026 0.073"
+   },
+   {
+    "Ex-Date": "Feb 2 2026",
+    "Dividend": "0.0690",
+    "searchIndex": "feb 2 2026 0.069"
+   },
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.1020",
+    "searchIndex": "dec 19 2025 0.102"
+   },
+   {
+    "Ex-Date": "Dec 1 2025",
+    "Dividend": "0.0700",
+    "searchIndex": "dec 1 2025 0.07"
+   },
+   {
+    "Ex-Date": "Nov 3 2025",
+    "Dividend": "0.0960",
+    "searchIndex": "nov 3 2025 0.096"
+   },
+   {
+    "Ex-Date": "Oct 1 2025",
+    "Dividend": "0.0850",
+    "searchIndex": "oct 1 2025 0.085"
+   },
+   {
+    "Ex-Date": "Sep 2 2025",
+    "Dividend": "0.0870",
+    "searchIndex": "sep 2 2025 0.087"
+   },
+   {
+    "Ex-Date": "Aug 1 2025",
+    "Dividend": "0.1020",
+    "searchIndex": "aug 1 2025 0.102"
+   },
+   {
+    "Ex-Date": "Jul 1 2025",
+    "Dividend": "0.0900",
+    "searchIndex": "jul 1 2025 0.09"
+   },
+   {
+    "Ex-Date": "Jun 2 2025",
+    "Dividend": "0.0940",
+    "searchIndex": "jun 2 2025 0.094"
+   },
+   {
+    "Ex-Date": "May 1 2025",
+    "Dividend": "0.0980",
+    "searchIndex": "may 1 2025 0.098"
+   },
+   {
+    "Ex-Date": "Apr 1 2025",
+    "Dividend": "0.0940",
+    "searchIndex": "apr 1 2025 0.094"
+   },
+   {
+    "Ex-Date": "Mar 3 2025",
+    "Dividend": "0.0850",
+    "searchIndex": "mar 3 2025 0.085"
+   },
+   {
+    "Ex-Date": "Feb 3 2025",
+    "Dividend": "0.0920",
+    "searchIndex": "feb 3 2025 0.092"
+   },
+   {
+    "Ex-Date": "Dec 13 2024",
+    "Dividend": "0.1020",
+    "searchIndex": "dec 13 2024 0.102"
+   },
+   {
+    "Ex-Date": "Dec 2 2024",
+    "Dividend": "0.0860",
+    "searchIndex": "dec 2 2024 0.086"
+   },
+   {
+    "Ex-Date": "Nov 1 2024",
+    "Dividend": "0.0960",
+    "searchIndex": "nov 1 2024 0.096"
+   },
+   {
+    "Ex-Date": "Oct 1 2024",
+    "Dividend": "0.0890",
+    "searchIndex": "oct 1 2024 0.089"
+   },
+   {
+    "Ex-Date": "Sep 3 2024",
+    "Dividend": "0.0900",
+    "searchIndex": "sep 3 2024 0.09"
+   },
+   {
+    "Ex-Date": "Aug 1 2024",
+    "Dividend": "0.0990",
+    "searchIndex": "aug 1 2024 0.099"
+   },
+   {
+    "Ex-Date": "Jul 1 2024",
+    "Dividend": "0.0830",
+    "searchIndex": "jul 1 2024 0.083"
+   },
+   {
+    "Ex-Date": "Jun 3 2024",
+    "Dividend": "0.0920",
+    "searchIndex": "jun 3 2024 0.092"
+   },
+   {
+    "Ex-Date": "May 1 2024",
+    "Dividend": "0.1090",
+    "searchIndex": "may 1 2024 0.109"
+   },
+   {
+    "Ex-Date": "Apr 1 2024",
+    "Dividend": "0.0910",
+    "searchIndex": "apr 1 2024 0.091"
+   },
+   {
+    "Ex-Date": "Mar 1 2024",
+    "Dividend": "0.0870",
+    "searchIndex": "mar 1 2024 0.087"
+   },
+   {
+    "Ex-Date": "Feb 1 2024",
+    "Dividend": "0.0870",
+    "searchIndex": "feb 1 2024 0.087"
+   },
+   {
+    "Ex-Date": "Dec 15 2023",
+    "Dividend": "0.0980",
+    "searchIndex": "dec 15 2023 0.098"
+   },
+   {
+    "Ex-Date": "Dec 1 2023",
+    "Dividend": "0.0860",
+    "searchIndex": "dec 1 2023 0.086"
+   },
+   {
+    "Ex-Date": "Nov 1 2023",
+    "Dividend": "0.0920",
+    "searchIndex": "nov 1 2023 0.092"
+   },
+   {
+    "Ex-Date": "Oct 2 2023",
+    "Dividend": "0.0810",
+    "searchIndex": "oct 2 2023 0.081"
+   },
+   {
+    "Ex-Date": "Sep 1 2023",
+    "Dividend": "0.0900",
+    "searchIndex": "sep 1 2023 0.09"
+   },
+   {
+    "Ex-Date": "Aug 1 2023",
+    "Dividend": "0.0090",
+    "searchIndex": "aug 1 2023 0.009"
+   }
+  ],
+  "latestDividend": "0.056",
+  "exDate": "Sep 1 2026"
+ },
+ "holdings": {
+  "totalRows": 58,
+  "pageSize": 250,
+  "pageCount": 1,
+  "pages": [
+   "./holdings/001.json"
+  ],
+  "asOfDate": "2026-06-30",
+  "asOf": "Jun 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035159, report period 2026-06-30)"
+ },
+ "history": {
+  "totalRows": 793,
+  "pageSize": 1000,
+  "pageCount": 1,
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 24 2026",
+  "source": "Yahoo Finance public chart API"
+ }
+}

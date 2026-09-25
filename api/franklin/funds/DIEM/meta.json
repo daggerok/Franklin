@@ -1,0 +1,279 @@
+{
+ "ticker": "DIEM",
+ "name": "DIEM ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/21413/SINGLCLASS/franklin-emerging-market-core-dividend-tilt-index-etf/DIEM",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/21413/SINGLCLASS/franklin-emerging-market-core-dividend-tilt-index-etf/DIEM",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035158, report period 2026-06-30)",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/DIEM?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+ },
+ "identifiers": {
+  "cusip": "35473P207",
+  "isin": "US35473P2074",
+  "benchmark": "index are as of the ETF's/ETP's last trading day before the end of the period."
+ },
+ "expenseRatio": {
+  "display": "0.19%",
+  "value": 0.19,
+  "gross": 0.19,
+  "net": 0.19
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "$96.12 M",
+  "value": 96120000,
+  "asOfDate": "2026-09-23",
+  "source": "official product page Total Net Assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": 30,
+  "secYieldText": "30.00%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": 43.35,
+   "yr1Text": "43.35%",
+   "yr3": 27.08,
+   "yr3Text": "27.08%",
+   "yr5": 11.85,
+   "yr5Text": "11.85%",
+   "yr10": 8.74,
+   "yr10Text": "8.74%",
+   "sinceInception": 9.34,
+   "sinceInceptionText": "9.34%"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 9.34,
+   "sinceInceptionText": "9.34%"
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly This fund is an ex-Dividend fund",
+  "frequencyCode": "04 - Quarterly",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Sep 18 2026",
+    "Dividend": "0.2300",
+    "searchIndex": "sep 18 2026 0.23"
+   },
+   {
+    "Ex-Date": "Jun 26 2026",
+    "Dividend": "0.5190",
+    "searchIndex": "jun 26 2026 0.519"
+   },
+   {
+    "Ex-Date": "Mar 20 2026",
+    "Dividend": "0.0580",
+    "searchIndex": "mar 20 2026 0.058"
+   },
+   {
+    "Ex-Date": "Dec 30 2025",
+    "Dividend": "0.0700",
+    "searchIndex": "dec 30 2025 0.07"
+   },
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.2570",
+    "searchIndex": "dec 19 2025 0.257"
+   },
+   {
+    "Ex-Date": "Sep 19 2025",
+    "Dividend": "0.3270",
+    "searchIndex": "sep 19 2025 0.327"
+   },
+   {
+    "Ex-Date": "Jun 20 2025",
+    "Dividend": "0.3110",
+    "searchIndex": "jun 20 2025 0.311"
+   },
+   {
+    "Ex-Date": "Mar 21 2025",
+    "Dividend": "0.0400",
+    "searchIndex": "mar 21 2025 0.04"
+   },
+   {
+    "Ex-Date": "Dec 20 2024",
+    "Dividend": "0.2180",
+    "searchIndex": "dec 20 2024 0.218"
+   },
+   {
+    "Ex-Date": "Sep 20 2024",
+    "Dividend": "0.4630",
+    "searchIndex": "sep 20 2024 0.463"
+   },
+   {
+    "Ex-Date": "Jun 21 2024",
+    "Dividend": "0.5940",
+    "searchIndex": "jun 21 2024 0.594"
+   },
+   {
+    "Ex-Date": "Mar 15 2024",
+    "Dividend": "0.0290",
+    "searchIndex": "mar 15 2024 0.029"
+   },
+   {
+    "Ex-Date": "Dec 15 2023",
+    "Dividend": "0.2260",
+    "searchIndex": "dec 15 2023 0.226"
+   },
+   {
+    "Ex-Date": "Sep 15 2023",
+    "Dividend": "0.5420",
+    "searchIndex": "sep 15 2023 0.542"
+   },
+   {
+    "Ex-Date": "Jun 16 2023",
+    "Dividend": "0.3350",
+    "searchIndex": "jun 16 2023 0.335"
+   },
+   {
+    "Ex-Date": "Dec 16 2022",
+    "Dividend": "0.4320",
+    "searchIndex": "dec 16 2022 0.432"
+   },
+   {
+    "Ex-Date": "Sep 16 2022",
+    "Dividend": "0.6390",
+    "searchIndex": "sep 16 2022 0.639"
+   },
+   {
+    "Ex-Date": "Jun 17 2022",
+    "Dividend": "0.3490",
+    "searchIndex": "jun 17 2022 0.349"
+   },
+   {
+    "Ex-Date": "Dec 30 2021",
+    "Dividend": "0.0620",
+    "searchIndex": "dec 30 2021 0.062"
+   },
+   {
+    "Ex-Date": "Dec 13 2021",
+    "Dividend": "0.9320",
+    "searchIndex": "dec 13 2021 0.932"
+   },
+   {
+    "Ex-Date": "Jun 10 2021",
+    "Dividend": "0.2300",
+    "searchIndex": "jun 10 2021 0.23"
+   },
+   {
+    "Ex-Date": "Dec 14 2020",
+    "Dividend": "0.7620",
+    "searchIndex": "dec 14 2020 0.762"
+   },
+   {
+    "Ex-Date": "Jun 11 2020",
+    "Dividend": "0.0430",
+    "searchIndex": "jun 11 2020 0.043"
+   },
+   {
+    "Ex-Date": "Dec 11 2019",
+    "Dividend": "1.4940",
+    "searchIndex": "dec 11 2019 1.494"
+   },
+   {
+    "Ex-Date": "Jun 11 2019",
+    "Dividend": "0.2880",
+    "searchIndex": "jun 11 2019 0.288"
+   },
+   {
+    "Ex-Date": "Dec 20 2018",
+    "Dividend": "0.7900",
+    "searchIndex": "dec 20 2018 0.79"
+   },
+   {
+    "Ex-Date": "Jun 20 2018",
+    "Dividend": "0.3020",
+    "searchIndex": "jun 20 2018 0.302"
+   },
+   {
+    "Ex-Date": "Dec 20 2017",
+    "Dividend": "0.5720",
+    "searchIndex": "dec 20 2017 0.572"
+   },
+   {
+    "Ex-Date": "Jun 20 2017",
+    "Dividend": "0.2890",
+    "searchIndex": "jun 20 2017 0.289"
+   },
+   {
+    "Ex-Date": "Dec 20 2016",
+    "Dividend": "0.0930",
+    "searchIndex": "dec 20 2016 0.093"
+   }
+  ],
+  "latestDividend": "0.23",
+  "exDate": "Sep 18 2026"
+ },
+ "holdings": {
+  "totalRows": 563,
+  "pageSize": 250,
+  "pageCount": 3,
+  "pages": [
+   "./holdings/001.json",
+   "./holdings/002.json",
+   "./holdings/003.json"
+  ],
+  "asOfDate": "2026-06-30",
+  "asOf": "Jun 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035158, report period 2026-06-30)"
+ },
+ "history": {
+  "totalRows": 2591,
+  "pageSize": 1000,
+  "pageCount": 3,
+  "pages": [
+   "./history/001.json",
+   "./history/002.json",
+   "./history/003.json"
+  ],
+  "asOf": "Sep 24 2026",
+  "source": "Yahoo Finance public chart API"
+ }
+}

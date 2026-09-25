@@ -1,0 +1,176 @@
+{
+ "ticker": "FTNY",
+ "name": "Exchange Traded Funds",
+ "category": "Asset Class",
+ "categoryPath": "Asset Class",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48361/SINGLCLASS/franklin-new-york-municipal-income-etf/FTNY",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48361/SINGLCLASS/franklin-new-york-municipal-income-etf/FTNY",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028338, report period 2026-05-29)",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FTNY?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-05-29"
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "benchmark": null
+ },
+ "expenseRatio": {
+  "display": "0.19%",
+  "value": 0.19,
+  "gross": 0.19,
+  "net": 0.19
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "—",
+  "value": null,
+  "asOfDate": "2026-05-29",
+  "source": "official product page Total Net Assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "official 12-month yield from product page",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published by franklintempleton.com for this fund"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "May 29 2026",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
+  }
+ },
+ "distributions": {
+  "frequency": "Irregular",
+  "frequencyCode": "99 - Irregular",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Sep 1 2026",
+    "Dividend": "0.0250",
+    "searchIndex": "sep 1 2026 0.025"
+   },
+   {
+    "Ex-Date": "Aug 3 2026",
+    "Dividend": "0.0310",
+    "searchIndex": "aug 3 2026 0.031"
+   },
+   {
+    "Ex-Date": "Jul 1 2026",
+    "Dividend": "0.0250",
+    "searchIndex": "jul 1 2026 0.025"
+   },
+   {
+    "Ex-Date": "Jun 1 2026",
+    "Dividend": "0.0250",
+    "searchIndex": "jun 1 2026 0.025"
+   },
+   {
+    "Ex-Date": "May 1 2026",
+    "Dividend": "0.0270",
+    "searchIndex": "may 1 2026 0.027"
+   },
+   {
+    "Ex-Date": "Apr 1 2026",
+    "Dividend": "0.0260",
+    "searchIndex": "apr 1 2026 0.026"
+   },
+   {
+    "Ex-Date": "Mar 2 2026",
+    "Dividend": "0.0240",
+    "searchIndex": "mar 2 2026 0.024"
+   },
+   {
+    "Ex-Date": "Feb 2 2026",
+    "Dividend": "0.0200",
+    "searchIndex": "feb 2 2026 0.02"
+   },
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.0310",
+    "searchIndex": "dec 19 2025 0.031"
+   },
+   {
+    "Ex-Date": "Dec 1 2025",
+    "Dividend": "0.0250",
+    "searchIndex": "dec 1 2025 0.025"
+   }
+  ],
+  "latestDividend": "0.025",
+  "exDate": "Sep 1 2026"
+ },
+ "holdings": {
+  "totalRows": 270,
+  "pageSize": 250,
+  "pageCount": 2,
+  "pages": [
+   "./holdings/001.json",
+   "./holdings/002.json"
+  ],
+  "asOfDate": "2026-05-29",
+  "asOf": "May 29 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028338, report period 2026-05-29)"
+ },
+ "history": {
+  "totalRows": 228,
+  "pageSize": 1000,
+  "pageCount": 1,
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 24 2026",
+  "source": "Yahoo Finance public chart API"
+ }
+}

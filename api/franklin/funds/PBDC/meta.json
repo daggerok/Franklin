@@ -1,0 +1,200 @@
+{
+ "ticker": "PBDC",
+ "name": "Putnam BDC Income ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39500/SINGLCLASS/putnam-bdc-income-etf/PBDC",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39500/SINGLCLASS/putnam-bdc-income-etf/PBDC",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-025235, report period 2026-04-30)",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PBDC?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-04-30"
+ },
+ "identifiers": {
+  "cusip": "746729508",
+  "isin": "US7467295082",
+  "benchmark": null
+ },
+ "expenseRatio": {
+  "display": "11.77%",
+  "value": 11.77,
+  "gross": 11.77,
+  "net": 11.77
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "$296.12 M",
+  "value": 296120000,
+  "asOfDate": "2026-08-31",
+  "source": "official product page Total Net Assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": 30,
+  "secYieldText": "30.00%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "Apr 30 2026",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": -6.41,
+   "yr1Text": "-6.41%",
+   "yr3": 7.58,
+   "yr3Text": "7.58%",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": 14.22,
+   "yr10Text": "14.22%",
+   "sinceInception": 14.22,
+   "sinceInceptionText": "14.22%"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 14.22,
+   "sinceInceptionText": "14.22%"
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly This fund is an ex-Dividend fund",
+  "frequencyCode": "04 - Quarterly",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Jul 7 2026",
+    "Dividend": "0.6960",
+    "searchIndex": "jul 7 2026 0.696"
+   },
+   {
+    "Ex-Date": "Apr 7 2026",
+    "Dividend": "0.7130",
+    "searchIndex": "apr 7 2026 0.713"
+   },
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.8250",
+    "searchIndex": "dec 19 2025 0.825"
+   },
+   {
+    "Ex-Date": "Oct 6 2025",
+    "Dividend": "0.8210",
+    "searchIndex": "oct 6 2025 0.821"
+   },
+   {
+    "Ex-Date": "Jul 7 2025",
+    "Dividend": "0.7870",
+    "searchIndex": "jul 7 2025 0.787"
+   },
+   {
+    "Ex-Date": "Apr 4 2025",
+    "Dividend": "0.7910",
+    "searchIndex": "apr 4 2025 0.791"
+   },
+   {
+    "Ex-Date": "Dec 27 2024",
+    "Dividend": "0.7900",
+    "searchIndex": "dec 27 2024 0.79"
+   },
+   {
+    "Ex-Date": "Oct 4 2024",
+    "Dividend": "0.8570",
+    "searchIndex": "oct 4 2024 0.857"
+   },
+   {
+    "Ex-Date": "Jul 5 2024",
+    "Dividend": "0.7860",
+    "searchIndex": "jul 5 2024 0.786"
+   },
+   {
+    "Ex-Date": "Apr 4 2024",
+    "Dividend": "0.7650",
+    "searchIndex": "apr 4 2024 0.765"
+   },
+   {
+    "Ex-Date": "Dec 26 2023",
+    "Dividend": "0.8530",
+    "searchIndex": "dec 26 2023 0.853"
+   },
+   {
+    "Ex-Date": "Oct 5 2023",
+    "Dividend": "0.7850",
+    "searchIndex": "oct 5 2023 0.785"
+   },
+   {
+    "Ex-Date": "Jul 7 2023",
+    "Dividend": "0.7560",
+    "searchIndex": "jul 7 2023 0.756"
+   },
+   {
+    "Ex-Date": "Apr 6 2023",
+    "Dividend": "0.7290",
+    "searchIndex": "apr 6 2023 0.729"
+   },
+   {
+    "Ex-Date": "Dec 27 2022",
+    "Dividend": "0.9160",
+    "searchIndex": "dec 27 2022 0.916"
+   }
+  ],
+  "latestDividend": "0.696",
+  "exDate": "Jul 7 2026"
+ },
+ "holdings": {
+  "totalRows": 24,
+  "pageSize": 250,
+  "pageCount": 1,
+  "pages": [
+   "./holdings/001.json"
+  ],
+  "asOfDate": "2026-04-30",
+  "asOf": "Apr 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-025235, report period 2026-04-30)"
+ },
+ "history": {
+  "totalRows": 998,
+  "pageSize": 1000,
+  "pageCount": 1,
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 24 2026",
+  "source": "Yahoo Finance public chart API"
+ }
+}

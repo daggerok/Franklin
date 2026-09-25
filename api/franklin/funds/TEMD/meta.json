@@ -1,0 +1,165 @@
+{
+ "ticker": "TEMD",
+ "name": "TEMD ETF",
+ "category": "As of 09/23/2026 (Updated Daily)",
+ "categoryPath": "As of 09/23/2026 (Updated Daily)",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48762/SINGLCLASS/templeton-emerging-markets-debt-etf/TEMD",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48762/SINGLCLASS/templeton-emerging-markets-debt-etf/TEMD",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035203, report period 2026-06-30)",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/TEMD?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+ },
+ "identifiers": {
+  "cusip": "35473P314",
+  "isin": "US35473P3148",
+  "benchmark": "JP Morgan EMBI Global Diversified Index"
+ },
+ "expenseRatio": {
+  "display": "0.45%",
+  "value": 0.45,
+  "gross": 0.45,
+  "net": 0.45
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "$48.83 M",
+  "value": 48830000,
+  "asOfDate": "2026-08-31",
+  "source": "official product page Total Net Assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": 30,
+  "secYieldText": "30.00%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": 2.63,
+   "yr10Text": "2.63%",
+   "sinceInception": 2.63,
+   "sinceInceptionText": "2.63%"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 2.63,
+   "sinceInceptionText": "2.63%"
+  }
+ },
+ "distributions": {
+  "frequency": "Monthly This fund is an ex-Dividend fund",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Sep 1 2026",
+    "Dividend": "0.1190",
+    "searchIndex": "sep 1 2026 0.119"
+   },
+   {
+    "Ex-Date": "Aug 3 2026",
+    "Dividend": "0.1630",
+    "searchIndex": "aug 3 2026 0.163"
+   },
+   {
+    "Ex-Date": "Jul 1 2026",
+    "Dividend": "0.1420",
+    "searchIndex": "jul 1 2026 0.142"
+   },
+   {
+    "Ex-Date": "Jun 1 2026",
+    "Dividend": "0.1870",
+    "searchIndex": "jun 1 2026 0.187"
+   },
+   {
+    "Ex-Date": "May 1 2026",
+    "Dividend": "0.1310",
+    "searchIndex": "may 1 2026 0.131"
+   },
+   {
+    "Ex-Date": "Apr 1 2026",
+    "Dividend": "0.1470",
+    "searchIndex": "apr 1 2026 0.147"
+   },
+   {
+    "Ex-Date": "Mar 2 2026",
+    "Dividend": "0.1270",
+    "searchIndex": "mar 2 2026 0.127"
+   },
+   {
+    "Ex-Date": "Feb 2 2026",
+    "Dividend": "0.0330",
+    "searchIndex": "feb 2 2026 0.033"
+   }
+  ],
+  "latestDividend": "0.119",
+  "exDate": "Sep 1 2026"
+ },
+ "holdings": {
+  "totalRows": 83,
+  "pageSize": 250,
+  "pageCount": 1,
+  "pages": [
+   "./holdings/001.json"
+  ],
+  "asOfDate": "2026-06-30",
+  "asOf": "Jun 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035203, report period 2026-06-30)"
+ },
+ "history": {
+  "totalRows": 169,
+  "pageSize": 1000,
+  "pageCount": 1,
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 24 2026",
+  "source": "Yahoo Finance public chart API"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "ticker": "FSML",
+ "name": "FSML ETF",
+ "category": "As of 09/23/2026 (Updated Daily)",
+ "categoryPath": "As of 09/23/2026 (Updated Daily)",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/50069/SINGLCLASS/franklin-small-cap-enhanced-etf/FSML",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/50069/SINGLCLASS/franklin-small-cap-enhanced-etf/FSML",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035101, report period 2026-06-30)",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FSML?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+ },
+ "identifiers": {
+  "cusip": "35473P322",
+  "isin": "US35473P3221",
+  "benchmark": "Russell 2000 Index"
+ },
+ "expenseRatio": {
+  "display": "0.45%",
+  "value": 0.45,
+  "gross": 0.45,
+  "net": 0.45
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "—",
+  "value": null,
+  "asOfDate": "2026-06-30",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035101, report period 2026-06-30)"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published by franklintempleton.com for this fund"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": 20.63,
+   "yr10Text": "20.63%",
+   "sinceInception": 20.63,
+   "sinceInceptionText": "20.63%"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 20.63,
+   "sinceInceptionText": "20.63%"
+  }
+ },
+ "distributions": {
+  "frequency": ", if any Quarterly",
+  "frequencyCode": "04 - Quarterly",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Sep 18 2026",
+    "Dividend": "0.0290",
+    "searchIndex": "sep 18 2026 0.029"
+   },
+   {
+    "Ex-Date": "Jun 26 2026",
+    "Dividend": "0.0740",
+    "searchIndex": "jun 26 2026 0.074"
+   },
+   {
+    "Ex-Date": "Mar 20 2026",
+    "Dividend": "0.0290",
+    "searchIndex": "mar 20 2026 0.029"
+   },
+   {
+    "Ex-Date": "Dec 30 2025",
+    "Dividend": "0.0160",
+    "searchIndex": "dec 30 2025 0.016"
+   }
+  ],
+  "latestDividend": "0.029",
+  "exDate": "Sep 18 2026"
+ },
+ "holdings": {
+  "totalRows": 303,
+  "pageSize": 250,
+  "pageCount": 2,
+  "pages": [
+   "./holdings/001.json",
+   "./holdings/002.json"
+  ],
+  "asOfDate": "2026-06-30",
+  "asOf": "Jun 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035101, report period 2026-06-30)"
+ },
+ "history": {
+  "totalRows": 195,
+  "pageSize": 1000,
+  "pageCount": 1,
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 24 2026",
+  "source": "Yahoo Finance public chart API"
+ }
+}

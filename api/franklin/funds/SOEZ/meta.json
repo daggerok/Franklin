@@ -1,0 +1,158 @@
+{
+ "ticker": "SOEZ",
+ "name": "Exchange Traded Funds",
+ "category": "Asset Class",
+ "categoryPath": "Asset Class",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/soez/SINGLCLASS/soez-etf/SOEZ",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/soez/SINGLCLASS/soez-etf/SOEZ",
+  "holdingsSource": "not available",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SOEZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": null
+ },
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "benchmark": null
+ },
+ "expenseRatio": {
+  "display": "0.19%",
+  "value": 0.19,
+  "gross": 0.19,
+  "net": 0.19
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null,
+  "source": "official product page Total Net Assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "official 12-month yield from product page",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published by franklintempleton.com for this fund"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "—",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": null,
+   "sinceInceptionText": "—"
+  }
+ },
+ "distributions": {
+  "frequency": "Irregular",
+  "frequencyCode": "99 - Irregular",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Sep 21 2026",
+    "Dividend": "0.0680",
+    "searchIndex": "sep 21 2026 0.068"
+   },
+   {
+    "Ex-Date": "Aug 17 2026",
+    "Dividend": "0.0580",
+    "searchIndex": "aug 17 2026 0.058"
+   },
+   {
+    "Ex-Date": "Jul 20 2026",
+    "Dividend": "0.1210",
+    "searchIndex": "jul 20 2026 0.121"
+   },
+   {
+    "Ex-Date": "Jun 15 2026",
+    "Dividend": "0.0440",
+    "searchIndex": "jun 15 2026 0.044"
+   },
+   {
+    "Ex-Date": "May 18 2026",
+    "Dividend": "0.0370",
+    "searchIndex": "may 18 2026 0.037"
+   },
+   {
+    "Ex-Date": "Apr 20 2026",
+    "Dividend": "0.0200",
+    "searchIndex": "apr 20 2026 0.02"
+   },
+   {
+    "Ex-Date": "Mar 23 2026",
+    "Dividend": "0.0140",
+    "searchIndex": "mar 23 2026 0.014"
+   }
+  ],
+  "latestDividend": "0.068",
+  "exDate": "Sep 21 2026"
+ },
+ "holdings": {
+  "totalRows": 0,
+  "pageSize": 250,
+  "pageCount": 1,
+  "pages": [],
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "not available"
+ },
+ "history": {
+  "totalRows": 201,
+  "pageSize": 1000,
+  "pageCount": 1,
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 23 2026",
+  "source": "Yahoo Finance public chart API"
+ }
+}

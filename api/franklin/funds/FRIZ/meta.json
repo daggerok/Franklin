@@ -1,0 +1,150 @@
+{
+ "ticker": "FRIZ",
+ "name": "Franklin Dividend Growth ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47537/SINGLCLASS/franklin-dividend-growth-etf/FRIZ",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47537/SINGLCLASS/franklin-dividend-growth-etf/FRIZ",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035148, report period 2026-06-30)",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FRIZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+ },
+ "identifiers": {
+  "cusip": "35473P363",
+  "isin": "US35473P3635",
+  "benchmark": "NASDAQ US Broad Dividend Achievers Index"
+ },
+ "expenseRatio": {
+  "display": "0.49%",
+  "value": 0.49,
+  "gross": 0.49,
+  "net": 0.49
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "$6.66 M",
+  "value": 6660000,
+  "asOfDate": "2026-08-31",
+  "source": "official product page Total Net Assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": 30,
+  "secYieldText": "30.00%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": 10.54,
+   "yr1Text": "10.54%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": 10.45,
+   "yr10Text": "10.45%",
+   "sinceInception": 10.45,
+   "sinceInceptionText": "10.45%"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 10.45,
+   "sinceInceptionText": "10.45%"
+  }
+ },
+ "distributions": {
+  "frequency": "Quarterly This fund is an ex-Dividend fund",
+  "frequencyCode": "04 - Quarterly",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Sep 18 2026",
+    "Dividend": "0.0590",
+    "searchIndex": "sep 18 2026 0.059"
+   },
+   {
+    "Ex-Date": "Jun 18 2026",
+    "Dividend": "0.0820",
+    "searchIndex": "jun 18 2026 0.082"
+   },
+   {
+    "Ex-Date": "Mar 20 2026",
+    "Dividend": "0.0450",
+    "searchIndex": "mar 20 2026 0.045"
+   },
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.0780",
+    "searchIndex": "dec 19 2025 0.078"
+   },
+   {
+    "Ex-Date": "Sep 19 2025",
+    "Dividend": "0.0090",
+    "searchIndex": "sep 19 2025 0.009"
+   }
+  ],
+  "latestDividend": "0.059",
+  "exDate": "Sep 18 2026"
+ },
+ "holdings": {
+  "totalRows": 43,
+  "pageSize": 250,
+  "pageCount": 1,
+  "pages": [
+   "./holdings/001.json"
+  ],
+  "asOfDate": "2026-06-30",
+  "asOf": "Jun 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035148, report period 2026-06-30)"
+ },
+ "history": {
+  "totalRows": 267,
+  "pageSize": 1000,
+  "pageCount": 1,
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 24 2026",
+  "source": "Yahoo Finance public chart API"
+ }
+}

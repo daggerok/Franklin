@@ -1,0 +1,181 @@
+{
+ "ticker": "MULT",
+ "name": "Franklin Multisector Income ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/46894/SINGLCLASS/franklin-multisector-income-etf/MULT",
+ "factSheet": null,
+ "source": {
+  "provider": "Franklin Templeton",
+  "market": "us",
+  "site": "https://www.franklintempleton.com",
+  "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/46894/SINGLCLASS/franklin-multisector-income-etf/MULT",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035119, report period 2026-06-30)",
+  "historySource": "Yahoo Finance public chart API",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/MULT?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+ },
+ "identifiers": {
+  "cusip": "35473P355",
+  "isin": "US35473P3551",
+  "benchmark": "Bloomberg U.S. Aggregate Index"
+ },
+ "expenseRatio": {
+  "display": "0.39%",
+  "value": 0.39,
+  "gross": 0.39,
+  "net": 0.39
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": null
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "$9.78 M",
+  "value": 9780000,
+  "asOfDate": "2026-08-31",
+  "source": "official product page Total Net Assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": 30,
+  "secYieldText": "30.00%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+ },
+ "returns": {
+  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "monthEnd": {
+   "asOfDate": "Jun 30 2026",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": 3.75,
+   "yr1Text": "3.75%",
+   "yr3": 6.09,
+   "yr3Text": "6.09%",
+   "yr5": 22.69,
+   "yr5Text": "22.69%",
+   "yr10": 3.33,
+   "yr10Text": "3.33%",
+   "sinceInception": 3.33,
+   "sinceInceptionText": "3.33%"
+  },
+  "quarterEnd": {
+   "asOfDate": "",
+   "ytd": null,
+   "ytdText": "—",
+   "yr1": null,
+   "yr1Text": "—",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
+   "yr10": null,
+   "yr10Text": "—",
+   "sinceInception": 3.33,
+   "sinceInceptionText": "3.33%"
+  }
+ },
+ "distributions": {
+  "frequency": "Monthly This fund is an ex-Dividend fund",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Dividend"
+  ],
+  "rows": [
+   {
+    "Ex-Date": "Sep 1 2026",
+    "Dividend": "0.1200",
+    "searchIndex": "sep 1 2026 0.12"
+   },
+   {
+    "Ex-Date": "Aug 3 2026",
+    "Dividend": "0.1050",
+    "searchIndex": "aug 3 2026 0.105"
+   },
+   {
+    "Ex-Date": "Jul 1 2026",
+    "Dividend": "0.0980",
+    "searchIndex": "jul 1 2026 0.098"
+   },
+   {
+    "Ex-Date": "Jun 1 2026",
+    "Dividend": "0.0920",
+    "searchIndex": "jun 1 2026 0.092"
+   },
+   {
+    "Ex-Date": "May 1 2026",
+    "Dividend": "0.1050",
+    "searchIndex": "may 1 2026 0.105"
+   },
+   {
+    "Ex-Date": "Apr 1 2026",
+    "Dividend": "0.1060",
+    "searchIndex": "apr 1 2026 0.106"
+   },
+   {
+    "Ex-Date": "Mar 20 2026",
+    "Dividend": "0.1560",
+    "searchIndex": "mar 20 2026 0.156"
+   },
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.1380",
+    "searchIndex": "dec 19 2025 0.138"
+   },
+   {
+    "Ex-Date": "Dec 1 2025",
+    "Dividend": "0.0670",
+    "searchIndex": "dec 1 2025 0.067"
+   },
+   {
+    "Ex-Date": "Nov 3 2025",
+    "Dividend": "0.1040",
+    "searchIndex": "nov 3 2025 0.104"
+   },
+   {
+    "Ex-Date": "Oct 1 2025",
+    "Dividend": "0.0880",
+    "searchIndex": "oct 1 2025 0.088"
+   }
+  ],
+  "latestDividend": "0.12",
+  "exDate": "Sep 1 2026"
+ },
+ "holdings": {
+  "totalRows": 329,
+  "pageSize": 250,
+  "pageCount": 2,
+  "pages": [
+   "./holdings/001.json",
+   "./holdings/002.json"
+  ],
+  "asOfDate": "2026-06-30",
+  "asOf": "Jun 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035119, report period 2026-06-30)"
+ },
+ "history": {
+  "totalRows": 269,
+  "pageSize": 1000,
+  "pageCount": 1,
+  "pages": [
+   "./history/001.json"
+  ],
+  "asOf": "Sep 24 2026",
+  "source": "Yahoo Finance public chart API"
+ }
+}

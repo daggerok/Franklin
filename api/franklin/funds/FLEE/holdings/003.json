@@ -1,0 +1,39 @@
+{
+ "ticker": "FLEE",
+ "page": 3,
+ "pageSize": 250,
+ "totalRows": 501,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "Asset Category"
+ ],
+ "rows": [
+  {
+   "name": "GALDERMA GROUP AG",
+   "cusip": "000000000",
+   "ticker": "",
+   "isin": "",
+   "sedol": "",
+   "balance": "1470.00000000",
+   "valUSD": "335130.48000000",
+   "pctVal": "0.288768636112",
+   "assetCat": "EC",
+   "issuerCat": "CORP",
+   "invCountry": "CH",
+   "identifier": "000000000",
+   "Ticker": "—",
+   "Name": "GALDERMA GROUP AG",
+   "Identifier": "—",
+   "Weight": "0.29",
+   "Market Value": "335,130.48",
+   "Shares Held": "1,470",
+   "Asset Category": "EC",
+   "searchIndex": " galderma group ag "
+  }
+ ]
+}
