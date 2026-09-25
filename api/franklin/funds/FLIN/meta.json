@@ -28,9 +28,9 @@
   "net": 0.19
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$34.26",
+  "value": 34.26,
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
   "display": "$34.24",
@@ -60,8 +60,8 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": -10.39,
-   "ytdText": "-10.39%",
+   "ytd": -11.01,
+   "ytdText": "-11.01%",
    "yr1": -3.94,
    "yr1Text": "-3.94%",
    "yr3": 5.33,
@@ -90,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Annually",
-  "frequencyCode": "12 - Annually",
-  "paymentsPerYear": 1,
+  "frequency": "Semi-annually",
+  "frequencyCode": "06 - Semi-annually",
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"

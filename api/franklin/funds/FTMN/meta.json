@@ -28,8 +28,8 @@
   "net": 0.35
  },
  "nav": {
-  "display": "$8.26",
-  "value": 8.26,
+  "display": "—",
+  "value": null,
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
@@ -45,13 +45,13 @@
  "aum": {
   "display": "$270.92 M",
   "value": 270920000,
-  "asOfDate": "2026-09-23",
+  "asOfDate": "2026-08-31",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
+  "dividendYield": 2.46,
+  "dividendYieldText": "2.46%",
+  "dividendYieldKind": "indicated: latest distribution 0.0170 x 12/year / last close 8.28",
   "secYield": 3.74,
   "secYieldText": "3.74%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page"
@@ -90,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Irregular",
-  "frequencyCode": "99 - Irregular",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"

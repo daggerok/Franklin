@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47315/SINGLCLASS/franklin-solana-etf/SOEZ",
-  "holdingsSource": "not available",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-24)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SOEZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "354646101",
   "isin": "US3546461019",
-  "benchmark": null
+  "benchmark": "CF SOL Staked Return Index - New York Variant"
  },
  "expenseRatio": {
   "display": "0.19%",
@@ -45,13 +45,13 @@
  "aum": {
   "display": "$16.81 M",
   "value": 16810000,
-  "asOfDate": null,
+  "asOfDate": "2026-09-24",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
+  "dividendYield": 4.02,
+  "dividendYieldText": "4.02%",
+  "dividendYieldKind": "indicated: latest distribution 0.0680 x 12/year / last close 20.29",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -90,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Irregular",
-  "frequencyCode": "99 - Irregular",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -138,13 +138,15 @@
   "exDate": "Sep 21 2026"
  },
  "holdings": {
-  "totalRows": 0,
+  "totalRows": 2,
   "pageSize": 250,
   "pageCount": 1,
-  "pages": [],
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "not available"
+  "pages": [
+   "./holdings/001.json"
+  ],
+  "asOfDate": "2026-09-24",
+  "asOf": "Sep 24 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-24)"
  },
  "history": {
   "totalRows": 202,
