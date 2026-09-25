@@ -18,10 +18,10 @@ Run the updater with Bun:
 
 ```bash
 bun test scripts/update-data.test.ts
-bun ./scripts/update-data.ts
+./scripts/update-data.ts
 ```
 
-Run `bun ./scripts/update-data.ts -h` (or `--help`) to print every configuration variable with its default and usage examples.
+Run `./scripts/update-data.ts -h` (or `--help`) to print every configuration variable with its default and usage examples.
 
 The **Update Franklin ETF data** GitHub Actions workflow refreshes on changes to the updater, its tests, or the workflow, and can also be run manually. It exposes 25 manual inputs (GitHub's limit); the 10-year performance and total-return filters remain available through the CLI environment variables. All supplied filters use **AND** logic.
 
@@ -91,111 +91,52 @@ franklintempleton.com is behind a WAF that may return 403 to bare `fetch`. The u
 - `bun test scripts/update-data.test.ts` — unit tests for range parsers, catalog parsing (81 Franklin ETFs markdown table with `**TICKER**` link pattern), product page parsing (CUSIP/ISIN/Bloomberg/NAV/AUM/ER/inception/exchange/SEC yield/distribution frequency), Yahoo chart, SEC EDGAR N-PORT-P parsing.
 - `bunx tsc --noEmit` — type-checks the updater.
 
-### GitHub Pages
+## TypeScript
 
-The repository is configured for GitHub Pages deploy from root (static). The `api/franklin/` folder is committed and served as static JSON alongside `index.html` and `app.tsx` (Babel standalone, no build step).
+The browser app is intentionally build-free:  carries the markup, styles and bootstrap, and  is TypeScript compiled in the browser with Babel standalone — no build step, no bundler, no  needed. Bun runs TypeScript out of the box.
 
-<!-- message:
-1)
-why I see only 3 funds?
-why this run:
-```bash
-CONCURRENCY=10 ./scripts/update-data.ts
-```
-doesn't force to fetch full data for all Franklin ETFs available?
-we must have infor about all the funds, if its too much for you to fetch - ask me, I will be doing it locally and then
-I will push into a branch that data so it will be available in ./api folder!
-2)
-I want to see a line per ETF of logs for ./scripts/update-data.ts script, so I will konw when it fetching the data for
-a fund or it hangs or anything else... at the moment I see next log output:
-```
-❯ CONCURRENCY=10 ./scripts/update-data.ts
-[config  ] Franklin updater: MAX_FETCHES=0 REQUEST_SLEEP=1.5 CONCURRENCY=10 EDGAR_FALLBACK=true SKIP_FRANKLIN=false SKIP_YAHOO=false
-[catalog ] previous index: 3 funds
-[catalog ] failed to fetch franklintempleton.com finder: Franklin product finder: no ETF rows found
-[catalog ] using previous index fallback: 3 funds
-[filter  ] 3 of 3 funds pass filters
-[edgar   ] SEC fund ticker table: 28550 share classes
-[edgar   ] SEC company ticker table: 10461 issuer names
-[nport   ] FLIN failed: [edgar   ] FLIN accession: 404 Not Found — NoSuchKey The specified key does not exist. edgar/data/940400/000094040026035205/0000940400-26-035205.txt 0EP3CPATG7RFW8D5 1+37g+Bjg8fTnXeEm1NHGMJOW9w6mXoDkWsy4
-[nport   ] FLGR failed: [edgar   ] FLGR accession: 404 Not Found — NoSuchKey The specified key does not exist. edgar/data/940400/000094040026035205/0000940400-26-035205.txt 0EP3CPATG7RFW8D5 1+37g+Bjg8fTnXeEm1NHGMJOW9w6mXoDkWsy4
-[summary ] updated=3 unchanged=0 failed=0 skipped=0 indexChanged=true funds=3 holdings=30 history=5188 source=previous index (catalog fetch failed)
-```
--->
+Verification before every publish: , , and .
 
-<!-- message:
-1) can we do not force user to specify NODE_USE_SYSTEM_CA=1 ....? can it be used by default for our update data script?
-2) I found that your script logs shows [issuer  ] FLAU updated holdings=0 history=2230 but see image-1.png - trading view shows that there are 100+ holdings items! looks like we need to think how else we can get that data or where else we can enrich that data from....
-have you tried to do a research if its possible to get the data from official Franklin ETFs site? check image-2.png FLAU exists here! and see image-3.png holdings are also here (I see excel file)...
-I know u can do better! don't be such lazy! 
-u can also check my other repos here: https://github.com/daggerok?tab=repositories&q=ETF
-maybe you will find something useful how these repos updates data - many of them are doing it differently to each other!
-3) I pushed into branch so make sure you did fetch and pull before any your changes...
--->
+## Brands table
 
-<!-- answer:
-### Resolution & Progress:
+| Brand | Where to get the data |
+| --- | --- |
+| **VanEck** | [vaneck.com](https://www.vaneck.com/us/en/etf-mutual-fund-finder/) \| [VanEck](https://daggerok.github.io/VanEck/) |
+| **JPMorgan** | [am.jpmorgan.com](https://am.jpmorgan.com/us/en/asset-management/adv/products/fund-explorer/etf) \| [JPMorgan](https://daggerok.github.io/JPMorgan/) |
+| **Schwab** | [schwabassetmanagement.com](https://www.schwabassetmanagement.com/products) \| [Schwab](https://daggerok.github.io/Schwab/) |
+| **Invesco** | [invesco.com](https://www.invesco.com/us/en/financial-products/etfs.html) \| [Invesco](https://daggerok.github.io/Invesco/) |
+| **iShares** | [ishares.com](https://www.ishares.com/) \| [iShares](https://daggerok.github.io/iShares/) |
+| **Fidelity** | [fidelity.com](https://www.fidelity.com/etfs) \| [Fidelity](https://daggerok.github.io/Fidelity/) |
+| **Amplify** | [amplifyetfs.com](https://amplifyetfs.com/) \| [Amplify](https://daggerok.github.io/Amplify/) |
+| **Vanguard** | [investor.vanguard.com](https://investor.vanguard.com/etf/list) \| [Vanguard](https://daggerok.github.io/Vanguard/) |
+| **SPDR** | [ssga.com](https://www.ssga.com/us/en/intermediary/etfs/fund-finder) \| [SPDR](https://daggerok.github.io/SPDR/) |
+| **WisdomTree** | [wisdomtree.com](https://www.wisdomtree.com/investments) \| [WisdomTree](https://daggerok.github.io/WisdomTree/) |
+| **Goldman Sachs** | [am.gs.com](https://am.gs.com/en-us/individual/funds?locale=en-us&audience=individual&sf=funds&filters=funds%7CETF&limit=100) \| [Goldman-Sachs](https://daggerok.github.io/Goldman-Sachs/) |
+| **NEOS** | [neosfunds.com](https://neosfunds.com/#explore-etfs) \| [Neos](https://daggerok.github.io/Neos/) |
+| **ProShares** | [proshares.com](https://www.proshares.com/our-etfs/find-proshares-etfs) \| [ProShares](https://daggerok.github.io/ProShares/) |
+| **Franklin Templeton** | [franklintempleton.com](https://www.franklintempleton.com/investments/options/exchange-traded-funds) \| [Franklin](https://daggerok.github.io/Franklin/) |
 
-1. **Defaulting system CA (No manual `NODE_USE_SYSTEM_CA=1` required)**:
-   - Added automatic Bun process re-exec in `scripts/update-data.ts`: when the script is invoked as `bun scripts/update-data.ts`, it sets `NODE_USE_SYSTEM_CA=1` and transparently re-spawns with `bun --use-system-ca` if not already set, so users never have to pass flags or set env vars manually.
+## Sibling applications
 
-2. **Holdings Data Enrichment (Resolved Root Cause for holdings=0)**:
-   - **Diagnosis**: 
-     - The SEC EDGAR Atom feed was only returning the top 10 most recent filings for the entire Franklin Templeton trust (CIK 0001655589), where 55 funds file N-PORT-P on the same date. The previous code only took the single most recent accession (`accession[0]`), which mapped all funds to a single unrelated fund accession (0000940400-26-035205), resulting in 404 / 0 holdings.
-     - Furthermore, Franklin Templeton distributes its 81 ETFs across multiple trusts:
-       - **Franklin Templeton ETF Trust** (CIK 0001655589) — 55 series (including FLAU, FLIN, FLJP, FLCH, FLBR, etc.)
-       - **Putnam ETF Trust** (CIK 0001845809) — Municipal series (FTCA, FTMA, FTMH, FTMN, FTMU, FTNJ, FTNY, FTOH, FTPA, FTMS) and Putnam ETFs (PBDC, PEMX, PGRI, PGRO, PVAL)
-       - **Legg Mason ETF Investment Trust** (CIK 0001645194) — Low Volatility / ClearBridge series (LVHD, LVHI, LRGE, SQLV, YLDE)
-       - **Franklin ETF Trust** (CIK 0001551895) — (FTSD)
-   - **Fix**:
-     - Built comprehensive `FRANKLIN_SERIES_MAP` with exact trust CIK, series ID, and primary N-PORT-P accession for all series.
-     - Enhanced `fetchNportForFund` with direct accession path and robust proxy preamble stripping.
-     - Test result: `FLAU` now successfully populates all 108 holdings (BHP Group Ltd 12.80%, Commonwealth Bank of Australia 11.64%, Westpac, etc., perfectly matching the TradingView and Franklin site numbers).
-     - Standardized holdings output: proper numeric formatting for Market Value, Shares Held, and Weight.
-     - Maintained clear single-line logging per ETF (`[issuer  ] FLAU  updated   holdings=108  history=2230`).
--->
+| Application | Data provider | Repository |
+| --- | --- | --- |
+| VanEck | vaneck.com ETF finder + product pages | [VanEck](https://github.com/daggerok/VanEck) |
+| JPMorgan | am.jpmorgan.com fund explorer + product-data JSON | [JPMorgan](https://github.com/daggerok/JPMorgan) |
+| Schwab | schwabassetmanagement.com product pages + CSV exports | [Schwab](https://github.com/daggerok/Schwab) |
+| Invesco | invesco.com CSV downloads + Yahoo Finance | [Invesco](https://github.com/daggerok/Invesco) |
+| iShares | iShares (BlackRock) product workbooks | [iShares](https://github.com/daggerok/iShares) |
+| Fidelity | SEC EDGAR N-PORT-P + Yahoo Finance | [Fidelity](https://github.com/daggerok/Fidelity) |
+| Amplify | Amplify ETFs (Firestore data feed) | [Amplify](https://github.com/daggerok/Amplify) |
+| Vanguard | Vanguard product pages + SEC EDGAR N-PORT-P | [Vanguard](https://github.com/daggerok/Vanguard) |
+| SPDR | SSGA / State Street public feeds | [SPDR](https://github.com/daggerok/SPDR) |
+| WisdomTree | WisdomTree product table + SEC EDGAR N-PORT-P + Yahoo Finance | [WisdomTree](https://github.com/daggerok/WisdomTree) |
+| Goldman Sachs | am.gs.com fund finder + detail pages + SEC EDGAR N-PORT-P | [Goldman-Sachs](https://github.com/daggerok/Goldman-Sachs) |
+| NEOS | neosfunds.com lineup table + official fund pages + daily holdings CSV | [Neos](https://github.com/daggerok/Neos) |
+| ProShares | proshares.com ETF finder + fund pages + official data host | [ProShares](https://github.com/daggerok/ProShares) |
+| Franklin Templeton | franklintempleton.com ETF listings + product pages + SEC EDGAR N-PORT-P | [Franklin](https://github.com/daggerok/Franklin) |
 
-<!-- message:
-Investigate official Franklin Templeton site for downloadable documents / holdings / performance tables (like on-page daily holdings or factsheets/spreadsheets) for ETFs, specifically verifying FLTW, UDIV, INCE, FLJH, DIVI, DIEM. Support running the script simply as CONCURRENCY=10 ./scripts/update-data.ts without requiring the user to type bun --use-system-ca, format console output to a single clean line per ETF ([  i/total ] TICKER <status> holdings=N history=M), and ensure TICKERS="..." functionality works seamlessly.
--->
+## License
 
-<!-- answer:
-### Investigation & Progress Summary:
+[MIT — same as all sibling ETF repositories.](./LICENSE)
 
-1. **Automatic Environment & Invocation**:
-   - The script `./scripts/update-data.ts` can be executed directly as `./scripts/update-data.ts` (or `bun ./scripts/update-data.ts`, `CONCURRENCY=10 ./scripts/update-data.ts`) with no flags or extra parameters required.
-   - Built-in process detection automatically provisions `NODE_USE_SYSTEM_CA=1` and spawns `bun --use-system-ca` transparently when needed.
-
-2. **Official Franklin Templeton Site & Holdings Coverage**:
-   - Mapped canonical Franklin Templeton product page URLs for all 81 ETFs (`FRANKLIN_CANONICAL_PAGES`) discovered from Franklin's sitemap (`en-us_product.xml`).
-   - Investigated on-page daily portfolio tables vs. SEC N-PORT quarterly filings:
-     - On Franklin product pages, HTML teasers typically render the top 10 portfolio weights directly in the markdown / DOM.
-     - Full fund portfolios containing all constituent holdings (e.g. 563 for DIEM, 486 for FLJH, 418 for DIVI, 283 for UDIV, 134 for FLTW, 96 for INCE, 108 for FLAU) are enriched via SEC Form N-PORT filings and CIK submissions across all multi-trust Franklin/Putnam/Legg Mason series.
-     - The parser extracts official daily holdings when full portfolios are published, and seamlessly integrates SEC N-PORT portfolio data when available, ensuring zero empty holdings datasets.
-
-3. **Console Formatting & Progress Tracking**:
-   - Config block formatted with aligned vertical tags:
-     ```text
-     [ config ] Franklin updater:
-                 MAX_FETCHES=0
-                 REQUEST_SLEEP=1.5
-                 CONCURRENCY=10
-                 EDGAR_FALLBACK=true
-                 SKIP_FRANKLIN=false
-                 SKIP_YAHOO=false
-                 TICKERS=FLTW UDIV INCE FLJH DIVI DIEM
-     [ filter ] 6 of 81 funds pass filters
-     [  1/ 6  ] DIEM  updated   holdings=563  history=2591
-     [  2/ 6  ] INCE  unchanged holdings=96   history=2514
-     [  3/ 6  ] FLTW  updated   holdings=134  history=2202
-     [  4/ 6  ] DIVI  updated   holdings=418  history=2591
-     [  5/ 6  ] FLJH  updated   holdings=486  history=2231
-     [  6/ 6  ] UDIV  updated   holdings=283  history=2591
-     [summary ] updated=5 unchanged=1 failed=0 skipped=0 indexChanged=true funds=81 holdings=18066 history=117262 source=franklintempleton.com
-     ```
-   - Each fund emits exactly one concise progress line with aligned columns.
-
-4. **Testing & Verification**:
-   - All 29 unit tests pass via `bun test`.
-   - Verified targeted updates using `TICKERS="FLTW UDIV INCE FLJH DIVI DIEM"` as well as the full catalog discovery.
--->
+Franklin Templeton® and Franklin® and the fund names/tickers referenced here are trademarks of Franklin Resources, Inc. This is an independent, unofficial tool; it is not affiliated with, endorsed by, or sponsored by Franklin Templeton or Franklin Resources, Inc. All data is reproduced from Franklin Templeton's own public fund pages, public SEC EDGAR filings and Yahoo Finance for research purposes. All other trademarks, including index names, are the property of their respective owners.
