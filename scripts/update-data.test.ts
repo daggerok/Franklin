@@ -130,6 +130,22 @@ Markdown Content:
   test('throws when no rows', () => {
     expect(() => parseCatalogText('no etfs here')).toThrow(/no ETF rows/);
   });
+
+  test('parses FLTW with % signs and Upcoming Liquidation note', () => {
+    const md = `
+| Checkbox | [Franklin FTSE Taiwan ETF  \\- **FLTW**](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26351/SINGLCLASS/franklin-ftse-taiwan-etf/FLTW)<br>Upcoming Liquidation <br>Upcoming Liquidation Click the fund name for more information.<br>**Click the fund name for more information.** | 81.22% | 95.62% | 43.94% | 21.04% | 19.77%<br>11/02/2017 | Gross<br>Net<br>0.19% <br>0.19% | $4.16 Billion | Download |
+`;
+    const funds = parseCatalogText(md);
+    expect(funds.length).toBe(1);
+    const fltw = funds[0];
+    expect(fltw.ticker).toBe('FLTW');
+    expect(fltw.returns.ytd).toBe(81.22);
+    expect(fltw.returns.yr1).toBe(95.62);
+    expect(fltw.returns.yr3).toBe(43.94);
+    expect(fltw.returns.yr5).toBe(21.04);
+    expect(fltw.ter).toBe(0.19);
+    expect(fltw.netAssets).toBe(4.16e9);
+  });
 });
 
 describe('Franklin product page parsing', () => {
@@ -186,6 +202,48 @@ SEC 30-Day Yield 2.09%
     expect(summary.morningstarCategory).toBe('India Equity');
     expect(summary.distributionFrequency).toContain('Quarterly');
     expect(summary.secYield).toBe(2.09);
+  });
+
+  test('parses FLTW product page with YTD 81.22% and NAV 110.52', () => {
+    const fltwPage = `
+# FLTW  Franklin FTSE Taiwan ETF
+NAV  $0.42(0.38%)
+$110.52
+As of 09/23/2026
+YTD Total Returns At NAV [1]
+81.22%
+As of 09/23/2026
+Total Net Assets
+$4.16B
+As of 09/23/2026 (Updated Daily)
+Fund Inception Date11/02/2017
+Listing ExchangeNYSE Arca
+Gross Expense Ratio
+0.19%
+Net Expense Ratio
+0.19%
+CUSIP Code
+35473P686
+ISIN Code
+US35473P6869
+Market Price Return
+NAV Return
+- 96.86%1 Year
+- 44.10%3 Years
+- 20.96%5 Years
+- —10 Years
+- 19.77%Since Inception
+`;
+    const summary = parseProductPage(fltwPage, 'FLTW');
+    expect(summary.nav).toBe(110.52);
+    expect(summary.totalNetAssets).toBe(4.16e9);
+    expect(summary.totalExpenseRatio).toBe(0.19);
+    expect(summary.inception).toBe('2017-11-02');
+    expect(summary.returns.ytd).toBe(81.22);
+    expect(summary.returns.yr1).toBe(96.86);
+    expect(summary.returns.yr3).toBe(44.1);
+    expect(summary.returns.yr5).toBe(20.96);
+    expect(summary.returns.sinceInception).toBe(19.77);
   });
 });
 

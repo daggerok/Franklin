@@ -605,36 +605,69 @@ function lookupLabel(lines: TextLine[], pattern: string | RegExp): JsonRecord | 
         const after = full.slice(idx + (pat as string).length).trim().replace(/^[:\-\s]+/, '').trim();
         if (after) return after;
       }
-      return full;
+      return '';
     }
     const m = (pat as RegExp).exec(full);
     if (m && m.index !== undefined) {
       const after = full.slice(m.index + m[0].length).trim().replace(/^[:\-\s]+/, '').trim();
       if (after) return after;
     }
-    return full;
+    return '';
   };
   let best: JsonRecord | null = null;
   let bestScore = Infinity;
-  for (const line of lines) {
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
     const joined = line.cells.join(' | ') || line.text;
     const haystack = joined || line.text;
     if (!test(haystack)) continue;
-    let value: string;
+    let value = '';
     if (line.cells.length >= 2) {
       const idx = line.cells.findIndex((c) => test(c));
       if (idx >= 0 && idx + 1 < line.cells.length) value = line.cells.slice(idx + 1).join(' | ');
       else value = line.cells.slice(1).join(' | ');
     } else {
       value = extractAfter(line.text, pattern);
-      if (value === line.text) value = extractAfter(joined, pattern);
+      if (!value) value = extractAfter(joined, pattern);
     }
-    const cleaned = cleanText(value);
+    let cleaned = cleanText(value);
+    // If value empty or equals pattern or doesn't look like data, look ahead 1-3 lines
+    if (!cleaned || cleaned.toLowerCase() === (isString ? (pattern as string).toLowerCase() : '') || cleaned.length < 2 || /^[\s\-—]+$/.test(cleaned)) {
+      for (let j = 1; j <= 3; j++) {
+        if (i + j >= lines.length) break;
+        const next = lines[i + j];
+        const nextText = cleanText(next.text);
+        if (!nextText) continue;
+        // Skip if next line is another label (contains known label keywords)
+        if (/^(Fund Inception Date|Listing Exchange|Dividend Frequency|Gross Expense|Net Expense|CUSIP|ISIN|Bloomberg|Morningstar|Fiscal Year|ETF Type|Shares Outstanding|Daily Volume|Benchmark|Total Net Assets|NAV|Market Price|Premium|Discount|YTD|As of)/i.test(nextText) && !test(nextText)) {
+          // If next line looks like a value (contains $, %, digit, or is short), use it
+          if (/[\$\d%]/.test(nextText) || /^[A-Z0-9]{9}$/.test(nextText) || /^US[A-Z0-9]{10}$/.test(nextText) || /NYSE|Nasdaq/i.test(nextText)) {
+            cleaned = nextText;
+            break;
+          }
+          // If next line is just a value like $4.16B or 0.19% or 35473P686, use it
+        }
+        if (nextText.length < 100 && ( /[\$\d%]/.test(nextText) || /^[A-Z0-9]{6,12}$/.test(nextText) || /^(NYSE|NASDAQ|Cboe|BATS)/i.test(nextText) || /^\d{1,2}\/\d{1,2}\/\d{4}$/.test(nextText) )) {
+          // Avoid picking up unrelated long text
+          if (nextText.length < 50 || /[\$%]/.test(nextText) || /^\d/.test(nextText)) {
+            cleaned = nextText;
+            break;
+          }
+        }
+        // For Total Net Assets, NAV, etc., next line often is the value itself
+        if (next.cells.length === 0 && nextText.length < 80) {
+          cleaned = nextText;
+          break;
+        }
+      }
+    }
     if (!cleaned) continue;
+    // Skip if cleaned is just the label again
+    if (isString && cleaned.toLowerCase() === (pattern as string).toLowerCase()) continue;
     const score = cleaned.length + (line.text.length > 200 ? 1000 : 0);
     if (score < bestScore) {
       bestScore = score;
-      best = { value: cleaned, text: joined, asOf: firstDate(joined) || firstDate(line.text) };
+      best = { value: cleaned, text: joined, asOf: firstDate(joined) || firstDate(line.text) || firstDate(lines[i + 1]?.text || '') || firstDate(lines[i + 2]?.text || '') };
       if (cleaned.length < 80 && line.text.length < 150) return best;
     }
   }
@@ -686,12 +719,30 @@ export function parseFranklinCatalog(text: string): CatalogFund[] {
       const fundPage = match[3];
       if (!ticker) continue;
 
-      // Extract table cells after the link
-      const after = line.slice((match.index ?? 0) + match[0].length);
-      const cells = after.split('|').map((c) => cleanText(c.replace(/<[^>]+>/g, ' ').replace(/\*\*/g, ''))).filter((c) => c !== '');
+      // Extract table cells after the link – robust handling of extra notes like
+      // "Upcoming Liquidation", "Click the fund name..." which appear before returns
+      let after = line.slice((match.index ?? 0) + match[0].length);
+      // Clean HTML and markdown artifacts
+      after = after.replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, ' ');
+      after = after.replace(/Upcoming Liquidation/gi, ' ');
+      after = after.replace(/Click the fund name for more information\./gi, ' ');
+      after = after.replace(/\*\*Click[^*]*\*\*/gi, ' ');
+      after = after.replace(/\s+/g, ' ').trim();
+      const rawCells = after.split('|').map((c) => cleanText(c.replace(/\*\*/g, ''))).filter((c) => c !== '');
+      // Filter out cells that are clearly not data (e.g. "Checkbox", empty, "Download Fact Sheet", etc.)
+      // Keep cells that look like returns (% or —), expense (contains %), AUM (contains $), or date+number
+      let cells = rawCells.filter(c => {
+        if (/^Checkbox$/i.test(c)) return false;
+        if (/Download Fact Sheet/i.test(c)) return false;
+        if (/Close modal/i.test(c)) return false;
+        if (/Fact Sheet not available/i.test(c)) return false;
+        if (c.length > 200) return false;
+        return true;
+      });
 
       // cells layout: YTD, 1Y, 3Y, 5Y, SinceInception + date, Expense, AUM, FactSheet
       // Example: -0.40% | 3.47 | 4.19 | — | 3.54 07/25/2023 | Gross Net 0.39% 0.39% | $9.53 Million
+      // But sometimes first cells are junk, so find first cell that looks like a return (% or — or number)
       let ytd: number | null = null;
       let yr1: number | null = null;
       let yr3: number | null = null;
@@ -701,34 +752,119 @@ export function parseFranklinCatalog(text: string): CatalogFund[] {
       let ter: number | null = null;
       let netAssets: number | null = null;
 
-      if (cells.length >= 1) ytd = numberOrNull(cells[0]);
-      if (cells.length >= 2) yr1 = numberOrNull(cells[1]);
-      if (cells.length >= 3) yr3 = numberOrNull(cells[2]);
-      if (cells.length >= 4) yr5 = numberOrNull(cells[3]);
-      if (cells.length >= 5) {
-        const siCell = cells[4];
-        sinceInception = numberOrNull(siCell);
-        inception = firstDate(siCell);
-      }
-      if (cells.length >= 6) {
-        // Expense ratio cell may contain "Gross Net 0.39% 0.39%" or "—"
-        const percents = cells[5].match(/[\d.]+%/g) || [];
-        if (percents.length) {
-          // last percent is net
-          ter = numberOrNull(percents[percents.length - 1]);
+      // Find start index of returns: first cell that is % or — or numeric (including negative)
+      let returnStart = -1;
+      for (let ci = 0; ci < cells.length; ci++) {
+        const cell = cells[ci];
+        if (/^[-—]?\s*[\d.]+%/.test(cell) || /^[-—]$/.test(cell) || /^[-+]?\d+(?:\.\d+)?$/.test(cell) || cell === '—' || cell === '--' || /^\d+\.\d+\s*\d{1,2}\/\d{1,2}\/\d{4}/.test(cell)) {
+          returnStart = ci;
+          break;
+        }
+        // Also handle cell like "-0.40%" with zero-width spaces
+        if (/[\d.]+%/.test(cell) && cell.length < 20) {
+          returnStart = ci;
+          break;
         }
       }
-      if (cells.length >= 7) {
-        // AUM cell like "$9.53 Million" or "$2.60 Billion" or "$391.01 Million"
-        const aumText = cells[6];
-        const m = /\$([\d.,]+)\s*(Million|Billion|Thousand|M|B|K)?/i.exec(aumText);
-        if (m) {
-          let val = Number(m[1].replace(/,/g, ''));
-          const unit = (m[2] || '').toLowerCase();
-          if (unit.startsWith('b')) val *= 1e9;
-          else if (unit.startsWith('m')) val *= 1e6;
-          else if (unit.startsWith('k') || unit.startsWith('th')) val *= 1e3;
-          netAssets = val;
+      // If not found, try to find any cell with % in first 5 cells
+      if (returnStart === -1) {
+        for (let ci = 0; ci < Math.min(5, cells.length); ci++) {
+          if (/%/.test(cells[ci]) || cells[ci] === '—') {
+            returnStart = ci;
+            break;
+          }
+        }
+      }
+
+      if (returnStart >= 0) {
+        const returnsSlice = cells.slice(returnStart);
+        if (returnsSlice.length >= 1) ytd = numberOrNull(returnsSlice[0]);
+        if (returnsSlice.length >= 2) yr1 = numberOrNull(returnsSlice[1]);
+        if (returnsSlice.length >= 3) yr3 = numberOrNull(returnsSlice[2]);
+        if (returnsSlice.length >= 4) yr5 = numberOrNull(returnsSlice[3]);
+        if (returnsSlice.length >= 5) {
+          const siCell = returnsSlice[4];
+          sinceInception = numberOrNull(siCell);
+          inception = firstDate(siCell);
+        }
+        // Expense and AUM are after the 5 return cells
+        // Look for expense: cell containing % after returns, and AUM: cell containing $
+        for (let ci = 5; ci < returnsSlice.length; ci++) {
+          const cell = returnsSlice[ci];
+          if (ter === null && /%/.test(cell)) {
+            const percents = cell.match(/[\d.]+%/g) || [];
+            if (percents.length) {
+              ter = numberOrNull(percents[percents.length - 1]);
+            }
+          }
+          if (netAssets === null && /\$/.test(cell)) {
+            const m = /\$([\d.,]+)\s*(Million|Billion|Thousand|M|B|K)?/i.exec(cell);
+            if (m) {
+              let val = Number(m[1].replace(/,/g, ''));
+              const unit = (m[2] || '').toLowerCase();
+              if (unit.startsWith('b')) val *= 1e9;
+              else if (unit.startsWith('m')) val *= 1e6;
+              else if (unit.startsWith('k') || unit.startsWith('th')) val *= 1e3;
+              netAssets = val;
+            }
+          }
+        }
+        // Fallback: if not found in returnsSlice, search all cells
+        if (ter === null) {
+          for (const cell of cells) {
+            if (/%/.test(cell) && /Gross|Net/i.test(cell)) {
+              const percents = cell.match(/[\d.]+%/g) || [];
+              if (percents.length) {
+                ter = numberOrNull(percents[percents.length - 1]);
+                break;
+              }
+            }
+          }
+        }
+        if (netAssets === null) {
+          for (const cell of cells) {
+            if (/\$/.test(cell)) {
+              const m = /\$([\d.,]+)\s*(Million|Billion|Thousand|M|B|K)?/i.exec(cell);
+              if (m) {
+                let val = Number(m[1].replace(/,/g, ''));
+                const unit = (m[2] || '').toLowerCase();
+                if (unit.startsWith('b')) val *= 1e9;
+                else if (unit.startsWith('m')) val *= 1e6;
+                else if (unit.startsWith('k') || unit.startsWith('th')) val *= 1e3;
+                netAssets = val;
+                break;
+              }
+            }
+          }
+        }
+      } else {
+        // Fallback to old simple parsing if no return start found
+        if (cells.length >= 1) ytd = numberOrNull(cells[0]);
+        if (cells.length >= 2) yr1 = numberOrNull(cells[1]);
+        if (cells.length >= 3) yr3 = numberOrNull(cells[2]);
+        if (cells.length >= 4) yr5 = numberOrNull(cells[3]);
+        if (cells.length >= 5) {
+          const siCell = cells[4];
+          sinceInception = numberOrNull(siCell);
+          inception = firstDate(siCell);
+        }
+        if (cells.length >= 6) {
+          const percents = cells[5].match(/[\d.]+%/g) || [];
+          if (percents.length) {
+            ter = numberOrNull(percents[percents.length - 1]);
+          }
+        }
+        if (cells.length >= 7) {
+          const aumText = cells[6];
+          const m = /\$([\d.,]+)\s*(Million|Billion|Thousand|M|B|K)?/i.exec(aumText);
+          if (m) {
+            let val = Number(m[1].replace(/,/g, ''));
+            const unit = (m[2] || '').toLowerCase();
+            if (unit.startsWith('b')) val *= 1e9;
+            else if (unit.startsWith('m')) val *= 1e6;
+            else if (unit.startsWith('k') || unit.startsWith('th')) val *= 1e3;
+            netAssets = val;
+          }
         }
       }
 
@@ -988,11 +1124,50 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
   const etfType = labelText(etfTypeLabel) || 'ETF';
 
   const inception = firstDate(labelText(inceptionLabel));
-  const nav = labelNumber(navLabel);
+  // NAV – page shows change $0.42 then actual $110.52 on next line; we need actual
+  const nav = (() => {
+    // Try label first
+    let v = labelNumber(navLabel);
+    // If v is small (<5) likely change, look ahead for larger NAV
+    if (v !== null && v < 5) {
+      // Search next lines after navLabel for $ amount >5
+      const navIdx = lines.findIndex(l => /^\s*NAV\b/i.test(l.text) || l.text.toLowerCase().includes('nav'));
+      if (navIdx >= 0) {
+        for (let j = 1; j <= 5; j++) {
+          if (navIdx + j >= lines.length) break;
+          const txt = lines[navIdx + j].text;
+          const m = /\$([\d,]+\.?\d*)/.exec(txt);
+          if (m) {
+            const candidate = numberOrNull(m[1]);
+            if (candidate !== null && candidate > 5) return candidate;
+          }
+        }
+      }
+      // Fallback: search full text for $ amount followed by As of
+      const full = lines.map(l => l.text).join('\n');
+      const m = /\$([\d,]+\.\d+)\s*\n+As of/i.exec(full);
+      if (m) {
+        const cand = numberOrNull(m[1]);
+        if (cand !== null && cand > 5) return cand;
+      }
+      // If still small, keep but try to find larger in next lines
+      const allNavs = [...full.matchAll(/\$([\d,]+\.\d+)/g)].map(x => numberOrNull(x[1])).filter((n): n is number => n !== null && n > 10);
+      if (allNavs.length) return allNavs[0];
+    }
+    if (v !== null) return v;
+    // Final fallback: find $ amount near NAV text
+    const full = lines.map(l => l.text).join('\n');
+    const navBlock = /NAV[^\n]*\n+\s*\$([\d,]+\.?\d*)/i.exec(full);
+    if (navBlock) {
+      const cand = numberOrNull(navBlock[1]);
+      if (cand !== null) return cand;
+    }
+    return null;
+  })();
   const marketPrice = labelNumber(marketPriceLabel);
   const totalNetAssets = (() => {
     const raw = labelText(totalNetAssetsLabel);
-    const m = /\$([\d.,]+)\s*(Million|Billion|Thousand|M|B|K)?/i.exec(raw);
+    const m = /\$([\d.,]+)\s*(Million|Billion|Thousand|M|B|K|Billion)?/i.exec(raw);
     if (m) {
       let val = Number(m[1].replace(/,/g, ''));
       const unit = (m[2] || '').toLowerCase();
@@ -1000,6 +1175,12 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
       else if (unit.startsWith('m')) val *= 1e6;
       else if (unit.startsWith('k') || unit.startsWith('th')) val *= 1e3;
       return val;
+    }
+    // Also try to parse $4.16B format directly from label value
+    const m2 = /\$([\d.]+)\s*([B])\b/i.exec(raw);
+    if (m2) {
+      const val = Number(m2[1]);
+      if (Number.isFinite(val)) return val * 1e9;
     }
     return labelNumber(totalNetAssetsLabel);
   })();
@@ -1013,18 +1194,69 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
   const sharesOutstanding = labelNumber(sharesLabel);
   const premiumDiscount = labelNumber(premiumLabel);
 
-  // Returns from the product page are not always present in the static HTML (they are JS-rendered).
-  // We keep catalog returns as fallback and try to extract from any table that mentions "Market Price Return" or "NAV Return"
+  // Returns – product page contains:
+  // YTD Total Returns At NAV 81.22% As of 09/23/2026
+  // and a performance block:
+  // Market Price Return / NAV Return
+  // 96.86%1 Year / 44.10%3 Years / 20.96%5 Years / —10 Years / 19.77%Since Inception
+  // We parse both and merge into returns (catalog is fallback, product page is primary)
   const returns: CatalogReturns = { ...EMPTY_RETURNS };
-  // Try to find return values in lines containing % and year labels
-  // Example: "Market Price Return -3.94% 1 Year 5.33% 3 Years ..."
-  // This is best-effort; catalog already has YTD/1Y/3Y/5Y
+  const fullText = lines.map(l => l.text).join('\n');
+
+  // YTD from product page header – allow footnote [1] and newlines, non-greedy
+  const ytdMatch = /YTD Total Returns At (?:NAV|Market Price)[\s\S]{0,50}?([-+]?\d+(?:\.\d+)?)\s*%/i.exec(fullText);
+  if (ytdMatch) {
+    const v = numberOrNull(ytdMatch[1]);
+    if (v !== null) returns.ytd = v;
+  }
+
+  // Helper to extract returns like "96.86%1 Year" or "44.10%3 Years" etc.
+  const extractReturn = (labelRegex: RegExp): number | null => {
+    const re = new RegExp(`([-+]?\\d+(?:\\.\\d+)?)\\s*%\\s*${labelRegex.source}`, 'i');
+    const m = re.exec(fullText);
+    if (m) {
+      const v = numberOrNull(m[1]);
+      if (v !== null) return v;
+    }
+    const re2 = new RegExp(`${labelRegex.source}[^\\d\\-—]*([-+]?\\d+(?:\\.\\d+)?)\\s*%`, 'i');
+    const m2 = re2.exec(fullText);
+    if (m2) {
+      const v = numberOrNull(m2[1]);
+      if (v !== null) return v;
+    }
+    return null;
+  };
+
+  const yearPatterns: { key: keyof CatalogReturns; regex: RegExp }[] = [
+    { key: 'yr1', regex: /1\s*Year/i },
+    { key: 'yr3', regex: /3\s*Years?/i },
+    { key: 'yr5', regex: /5\s*Years?/i },
+    { key: 'yr10', regex: /10\s*Years?/i },
+    { key: 'sinceInception', regex: /Since\s*Inception/i },
+  ];
+  for (const { key, regex } of yearPatterns) {
+    const v = extractReturn(regex);
+    if (v !== null) (returns as any)[key] = v;
+  }
+
   for (const line of lines) {
     const txt = line.text;
-    if (/Market Price Return|NAV Return/i.test(txt) && /%/.test(txt)) {
-      // extract numbers like -3.94% etc.
-      const nums = [...txt.matchAll(/([-+]?\d+(?:\.\d+)?)%/g)].map((m) => numberOrNull(m[1]));
-      // We don't have reliable mapping, so keep as is; catalog already parsed
+    const m = /([-+]?\d+(?:\.\d+)?)\s*%\s*(1\s*Year|3\s*Years?|5\s*Years?|10\s*Years?|Since\s*Inception)/i.exec(txt);
+    if (m) {
+      const val = numberOrNull(m[1]);
+      const label = m[2].toLowerCase();
+      if (val !== null) {
+        if (label.includes('1 year')) returns.yr1 = val;
+        else if (label.includes('3 year')) returns.yr3 = val;
+        else if (label.includes('5 year')) returns.yr5 = val;
+        else if (label.includes('10 year')) returns.yr10 = val;
+        else if (label.includes('since')) returns.sinceInception = val;
+      }
+    }
+    const ytdLine = /YTD[^%]*([-+]?\d+(?:\.\d+)?)\s*%/i.exec(txt);
+    if (ytdLine) {
+      const v = numberOrNull(ytdLine[1]);
+      if (v !== null) returns.ytd = v;
     }
   }
 
@@ -2127,6 +2359,15 @@ async function main(): Promise<void> {
         if (summary.distributionYield !== null) fund.dividendYield = summary.distributionYield;
         if (summary.secYield !== null) fund.secYield = summary.secYield;
         if (summary.inception) fund.inception = summary.inception;
+        // Merge returns from product page (primary, more recent than catalog)
+        if (summary.returns) {
+          for (const k of ['ytd', 'yr1', 'yr3', 'yr5', 'yr10', 'sinceInception'] as (keyof CatalogReturns)[]) {
+            const v = (summary.returns as any)[k];
+            if (v !== null && v !== undefined) {
+              (fund.returns as any)[k] = v;
+            }
+          }
+        }
 
         // Try official holdings from product page Portfolio tab (daily, more recent than SEC quarterly)
         // The page via r.jina.ai contains markdown table: | Security Name | Weight (%) | Market Value | Quantity |
@@ -2615,7 +2856,9 @@ async function main(): Promise<void> {
   console.log(`[summary ] updated=${updated} unchanged=${unchanged} failed=${failed} skipped=${skipped} indexChanged=${indexChanged} funds=${indexFunds.length} holdings=${totalHoldings} history=${totalHistory} source=${catalogSource}`);
 }
 
-main().catch((e) => {
-  console.error(e);
-  process.exitCode = 1;
-});
+if (import.meta.main) {
+  main().catch((e) => {
+    console.error(e);
+    process.exitCode = 1;
+  });
+}
