@@ -3,14 +3,14 @@
  "name": "INCE ETF",
  "category": "page. If so preload resources",
  "categoryPath": "page. If so preload resources",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ince/SINGLCLASS/ince-etf/INCE",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/21559/SINGLCLASS/franklin-income-equity-focus-etf/INCE",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ince/SINGLCLASS/ince-etf/INCE",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/21559/SINGLCLASS/franklin-income-equity-focus-etf/INCE",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035123, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/INCE?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
@@ -393,7 +393,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035123, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2513,
+  "totalRows": 2514,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -401,7 +401,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

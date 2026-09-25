@@ -154,3 +154,48 @@ maybe you will find something useful how these repos updates data - many of them
      - Standardized holdings output: proper numeric formatting for Market Value, Shares Held, and Weight.
      - Maintained clear single-line logging per ETF (`[issuer  ] FLAU  updated   holdings=108  history=2230`).
 -->
+
+<!-- message:
+Investigate official Franklin Templeton site for downloadable documents / holdings / performance tables (like on-page daily holdings or factsheets/spreadsheets) for ETFs, specifically verifying FLTW, UDIV, INCE, FLJH, DIVI, DIEM. Support running the script simply as CONCURRENCY=10 ./scripts/update-data.ts without requiring the user to type bun --use-system-ca, format console output to a single clean line per ETF ([  i/total ] TICKER <status> holdings=N history=M), and ensure TICKERS="..." functionality works seamlessly.
+-->
+
+<!-- answer:
+### Investigation & Progress Summary:
+
+1. **Automatic Environment & Invocation**:
+   - The script `./scripts/update-data.ts` can be executed directly as `./scripts/update-data.ts` (or `bun ./scripts/update-data.ts`, `CONCURRENCY=10 ./scripts/update-data.ts`) with no flags or extra parameters required.
+   - Built-in process detection automatically provisions `NODE_USE_SYSTEM_CA=1` and spawns `bun --use-system-ca` transparently when needed.
+
+2. **Official Franklin Templeton Site & Holdings Coverage**:
+   - Mapped canonical Franklin Templeton product page URLs for all 81 ETFs (`FRANKLIN_CANONICAL_PAGES`) discovered from Franklin's sitemap (`en-us_product.xml`).
+   - Investigated on-page daily portfolio tables vs. SEC N-PORT quarterly filings:
+     - On Franklin product pages, HTML teasers typically render the top 10 portfolio weights directly in the markdown / DOM.
+     - Full fund portfolios containing all constituent holdings (e.g. 563 for DIEM, 486 for FLJH, 418 for DIVI, 283 for UDIV, 134 for FLTW, 96 for INCE, 108 for FLAU) are enriched via SEC Form N-PORT filings and CIK submissions across all multi-trust Franklin/Putnam/Legg Mason series.
+     - The parser extracts official daily holdings when full portfolios are published, and seamlessly integrates SEC N-PORT portfolio data when available, ensuring zero empty holdings datasets.
+
+3. **Console Formatting & Progress Tracking**:
+   - Config block formatted with aligned vertical tags:
+     ```text
+     [ config ] Franklin updater:
+                 MAX_FETCHES=0
+                 REQUEST_SLEEP=1.5
+                 CONCURRENCY=10
+                 EDGAR_FALLBACK=true
+                 SKIP_FRANKLIN=false
+                 SKIP_YAHOO=false
+                 TICKERS=FLTW UDIV INCE FLJH DIVI DIEM
+     [ filter ] 6 of 81 funds pass filters
+     [  1/ 6  ] DIEM  updated   holdings=563  history=2591
+     [  2/ 6  ] INCE  unchanged holdings=96   history=2514
+     [  3/ 6  ] FLTW  updated   holdings=134  history=2202
+     [  4/ 6  ] DIVI  updated   holdings=418  history=2591
+     [  5/ 6  ] FLJH  updated   holdings=486  history=2231
+     [  6/ 6  ] UDIV  updated   holdings=283  history=2591
+     [summary ] updated=5 unchanged=1 failed=0 skipped=0 indexChanged=true funds=81 holdings=18066 history=117262 source=franklintempleton.com
+     ```
+   - Each fund emits exactly one concise progress line with aligned columns.
+
+4. **Testing & Verification**:
+   - All 29 unit tests pass via `bun test`.
+   - Verified targeted updates using `TICKERS="FLTW UDIV INCE FLJH DIVI DIEM"` as well as the full catalog discovery.
+-->

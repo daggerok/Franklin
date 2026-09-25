@@ -1,31 +1,31 @@
 {
  "ticker": "FLJH",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/fljh/SINGLCLASS/fljh-etf/FLJH",
+ "name": "FLJH ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26355/SINGLCLASS/franklin-ftse-japan-hedged-etf/FLJH",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/fljh/SINGLCLASS/fljh-etf/FLJH",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26355/SINGLCLASS/franklin-ftse-japan-hedged-etf/FLJH",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035143, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLJH?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P637",
+  "isin": "US35473P6372",
+  "benchmark": "FTSE Japan Capped Hedged Index-NR"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.09%",
+  "value": 0.09,
+  "gross": 0.09,
+  "net": 0.09
  },
  "nav": {
   "display": "—",
@@ -42,15 +42,15 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
+  "display": "$228.97 M",
+  "value": 228970000,
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -58,19 +58,19 @@
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
-   "asOfDate": "Jun 30 2026",
+   "asOfDate": "Sep 23 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 42.37,
+   "yr1Text": "42.37%",
+   "yr3": 28.51,
+   "yr3Text": "28.51%",
+   "yr5": 22.65,
+   "yr5Text": "22.65%",
+   "yr10": 15.26,
+   "yr10Text": "15.26%",
+   "sinceInception": 15.26,
+   "sinceInceptionText": "15.26%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 15.26,
+   "sinceInceptionText": "15.26%"
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
+  "frequency": "Semi-Annual This fund is an ex-Dividend fund",
   "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -179,7 +179,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035143, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2230,
+  "totalRows": 2231,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -187,7 +187,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

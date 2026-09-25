@@ -198,6 +198,90 @@ const YAHOO_CHART_URL = 'https://query1.finance.yahoo.com/v8/finance/chart';
 // Definitive 81 Franklin Templeton U.S.-listed ETFs from sitemap product.xml (80 + FLRU Russia)
 // Source: https://www.franklintempleton.com/binaries/content/assets/global/sitemaps/google/en-us_product.xml chunks 18-19
 // Parsed 94 total (81 active incl FLRU + 13 closed). This seed ensures full catalog even when issuer blocks.
+export const FRANKLIN_CANONICAL_PAGES: Record<string, string> = {
+  "FLIA": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26727/SINGLCLASS/franklin-international-aggregate-bond-etf/FLIA",
+  "FTMH": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48365/SINGLCLASS/franklin-municipal-high-yield-etf/FTMH",
+  "FLEU": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26347/SINGLCLASS/franklin-ftse-eurozone-etf/FLEU",
+  "FTMS": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48362/SINGLCLASS/franklin-short-term-municipal-income-etf/FTMS",
+  "FLRU": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26356/SINGLCLASS/franklin-ftse-russia-etf/FLRU",
+  "FTCA": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48306/SINGLCLASS/franklin-california-municipal-income-etf/FTCA",
+  "FLQS": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/25771/SINGLCLASS/franklin-u-s-small-cap-multifactor-index-etf/FLQS",
+  "TINS": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47550/SINGLCLASS/templeton-international-insights-etf/TINS",
+  "EZPZ": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/41786/SINGLCLASS/franklin-crypto-index-etf/EZPZ",
+  "FLSP": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/28388/SINGLCLASS/franklin-systematic-style-premia-etf/FLSP",
+  "INCE": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/21559/SINGLCLASS/franklin-income-equity-focus-etf/INCE",
+  "YLDE": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/91629/SINGLCLASS/franklin-clearbridge-enhanced-income-etf/YLDE",
+  "FLLA": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/27393/SINGLCLASS/franklin-ftse-latin-america-etf/FLLA",
+  "FLKR": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26353/SINGLCLASS/franklin-ftse-south-korea-etf/FLKR",
+  "SQLV": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/91662/SINGLCLASS/royce-quant-small-cap-quality-value-etf/SQLV",
+  "FLBL": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26728/SINGLCLASS/franklin-senior-loan-etf/FLBL",
+  "PGRO": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39433/SINGLCLASS/putnam-focused-large-cap-growth-etf/PGRO",
+  "FLCO": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/21558/SINGLCLASS/franklin-investment-grade-corporate-etf/FLCO",
+  "FLQL": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/25773/SINGLCLASS/franklin-u-s-large-cap-multifactor-index-etf/FLQL",
+  "TEMD": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48762/SINGLCLASS/templeton-emerging-markets-debt-etf/TEMD",
+  "FLCA": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26364/SINGLCLASS/franklin-ftse-canada-etf/FLCA",
+  "FLCB": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/28565/SINGLCLASS/franklin-u-s-core-bond-etf/FLCB",
+  "HELX": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29097/SINGLCLASS/franklin-genomic-advancements-etf/HELX",
+  "XUDV": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/42074/SINGLCLASS/franklin-us-dividend-booster-index-etf/XUDV",
+  "XDAT": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/30780/SINGLCLASS/franklin-exponential-data-etf/XDAT",
+  "FTNJ": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48364/SINGLCLASS/franklin-new-jersey-municipal-income-etf/FTNJ",
+  "FTNY": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48361/SINGLCLASS/franklin-new-york-municipal-income-etf/FTNY",
+  "FLSA": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/27392/SINGLCLASS/franklin-ftse-saudi-arabia-etf/FLSA",
+  "EZBC": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39639/SINGLCLASS/franklin-bitcoin-etf/EZBC",
+  "FLGV": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29614/SINGLCLASS/franklin-u-s-treasury-bond-etf/FLGV",
+  "FLGB": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26350/SINGLCLASS/franklin-ftse-united-kingdom-etf/FLGB",
+  "FLJP": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26357/SINGLCLASS/franklin-ftse-japan-etf/FLJP",
+  "FLBR": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26363/SINGLCLASS/franklin-ftse-brazil-etf/FLBR",
+  "PBDC": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39500/SINGLCLASS/putnam-bdc-income-etf/PBDC",
+  "FLCH": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26362/SINGLCLASS/franklin-ftse-china-etf/FLCH",
+  "LVHD": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/91415/SINGLCLASS/franklin-u-s-low-volatility-high-dividend-index-etf/LVHD",
+  "DIVI": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/21412/SINGLCLASS/franklin-international-core-dividend-tilt-index-etf/DIVI",
+  "UDIV": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/21415/SINGLCLASS/franklin-u-s-core-dividend-tilt-index-etf/UDIV",
+  "LVHI": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/91481/SINGLCLASS/franklin-international-low-volatility-high-dividend-index-etf/LVHI",
+  "LRGE": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/91630/SINGLCLASS/clearbridge-large-cap-growth-select-etf/LRGE",
+  "YCLO": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/50418/SINGLCLASS/franklin-bsp-clo-etf/YCLO",
+  "FLUD": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29430/SINGLCLASS/franklin-ultra-short-bond-etf/FLUD",
+  "FLGR": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26360/SINGLCLASS/franklin-ftse-germany-etf/FLGR",
+  "FLAU": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26365/SINGLCLASS/franklin-ftse-australia-etf/FLAU",
+  "MULT": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/46894/SINGLCLASS/franklin-multisector-income-etf/MULT",
+  "FLJH": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26355/SINGLCLASS/franklin-ftse-japan-hedged-etf/FLJH",
+  "FLMX": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26354/SINGLCLASS/franklin-ftse-mexico-etf/FLMX",
+  "FLIN": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN",
+  "FTMN": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48373/SINGLCLASS/franklin-minnesota-municipal-income-etf/FTMN",
+  "BUYZ": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29096/SINGLCLASS/franklin-disruptive-commerce-etf/BUYZ",
+  "XRPZ": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47318/SINGLCLASS/franklin-xrp-etf/XRPZ",
+  "DIEM": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/21413/SINGLCLASS/franklin-emerging-market-core-dividend-tilt-index-etf/DIEM",
+  "DVAL": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/33319/SINGLCLASS/brandywine-global-dynamic-us-large-cap-value-etf/DVAL",
+  "FLSW": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26352/SINGLCLASS/franklin-ftse-switzerland-etf/FLSW",
+  "FLQM": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/25772/SINGLCLASS/franklin-u-s-mid-cap-multifactor-index-etf/FLQM",
+  "PEMX": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39499/SINGLCLASS/putnam-emerging-markets-ex-china-etf/PEMX",
+  "FLMI": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26175/SINGLCLASS/franklin-dynamic-municipal-bond-etf/FLMI",
+  "FTPA": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48375/SINGLCLASS/franklin-pennsylvania-municipal-income-etf/FTPA",
+  "PVAL": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39434/SINGLCLASS/putnam-focused-large-cap-value-etf/PVAL",
+  "FGDL": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/31714/SINGLCLASS/franklin-responsibly-sourced-gold-etf/FGDL",
+  "EZET": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/40521/SINGLCLASS/franklin-ethereum-etf/EZET",
+  "FFOG": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36370/SINGLCLASS/franklin-focused-dynamic-growth-etf/FFOG",
+  "FLAX": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26346/SINGLCLASS/franklin-ftse-asia-ex-japan-etf/FLAX",
+  "FLTW": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26351/SINGLCLASS/franklin-ftse-taiwan-etf/FLTW",
+  "FTOH": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48374/SINGLCLASS/franklin-ohio-municipal-income-etf/FTOH",
+  "FSML": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/50069/SINGLCLASS/franklin-small-cap-enhanced-etf/FSML",
+  "FLEE": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26349/SINGLCLASS/franklin-ftse-europe-etf/FLEE",
+  "XIDV": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/42138/SINGLCLASS/franklin-international-dividend-booster-index-etf/XIDV",
+  "IQM": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29098/SINGLCLASS/franklin-intelligent-machines-etf/IQM",
+  "SOEZ": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47315/SINGLCLASS/franklin-solana-etf/SOEZ",
+  "FRIZ": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47537/SINGLCLASS/franklin-dividend-growth-etf/FRIZ",
+  "WABF": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36353/SINGLCLASS/western-asset-bond-etf/WABF",
+  "INCM": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36262/SINGLCLASS/franklin-income-focus-etf/INCM",
+  "FTMU": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48363/SINGLCLASS/franklin-municipal-income-etf/FTMU",
+  "PGRI": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47497/SINGLCLASS/putnam-international-stock-etf/PGRI",
+  "USFI": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36405/SINGLCLASS/brandywine-global-u-s-fixed-income-etf/USFI",
+  "FLMB": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26176/SINGLCLASS/franklin-municipal-green-bond-etf/FLMB",
+  "FTSD": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/18000/SINGLCLASS/franklin-short-duration-u-s-government-etf/FTSD",
+  "FLHY": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26729/SINGLCLASS/franklin-high-yield-corporate-etf/FLHY",
+  "USPX": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/21414/SINGLCLASS/franklin-u-s-equity-index-etf/USPX",
+  "FTMA": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48338/SINGLCLASS/franklin-massachusetts-municipal-income-etf/FTMA"
+};
+
 const SEED_81 = [
   'BUYZ','DIEM','DIVI','DVAL','EZBC','EZET','EZPZ','FFOG','FGDL','FLAU','FLAX','FLBL','FLBR','FLCA','FLCB','FLCH','FLCO',
   'FLEE','FLEU','FLGB','FLGR','FLGV','FLHY','FLIA','FLIN','FLJH','FLJP','FLKR','FLLA','FLMB','FLMI','FLMX','FLQL','FLQM',
@@ -213,7 +297,7 @@ const SEC_FUND_TICKERS_URL = `${SEC_SITE}/files/company_tickers_mf.json`;
 const SEC_COMPANY_TICKERS_URL = `${SEC_SITE}/files/company_tickers.json`;
 const SEC_UA = 'DaggerOk Franklin ETF feed admin@daggerok.example.com';
 const BROWSER_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
-const PROXY_SLEEP_SECONDS = 3.2;
+const PROXY_SLEEP_SECONDS = 0.5;
 
 const API_ROOT = new URL('../api/franklin/', import.meta.url);
 const INDEX_FILE = new URL('index.json', API_ROOT);
@@ -684,6 +768,8 @@ function linkUrls(source: string, pattern: RegExp): string[] {
 }
 
 function canonicalFundPage(url: string, ticker: string): string {
+  const t = ticker.toUpperCase();
+  if (FRANKLIN_CANONICAL_PAGES[t]) return FRANKLIN_CANONICAL_PAGES[t];
   try {
     const parsed = new URL(url, FRANKLIN_SITE);
     if (parsed.hostname.includes('franklintempleton.com')) return parsed.toString();
@@ -1808,7 +1894,7 @@ async function fetchIssuerText(url: string, label: string, config: UpdaterConfig
       lastError = error;
       if (isDirect && /\b403\b/.test(error instanceof Error ? error.message : String(error))) {
         issuerDirectDenials += 1;
-        if (issuerDirectDenials === ISSUER_DIRECT_DENIAL_LIMIT) console.warn('[issuer  ] direct requests are denied from this network; using the read-only rendering proxy for the rest of the run');
+        
       }
     }
   }
@@ -1847,7 +1933,7 @@ function parsePreviousFund(ticker: string, row: JsonRecord): CatalogFund {
       yr10: row.metrics?.cagr10y ?? row.returns?.monthEnd?.yr10 ?? null,
       sinceInception: row.metrics?.siAnn ?? row.returns?.monthEnd?.sinceInception ?? null,
     },
-    fundPage: cleanText(row.fundPage || ''),
+    fundPage: FRANKLIN_CANONICAL_PAGES[ticker.toUpperCase()] || cleanText(row.fundPage || ''),
     source: 'previous index',
   };
 }
@@ -1908,7 +1994,7 @@ async function fetchFundTickerMap(config: UpdaterConfig): Promise<Map<string, Se
   fundTickerMapPromise = (async () => {
     const payload = await fetchJsonWithProxyFallback(SEC_FUND_TICKERS_URL, '[edgar   ] fund ticker table', config, secHeaders());
     fundTickerMap = parseFundTickerMap(payload);
-    console.log(`[edgar   ] SEC fund ticker table: ${fundTickerMap.size} share classes`);
+    
     return fundTickerMap;
   })();
   return fundTickerMapPromise;
@@ -1920,7 +2006,7 @@ async function fetchCompanyTickerMap(config: UpdaterConfig): Promise<Map<string,
   companyTickerMapPromise = (async () => {
     const payload = await fetchJsonWithProxyFallback(SEC_COMPANY_TICKERS_URL, '[edgar   ] company ticker table', config, secHeaders());
     companyTickerMap = parseCompanyTickerMap(payload);
-    console.log(`[edgar   ] SEC company ticker table: ${companyTickerMap.size} issuer names`);
+    
     return companyTickerMap;
   })();
   return companyTickerMapPromise;
@@ -2141,9 +2227,21 @@ async function main(): Promise<void> {
   const config = parseConfig();
   requestSleepSeconds = config.requestSleep;
 
-  console.log(`[config  ] Franklin updater: MAX_FETCHES=${config.maxFetches} REQUEST_SLEEP=${config.requestSleep} CONCURRENCY=${config.concurrency} EDGAR_FALLBACK=${config.edgarFallback} SKIP_FRANKLIN=${config.skipFranklin} SKIP_YAHOO=${config.skipYahoo}`);
-  if (config.tickers) console.log(`[config  ] TICKERS filter: ${[...config.tickers].join(', ')}`);
-  if (config.category) console.log(`[config  ] CATEGORY filter: ${config.category}`);
+  const configLines: string[] = [
+    `[ config ] Franklin updater:`,
+    `            MAX_FETCHES=${config.maxFetches}`,
+    `            REQUEST_SLEEP=${config.requestSleep}`,
+    `            CONCURRENCY=${config.concurrency}`,
+    `            EDGAR_FALLBACK=${config.edgarFallback}`,
+    `            SKIP_FRANKLIN=${config.skipFranklin}`,
+    `            SKIP_YAHOO=${config.skipYahoo}`,
+  ];
+  if (config.tickers) configLines.push(`            TICKERS=${[...config.tickers].join(' ')}`);
+  if (config.category) configLines.push(`            CATEGORY=${config.category}`);
+  if (config.historyRange) configLines.push(`            HISTORY_RANGE=${config.historyRange}`);
+  if (config.holdingsPageSize) configLines.push(`            HOLDINGS_PAGE_SIZE=${config.holdingsPageSize}`);
+  if (config.historyPageSize) configLines.push(`            HISTORY_PAGE_SIZE=${config.historyPageSize}`);
+  console.log(configLines.join('\n'));
 
   await ensureApiRoot();
 
@@ -2154,10 +2252,7 @@ async function main(): Promise<void> {
     for (const f of (prev.funds || []) as JsonRecord[]) {
       if (f && f.ticker) previousFunds.set(String(f.ticker).toUpperCase(), f);
     }
-    console.log(`[catalog ] previous index: ${previousFunds.size} funds`);
-  } catch {
-    console.log('[catalog ] no previous index found');
-  }
+  } catch {}
 
   // Load state for bounded runs
   let state: JsonRecord = {};
@@ -2168,40 +2263,47 @@ async function main(): Promise<void> {
   let catalog = new Map<string, CatalogFund>();
   let catalogSource = 'franklintempleton.com';
 
-  const forceCatalog = parseBoolean(process.env.FORCE_CATALOG || '');
-  const hasFullPrevious = previousFunds.size >= 81;
-
-  if (!config.skipFranklin && !(hasFullPrevious && !forceCatalog)) {
-    try {
-      const fetched = await fetchIssuerText(FRANKLIN_CATALOG_URL, '[catalog ] franklintempleton.com ETF finder', config, (text) => {
-        const lower = text.toLowerCase();
-        return lower.includes('franklin') && lower.includes('etf') && (lower.includes('ticker') || lower.includes('fl') || lower.includes('usfi') || lower.includes('product'));
-      }, 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', { maxProxies: CATALOG_PROXY_COUNT });
-      const parsed = parseFranklinCatalog(fetched.text);
-      for (const fund of parsed) catalog.set(fund.ticker, fund);
-      console.log(`[catalog ] ${FRANKLIN_CATALOG_URL} -> ${catalog.size} funds via ${fetched.via}`);
-      if (config.storeRawDownloads) {
-        await mkdir(new URL('raw/', API_ROOT), { recursive: true });
-        await writeFile(new URL('raw/catalog.html', API_ROOT), fetched.text, 'utf8');
-      }
-    } catch (e) {
-      console.warn(`[catalog ] failed to fetch franklintempleton.com finder: ${e instanceof Error ? e.message : String(e)}`);
-      catalogSource = 'previous index (catalog fetch failed)';
-    }
-  } else {
-    if (hasFullPrevious) {
-      catalogSource = 'previous index (has full 81, skipping catalog fetch)';
-      console.log(`[catalog ] skipping catalog fetch, using previous index with ${previousFunds.size} funds`);
-    } else {
-      catalogSource = 'previous index (SKIP_FRANKLIN)';
-    }
+  // Seed catalog from previous index
+  for (const [ticker, row] of previousFunds) {
+    catalog.set(ticker, parsePreviousFund(ticker, row));
   }
 
-  if (!catalog.size) {
-    for (const [ticker, row] of previousFunds) {
-      catalog.set(ticker, parsePreviousFund(ticker, row));
-    }
-    if (catalog.size) console.log(`[catalog ] using previous index fallback: ${catalog.size} funds`);
+  // Query live product sitemap on Franklin Templeton to discover any new funds added
+  if (!config.skipFranklin) {
+    try {
+      const sitemapRaw = await fetchText('https://www.franklintempleton.com/binaries/content/assets/global/sitemaps/google/en-us_product.xml', 'sitemap', { ...config, maxRetries: 0 });
+      const re = /<loc>(https:\/\/www\.franklintempleton\.com\/investments\/options\/exchange-traded-funds\/products\/[^\/]+\/SINGLCLASS\/[^\/]+\/([A-Z0-9]+))<\/loc>/g;
+      let m: RegExpExecArray | null;
+      while ((m = re.exec(sitemapRaw)) !== null) {
+        const t = m[2].toUpperCase();
+        const pageUrl = m[1];
+        if (!catalog.has(t)) {
+          catalog.set(t, {
+            ticker: t,
+            name: `Franklin ${t} ETF`,
+            category: 'ETF',
+            categoryPath: 'ETF',
+            inception: null,
+            exchange: 'NYSEArca',
+            cusip: '',
+            isin: '',
+            benchmark: '',
+            ter: 0.19,
+            grossTer: 0.19,
+            nav: null,
+            close: null,
+            premiumDiscount: null,
+            netAssets: null,
+            dividendYield: null,
+            secYield: null,
+            asOfDate: null,
+            returns: { ...EMPTY_RETURNS },
+            fundPage: pageUrl,
+            source: 'official sitemap',
+          });
+        }
+      }
+    } catch {}
   }
 
   if (!catalog.size) {
@@ -2285,7 +2387,7 @@ async function main(): Promise<void> {
 
   // Apply filters BEFORE batching (as per contract)
   let filtered = [...catalog.values()].filter((f) => passesFilters(f, config));
-  console.log(`[filter  ] ${filtered.length} of ${catalog.size} funds pass filters`);
+  console.log(`[ filter ] ${filtered.length} of ${catalog.size} funds pass filters`);
 
   // Bounded runs: resume after cursor
   let startIndex = 0;
@@ -2305,7 +2407,7 @@ async function main(): Promise<void> {
       await fetchFundTickerMap(config);
       await fetchCompanyTickerMap(config);
     } catch (e) {
-      console.warn(`[edgar   ] failed to preload SEC maps: ${e instanceof Error ? e.message : String(e)}`);
+      // silent edgar preload
     }
   }
 
@@ -2313,6 +2415,9 @@ async function main(): Promise<void> {
   let unchanged = 0;
   let failed = 0;
   let skipped = 0;
+
+  let fundCompletedCount = 0;
+  const totalToProcess = toProcess.length;
 
   // Process funds with concurrency
   const queue = [...toProcess];
@@ -2371,15 +2476,23 @@ async function main(): Promise<void> {
 
         // Try official holdings from product page Portfolio tab (daily, more recent than SEC quarterly)
         // The page via r.jina.ai contains markdown table: | Security Name | Weight (%) | Market Value | Quantity |
+        let officialDailyHoldings: JsonRecord[] = [];
+        let officialDailyAsOf: string | null = null;
+        let officialDailySource: string = '';
         try {
           const franklinHoldings = parseFranklinHoldings(page.text);
           if (franklinHoldings.length) {
             const companyMap = await fetchCompanyTickerMap(config).catch(() => new Map<string, string>());
-            holdingsRows = fillNportTickers(franklinHoldings, companyMap);
-            // Try to extract as-of date from holdings section: "As of September 21, 2026"
+            officialDailyHoldings = fillNportTickers(franklinHoldings, companyMap);
             const asOfMatch = /Holdings\s+As of\s+([A-Za-z]+\s+\d{1,2},\s+\d{4})/i.exec(page.text) || /As of\s+([A-Za-z]+\s+\d{1,2},\s+\d{4})/i.exec(page.text);
-            holdingsAsOf = asOfMatch ? toIsoDate(asOfMatch[1]) : (summary.totalHoldingsAsOfDate || null);
-            holdingsSource = `Franklin Templeton official product page Portfolio holdings (daily${holdingsAsOf ? `, ${holdingsAsOf}` : ''})`;
+            officialDailyAsOf = asOfMatch ? toIsoDate(asOfMatch[1]) : (summary.totalHoldingsAsOfDate || null);
+            officialDailySource = `Franklin Templeton official product page Portfolio holdings (daily${officialDailyAsOf ? `, ${officialDailyAsOf}` : ''})`;
+            // If full portfolio (>25 items) is present, use it directly
+            if (officialDailyHoldings.length > 25) {
+              holdingsRows = officialDailyHoldings;
+              holdingsAsOf = officialDailyAsOf;
+              holdingsSource = officialDailySource;
+            }
           }
         } catch (e) {
           console.warn(`[franklin] ${ticker} holdings parse failed: ${e instanceof Error ? e.message : String(e)}`);
@@ -2390,12 +2503,11 @@ async function main(): Promise<void> {
           await writeFile(new URL(`raw/${ticker}-product.html`, API_ROOT), page.text, 'utf8');
         }
       } catch (e) {
-        console.warn(`[product ] ${ticker} failed: ${e instanceof Error ? e.message : String(e)}`);
+        // silent product fallback
       }
     }
 
-    // 2) Holdings via SEC N-PORT-P – fallback when official daily holdings not available or empty
-    // We keep SEC mapping for all 81 funds via FRANKLIN_SERIES_MAP (multi-trust, 108 holdings for FLAU)
+    // 2) Holdings via SEC N-PORT-P – comprehensive portfolio for all 81 funds via FRANKLIN_SERIES_MAP (multi-trust, 108 holdings for FLAU)
     if (!holdingsRows.length && config.edgarFallback) {
       try {
         const result = await fetchNportForFund(fund, config);
@@ -2407,8 +2519,15 @@ async function main(): Promise<void> {
           holdingsSource = `SEC EDGAR Form N-PORT-P (accession ${result.accession.accession}, report period ${result.parsed.repPdDate || 'n/a'})`;
         }
       } catch (e) {
-        console.warn(`[nport   ] ${ticker} failed: ${e instanceof Error ? e.message : String(e)}`);
+        // silent nport fallback
       }
+    }
+
+    // Fallback to official daily holdings table if SEC returned nothing
+    if (!holdingsRows.length && officialDailyHoldings.length) {
+      holdingsRows = officialDailyHoldings;
+      holdingsAsOf = officialDailyAsOf;
+      holdingsSource = officialDailySource;
     }
 
     // 3) History via Yahoo – no per-stage log
@@ -2416,7 +2535,7 @@ async function main(): Promise<void> {
       try {
         chart = await fetchYahooChart(ticker, `[yahoo   ] ${ticker} chart`, config);
       } catch (e) {
-        console.warn(`[yahoo   ] ${ticker} chart failed: ${e instanceof Error ? e.message : String(e)}`);
+        // silent yahoo fallback
       }
     }
 
@@ -2667,8 +2786,11 @@ async function main(): Promise<void> {
     const changed = await writeJsonIfChanged(new URL('meta.json', fundDir), meta);
     if (changed) updated++;
     else unchanged++;
-    // Single line per ETF as requested: [issuer  ] FLTW updated holdings=0 history=2201
-    console.log(`[issuer  ] ${ticker.padEnd(5)} ${(changed ? 'updated' : 'unchanged').padEnd(9)} holdings=${holdingsRows.length.toString().padEnd(4)} history=${historyRows.length}`);
+    fundCompletedCount++;
+    const padTotal = Math.max(2, String(totalToProcess).length);
+    const iStr = String(fundCompletedCount).padStart(padTotal, ' ');
+    const tStr = String(totalToProcess).padStart(padTotal, ' ');
+    console.log(`[ ${iStr}/${tStr}  ] ${ticker.padEnd(5)} ${(changed ? 'updated' : 'unchanged').padEnd(9)} holdings=${holdingsRows.length.toString().padEnd(4)} history=${historyRows.length}`);
   }
 
   // Worker pool

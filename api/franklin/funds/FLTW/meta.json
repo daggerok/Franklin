@@ -1,25 +1,25 @@
 {
  "ticker": "FLTW",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/fltw/SINGLCLASS/fltw-etf/FLTW",
+ "name": "Franklin FTSE Taiwan ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26351/SINGLCLASS/franklin-ftse-taiwan-etf/FLTW",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/fltw/SINGLCLASS/fltw-etf/FLTW",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26351/SINGLCLASS/franklin-ftse-taiwan-etf/FLTW",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035107, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLTW?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P686",
+  "isin": "US35473P6869",
+  "benchmark": "FTSE Taiwan Capped Index-NR"
  },
  "expenseRatio": {
   "display": "0.19%",
@@ -42,15 +42,15 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
+  "display": "$4.16 B",
+  "value": 4160000000,
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -58,19 +58,19 @@
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
-   "asOfDate": "Jun 30 2026",
+   "asOfDate": "Sep 23 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 96.86,
+   "yr1Text": "96.86%",
+   "yr3": 44.1,
+   "yr3Text": "44.10%",
+   "yr5": 20.96,
+   "yr5Text": "20.96%",
+   "yr10": 19.77,
+   "yr10Text": "19.77%",
+   "sinceInception": 19.77,
+   "sinceInceptionText": "19.77%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 19.77,
+   "sinceInceptionText": "19.77%"
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
+  "frequency": "Semi-Annual This fund is an ex-Dividend fund",
   "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -193,7 +193,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035107, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2201,
+  "totalRows": 2202,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -201,7 +201,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }
