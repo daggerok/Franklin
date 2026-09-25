@@ -171,7 +171,9 @@ import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 declare const process: {
   env: Record<string, string | undefined>;
   argv: string[];
+  execPath?: string;
   exitCode?: number;
+  exit(code?: number): never;
 };
 
 type JsonRecord = Record<string, any>;
@@ -338,7 +340,7 @@ export type CatalogFund = {
   asOfDate: string | null;
   returns: CatalogReturns;
   fundPage: string;
-  source: 'franklin' | 'previous index' | 'seed';
+  source: 'franklin' | 'previous index' | 'seed' | 'official sitemap';
   factSheet?: string;
 };
 
