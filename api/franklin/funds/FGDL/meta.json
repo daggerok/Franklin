@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/31714/SINGLCLASS/franklin-responsibly-sourced-gold-etf/FGDL",
-  "holdingsSource": "not available",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-24)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FGDL?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -28,8 +28,8 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$57.01",
-  "value": 57.01,
+  "display": "—",
+  "value": null,
   "asOfDate": null
  },
  "marketPrice": {
@@ -102,13 +102,15 @@
   "exDate": "—"
  },
  "holdings": {
-  "totalRows": 0,
+  "totalRows": 2,
   "pageSize": 250,
   "pageCount": 1,
-  "pages": [],
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "not available"
+  "pages": [
+   "./holdings/001.json"
+  ],
+  "asOfDate": "2026-09-24",
+  "asOf": "Sep 24 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-24)"
  },
  "history": {
   "totalRows": 1062,

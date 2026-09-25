@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P371",
   "isin": "US35473P3718",
-  "benchmark": null
+  "benchmark": "VettaFi New Frontier International Dividend Select Index"
  },
  "expenseRatio": {
   "display": "0.19%",
@@ -28,8 +28,8 @@
   "net": 0.19
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$38.12",
+  "value": 38.12,
   "asOfDate": null
  },
  "marketPrice": {
@@ -49,19 +49,19 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 3.33,
-  "dividendYieldText": "3.33%",
-  "dividendYieldKind": "indicated: latest distribution 0.3190 x 4/year / last close 38.30",
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "dividendYield": 3.35,
+  "dividendYieldText": "3.35%",
+  "dividendYieldKind": "indicated: latest distribution 0.3190 x 4/year / NAV 38.12",
+  "secYield": 5.02,
+  "secYieldText": "5.02%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": 17.86,
+   "ytdText": "17.86%",
    "yr1": 29.5,
    "yr1Text": "29.50%",
    "yr3": null,

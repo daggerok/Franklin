@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/40521/SINGLCLASS/franklin-ethereum-etf/EZET",
-  "holdingsSource": "not available",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-24)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EZET?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -28,8 +28,8 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$20.25",
-  "value": 20.25,
+  "display": "—",
+  "value": null,
   "asOfDate": "2026-09-23"
  },
  "marketPrice": {
@@ -102,13 +102,15 @@
   "exDate": "—"
  },
  "holdings": {
-  "totalRows": 0,
+  "totalRows": 2,
   "pageSize": 250,
   "pageCount": 1,
-  "pages": [],
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "not available"
+  "pages": [
+   "./holdings/001.json"
+  ],
+  "asOfDate": "2026-09-24",
+  "asOf": "Sep 24 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-24)"
  },
  "history": {
   "totalRows": 545,

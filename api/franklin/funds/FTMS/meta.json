@@ -28,9 +28,9 @@
   "net": 0.22
  },
  "nav": {
-  "display": "$9.75",
-  "value": 9.75,
-  "asOfDate": null
+  "display": "$9.73",
+  "value": 9.73,
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
   "display": "$9.75",
@@ -49,19 +49,19 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "not computable: no distribution price (NAV/market price) in the feed",
-  "secYield": 4,
-  "secYieldText": "4.00%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "dividendYield": 3.33,
+  "dividendYieldText": "3.33%",
+  "dividendYieldKind": "indicated: latest distribution 0.0270 x 12/year / NAV 9.73",
+  "secYield": 3.16,
+  "secYieldText": "3.16%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "May 29 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": 0.19,
+   "ytdText": "0.19%",
    "yr1": 2.91,
    "yr1Text": "2.91%",
    "yr3": 3.82,
@@ -90,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Irregular",
-  "frequencyCode": "99 - Irregular",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"

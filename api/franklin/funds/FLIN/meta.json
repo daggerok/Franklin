@@ -28,8 +28,8 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$43.92",
-  "value": 43.92,
+  "display": "—",
+  "value": null,
   "asOfDate": null
  },
  "marketPrice": {
@@ -90,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
-  "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "frequency": "Annually",
+  "frequencyCode": "12 - Annually",
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Dividend"

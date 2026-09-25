@@ -17,19 +17,19 @@
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P389",
+  "isin": "US35473P3890",
+  "benchmark": "VettaFi New Frontier U.S. Dividend Select Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.09%",
+  "value": 0.09,
+  "gross": 0.09,
+  "net": 0.09
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$32.03",
+  "value": 32.03,
   "asOfDate": null
  },
  "marketPrice": {
@@ -43,35 +43,35 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
+  "display": "$78.94 M",
+  "value": 78940000,
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 3.2,
   "dividendYieldText": "3.20%",
-  "dividendYieldKind": "indicated: latest distribution 0.2560 x 4/year / last close 32.02",
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "dividendYieldKind": "indicated: latest distribution 0.2560 x 4/year / NAV 32.03",
+  "secYield": 4.2,
+  "secYieldText": "4.20%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
+   "ytd": 24.06,
+   "ytdText": "24.06%",
+   "yr1": 30.51,
+   "yr1Text": "30.51%",
    "yr3": null,
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 22.75,
+   "sinceInceptionText": "22.75%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -85,8 +85,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 22.75,
+   "sinceInceptionText": "22.75%"
   }
  },
  "distributions": {

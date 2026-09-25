@@ -28,9 +28,9 @@
   "net": 0.55
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$28.56",
+  "value": 28.56,
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
   "display": "$28.63",
@@ -45,23 +45,23 @@
  "aum": {
   "display": "$5.75 M",
   "value": 5750000,
-  "asOfDate": "2026-08-31",
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 0.21,
   "dividendYieldText": "0.21%",
-  "dividendYieldKind": "indicated: latest distribution 0.0610 x 1/year / last close 28.63",
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "dividendYieldKind": "indicated: latest distribution 0.0610 x 1/year / NAV 28.56",
+  "secYield": 1.78,
+  "secYieldText": "1.78%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": 10.4,
+   "ytdText": "10.40%",
    "yr1": null,
    "yr1Text": "—",
    "yr3": null,

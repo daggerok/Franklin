@@ -17,20 +17,20 @@
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P405",
+  "isin": "US35473P4054",
+  "benchmark": "Linked Morningstar US Target Market Exposure Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.03%",
+  "value": 0.03,
+  "gross": 0.03,
+  "net": 0.03
  },
  "nav": {
   "display": "$67.18",
   "value": 67.18,
-  "asOfDate": null
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
   "display": "$67.24",
@@ -60,18 +60,18 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "ytd": 13.25,
+   "ytdText": "13.25%",
+   "yr1": 19.93,
+   "yr1Text": "19.93%",
+   "yr3": 20.95,
+   "yr3Text": "20.95%",
+   "yr5": 12.02,
+   "yr5Text": "12.02%",
+   "yr10": 12.26,
+   "yr10Text": "12.26%",
+   "sinceInception": 12.46,
+   "sinceInceptionText": "12.46%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -85,8 +85,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 12.46,
+   "sinceInceptionText": "12.46%"
   }
  },
  "distributions": {

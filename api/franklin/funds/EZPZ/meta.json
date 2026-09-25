@@ -28,8 +28,8 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$21.35",
-  "value": 21.35,
+  "display": "—",
+  "value": null,
   "asOfDate": null
  },
  "marketPrice": {
@@ -59,7 +59,7 @@
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
-   "asOfDate": "—",
+   "asOfDate": "Dec 1 2025",
    "ytd": null,
    "ytdText": "—",
    "yr1": -32.15,

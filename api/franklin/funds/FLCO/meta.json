@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P603",
   "isin": "US35473P6034",
-  "benchmark": "."
+  "benchmark": "Bloomberg US Corporate - Investment Grade Index"
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -28,8 +28,8 @@
   "net": 0.35
  },
  "nav": {
-  "display": "$20.47",
-  "value": 20.47,
+  "display": "—",
+  "value": null,
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
@@ -51,7 +51,7 @@
  "yields": {
   "dividendYield": 4.69,
   "dividendYieldText": "4.69%",
-  "dividendYieldKind": "indicated: latest distribution 0.0800 x 12/year / NAV 20.47",
+  "dividendYieldKind": "indicated: latest distribution 0.0800 x 12/year / last close 20.45",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
