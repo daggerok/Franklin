@@ -23,7 +23,7 @@ bun ./scripts/update-data.ts
 
 Run `bun ./scripts/update-data.ts -h` (or `--help`) to print every configuration variable with its default and usage examples.
 
-The **Update Franklin ETF data** GitHub Actions workflow exposes the same settings as manual inputs. All supplied filters use **AND** logic.
+The **Update Franklin ETF data** GitHub Actions workflow refreshes on changes to the updater, its tests, or the workflow, and can also be run manually. It exposes 25 manual inputs (GitHub's limit); the 10-year performance and total-return filters remain available through the CLI environment variables. All supplied filters use **AND** logic.
 
 ### Data sources
 
