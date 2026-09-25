@@ -17,20 +17,20 @@
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P470",
+  "isin": "US35473P4708",
+  "benchmark": "Russell 3000 Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.50%",
+  "value": 0.5,
+  "gross": 0.5,
+  "net": 0.5
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$28.49",
+  "value": 28.49,
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
   "display": "$28.51",
@@ -43,15 +43,15 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
+  "display": "$4.25 M",
+  "value": 4250000,
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 0.11,
   "dividendYieldText": "0.11%",
-  "dividendYieldKind": "indicated: latest distribution 0.0320 x 1/year / last close 28.51",
+  "dividendYieldKind": "indicated: latest distribution 0.0320 x 1/year / NAV 28.49",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -60,18 +60,18 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
+   "ytd": 10.26,
+   "ytdText": "10.26%",
+   "yr1": 1.08,
+   "yr1Text": "1.08%",
+   "yr3": 13,
+   "yr3Text": "13.00%",
+   "yr5": -1.22,
+   "yr5Text": "-1.22%",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 1.48,
+   "sinceInceptionText": "1.48%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -85,8 +85,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 1.48,
+   "sinceInceptionText": "1.48%"
   }
  },
  "distributions": {

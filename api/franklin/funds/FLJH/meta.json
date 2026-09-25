@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P637",
   "isin": "US35473P6372",
-  "benchmark": null
+  "benchmark": "FTSE Japan Capped Hedged Index-NR"
  },
  "expenseRatio": {
   "display": "0.09%",
@@ -28,9 +28,9 @@
   "net": 0.09
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$45.65",
+  "value": 45.65,
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
   "display": "$46.03",
@@ -45,13 +45,13 @@
  "aum": {
   "display": "$228.97 M",
   "value": 228970000,
-  "asOfDate": "2026-06-30",
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 1.24,
-  "dividendYieldText": "1.24%",
-  "dividendYieldKind": "indicated: latest distribution 0.2860 x 2/year / last close 46.03",
+  "dividendYield": 1.25,
+  "dividendYieldText": "1.25%",
+  "dividendYieldKind": "indicated: latest distribution 0.2860 x 2/year / NAV 45.65",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -60,8 +60,8 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": 22.67,
+   "ytdText": "22.67%",
    "yr1": 42.37,
    "yr1Text": "42.37%",
    "yr3": 28.51,

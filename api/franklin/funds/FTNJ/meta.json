@@ -17,19 +17,19 @@
   "nportDoc": "SEC EDGAR N-PORT-P 2026-05-31"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "746729771",
+  "isin": "US7467297716",
+  "benchmark": "Bloomberg Municipal Bond Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.35%",
+  "value": 0.35,
+  "gross": 0.35,
+  "net": 0.35
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$170.45",
+  "value": 170.45,
   "asOfDate": null
  },
  "marketPrice": {
@@ -43,15 +43,15 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-05-31",
+  "display": "$170.45 M",
+  "value": 170450000,
+  "asOfDate": "2026-08-31",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "not computable: no distribution price (NAV/market price) in the feed",
+  "dividendYield": 0.17,
+  "dividendYieldText": "0.17%",
+  "dividendYieldKind": "indicated: latest distribution 0.0240 x 12/year / NAV 170.45",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -62,16 +62,16 @@
    "asOfDate": "May 31 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 5.19,
+   "yr1Text": "5.19%",
+   "yr3": 3.76,
+   "yr3Text": "3.76%",
+   "yr5": 0.83,
+   "yr5Text": "0.83%",
+   "yr10": 2.18,
+   "yr10Text": "2.18%",
+   "sinceInception": 4.52,
+   "sinceInceptionText": "4.52%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -85,14 +85,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 4.52,
+   "sinceInceptionText": "4.52%"
   }
  },
  "distributions": {
-  "frequency": "Irregular",
-  "frequencyCode": "99 - Irregular",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"

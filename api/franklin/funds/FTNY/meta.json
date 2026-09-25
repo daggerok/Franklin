@@ -17,20 +17,20 @@
   "nportDoc": "SEC EDGAR N-PORT-P 2026-05-29"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "746729763",
+  "isin": "US7467297633",
+  "benchmark": "Bloomberg Municipal Bond Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.37%",
+  "value": 0.37,
+  "gross": 0.37,
+  "net": 0.37
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$7.40",
+  "value": 7.4,
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
   "display": "$7.41",
@@ -43,35 +43,35 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-05-29",
+  "display": "$571.64 M",
+  "value": 571640000,
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "not computable: no distribution price (NAV/market price) in the feed",
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "dividendYield": 4.05,
+  "dividendYieldText": "4.05%",
+  "dividendYieldKind": "indicated: latest distribution 0.0250 x 12/year / NAV 7.40",
+  "secYield": 4.18,
+  "secYieldText": "4.18%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "May 29 2026",
-   "ytd": null,
-   "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "ytd": -3.27,
+   "ytdText": "-3.27%",
+   "yr1": 5.11,
+   "yr1Text": "5.11%",
+   "yr3": 3.41,
+   "yr3Text": "3.41%",
+   "yr5": 0.26,
+   "yr5Text": "0.26%",
+   "yr10": 1.75,
+   "yr10Text": "1.75%",
+   "sinceInception": 5.45,
+   "sinceInceptionText": "5.45%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -85,14 +85,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 5.45,
+   "sinceInceptionText": "5.45%"
   }
  },
  "distributions": {
-  "frequency": "Irregular",
-  "frequencyCode": "99 - Irregular",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"

@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35351J109",
   "isin": "US35351J1097",
-  "benchmark": null
+  "benchmark": "CME CF Ether-Dollar Reference Rate - New York Variant"
  },
  "expenseRatio": {
   "display": "0.19%",
@@ -28,14 +28,14 @@
   "net": 0.19
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$20.25",
+  "value": 20.25,
+  "asOfDate": "2026-09-23"
  },
  "marketPrice": {
-  "display": "$20.28",
-  "value": 20.28,
-  "asOfDate": "2026-09-23",
+  "display": "$20.41",
+  "value": 20.41,
+  "asOfDate": "2026-09-24",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -45,8 +45,8 @@
  "aum": {
   "display": "$56.69 M",
   "value": 56690000,
-  "asOfDate": null,
-  "source": "not available"
+  "asOfDate": "2026-09-23",
+  "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
@@ -60,8 +60,8 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "—",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": -9.96,
+   "ytdText": "-9.96%",
    "yr1": -42.95,
    "yr1Text": "-42.95%",
    "yr3": null,
@@ -111,13 +111,13 @@
   "source": "not available"
  },
  "history": {
-  "totalRows": 544,
+  "totalRows": 545,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

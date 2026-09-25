@@ -17,19 +17,19 @@
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
+  "cusip": "52468L406",
   "isin": null,
-  "benchmark": null
+  "benchmark": "Ticker"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.27%",
+  "value": 0.27,
+  "gross": 0.27,
+  "net": 0.27
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$41.87",
+  "value": 41.87,
   "asOfDate": null
  },
  "marketPrice": {
@@ -43,15 +43,15 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
+  "display": "$596.67 M",
+  "value": 596670000,
+  "asOfDate": "2026-09-24",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 3.66,
   "dividendYieldText": "3.66%",
-  "dividendYieldKind": "indicated: latest distribution 0.3830 x 4/year / last close 41.85",
+  "dividendYieldKind": "indicated: latest distribution 0.3830 x 4/year / NAV 41.87",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -60,18 +60,18 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "ytd": 7.55,
+   "ytdText": "7.55%",
+   "yr1": 10.62,
+   "yr1Text": "10.62%",
+   "yr3": 11.04,
+   "yr3Text": "11.04%",
+   "yr5": 6.71,
+   "yr5Text": "6.71%",
+   "yr10": 8.21,
+   "yr10Text": "8.21%",
+   "sinceInception": 9.04,
+   "sinceInceptionText": "9.04%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -85,8 +85,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 9.04,
+   "sinceInceptionText": "9.04%"
   }
  },
  "distributions": {
