@@ -58,7 +58,7 @@
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
-   "asOfDate": "—",
+   "asOfDate": "May 29 2026",
    "ytd": null,
    "ytdText": "—",
    "yr1": null,
@@ -133,14 +133,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028257, report period 2026-05-29)"
  },
  "history": {
-  "totalRows": 1337,
+  "totalRows": 1338,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

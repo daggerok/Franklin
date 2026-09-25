@@ -1,6 +1,6 @@
 {
  "ticker": "FLIN",
- "name": "Franklin FTSE India ETF",
+ "name": "Franklin FTSE India ETF - NAV Return (%)",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN",
@@ -11,10 +11,10 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN",
-  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035153, report period 2026-06-30)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLIN?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+  "nportDoc": null
  },
  "identifiers": {
   "cusip": "CUSIPCODE",
@@ -44,7 +44,7 @@
  "aum": {
   "display": "$2.60 B",
   "value": 2600000000,
-  "asOfDate": "2026-06-30",
+  "asOfDate": null,
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -58,7 +58,7 @@
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
-   "asOfDate": "—",
+   "asOfDate": "Jun 30 2026",
    "ytd": -10.39,
    "ytdText": "-10.39%",
    "yr1": -3.94,
@@ -89,7 +89,7 @@
   }
  },
  "distributions": {
-  "frequency": ", if any Semiannually",
+  "frequency": "Semi-Annual This fund is an ex-Dividend fund",
   "frequencyCode": "06 - Semi-annually",
   "paymentsPerYear": null,
   "headers": [
@@ -182,16 +182,15 @@
   "exDate": "Dec 19 2025"
  },
  "holdings": {
-  "totalRows": 280,
+  "totalRows": 10,
   "pageSize": 250,
-  "pageCount": 2,
+  "pageCount": 1,
   "pages": [
-   "./holdings/001.json",
-   "./holdings/002.json"
+   "./holdings/001.json"
   ],
-  "asOfDate": "2026-06-30",
-  "asOf": "Jun 30 2026",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035153, report period 2026-06-30)"
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily)"
  },
  "history": {
   "totalRows": 2166,

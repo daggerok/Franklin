@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-24T05:48:59.980Z",
+ "generatedAt": "2026-09-25T01:19:14.079Z",
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
@@ -10,8 +10,8 @@
  },
  "counts": {
   "funds": 81,
-  "holdings": 18336,
-  "history": 117245
+  "holdings": 18066,
+  "history": 117257
  },
  "funds": [
   {
@@ -42,7 +42,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -120,7 +120,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -168,7 +168,7 @@
    },
    "distributionFrequency": "Quarterly",
    "holdings": 563,
-   "history": 2590
+   "history": 2591
   },
   {
    "ticker": "DIVI",
@@ -198,7 +198,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -276,7 +276,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -324,7 +324,7 @@
    },
    "distributionFrequency": "Annually",
    "holdings": 113,
-   "history": 976
+   "history": 977
   },
   {
    "ticker": "EZBC",
@@ -588,7 +588,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -796,7 +796,7 @@
   },
   {
    "ticker": "FLAX",
-   "name": "Exchange Traded Funds",
+   "name": "FLAX ETF",
    "category": "Asset Class",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flax/SINGLCLASS/flax-etf/FLAX",
    "dataFile": "./funds/FLAX/meta.json",
@@ -822,7 +822,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -900,7 +900,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -978,7 +978,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -1030,7 +1030,7 @@
   },
   {
    "ticker": "FLCA",
-   "name": "Exchange Traded Funds",
+   "name": "FLCA ETF",
    "category": "Asset Class",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flca/SINGLCLASS/flca-etf/FLCA",
    "dataFile": "./funds/FLCA/meta.json",
@@ -1056,7 +1056,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -1134,7 +1134,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -1186,7 +1186,7 @@
   },
   {
    "ticker": "FLCH",
-   "name": "Exchange Traded Funds",
+   "name": "FLCH ETF",
    "category": "Asset Class",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flch/SINGLCLASS/flch-etf/FLCH",
    "dataFile": "./funds/FLCH/meta.json",
@@ -1212,7 +1212,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -1290,7 +1290,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -1342,7 +1342,7 @@
   },
   {
    "ticker": "FLEE",
-   "name": "Exchange Traded Funds",
+   "name": "FLEE ETF",
    "category": "Asset Class",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flee/SINGLCLASS/flee-etf/FLEE",
    "dataFile": "./funds/FLEE/meta.json",
@@ -1368,7 +1368,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -1420,7 +1420,7 @@
   },
   {
    "ticker": "FLEU",
-   "name": "Exchange Traded Funds",
+   "name": "FLEU ETF",
    "category": "Asset Class",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/fleu/SINGLCLASS/fleu-etf/FLEU",
    "dataFile": "./funds/FLEU/meta.json",
@@ -1446,7 +1446,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -1524,7 +1524,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -1602,7 +1602,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": 12.3,
      "ytdText": "12.30%",
      "yr1": 18.5,
@@ -1680,7 +1680,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -1758,7 +1758,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -1836,7 +1836,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -1888,7 +1888,7 @@
   },
   {
    "ticker": "FLIN",
-   "name": "Franklin FTSE India ETF",
+   "name": "Franklin FTSE India ETF - NAV Return (%)",
    "category": "ETF",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN",
    "dataFile": "./funds/FLIN/meta.json",
@@ -1900,7 +1900,7 @@
    "navValue": 34.85,
    "aum": "$2.60 B",
    "aumValue": 2600000000,
-   "asOfDate": "Jun 30 2026",
+   "asOfDate": "—",
    "inceptionDate": "Feb 6 2018",
    "exchange": "NYSE Arca",
    "closePrice": "—",
@@ -1908,13 +1908,13 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": ", if any Semiannually",
+    "frequency": "Semi-Annual This fund is an ex-Dividend fund",
     "exDate": "Dec 19 2025",
     "dividend": "0.152"
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": -10.39,
      "ytdText": "-10.39%",
      "yr1": -3.94,
@@ -1960,8 +1960,8 @@
     "secYieldText": "2.09%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": ", if any Semiannually",
-   "holdings": 280,
+   "distributionFrequency": "Semi-Annual This fund is an ex-Dividend fund",
+   "holdings": 10,
    "history": 2166
   },
   {
@@ -1992,7 +1992,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -2070,7 +2070,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -2148,7 +2148,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -2226,7 +2226,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -2304,7 +2304,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -2356,7 +2356,7 @@
   },
   {
    "ticker": "FLMI",
-   "name": "Exchange Traded Funds",
+   "name": "FLMI ETF",
    "category": "Asset Class",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flmi/SINGLCLASS/flmi-etf/FLMI",
    "dataFile": "./funds/FLMI/meta.json",
@@ -2382,7 +2382,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -2460,7 +2460,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -2538,7 +2538,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -2616,7 +2616,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -2694,7 +2694,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -2742,7 +2742,7 @@
    },
    "distributionFrequency": "Quarterly",
    "holdings": 497,
-   "history": 2363
+   "history": 2364
   },
   {
    "ticker": "FLRU",
@@ -2772,7 +2772,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -2850,7 +2850,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -2928,7 +2928,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -3006,7 +3006,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -3084,7 +3084,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -3162,7 +3162,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -3210,11 +3210,11 @@
    },
    "distributionFrequency": "Monthly",
    "holdings": 519,
-   "history": 1552
+   "history": 1553
   },
   {
    "ticker": "FRIZ",
-   "name": "Exchange Traded Funds",
+   "name": "FRIZ ETF",
    "category": "Asset Class",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/friz/SINGLCLASS/friz-etf/FRIZ",
    "dataFile": "./funds/FRIZ/meta.json",
@@ -3240,7 +3240,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -3288,7 +3288,7 @@
    },
    "distributionFrequency": "Quarterly",
    "holdings": 43,
-   "history": 266
+   "history": 267
   },
   {
    "ticker": "FSML",
@@ -3318,7 +3318,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -3366,7 +3366,7 @@
    },
    "distributionFrequency": "Quarterly",
    "holdings": 303,
-   "history": 194
+   "history": 195
   },
   {
    "ticker": "FTCA",
@@ -3396,7 +3396,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -3474,7 +3474,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "May 31 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -3522,7 +3522,7 @@
    },
    "distributionFrequency": "Irregular",
    "holdings": 176,
-   "history": 216
+   "history": 217
   },
   {
    "ticker": "FTMH",
@@ -3552,7 +3552,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Apr 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -3630,7 +3630,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "May 31 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -3708,7 +3708,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "May 29 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -3786,7 +3786,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -3864,7 +3864,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "May 31 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -3942,7 +3942,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "May 29 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -4020,7 +4020,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "May 31 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -4068,7 +4068,7 @@
    },
    "distributionFrequency": "Irregular",
    "holdings": 80,
-   "history": 217
+   "history": 218
   },
   {
    "ticker": "FTPA",
@@ -4098,7 +4098,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "May 31 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -4176,7 +4176,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -4254,7 +4254,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -4332,7 +4332,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -4410,7 +4410,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -4488,7 +4488,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -4566,7 +4566,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -4614,7 +4614,7 @@
    },
    "distributionFrequency": "Annually",
    "holdings": 29,
-   "history": 2341
+   "history": 2342
   },
   {
    "ticker": "LVHD",
@@ -4644,7 +4644,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -4722,7 +4722,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -4774,7 +4774,7 @@
   },
   {
    "ticker": "MULT",
-   "name": "Exchange Traded Funds",
+   "name": "MULT ETF",
    "category": "Asset Class",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/mult/SINGLCLASS/mult-etf/MULT",
    "dataFile": "./funds/MULT/meta.json",
@@ -4800,7 +4800,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -4848,7 +4848,7 @@
    },
    "distributionFrequency": "Monthly",
    "holdings": 329,
-   "history": 268
+   "history": 269
   },
   {
    "ticker": "PBDC",
@@ -4878,7 +4878,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Apr 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -4956,7 +4956,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Apr 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -5034,7 +5034,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Apr 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -5112,7 +5112,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "May 29 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -5160,7 +5160,7 @@
    },
    "distributionFrequency": "Annually",
    "holdings": 33,
-   "history": 1337
+   "history": 1338
   },
   {
    "ticker": "PVAL",
@@ -5190,7 +5190,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "May 29 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -5346,7 +5346,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -5424,7 +5424,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -5502,7 +5502,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -5580,7 +5580,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -5632,8 +5632,8 @@
   },
   {
    "ticker": "USFI",
-   "name": "BrandywineGLOBAL - U.S. Fixed Income ETF - NAV Return (%)",
-   "category": "ETF",
+   "name": "BrandywineGLOBAL - U.S. Fixed Income ETF",
+   "category": "Morningstar Category",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36405/SINGLCLASS/brandywine-global-u-s-fixed-income-etf/USFI",
    "dataFile": "./funds/USFI/meta.json",
    "cusip": "CUSIPCODE",
@@ -5652,13 +5652,13 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Monthly This fund is an ex-Dividend fund",
+    "frequency": ", if any Monthly",
     "exDate": "Sep 1 2026",
     "dividend": "0.056"
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": 3.47,
      "ytdText": "3.47%",
      "yr1": 4.19,
@@ -5700,11 +5700,11 @@
     "siAnn": 3.54,
     "dividendYield": 3.98,
     "dividendYieldText": "3.98%",
-    "secYield": 30,
-    "secYieldText": "30.00%",
+    "secYield": 2.74,
+    "secYieldText": "2.74%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "distributionFrequency": "Monthly This fund is an ex-Dividend fund",
+   "distributionFrequency": ", if any Monthly",
    "holdings": 58,
    "history": 792
   },
@@ -5736,7 +5736,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -5814,7 +5814,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -5866,7 +5866,7 @@
   },
   {
    "ticker": "XDAT",
-   "name": "Exchange Traded Funds",
+   "name": "XDAT ETF",
    "category": "Asset Class",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/xdat/SINGLCLASS/xdat-etf/XDAT",
    "dataFile": "./funds/XDAT/meta.json",
@@ -5892,7 +5892,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -5970,7 +5970,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -6126,7 +6126,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -6174,11 +6174,11 @@
    },
    "distributionFrequency": "Quarterly",
    "holdings": 93,
-   "history": 418
+   "history": 419
   },
   {
    "ticker": "YCLO",
-   "name": "Exchange Traded Funds",
+   "name": "YCLO ETF",
    "category": "Asset Class",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/yclo/SINGLCLASS/yclo-etf/YCLO",
    "dataFile": "./funds/YCLO/meta.json",
@@ -6204,7 +6204,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -6256,7 +6256,7 @@
   },
   {
    "ticker": "YLDE",
-   "name": "Exchange Traded Funds",
+   "name": "YLDE ETF",
    "category": "Asset Class",
    "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ylde/SINGLCLASS/ylde-etf/YLDE",
    "dataFile": "./funds/YLDE/meta.json",
@@ -6282,7 +6282,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "—",
+     "asOfDate": "Jun 30 2026",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,

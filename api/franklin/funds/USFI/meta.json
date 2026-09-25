@@ -1,8 +1,8 @@
 {
  "ticker": "USFI",
- "name": "BrandywineGLOBAL - U.S. Fixed Income ETF - NAV Return (%)",
- "category": "ETF",
- "categoryPath": "ETF",
+ "name": "BrandywineGLOBAL - U.S. Fixed Income ETF",
+ "category": "Morningstar Category",
+ "categoryPath": "Morningstar Category",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36405/SINGLCLASS/brandywine-global-u-s-fixed-income-etf/USFI",
  "factSheet": null,
  "source": {
@@ -45,20 +45,20 @@
   "display": "$9.53 M",
   "value": 9530000,
   "asOfDate": "2026-06-30",
-  "source": "official product page Total Net Assets"
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035159, report period 2026-06-30)"
  },
  "yields": {
   "dividendYield": 3.98,
   "dividendYieldText": "3.98%",
   "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": 30,
-  "secYieldText": "30.00%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "secYield": 2.74,
+  "secYieldText": "2.74%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
-   "asOfDate": "—",
+   "asOfDate": "Jun 30 2026",
    "ytd": 3.47,
    "ytdText": "3.47%",
    "yr1": 4.19,
@@ -89,7 +89,7 @@
   }
  },
  "distributions": {
-  "frequency": "Monthly This fund is an ex-Dividend fund",
+  "frequency": ", if any Monthly",
   "frequencyCode": "01 - Monthly",
   "paymentsPerYear": null,
   "headers": [

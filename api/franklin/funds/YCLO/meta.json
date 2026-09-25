@@ -1,6 +1,6 @@
 {
  "ticker": "YCLO",
- "name": "Exchange Traded Funds",
+ "name": "YCLO ETF",
  "category": "Asset Class",
  "categoryPath": "Asset Class",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/yclo/SINGLCLASS/yclo-etf/YCLO",
@@ -45,12 +45,12 @@
   "display": "—",
   "value": null,
   "asOfDate": "2026-06-30",
-  "source": "official product page Total Net Assets"
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035144, report period 2026-06-30)"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -58,7 +58,7 @@
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
-   "asOfDate": "—",
+   "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
    "yr1": null,

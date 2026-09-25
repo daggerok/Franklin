@@ -2,7 +2,7 @@
  "ticker": "DVAL",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 976,
+ "totalRows": 977,
  "headers": [
   "Date",
   "Close",
@@ -6841,6 +6841,13 @@
    "Adj Close": "15.88",
    "Volume": "6300",
    "searchIndex": "2026-09-23 15.883000373840332"
+  },
+  {
+   "Date": "Sep 24 2026",
+   "Close": "15.84",
+   "Adj Close": "15.84",
+   "Volume": "889",
+   "searchIndex": "2026-09-24 15.835599899291992"
   }
  ]
 }
