@@ -28,8 +28,8 @@
   "net": 0.35
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$8.58",
+  "value": 8.58,
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
@@ -43,18 +43,18 @@
   "value": null
  },
  "aum": {
-  "display": "$292.21 M",
-  "value": 292210000,
-  "asOfDate": "2026-08-31",
+  "display": "$290.72 M",
+  "value": 290720000,
+  "asOfDate": "2026-09-24",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
+  "dividendYield": 3.64,
+  "dividendYieldText": "3.64%",
+  "dividendYieldKind": "indicated: latest distribution 0.0260 x 12/year / NAV 8.58",
   "secYield": 4.02,
   "secYieldText": "4.02%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -90,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Irregular",
-  "frequencyCode": "99 - Irregular",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"
