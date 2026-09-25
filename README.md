@@ -93,9 +93,9 @@ franklintempleton.com is behind a WAF that may return 403 to bare `fetch`. The u
 
 ## TypeScript
 
-The browser app is intentionally build-free:  carries the markup, styles and bootstrap, and  is TypeScript compiled in the browser with Babel standalone — no build step, no bundler, no  needed. Bun runs TypeScript out of the box.
+The browser app is intentionally build-free: `index.html` carries the markup, styles and bootstrap, and `app.tsx` is TypeScript compiled in the browser with Babel standalone — no build step, no bundler, no `tsconfig.json` needed. Bun runs TypeScript out of the box.
 
-Verification before every publish: , , and .
+Verification before every publish: `bun install --frozen-lockfile`, `bun test`, and `git diff --check`.
 
 ## Brands table
 
