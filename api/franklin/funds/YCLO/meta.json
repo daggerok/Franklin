@@ -49,12 +49,12 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 5.05,
-  "dividendYieldText": "5.05%",
-  "dividendYieldKind": "indicated: latest distribution 0.1060 x 12/year / NAV 25.21",
+  "dividendYield": 1.68,
+  "dividendYieldText": "1.68%",
+  "dividendYieldKind": "indicated: latest distribution 0.1060 x 4/year / NAV 25.21",
   "secYield": 4.82,
   "secYieldText": "4.82%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -90,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Monthly",
-  "frequencyCode": "01 - Monthly",
-  "paymentsPerYear": 12,
+  "frequency": "Quarterly",
+  "frequencyCode": "04 - Quarterly",
+  "paymentsPerYear": 4,
   "headers": [
    "Ex-Date",
    "Dividend"
