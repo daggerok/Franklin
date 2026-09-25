@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P207",
   "isin": "US35473P2074",
-  "benchmark": null
+  "benchmark": "Linked Morningstar Emerging Markets Dividend Enhanced Select Index-NR"
  },
  "expenseRatio": {
   "display": "0.19%",
@@ -54,7 +54,7 @@
   "dividendYieldKind": "indicated: latest distribution 0.2300 x 4/year / last close 43.20",
   "secYield": 2.66,
   "secYieldText": "2.66%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
