@@ -1,6 +1,6 @@
 {
  "ticker": "YCLO",
- "name": "Franklin BSP CLO ETF - NAV Return (%)",
+ "name": "Franklin BSP CLO ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/50418/SINGLCLASS/franklin-bsp-clo-etf/YCLO",
@@ -33,9 +33,10 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$25.23",
+  "value": 25.23,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,12 +49,12 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": 30,
-  "secYieldText": "30.00%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "dividendYield": 1.68,
+  "dividendYieldText": "1.68%",
+  "dividendYieldKind": "indicated: latest distribution 0.1060 x 4/year / last close 25.23",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published by franklintempleton.com for this fund"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -67,8 +68,8 @@
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
-   "yr10": 1.7,
-   "yr10Text": "1.70%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 1.7,
    "sinceInceptionText": "1.70%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Monthly This fund is an ex-Dividend fund",
-  "frequencyCode": "01 - Monthly",
-  "paymentsPerYear": null,
+  "frequency": "Quarterly",
+  "frequencyCode": "04 - Quarterly",
+  "paymentsPerYear": 4,
   "headers": [
    "Ex-Date",
    "Dividend"

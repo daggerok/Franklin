@@ -1,8 +1,8 @@
 {
  "ticker": "FLQS",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
+ "name": "Franklin U.S. Small Cap Multifactor Index ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/25771/SINGLCLASS/franklin-u-s-small-cap-multifactor-index-etf/FLQS",
  "factSheet": null,
  "source": {
@@ -17,60 +17,61 @@
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
+  "cusip": "35473P876",
+  "isin": "US35473P8766",
   "benchmark": null
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.35%",
+  "value": 0.35,
+  "gross": 0.35,
+  "net": 0.35
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$44.77",
+  "value": 44.77,
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$47.07",
+  "value": 47.07,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
+  "display": "$44.77 M",
+  "value": 44770000,
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "dividendYield": 1.75,
+  "dividendYieldText": "1.75%",
+  "dividendYieldKind": "indicated: latest distribution 0.1960 x 4/year / NAV 44.77",
+  "secYield": 1.32,
+  "secYieldText": "1.32%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
+   "ytd": 10.29,
+   "ytdText": "10.29%",
+   "yr1": 14.29,
+   "yr1Text": "14.29%",
+   "yr3": 12.63,
+   "yr3Text": "12.63%",
+   "yr5": 6.23,
+   "yr5Text": "6.23%",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 8.82,
+   "sinceInceptionText": "8.82%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,8 +85,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 8.82,
+   "sinceInceptionText": "8.82%"
   }
  },
  "distributions": {

@@ -1,8 +1,8 @@
 {
  "ticker": "PEMX",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
+ "name": "Putnam Emerging Markets Ex China ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39499/SINGLCLASS/putnam-emerging-markets-ex-china-etf/PEMX",
  "factSheet": null,
  "source": {
@@ -17,40 +17,41 @@
   "nportDoc": "SEC EDGAR N-PORT-P 2026-04-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "746729847",
+  "isin": "US7467298474",
+  "benchmark": "Geography | Fund | Benchmark"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.71%",
+  "value": 0.71,
+  "gross": 0.71,
+  "net": 0.71
  },
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": null
+  "asOfDate": "2026-09-23"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$86.59",
+  "value": 86.59,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-04-30",
+  "display": "$32.95 M",
+  "value": 32950000.000000004,
+  "asOfDate": "2026-08-31",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYield": 5.2,
+  "dividendYieldText": "5.20%",
+  "dividendYieldKind": "indicated: latest distribution 4.5010 x 1/year / last close 86.59",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -59,18 +60,18 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Apr 30 2026",
-   "ytd": null,
-   "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
+   "ytd": 36.92,
+   "ytdText": "36.92%",
+   "yr1": 53.62,
+   "yr1Text": "53.62%",
+   "yr3": 31.32,
+   "yr3Text": "31.32%",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 30.89,
+   "sinceInceptionText": "30.89%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,8 +85,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 30.89,
+   "sinceInceptionText": "30.89%"
   }
  },
  "distributions": {

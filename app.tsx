@@ -170,7 +170,7 @@
       Holdings: 'Rows in the fund\'s latest daily holdings file.',
       History: 'Rows in the fund\'s NAV history file.',
       'As Of': 'NAV / AUM as-of date.',
-      Frequency: 'Distribution frequency — coded for sorting from fund.distributions.frequency (derived in scripts/update-data.ts by inferDistributionFrequency from the Yahoo Finance dividend-history feed). Codes: 01 Monthly, 04 Quarterly, 06 Semi-annually, 12 Annually, 99 Irregular, 00 Unknown/None/—. The Overview tab shows the raw label.',
+      Frequency: 'Distribution frequency — coded for sorting. scripts/update-data.ts publishes the canonical label from the franklintempleton.com distributions row (normalizeDistributionFrequency), falling back to inferDistributionFrequency over the Yahoo Finance dividend-history feed, and this recodes it. Codes: 01 Monthly, 04 Quarterly, 06 Semi-annually, 12 Annually, 99 Irregular, 00 Unknown/None/—.',
       'Ex-Date': 'Ex-dividend date of the latest distribution.',
       Dividend: 'Latest dividend per share.',
       Coupon: 'Bond annual coupon rate (%).',
@@ -342,13 +342,15 @@
       const raw = String(value ?? '').trim();
       const normalized = raw.toLowerCase().replace(/[‐‑‒–—]/g, '-').replace(/\s+/g, ' ');
       if (!normalized || normalized === '-' || normalized === '—') return '00 - —';
-      if (normalized === 'monthly') return '01 - Monthly';
-      if (normalized === 'quarterly') return '04 - Quarterly';
-      if (normalized === 'semiannually' || normalized === 'semi-annually' || normalized === 'semi-annual' || normalized === 'semiannual') return '06 - Semi-annually';
-      if (normalized === 'annually' || normalized === 'annual') return '12 - Annually';
-      if (normalized === 'none') return '00 - None';
-      if (normalized === 'unknown') return '00 - Unknown';
-      if (normalized === 'irregular') return '99 - Irregular';
+      // Keyword matching keeps older feeds readable: the pages ship the row as
+      // "Monthly This fund is an ex-Dividend fund" / ", if any Semiannually".
+      if (/semi-?annual|semi annual|half-?year/.test(normalized)) return '06 - Semi-annually';
+      if (/month/.test(normalized)) return '01 - Monthly';
+      if (/quarter/.test(normalized)) return '04 - Quarterly';
+      if (/annual|yearly/.test(normalized)) return '12 - Annually';
+      if (/\bnone\b/.test(normalized)) return '00 - None';
+      if (/\bunknown\b/.test(normalized)) return '00 - Unknown';
+      if (/irregular/.test(normalized)) return '99 - Irregular';
       return raw;
     }
 
@@ -1605,7 +1607,7 @@
         { section: 'Distributions', metric: 'Frequency', value: fund.distributions ? fund.distributions.frequency : null },
         { section: 'Distributions', metric: 'Ex-Date', value: fund.distributions ? fund.distributions.exDate : null },
         { section: 'Distributions', metric: 'Latest Dividend', value: fund.distributions ? fund.distributions.dividend : null },
-        { section: 'Distributions', metric: 'Dividend Yield (indicated)', value: fund.dividendYield === null || fund.dividendYield === undefined ? null : `${fund.dividendYield.toFixed(2)}% (latest distribution x frequency / NAV)` },
+        { section: 'Distributions', metric: 'Dividend Yield (indicated)', value: fund.dividendYield === null || fund.dividendYield === undefined ? null : `${fund.dividendYield.toFixed(2)}% (latest distribution x frequency / price)` },
         { section: 'Distributions', metric: 'SEC Yield (30-day)', value: meta && meta.yields ? (meta.yields.secYieldText || '—') : (fund.secYield === null || fund.secYield === undefined ? 'not published by franklintempleton.com for this fund' : `${fund.secYield.toFixed(2)}%`) },
         { section: 'Distributions', metric: 'Dividend Yield Basis', value: meta && meta.yields ? meta.yields.dividendYieldKind : null },
         { section: 'Distributions', metric: 'SEC Yield Basis', value: meta && meta.yields ? meta.yields.secYieldKind : null },
@@ -1651,11 +1653,25 @@
       renderSubtitle(`${fund.ticker} overview · ${rows.length} metrics. Returns are derived from adjusted market-price closes, not official NAV returns.`);
     }
 
+    /**
+     * Distributions ship in meta.json as records keyed by header (the same
+     * shape as the paginated holdings/history pages); fetchPage() flattens
+     * those for the paginated sheets, so the worksheet path must do the same
+     * before the shared join/index based renderer touches the rows.
+     */
+    function worksheetRows(worksheet: any): string[][] {
+      const headers: string[] = worksheet && Array.isArray(worksheet.headers) ? worksheet.headers : [];
+      const rows: any[] = worksheet && Array.isArray(worksheet.rows) ? worksheet.rows : [];
+      return rows.map(row => Array.isArray(row)
+        ? row.map(cell => String(cell ?? ''))
+        : headers.map(header => String(row ? row[header] ?? '' : '')));
+    }
+
     function renderDistributionsTable(fund: FundRow): void {
       const meta = fundMetaCache.get(fund.ticker);
       const worksheet = meta && meta.distributions ? meta.distributions : { headers: [], rows: [] };
       const headers: string[] = Array.isArray(worksheet.headers) ? worksheet.headers : [];
-      const sourceRows: string[][] = Array.isArray(worksheet.rows) ? worksheet.rows : [];
+      const sourceRows: string[][] = worksheetRows(worksheet);
       const rows = sortRows(filterRows(sourceRows.map((row, sourceIndex) => {
         const cells: Record<string, unknown> = { values: row, searchIndex: row.join(' ').toLowerCase(), rank: sourceIndex };
         headers.forEach((header, index) => { cells[`col${index}`] = row[index] ?? ''; });
@@ -1931,7 +1947,7 @@
         const worksheet = meta && meta.distributions ? meta.distributions : { headers: [], rows: [] };
         return {
           headers: worksheet.headers || [],
-          rows: worksheet.rows || [],
+          rows: worksheetRows(worksheet),
           scope: fund ? `${fund.ticker}-distributions` : 'distributions',
         };
       }

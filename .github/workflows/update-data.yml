@@ -1,6 +1,17 @@
 name: Update Franklin ETF data
 
 on:
+  # Refresh after updater/workflow changes, but not after the generated-data
+  # commit made by this workflow (which only touches api/franklin).
+  push:
+    branches:
+      - main
+      - 'arena/**'
+    paths:
+      - 'scripts/update-data.ts'
+      - 'scripts/update-data.test.ts'
+      - 'scripts/check-index.ts'
+      - '.github/workflows/update-data.yml'
   workflow_dispatch:
     inputs:
       max_fetches:
@@ -108,11 +119,6 @@ on:
         required: false
         default: ""
         type: string
-      performance_10y:
-        description: "Annualized 10Y return range"
-        required: false
-        default: ""
-        type: string
       total_return_ytd:
         description: "Cumulative YTD return range"
         required: false
@@ -130,11 +136,6 @@ on:
         type: string
       total_return_5y:
         description: "Cumulative 5Y return range"
-        required: false
-        default: ""
-        type: string
-      total_return_10y:
-        description: "Cumulative 10Y return range"
         required: false
         default: ""
         type: string
@@ -172,12 +173,10 @@ jobs:
       PERFORMANCE_1Y: ${{ inputs.performance_1y || '' }}
       PERFORMANCE_3Y: ${{ inputs.performance_3y || '' }}
       PERFORMANCE_5Y: ${{ inputs.performance_5y || '' }}
-      PERFORMANCE_10Y: ${{ inputs.performance_10y || '' }}
       TOTAL_RETURN_YTD: ${{ inputs.total_return_ytd || '' }}
       TOTAL_RETURN_1Y: ${{ inputs.total_return_1y || '' }}
       TOTAL_RETURN_3Y: ${{ inputs.total_return_3y || '' }}
       TOTAL_RETURN_5Y: ${{ inputs.total_return_5y || '' }}
-      TOTAL_RETURN_10Y: ${{ inputs.total_return_10y || '' }}
 
     steps:
       - name: Checkout
@@ -187,6 +186,9 @@ jobs:
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
+
+      - name: Install type definitions
+        run: bun install --frozen-lockfile
 
       - name: Validate inline browser script
         run: bun --use-system-ca ./scripts/check-index.ts

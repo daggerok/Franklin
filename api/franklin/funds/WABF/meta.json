@@ -1,8 +1,8 @@
 {
  "ticker": "WABF",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
+ "name": "Western Asset Bond ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36353/SINGLCLASS/western-asset-bond-etf/WABF",
  "factSheet": null,
  "source": {
@@ -17,40 +17,41 @@
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P397",
+  "isin": "US35473P3973",
+  "benchmark": "Bloomberg U.S. Aggregate Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.35%",
+  "value": 0.35,
+  "gross": 0.35,
+  "net": 0.35
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$23.83",
+  "value": 23.83,
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$23.82",
+  "value": 23.82,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
+  "display": "$15.57 M",
+  "value": 15570000,
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYield": 4.53,
+  "dividendYieldText": "4.53%",
+  "dividendYieldKind": "indicated: latest distribution 0.0900 x 12/year / NAV 23.83",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -59,18 +60,18 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
+   "ytd": -2.69,
+   "ytdText": "-2.69%",
+   "yr1": 2.05,
+   "yr1Text": "2.05%",
    "yr3": null,
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 4.99,
+   "sinceInceptionText": "4.99%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,8 +85,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 4.99,
+   "sinceInceptionText": "4.99%"
   }
  },
  "distributions": {

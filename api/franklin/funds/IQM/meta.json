@@ -1,6 +1,6 @@
 {
  "ticker": "IQM",
- "name": "IQM ETF",
+ "name": "Franklin Intelligent Machines ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29098/SINGLCLASS/franklin-intelligent-machines-etf/IQM",
@@ -33,24 +33,25 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$110.07",
+  "value": 110.07,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035138, report period 2026-06-30)"
+  "display": "$88.25 M",
+  "value": 88250000,
+  "asOfDate": "2026-09-23",
+  "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYield": 0.09,
+  "dividendYieldText": "0.09%",
+  "dividendYieldKind": "indicated: latest distribution 0.0940 x 1/year / last close 110.07",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -67,8 +68,8 @@
    "yr3Text": "29.50%",
    "yr5": 15.41,
    "yr5Text": "15.41%",
-   "yr10": 24.44,
-   "yr10Text": "24.44%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 24.44,
    "sinceInceptionText": "24.44%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
-  "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "frequency": "Annually",
+  "frequencyCode": "12 - Annually",
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Dividend"

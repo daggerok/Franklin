@@ -1,6 +1,6 @@
 {
  "ticker": "FLGR",
- "name": "FLGR ETF",
+ "name": "Franklin FTSE Germany ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26360/SINGLCLASS/franklin-ftse-germany-etf/FLGR",
@@ -28,14 +28,15 @@
   "net": 0.09
  },
  "nav": {
-  "display": "$89.12",
-  "value": 89.12,
-  "asOfDate": null
+  "display": "$32.52",
+  "value": 32.52,
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$32.60",
+  "value": 32.6,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -50,7 +51,7 @@
  "yields": {
   "dividendYield": 1.42,
   "dividendYieldText": "1.42%",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYieldKind": "official 12-month distribution yield from the product page",
   "secYield": 1.21,
   "secYieldText": "1.21%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page"
@@ -59,16 +60,16 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": 12.3,
-   "ytdText": "12.30%",
+   "ytd": -0.2,
+   "ytdText": "-0.20%",
    "yr1": 7.71,
    "yr1Text": "7.71%",
    "yr3": 19.48,
    "yr3Text": "19.48%",
    "yr5": 7.99,
    "yr5Text": "7.99%",
-   "yr10": 6.36,
-   "yr10Text": "6.36%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 6.36,
    "sinceInceptionText": "6.36%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-Annual This fund is an ex-Dividend fund",
+  "frequency": "Semi-annually",
   "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"

@@ -1,24 +1,24 @@
 {
  "ticker": "SOEZ",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/soez/SINGLCLASS/soez-etf/SOEZ",
+ "name": "Franklin Solana ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47315/SINGLCLASS/franklin-solana-etf/SOEZ",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/soez/SINGLCLASS/soez-etf/SOEZ",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47315/SINGLCLASS/franklin-solana-etf/SOEZ",
   "holdingsSource": "not available",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SOEZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
+  "cusip": "354646101",
+  "isin": "US3546461019",
   "benchmark": null
  },
  "expenseRatio": {
@@ -33,24 +33,25 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$20.29",
+  "value": 20.29,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
+  "display": "$16.81 M",
+  "value": 16810000,
   "asOfDate": null,
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -69,8 +70,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": -23.84,
+   "sinceInceptionText": "-23.84%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,8 +85,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": -23.84,
+   "sinceInceptionText": "-23.84%"
   }
  },
  "distributions": {
@@ -146,13 +147,13 @@
   "source": "not available"
  },
  "history": {
-  "totalRows": 201,
+  "totalRows": 202,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

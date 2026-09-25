@@ -1,6 +1,6 @@
 {
  "ticker": "FLTW",
- "name": "Franklin FTSE Taiwan ETF - NAV Return (%)",
+ "name": "Franklin FTSE Taiwan ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26351/SINGLCLASS/franklin-ftse-taiwan-etf/FLTW",
@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P686",
   "isin": "US35473P6869",
-  "benchmark": null
+  "benchmark": "FTSE Taiwan Capped Index-NR"
  },
  "expenseRatio": {
   "display": "0.19%",
@@ -33,9 +33,10 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$109.64",
+  "value": 109.64,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -44,13 +45,13 @@
  "aum": {
   "display": "$4.16 B",
   "value": 4160000000,
-  "asOfDate": "2026-06-30",
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYield": 0.34,
+  "dividendYieldText": "0.34%",
+  "dividendYieldKind": "indicated: latest distribution 0.1840 x 2/year / last close 109.64",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -67,8 +68,8 @@
    "yr3Text": "44.10%",
    "yr5": 20.96,
    "yr5Text": "20.96%",
-   "yr10": 19.77,
-   "yr10Text": "19.77%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 19.77,
    "sinceInceptionText": "19.77%"
   },

@@ -1,6 +1,6 @@
 {
  "ticker": "FLAX",
- "name": "Franklin FTSE Asia ex Japan ETF - NAV Return",
+ "name": "Franklin FTSE Asia ex Japan ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26346/SINGLCLASS/franklin-ftse-asia-ex-japan-etf/FLAX",
@@ -30,12 +30,13 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": null
+  "asOfDate": "2026-09-23"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$36.82",
+  "value": 36.82,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYield": 1.08,
+  "dividendYieldText": "1.08%",
+  "dividendYieldKind": "indicated: latest distribution 0.1980 x 2/year / last close 36.82",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -59,16 +60,16 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": 27.09,
+   "ytdText": "27.09%",
    "yr1": 38.19,
    "yr1Text": "38.19%",
    "yr3": 23.46,
    "yr3Text": "23.46%",
    "yr5": 8.44,
    "yr5Text": "8.44%",
-   "yr10": 7.71,
-   "yr10Text": "7.71%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 7.71,
    "sinceInceptionText": "7.71%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-Annual This fund is an ex-Dividend fund",
+  "frequency": "Semi-annually",
   "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"

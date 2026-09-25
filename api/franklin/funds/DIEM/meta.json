@@ -1,6 +1,6 @@
 {
  "ticker": "DIEM",
- "name": "DIEM ETF",
+ "name": "Franklin Emerging Market Core Dividend Tilt Index ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/21413/SINGLCLASS/franklin-emerging-market-core-dividend-tilt-index-etf/DIEM",
@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P207",
   "isin": "US35473P2074",
-  "benchmark": "index are as of the ETF's/ETP's last trading day before the end of the period."
+  "benchmark": null
  },
  "expenseRatio": {
   "display": "0.19%",
@@ -30,12 +30,13 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": null
+  "asOfDate": "2026-09-23"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$43.20",
+  "value": 43.2,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,19 +49,19 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": 30,
-  "secYieldText": "30.00%",
+  "dividendYield": 2.13,
+  "dividendYieldText": "2.13%",
+  "dividendYieldKind": "indicated: latest distribution 0.2300 x 4/year / last close 43.20",
+  "secYield": 2.66,
+  "secYieldText": "2.66%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": 33.05,
+   "ytdText": "33.05%",
    "yr1": 43.35,
    "yr1Text": "43.35%",
    "yr3": 27.08,
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly This fund is an ex-Dividend fund",
+  "frequency": "Quarterly",
   "frequencyCode": "04 - Quarterly",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 4,
   "headers": [
    "Ex-Date",
    "Dividend"

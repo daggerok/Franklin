@@ -1,8 +1,8 @@
 {
  "ticker": "FTMS",
  "name": "Franklin Short-Term Municipal Income ETF",
- "category": "As of 09/23/2026 (Updated Daily)",
- "categoryPath": "As of 09/23/2026 (Updated Daily)",
+ "category": "ETF",
+ "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48362/SINGLCLASS/franklin-short-term-municipal-income-etf/FTMS",
  "factSheet": null,
  "source": {
@@ -28,14 +28,15 @@
   "net": 0.22
  },
  "nav": {
-  "display": "$9.75",
-  "value": 9.75,
-  "asOfDate": null
+  "display": "$9.73",
+  "value": 9.73,
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$9.75",
+  "value": 9.75,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,19 +49,19 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": 4,
-  "secYieldText": "4.00%",
+  "dividendYield": 3.33,
+  "dividendYieldText": "3.33%",
+  "dividendYieldKind": "indicated: latest distribution 0.0270 x 12/year / NAV 9.73",
+  "secYield": 3.16,
+  "secYieldText": "3.16%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "May 29 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": 0.19,
+   "ytdText": "0.19%",
    "yr1": 2.91,
    "yr1Text": "2.91%",
    "yr3": 3.82,
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": ", if any Monthly",
+  "frequency": "Monthly",
   "frequencyCode": "01 - Monthly",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"

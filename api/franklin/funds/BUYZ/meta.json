@@ -1,6 +1,6 @@
 {
  "ticker": "BUYZ",
- "name": "Franklin Disruptive Commerce ETF - NAV Return (%)",
+ "name": "Franklin Disruptive Commerce ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29096/SINGLCLASS/franklin-disruptive-commerce-etf/BUYZ",
@@ -30,12 +30,13 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": null
+  "asOfDate": "2026-09-23"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$34.67",
+  "value": 34.67,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYield": 0.15,
+  "dividendYieldText": "0.15%",
+  "dividendYieldKind": "indicated: latest distribution 0.0260 x 2/year / last close 34.67",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -59,16 +60,16 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": -13.94,
+   "ytdText": "-13.94%",
    "yr1": -14.61,
    "yr1Text": "-14.61%",
    "yr3": 11.85,
    "yr3Text": "11.85%",
    "yr5": -7.2,
    "yr5Text": "-7.20%",
-   "yr10": 6.05,
-   "yr10Text": "6.05%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 6.05,
    "sinceInceptionText": "6.05%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Annually This fund is an ex-Dividend fund",
-  "frequencyCode": "12 - Annually",
-  "paymentsPerYear": null,
+  "frequency": "Semi-annually",
+  "frequencyCode": "06 - Semi-annually",
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"

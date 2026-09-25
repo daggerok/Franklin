@@ -1,8 +1,8 @@
 {
  "ticker": "FTMN",
  "name": "Franklin Minnesota Municipal Income ETF",
- "category": "As of 09/23/2026 (Updated Daily)",
- "categoryPath": "As of 09/23/2026 (Updated Daily)",
+ "category": "ETF",
+ "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48373/SINGLCLASS/franklin-minnesota-municipal-income-etf/FTMN",
  "factSheet": null,
  "source": {
@@ -28,14 +28,15 @@
   "net": 0.35
  },
  "nav": {
-  "display": "$8.32",
-  "value": 8.32,
-  "asOfDate": null
+  "display": "$8.26",
+  "value": 8.26,
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$8.28",
+  "value": 8.28,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -50,17 +51,17 @@
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": 30,
-  "secYieldText": "30.00%",
+  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
+  "secYield": 3.74,
+  "secYieldText": "3.74%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "May 31 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": -4.43,
+   "ytdText": "-4.43%",
    "yr1": 4.67,
    "yr1Text": "4.67%",
    "yr3": 3.62,
@@ -89,8 +90,8 @@
   }
  },
  "distributions": {
-  "frequency": ", if any Monthly",
-  "frequencyCode": "01 - Monthly",
+  "frequency": "Irregular",
+  "frequencyCode": "99 - Irregular",
   "paymentsPerYear": null,
   "headers": [
    "Ex-Date",

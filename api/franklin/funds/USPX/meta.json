@@ -17,25 +17,26 @@
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": "s: An intuitive framework for incorporating digital assets into diversified portfolios](https://www.franklintempleton.com/articles/2025/multi-asset/intuitive-framework-for-incorporating-digital-assets-into-diversified-portfolios)"
+  "cusip": "35473P405",
+  "isin": "US35473P4054",
+  "benchmark": "Linked Morningstar US Target Market Exposure Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.03%",
+  "value": 0.03,
+  "gross": 0.03,
+  "net": 0.03
  },
  "nav": {
   "display": "$67.18",
   "value": 67.18,
-  "asOfDate": null
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$67.24",
+  "value": 67.24,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYield": 0.86,
+  "dividendYieldText": "0.86%",
+  "dividendYieldKind": "indicated: latest distribution 0.1440 x 4/year / NAV 67.18",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -59,18 +60,18 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "ytd": 13.25,
+   "ytdText": "13.25%",
+   "yr1": 19.93,
+   "yr1Text": "19.93%",
+   "yr3": 20.95,
+   "yr3Text": "20.95%",
+   "yr5": 12.02,
+   "yr5Text": "12.02%",
+   "yr10": 12.26,
+   "yr10Text": "12.26%",
+   "sinceInception": 12.46,
+   "sinceInceptionText": "12.46%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,8 +85,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 12.46,
+   "sinceInceptionText": "12.46%"
   }
  },
  "distributions": {

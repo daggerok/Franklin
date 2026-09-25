@@ -1,6 +1,6 @@
 {
  "ticker": "FLJH",
- "name": "FLJH ETF",
+ "name": "Franklin FTSE Japan Hedged ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26355/SINGLCLASS/franklin-ftse-japan-hedged-etf/FLJH",
@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P637",
   "isin": "US35473P6372",
-  "benchmark": null
+  "benchmark": "FTSE Japan Capped Hedged Index-NR"
  },
  "expenseRatio": {
   "display": "0.09%",
@@ -30,12 +30,13 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": null
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$46.03",
+  "value": 46.03,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -44,13 +45,13 @@
  "aum": {
   "display": "$228.97 M",
   "value": 228970000,
-  "asOfDate": "2026-06-30",
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYield": 1.24,
+  "dividendYieldText": "1.24%",
+  "dividendYieldKind": "indicated: latest distribution 0.2860 x 2/year / last close 46.03",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -59,16 +60,16 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": 22.67,
+   "ytdText": "22.67%",
    "yr1": 42.37,
    "yr1Text": "42.37%",
    "yr3": 28.51,
    "yr3Text": "28.51%",
    "yr5": 22.65,
    "yr5Text": "22.65%",
-   "yr10": 15.26,
-   "yr10Text": "15.26%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 15.26,
    "sinceInceptionText": "15.26%"
   },

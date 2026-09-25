@@ -1,6 +1,6 @@
 {
  "ticker": "LRGE",
- "name": "ClearBridge Large Cap Growth Select ETF - NAV Return (%)",
+ "name": "ClearBridge Large Cap Growth Select ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/91630/SINGLCLASS/clearbridge-large-cap-growth-select-etf/LRGE",
@@ -33,9 +33,10 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$90.80",
+  "value": 90.8,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYield": 0.11,
+  "dividendYieldText": "0.11%",
+  "dividendYieldKind": "indicated: latest distribution 0.1040 x 1/year / last close 90.80",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -67,8 +68,8 @@
    "yr3Text": "17.52%",
    "yr5": 9.34,
    "yr5Text": "9.34%",
-   "yr10": 15.43,
-   "yr10Text": "15.43%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 15.43,
    "sinceInceptionText": "15.43%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": ", if any Annually",
+  "frequency": "Annually",
   "frequencyCode": "12 - Annually",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Dividend"

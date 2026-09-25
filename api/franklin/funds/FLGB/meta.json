@@ -1,8 +1,8 @@
 {
  "ticker": "FLGB",
  "name": "Franklin FTSE United Kingdom ETF",
- "category": "March 31",
- "categoryPath": "March 31",
+ "category": "ETF",
+ "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26350/SINGLCLASS/franklin-ftse-united-kingdom-etf/FLGB",
  "factSheet": null,
  "source": {
@@ -28,14 +28,15 @@
   "net": 0.09
  },
  "nav": {
-  "display": "$36.26",
-  "value": 36.26,
-  "asOfDate": null
- },
- "marketPrice": {
   "display": "—",
   "value": null,
-  "asOfDate": null
+  "asOfDate": "2026-09-24"
+ },
+ "marketPrice": {
+  "display": "$36.22",
+  "value": 36.22,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYield": 2.57,
+  "dividendYieldText": "2.57%",
+  "dividendYieldKind": "indicated: latest distribution 0.4660 x 2/year / last close 36.22",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -59,16 +60,16 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": 8.26,
+   "ytdText": "8.26%",
    "yr1": 20.71,
    "yr1Text": "20.71%",
    "yr3": 19.83,
    "yr3Text": "19.83%",
    "yr5": 12.3,
    "yr5Text": "12.30%",
-   "yr10": 8.54,
-   "yr10Text": "8.54%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 8.54,
    "sinceInceptionText": "8.54%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": ", if any Semiannually",
+  "frequency": "Semi-annually",
   "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"

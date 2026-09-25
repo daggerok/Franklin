@@ -1,6 +1,6 @@
 {
  "ticker": "FLRU",
- "name": "FLRU ETF",
+ "name": "Franklin FTSE Russia ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26356/SINGLCLASS/franklin-ftse-russia-etf/FLRU",
@@ -30,12 +30,13 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": null
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
   "display": "—",
   "value": null,
-  "asOfDate": null
+  "asOfDate": null,
+  "source": null
  },
  "premiumDiscount": {
   "display": "—",
@@ -44,13 +45,13 @@
  "aum": {
   "display": "$0.00",
   "value": 0,
-  "asOfDate": "2026-06-30",
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "not published",
+  "dividendYieldKind": "this fund has no distribution history",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-Annual This fund is an ex-Dividend fund",
+  "frequency": "Semi-annually",
   "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"

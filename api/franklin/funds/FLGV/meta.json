@@ -1,8 +1,8 @@
 {
  "ticker": "FLGV",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
+ "name": "Franklin U.S. Treasury Bond ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29614/SINGLCLASS/franklin-u-s-treasury-bond-etf/FLGV",
  "factSheet": null,
  "source": {
@@ -17,60 +17,61 @@
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P488",
+  "isin": "US35473P4880",
+  "benchmark": "Bloomberg US Treasury Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.09%",
+  "value": 0.09,
+  "gross": 0.09,
+  "net": 0.09
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$19.50",
+  "value": 19.5,
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$19.50",
+  "value": 19.5,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
+  "display": "$1.03 B",
+  "value": 1030000000,
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "dividendYield": 3.82,
+  "dividendYieldText": "3.82%",
+  "dividendYieldKind": "indicated: latest distribution 0.0620 x 12/year / NAV 19.50",
+  "secYield": 4.47,
+  "secYieldText": "4.47%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
+   "ytd": -2.3,
+   "ytdText": "-2.30%",
+   "yr1": 1.2,
+   "yr1Text": "1.20%",
+   "yr3": 3.18,
+   "yr3Text": "3.18%",
+   "yr5": -0.56,
+   "yr5Text": "-0.56%",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": -0.55,
+   "sinceInceptionText": "-0.55%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,8 +85,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": -0.55,
+   "sinceInceptionText": "-0.55%"
   }
  },
  "distributions": {

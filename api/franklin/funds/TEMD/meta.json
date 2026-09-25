@@ -1,8 +1,8 @@
 {
  "ticker": "TEMD",
- "name": "TEMD ETF",
- "category": "As of 09/23/2026 (Updated Daily)",
- "categoryPath": "As of 09/23/2026 (Updated Daily)",
+ "name": "Templeton Emerging Markets Debt ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48762/SINGLCLASS/templeton-emerging-markets-debt-etf/TEMD",
  "factSheet": null,
  "source": {
@@ -28,14 +28,15 @@
   "net": 0.45
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$24.23",
+  "value": 24.23,
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$24.48",
+  "value": 24.48,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -44,15 +45,15 @@
  "aum": {
   "display": "$48.83 M",
   "value": 48830000,
-  "asOfDate": "2026-08-31",
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": 30,
-  "secYieldText": "30.00%",
+  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
+  "secYield": 7.65,
+  "secYieldText": "7.65%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
@@ -67,8 +68,8 @@
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
-   "yr10": 2.63,
-   "yr10Text": "2.63%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 2.63,
    "sinceInceptionText": "2.63%"
   },
@@ -89,8 +90,8 @@
   }
  },
  "distributions": {
-  "frequency": "Monthly This fund is an ex-Dividend fund",
-  "frequencyCode": "01 - Monthly",
+  "frequency": "Irregular",
+  "frequencyCode": "99 - Irregular",
   "paymentsPerYear": null,
   "headers": [
    "Ex-Date",

@@ -1,6 +1,6 @@
 {
  "ticker": "DVAL",
- "name": "BrandywineGLOBAL-Dynamic US Large Cap Value ETF - NAV Return (%)",
+ "name": "BrandywineGLOBAL-Dynamic US Large Cap Value ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/33319/SINGLCLASS/brandywine-global-dynamic-us-large-cap-value-etf/DVAL",
@@ -30,16 +30,17 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": null
+  "asOfDate": "2026-09-23"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$15.84",
+  "value": 15.84,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
-  "display": "6.00%",
-  "value": 6
+  "display": "—",
+  "value": null
  },
  "aum": {
   "display": "$67.56 M",
@@ -48,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYield": 1.82,
+  "dividendYieldText": "1.82%",
+  "dividendYieldKind": "indicated: latest distribution 0.2880 x 1/year / last close 15.84",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -59,8 +60,8 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": 10.35,
+   "ytdText": "10.35%",
    "yr1": 16.28,
    "yr1Text": "16.28%",
    "yr3": 13.68,
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Annually This fund is an ex-Dividend fund",
+  "frequency": "Annually",
   "frequencyCode": "12 - Annually",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Dividend"

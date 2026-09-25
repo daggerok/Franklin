@@ -1,6 +1,6 @@
 {
  "ticker": "SQLV",
- "name": "SQLV ETF",
+ "name": "Royce Quant Small Cap Quality Value ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/91662/SINGLCLASS/royce-quant-small-cap-quality-value-etf/SQLV",
@@ -28,47 +28,48 @@
   "net": 0.6
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$51.50",
+  "value": 51.5,
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$51.49",
+  "value": 51.49,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
   "value": null
  },
  "aum": {
-  "display": "$38.64 M",
-  "value": 38640000,
-  "asOfDate": "2026-08-31",
+  "display": "$38.62 M",
+  "value": 38620000,
+  "asOfDate": "2026-09-24",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": 30,
-  "secYieldText": "30.00%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "dividendYield": 1.18,
+  "dividendYieldText": "1.18%",
+  "dividendYieldKind": "indicated: latest distribution 0.1520 x 4/year / NAV 51.50",
+  "secYield": 0.73,
+  "secYieldText": "0.73%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": 20.27,
+   "ytdText": "20.27%",
    "yr1": 25.92,
    "yr1Text": "25.92%",
    "yr3": 14.31,
    "yr3Text": "14.31%",
    "yr5": 8.25,
    "yr5Text": "8.25%",
-   "yr10": 10.04,
-   "yr10Text": "10.04%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 10.04,
    "sinceInceptionText": "10.04%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly This fund is an ex-Dividend fund",
+  "frequency": "Quarterly",
   "frequencyCode": "04 - Quarterly",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 4,
   "headers": [
    "Ex-Date",
    "Dividend"

@@ -1,6 +1,6 @@
 {
  "ticker": "FLMI",
- "name": "Franklin Dynamic Municipal Bond ETF - NAV Return (%)",
+ "name": "Franklin Dynamic Municipal Bond ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26175/SINGLCLASS/franklin-dynamic-municipal-bond-etf/FLMI",
@@ -28,14 +28,15 @@
   "net": 0.3
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$23.52",
+  "value": 23.52,
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$23.55",
+  "value": 23.55,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -44,31 +45,31 @@
  "aum": {
   "display": "$2.32 B",
   "value": 2320000000,
-  "asOfDate": "2026-08-31",
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": 30,
-  "secYieldText": "30.00%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "dividendYield": 4.08,
+  "dividendYieldText": "4.08%",
+  "dividendYieldKind": "indicated: latest distribution 0.0800 x 12/year / NAV 23.52",
+  "secYield": 4.21,
+  "secYieldText": "4.21%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": -2.84,
+   "ytdText": "-2.84%",
    "yr1": 5.48,
    "yr1Text": "5.48%",
    "yr3": 5.38,
    "yr3Text": "5.38%",
    "yr5": 1.61,
    "yr5Text": "1.61%",
-   "yr10": 2.82,
-   "yr10Text": "2.82%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 2.82,
    "sinceInceptionText": "2.82%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Monthly This fund is an ex-Dividend fund",
+  "frequency": "Monthly",
   "frequencyCode": "01 - Monthly",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"

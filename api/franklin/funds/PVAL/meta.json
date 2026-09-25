@@ -1,8 +1,8 @@
 {
  "ticker": "PVAL",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
+ "name": "Putnam Focused Large Cap Value ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39434/SINGLCLASS/putnam-focused-large-cap-value-etf/PVAL",
  "factSheet": null,
  "source": {
@@ -17,60 +17,61 @@
   "nportDoc": "SEC EDGAR N-PORT-P 2026-05-29"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
+  "cusip": "746729300",
+  "isin": "US7467293004",
   "benchmark": null
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.56%",
+  "value": 0.56,
+  "gross": 0.56,
+  "net": 0.56
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$53.08",
+  "value": 53.08,
+  "asOfDate": "2026-09-23"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$53.01",
+  "value": 53.01,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-05-29",
+  "display": "$14.27 B",
+  "value": 14270000000,
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "dividendYield": 0.95,
+  "dividendYieldText": "0.95%",
+  "dividendYieldKind": "indicated: latest distribution 0.1260 x 4/year / NAV 53.08",
+  "secYield": 0.84,
+  "secYieldText": "0.84%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "May 29 2026",
-   "ytd": null,
-   "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
+   "ytd": 17.22,
+   "ytdText": "17.22%",
+   "yr1": 30.12,
+   "yr1Text": "30.12%",
+   "yr3": 23.53,
+   "yr3Text": "23.53%",
+   "yr5": 16.74,
+   "yr5Text": "16.74%",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 16.97,
+   "sinceInceptionText": "16.97%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,8 +85,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 16.97,
+   "sinceInceptionText": "16.97%"
   }
  },
  "distributions": {

@@ -1,6 +1,6 @@
 {
  "ticker": "HELX",
- "name": "Franklin Genomic Advancements ETF - NAV Return (%)",
+ "name": "Franklin Genomic Advancements ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29097/SINGLCLASS/franklin-genomic-advancements-etf/HELX",
@@ -30,12 +30,13 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": null
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$44.28",
+  "value": 44.28,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYield": 0.32,
+  "dividendYieldText": "0.32%",
+  "dividendYieldKind": "indicated: latest distribution 0.1430 x 1/year / last close 44.28",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -59,16 +60,16 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": 21.93,
+   "ytdText": "21.93%",
    "yr1": 40.57,
    "yr1Text": "40.57%",
    "yr3": 10.89,
    "yr3Text": "10.89%",
    "yr5": -5.59,
    "yr5Text": "-5.59%",
-   "yr10": 8.34,
-   "yr10Text": "8.34%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 8.34,
    "sinceInceptionText": "8.34%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Annually This fund is an ex-Dividend fund",
+  "frequency": "Annually",
   "frequencyCode": "12 - Annually",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Dividend"

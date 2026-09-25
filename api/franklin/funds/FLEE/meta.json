@@ -1,6 +1,6 @@
 {
  "ticker": "FLEE",
- "name": "FLEE ETF",
+ "name": "Franklin FTSE Europe ETF",
  "category": "ETF",
  "categoryPath": "ETF",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26349/SINGLCLASS/franklin-ftse-europe-etf/FLEE",
@@ -30,12 +30,13 @@
  "nav": {
   "display": "—",
   "value": null,
-  "asOfDate": null
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$38.35",
+  "value": 38.35,
+  "asOfDate": "2026-09-24",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
   "display": "—",
@@ -48,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYield": 4.53,
+  "dividendYieldText": "4.53%",
+  "dividendYieldKind": "indicated: latest distribution 0.8690 x 2/year / last close 38.35",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -59,16 +60,16 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Jun 30 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": 6.65,
+   "ytdText": "6.65%",
    "yr1": 19.42,
    "yr1Text": "19.42%",
    "yr3": 18.22,
    "yr3Text": "18.22%",
    "yr5": 9.58,
    "yr5Text": "9.58%",
-   "yr10": 8.75,
-   "yr10Text": "8.75%",
+   "yr10": null,
+   "yr10Text": "—",
    "sinceInception": 8.75,
    "sinceInceptionText": "8.75%"
   },
@@ -89,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-Annual This fund is an ex-Dividend fund",
+  "frequency": "Semi-annually",
   "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"
