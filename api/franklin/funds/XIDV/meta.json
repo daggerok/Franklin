@@ -1,25 +1,25 @@
 {
  "ticker": "XIDV",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/xidv/SINGLCLASS/xidv-etf/XIDV",
+ "name": "Franklin International Dividend Booster Index ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/42138/SINGLCLASS/franklin-international-dividend-booster-index-etf/XIDV",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/xidv/SINGLCLASS/xidv-etf/XIDV",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/42138/SINGLCLASS/franklin-international-dividend-booster-index-etf/XIDV",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035105, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/XIDV?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P371",
+  "isin": "US35473P3718",
+  "benchmark": "**Fund** | **Benchmark**"
  },
  "expenseRatio": {
   "display": "0.19%",
@@ -42,18 +42,18 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
+  "display": "$45.96 M",
+  "value": 45960000,
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": 30,
+  "secYieldText": "30.00%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -61,16 +61,16 @@
    "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
+   "yr1": 29.5,
+   "yr1Text": "29.50%",
    "yr3": null,
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr10": 39.56,
+   "yr10Text": "39.56%",
+   "sinceInception": 39.56,
+   "sinceInceptionText": "39.56%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 39.56,
+   "sinceInceptionText": "39.56%"
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
+  "frequency": "Quarterly This fund is an ex-Dividend fund",
   "frequencyCode": "04 - Quarterly",
-  "paymentsPerYear": 4,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -148,13 +148,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035105, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 418,
+  "totalRows": 419,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

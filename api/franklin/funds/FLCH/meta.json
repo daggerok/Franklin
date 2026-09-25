@@ -1,25 +1,25 @@
 {
  "ticker": "FLCH",
  "name": "FLCH ETF",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flch/SINGLCLASS/flch-etf/FLCH",
+ "category": "March 31",
+ "categoryPath": "March 31",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26362/SINGLCLASS/franklin-ftse-china-etf/FLCH",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flch/SINGLCLASS/flch-etf/FLCH",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26362/SINGLCLASS/franklin-ftse-china-etf/FLCH",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035168, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLCH?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P819",
+  "isin": "US35473P8196",
+  "benchmark": "FTSE China Capped Index-NR"
  },
  "expenseRatio": {
   "display": "0.19%",
@@ -61,16 +61,16 @@
    "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": -8.51,
+   "yr1Text": "-8.51%",
+   "yr3": 9.94,
+   "yr3Text": "9.94%",
+   "yr5": -2.45,
+   "yr5Text": "-2.45%",
+   "yr10": 0.46,
+   "yr10Text": "0.46%",
+   "sinceInception": 0.46,
+   "sinceInceptionText": "0.46%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 0.46,
+   "sinceInceptionText": "0.46%"
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
+  "frequency": ", if any Semiannually",
   "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -202,7 +202,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035168, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2230,
+  "totalRows": 2231,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -210,7 +210,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

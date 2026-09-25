@@ -1,35 +1,35 @@
 {
  "ticker": "FTMS",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftms/SINGLCLASS/ftms-etf/FTMS",
+ "name": "Franklin Short-Term Municipal Income ETF",
+ "category": "As of 09/23/2026 (Updated Daily)",
+ "categoryPath": "As of 09/23/2026 (Updated Daily)",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48362/SINGLCLASS/franklin-short-term-municipal-income-etf/FTMS",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftms/SINGLCLASS/ftms-etf/FTMS",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48362/SINGLCLASS/franklin-short-term-municipal-income-etf/FTMS",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028350, report period 2026-05-29)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FTMS?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-05-29"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "746729730",
+  "isin": "US7467297302",
+  "benchmark": "Bloomberg 3-year Municipal Bond Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.22%",
+  "value": 0.22,
+  "gross": 0.22,
+  "net": 0.22
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$9.75",
+  "value": 9.75,
   "asOfDate": null
  },
  "marketPrice": {
@@ -42,18 +42,18 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-05-29",
+  "display": "$206.89 M",
+  "value": 206890000,
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": 4,
+  "secYieldText": "4.00%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -61,16 +61,16 @@
    "asOfDate": "May 29 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 2.91,
+   "yr1Text": "2.91%",
+   "yr3": 3.82,
+   "yr3Text": "3.82%",
+   "yr5": 2.18,
+   "yr5Text": "2.18%",
+   "yr10": 1.99,
+   "yr10Text": "1.99%",
+   "sinceInception": 1.69,
+   "sinceInceptionText": "1.69%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,13 +84,13 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 1.69,
+   "sinceInceptionText": "1.69%"
   }
  },
  "distributions": {
-  "frequency": "Irregular",
-  "frequencyCode": "99 - Irregular",
+  "frequency": ", if any Monthly",
+  "frequencyCode": "01 - Monthly",
   "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
@@ -163,13 +163,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028350, report period 2026-05-29)"
  },
  "history": {
-  "totalRows": 227,
+  "totalRows": 228,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

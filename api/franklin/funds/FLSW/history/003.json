@@ -2,7 +2,7 @@
  "ticker": "FLSW",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2166,
+ "totalRows": 2167,
  "headers": [
   "Date",
   "Close",
@@ -1171,6 +1171,13 @@
    "Adj Close": "41.63",
    "Volume": "6100",
    "searchIndex": "2026-09-23 41.632999420166016"
+  },
+  {
+   "Date": "Sep 24 2026",
+   "Close": "41.69",
+   "Adj Close": "41.69",
+   "Volume": "3800",
+   "searchIndex": "2026-09-24 41.69200134277344"
   }
  ]
 }

@@ -1,31 +1,31 @@
 {
  "ticker": "FRIZ",
- "name": "FRIZ ETF",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/friz/SINGLCLASS/friz-etf/FRIZ",
+ "name": "Franklin Dividend Growth ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47537/SINGLCLASS/franklin-dividend-growth-etf/FRIZ",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/friz/SINGLCLASS/friz-etf/FRIZ",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47537/SINGLCLASS/franklin-dividend-growth-etf/FRIZ",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035148, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FRIZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P363",
+  "isin": "US35473P3635",
+  "benchmark": "NASDAQ US Broad Dividend Achievers Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.49%",
+  "value": 0.49,
+  "gross": 0.49,
+  "net": 0.49
  },
  "nav": {
   "display": "—",
@@ -42,18 +42,18 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035148, report period 2026-06-30)"
+  "display": "$6.66 M",
+  "value": 6660000,
+  "asOfDate": "2026-08-31",
+  "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
   "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "secYield": 30,
+  "secYieldText": "30.00%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -61,16 +61,16 @@
    "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
+   "yr1": 10.54,
+   "yr1Text": "10.54%",
    "yr3": null,
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr10": 10.45,
+   "yr10Text": "10.45%",
+   "sinceInception": 10.45,
+   "sinceInceptionText": "10.45%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 10.45,
+   "sinceInceptionText": "10.45%"
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
+  "frequency": "Quarterly This fund is an ex-Dividend fund",
   "frequencyCode": "04 - Quarterly",
-  "paymentsPerYear": 4,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"

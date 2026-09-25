@@ -3,14 +3,14 @@
  "name": "Exchange Traded Funds",
  "category": "Asset Class",
  "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flgv/SINGLCLASS/flgv-etf/FLGV",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29614/SINGLCLASS/franklin-u-s-treasury-bond-etf/FLGV",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flgv/SINGLCLASS/flgv-etf/FLGV",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29614/SINGLCLASS/franklin-u-s-treasury-bond-etf/FLGV",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035205, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLGV?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
@@ -483,14 +483,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035205, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 1578,
+  "totalRows": 1579,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

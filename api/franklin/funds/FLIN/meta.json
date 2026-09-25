@@ -1,8 +1,8 @@
 {
  "ticker": "FLIN",
- "name": "Franklin FTSE India ETF - NAV Return (%)",
- "category": "ETF",
- "categoryPath": "ETF",
+ "name": "FLIN ETF",
+ "category": "March 31",
+ "categoryPath": "March 31",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN",
  "factSheet": null,
  "source": {
@@ -11,13 +11,13 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily)",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035153, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLIN?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": null
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": "CUSIPCODE",
+  "cusip": "35473P769",
   "isin": "US35473P7693",
   "benchmark": "FTSE India Capped Index-NR"
  },
@@ -44,8 +44,8 @@
  "aum": {
   "display": "$2.60 B",
   "value": 2600000000,
-  "asOfDate": null,
-  "source": "official product page Total Net Assets"
+  "asOfDate": "2026-06-30",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035153, report period 2026-06-30)"
  },
  "yields": {
   "dividendYield": 0.42,
@@ -58,7 +58,7 @@
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
-   "asOfDate": "Jun 30 2026",
+   "asOfDate": "—",
    "ytd": -10.39,
    "ytdText": "-10.39%",
    "yr1": -3.94,
@@ -67,8 +67,8 @@
    "yr3Text": "5.33%",
    "yr5": 3.05,
    "yr5Text": "3.05%",
-   "yr10": null,
-   "yr10Text": "—",
+   "yr10": 5.93,
+   "yr10Text": "5.93%",
    "sinceInception": 5.93,
    "sinceInceptionText": "5.93%"
   },
@@ -89,7 +89,7 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-Annual This fund is an ex-Dividend fund",
+  "frequency": ", if any Semiannually",
   "frequencyCode": "06 - Semi-annually",
   "paymentsPerYear": null,
   "headers": [
@@ -182,18 +182,19 @@
   "exDate": "Dec 19 2025"
  },
  "holdings": {
-  "totalRows": 10,
+  "totalRows": 280,
   "pageSize": 250,
-  "pageCount": 1,
+  "pageCount": 2,
   "pages": [
-   "./holdings/001.json"
+   "./holdings/001.json",
+   "./holdings/002.json"
   ],
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily)"
+  "asOfDate": "2026-06-30",
+  "asOf": "Jun 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035153, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2166,
+  "totalRows": 2167,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -201,7 +202,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

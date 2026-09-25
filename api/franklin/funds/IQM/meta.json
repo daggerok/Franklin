@@ -1,31 +1,31 @@
 {
  "ticker": "IQM",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/iqm/SINGLCLASS/iqm-etf/IQM",
+ "name": "IQM ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29098/SINGLCLASS/franklin-intelligent-machines-etf/IQM",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/iqm/SINGLCLASS/iqm-etf/IQM",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29098/SINGLCLASS/franklin-intelligent-machines-etf/IQM",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035138, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/IQM?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P512",
+  "isin": "US35473P5127",
+  "benchmark": "Russell 3000 Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.50%",
+  "value": 0.5,
+  "gross": 0.5,
+  "net": 0.5
  },
  "nav": {
   "display": "—",
@@ -45,12 +45,12 @@
   "display": "—",
   "value": null,
   "asOfDate": "2026-06-30",
-  "source": "official product page Total Net Assets"
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035138, report period 2026-06-30)"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -61,16 +61,16 @@
    "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 30.96,
+   "yr1Text": "30.96%",
+   "yr3": 29.5,
+   "yr3Text": "29.50%",
+   "yr5": 15.41,
+   "yr5Text": "15.41%",
+   "yr10": 24.44,
+   "yr10Text": "24.44%",
+   "sinceInception": 24.44,
+   "sinceInceptionText": "24.44%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,8 +84,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 24.44,
+   "sinceInceptionText": "24.44%"
   }
  },
  "distributions": {
@@ -123,14 +123,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035138, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 1651,
+  "totalRows": 1652,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

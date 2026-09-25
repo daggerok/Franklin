@@ -2,7 +2,7 @@
  "ticker": "FLJP",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2230,
+ "totalRows": 2231,
  "headers": [
   "Date",
   "Close",
@@ -1619,6 +1619,13 @@
    "Adj Close": "41.26",
    "Volume": "801900",
    "searchIndex": "2026-09-23 41.2599983215332"
+  },
+  {
+   "Date": "Sep 24 2026",
+   "Close": "40.81",
+   "Adj Close": "40.81",
+   "Volume": "784800",
+   "searchIndex": "2026-09-24 40.810001373291016"
   }
  ]
 }

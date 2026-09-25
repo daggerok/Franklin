@@ -3,14 +3,14 @@
  "name": "Exchange Traded Funds",
  "category": "Asset Class",
  "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftny/SINGLCLASS/ftny-etf/FTNY",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48361/SINGLCLASS/franklin-new-york-municipal-income-etf/FTNY",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftny/SINGLCLASS/ftny-etf/FTNY",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48361/SINGLCLASS/franklin-new-york-municipal-income-etf/FTNY",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028338, report period 2026-05-29)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FTNY?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
@@ -164,13 +164,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028338, report period 2026-05-29)"
  },
  "history": {
-  "totalRows": 227,
+  "totalRows": 228,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

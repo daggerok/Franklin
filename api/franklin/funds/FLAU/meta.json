@@ -1,35 +1,35 @@
 {
  "ticker": "FLAU",
- "name": "FLAU ETF",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flau/SINGLCLASS/flau-etf/FLAU",
+ "name": "Franklin FTSE Australia ETF",
+ "category": "March 31",
+ "categoryPath": "March 31",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26365/SINGLCLASS/franklin-ftse-australia-etf/FLAU",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flau/SINGLCLASS/flau-etf/FLAU",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26365/SINGLCLASS/franklin-ftse-australia-etf/FLAU",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035149, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLAU?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P843",
+  "isin": "US35473P8436",
+  "benchmark": "FTSE Australia Capped Index-NR"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.09%",
+  "value": 0.09,
+  "gross": 0.09,
+  "net": 0.09
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$34.37",
+  "value": 34.37,
   "asOfDate": null
  },
  "marketPrice": {
@@ -42,10 +42,10 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035149, report period 2026-06-30)"
+  "display": "$218.27 M",
+  "value": 218270000,
+  "asOfDate": "2026-09-23",
+  "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
@@ -61,16 +61,16 @@
    "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 15.17,
+   "yr1Text": "15.17%",
+   "yr3": 14.85,
+   "yr3Text": "14.85%",
+   "yr5": 7.71,
+   "yr5Text": "7.71%",
+   "yr10": 8.18,
+   "yr10Text": "8.18%",
+   "sinceInception": 8.18,
+   "sinceInceptionText": "8.18%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 8.18,
+   "sinceInceptionText": "8.18%"
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
+  "frequency": ", if any Semiannually",
   "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -208,7 +208,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035149, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2230,
+  "totalRows": 2231,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -216,7 +216,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -1,31 +1,31 @@
 {
  "ticker": "LRGE",
- "name": "LRGE ETF",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/lrge/SINGLCLASS/lrge-etf/LRGE",
+ "name": "ClearBridge Large Cap Growth Select ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/91630/SINGLCLASS/clearbridge-large-cap-growth-select-etf/LRGE",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/lrge/SINGLCLASS/lrge-etf/LRGE",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/91630/SINGLCLASS/clearbridge-large-cap-growth-select-etf/LRGE",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035182, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/LRGE?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
+  "cusip": "524682200",
   "isin": null,
-  "benchmark": null
+  "benchmark": "Russell 1000 Growth Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.48%",
+  "value": 0.48,
+  "gross": 0.48,
+  "net": 0.48
  },
  "nav": {
   "display": "—",
@@ -42,10 +42,10 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035182, report period 2026-06-30)"
+  "display": "$391.01 M",
+  "value": 391010000,
+  "asOfDate": "2026-08-31",
+  "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
@@ -61,16 +61,16 @@
    "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 11.42,
+   "yr1Text": "11.42%",
+   "yr3": 17.52,
+   "yr3Text": "17.52%",
+   "yr5": 9.34,
+   "yr5Text": "9.34%",
+   "yr10": 15.43,
+   "yr10Text": "15.43%",
+   "sinceInception": 15.43,
+   "sinceInceptionText": "15.43%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 15.43,
+   "sinceInceptionText": "15.43%"
   }
  },
  "distributions": {
-  "frequency": "Annually",
+  "frequency": ", if any Annually",
   "frequencyCode": "12 - Annually",
-  "paymentsPerYear": 1,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"

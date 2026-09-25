@@ -1,31 +1,31 @@
 {
  "ticker": "FSML",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/fsml/SINGLCLASS/fsml-etf/FSML",
+ "name": "FSML ETF",
+ "category": "As of 09/23/2026 (Updated Daily)",
+ "categoryPath": "As of 09/23/2026 (Updated Daily)",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/50069/SINGLCLASS/franklin-small-cap-enhanced-etf/FSML",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/fsml/SINGLCLASS/fsml-etf/FSML",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/50069/SINGLCLASS/franklin-small-cap-enhanced-etf/FSML",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035101, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FSML?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P322",
+  "isin": "US35473P3221",
+  "benchmark": "Russell 2000 Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.45%",
+  "value": 0.45,
+  "gross": 0.45,
+  "net": 0.45
  },
  "nav": {
   "display": "—",
@@ -45,12 +45,12 @@
   "display": "—",
   "value": null,
   "asOfDate": "2026-06-30",
-  "source": "official product page Total Net Assets"
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035101, report period 2026-06-30)"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -67,10 +67,10 @@
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr10": 20.63,
+   "yr10Text": "20.63%",
+   "sinceInception": 20.63,
+   "sinceInceptionText": "20.63%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 20.63,
+   "sinceInceptionText": "20.63%"
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
+  "frequency": ", if any Quarterly",
   "frequencyCode": "04 - Quarterly",
-  "paymentsPerYear": 4,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"

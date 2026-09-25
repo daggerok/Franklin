@@ -1,31 +1,31 @@
 {
  "ticker": "FLHY",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flhy/SINGLCLASS/flhy-etf/FLHY",
+ "name": "FLHY ETF",
+ "category": "As of 09/23/2026 (Updated Daily)",
+ "categoryPath": "As of 09/23/2026 (Updated Daily)",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26729/SINGLCLASS/franklin-high-yield-corporate-etf/FLHY",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flhy/SINGLCLASS/flhy-etf/FLHY",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26729/SINGLCLASS/franklin-high-yield-corporate-etf/FLHY",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035118, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLHY?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P629",
+  "isin": "US35473P6299",
+  "benchmark": "ICE BofA US High Yield Constrained Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.40%",
+  "value": 0.4,
+  "gross": 0.4,
+  "net": 0.4
  },
  "nav": {
   "display": "—",
@@ -45,12 +45,12 @@
   "display": "—",
   "value": null,
   "asOfDate": "2026-06-30",
-  "source": "official product page Total Net Assets"
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035118, report period 2026-06-30)"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -61,16 +61,16 @@
    "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 5.86,
+   "yr1Text": "5.86%",
+   "yr3": 8.78,
+   "yr3Text": "8.78%",
+   "yr5": 4.6,
+   "yr5Text": "4.60%",
+   "yr10": 5.93,
+   "yr10Text": "5.93%",
+   "sinceInception": 5.93,
+   "sinceInceptionText": "5.93%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 5.93,
+   "sinceInceptionText": "5.93%"
   }
  },
  "distributions": {
-  "frequency": "Monthly",
+  "frequency": ", if any Monthly",
   "frequencyCode": "01 - Monthly",
-  "paymentsPerYear": 12,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -599,7 +599,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035118, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2079,
+  "totalRows": 2080,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -607,7 +607,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -2,7 +2,7 @@
  "ticker": "USFI",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 792,
+ "totalRows": 793,
  "headers": [
   "Date",
   "Close",
@@ -5553,6 +5553,13 @@
    "Adj Close": "23.90",
    "Volume": "100",
    "searchIndex": "2026-09-23 23.895000457763672"
+  },
+  {
+   "Date": "Sep 24 2026",
+   "Close": "23.83",
+   "Adj Close": "23.83",
+   "Volume": "200",
+   "searchIndex": "2026-09-24 23.825000762939453"
   }
  ]
 }

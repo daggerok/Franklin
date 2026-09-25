@@ -1,31 +1,31 @@
 {
  "ticker": "MULT",
- "name": "MULT ETF",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/mult/SINGLCLASS/mult-etf/MULT",
+ "name": "Franklin Multisector Income ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/46894/SINGLCLASS/franklin-multisector-income-etf/MULT",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/mult/SINGLCLASS/mult-etf/MULT",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/46894/SINGLCLASS/franklin-multisector-income-etf/MULT",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035119, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/MULT?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P355",
+  "isin": "US35473P3551",
+  "benchmark": "Bloomberg U.S. Aggregate Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.39%",
+  "value": 0.39,
+  "gross": 0.39,
+  "net": 0.39
  },
  "nav": {
   "display": "—",
@@ -42,18 +42,18 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035119, report period 2026-06-30)"
+  "display": "$9.78 M",
+  "value": 9780000,
+  "asOfDate": "2026-08-31",
+  "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
   "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "secYield": 30,
+  "secYieldText": "30.00%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -61,16 +61,16 @@
    "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 3.75,
+   "yr1Text": "3.75%",
+   "yr3": 6.09,
+   "yr3Text": "6.09%",
+   "yr5": 22.69,
+   "yr5Text": "22.69%",
+   "yr10": 3.33,
+   "yr10Text": "3.33%",
+   "sinceInception": 3.33,
+   "sinceInceptionText": "3.33%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 3.33,
+   "sinceInceptionText": "3.33%"
   }
  },
  "distributions": {
-  "frequency": "Monthly",
+  "frequency": "Monthly This fund is an ex-Dividend fund",
   "frequencyCode": "01 - Monthly",
-  "paymentsPerYear": 12,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"

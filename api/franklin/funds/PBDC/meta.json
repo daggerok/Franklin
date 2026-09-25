@@ -1,31 +1,31 @@
 {
  "ticker": "PBDC",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/pbdc/SINGLCLASS/pbdc-etf/PBDC",
+ "name": "Putnam BDC Income ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39500/SINGLCLASS/putnam-bdc-income-etf/PBDC",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/pbdc/SINGLCLASS/pbdc-etf/PBDC",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39500/SINGLCLASS/putnam-bdc-income-etf/PBDC",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-025235, report period 2026-04-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PBDC?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-04-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
+  "cusip": "746729508",
+  "isin": "US7467295082",
   "benchmark": null
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "11.77%",
+  "value": 11.77,
+  "gross": 11.77,
+  "net": 11.77
  },
  "nav": {
   "display": "—",
@@ -42,18 +42,18 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-04-30",
+  "display": "$296.12 M",
+  "value": 296120000,
+  "asOfDate": "2026-08-31",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": 30,
+  "secYieldText": "30.00%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -61,16 +61,16 @@
    "asOfDate": "Apr 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
+   "yr1": -6.41,
+   "yr1Text": "-6.41%",
+   "yr3": 7.58,
+   "yr3Text": "7.58%",
    "yr5": null,
    "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr10": 14.22,
+   "yr10Text": "14.22%",
+   "sinceInception": 14.22,
+   "sinceInceptionText": "14.22%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 14.22,
+   "sinceInceptionText": "14.22%"
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
+  "frequency": "Quarterly This fund is an ex-Dividend fund",
   "frequencyCode": "04 - Quarterly",
-  "paymentsPerYear": 4,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -188,13 +188,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-025235, report period 2026-04-30)"
  },
  "history": {
-  "totalRows": 997,
+  "totalRows": 998,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }
