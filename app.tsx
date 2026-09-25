@@ -1197,7 +1197,7 @@
       el.tableBody.querySelectorAll('input[data-checkbox]').forEach((checkbox: any) => {
         checkbox.addEventListener('change', (event: any) => {
           event.stopPropagation();
-          const ticker = (checkbox as any).dataset.checkbox || '';
+          const ticker = checkbox.dataset.checkbox || '';
           toggleFund(ticker);
         });
         checkbox.addEventListener('click', (event: any) => event.stopPropagation());
@@ -1712,7 +1712,7 @@
       const countsText = state.counts
         ? `${state.counts.funds} ETFs · ${(state.counts.holdings || 0).toLocaleString('en-US')} holdings rows · ${(state.counts.history || 0).toLocaleString('en-US')} history rows`
         : '';
-      const base = text ? String(text) : 'Search Franklin ETFs, select rows, then use the Watchlist tab.';
+      const base = text ? String(text) : 'Search Franklin ETFs, select ETFs via the “Use” checkbox, then use the Watchlist tab.';
       el.subtitle.innerHTML = `
         <span class="block sm:inline">${escapeHtml(base)}</span>
         <span class="block sm:inline">·${generated ? ` updated ${escapeHtml(generated)}` : ''}${countsText ? ` · ${escapeHtml(countsText)}.` : '.'} Data: <a href="./api/franklin/index.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/franklin/index.json</a> generated from <a href="https://www.franklintempleton.com/investments/options/exchange-traded-funds" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">franklintempleton.com ETF listings</a> + SEC EDGAR + Yahoo Finance</span>
