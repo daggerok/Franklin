@@ -692,6 +692,18 @@ export function plausibleDividendYield(value: unknown): number | null {
   return parsed;
 }
 
+// NAV and the same-day market close of an ETF should be comparable. A page
+// scrape occasionally grabs a nearby dollar figure instead of the NAV (e.g.
+// FLCA $828.34 beside a $53.09 close). Reject that value at ingestion rather
+// than using it as the denominator of an indicated dividend yield. Only call
+// with a recent price reference; older history cannot validate today's NAV.
+export function plausibleNav(value: unknown, referencePrice: number | null = null): number | null {
+  const nav = numberOrNull(value);
+  if (nav === null || nav <= 0) return null;
+  if (referencePrice !== null && referencePrice > 0 && Math.abs(nav / referencePrice - 1) > 0.15) return null;
+  return nav;
+}
+
 // The product page sometimes ships a sentence instead of the benchmark name
 // ("index are as of the ETF's/ETP's last trading day before the ...").
 export function plausibleBenchmark(value: unknown): string | null {
@@ -2987,10 +2999,14 @@ async function main(): Promise<void> {
     // Close price: the official Market Price when the product page published
     // one, otherwise the last close of the price history (Yahoo Finance).
     const lastHistoryClose = historyRows.length ? numberOrNull(historyRows[historyRows.length - 1].Close) : null;
+    const historyCloseDate = historyRows.length ? toIsoDate(historyRows[historyRows.length - 1].Date) : '';
+    const historyAge = Date.now() - Date.parse(`${historyCloseDate}T00:00:00Z`);
+    const recentHistoryClose = Number.isFinite(historyAge) && historyAge >= -86400000 && historyAge <= 7 * 86400000 ? lastHistoryClose : null;
     const closePrice = fund.close ?? lastHistoryClose;
     const closePriceKind = fund.close !== null
       ? 'official product page Market Price'
       : (lastHistoryClose !== null ? 'last close from the Yahoo Finance price history' : null);
+    fund.nav = plausibleNav(fund.nav, fund.close ?? recentHistoryClose);
 
     // Dividend yield: the official 12-month yield when the product page
     // publishes one, otherwise the indicated yield documented in the README and
@@ -3009,6 +3025,7 @@ async function main(): Promise<void> {
       }
     }
     if (dividendYield === null && !distributionRows.length) dividendYieldKind = 'this fund has no distribution history';
+    else if (dividendYield === null && !paymentsPerYear) dividendYieldKind = 'not computable: irregular or unknown distribution frequency';
     else if (dividendYield === null) dividendYieldKind = 'not computable: no distribution price (NAV/market price) in the feed';
 
     // Returns: use catalog returns + derived from Yahoo if needed

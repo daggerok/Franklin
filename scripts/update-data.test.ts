@@ -24,6 +24,7 @@ import {
   tenYearEligible,
   plausibleSecYield,
   plausibleDividendYield,
+  plausibleNav,
   plausiblePremiumDiscount,
   plausibleBenchmark,
   annualizedToTotal,
@@ -448,6 +449,17 @@ describe('yield plausibility', () => {
     expect(plausibleBenchmark('FTSE India Capped Index-NR')).toBe('FTSE India Capped Index-NR');
     expect(plausibleBenchmark("index are as of the ETF's/ETP's last trading day before the ")).toBeNull();
     expect(plausibleBenchmark('')).toBeNull();
+  });
+});
+
+describe('NAV plausibility', () => {
+  test('rejects unrelated product-page dollar figures before computing indicated yield', () => {
+    expect(plausibleNav(828.34, 53.09)).toBeNull(); // FLCA live scrape
+    expect(plausibleNav(170.45, 8.31)).toBeNull(); // FTNJ live scrape
+    expect(plausibleNav(43.92, 34.24)).toBeNull(); // FLIN live scrape
+    expect(plausibleNav(0, null)).toBeNull();
+    expect(plausibleNav(53.05, 53.09)).toBe(53.05);
+    expect(plausibleNav(34.85, null)).toBe(34.85); // no recent price to cross-check
   });
 });
 
