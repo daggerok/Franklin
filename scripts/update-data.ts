@@ -1276,7 +1276,7 @@ function isValidCategory(value: string): boolean {
   if (/(\bclass|\bdate|\bratio|\bexchange|\bfrequency|\byield|\bend|\bcategory|\btype|\bassets|\boutstanding)$/.test(lower)) return false;
   // Only publish values that look like an asset class / Morningstar category:
   // "Equity", "Fixed Income", "India Equity", "Large Blend", "Digital Assets".
-  return /income|equity|bond|blend|growth|value|sector|allocation|commodit|derivative|trading|digital|assets|technology|health|energy|real estate|municipal|outputMoney market|target|convertible|nontraditional|market neutral|long-short|leveraged|inverse|precious metals|bank loan|corporate|government|high yield|emerging|foreign|world|large|mid|small|diversified|specialty|strateg|infrastructure|utilities|natural resources|consumer|financial|industrial|communication|index/.test(lower);
+  return /income|equity|bond|blend|growth|value|sector|allocation|commodit|derivative|trading|digital|assets|technology|health|energy|real estate|municipal|money market|target|convertible|nontraditional|market neutral|long-short|leveraged|inverse|precious metals|bank loan|corporate|government|high yield|emerging|foreign|world|large|mid|small|diversified|specialty|strateg|infrastructure|utilities|natural resources|consumer|financial|industrial|communication|index/.test(lower);
 }
 
 // The finder groups funds as "Equity", "Fixed Income", ... and the product page
