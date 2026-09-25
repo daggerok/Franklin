@@ -1,31 +1,31 @@
 {
  "ticker": "PGRI",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/pgri/SINGLCLASS/pgri-etf/PGRI",
+ "name": "Putnam International Stock ETF - NAV Return (%)",
+ "category": "As of 09/23/2026 (Updated Daily)",
+ "categoryPath": "As of 09/23/2026 (Updated Daily)",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47497/SINGLCLASS/putnam-international-stock-etf/PGRI",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/pgri/SINGLCLASS/pgri-etf/PGRI",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47497/SINGLCLASS/putnam-international-stock-etf/PGRI",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-025233, report period 2026-04-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PGRI?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-04-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P330",
+  "isin": "US35473P3304",
+  "benchmark": "MSCI All Country World ex-US Growth Index-NR"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.55%",
+  "value": 0.55,
+  "gross": 0.55,
+  "net": 0.55
  },
  "nav": {
   "display": "—",
@@ -42,15 +42,15 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-04-30",
+  "display": "$6.60 M",
+  "value": 6600000,
+  "asOfDate": "2026-08-31",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -67,10 +67,10 @@
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr10": 6.37,
+   "yr10Text": "6.37%",
+   "sinceInception": 6.37,
+   "sinceInceptionText": "6.37%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 6.37,
+   "sinceInceptionText": "6.37%"
   }
  },
  "distributions": {
-  "frequency": "Annually",
+  "frequency": "Annually This fund is an ex-Dividend fund",
   "frequencyCode": "12 - Annually",
-  "paymentsPerYear": 1,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -118,13 +118,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-025233, report period 2026-04-30)"
  },
  "history": {
-  "totalRows": 229,
+  "totalRows": 230,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

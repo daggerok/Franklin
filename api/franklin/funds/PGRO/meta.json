@@ -1,31 +1,31 @@
 {
  "ticker": "PGRO",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/pgro/SINGLCLASS/pgro-etf/PGRO",
+ "name": "Putnam Focused Large Cap Growth ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39433/SINGLCLASS/putnam-focused-large-cap-growth-etf/PGRO",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/pgro/SINGLCLASS/pgro-etf/PGRO",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39433/SINGLCLASS/putnam-focused-large-cap-growth-etf/PGRO",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028257, report period 2026-05-29)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PGRO?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-05-29"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
+  "cusip": "746729409",
+  "isin": "US7467294093",
   "benchmark": null
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.50%",
+  "value": 0.5,
+  "gross": 0.5,
+  "net": 0.5
  },
  "nav": {
   "display": "—",
@@ -42,15 +42,15 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-05-29",
+  "display": "$216.79 M",
+  "value": 216790000,
+  "asOfDate": "2026-08-31",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -61,16 +61,16 @@
    "asOfDate": "May 29 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 10.58,
+   "yr1Text": "10.58%",
+   "yr3": 21,
+   "yr3Text": "21.00%",
+   "yr5": 10.27,
+   "yr5Text": "10.27%",
+   "yr10": 12.78,
+   "yr10Text": "12.78%",
+   "sinceInception": 12.78,
+   "sinceInceptionText": "12.78%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 12.78,
+   "sinceInceptionText": "12.78%"
   }
  },
  "distributions": {
-  "frequency": "Annually",
+  "frequency": "Annually This fund is an ex-Dividend fund",
   "frequencyCode": "12 - Annually",
-  "paymentsPerYear": 1,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"

@@ -1,31 +1,31 @@
 {
  "ticker": "TINS",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/tins/SINGLCLASS/tins-etf/TINS",
+ "name": "TINS ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47550/SINGLCLASS/templeton-international-insights-etf/TINS",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/tins/SINGLCLASS/tins-etf/TINS",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47550/SINGLCLASS/templeton-international-insights-etf/TINS",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035196, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/TINS?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P348",
+  "isin": "US35473P3486",
+  "benchmark": "MSCI All Country World ex-US Index-NR"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.55%",
+  "value": 0.55,
+  "gross": 0.55,
+  "net": 0.55
  },
  "nav": {
   "display": "—",
@@ -42,18 +42,18 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
+  "display": "$5.75 M",
+  "value": 5750000,
+  "asOfDate": "2026-08-31",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "dividendYieldKind": "indicated from Yahoo dividends",
+  "secYield": 30,
+  "secYieldText": "30.00%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -67,10 +67,10 @@
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr10": 16.74,
+   "yr10Text": "16.74%",
+   "sinceInception": 16.74,
+   "sinceInceptionText": "16.74%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 16.74,
+   "sinceInceptionText": "16.74%"
   }
  },
  "distributions": {
-  "frequency": "Annually",
+  "frequency": "Annually This fund is an ex-Dividend fund",
   "frequencyCode": "12 - Annually",
-  "paymentsPerYear": 1,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -118,13 +118,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035196, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 229,
+  "totalRows": 230,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

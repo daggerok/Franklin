@@ -1,8 +1,8 @@
 {
  "ticker": "USFI",
  "name": "BrandywineGLOBAL - U.S. Fixed Income ETF",
- "category": "Morningstar Category",
- "categoryPath": "Morningstar Category",
+ "category": "As of 09/23/2026 (Updated Daily)",
+ "categoryPath": "As of 09/23/2026 (Updated Daily)",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36405/SINGLCLASS/brandywine-global-u-s-fixed-income-etf/USFI",
  "factSheet": null,
  "source": {
@@ -17,8 +17,8 @@
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": "CUSIPCODE",
-  "isin": "US35473P4567",
+  "cusip": "35473P413",
+  "isin": "US35473P4138",
   "benchmark": "Bloomberg U.S. Aggregate Index"
  },
  "expenseRatio": {
@@ -28,8 +28,8 @@
   "net": 0.39
  },
  "nav": {
-  "display": "$24.11",
-  "value": 24.11,
+  "display": "$23.82",
+  "value": 23.82,
   "asOfDate": null
  },
  "marketPrice": {
@@ -44,15 +44,15 @@
  "aum": {
   "display": "$9.53 M",
   "value": 9530000,
-  "asOfDate": "2026-06-30",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035159, report period 2026-06-30)"
+  "asOfDate": "2026-09-23",
+  "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 3.98,
   "dividendYieldText": "3.98%",
   "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": 2.74,
-  "secYieldText": "2.74%",
+  "secYield": 3,
+  "secYieldText": "3.00%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
@@ -61,14 +61,14 @@
    "asOfDate": "Jun 30 2026",
    "ytd": 3.47,
    "ytdText": "3.47%",
-   "yr1": 4.19,
-   "yr1Text": "4.19%",
-   "yr3": null,
-   "yr3Text": "—",
+   "yr1": 3.47,
+   "yr1Text": "3.47%",
+   "yr3": 4.19,
+   "yr3Text": "4.19%",
    "yr5": null,
    "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
+   "yr10": 3.54,
+   "yr10Text": "3.54%",
    "sinceInception": 3.54,
    "sinceInceptionText": "3.54%"
   },
@@ -303,13 +303,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035159, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 792,
+  "totalRows": 793,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

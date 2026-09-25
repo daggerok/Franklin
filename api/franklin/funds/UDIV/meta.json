@@ -1,8 +1,8 @@
 {
  "ticker": "UDIV",
- "name": "Franklin U.S. Core Dividend Tilt Index ETF - NAV Return (%)",
- "category": "ETF",
- "categoryPath": "ETF",
+ "name": "Franklin U.S. Core Dividend Tilt Index ETF",
+ "category": "March 31",
+ "categoryPath": "March 31",
  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/21415/SINGLCLASS/franklin-u-s-core-dividend-tilt-index-etf/UDIV",
  "factSheet": null,
  "source": {
@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P306",
   "isin": "US35473P3064",
-  "benchmark": "index are as of the ETF's/ETP's last trading day before the end of the period."
+  "benchmark": "s: An intuitive framework for incorporating digital assets into diversified portfolios](https://www.franklintempleton.com/articles/2025/multi-asset/intuitive-framework-for-incorporating-digital-assets-into-diversified-portfolios)"
  },
  "expenseRatio": {
   "display": "0.06%",
@@ -28,8 +28,8 @@
   "net": 0.06
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$61.59",
+  "value": 61.59,
   "asOfDate": null
  },
  "marketPrice": {
@@ -51,14 +51,14 @@
   "dividendYield": null,
   "dividendYieldText": "—",
   "dividendYieldKind": "indicated from Yahoo dividends",
-  "secYield": 30,
-  "secYieldText": "30.00%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "secYield": 4,
+  "secYieldText": "4.00%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
-   "asOfDate": "Sep 23 2026",
+   "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
    "yr1": 24.06,
@@ -89,7 +89,7 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly This fund is an ex-Dividend fund",
+  "frequency": ", if any Quarterly",
   "frequencyCode": "04 - Quarterly",
   "paymentsPerYear": null,
   "headers": [

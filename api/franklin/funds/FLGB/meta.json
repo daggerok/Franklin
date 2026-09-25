@@ -1,35 +1,35 @@
 {
  "ticker": "FLGB",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flgb/SINGLCLASS/flgb-etf/FLGB",
+ "name": "Franklin FTSE United Kingdom ETF",
+ "category": "March 31",
+ "categoryPath": "March 31",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26350/SINGLCLASS/franklin-ftse-united-kingdom-etf/FLGB",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flgb/SINGLCLASS/flgb-etf/FLGB",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26350/SINGLCLASS/franklin-ftse-united-kingdom-etf/FLGB",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035131, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLGB?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P678",
+  "isin": "US35473P6786",
+  "benchmark": "FTSE UK Capped Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.09%",
+  "value": 0.09,
+  "gross": 0.09,
+  "net": 0.09
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$36.26",
+  "value": 36.26,
   "asOfDate": null
  },
  "marketPrice": {
@@ -42,15 +42,15 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
+  "display": "$864.72 M",
+  "value": 864720000,
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -61,16 +61,16 @@
    "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 20.71,
+   "yr1Text": "20.71%",
+   "yr3": 19.83,
+   "yr3Text": "19.83%",
+   "yr5": 12.3,
+   "yr5Text": "12.30%",
+   "yr10": 8.54,
+   "yr10Text": "8.54%",
+   "sinceInception": 8.54,
+   "sinceInceptionText": "8.54%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 8.54,
+   "sinceInceptionText": "8.54%"
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
+  "frequency": ", if any Semiannually",
   "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -203,7 +203,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035131, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2230,
+  "totalRows": 2231,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -211,7 +211,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

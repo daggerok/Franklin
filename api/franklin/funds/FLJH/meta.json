@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P637",
   "isin": "US35473P6372",
-  "benchmark": "FTSE Japan Capped Hedged Index-NR"
+  "benchmark": null
  },
  "expenseRatio": {
   "display": "0.09%",
@@ -44,13 +44,13 @@
  "aum": {
   "display": "$228.97 M",
   "value": 228970000,
-  "asOfDate": "2026-09-23",
+  "asOfDate": "2026-06-30",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "indicated from Yahoo dividends",
+  "dividendYieldKind": "official 12-month yield from product page",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -58,7 +58,7 @@
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
-   "asOfDate": "Sep 23 2026",
+   "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
    "yr1": 42.37,
@@ -89,9 +89,9 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-Annual This fund is an ex-Dividend fund",
+  "frequency": "Semi-annually",
   "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": null,
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"

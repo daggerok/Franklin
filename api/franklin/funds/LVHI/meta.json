@@ -1,31 +1,31 @@
 {
  "ticker": "LVHI",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/lvhi/SINGLCLASS/lvhi-etf/LVHI",
+ "name": "LVHI ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/91481/SINGLCLASS/franklin-international-low-volatility-high-dividend-index-etf/LVHI",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/lvhi/SINGLCLASS/lvhi-etf/LVHI",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/91481/SINGLCLASS/franklin-international-low-volatility-high-dividend-index-etf/LVHI",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035206, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/LVHI?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
+  "cusip": "52468L505",
   "isin": null,
-  "benchmark": null
+  "benchmark": "Ticker"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.40%",
+  "value": 0.4,
+  "gross": 0.4,
+  "net": 0.4
  },
  "nav": {
   "display": "—",
@@ -42,15 +42,15 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
+  "display": "$5.93 B",
+  "value": 5930000000,
+  "asOfDate": "2026-08-31",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -61,16 +61,16 @@
    "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 30.15,
+   "yr1Text": "30.15%",
+   "yr3": 23.09,
+   "yr3Text": "23.09%",
+   "yr5": 16.76,
+   "yr5Text": "16.76%",
+   "yr10": 10.71,
+   "yr10Text": "10.71%",
+   "sinceInception": 11.64,
+   "sinceInceptionText": "11.64%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 11.64,
+   "sinceInceptionText": "11.64%"
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
+  "frequency": "Quarterly This fund is an ex-Dividend fund",
   "frequencyCode": "04 - Quarterly",
-  "paymentsPerYear": 4,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -313,7 +313,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035206, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2552,
+  "totalRows": 2553,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -321,7 +321,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

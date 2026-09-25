@@ -3,14 +3,14 @@
  "name": "Exchange Traded Funds",
  "category": "Asset Class",
  "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftnj/SINGLCLASS/ftnj-etf/FTNJ",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48364/SINGLCLASS/franklin-new-jersey-municipal-income-etf/FTNJ",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftnj/SINGLCLASS/ftnj-etf/FTNJ",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48364/SINGLCLASS/franklin-new-jersey-municipal-income-etf/FTNJ",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028342, report period 2026-05-31)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FTNJ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
@@ -163,13 +163,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028342, report period 2026-05-31)"
  },
  "history": {
-  "totalRows": 217,
+  "totalRows": 218,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -1,31 +1,31 @@
 {
  "ticker": "BUYZ",
- "name": "BUYZ ETF",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/buyz/SINGLCLASS/buyz-etf/BUYZ",
+ "name": "Franklin Disruptive Commerce ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29096/SINGLCLASS/franklin-disruptive-commerce-etf/BUYZ",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/buyz/SINGLCLASS/buyz-etf/BUYZ",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29096/SINGLCLASS/franklin-disruptive-commerce-etf/BUYZ",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035151, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BUYZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P538",
+  "isin": "US35473P5382",
+  "benchmark": "Russell 3000 Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.50%",
+  "value": 0.5,
+  "gross": 0.5,
+  "net": 0.5
  },
  "nav": {
   "display": "—",
@@ -42,10 +42,10 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035151, report period 2026-06-30)"
+  "display": "$5.18 M",
+  "value": 5180000,
+  "asOfDate": "2026-09-23",
+  "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
@@ -61,16 +61,16 @@
    "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": -14.61,
+   "yr1Text": "-14.61%",
+   "yr3": 11.85,
+   "yr3Text": "11.85%",
+   "yr5": -7.2,
+   "yr5Text": "-7.20%",
+   "yr10": 6.05,
+   "yr10Text": "6.05%",
+   "sinceInception": 6.05,
+   "sinceInceptionText": "6.05%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 6.05,
+   "sinceInceptionText": "6.05%"
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
-  "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "frequency": "Annually This fund is an ex-Dividend fund",
+  "frequencyCode": "12 - Annually",
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -123,14 +123,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035151, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 1651,
+  "totalRows": 1652,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

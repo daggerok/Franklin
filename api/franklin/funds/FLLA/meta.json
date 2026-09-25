@@ -1,25 +1,25 @@
 {
  "ticker": "FLLA",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flla/SINGLCLASS/flla-etf/FLLA",
+ "name": "Franklin FTSE Latin America ETF - NAV Return",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/27393/SINGLCLASS/franklin-ftse-latin-america-etf/FLLA",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flla/SINGLCLASS/flla-etf/FLLA",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/27393/SINGLCLASS/franklin-ftse-latin-america-etf/FLLA",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035166, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLLA?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P561",
+  "isin": "US35473P5614",
+  "benchmark": "index are as of the ETF's/ETP's last trading day before the end of the period."
  },
  "expenseRatio": {
   "display": "0.19%",
@@ -42,15 +42,15 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
+  "display": "$111.68 M",
+  "value": 111680000,
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -61,16 +61,16 @@
    "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 30.17,
+   "yr1Text": "30.17%",
+   "yr3": 13.54,
+   "yr3Text": "13.54%",
+   "yr5": 9.8,
+   "yr5Text": "9.80%",
+   "yr10": 6.13,
+   "yr10Text": "6.13%",
+   "sinceInception": 6.13,
+   "sinceInceptionText": "6.13%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 6.13,
+   "sinceInceptionText": "6.13%"
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "frequencyCode": "04 - Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Semi-Annual This fund is an ex-Dividend fund",
+  "frequencyCode": "06 - Semi-annually",
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -208,14 +208,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035166, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 1996,
+  "totalRows": 1997,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

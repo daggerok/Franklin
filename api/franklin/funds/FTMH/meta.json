@@ -1,35 +1,35 @@
 {
  "ticker": "FTMH",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftmh/SINGLCLASS/ftmh-etf/FTMH",
+ "name": "FTMH ETF",
+ "category": "As of 09/23/2026 (Updated Daily)",
+ "categoryPath": "As of 09/23/2026 (Updated Daily)",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48365/SINGLCLASS/franklin-municipal-high-yield-etf/FTMH",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/ftmh/SINGLCLASS/ftmh-etf/FTMH",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48365/SINGLCLASS/franklin-municipal-high-yield-etf/FTMH",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-026043, report period 2026-04-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FTMH?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-04-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "746729789",
+  "isin": "US7467297898",
+  "benchmark": "Bloomberg Municipal Bond Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.35%",
+  "value": 0.35,
+  "gross": 0.35,
+  "net": 0.35
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$11.05",
+  "value": 11.05,
   "asOfDate": null
  },
  "marketPrice": {
@@ -42,15 +42,15 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-04-30",
+  "display": "$571.24 M",
+  "value": 571240000,
+  "asOfDate": "2026-09-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -61,16 +61,16 @@
    "asOfDate": "Apr 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 7.7,
+   "yr1Text": "7.70%",
+   "yr3": 5.58,
+   "yr3Text": "5.58%",
+   "yr5": 1.17,
+   "yr5Text": "1.17%",
+   "yr10": 2.95,
+   "yr10Text": "2.95%",
+   "sinceInception": 5.28,
+   "sinceInceptionText": "5.28%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,13 +84,13 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 5.28,
+   "sinceInceptionText": "5.28%"
   }
  },
  "distributions": {
-  "frequency": "Irregular",
-  "frequencyCode": "99 - Irregular",
+  "frequency": ", if any Monthly",
+  "frequencyCode": "01 - Monthly",
   "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
@@ -164,13 +164,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-026043, report period 2026-04-30)"
  },
  "history": {
-  "totalRows": 227,
+  "totalRows": 228,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

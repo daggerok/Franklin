@@ -1,25 +1,25 @@
 {
  "ticker": "FLAX",
- "name": "FLAX ETF",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flax/SINGLCLASS/flax-etf/FLAX",
+ "name": "Franklin FTSE Asia ex Japan ETF - NAV Return",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26346/SINGLCLASS/franklin-ftse-asia-ex-japan-etf/FLAX",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flax/SINGLCLASS/flax-etf/FLAX",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26346/SINGLCLASS/franklin-ftse-asia-ex-japan-etf/FLAX",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035146, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLAX?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P660",
+  "isin": "US35473P6604",
+  "benchmark": "FTSE Asia ex Japan Capped Index-NR"
  },
  "expenseRatio": {
   "display": "0.19%",
@@ -42,10 +42,10 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035146, report period 2026-06-30)"
+  "display": "$59.68 M",
+  "value": 59680000,
+  "asOfDate": "2026-09-23",
+  "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
@@ -61,16 +61,16 @@
    "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 38.19,
+   "yr1Text": "38.19%",
+   "yr3": 23.46,
+   "yr3Text": "23.46%",
+   "yr5": 8.44,
+   "yr5Text": "8.44%",
+   "yr10": 7.71,
+   "yr10Text": "7.71%",
+   "sinceInception": 7.71,
+   "sinceInceptionText": "7.71%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 7.71,
+   "sinceInceptionText": "7.71%"
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
+  "frequency": "Semi-Annual This fund is an ex-Dividend fund",
   "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -204,7 +204,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035146, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2166,
+  "totalRows": 2167,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -212,7 +212,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

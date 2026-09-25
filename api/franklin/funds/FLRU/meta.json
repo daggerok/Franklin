@@ -1,25 +1,25 @@
 {
  "ticker": "FLRU",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flru/SINGLCLASS/flru-etf/FLRU",
+ "name": "FLRU ETF",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26356/SINGLCLASS/franklin-ftse-russia-etf/FLRU",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flru/SINGLCLASS/flru-etf/FLRU",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26356/SINGLCLASS/franklin-ftse-russia-etf/FLRU",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035102, report period 2026-06-30)",
   "historySource": "previous run",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLRU?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P728",
+  "isin": "US35473P7289",
+  "benchmark": "FTSE Russia Capped Index-NR"
  },
  "expenseRatio": {
   "display": "0.19%",
@@ -42,15 +42,15 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
+  "display": "$0.00",
+  "value": 0,
   "asOfDate": "2026-06-30",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "not published",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -89,8 +89,8 @@
   }
  },
  "distributions": {
-  "frequency": "—",
-  "frequencyCode": "00 - —",
+  "frequency": "Semi-Annual This fund is an ex-Dividend fund",
+  "frequencyCode": "06 - Semi-annually",
   "paymentsPerYear": null,
   "headers": [
    "Ex-Date",

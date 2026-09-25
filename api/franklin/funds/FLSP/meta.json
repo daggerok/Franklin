@@ -1,31 +1,31 @@
 {
  "ticker": "FLSP",
- "name": "Exchange Traded Funds",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flsp/SINGLCLASS/flsp-etf/FLSP",
+ "name": "Franklin Systematic Style Premia ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/28388/SINGLCLASS/franklin-systematic-style-premia-etf/FLSP",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/flsp/SINGLCLASS/flsp-etf/FLSP",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/28388/SINGLCLASS/franklin-systematic-style-premia-etf/FLSP",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035127, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLSP?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P546",
+  "isin": "US35473P5465",
+  "benchmark": "ICE BofA US 3-Month Treasury Bill Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.65%",
+  "value": 0.65,
+  "gross": 0.65,
+  "net": 0.65
  },
  "nav": {
   "display": "—",
@@ -42,15 +42,15 @@
   "value": null
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
+  "display": "$1.11 B",
+  "value": 1110000000,
+  "asOfDate": "2026-08-31",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "official 12-month yield from product page",
+  "dividendYieldKind": "indicated from Yahoo dividends",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -61,16 +61,16 @@
    "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 15.11,
+   "yr1Text": "15.11%",
+   "yr3": 9.51,
+   "yr3Text": "9.51%",
+   "yr5": 8.16,
+   "yr5Text": "8.16%",
+   "yr10": 4.36,
+   "yr10Text": "4.36%",
+   "sinceInception": 4.36,
+   "sinceInceptionText": "4.36%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 4.36,
+   "sinceInceptionText": "4.36%"
   }
  },
  "distributions": {
-  "frequency": "Annually",
+  "frequency": "Annually This fund is an ex-Dividend fund",
   "frequencyCode": "12 - Annually",
-  "paymentsPerYear": 1,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -154,14 +154,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035127, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 1695,
+  "totalRows": 1696,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Sep 23 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -1,31 +1,31 @@
 {
  "ticker": "DVAL",
- "name": "DVAL ETF",
- "category": "Asset Class",
- "categoryPath": "Asset Class",
- "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/dval/SINGLCLASS/dval-etf/DVAL",
+ "name": "BrandywineGLOBAL-Dynamic US Large Cap Value ETF - NAV Return (%)",
+ "category": "ETF",
+ "categoryPath": "ETF",
+ "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/33319/SINGLCLASS/brandywine-global-dynamic-us-large-cap-value-etf/DVAL",
  "factSheet": null,
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
-  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/dval/SINGLCLASS/dval-etf/DVAL",
+  "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/33319/SINGLCLASS/brandywine-global-dynamic-us-large-cap-value-etf/DVAL",
   "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035156, report period 2026-06-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/DVAL?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P462",
+  "isin": "US35473P4625",
+  "benchmark": "Russell 1000 Value Index"
  },
  "expenseRatio": {
-  "display": "0.19%",
-  "value": 0.19,
-  "gross": 0.19,
-  "net": 0.19
+  "display": "0.49%",
+  "value": 0.49,
+  "gross": 0.49,
+  "net": 0.49
  },
  "nav": {
   "display": "—",
@@ -38,14 +38,14 @@
   "asOfDate": null
  },
  "premiumDiscount": {
-  "display": "—",
-  "value": null
+  "display": "6.00%",
+  "value": 6
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035156, report period 2026-06-30)"
+  "display": "$67.56 M",
+  "value": 67560000,
+  "asOfDate": "2026-08-31",
+  "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": null,
@@ -61,16 +61,16 @@
    "asOfDate": "Jun 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 16.28,
+   "yr1Text": "16.28%",
+   "yr3": 13.68,
+   "yr3Text": "13.68%",
+   "yr5": 7.89,
+   "yr5Text": "7.89%",
+   "yr10": 11.47,
+   "yr10Text": "11.47%",
+   "sinceInception": 10.09,
+   "sinceInceptionText": "10.09%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -84,14 +84,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "sinceInception": 10.09,
+   "sinceInceptionText": "10.09%"
   }
  },
  "distributions": {
-  "frequency": "Annually",
+  "frequency": "Annually This fund is an ex-Dividend fund",
   "frequencyCode": "12 - Annually",
-  "paymentsPerYear": 1,
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
