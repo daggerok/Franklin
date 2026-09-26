@@ -2,7 +2,7 @@
  "ticker": "XIDV",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 419,
+ "totalRows": 421,
  "headers": [
   "Date",
   "Close",
@@ -2930,6 +2930,13 @@
    "searchIndex": "2026-09-21 38.99399948120117"
   },
   {
+   "Date": "Sep 22 2026",
+   "Close": "38.88",
+   "Adj Close": "38.88",
+   "Volume": "2800",
+   "searchIndex": "2026-09-22 38.880001068115234"
+  },
+  {
    "Date": "Sep 23 2026",
    "Close": "38.28",
    "Adj Close": "38.28",
@@ -2942,6 +2949,13 @@
    "Adj Close": "38.30",
    "Volume": "5000",
    "searchIndex": "2026-09-24 38.29999923706055"
+  },
+  {
+   "Date": "Sep 25 2026",
+   "Close": "38.38",
+   "Adj Close": "38.38",
+   "Volume": "2365",
+   "searchIndex": "2026-09-25 38.380001068115234"
   }
  ]
 }

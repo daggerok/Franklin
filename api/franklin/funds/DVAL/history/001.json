@@ -2,7 +2,7 @@
  "ticker": "DVAL",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 977,
+ "totalRows": 979,
  "headers": [
   "Date",
   "Close",
@@ -6836,6 +6836,13 @@
    "searchIndex": "2026-09-21 16.115999221801758"
   },
   {
+   "Date": "Sep 22 2026",
+   "Close": "15.99",
+   "Adj Close": "15.99",
+   "Volume": "4700",
+   "searchIndex": "2026-09-22 15.98799991607666"
+  },
+  {
    "Date": "Sep 23 2026",
    "Close": "15.88",
    "Adj Close": "15.88",
@@ -6848,6 +6855,13 @@
    "Adj Close": "15.84",
    "Volume": "900",
    "searchIndex": "2026-09-24 15.836000442504883"
+  },
+  {
+   "Date": "Sep 25 2026",
+   "Close": "15.90",
+   "Adj Close": "15.90",
+   "Volume": "3316",
+   "searchIndex": "2026-09-25 15.899999618530273"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "FLQL",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2364,
+ "totalRows": 2366,
  "headers": [
   "Date",
   "Close",
@@ -2545,6 +2545,13 @@
    "searchIndex": "2026-09-21 79.31999969482422"
   },
   {
+   "Date": "Sep 22 2026",
+   "Close": "79.32",
+   "Adj Close": "79.32",
+   "Volume": "388400",
+   "searchIndex": "2026-09-22 79.31999969482422"
+  },
+  {
    "Date": "Sep 23 2026",
    "Close": "78.67",
    "Adj Close": "78.67",
@@ -2557,6 +2564,13 @@
    "Adj Close": "78.60",
    "Volume": "156000",
    "searchIndex": "2026-09-24 78.5999984741211"
+  },
+  {
+   "Date": "Sep 25 2026",
+   "Close": "79.12",
+   "Adj Close": "79.12",
+   "Volume": "52632",
+   "searchIndex": "2026-09-25 79.12000274658203"
   }
  ]
 }

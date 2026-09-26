@@ -28,14 +28,14 @@
   "net": 0.25
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$20.04",
+  "value": 20.04,
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$20.02",
-  "value": 20.02,
-  "asOfDate": "2026-09-24",
+  "display": "$20.05",
+  "value": 20.05,
+  "asOfDate": "2026-09-25",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -45,13 +45,13 @@
  "aum": {
   "display": "$427.83 M",
   "value": 427830000,
-  "asOfDate": "2026-09-23",
+  "asOfDate": "2026-09-24",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 2.28,
   "dividendYieldText": "2.28%",
-  "dividendYieldKind": "indicated: latest distribution 0.0380 x 12/year / last close 20.02",
+  "dividendYieldKind": "indicated: latest distribution 0.0380 x 12/year / NAV 20.04",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -309,7 +309,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035116, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2089,
+  "totalRows": 2091,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -317,7 +317,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 24 2026",
+  "asOf": "Sep 25 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

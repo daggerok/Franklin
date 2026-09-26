@@ -2,7 +2,7 @@
  "ticker": "INCM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 826,
+ "totalRows": 828,
  "headers": [
   "Date",
   "Close",
@@ -5779,6 +5779,13 @@
    "searchIndex": "2026-09-21 29.1200008392334"
   },
   {
+   "Date": "Sep 22 2026",
+   "Close": "29.13",
+   "Adj Close": "29.13",
+   "Volume": "358900",
+   "searchIndex": "2026-09-22 29.1299991607666"
+  },
+  {
    "Date": "Sep 23 2026",
    "Close": "28.95",
    "Adj Close": "28.95",
@@ -5791,6 +5798,13 @@
    "Adj Close": "28.77",
    "Volume": "456700",
    "searchIndex": "2026-09-24 28.770000457763672"
+  },
+  {
+   "Date": "Sep 25 2026",
+   "Close": "28.81",
+   "Adj Close": "28.81",
+   "Volume": "404060",
+   "searchIndex": "2026-09-25 28.80500030517578"
   }
  ]
 }
