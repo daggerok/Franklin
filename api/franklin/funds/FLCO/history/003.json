@@ -2,7 +2,7 @@
  "ticker": "FLCO",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2505,
+ "totalRows": 2507,
  "headers": [
   "Date",
   "Close",
@@ -3532,6 +3532,13 @@
    "searchIndex": "2026-09-21 20.770000457763672"
   },
   {
+   "Date": "Sep 22 2026",
+   "Close": "20.76",
+   "Adj Close": "20.76",
+   "Volume": "65900",
+   "searchIndex": "2026-09-22 20.764999389648438"
+  },
+  {
    "Date": "Sep 23 2026",
    "Close": "20.57",
    "Adj Close": "20.57",
@@ -3544,6 +3551,13 @@
    "Adj Close": "20.45",
    "Volume": "81300",
    "searchIndex": "2026-09-24 20.450000762939453"
+  },
+  {
+   "Date": "Sep 25 2026",
+   "Close": "20.46",
+   "Adj Close": "20.46",
+   "Volume": "209656",
+   "searchIndex": "2026-09-25 20.459999084472656"
   }
  ]
 }

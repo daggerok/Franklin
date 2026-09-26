@@ -33,9 +33,9 @@
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$8.28",
-  "value": 8.28,
-  "asOfDate": "2026-09-24",
+  "display": "$8.22",
+  "value": 8.22,
+  "asOfDate": "2026-09-25",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -49,12 +49,12 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
+  "dividendYield": 2.48,
+  "dividendYieldText": "2.48%",
+  "dividendYieldKind": "indicated: latest distribution 0.0170 x 12/year / last close 8.22",
   "secYield": 3.74,
   "secYieldText": "3.74%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -90,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Irregular",
-  "frequencyCode": "99 - Irregular",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -164,13 +164,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028334, report period 2026-05-31)"
  },
  "history": {
-  "totalRows": 218,
+  "totalRows": 220,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 24 2026",
+  "asOf": "Sep 25 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

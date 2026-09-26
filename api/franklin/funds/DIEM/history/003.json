@@ -2,7 +2,7 @@
  "ticker": "DIEM",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2591,
+ "totalRows": 2593,
  "headers": [
   "Date",
   "Close",
@@ -3037,7 +3037,7 @@
   {
    "Date": "Feb 5 2026",
    "Close": "36.31",
-   "Adj Close": "35.63",
+   "Adj Close": "35.64",
    "Volume": "19300",
    "searchIndex": "2026-02-05 36.3129997253418"
   },
@@ -3184,7 +3184,7 @@
   {
    "Date": "Mar 9 2026",
    "Close": "36.31",
-   "Adj Close": "35.63",
+   "Adj Close": "35.64",
    "Volume": "13900",
    "searchIndex": "2026-03-09 36.3129997253418"
   },
@@ -4134,6 +4134,13 @@
    "searchIndex": "2026-09-21 44.00199890136719"
   },
   {
+   "Date": "Sep 22 2026",
+   "Close": "44.16",
+   "Adj Close": "44.16",
+   "Volume": "14900",
+   "searchIndex": "2026-09-22 44.15700149536133"
+  },
+  {
    "Date": "Sep 23 2026",
    "Close": "43.40",
    "Adj Close": "43.40",
@@ -4146,6 +4153,13 @@
    "Adj Close": "43.20",
    "Volume": "25000",
    "searchIndex": "2026-09-24 43.198001861572266"
+  },
+  {
+   "Date": "Sep 25 2026",
+   "Close": "43.43",
+   "Adj Close": "43.43",
+   "Volume": "4385",
+   "searchIndex": "2026-09-25 43.43299865722656"
   }
  ]
 }

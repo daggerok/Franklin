@@ -2,7 +2,7 @@
  "ticker": "INCE",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2514,
+ "totalRows": 2516,
  "headers": [
   "Date",
   "Close",
@@ -2757,7 +2757,7 @@
   {
    "Date": "Mar 31 2026",
    "Close": "64.65",
-   "Adj Close": "63.28",
+   "Adj Close": "63.29",
    "Volume": "8100",
    "searchIndex": "2026-03-31 64.6520004272461"
   },
@@ -3595,6 +3595,13 @@
    "searchIndex": "2026-09-21 67.41000366210938"
   },
   {
+   "Date": "Sep 22 2026",
+   "Close": "67.29",
+   "Adj Close": "67.29",
+   "Volume": "15100",
+   "searchIndex": "2026-09-22 67.29000091552734"
+  },
+  {
    "Date": "Sep 23 2026",
    "Close": "66.92",
    "Adj Close": "66.92",
@@ -3607,6 +3614,13 @@
    "Adj Close": "66.70",
    "Volume": "26000",
    "searchIndex": "2026-09-24 66.69999694824219"
+  },
+  {
+   "Date": "Sep 25 2026",
+   "Close": "66.72",
+   "Adj Close": "66.72",
+   "Volume": "5483",
+   "searchIndex": "2026-09-25 66.7249984741211"
   }
  ]
 }

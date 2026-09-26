@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-25T07:27:00.560Z",
+ "generatedAt": "2026-09-25T19:27:04.984Z",
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
@@ -11,7 +11,7 @@
  "counts": {
   "funds": 81,
   "holdings": 18354,
-  "history": 117325
+  "history": 117483
  },
  "funds": [
   {
@@ -24,8 +24,8 @@
    "isin": "US35473P5382",
    "ter": "0.50%",
    "terValue": 0.5,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$34.67",
+   "navValue": 34.67,
    "aum": "$5.20 M",
    "aumValue": 5200000,
    "asOfDate": "Jun 30 2026",
@@ -37,7 +37,7 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Annually",
+    "frequency": "Semi-annually",
     "exDate": "Dec 20 2024",
     "dividend": "0.026"
    },
@@ -83,16 +83,16 @@
     "cagr5y": -7.2,
     "cagr10y": null,
     "siAnn": 6.05,
-    "dividendYield": 0.07,
-    "dividendYieldText": "0.07%",
+    "dividendYield": 0.15,
+    "dividendYieldText": "0.15%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
    "dividendYieldSource": "indicated",
-   "distributionFrequency": "Annually",
+   "distributionFrequency": "Semi-annually",
    "holdings": 58,
-   "history": 1652
+   "history": 1654
   },
   {
    "ticker": "DIEM",
@@ -106,13 +106,13 @@
    "terValue": 0.19,
    "nav": "—",
    "navValue": null,
-   "aum": "$96.12 M",
-   "aumValue": 96120000,
+   "aum": "$95.34 M",
+   "aumValue": 95340000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Jun 1 2016",
    "exchange": "NYSE Arca",
-   "closePrice": "$43.20",
-   "closePriceValue": 43.2,
+   "closePrice": "$43.43",
+   "closePriceValue": 43.43,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -163,8 +163,8 @@
     "cagr5y": 11.85,
     "cagr10y": 8.74,
     "siAnn": 9.34,
-    "dividendYield": 2.13,
-    "dividendYieldText": "2.13%",
+    "dividendYield": 2.12,
+    "dividendYieldText": "2.12%",
     "secYield": 2.66,
     "secYieldText": "2.66%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -172,7 +172,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Quarterly",
    "holdings": 563,
-   "history": 2591
+   "history": 2593
   },
   {
    "ticker": "DIVI",
@@ -191,8 +191,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Jun 1 2016",
    "exchange": "NYSEArca",
-   "closePrice": "$42.89",
-   "closePriceValue": 42.89,
+   "closePrice": "$43.29",
+   "closePriceValue": 43.29,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -243,8 +243,8 @@
     "cagr5y": 13.93,
     "cagr10y": 11.45,
     "siAnn": 11.26,
-    "dividendYield": 2,
-    "dividendYieldText": "2.00%",
+    "dividendYield": 1.98,
+    "dividendYieldText": "1.98%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -252,7 +252,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Quarterly",
    "holdings": 418,
-   "history": 2591
+   "history": 2593
   },
   {
    "ticker": "DVAL",
@@ -264,15 +264,15 @@
    "isin": "US35473P4625",
    "ter": "0.49%",
    "terValue": 0.49,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$15.84",
+   "navValue": 15.84,
    "aum": "$67.36 M",
    "aumValue": 67360000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Dec 27 2006",
    "exchange": "NASDAQ - XNAS",
-   "closePrice": "$15.84",
-   "closePriceValue": 15.84,
+   "closePrice": "$15.90",
+   "closePriceValue": 15.9,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -332,7 +332,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Annually",
    "holdings": 113,
-   "history": 977
+   "history": 979
   },
   {
    "ticker": "EZBC",
@@ -351,8 +351,8 @@
    "asOfDate": "Sep 24 2026",
    "inceptionDate": "Jan 11 2024",
    "exchange": "Cboe",
-   "closePrice": "$48.78",
-   "closePriceValue": 48.78,
+   "closePrice": "$48.51",
+   "closePriceValue": 48.51,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -412,7 +412,7 @@
    "dividendYieldSource": null,
    "distributionFrequency": "—",
    "holdings": 2,
-   "history": 677
+   "history": 679
   },
   {
    "ticker": "EZET",
@@ -424,15 +424,15 @@
    "isin": "US35351J1097",
    "ter": "0.19%",
    "terValue": 0.19,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$20.40",
+   "navValue": 20.4,
    "aum": "$60.17 M",
    "aumValue": 60170000,
    "asOfDate": "Sep 24 2026",
    "inceptionDate": "Jul 23 2024",
    "exchange": "Cboe",
-   "closePrice": "$20.41",
-   "closePriceValue": 20.41,
+   "closePrice": "$20.40",
+   "closePriceValue": 20.4,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -492,7 +492,7 @@
    "dividendYieldSource": null,
    "distributionFrequency": "—",
    "holdings": 2,
-   "history": 545
+   "history": 547
   },
   {
    "ticker": "EZPZ",
@@ -524,8 +524,8 @@
    "returns": {
     "monthEnd": {
      "asOfDate": "Dec 1 2025",
-     "ytd": -5.34,
-     "ytdText": "-5.34%",
+     "ytd": null,
+     "ytdText": "—",
      "yr1": -32.15,
      "yr1Text": "-32.15%",
      "yr3": null,
@@ -554,7 +554,7 @@
     }
    },
    "metrics": {
-    "ytd": -5.34,
+    "ytd": null,
     "tr1y": -32.15,
     "tr3y": null,
     "tr5y": null,
@@ -572,7 +572,7 @@
    "dividendYieldSource": null,
    "distributionFrequency": "—",
    "holdings": 8,
-   "history": 398
+   "history": 400
   },
   {
    "ticker": "FFOG",
@@ -591,8 +591,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Apr 13 2016",
    "exchange": "Cboe",
-   "closePrice": "$52.02",
-   "closePriceValue": 52.02,
+   "closePrice": "$52.22",
+   "closePriceValue": 52.22,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -652,7 +652,7 @@
    "dividendYieldSource": null,
    "distributionFrequency": "Annually",
    "holdings": 42,
-   "history": 722
+   "history": 724
   },
   {
    "ticker": "FGDL",
@@ -664,15 +664,15 @@
    "isin": "US35473M1053",
    "ter": "0.19%",
    "terValue": 0.19,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$56.77",
+   "navValue": 56.77,
    "aum": "$442.81 M",
    "aumValue": 442810000,
    "asOfDate": "Sep 24 2026",
    "inceptionDate": "Jun 30 2022",
    "exchange": "NYSE Arca",
-   "closePrice": "$56.83",
-   "closePriceValue": 56.83,
+   "closePrice": "$57.25",
+   "closePriceValue": 57.25,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -684,8 +684,8 @@
    "returns": {
     "monthEnd": {
      "asOfDate": "Sep 24 2026",
-     "ytd": -0.66,
-     "ytdText": "-0.66%",
+     "ytd": -1.08,
+     "ytdText": "-1.08%",
      "yr1": 28.61,
      "yr1Text": "28.61%",
      "yr3": 31.66,
@@ -714,7 +714,7 @@
     }
    },
    "metrics": {
-    "ytd": -0.66,
+    "ytd": -1.08,
     "tr1y": 28.61,
     "tr3y": 1.282241258296,
     "tr5y": null,
@@ -732,7 +732,7 @@
    "dividendYieldSource": null,
    "distributionFrequency": "—",
    "holdings": 2,
-   "history": 1062
+   "history": 1064
   },
   {
    "ticker": "FLAU",
@@ -744,15 +744,15 @@
    "isin": "US35473P8436",
    "ter": "0.09%",
    "terValue": 0.09,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$34.01",
+   "navValue": 34.01,
    "aum": "$202.37 M",
    "aumValue": 202370000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Nov 2 2017",
    "exchange": "NYSE Arca",
-   "closePrice": "$33.92",
-   "closePriceValue": 33.92,
+   "closePrice": "$33.96",
+   "closePriceValue": 33.96,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -803,8 +803,8 @@
     "cagr5y": 7.71,
     "cagr10y": null,
     "siAnn": 8.18,
-    "dividendYield": 2.86,
-    "dividendYieldText": "2.86%",
+    "dividendYield": 2.85,
+    "dividendYieldText": "2.85%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -812,7 +812,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Semi-annually",
    "holdings": 108,
-   "history": 2231
+   "history": 2233
   },
   {
    "ticker": "FLAX",
@@ -831,8 +831,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Feb 6 2018",
    "exchange": "NYSE Arca",
-   "closePrice": "$36.82",
-   "closePriceValue": 36.82,
+   "closePrice": "$37.20",
+   "closePriceValue": 37.2,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -892,7 +892,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Semi-annually",
    "holdings": 1616,
-   "history": 2167
+   "history": 2169
   },
   {
    "ticker": "FLBL",
@@ -904,15 +904,15 @@
    "isin": "US35473P5952",
    "ter": "0.45%",
    "terValue": 0.45,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$23.04",
+   "navValue": 23.04,
    "aum": "$870.89 M",
    "aumValue": 870890000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "May 30 2018",
    "exchange": "Cboe",
-   "closePrice": "$23.00",
-   "closePriceValue": 23,
+   "closePrice": "$23.02",
+   "closePriceValue": 23.02,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -963,8 +963,8 @@
     "cagr5y": 5.62,
     "cagr10y": null,
     "siAnn": 4.81,
-    "dividendYield": 6.68,
-    "dividendYieldText": "6.68%",
+    "dividendYield": 6.67,
+    "dividendYieldText": "6.67%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -972,7 +972,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 282,
-   "history": 2089
+   "history": 2091
   },
   {
    "ticker": "FLBR",
@@ -991,8 +991,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Nov 3 2017",
    "exchange": "NYSE Arca",
-   "closePrice": "$23.00",
-   "closePriceValue": 23,
+   "closePrice": "$22.95",
+   "closePriceValue": 22.95,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -1052,7 +1052,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Semi-annually",
    "holdings": 68,
-   "history": 2231
+   "history": 2233
   },
   {
    "ticker": "FLCA",
@@ -1071,8 +1071,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Nov 2 2017",
    "exchange": "NYSE Arca",
-   "closePrice": "$53.09",
-   "closePriceValue": 53.09,
+   "closePrice": "$53.15",
+   "closePriceValue": 53.15,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -1084,8 +1084,8 @@
    "returns": {
     "monthEnd": {
      "asOfDate": "Jun 30 2026",
-     "ytd": 10.78,
-     "ytdText": "10.78%",
+     "ytd": null,
+     "ytdText": "—",
      "yr1": 27.16,
      "yr1Text": "27.16%",
      "yr3": 23.47,
@@ -1114,7 +1114,7 @@
     }
    },
    "metrics": {
-    "ytd": 10.78,
+    "ytd": null,
     "tr1y": 27.16,
     "tr3y": 0.8822805059229997,
     "tr5y": 0.8514202602125123,
@@ -1132,7 +1132,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Semi-annually",
    "holdings": 87,
-   "history": 2231
+   "history": 2233
   },
   {
    "ticker": "FLCB",
@@ -1151,8 +1151,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Sep 17 2019",
    "exchange": "NYSE Arca",
-   "closePrice": "$20.50",
-   "closePriceValue": 20.5,
+   "closePrice": "$20.55",
+   "closePriceValue": 20.55,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -1212,7 +1212,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 599,
-   "history": 1762
+   "history": 1764
   },
   {
    "ticker": "FLCH",
@@ -1224,15 +1224,15 @@
    "isin": "US35473P8196",
    "ter": "0.19%",
    "terValue": 0.19,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$21.03",
+   "navValue": 21.03,
    "aum": "$307.03 M",
    "aumValue": 307030000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Nov 2 2017",
    "exchange": "NYSE Arca",
-   "closePrice": "$20.89",
-   "closePriceValue": 20.89,
+   "closePrice": "$20.77",
+   "closePriceValue": 20.77,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -1283,8 +1283,8 @@
     "cagr5y": -2.45,
     "cagr10y": null,
     "siAnn": 0.46,
-    "dividendYield": 1.36,
-    "dividendYieldText": "1.36%",
+    "dividendYield": 1.35,
+    "dividendYieldText": "1.35%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -1292,7 +1292,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Semi-annually",
    "holdings": 1048,
-   "history": 2231
+   "history": 2233
   },
   {
    "ticker": "FLCO",
@@ -1304,15 +1304,15 @@
    "isin": "US35473P6034",
    "ter": "0.35%",
    "terValue": 0.35,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$20.47",
+   "navValue": 20.47,
    "aum": "$545.58 M",
    "aumValue": 545580000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Oct 3 2016",
    "exchange": "NYSE Arca",
-   "closePrice": "$20.45",
-   "closePriceValue": 20.45,
+   "closePrice": "$20.46",
+   "closePriceValue": 20.46,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -1372,7 +1372,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 227,
-   "history": 2505
+   "history": 2507
   },
   {
    "ticker": "FLEE",
@@ -1386,13 +1386,13 @@
    "terValue": 0.09,
    "nav": "—",
    "navValue": null,
-   "aum": "$107.15 M",
-   "aumValue": 107150000,
+   "aum": "$107.94 M",
+   "aumValue": 107940000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Nov 2 2017",
    "exchange": "NYSE Arca",
-   "closePrice": "$38.35",
-   "closePriceValue": 38.35,
+   "closePrice": "$38.58",
+   "closePriceValue": 38.58,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -1443,8 +1443,8 @@
     "cagr5y": 9.58,
     "cagr10y": null,
     "siAnn": 8.75,
-    "dividendYield": 4.53,
-    "dividendYieldText": "4.53%",
+    "dividendYield": 4.5,
+    "dividendYieldText": "4.50%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -1452,7 +1452,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Semi-annually",
    "holdings": 501,
-   "history": 2202
+   "history": 2204
   },
   {
    "ticker": "FLEU",
@@ -1464,15 +1464,15 @@
    "isin": "US35473P6455",
    "ter": "0.09%",
    "terValue": 0.09,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$35.04",
+   "navValue": 35.04,
    "aum": "$70.08 M",
    "aumValue": 70080000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Nov 2 2017",
    "exchange": "NYSE Arca",
-   "closePrice": "$35.24",
-   "closePriceValue": 35.24,
+   "closePrice": "$35.40",
+   "closePriceValue": 35.4,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -1523,8 +1523,8 @@
     "cagr5y": 12.38,
     "cagr10y": null,
     "siAnn": 10.92,
-    "dividendYield": 3.27,
-    "dividendYieldText": "3.27%",
+    "dividendYield": 3.29,
+    "dividendYieldText": "3.29%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -1532,7 +1532,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Semi-annually",
    "holdings": 262,
-   "history": 2231
+   "history": 2233
   },
   {
    "ticker": "FLGB",
@@ -1544,15 +1544,15 @@
    "isin": "US35473P6786",
    "ter": "0.09%",
    "terValue": 0.09,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$36.06",
+   "navValue": 36.06,
    "aum": "$859.95 M",
    "aumValue": 859950000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Nov 2 2017",
    "exchange": "NYSE Arca",
-   "closePrice": "$36.22",
-   "closePriceValue": 36.22,
+   "closePrice": "$36.29",
+   "closePriceValue": 36.29,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -1603,8 +1603,8 @@
     "cagr5y": 12.3,
     "cagr10y": null,
     "siAnn": 8.54,
-    "dividendYield": 2.57,
-    "dividendYieldText": "2.57%",
+    "dividendYield": 2.58,
+    "dividendYieldText": "2.58%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -1612,7 +1612,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Semi-annually",
    "holdings": 97,
-   "history": 2231
+   "history": 2233
   },
   {
    "ticker": "FLGR",
@@ -1631,8 +1631,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Nov 2 2017",
    "exchange": "NYSE Arca",
-   "closePrice": "$32.60",
-   "closePriceValue": 32.6,
+   "closePrice": "$32.83",
+   "closePriceValue": 32.83,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -1692,7 +1692,7 @@
    "dividendYieldSource": "official",
    "distributionFrequency": "Semi-annually",
    "holdings": 66,
-   "history": 2231
+   "history": 2233
   },
   {
    "ticker": "FLGV",
@@ -1711,8 +1711,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Jun 9 2020",
    "exchange": "NYSE Arca",
-   "closePrice": "$19.50",
-   "closePriceValue": 19.5,
+   "closePrice": "$19.53",
+   "closePriceValue": 19.53,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -1772,7 +1772,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 49,
-   "history": 1579
+   "history": 1581
   },
   {
    "ticker": "FLHY",
@@ -1791,8 +1791,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "May 30 2018",
    "exchange": "Cboe",
-   "closePrice": "$23.62",
-   "closePriceValue": 23.62,
+   "closePrice": "$23.57",
+   "closePriceValue": 23.57,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -1852,7 +1852,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 290,
-   "history": 2080
+   "history": 2082
   },
   {
    "ticker": "FLIA",
@@ -1864,15 +1864,15 @@
    "isin": "US35473P6117",
    "ter": "0.25%",
    "terValue": 0.25,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$20.04",
+   "navValue": 20.04,
    "aum": "$427.83 M",
    "aumValue": 427830000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "May 30 2018",
    "exchange": "Cboe",
-   "closePrice": "$20.02",
-   "closePriceValue": 20.02,
+   "closePrice": "$20.05",
+   "closePriceValue": 20.05,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -1932,7 +1932,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 99,
-   "history": 2089
+   "history": 2091
   },
   {
    "ticker": "FLIN",
@@ -1951,8 +1951,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Feb 6 2018",
    "exchange": "NYSE Arca",
-   "closePrice": "$34.24",
-   "closePriceValue": 34.24,
+   "closePrice": "$34.42",
+   "closePriceValue": 34.42,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -2012,7 +2012,7 @@
    "dividendYieldSource": "official",
    "distributionFrequency": "Semi-annually",
    "holdings": 280,
-   "history": 2167
+   "history": 2169
   },
   {
    "ticker": "FLJH",
@@ -2024,15 +2024,15 @@
    "isin": "US35473P6372",
    "ter": "0.09%",
    "terValue": 0.09,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$45.65",
+   "navValue": 45.65,
    "aum": "$228.24 M",
    "aumValue": 228240000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Nov 2 2017",
    "exchange": "NYSE Arca",
-   "closePrice": "$46.03",
-   "closePriceValue": 46.03,
+   "closePrice": "$46.39",
+   "closePriceValue": 46.39,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -2083,8 +2083,8 @@
     "cagr5y": 22.65,
     "cagr10y": null,
     "siAnn": 15.26,
-    "dividendYield": 1.24,
-    "dividendYieldText": "1.24%",
+    "dividendYield": 1.25,
+    "dividendYieldText": "1.25%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -2092,7 +2092,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Semi-annually",
    "holdings": 486,
-   "history": 2231
+   "history": 2233
   },
   {
    "ticker": "FLJP",
@@ -2111,8 +2111,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Nov 2 2017",
    "exchange": "NYSE Arca",
-   "closePrice": "$40.81",
-   "closePriceValue": 40.81,
+   "closePrice": "$41.63",
+   "closePriceValue": 41.63,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -2163,8 +2163,8 @@
     "cagr5y": 9.79,
     "cagr10y": null,
     "siAnn": 8.08,
-    "dividendYield": 0.83,
-    "dividendYieldText": "0.83%",
+    "dividendYield": 0.81,
+    "dividendYieldText": "0.81%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -2172,7 +2172,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Semi-annually",
    "holdings": 478,
-   "history": 2231
+   "history": 2233
   },
   {
    "ticker": "FLKR",
@@ -2184,15 +2184,15 @@
    "isin": "US35473P7107",
    "ter": "0.09%",
    "terValue": 0.09,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$61.62",
+   "navValue": 61.62,
    "aum": "$1.74 B",
    "aumValue": 1740000000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Nov 2 2017",
    "exchange": "NYSE Arca",
-   "closePrice": "$59.84",
-   "closePriceValue": 59.84,
+   "closePrice": "$61.26",
+   "closePriceValue": 61.26,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -2243,8 +2243,8 @@
     "cagr5y": 18.01,
     "cagr10y": null,
     "siAnn": 12.98,
-    "dividendYield": 1,
-    "dividendYieldText": "1.00%",
+    "dividendYield": 0.97,
+    "dividendYieldText": "0.97%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -2252,7 +2252,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Semi-annually",
    "holdings": 159,
-   "history": 2202
+   "history": 2204
   },
   {
    "ticker": "FLLA",
@@ -2264,10 +2264,10 @@
    "isin": "US35473P5614",
    "ter": "0.19%",
    "terValue": 0.19,
-   "nav": "—",
-   "navValue": null,
-   "aum": "$111.68 M",
-   "aumValue": 111680000,
+   "nav": "$27.50",
+   "navValue": 27.5,
+   "aum": "$109.98 M",
+   "aumValue": 109980000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Oct 9 2018",
    "exchange": "NYSE Arca",
@@ -2323,8 +2323,8 @@
     "cagr5y": 9.8,
     "cagr10y": null,
     "siAnn": 6.13,
-    "dividendYield": 2.69,
-    "dividendYieldText": "2.69%",
+    "dividendYield": 2.68,
+    "dividendYieldText": "2.68%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -2332,7 +2332,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Semi-annually",
    "holdings": 131,
-   "history": 1997
+   "history": 1999
   },
   {
    "ticker": "FLMB",
@@ -2344,15 +2344,15 @@
    "isin": "US35473P8501",
    "ter": "0.30%",
    "terValue": 0.3,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$22.26",
+   "navValue": 22.26,
    "aum": "$54.53 M",
    "aumValue": 54530000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Aug 31 2017",
    "exchange": "NYSE Arca",
-   "closePrice": "$22.24",
-   "closePriceValue": 22.24,
+   "closePrice": "$22.12",
+   "closePriceValue": 22.12,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -2412,7 +2412,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 79,
-   "history": 2275
+   "history": 2277
   },
   {
    "ticker": "FLMI",
@@ -2431,8 +2431,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Aug 31 2017",
    "exchange": "NYSE Arca",
-   "closePrice": "$23.55",
-   "closePriceValue": 23.55,
+   "closePrice": "$23.42",
+   "closePriceValue": 23.42,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -2492,7 +2492,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 1337,
-   "history": 2268
+   "history": 2270
   },
   {
    "ticker": "FLMX",
@@ -2504,15 +2504,15 @@
    "isin": "US35473P7362",
    "ter": "0.19%",
    "terValue": 0.19,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$35.35",
+   "navValue": 35.35,
    "aum": "$81.31 M",
    "aumValue": 81310000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Nov 3 2017",
    "exchange": "NYSE Arca",
-   "closePrice": "$35.13",
-   "closePriceValue": 35.13,
+   "closePrice": "$35.28",
+   "closePriceValue": 35.28,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -2563,8 +2563,8 @@
     "cagr5y": 12.07,
     "cagr10y": null,
     "siAnn": 7.97,
-    "dividendYield": 4.1,
-    "dividendYieldText": "4.10%",
+    "dividendYield": 4.08,
+    "dividendYieldText": "4.08%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -2572,7 +2572,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Semi-annually",
    "holdings": 36,
-   "history": 2231
+   "history": 2233
   },
   {
    "ticker": "FLQL",
@@ -2584,15 +2584,15 @@
    "isin": "US35473P8014",
    "ter": "0.15%",
    "terValue": 0.15,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$78.61",
+   "navValue": 78.61,
    "aum": "$2.18 B",
    "aumValue": 2180000000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Apr 26 2017",
    "exchange": "Cboe",
-   "closePrice": "$78.60",
-   "closePriceValue": 78.6,
+   "closePrice": "$79.12",
+   "closePriceValue": 79.12,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -2652,7 +2652,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Quarterly",
    "holdings": 217,
-   "history": 2364
+   "history": 2366
   },
   {
    "ticker": "FLQM",
@@ -2664,15 +2664,15 @@
    "isin": "US35473P8840",
    "ter": "0.30%",
    "terValue": 0.3,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$58.20",
+   "navValue": 58.2,
    "aum": "$1.45 B",
    "aumValue": 1450000000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Apr 26 2017",
    "exchange": "Cboe",
-   "closePrice": "$58.21",
-   "closePriceValue": 58.21,
+   "closePrice": "$58.30",
+   "closePriceValue": 58.3,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -2732,7 +2732,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Quarterly",
    "holdings": 206,
-   "history": 2364
+   "history": 2366
   },
   {
    "ticker": "FLQS",
@@ -2744,15 +2744,15 @@
    "isin": "US35473P8766",
    "ter": "0.35%",
    "terValue": 0.35,
-   "nav": "$44.73",
-   "navValue": 44.73,
+   "nav": "$47.08",
+   "navValue": 47.08,
    "aum": "$44.73 M",
    "aumValue": 44730000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Apr 26 2017",
    "exchange": "Cboe",
-   "closePrice": "$47.07",
-   "closePriceValue": 47.07,
+   "closePrice": "$47.17",
+   "closePriceValue": 47.17,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -2803,8 +2803,8 @@
     "cagr5y": 6.23,
     "cagr10y": null,
     "siAnn": 8.82,
-    "dividendYield": 1.75,
-    "dividendYieldText": "1.75%",
+    "dividendYield": 1.67,
+    "dividendYieldText": "1.67%",
     "secYield": 1.32,
     "secYieldText": "1.32%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -2812,7 +2812,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Quarterly",
    "holdings": 497,
-   "history": 2364
+   "history": 2366
   },
   {
    "ticker": "FLRU",
@@ -2904,15 +2904,15 @@
    "isin": "US35473P5879",
    "ter": "0.39%",
    "terValue": 0.39,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$31.90",
+   "navValue": 31.9,
    "aum": "$4.79 M",
    "aumValue": 4790000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Oct 9 2018",
    "exchange": "NYSE Arca",
-   "closePrice": "$31.86",
-   "closePriceValue": 31.86,
+   "closePrice": "$31.98",
+   "closePriceValue": 31.98,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -2972,7 +2972,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Semi-annually",
    "holdings": 66,
-   "history": 1997
+   "history": 1999
   },
   {
    "ticker": "FLSP",
@@ -2991,8 +2991,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Dec 18 2019",
    "exchange": "NYSE Arca",
-   "closePrice": "$28.60",
-   "closePriceValue": 28.6,
+   "closePrice": "$28.65",
+   "closePriceValue": 28.65,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -3052,7 +3052,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Annually",
    "holdings": 329,
-   "history": 1696
+   "history": 1698
   },
   {
    "ticker": "FLSW",
@@ -3064,15 +3064,15 @@
    "isin": "US35473P6943",
    "ter": "0.09%",
    "terValue": 0.09,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$41.44",
+   "navValue": 41.44,
    "aum": "$78.74 M",
    "aumValue": 78740000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Feb 6 2018",
    "exchange": "NYSE Arca",
-   "closePrice": "$41.69",
-   "closePriceValue": 41.69,
+   "closePrice": "$41.87",
+   "closePriceValue": 41.87,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -3123,8 +3123,8 @@
     "cagr5y": 6.84,
     "cagr10y": null,
     "siAnn": 9.95,
-    "dividendYield": 4.51,
-    "dividendYieldText": "4.51%",
+    "dividendYield": 4.54,
+    "dividendYieldText": "4.54%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -3132,7 +3132,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Semi-annually",
    "holdings": 51,
-   "history": 2167
+   "history": 2169
   },
   {
    "ticker": "FLTW",
@@ -3144,15 +3144,15 @@
    "isin": "US35473P6869",
    "ter": "0.19%",
    "terValue": 0.19,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$109.95",
+   "navValue": 109.95,
    "aum": "$4.71 B",
    "aumValue": 4710000000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Nov 2 2017",
    "exchange": "NYSE Arca",
-   "closePrice": "$109.64",
-   "closePriceValue": 109.64,
+   "closePrice": "$111.09",
+   "closePriceValue": 111.09,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -3203,8 +3203,8 @@
     "cagr5y": 20.96,
     "cagr10y": null,
     "siAnn": 19.77,
-    "dividendYield": 0.34,
-    "dividendYieldText": "0.34%",
+    "dividendYield": 0.33,
+    "dividendYieldText": "0.33%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -3212,7 +3212,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Semi-annually",
    "holdings": 134,
-   "history": 2202
+   "history": 2204
   },
   {
    "ticker": "FLUD",
@@ -3224,15 +3224,15 @@
    "isin": "US35473P4963",
    "ter": "0.15%",
    "terValue": 0.15,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$24.93",
+   "navValue": 24.93,
    "aum": "$594.67 M",
    "aumValue": 594670000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Jul 14 2020",
    "exchange": "NYSE Arca",
-   "closePrice": "$24.93",
-   "closePriceValue": 24.93,
+   "closePrice": "$24.94",
+   "closePriceValue": 24.94,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -3292,7 +3292,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 519,
-   "history": 1553
+   "history": 1555
   },
   {
    "ticker": "FRIZ",
@@ -3304,8 +3304,8 @@
    "isin": "US35473P3635",
    "ter": "0.49%",
    "terValue": 0.49,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$26.57",
+   "navValue": 26.57,
    "aum": "$6.64 M",
    "aumValue": 6640000,
    "asOfDate": "Jun 30 2026",
@@ -3372,7 +3372,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Quarterly",
    "holdings": 43,
-   "history": 267
+   "history": 269
   },
   {
    "ticker": "FSML",
@@ -3384,15 +3384,15 @@
    "isin": "US35473P3221",
    "ter": "0.45%",
    "terValue": 0.45,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$29.15",
+   "navValue": 29.15,
    "aum": "$145.77 M",
    "aumValue": 145770000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Dec 9 2025",
    "exchange": "NYSE Arca",
-   "closePrice": "$29.16",
-   "closePriceValue": 29.16,
+   "closePrice": "$29.20",
+   "closePriceValue": 29.2,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -3452,7 +3452,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Quarterly",
    "holdings": 303,
-   "history": 195
+   "history": 197
   },
   {
    "ticker": "FTCA",
@@ -3464,15 +3464,15 @@
    "isin": "US7467298391",
    "ter": "0.35%",
    "terValue": 0.35,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$6.92",
+   "navValue": 6.92,
    "aum": "$548.72 M",
    "aumValue": 548720000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Apr 29 1983",
    "exchange": "NYSE Arca",
-   "closePrice": "$6.94",
-   "closePriceValue": 6.94,
+   "closePrice": "$6.89",
+   "closePriceValue": 6.89,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -3523,8 +3523,8 @@
     "cagr5y": 0.59,
     "cagr10y": 2.14,
     "siAnn": 5.52,
-    "dividendYield": 4.15,
-    "dividendYieldText": "4.15%",
+    "dividendYield": 4.16,
+    "dividendYieldText": "4.16%",
     "secYield": 4.26,
     "secYieldText": "4.26%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -3532,7 +3532,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 294,
-   "history": 228
+   "history": 230
   },
   {
    "ticker": "FTMA",
@@ -3544,15 +3544,15 @@
    "isin": "US7467298219",
    "ter": "0.35%",
    "terValue": 0.35,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$8.58",
+   "navValue": 8.58,
    "aum": "$290.72 M",
    "aumValue": 290720000,
    "asOfDate": "May 31 2026",
    "inceptionDate": "Oct 23 1989",
    "exchange": "NYSE Arca",
-   "closePrice": "$8.60",
-   "closePriceValue": 8.6,
+   "closePrice": "$8.56",
+   "closePriceValue": 8.56,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -3603,8 +3603,8 @@
     "cagr5y": 0.4,
     "cagr10y": 1.73,
     "siAnn": 4.7,
-    "dividendYield": 3.63,
-    "dividendYieldText": "3.63%",
+    "dividendYield": 3.64,
+    "dividendYieldText": "3.64%",
     "secYield": 4.02,
     "secYieldText": "4.02%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -3612,7 +3612,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 176,
-   "history": 217
+   "history": 219
   },
   {
    "ticker": "FTMH",
@@ -3626,13 +3626,13 @@
    "terValue": 0.35,
    "nav": "—",
    "navValue": null,
-   "aum": "$565.58 M",
-   "aumValue": 565580000,
+   "aum": "$571.24 M",
+   "aumValue": 571240000,
    "asOfDate": "Apr 30 2026",
    "inceptionDate": "Sep 9 1985",
    "exchange": "NYSE Arca",
-   "closePrice": "$11.02",
-   "closePriceValue": 11.02,
+   "closePrice": "$10.93",
+   "closePriceValue": 10.93,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -3692,7 +3692,7 @@
    "dividendYieldSource": null,
    "distributionFrequency": "Irregular",
    "holdings": 467,
-   "history": 228
+   "history": 230
   },
   {
    "ticker": "FTMN",
@@ -3711,13 +3711,13 @@
    "asOfDate": "May 31 2026",
    "inceptionDate": "Oct 23 1989",
    "exchange": "NYSE Arca",
-   "closePrice": "$8.28",
-   "closePriceValue": 8.28,
+   "closePrice": "$8.22",
+   "closePriceValue": 8.22,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Irregular",
+    "frequency": "Monthly",
     "exDate": "Sep 1 2026",
     "dividend": "0.017"
    },
@@ -3763,16 +3763,16 @@
     "cagr5y": 0.65,
     "cagr10y": 1.8,
     "siAnn": 4.29,
-    "dividendYield": null,
-    "dividendYieldText": "—",
+    "dividendYield": 2.48,
+    "dividendYieldText": "2.48%",
     "secYield": 3.74,
     "secYieldText": "3.74%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "dividendYieldSource": null,
-   "distributionFrequency": "Irregular",
+   "dividendYieldSource": "indicated",
+   "distributionFrequency": "Monthly",
    "holdings": 186,
-   "history": 218
+   "history": 220
   },
   {
    "ticker": "FTMS",
@@ -3791,13 +3791,13 @@
    "asOfDate": "May 29 2026",
    "inceptionDate": "Mar 18 2013",
    "exchange": "NYSE Arca",
-   "closePrice": "$9.75",
-   "closePriceValue": 9.75,
+   "closePrice": "$9.72",
+   "closePriceValue": 9.72,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Irregular",
+    "frequency": "Monthly",
     "exDate": "Sep 1 2026",
     "dividend": "0.027"
    },
@@ -3843,16 +3843,16 @@
     "cagr5y": 2.18,
     "cagr10y": 1.99,
     "siAnn": 1.69,
-    "dividendYield": null,
-    "dividendYieldText": "—",
+    "dividendYield": 3.33,
+    "dividendYieldText": "3.33%",
     "secYield": 3.16,
     "secYieldText": "3.16%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "dividendYieldSource": null,
-   "distributionFrequency": "Irregular",
+   "dividendYieldSource": "indicated",
+   "distributionFrequency": "Monthly",
    "holdings": 242,
-   "history": 228
+   "history": 230
   },
   {
    "ticker": "FTMU",
@@ -3864,15 +3864,15 @@
    "isin": "US7467297971",
    "ter": "0.30%",
    "terValue": 0.3,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$7.40",
+   "navValue": 7.4,
    "aum": "$431.05 M",
    "aumValue": 431050000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Dec 31 1976",
    "exchange": "NYSE Arca",
-   "closePrice": "$7.42",
-   "closePriceValue": 7.42,
+   "closePrice": "$7.37",
+   "closePriceValue": 7.37,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -3923,8 +3923,8 @@
     "cagr5y": 0.72,
     "cagr10y": 2.2,
     "siAnn": 5.72,
-    "dividendYield": 4.2,
-    "dividendYieldText": "4.20%",
+    "dividendYield": 4.22,
+    "dividendYieldText": "4.22%",
     "secYield": 4.26,
     "secYieldText": "4.26%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -3932,7 +3932,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 262,
-   "history": 228
+   "history": 230
   },
   {
    "ticker": "FTNJ",
@@ -3944,28 +3944,28 @@
    "isin": "US7467297716",
    "ter": "0.35%",
    "terValue": 0.35,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$8.32",
+   "navValue": 8.32,
    "aum": "$169.57 M",
    "aumValue": 169570000,
    "asOfDate": "May 31 2026",
    "inceptionDate": "Feb 20 1990",
    "exchange": "NYSE Arca",
-   "closePrice": "$8.31",
-   "closePriceValue": 8.31,
+   "closePrice": "$8.28",
+   "closePriceValue": 8.28,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Irregular",
+    "frequency": "Monthly",
     "exDate": "Sep 1 2026",
     "dividend": "0.024"
    },
    "returns": {
     "monthEnd": {
      "asOfDate": "May 31 2026",
-     "ytd": null,
-     "ytdText": "—",
+     "ytd": -2.51,
+     "ytdText": "-2.51%",
      "yr1": 5.19,
      "yr1Text": "5.19%",
      "yr3": 3.76,
@@ -3994,7 +3994,7 @@
     }
    },
    "metrics": {
-    "ytd": null,
+    "ytd": -2.51,
     "tr1y": 5.19,
     "tr3y": 0.11709443737600012,
     "tr5y": 0.0421946416385508,
@@ -4003,16 +4003,16 @@
     "cagr5y": 0.83,
     "cagr10y": 2.18,
     "siAnn": 4.52,
-    "dividendYield": null,
-    "dividendYieldText": "—",
-    "secYield": null,
-    "secYieldText": "—",
+    "dividendYield": 3.46,
+    "dividendYieldText": "3.46%",
+    "secYield": 3.93,
+    "secYieldText": "3.93%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "dividendYieldSource": null,
-   "distributionFrequency": "Irregular",
+   "dividendYieldSource": "indicated",
+   "distributionFrequency": "Monthly",
    "holdings": 153,
-   "history": 218
+   "history": 220
   },
   {
    "ticker": "FTNY",
@@ -4031,13 +4031,13 @@
    "asOfDate": "May 29 2026",
    "inceptionDate": "Sep 2 1983",
    "exchange": "NYSE Arca",
-   "closePrice": "$7.41",
-   "closePriceValue": 7.41,
+   "closePrice": "$7.36",
+   "closePriceValue": 7.36,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Irregular",
+    "frequency": "Monthly",
     "exDate": "Sep 1 2026",
     "dividend": "0.025"
    },
@@ -4083,16 +4083,16 @@
     "cagr5y": 0.26,
     "cagr10y": 1.75,
     "siAnn": 5.45,
-    "dividendYield": null,
-    "dividendYieldText": "—",
+    "dividendYield": 4.05,
+    "dividendYieldText": "4.05%",
     "secYield": 4.18,
     "secYieldText": "4.18%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "dividendYieldSource": null,
-   "distributionFrequency": "Irregular",
+   "dividendYieldSource": "indicated",
+   "distributionFrequency": "Monthly",
    "holdings": 270,
-   "history": 228
+   "history": 230
   },
   {
    "ticker": "FTOH",
@@ -4106,18 +4106,18 @@
    "terValue": 0.35,
    "nav": "—",
    "navValue": null,
-   "aum": "$72.76 M",
-   "aumValue": 72760000,
+   "aum": "$73.22 M",
+   "aumValue": 73220000,
    "asOfDate": "May 31 2026",
    "inceptionDate": "Oct 23 1989",
    "exchange": "NYSE Arca",
-   "closePrice": "$7.97",
-   "closePriceValue": 7.97,
+   "closePrice": "$7.91",
+   "closePriceValue": 7.91,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Monthly",
+    "frequency": "Irregular",
     "exDate": "Sep 1 2026",
     "dividend": "0.025"
    },
@@ -4163,16 +4163,16 @@
     "cagr5y": 0.7,
     "cagr10y": 1.84,
     "siAnn": 4.32,
-    "dividendYield": 3.76,
-    "dividendYieldText": "3.76%",
+    "dividendYield": null,
+    "dividendYieldText": "—",
     "secYield": 4.06,
     "secYieldText": "4.06%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "dividendYieldSource": "indicated",
-   "distributionFrequency": "Monthly",
+   "dividendYieldSource": null,
+   "distributionFrequency": "Irregular",
    "holdings": 80,
-   "history": 218
+   "history": 220
   },
   {
    "ticker": "FTPA",
@@ -4184,15 +4184,15 @@
    "isin": "US7467297484",
    "ter": "0.35%",
    "terValue": 0.35,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$8.18",
+   "navValue": 8.18,
    "aum": "$108.25 M",
    "aumValue": 108250000,
    "asOfDate": "May 31 2026",
    "inceptionDate": "Jul 21 1989",
    "exchange": "NYSE Arca",
-   "closePrice": "$8.19",
-   "closePriceValue": 8.19,
+   "closePrice": "$8.15",
+   "closePriceValue": 8.15,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -4252,7 +4252,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 111,
-   "history": 218
+   "history": 220
   },
   {
    "ticker": "FTSD",
@@ -4264,15 +4264,15 @@
    "isin": "US3535061085",
    "ter": "0.25%",
    "terValue": 0.25,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$88.90",
+   "navValue": 88.9,
    "aum": "$329.01 M",
    "aumValue": 329010000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Nov 4 2013",
    "exchange": "NYSE Arca",
-   "closePrice": "$88.95",
-   "closePriceValue": 88.95,
+   "closePrice": "$89.04",
+   "closePriceValue": 89.04,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -4332,7 +4332,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 339,
-   "history": 3239
+   "history": 3241
   },
   {
    "ticker": "HELX",
@@ -4344,15 +4344,15 @@
    "isin": "US35473P5200",
    "ter": "0.50%",
    "terValue": 0.5,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$44.25",
+   "navValue": 44.25,
    "aum": "$33.19 M",
    "aumValue": 33189999.999999996,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Feb 25 2020",
    "exchange": "Cboe",
-   "closePrice": "$44.28",
-   "closePriceValue": 44.28,
+   "closePrice": "$44.20",
+   "closePriceValue": 44.2,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -4412,7 +4412,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Annually",
    "holdings": 63,
-   "history": 1652
+   "history": 1654
   },
   {
    "ticker": "INCE",
@@ -4431,8 +4431,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "—",
    "exchange": "NYSEArca",
-   "closePrice": "$66.70",
-   "closePriceValue": 66.7,
+   "closePrice": "$66.72",
+   "closePriceValue": 66.72,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -4492,7 +4492,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 96,
-   "history": 2514
+   "history": 2516
   },
   {
    "ticker": "INCM",
@@ -4511,8 +4511,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Jun 6 2023",
    "exchange": "NYSE Arca",
-   "closePrice": "$28.77",
-   "closePriceValue": 28.77,
+   "closePrice": "$28.81",
+   "closePriceValue": 28.81,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -4572,7 +4572,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 380,
-   "history": 826
+   "history": 828
   },
   {
    "ticker": "IQM",
@@ -4584,28 +4584,28 @@
    "isin": "US35473P5127",
    "ter": "0.50%",
    "terValue": 0.5,
-   "nav": "$110.17",
-   "navValue": 110.17,
+   "nav": "—",
+   "navValue": null,
    "aum": "$88.14 M",
    "aumValue": 88140000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Feb 25 2020",
    "exchange": "Cboe",
-   "closePrice": "$110.07",
-   "closePriceValue": 110.07,
+   "closePrice": "$111.31",
+   "closePriceValue": 111.31,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Semi-annually",
+    "frequency": "Annually",
     "exDate": "Dec 13 2021",
     "dividend": "0.094"
    },
    "returns": {
     "monthEnd": {
      "asOfDate": "Jun 30 2026",
-     "ytd": 26.17,
-     "ytdText": "26.17%",
+     "ytd": null,
+     "ytdText": "—",
      "yr1": 30.96,
      "yr1Text": "30.96%",
      "yr3": 29.5,
@@ -4634,7 +4634,7 @@
     }
    },
    "metrics": {
-    "ytd": 26.17,
+    "ytd": null,
     "tr1y": 30.96,
     "tr3y": 1.1717473749999994,
     "tr5y": 1.047468387818697,
@@ -4643,16 +4643,16 @@
     "cagr5y": 15.41,
     "cagr10y": null,
     "siAnn": 24.44,
-    "dividendYield": 0.17,
-    "dividendYieldText": "0.17%",
+    "dividendYield": 0.08,
+    "dividendYieldText": "0.08%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
    "dividendYieldSource": "indicated",
-   "distributionFrequency": "Semi-annually",
+   "distributionFrequency": "Annually",
    "holdings": 77,
-   "history": 1652
+   "history": 1654
   },
   {
    "ticker": "LRGE",
@@ -4666,13 +4666,13 @@
    "terValue": 0.48,
    "nav": "—",
    "navValue": null,
-   "aum": "$391.68 M",
-   "aumValue": 391680000,
+   "aum": "$391.01 M",
+   "aumValue": 391010000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "May 22 2017",
    "exchange": "NASDAQ - XNMS",
-   "closePrice": "$90.80",
-   "closePriceValue": 90.8,
+   "closePrice": "$90.57",
+   "closePriceValue": 90.57,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -4732,7 +4732,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Annually",
    "holdings": 29,
-   "history": 2342
+   "history": 2344
   },
   {
    "ticker": "LVHD",
@@ -4744,15 +4744,15 @@
    "isin": null,
    "ter": "0.27%",
    "terValue": 0.27,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$41.87",
+   "navValue": 41.87,
    "aum": "$596.67 M",
    "aumValue": 596670000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Dec 28 2015",
    "exchange": "NASDAQ - XNMS",
-   "closePrice": "$41.85",
-   "closePriceValue": 41.85,
+   "closePrice": "$41.90",
+   "closePriceValue": 41.9,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -4764,8 +4764,8 @@
    "returns": {
     "monthEnd": {
      "asOfDate": "Jun 30 2026",
-     "ytd": 7.55,
-     "ytdText": "7.55%",
+     "ytd": 6.97,
+     "ytdText": "6.97%",
      "yr1": 10.62,
      "yr1Text": "10.62%",
      "yr3": 11.04,
@@ -4794,7 +4794,7 @@
     }
    },
    "metrics": {
-    "ytd": 7.55,
+    "ytd": 6.97,
     "tr1y": 10.62,
     "tr3y": 0.3691100528640001,
     "tr5y": 0.3836479358198288,
@@ -4812,7 +4812,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Quarterly",
    "holdings": 115,
-   "history": 2699
+   "history": 2701
   },
   {
    "ticker": "LVHI",
@@ -4831,8 +4831,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Jul 27 2016",
    "exchange": "Cboe",
-   "closePrice": "$42.25",
-   "closePriceValue": 42.25,
+   "closePrice": "$42.29",
+   "closePriceValue": 42.29,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -4883,8 +4883,8 @@
     "cagr5y": 16.76,
     "cagr10y": 10.71,
     "siAnn": 11.64,
-    "dividendYield": 3.42,
-    "dividendYieldText": "3.42%",
+    "dividendYield": 3.41,
+    "dividendYieldText": "3.41%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -4892,7 +4892,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Quarterly",
    "holdings": 239,
-   "history": 2553
+   "history": 2555
   },
   {
    "ticker": "MULT",
@@ -4972,7 +4972,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 329,
-   "history": 269
+   "history": 270
   },
   {
    "ticker": "PBDC",
@@ -4984,15 +4984,15 @@
    "isin": "US7467295082",
    "ter": "11.77%",
    "terValue": 11.77,
-   "nav": "—",
-   "navValue": null,
-   "aum": "$296.12 M",
-   "aumValue": 296120000,
+   "nav": "$27.05",
+   "navValue": 27.05,
+   "aum": "$294.18 M",
+   "aumValue": 294180000,
    "asOfDate": "Apr 30 2026",
    "inceptionDate": "Sep 29 2022",
    "exchange": "NYSE Arca",
-   "closePrice": "$27.01",
-   "closePriceValue": 27.01,
+   "closePrice": "$27.08",
+   "closePriceValue": 27.08,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -5043,8 +5043,8 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 14.22,
-    "dividendYield": 10.31,
-    "dividendYieldText": "10.31%",
+    "dividendYield": 10.29,
+    "dividendYieldText": "10.29%",
     "secYield": 9.92,
     "secYieldText": "9.92%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -5052,7 +5052,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Quarterly",
    "holdings": 24,
-   "history": 998
+   "history": 1000
   },
   {
    "ticker": "PEMX",
@@ -5066,8 +5066,8 @@
    "terValue": 0.7,
    "nav": "$87.06",
    "navValue": 87.06,
-   "aum": "$32.95 M",
-   "aumValue": 32950000.000000004,
+   "aum": "$32.65 M",
+   "aumValue": 32650000,
    "asOfDate": "Apr 30 2026",
    "inceptionDate": "May 17 2023",
    "exchange": "NYSE Arca",
@@ -5132,7 +5132,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Annually",
    "holdings": 54,
-   "history": 832
+   "history": 834
   },
   {
    "ticker": "PGRI",
@@ -5144,15 +5144,15 @@
    "isin": "US35473P3304",
    "ter": "0.55%",
    "terValue": 0.55,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$26.23",
+   "navValue": 26.23,
    "aum": "$6.56 M",
    "aumValue": 6560000,
    "asOfDate": "Apr 30 2026",
    "inceptionDate": "Oct 21 2025",
    "exchange": "NYSE Arca",
-   "closePrice": "$26.27",
-   "closePriceValue": 26.27,
+   "closePrice": "$26.51",
+   "closePriceValue": 26.51,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -5212,7 +5212,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Annually",
    "holdings": 203,
-   "history": 230
+   "history": 232
   },
   {
    "ticker": "PGRO",
@@ -5224,15 +5224,15 @@
    "isin": "US7467294093",
    "ter": "0.50%",
    "terValue": 0.5,
-   "nav": "—",
-   "navValue": null,
-   "aum": "$216.79 M",
-   "aumValue": 216790000,
+   "nav": "$48.10",
+   "navValue": 48.1,
+   "aum": "$217.65 M",
+   "aumValue": 217650000,
    "asOfDate": "May 29 2026",
    "inceptionDate": "May 25 2021",
    "exchange": "NYSE Arca",
-   "closePrice": "$48.12",
-   "closePriceValue": 48.12,
+   "closePrice": "$48.34",
+   "closePriceValue": 48.34,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -5292,7 +5292,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Annually",
    "holdings": 33,
-   "history": 1338
+   "history": 1340
   },
   {
    "ticker": "PVAL",
@@ -5311,8 +5311,8 @@
    "asOfDate": "May 29 2026",
    "inceptionDate": "May 25 2021",
    "exchange": "NYSE Arca",
-   "closePrice": "$53.01",
-   "closePriceValue": 53.01,
+   "closePrice": "$53.45",
+   "closePriceValue": 53.45,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -5372,7 +5372,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Quarterly",
    "holdings": 46,
-   "history": 1338
+   "history": 1340
   },
   {
    "ticker": "SOEZ",
@@ -5384,15 +5384,15 @@
    "isin": "US3546461019",
    "ter": "0.19%",
    "terValue": 0.19,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$20.28",
+   "navValue": 20.28,
    "aum": "$17.24 M",
    "aumValue": 17240000,
    "asOfDate": "Sep 24 2026",
    "inceptionDate": "Dec 3 2025",
    "exchange": "NYSE Arca",
-   "closePrice": "$20.29",
-   "closePriceValue": 20.29,
+   "closePrice": "$21.10",
+   "closePriceValue": 21.1,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -5452,7 +5452,7 @@
    "dividendYieldSource": null,
    "distributionFrequency": "Irregular",
    "holdings": 2,
-   "history": 202
+   "history": 204
   },
   {
    "ticker": "SQLV",
@@ -5464,15 +5464,15 @@
    "isin": null,
    "ter": "0.60%",
    "terValue": 0.6,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$51.50",
+   "navValue": 51.5,
    "aum": "$38.62 M",
    "aumValue": 38620000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Jul 12 2017",
    "exchange": "NASDAQ - XNMS",
-   "closePrice": "$51.49",
-   "closePriceValue": 51.49,
+   "closePrice": "$51.68",
+   "closePriceValue": 51.68,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -5532,7 +5532,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Quarterly",
    "holdings": 322,
-   "history": 2312
+   "history": 2314
   },
   {
    "ticker": "TEMD",
@@ -5544,8 +5544,8 @@
    "isin": "US35473P3148",
    "ter": "0.45%",
    "terValue": 0.45,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$24.23",
+   "navValue": 24.23,
    "aum": "$48.46 M",
    "aumValue": 48460000,
    "asOfDate": "Jun 30 2026",
@@ -5603,8 +5603,8 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 2.63,
-    "dividendYield": 5.83,
-    "dividendYieldText": "5.83%",
+    "dividendYield": 5.89,
+    "dividendYieldText": "5.89%",
     "secYield": 7.65,
     "secYieldText": "7.65%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -5612,7 +5612,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 83,
-   "history": 169
+   "history": 171
   },
   {
    "ticker": "TINS",
@@ -5624,8 +5624,8 @@
    "isin": "US35473P3486",
    "ter": "0.55%",
    "terValue": 0.55,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$28.56",
+   "navValue": 28.56,
    "aum": "$5.71 M",
    "aumValue": 5710000,
    "asOfDate": "Jun 30 2026",
@@ -5692,7 +5692,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Annually",
    "holdings": 47,
-   "history": 230
+   "history": 232
   },
   {
    "ticker": "UDIV",
@@ -5711,8 +5711,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Jun 1 2016",
    "exchange": "NYSE Arca",
-   "closePrice": "$61.55",
-   "closePriceValue": 61.55,
+   "closePrice": "$61.91",
+   "closePriceValue": 61.91,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -5772,7 +5772,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Quarterly",
    "holdings": 283,
-   "history": 2591
+   "history": 2593
   },
   {
    "ticker": "USFI",
@@ -5790,7 +5790,7 @@
    "aumValue": 9490000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Jul 25 2023",
-   "exchange": "NASDAQ - XNAS",
+   "exchange": "NYSEArca",
    "closePrice": "$23.83",
    "closePriceValue": 23.83,
    "closePriceSource": "last close from the Yahoo Finance price history",
@@ -5852,7 +5852,7 @@
    "dividendYieldSource": "official",
    "distributionFrequency": "Monthly",
    "holdings": 58,
-   "history": 793
+   "history": 794
   },
   {
    "ticker": "USPX",
@@ -5864,15 +5864,15 @@
    "isin": "US35473P4054",
    "ter": "0.03%",
    "terValue": 0.03,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$67.18",
+   "navValue": 67.18,
    "aum": "$2.10 B",
    "aumValue": 2100000000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Jun 1 2016",
    "exchange": "NYSE Arca",
-   "closePrice": "$67.24",
-   "closePriceValue": 67.24,
+   "closePrice": "$67.46",
+   "closePriceValue": 67.46,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -5932,7 +5932,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Quarterly",
    "holdings": 484,
-   "history": 2591
+   "history": 2593
   },
   {
    "ticker": "WABF",
@@ -5944,15 +5944,15 @@
    "isin": "US35473P3973",
    "ter": "0.35%",
    "terValue": 0.35,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$23.83",
+   "navValue": 23.83,
    "aum": "$11.92 M",
    "aumValue": 11920000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Sep 19 2023",
    "exchange": "NASDAQ - XNAS",
-   "closePrice": "$23.82",
-   "closePriceValue": 23.82,
+   "closePrice": "$23.83",
+   "closePriceValue": 23.83,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -6012,7 +6012,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 466,
-   "history": 754
+   "history": 756
   },
   {
    "ticker": "XDAT",
@@ -6024,15 +6024,15 @@
    "isin": "US35473P4708",
    "ter": "0.50%",
    "terValue": 0.5,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$28.49",
+   "navValue": 28.49,
    "aum": "$4.27 M",
    "aumValue": 4270000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Jan 12 2021",
    "exchange": "Cboe",
-   "closePrice": "$28.51",
-   "closePriceValue": 28.51,
+   "closePrice": "$28.29",
+   "closePriceValue": 28.29,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -6092,7 +6092,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Annually",
    "holdings": 60,
-   "history": 1429
+   "history": 1431
   },
   {
    "ticker": "XIDV",
@@ -6111,8 +6111,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Jan 21 2025",
    "exchange": "NYSE Arca",
-   "closePrice": "$38.30",
-   "closePriceValue": 38.3,
+   "closePrice": "$38.38",
+   "closePriceValue": 38.38,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -6172,7 +6172,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Quarterly",
    "holdings": 87,
-   "history": 419
+   "history": 421
   },
   {
    "ticker": "XRPZ",
@@ -6191,8 +6191,8 @@
    "asOfDate": "Sep 24 2026",
    "inceptionDate": "Nov 24 2025",
    "exchange": "Nyse Arca",
-   "closePrice": "$16.61",
-   "closePriceValue": 16.61,
+   "closePrice": "$17.03",
+   "closePriceValue": 17.03,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -6252,7 +6252,7 @@
    "dividendYieldSource": null,
    "distributionFrequency": "—",
    "holdings": 2,
-   "history": 208
+   "history": 210
   },
   {
    "ticker": "XUDV",
@@ -6271,8 +6271,8 @@
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Jan 21 2025",
    "exchange": "NYSE Arca",
-   "closePrice": "$32.02",
-   "closePriceValue": 32.02,
+   "closePrice": "$32.08",
+   "closePriceValue": 32.08,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -6332,7 +6332,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Quarterly",
    "holdings": 93,
-   "history": 419
+   "history": 421
   },
   {
    "ticker": "YCLO",
@@ -6357,7 +6357,7 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Quarterly",
+    "frequency": "Monthly",
     "exDate": "Sep 1 2026",
     "dividend": "0.106"
    },
@@ -6403,16 +6403,16 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 1.7,
-    "dividendYield": 1.68,
-    "dividendYieldText": "1.68%",
+    "dividendYield": 5.05,
+    "dividendYieldText": "5.05%",
     "secYield": 4.82,
     "secYieldText": "4.82%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
    "dividendYieldSource": "indicated",
-   "distributionFrequency": "Quarterly",
+   "distributionFrequency": "Monthly",
    "holdings": 49,
-   "history": 77
+   "history": 79
   },
   {
    "ticker": "YLDE",
@@ -6424,15 +6424,15 @@
    "isin": null,
    "ter": "0.48%",
    "terValue": 0.48,
-   "nav": "—",
-   "navValue": null,
+   "nav": "$55.13",
+   "navValue": 55.13,
    "aum": "$170.90 M",
    "aumValue": 170900000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "May 22 2017",
    "exchange": "NASDAQ - XNMS",
-   "closePrice": "$55.13",
-   "closePriceValue": 55.13,
+   "closePrice": "$55.23",
+   "closePriceValue": 55.23,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -6492,7 +6492,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Monthly",
    "holdings": 56,
-   "history": 2344
+   "history": 2346
   }
  ]
 }

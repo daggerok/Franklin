@@ -28,14 +28,14 @@
   "net": 0.35
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$8.32",
+  "value": 8.32,
+  "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$8.31",
-  "value": 8.31,
-  "asOfDate": "2026-09-24",
+  "display": "$8.28",
+  "value": 8.28,
+  "asOfDate": "2026-09-25",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -45,23 +45,23 @@
  "aum": {
   "display": "$169.57 M",
   "value": 169570000,
-  "asOfDate": "2026-08-31",
+  "asOfDate": "2026-09-24",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "dividendYield": 3.46,
+  "dividendYieldText": "3.46%",
+  "dividendYieldKind": "indicated: latest distribution 0.0240 x 12/year / NAV 8.32",
+  "secYield": 3.93,
+  "secYieldText": "3.93%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "May 31 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": -2.51,
+   "ytdText": "-2.51%",
    "yr1": 5.19,
    "yr1Text": "5.19%",
    "yr3": 3.76,
@@ -90,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Irregular",
-  "frequencyCode": "99 - Irregular",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -164,13 +164,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028342, report period 2026-05-31)"
  },
  "history": {
-  "totalRows": 218,
+  "totalRows": 220,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 24 2026",
+  "asOf": "Sep 25 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

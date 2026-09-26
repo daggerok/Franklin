@@ -33,9 +33,9 @@
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$7.41",
-  "value": 7.41,
-  "asOfDate": "2026-09-24",
+  "display": "$7.36",
+  "value": 7.36,
+  "asOfDate": "2026-09-25",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -165,13 +165,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028338, report period 2026-05-29)"
  },
  "history": {
-  "totalRows": 228,
+  "totalRows": 230,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 24 2026",
+  "asOf": "Sep 25 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

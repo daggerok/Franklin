@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P553",
   "isin": "US35473P5531",
-  "benchmark": "Bloomberg U.S. Aggregate Index"
+  "benchmark": "outperformance mainly through security selection and sector rotation."
  },
  "expenseRatio": {
   "display": "0.15%",
@@ -33,9 +33,9 @@
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$20.50",
-  "value": 20.5,
-  "asOfDate": "2026-09-24",
+  "display": "$20.55",
+  "value": 20.55,
+  "asOfDate": "2026-09-25",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -45,7 +45,7 @@
  "aum": {
   "display": "$3.02 B",
   "value": 3020000000,
-  "asOfDate": "2026-08-31",
+  "asOfDate": "2026-09-24",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -536,14 +536,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035108, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 1762,
+  "totalRows": 1764,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Sep 24 2026",
+  "asOf": "Sep 25 2026",
   "source": "Yahoo Finance public chart API"
  }
 }
