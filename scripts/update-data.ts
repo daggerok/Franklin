@@ -1,4 +1,5 @@
 #!/usr/bin/env -S bun --use-system-ca
+/// <reference types="bun" />
 import { readFile as outputReadFile, readdir as outputReadDir } from 'node:fs/promises';
 import { createHash as outputCreateHash } from 'node:crypto';
 import { join as outputJoin } from 'node:path';
@@ -291,7 +292,6 @@ if (typeof process !== 'undefined' && process.env) {
 //
 // Usage: bun ./scripts/update-data.ts [--help]
 
-/// <reference types="bun" />
 import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 
 declare const process: {
