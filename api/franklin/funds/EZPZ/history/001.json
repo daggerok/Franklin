@@ -2,7 +2,7 @@
  "ticker": "EZPZ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 400,
+ "totalRows": 399,
  "headers": [
   "Date",
   "Close",
@@ -2802,13 +2802,6 @@
    "Adj Close": "21.45",
    "Volume": "6000",
    "searchIndex": "2026-09-24 21.44700050354004"
-  },
-  {
-   "Date": "Sep 25 2026",
-   "Close": "21.45",
-   "Adj Close": "21.45",
-   "Volume": "2246",
-   "searchIndex": "2026-09-25 21.450000762939453"
   }
  ]
 }

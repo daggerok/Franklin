@@ -2,7 +2,7 @@
  "ticker": "PEMX",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 834,
+ "totalRows": 833,
  "headers": [
   "Date",
   "Close",
@@ -5840,13 +5840,6 @@
    "Adj Close": "86.59",
    "Volume": "2300",
    "searchIndex": "2026-09-24 86.59100341796875"
-  },
-  {
-   "Date": "Sep 25 2026",
-   "Close": "86.59",
-   "Adj Close": "86.59",
-   "Volume": "492",
-   "searchIndex": "2026-09-25 86.59100341796875"
   }
  ]
 }

@@ -28,13 +28,13 @@
   "net": 0.15
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$24.93",
+  "value": 24.93,
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$24.94",
-  "value": 24.94,
+  "display": "$24.95",
+  "value": 24.95,
   "asOfDate": "2026-09-25",
   "source": "last close from the Yahoo Finance price history"
  },
@@ -51,7 +51,7 @@
  "yields": {
   "dividendYield": 3.85,
   "dividendYieldText": "3.85%",
-  "dividendYieldKind": "indicated: latest distribution 0.0800 x 12/year / last close 24.93",
+  "dividendYieldKind": "indicated: latest distribution 0.0800 x 12/year / NAV 24.93",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"

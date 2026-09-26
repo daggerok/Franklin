@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39639/SINGLCLASS/franklin-bitcoin-etf/EZBC",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-24)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-25)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EZBC?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -28,14 +28,14 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$48.80",
-  "value": 48.8,
+  "display": "—",
+  "value": null,
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$48.51",
-  "value": 48.51,
-  "asOfDate": "2026-09-25",
+  "display": "$48.78",
+  "value": 48.78,
+  "asOfDate": "2026-09-24",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -108,18 +108,18 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-09-24",
-  "asOf": "Sep 24 2026",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-24)"
+  "asOfDate": "2026-09-25",
+  "asOf": "Sep 25 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-25)"
  },
  "history": {
-  "totalRows": 679,
+  "totalRows": 678,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

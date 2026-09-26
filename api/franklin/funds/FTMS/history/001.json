@@ -2,7 +2,7 @@
  "ticker": "FTMS",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 230,
+ "totalRows": 229,
  "headers": [
   "Date",
   "Close",
@@ -1612,13 +1612,6 @@
    "Adj Close": "9.75",
    "Volume": "104700",
    "searchIndex": "2026-09-24 9.75"
-  },
-  {
-   "Date": "Sep 25 2026",
-   "Close": "9.72",
-   "Adj Close": "9.72",
-   "Volume": "148393",
-   "searchIndex": "2026-09-25 9.720000267028809"
   }
  ]
 }

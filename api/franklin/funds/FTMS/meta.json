@@ -22,10 +22,10 @@
   "benchmark": "Bloomberg 3-year Municipal Bond Index"
  },
  "expenseRatio": {
-  "display": "0.22%",
-  "value": 0.22,
+  "display": "0.21%",
+  "value": 0.21,
   "gross": 0.22,
-  "net": 0.22
+  "net": 0.21
  },
  "nav": {
   "display": "$9.73",
@@ -33,9 +33,9 @@
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$9.72",
-  "value": 9.72,
-  "asOfDate": "2026-09-25",
+  "display": "$9.75",
+  "value": 9.75,
+  "asOfDate": "2026-09-24",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -164,13 +164,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028350, report period 2026-05-29)"
  },
  "history": {
-  "totalRows": 230,
+  "totalRows": 229,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

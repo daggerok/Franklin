@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P611",
   "isin": "US35473P6117",
-  "benchmark": "Linked Bloomberg Global Aggregate ex-USD Index Hedged USD"
+  "benchmark": "s."
  },
  "expenseRatio": {
   "display": "0.25%",
@@ -33,9 +33,9 @@
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$20.05",
-  "value": 20.05,
-  "asOfDate": "2026-09-25",
+  "display": "$20.02",
+  "value": 20.02,
+  "asOfDate": "2026-09-24",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -49,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 2.28,
-  "dividendYieldText": "2.28%",
-  "dividendYieldKind": "indicated: latest distribution 0.0380 x 12/year / NAV 20.04",
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -90,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Monthly",
-  "frequencyCode": "01 - Monthly",
-  "paymentsPerYear": 12,
+  "frequency": "Irregular",
+  "frequencyCode": "99 - Irregular",
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -309,7 +309,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035116, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2091,
+  "totalRows": 2090,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -317,7 +317,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

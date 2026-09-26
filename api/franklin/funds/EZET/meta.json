@@ -28,14 +28,14 @@
   "net": 0.19
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$20.40",
+  "value": 20.4,
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$20.40",
-  "value": 20.4,
-  "asOfDate": "2026-09-25",
+  "display": "$20.41",
+  "value": 20.41,
+  "asOfDate": "2026-09-24",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -113,13 +113,13 @@
   "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-24)"
  },
  "history": {
-  "totalRows": 547,
+  "totalRows": 546,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

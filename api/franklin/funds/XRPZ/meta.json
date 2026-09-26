@@ -33,9 +33,9 @@
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$17.03",
-  "value": 17.03,
-  "asOfDate": "2026-09-25",
+  "display": "$16.61",
+  "value": 16.61,
+  "asOfDate": "2026-09-24",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -113,13 +113,13 @@
   "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-24)"
  },
  "history": {
-  "totalRows": 210,
+  "totalRows": 209,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

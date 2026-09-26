@@ -22,10 +22,10 @@
   "benchmark": null
  },
  "expenseRatio": {
-  "display": "0.56%",
-  "value": 0.56,
+  "display": "0.55%",
+  "value": 0.55,
   "gross": 0.56,
-  "net": 0.56
+  "net": 0.55
  },
  "nav": {
   "display": "$52.98",
@@ -33,9 +33,9 @@
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$53.45",
-  "value": 53.45,
-  "asOfDate": "2026-09-25",
+  "display": "$53.01",
+  "value": 53.01,
+  "asOfDate": "2026-09-24",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -54,7 +54,7 @@
   "dividendYieldKind": "indicated: latest distribution 0.1260 x 4/year / NAV 52.98",
   "secYield": 0.84,
   "secYieldText": "0.84%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -194,14 +194,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028247, report period 2026-05-29)"
  },
  "history": {
-  "totalRows": 1340,
+  "totalRows": 1339,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

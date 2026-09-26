@@ -28,14 +28,14 @@
   "net": 0.19
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$35.35",
+  "value": 35.35,
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$35.28",
-  "value": 35.28,
-  "asOfDate": "2026-09-25",
+  "display": "$35.13",
+  "value": 35.13,
+  "asOfDate": "2026-09-24",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -49,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 4.1,
-  "dividendYieldText": "4.10%",
-  "dividendYieldKind": "indicated: latest distribution 0.7210 x 2/year / last close 35.13",
+  "dividendYield": 8.16,
+  "dividendYieldText": "8.16%",
+  "dividendYieldKind": "indicated: latest distribution 0.7210 x 4/year / NAV 35.35",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -90,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
-  "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "frequency": "Quarterly",
+  "frequencyCode": "04 - Quarterly",
+  "paymentsPerYear": 4,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -214,7 +214,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035104, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2233,
+  "totalRows": 2232,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -222,7 +222,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

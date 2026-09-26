@@ -28,14 +28,14 @@
   "net": 0.6
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$51.50",
+  "value": 51.5,
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$51.68",
-  "value": 51.68,
-  "asOfDate": "2026-09-25",
+  "display": "$51.49",
+  "value": 51.49,
+  "asOfDate": "2026-09-24",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -45,16 +45,16 @@
  "aum": {
   "display": "$38.62 M",
   "value": 38620000,
-  "asOfDate": "2026-08-31",
+  "asOfDate": "2026-09-24",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 1.18,
   "dividendYieldText": "1.18%",
-  "dividendYieldKind": "indicated: latest distribution 0.1520 x 4/year / last close 51.49",
+  "dividendYieldKind": "indicated: latest distribution 0.1520 x 4/year / NAV 51.50",
   "secYield": 0.73,
   "secYieldText": "0.73%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -280,7 +280,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035200, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2314,
+  "totalRows": 2313,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -288,7 +288,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Sep 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }
