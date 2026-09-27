@@ -1,17 +1,10 @@
 name: Update Franklin ETF data
 
 on:
-  # Refresh after updater/workflow changes, but not after the generated-data
-  # commit made by this workflow (which only touches api/franklin).
-  push:
-    branches:
-      - main
-      - 'arena/**'
-    paths:
-      - 'scripts/update-data.ts'
-      - 'scripts/update-data.test.ts'
-      - 'scripts/check-index.ts'
-      - '.github/workflows/update-data.yml'
+  # Weekly refresh (Saturday/Sunday midnight UTC) plus manual runs. Merges to
+  # main/arena branches no longer trigger a live data refresh on their own.
+  schedule:
+    - cron: '0 0 * * 0'
   workflow_dispatch:
     inputs:
       max_fetches:
