@@ -33,9 +33,9 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "$21.45",
-  "value": 21.45,
-  "asOfDate": "2026-09-24",
+  "display": "$21.41",
+  "value": 21.41,
+  "asOfDate": "2026-09-25",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -45,7 +45,7 @@
  "aum": {
   "display": "$17.15 M",
   "value": 17150000,
-  "asOfDate": "2026-09-24",
+  "asOfDate": "2026-09-25",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -60,8 +60,8 @@
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "Dec 1 2025",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": -5.47,
+   "ytdText": "-5.47%",
    "yr1": -32.15,
    "yr1Text": "-32.15%",
    "yr3": null,
@@ -113,13 +113,13 @@
   "source": "Franklin Templeton official product page Portfolio holdings (daily, 2025-12-01)"
  },
  "history": {
-  "totalRows": 399,
+  "totalRows": 400,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 24 2026",
+  "asOf": "Sep 25 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -2,7 +2,7 @@
  "ticker": "FTMU",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 229,
+ "totalRows": 230,
  "headers": [
   "Date",
   "Close",
@@ -1612,6 +1612,13 @@
    "Adj Close": "7.42",
    "Volume": "409200",
    "searchIndex": "2026-09-24 7.420000076293945"
+  },
+  {
+   "Date": "Sep 25 2026",
+   "Close": "7.38",
+   "Adj Close": "7.38",
+   "Volume": "684300",
+   "searchIndex": "2026-09-25 7.380000114440918"
   }
  ]
 }
