@@ -2156,7 +2156,12 @@ export function parseChart(payload: JsonRecord): ParsedChart {
 
 export function inferDistributionFrequency(dividends: Array<{ epoch: number; amount: number }>): string {
   if (!dividends.length) return '—';
-  const now = Date.now() / 1000;
+  // Anchor the trailing window to the most recent distribution's own date,
+  // not to wall-clock "now": a window relative to the run time drifts a
+  // year-old ex-date in and out of range between otherwise-identical runs,
+  // flipping the inferred frequency (and the yield derived from it) with no
+  // new source data. Anchoring to the data itself makes this deterministic.
+  const now = dividends[dividends.length - 1].epoch;
   const oneYearAgo = now - 365 * 24 * 3600;
   const recent = dividends.filter((d) => d.epoch >= oneYearAgo);
   const count = recent.length || dividends.slice(-12).length;
@@ -2629,11 +2634,25 @@ function pad3(value: number): string {
   return String(value).padStart(3, '0');
 }
 
+// Comparing raw text would treat a run that only refreshed generatedAt (with
+// every fund's actual data unchanged) as a real change and rewrite the file
+// every time. Compare with both timestamps stripped instead.
+function samePublishedContent(previous: string, value: unknown): boolean {
+  const withoutRunTimestamp = (item: unknown): unknown => {
+    if (!item || typeof item !== 'object' || Array.isArray(item)) return item;
+    const { generatedAt, savedAt, ...content } = item as Record<string, unknown>;
+    return content;
+  };
+  try {
+    return JSON.stringify(withoutRunTimestamp(JSON.parse(previous))) === JSON.stringify(withoutRunTimestamp(value));
+  } catch { return false; }
+}
+
 function writeJsonIfChanged(path: URL, data: unknown): Promise<boolean> {
   const serialized = JSON.stringify(data, null, 1) + '\n';
   return readFile(path, 'utf8')
     .then((existing) => {
-      if (existing === serialized) return false;
+      if (existing === serialized || samePublishedContent(existing, data)) return false;
       return writeFile(path, serialized, 'utf8').then(() => true);
     })
     .catch(() => writeFile(path, serialized, 'utf8').then(() => true));
