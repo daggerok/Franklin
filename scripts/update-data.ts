@@ -2175,7 +2175,7 @@ export function inferDistributionFrequency(dividends: Array<{ epoch: number; amo
 
 export function frequencyCodeLabel(raw: string): string {
   const t = cleanText(raw).toLowerCase();
-  if (!t || t === '—' || t === '-' || t === 'n/a') return '00 - —';
+  if (!t || t === '—' || t === '-' || t === 'n/a') return '00 - None';
   if (t.includes('monthly')) return '01 - Monthly';
   if (t.includes('quarterly')) return '04 - Quarterly';
   if (t.includes('semi')) return '06 - Semi-annually';
