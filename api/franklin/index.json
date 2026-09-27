@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-27T03:41:10.985Z",
+ "generatedAt": "2026-09-27T03:49:09.597Z",
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
@@ -2277,7 +2277,7 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Quarterly",
+    "frequency": "Semi-annually",
     "exDate": "Jun 26 2026",
     "dividend": "0.369"
    },
@@ -2323,14 +2323,14 @@
     "cagr5y": 9.8,
     "cagr10y": null,
     "siAnn": 6.13,
-    "dividendYield": 5.38,
-    "dividendYieldText": "5.38%",
+    "dividendYield": 2.69,
+    "dividendYieldText": "2.69%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
    "dividendYieldSource": "indicated",
-   "distributionFrequency": "Quarterly",
+   "distributionFrequency": "Semi-annually",
    "holdings": 131,
    "history": 1999
   },
@@ -2517,7 +2517,7 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Quarterly",
+    "frequency": "Semi-annually",
     "exDate": "Jun 26 2026",
     "dividend": "0.721"
    },
@@ -2563,14 +2563,14 @@
     "cagr5y": 12.07,
     "cagr10y": null,
     "siAnn": 7.97,
-    "dividendYield": 8.12,
-    "dividendYieldText": "8.12%",
+    "dividendYield": 4.06,
+    "dividendYieldText": "4.06%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
    "dividendYieldSource": "indicated",
-   "distributionFrequency": "Quarterly",
+   "distributionFrequency": "Semi-annually",
    "holdings": 36,
    "history": 2233
   },
@@ -3477,7 +3477,7 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Monthly",
+    "frequency": "Irregular",
     "exDate": "Sep 1 2026",
     "dividend": "0.024"
    },
@@ -3523,14 +3523,14 @@
     "cagr5y": 0.59,
     "cagr10y": 2.14,
     "siAnn": 5.52,
-    "dividendYield": 4.18,
-    "dividendYieldText": "4.18%",
+    "dividendYield": null,
+    "dividendYieldText": "—",
     "secYield": 4.26,
     "secYieldText": "4.26%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "dividendYieldSource": "indicated",
-   "distributionFrequency": "Monthly",
+   "dividendYieldSource": null,
+   "distributionFrequency": "Irregular",
    "holdings": 294,
    "history": 230
   },
@@ -3637,7 +3637,7 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Monthly",
+    "frequency": "Irregular",
     "exDate": "Sep 1 2026",
     "dividend": "0.044"
    },
@@ -3683,14 +3683,14 @@
     "cagr5y": 1.17,
     "cagr10y": 2.95,
     "siAnn": 5.28,
-    "dividendYield": 4.83,
-    "dividendYieldText": "4.83%",
+    "dividendYield": null,
+    "dividendYieldText": "—",
     "secYield": 4.89,
     "secYieldText": "4.89%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "dividendYieldSource": "indicated",
-   "distributionFrequency": "Monthly",
+   "dividendYieldSource": null,
+   "distributionFrequency": "Irregular",
    "holdings": 467,
    "history": 230
   },
@@ -3957,7 +3957,7 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Irregular",
+    "frequency": "Monthly",
     "exDate": "Sep 1 2026",
     "dividend": "0.024"
    },
@@ -4003,14 +4003,14 @@
     "cagr5y": 0.83,
     "cagr10y": 2.18,
     "siAnn": 4.52,
-    "dividendYield": null,
-    "dividendYieldText": "—",
+    "dividendYield": 3.48,
+    "dividendYieldText": "3.48%",
     "secYield": 3.93,
     "secYieldText": "3.93%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "dividendYieldSource": null,
-   "distributionFrequency": "Irregular",
+   "dividendYieldSource": "indicated",
+   "distributionFrequency": "Monthly",
    "holdings": 153,
    "history": 220
   },
@@ -4037,7 +4037,7 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Irregular",
+    "frequency": "Monthly",
     "exDate": "Sep 1 2026",
     "dividend": "0.025"
    },
@@ -4083,14 +4083,14 @@
     "cagr5y": 0.26,
     "cagr10y": 1.75,
     "siAnn": 5.45,
-    "dividendYield": null,
-    "dividendYieldText": "—",
+    "dividendYield": 4.07,
+    "dividendYieldText": "4.07%",
     "secYield": 4.18,
     "secYieldText": "4.18%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "dividendYieldSource": null,
-   "distributionFrequency": "Irregular",
+   "dividendYieldSource": "indicated",
+   "distributionFrequency": "Monthly",
    "holdings": 270,
    "history": 230
   },
@@ -4117,7 +4117,7 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Monthly",
+    "frequency": "Irregular",
     "exDate": "Sep 1 2026",
     "dividend": "0.025"
    },
@@ -4163,14 +4163,14 @@
     "cagr5y": 0.7,
     "cagr10y": 1.84,
     "siAnn": 4.32,
-    "dividendYield": 3.79,
-    "dividendYieldText": "3.79%",
+    "dividendYield": null,
+    "dividendYieldText": "—",
     "secYield": 4.06,
     "secYieldText": "4.06%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "dividendYieldSource": "indicated",
-   "distributionFrequency": "Monthly",
+   "dividendYieldSource": null,
+   "distributionFrequency": "Irregular",
    "holdings": 80,
    "history": 220
   },
@@ -4197,7 +4197,7 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Monthly",
+    "frequency": "Irregular",
     "exDate": "Sep 1 2026",
     "dividend": "0.024"
    },
@@ -4243,14 +4243,14 @@
     "cagr5y": 0.59,
     "cagr10y": 2.03,
     "siAnn": 4.54,
-    "dividendYield": 3.54,
-    "dividendYieldText": "3.54%",
+    "dividendYield": null,
+    "dividendYieldText": "—",
     "secYield": 4.05,
     "secYieldText": "4.05%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "dividendYieldSource": "indicated",
-   "distributionFrequency": "Monthly",
+   "dividendYieldSource": null,
+   "distributionFrequency": "Irregular",
    "holdings": 111,
    "history": 220
   },
@@ -4597,7 +4597,7 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Semi-annually",
+    "frequency": "Annually",
     "exDate": "Dec 13 2021",
     "dividend": "0.094"
    },
@@ -4643,14 +4643,14 @@
     "cagr5y": 15.41,
     "cagr10y": null,
     "siAnn": 24.44,
-    "dividendYield": 0.17,
-    "dividendYieldText": "0.17%",
+    "dividendYield": 0.08,
+    "dividendYieldText": "0.08%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
    "dividendYieldSource": "indicated",
-   "distributionFrequency": "Semi-annually",
+   "distributionFrequency": "Annually",
    "holdings": 77,
    "history": 1654
   },
@@ -5397,7 +5397,7 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Irregular",
+    "frequency": "Monthly",
     "exDate": "Sep 21 2026",
     "dividend": "0.068"
    },
@@ -5443,14 +5443,14 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": -23.84,
-    "dividendYield": null,
-    "dividendYieldText": "—",
+    "dividendYield": 3.87,
+    "dividendYieldText": "3.87%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "dividendYieldSource": null,
-   "distributionFrequency": "Irregular",
+   "dividendYieldSource": "indicated",
+   "distributionFrequency": "Monthly",
    "holdings": 2,
    "history": 204
   },
@@ -5557,7 +5557,7 @@
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
    "distributions": {
-    "frequency": "Irregular",
+    "frequency": "Monthly",
     "exDate": "Sep 1 2026",
     "dividend": "0.119"
    },
@@ -5603,14 +5603,14 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 2.63,
-    "dividendYield": null,
-    "dividendYieldText": "—",
+    "dividendYield": 5.85,
+    "dividendYieldText": "5.85%",
     "secYield": 7.65,
     "secYieldText": "7.65%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
    },
-   "dividendYieldSource": null,
-   "distributionFrequency": "Irregular",
+   "dividendYieldSource": "indicated",
+   "distributionFrequency": "Monthly",
    "holdings": 83,
    "history": 171
   },
@@ -5944,8 +5944,8 @@
    "isin": "US35473P3973",
    "ter": "0.35%",
    "terValue": 0.35,
-   "nav": "$23.85",
-   "navValue": 23.85,
+   "nav": "—",
+   "navValue": null,
    "aum": "$11.92 M",
    "aumValue": 11920000,
    "asOfDate": "Jun 30 2026",
@@ -6264,8 +6264,8 @@
    "isin": "US35473P3890",
    "ter": "0.09%",
    "terValue": 0.09,
-   "nav": "$32.03",
-   "navValue": 32.03,
+   "nav": "—",
+   "navValue": null,
    "aum": "$78.48 M",
    "aumValue": 78480000,
    "asOfDate": "Jun 30 2026",
@@ -6323,8 +6323,8 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": 22.75,
-    "dividendYield": 3.2,
-    "dividendYieldText": "3.20%",
+    "dividendYield": 3.19,
+    "dividendYieldText": "3.19%",
     "secYield": 4.2,
     "secYieldText": "4.20%",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
