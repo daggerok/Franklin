@@ -1,7 +1,7 @@
 name: Update Franklin ETF data
 
 on:
-  # Weekly refresh (Saturday/Sunday midnight UTC) plus manual runs. Merges to
+  # Weekly refresh (every Sunday at 00:00 UTC) plus manual runs. Merges to
   # main/arena branches no longer trigger a live data refresh on their own.
   schedule:
     - cron: '0 0 * * 0'
