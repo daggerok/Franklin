@@ -2,7 +2,7 @@
  "ticker": "UDIV",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2592,
+ "totalRows": 2593,
  "headers": [
   "Date",
   "Close",
@@ -4153,6 +4153,13 @@
    "Adj Close": "61.55",
    "Volume": "5600",
    "searchIndex": "2026-09-24 61.553001403808594"
+  },
+  {
+   "Date": "Sep 25 2026",
+   "Close": "61.89",
+   "Adj Close": "61.89",
+   "Volume": "6000",
+   "searchIndex": "2026-09-25 61.88800048828125"
   }
  ]
 }

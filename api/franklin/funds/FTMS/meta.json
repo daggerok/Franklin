@@ -22,20 +22,20 @@
   "benchmark": "Bloomberg 3-year Municipal Bond Index"
  },
  "expenseRatio": {
-  "display": "0.21%",
-  "value": 0.21,
+  "display": "0.22%",
+  "value": 0.22,
   "gross": 0.22,
-  "net": 0.21
+  "net": 0.22
  },
  "nav": {
-  "display": "$9.73",
-  "value": 9.73,
-  "asOfDate": "2026-09-24"
+  "display": "—",
+  "value": null,
+  "asOfDate": "2026-09-25"
  },
  "marketPrice": {
-  "display": "$9.75",
-  "value": 9.75,
-  "asOfDate": "2026-09-24",
+  "display": "$9.71",
+  "value": 9.71,
+  "asOfDate": "2026-09-25",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -45,23 +45,23 @@
  "aum": {
   "display": "$206.36 M",
   "value": 206360000,
-  "asOfDate": "2026-09-24",
+  "asOfDate": "2026-08-31",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 3.33,
-  "dividendYieldText": "3.33%",
-  "dividendYieldKind": "indicated: latest distribution 0.0270 x 12/year / NAV 9.73",
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
   "secYield": 3.16,
   "secYieldText": "3.16%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
    "asOfDate": "May 29 2026",
-   "ytd": 0.19,
-   "ytdText": "0.19%",
+   "ytd": -0.02,
+   "ytdText": "-0.02%",
    "yr1": 2.91,
    "yr1Text": "2.91%",
    "yr3": 3.82,
@@ -90,9 +90,9 @@
   }
  },
  "distributions": {
-  "frequency": "Monthly",
-  "frequencyCode": "01 - Monthly",
-  "paymentsPerYear": 12,
+  "frequency": "Irregular",
+  "frequencyCode": "99 - Irregular",
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -164,13 +164,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028350, report period 2026-05-29)"
  },
  "history": {
-  "totalRows": 229,
+  "totalRows": 230,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 24 2026",
+  "asOf": "Sep 25 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

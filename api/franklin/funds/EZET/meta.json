@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/40521/SINGLCLASS/franklin-ethereum-etf/EZET",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-24)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-25)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EZET?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -28,14 +28,14 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$20.40",
-  "value": 20.4,
+  "display": "—",
+  "value": null,
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$20.41",
-  "value": 20.41,
-  "asOfDate": "2026-09-24",
+  "display": "$20.42",
+  "value": 20.42,
+  "asOfDate": "2026-09-25",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -59,7 +59,7 @@
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
   "monthEnd": {
-   "asOfDate": "Sep 24 2026",
+   "asOfDate": "Sep 25 2026",
    "ytd": -9.29,
    "ytdText": "-9.29%",
    "yr1": -42.95,
@@ -108,18 +108,18 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-09-24",
-  "asOf": "Sep 24 2026",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-24)"
+  "asOfDate": "2026-09-25",
+  "asOf": "Sep 25 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-25)"
  },
  "history": {
-  "totalRows": 546,
+  "totalRows": 547,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 24 2026",
+  "asOf": "Sep 25 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P884",
   "isin": "US35473P8840",
-  "benchmark": "LibertyQ U.S. Mid Cap Equity Index"
+  "benchmark": null
  },
  "expenseRatio": {
   "display": "0.30%",
@@ -28,14 +28,14 @@
   "net": 0.3
  },
  "nav": {
-  "display": "$58.20",
-  "value": 58.2,
+  "display": "—",
+  "value": null,
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$58.21",
-  "value": 58.21,
-  "asOfDate": "2026-09-24",
+  "display": "$58.32",
+  "value": 58.32,
+  "asOfDate": "2026-09-25",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -49,12 +49,12 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 1.29,
-  "dividendYieldText": "1.29%",
-  "dividendYieldKind": "indicated: latest distribution 0.1870 x 4/year / NAV 58.20",
+  "dividendYield": 1.28,
+  "dividendYieldText": "1.28%",
+  "dividendYieldKind": "indicated: latest distribution 0.1870 x 4/year / last close 58.32",
   "secYield": 1.5,
   "secYieldText": "1.50%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
@@ -304,7 +304,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035114, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2365,
+  "totalRows": 2366,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -312,7 +312,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 24 2026",
+  "asOf": "Sep 25 2026",
   "source": "Yahoo Finance public chart API"
  }
 }
