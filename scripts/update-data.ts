@@ -1,3 +1,4 @@
+import './load-update-data-config'; // JSON defaults; explicit process.env overrides.
 #!/usr/bin/env -S bun --use-system-ca
 /// <reference types="bun" />
 import { readFile as outputReadFile, readdir as outputReadDir } from 'node:fs/promises';
