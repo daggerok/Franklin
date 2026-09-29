@@ -68,7 +68,7 @@ async function main() {
   }
 
   // Basic HTML sanity
-  if (!indexHtml.includes('<title>Franklin ETF Holdings to Watchlist</title>')) {
+  if (!indexHtml.includes('<title>Franklin ETFs</title>')) {
     console.error('[check] title mismatch');
     ok = false;
   }
