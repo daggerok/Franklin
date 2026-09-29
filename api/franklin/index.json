@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-27T03:49:09.597Z",
+ "generatedAt": "2026-09-29T04:57:04.985Z",
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
@@ -11,7 +11,7 @@
  "counts": {
   "funds": 81,
   "holdings": 18354,
-  "history": 117485
+  "history": 117486
  },
  "funds": [
   {
@@ -24,15 +24,15 @@
    "isin": "US35473P5382",
    "ter": "0.50%",
    "terValue": 0.5,
-   "nav": "—",
-   "navValue": null,
-   "aum": "$5.20 M",
-   "aumValue": 5200000,
+   "nav": "$34.21",
+   "navValue": 34.21,
+   "aum": "$5.13 M",
+   "aumValue": 5130000,
    "asOfDate": "Jun 30 2026",
    "inceptionDate": "Feb 25 2020",
    "exchange": "Cboe",
-   "closePrice": "$34.68",
-   "closePriceValue": 34.68,
+   "closePrice": "$34.21",
+   "closePriceValue": 34.21,
    "closePriceSource": "last close from the Yahoo Finance price history",
    "premiumDiscount": "—",
    "premiumDiscountValue": null,
@@ -44,8 +44,8 @@
    "returns": {
     "monthEnd": {
      "asOfDate": "Jun 30 2026",
-     "ytd": -13.52,
-     "ytdText": "-13.52%",
+     "ytd": -14.69,
+     "ytdText": "-14.69%",
      "yr1": -14.61,
      "yr1Text": "-14.61%",
      "yr3": 11.85,
@@ -74,7 +74,7 @@
     }
    },
    "metrics": {
-    "ytd": -13.52,
+    "ytd": -14.69,
     "tr1y": -14.61,
     "tr3y": 0.39929075662500013,
     "tr5y": -0.31176004563763227,
@@ -83,8 +83,8 @@
     "cagr5y": -7.2,
     "cagr10y": null,
     "siAnn": 6.05,
-    "dividendYield": 0.07,
-    "dividendYieldText": "0.07%",
+    "dividendYield": 0.08,
+    "dividendYieldText": "0.08%",
     "secYield": null,
     "secYieldText": "—",
     "returnsBasis": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback"
@@ -92,7 +92,7 @@
    "dividendYieldSource": "indicated",
    "distributionFrequency": "Annually",
    "holdings": 58,
-   "history": 1654
+   "history": 1655
   },
   {
    "ticker": "DIEM",
