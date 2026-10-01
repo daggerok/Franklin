@@ -1,15 +1,5 @@
 #!/usr/bin/env -S bun --use-system-ca
-// Checked-in JSON is the runtime default; any nonblank environment value wins.
-import { readFileSync as readUpdaterConfig } from 'node:fs';
-try {
-  const updaterDefaults = JSON.parse(readUpdaterConfig(new URL('./update-data.config.json', import.meta.url), 'utf8')) as Record<string, unknown>;
-  for (const [key, value] of Object.entries(updaterDefaults)) {
-    const current = process.env[key];
-    if ((current === undefined || current.trim() === '') && value !== null && value !== undefined) process.env[key] = String(value);
-  }
-} catch (error) {
-  if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
-}
+// Checked-in scripts/update-data.config.json is the runtime default; see resolveControls for precedence.
 /// <reference types="bun" />
 import { readFile as outputReadFile, readdir as outputReadDir } from 'node:fs/promises';
 import { createHash as outputCreateHash } from 'node:crypto';
@@ -434,7 +424,7 @@ const SEC_BROWSE_URL = `${SEC_SITE}/cgi-bin/browse-edgar`;
 const SEC_ARCHIVES = `${SEC_SITE}/Archives/edgar/data`;
 const SEC_FUND_TICKERS_URL = `${SEC_SITE}/files/company_tickers_mf.json`;
 const SEC_COMPANY_TICKERS_URL = `${SEC_SITE}/files/company_tickers.json`;
-const SEC_UA = 'DaggerOk Franklin ETF feed admin@daggerok.example.com';
+let SEC_UA = 'DaggerOk Franklin ETF feed https://github.com/daggerok/Franklin';
 const BROWSER_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const PROXY_SLEEP_SECONDS = 0.5;
 
@@ -2541,9 +2531,7 @@ function envValue(env: Record<string, string | undefined>, key: string): string 
   return String(env[key] ?? '').trim();
 }
 
-function parseConfig(): UpdaterConfig {
-  const env = process.env as Record<string, string | undefined>;
-  if (env.HISTORICAL_PAGE_SIZE && !env.HISTORY_PAGE_SIZE) env.HISTORY_PAGE_SIZE = env.HISTORICAL_PAGE_SIZE;
+export function parseConfig(env: Record<string, string | undefined>): UpdaterConfig {
   return {
     maxFetches: parsePositiveInt(envValue(env, 'MAX_FETCHES'), 0),
     requestSleep: parseDecimal(envValue(env, 'REQUEST_SLEEP'), 1.5),
@@ -2567,11 +2555,14 @@ function parseConfig(): UpdaterConfig {
   };
 }
 
-function printUsage(): void {
-  console.log(`
+export function usageText(): string {
+  return `
 Franklin Templeton ETF static feed updater (zero dependencies, run with Bun).
 
   bun ./scripts/update-data.ts [-h|--help]
+
+Defaults live in scripts/update-data.config.json. Precedence: config file <
+advanced JSON (workflow) < nonblank workflow inputs < environment variables.
 
 Environment variables (all optional):
 
@@ -2596,12 +2587,12 @@ Environment variables (all optional):
                              HISTORICAL_PAGE_SIZE).
   HISTORY_RANGE        max   \"max\" or a year window; oldest history row kept.
   CATEGORY             \"\"    Keep only this provider category substring.
-  STORE_RAW_DOWNLOADS  0     1|true|yes|y|on writes api/franklin/raw/**.
+  STORE_RAW_DOWNLOADS  false 1|true|yes|y|on writes api/franklin/raw/**.
   SEC_UA               (set) Declared User-Agent for SEC EDGAR requests.
-  EDGAR_FALLBACK       1     Use Form N-PORT-P when holdings not available elsewhere.
-  SKIP_YAHOO           0     Skip Yahoo Finance (distributions, derived returns).
-  SKIP_FRANKLIN        0     Skip franklintempleton.com entirely (keeps committed data).
-  OFFLINE_SEED         0     Replay committed seed instead of fetching.
+  EDGAR_FALLBACK       true  Use Form N-PORT-P when holdings not available elsewhere.
+  SKIP_YAHOO           false Skip Yahoo Finance (distributions, derived returns).
+  SKIP_FRANKLIN        false Skip franklintempleton.com entirely (keeps committed data).
+  VERBOSE              false Print per-fund retry and fallback notices.
 
 Range syntax is strict \"min:max\" with exactly one colon; \"\" and \":\" mean no
 restriction; a configured min must not exceed max.
@@ -2611,7 +2602,7 @@ Examples:
   TICKERS=\"FLIN FLGR FLEE\" bun ./scripts/update-data.ts
   MAX_FETCHES=10 bun ./scripts/update-data.ts
   AUM=large TER=:0.40 bun ./scripts/update-data.ts
-`);
+`;
 }
 
 function inRange(value: number | null, range: Range | undefined): boolean {
@@ -2682,14 +2673,7 @@ async function ensureApiRoot(): Promise<void> {
   await mkdir(API_ROOT, { recursive: true });
 }
 
-async function main(): Promise<void> {
-  const args = process.argv.slice(2);
-  if (args.includes('-h') || args.includes('--help')) {
-    printUsage();
-    return;
-  }
-
-  const config = parseConfig();
+async function runUpdater(config: UpdaterConfig): Promise<void> {
   requestSleepSeconds = config.requestSleep;
 
   outputPrintConfig('Franklin', config);
@@ -3508,6 +3492,81 @@ async function main(): Promise<void> {
 
   console.log(`[ summary  ] updated=${updated} unchanged=${unchanged} failed=${failed} skipped=${skipped} indexChanged=${indexChanged} funds=${indexFunds.length} holdings=${totalHoldings} history=${totalHistory} source=${catalogSource}`);
 }
+
+// File defaults and explicit overrides, one resolver for the CLI and the GitHub
+// Actions workflow. Allowlisted scalar controls only, so workflow inputs are
+// never interpolated into bash. Precedence: config file < advanced JSON <
+// nonblank inputs < environment (explicit env wins, even when empty).
+export const CONTROL_NAMES = [
+  'MAX_FETCHES', 'REQUEST_SLEEP', 'CONCURRENCY', 'AUM', 'TER', 'DIVIDEND_YIELD', 'SEC_YIELD', 'TICKERS',
+  'CATEGORY', 'HOLDINGS_PAGE_SIZE', 'HISTORY_PAGE_SIZE', 'HISTORY_RANGE', 'MAX_RETRIES', 'SEC_UA',
+  'STORE_RAW_DOWNLOADS', 'SKIP_YAHOO', 'SKIP_FRANKLIN', 'EDGAR_FALLBACK', 'VERBOSE',
+  ...['PERFORMANCE', 'TOTAL_RETURN'].flatMap((prefix) => ['YTD', '1Y', '3Y', '5Y', '10Y'].map((period) => `${prefix}_${period}`)),
+] as const;
+export type ControlName = (typeof CONTROL_NAMES)[number];
+export const CONFIG_FILE_URL = new URL('./update-data.config.json', import.meta.url);
+const BRAND_ENV_ALIASES: Record<string, string> = { HISTORY_PAGE_SIZE: 'HISTORICAL_PAGE_SIZE' };
+
+export function resolveControls(
+  file: unknown = {},
+  advanced: unknown = {},
+  inputs: unknown = {},
+  env: Record<string, string | undefined> = {},
+): Record<string, string> {
+  const result: Record<string, string> = {};
+  const known = new Set<string>(CONTROL_NAMES);
+  const apply = (value: unknown, skipEmpty = false): void => {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('Configuration must be a JSON object');
+    for (const [key, raw] of Object.entries(value)) {
+      if (!known.has(key)) throw new Error(`Unknown updater control: ${key}`);
+      if (skipEmpty && (raw === '' || raw === undefined || raw === null)) continue;
+      if (!['string', 'number', 'boolean'].includes(typeof raw)) throw new Error(`${key}: expected string, number or boolean`);
+      const text = String(raw);
+      if (/[\r\n\0]/.test(text)) throw new Error(`${key}: multiline/control characters are not allowed`);
+      result[key] = text;
+    }
+  };
+  apply(file);
+  apply(advanced);
+  apply(inputs, true);
+  for (const key of CONTROL_NAMES) {
+    const alias = BRAND_ENV_ALIASES[key];
+    const value = env[key] ?? (alias ? env[alias] : undefined);
+    if (value !== undefined) apply({ [key]: value });
+  }
+  for (const key of ['MAX_FETCHES', 'CONCURRENCY', 'HOLDINGS_PAGE_SIZE', 'HISTORY_PAGE_SIZE', 'MAX_RETRIES']) {
+    const v = result[key];
+    if (v === undefined || v.trim() === '') continue;
+    const min = key === 'MAX_FETCHES' || key === 'MAX_RETRIES' ? 0 : 1;
+    if (!/^\d+$/.test(v.trim()) || !Number.isSafeInteger(Number(v)) || Number(v) < min) throw new Error(`${key}: expected integer >= ${min}`);
+  }
+  if (result.REQUEST_SLEEP?.trim() && (!Number.isFinite(Number(result.REQUEST_SLEEP)) || Number(result.REQUEST_SLEEP) < 0)) throw new Error('REQUEST_SLEEP: expected nonnegative seconds');
+  for (const key of ['STORE_RAW_DOWNLOADS', 'SKIP_YAHOO', 'SKIP_FRANKLIN', 'EDGAR_FALLBACK', 'VERBOSE']) {
+    if (result[key]?.trim() && !/^(0|1|true|false|yes|no|y|n|on|off)$/i.test(result[key].trim())) throw new Error(`${key}: expected boolean`);
+  }
+  parseConfig(result); // validate every min:max filter before any request or write
+  return result;
+}
+
+export async function runtimeControls(env: Record<string, string | undefined> = process.env): Promise<Record<string, string>> {
+  let file: unknown = {};
+  try { file = JSON.parse(await readFile(CONFIG_FILE_URL, 'utf8')); }
+  catch (error) { if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error; }
+  return resolveControls(file, {}, {}, env);
+}
+
+export async function main(argv: string[] = process.argv.slice(2), env: Record<string, string | undefined> = process.env): Promise<void> {
+  if (argv.some((arg) => arg === '--help' || arg === '-h')) {
+    console.log(usageText());
+    return;
+  }
+  if (argv.length) throw new Error(`unsupported argument(s): ${argv.join(' ')}. Use --help for usage.`);
+  const controls = await runtimeControls(env);
+  if (controls.VERBOSE !== undefined && env === process.env) process.env.VERBOSE = controls.VERBOSE;
+  if (controls.SEC_UA?.trim()) SEC_UA = controls.SEC_UA.trim();
+  await runUpdater(parseConfig(controls));
+}
+
 
 if (import.meta.main) {
   main().catch((e) => {
