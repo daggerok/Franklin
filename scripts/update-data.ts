@@ -230,7 +230,7 @@ const FRANKLIN_SERIES_MAP: Record<string, { cik: string; seriesId: string; class
 // Issuer requests are made directly with a browser-like User-Agent first; when
 // the issuer answers with a bot-wall, the same URL is read through the read-only
 // r.jina.ai rendering proxy (identical to daggerok/WisdomTree). SEC and Yahoo stay direct.
-// Bun v1.2.23+ system CA is embedded by default via shebang, package.json, workflow, and auto-restart guard.
+// TLS trust store: the USE_SYSTEM_CA control (auto|true|false) can restart the updater with Bun's --use-system-ca.
 //
 // Usage: bun ./scripts/update-data.ts [--help]
 
@@ -239,10 +239,47 @@ import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 declare const process: {
   env: Record<string, string | undefined>;
   argv: string[];
-  execPath?: string;
+  execArgv: string[];
+  execPath: string;
   exitCode?: number;
   exit(code?: number): never;
 };
+
+// --- TLS trust store (identical in every ETF repo) ---
+const SYSTEM_CA_MARKER = 'ETF_UPDATER_SYSTEM_CA';
+const CERT_ERROR = /UNABLE_TO_GET_ISSUER_CERT|UNABLE_TO_VERIFY_LEAF_SIGNATURE|SELF_SIGNED_CERT|CERT_HAS_EXPIRED|unable to get (?:local )?issuer certificate|self[- ]signed certificate|certificate has expired/i;
+
+export function isCertError(error: unknown): boolean {
+  const e = error as { code?: unknown; message?: unknown; cause?: unknown } | null;
+  return CERT_ERROR.test(`${String(e?.code ?? '')} ${String(e?.message ?? '')}`) || (e?.cause ? isCertError(e.cause) : false);
+}
+
+export function systemCaActive(env: Record<string, string | undefined> = process.env, execArgv: string[] = process.execArgv): boolean {
+  return execArgv.includes('--use-system-ca') || env.NODE_USE_SYSTEM_CA === '1' || env[SYSTEM_CA_MARKER] === '1';
+}
+
+export function reexecWithSystemCa(): never {
+  const child = Bun.spawnSync([process.execPath, '--use-system-ca', ...process.argv.slice(1)], {
+    env: { ...process.env, [SYSTEM_CA_MARKER]: '1' },
+    stdio: ['inherit', 'inherit', 'inherit'],
+  });
+  process.exit(child.exitCode ?? 1);
+}
+
+/** mode: auto (restart once on an untrusted-certificate error), true (restart now), false (never). */
+export function installSystemCa(mode: string, reexec: () => never = reexecWithSystemCa, active: boolean = systemCaActive()): void {
+  if (mode === 'false' || active) return;
+  if (mode === 'true') reexec();
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = (async (...args: Parameters<typeof fetch>) => {
+    try { return await realFetch(...args); }
+    catch (error) {
+      if (!isCertError(error)) throw error;
+      console.error('[ notice   ] TLS certificate not trusted; restarting once with --use-system-ca');
+      return reexec();
+    }
+  }) as typeof fetch;
+}
 
 type JsonRecord = Record<string, any>;
 type Range = { min?: number; max?: number };
@@ -2559,6 +2596,8 @@ Environment variables (all optional):
   SKIP_YAHOO           false Skip Yahoo Finance (distributions, derived returns).
   SKIP_FRANKLIN        false Skip franklintempleton.com entirely (keeps committed data).
   VERBOSE              false Print per-fund retry and fallback notices.
+  USE_SYSTEM_CA        auto  TLS trust store: auto|true|false. auto restarts once with
+                             --use-system-ca on an untrusted-certificate error.
 
 Range syntax is strict \"min:max\" with exactly one colon; \"\" and \":\" mean no
 restriction; a configured min must not exceed max.
@@ -3466,7 +3505,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
 export const CONTROL_NAMES = [
   'MAX_FETCHES', 'REQUEST_SLEEP', 'CONCURRENCY', 'AUM', 'TER', 'DIVIDEND_YIELD', 'SEC_YIELD', 'TICKERS',
   'CATEGORY', 'HOLDINGS_PAGE_SIZE', 'HISTORY_PAGE_SIZE', 'HISTORY_RANGE', 'MAX_RETRIES', 'SEC_UA',
-  'STORE_RAW_DOWNLOADS', 'SKIP_YAHOO', 'SKIP_FRANKLIN', 'EDGAR_FALLBACK', 'VERBOSE',
+  'STORE_RAW_DOWNLOADS', 'SKIP_YAHOO', 'SKIP_FRANKLIN', 'EDGAR_FALLBACK', 'VERBOSE', 'USE_SYSTEM_CA',
   ...['PERFORMANCE', 'TOTAL_RETURN'].flatMap((prefix) => ['YTD', '1Y', '3Y', '5Y', '10Y'].map((period) => `${prefix}_${period}`)),
 ] as const;
 export type ControlName = (typeof CONTROL_NAMES)[number];
@@ -3510,6 +3549,11 @@ export function resolveControls(
   for (const key of ['STORE_RAW_DOWNLOADS', 'SKIP_YAHOO', 'SKIP_FRANKLIN', 'EDGAR_FALLBACK', 'VERBOSE']) {
     if (result[key]?.trim() && !/^(0|1|true|false|yes|no|y|n|on|off)$/i.test(result[key].trim())) throw new Error(`${key}: expected boolean`);
   }
+  if (result.USE_SYSTEM_CA !== undefined) {
+    const mode = result.USE_SYSTEM_CA.trim().toLowerCase();
+    if (!['auto', 'true', 'false'].includes(mode)) throw new Error('USE_SYSTEM_CA: expected auto, true or false');
+    result.USE_SYSTEM_CA = mode;
+  }
   if (result.HISTORY_RANGE?.trim() && !(HISTORY_RANGES as readonly string[]).includes(result.HISTORY_RANGE.trim().toLowerCase())) throw new Error(`HISTORY_RANGE: expected one of ${HISTORY_RANGES.join(', ')}`);
   parseConfig(result); // validate every min:max filter before any request or write
   return result;
@@ -3531,6 +3575,7 @@ export async function main(argv: string[] = process.argv.slice(2), env: Record<s
   const controls = await runtimeControls(env);
   if (controls.VERBOSE !== undefined && env === process.env) process.env.VERBOSE = controls.VERBOSE;
   if (controls.SEC_UA?.trim()) SEC_UA = controls.SEC_UA.trim();
+  installSystemCa(controls.USE_SYSTEM_CA ?? 'auto');
   await runUpdater(parseConfig(controls));
 }
 

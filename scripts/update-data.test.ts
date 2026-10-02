@@ -1,8 +1,10 @@
 /// <reference types="bun" />
-import { describe, expect, test } from 'bun:test';
+import { afterEach, describe, expect, test } from 'bun:test';
 import { readFileSync } from 'node:fs';
 import {
   CONTROL_NAMES,
+  installSystemCa,
+  isCertError,
   HISTORY_RANGES,
   parseConfig,
   resolveControls,
@@ -699,7 +701,7 @@ test('scheduled path (empty inputs and advanced) equals the config defaults', ()
 });
 
 test('invalid layers, unknown keys, non-scalars and newlines are rejected', () => {
-  for (const value of [{ UNKNOWN: 1 }, { SEC_UA: 'x\nEVIL=yes' }, { CONCURRENCY: 0 }, { MAX_RETRIES: 0 }, { MAX_RETRIES: -1 }, { HISTORY_RANGE: 'forever' }, { MAX_FETCHES: 1.5 }, { REQUEST_SLEEP: '-1' }, { VERBOSE: 'maybe' }, { EDGAR_FALLBACK: 'sometimes' }, { AUM: '1:2:3' }, { TER: '5:1' }, { PERFORMANCE_1Y: 'x:y' }, { TICKERS: ['FLIN'] }, { TICKERS: { a: 1 } }, null, []]) {
+  for (const value of [{ UNKNOWN: 1 }, { SEC_UA: 'x\nEVIL=yes' }, { CONCURRENCY: 0 }, { MAX_RETRIES: 0 }, { MAX_RETRIES: -1 }, { HISTORY_RANGE: 'forever' }, { MAX_FETCHES: 1.5 }, { REQUEST_SLEEP: '-1' }, { VERBOSE: 'maybe' }, { USE_SYSTEM_CA: 'maybe' }, { EDGAR_FALLBACK: 'sometimes' }, { AUM: '1:2:3' }, { TER: '5:1' }, { PERFORMANCE_1Y: 'x:y' }, { TICKERS: ['FLIN'] }, { TICKERS: { a: 1 } }, null, []]) {
     expect(() => resolveControls(value)).toThrow();
   }
   expect(() => resolveControls({}, { SEC_UA: 'x\rfoo' })).toThrow();
@@ -867,4 +869,61 @@ describe('request pacing lanes', () => {
     expect(peak).toBe(1);
     expect(starts[1] - starts[0]).toBeGreaterThanOrEqual(3100);
   }, 15000);
+});
+
+describe('system CA', () => {
+  const realFetch = globalThis.fetch;
+  afterEach(() => { globalThis.fetch = realFetch; });
+  const reexecCounter = () => {
+    let calls = 0;
+    return { reexec: (() => { calls++; return undefined as never; }) as () => never, calls: () => calls };
+  };
+
+  test('USE_SYSTEM_CA resolver and config default', () => {
+    expect(file().USE_SYSTEM_CA).toBe('auto');
+    expect(resolveControls(file(), {}, {}, {}).USE_SYSTEM_CA).toBe('auto');
+    for (const mode of ['auto', 'true', 'false', 'AUTO', 'True', 'FALSE']) expect(resolveControls(file(), {}, {}, { USE_SYSTEM_CA: mode }).USE_SYSTEM_CA).toBe(mode.toLowerCase());
+    expect(() => resolveControls(file(), {}, {}, { USE_SYSTEM_CA: 'maybe' })).toThrow(/USE_SYSTEM_CA/);
+  });
+
+  test('isCertError', () => {
+    expect(isCertError({ code: 'UNABLE_TO_GET_ISSUER_CERT_LOCALLY' })).toBe(true);
+    expect(isCertError(new Error('unable to get local issuer certificate'))).toBe(true);
+    expect(isCertError(Object.assign(new Error('fetch failed'), { cause: new Error('unable to get local issuer certificate') }))).toBe(true);
+    expect(isCertError({ code: 'ECONNRESET' })).toBe(false);
+    expect(isCertError(new Error('HTTP 403 Forbidden'))).toBe(false);
+    expect(isCertError(null)).toBe(false);
+  });
+
+  test('installSystemCa modes', async () => {
+    const certError = Object.assign(new Error('fetch failed'), { cause: { code: 'UNABLE_TO_GET_ISSUER_CERT_LOCALLY' } });
+    let next: () => Promise<Response> = async () => new Response('ok');
+    const stub = (async () => next()) as unknown as typeof fetch;
+
+    globalThis.fetch = stub;
+    let r = reexecCounter();
+    installSystemCa('false', r.reexec, false);
+    expect(globalThis.fetch).toBe(stub);
+    expect(r.calls()).toBe(0);
+
+    installSystemCa('auto', r.reexec, true);
+    expect(globalThis.fetch).toBe(stub);
+    expect(r.calls()).toBe(0);
+
+    installSystemCa('true', r.reexec, false);
+    expect(r.calls()).toBe(1);
+    globalThis.fetch = stub; // a real reexec never returns; the mock falls through
+
+    r = reexecCounter();
+    installSystemCa('auto', r.reexec, false);
+    expect(globalThis.fetch).not.toBe(stub);
+    expect(await (await fetch('https://example.invalid')).text()).toBe('ok');
+    expect(r.calls()).toBe(0);
+    next = async () => { throw new Error('ECONNRESET'); };
+    await expect(fetch('https://example.invalid')).rejects.toThrow('ECONNRESET');
+    expect(r.calls()).toBe(0);
+    next = async () => { throw certError; };
+    await fetch('https://example.invalid');
+    expect(r.calls()).toBe(1);
+  });
 });
