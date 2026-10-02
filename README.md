@@ -73,8 +73,8 @@ The table matches `scripts/update-data.config.json` exactly.
 | Control | Default | Meaning |
 | --- | --: | --- |
 | `MAX_FETCHES` | `0` | Batch size: with a positive value the updater continues after the committed cursor in `api/franklin/update-state.json`; `0` is a full pass over every fund |
-| `REQUEST_SLEEP` | `1.5` | Seconds between outgoing request starts (franklintempleton.com and Yahoo throttle; SEC allows 10/s; keep >= 1) |
-| `CONCURRENCY` | `3` | Parallel fund workers (keep low to stay polite) |
+| `REQUEST_SLEEP` | `1.5` | Seconds between request starts per worker lane for direct requests; the r.jina.ai proxy fallback stays globally paced (min 3.2s between starts) |
+| `CONCURRENCY` | `3` | Parallel fund workers; N workers give about N times the direct request throughput |
 | `MAX_RETRIES` | `2` | Retries after the initial request (integer >= 1) |
 | `SEC_UA` | `daggerok ETF feed daggerok@gmail.com` | SEC User-Agent with a declared contact; the protected `SEC_UA` Actions variable overrides it |
 | `AUM` | `:` | AUM min:max; bounds may be amounts or K/M/B/T suffixes, or nano/micro/small/mid/large preset |
