@@ -424,7 +424,7 @@ const SEC_BROWSE_URL = `${SEC_SITE}/cgi-bin/browse-edgar`;
 const SEC_ARCHIVES = `${SEC_SITE}/Archives/edgar/data`;
 const SEC_FUND_TICKERS_URL = `${SEC_SITE}/files/company_tickers_mf.json`;
 const SEC_COMPANY_TICKERS_URL = `${SEC_SITE}/files/company_tickers.json`;
-let SEC_UA = 'DaggerOk Franklin ETF feed https://github.com/daggerok/Franklin';
+let SEC_UA = 'daggerok ETF feed daggerok@gmail.com';
 const BROWSER_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 const PROXY_SLEEP_SECONDS = 0.5;
 
@@ -2383,8 +2383,15 @@ function parsePreviousFund(ticker: string, row: JsonRecord): CatalogFund {
 // Yahoo helpers
 // ---------------------------------------------------------------------------
 
+export const HISTORY_RANGES = ['max', 'ytd', '1d', '5d', '1mo', '3mo', '6mo', '1y', '2y', '5y', '10y'] as const;
+
+export function yahooChartUrl(ticker: string, historyRange: string, nowSeconds: number = Math.floor(Date.now() / 1000)): string {
+  const window = historyRange === 'max' ? `period1=0&period2=${nowSeconds}` : `range=${historyRange}`;
+  return `${YAHOO_CHART_URL}/${encodeURIComponent(ticker)}?${window}&interval=1d&events=div%7Csplit&includeAdjustedClose=true`;
+}
+
 async function fetchYahooChart(ticker: string, label: string, config: UpdaterConfig): Promise<ParsedChart> {
-  const url = `${YAHOO_CHART_URL}/${encodeURIComponent(ticker)}?period1=0&period2=${Math.floor(Date.now() / 1000)}&interval=1d&events=div%7Csplit&includeAdjustedClose=true`;
+  const url = yahooChartUrl(ticker, config.historyRange);
   // Try direct, then via multiple proxies for Yahoo (some networks block Yahoo)
   const candidates = [
     url,
@@ -2545,9 +2552,9 @@ export function parseConfig(env: Record<string, string | undefined>): UpdaterCon
     holdingsPageSize: Math.max(1, parsePositiveInt(envValue(env, 'HOLDINGS_PAGE_SIZE'), 250)),
     historyPageSize: Math.max(1, parsePositiveInt(envValue(env, 'HISTORY_PAGE_SIZE'), 1000)),
     storeRawDownloads: parseBoolean(envValue(env, 'STORE_RAW_DOWNLOADS')),
-    maxRetries: Math.max(0, parsePositiveInt(envValue(env, 'MAX_RETRIES'), 2)),
+    maxRetries: Math.max(1, parsePositiveInt(envValue(env, 'MAX_RETRIES'), 2)),
     tickers: readTickerSet(envValue(env, 'TICKERS')),
-    historyRange: envValue(env, 'HISTORY_RANGE') || 'max',
+    historyRange: envValue(env, 'HISTORY_RANGE').toLowerCase() || 'max',
     edgarFallback: envValue(env, 'EDGAR_FALLBACK') ? parseBoolean(envValue(env, 'EDGAR_FALLBACK')) : true,
     skipFranklin: parseBoolean(envValue(env, 'SKIP_FRANKLIN')),
     skipYahoo: parseBoolean(envValue(env, 'SKIP_YAHOO')),
@@ -2571,7 +2578,7 @@ Environment variables (all optional):
                              api/franklin/update-state.json.
   REQUEST_SLEEP        1.5   Minimum seconds between request starts.
   CONCURRENCY          3     Parallel fund workers (starts stay globally paced).
-  MAX_RETRIES          2     Retries for network errors and 408/425/429/5xx.
+  MAX_RETRIES          2     Retries (>= 1) for network errors and 408/425/429/5xx.
   TICKERS              \"\"    Space/comma separated tickers. ANDed with the other
                              filters, never overriding them.
   AUM                  \"\"    \"min:max\" dollars, K/M/B/T suffixes, or a preset:
@@ -2585,7 +2592,7 @@ Environment variables (all optional):
   HOLDINGS_PAGE_SIZE   250   Rows per holdings page file.
   HISTORY_PAGE_SIZE    1000  Rows per history page file (alias
                              HISTORICAL_PAGE_SIZE).
-  HISTORY_RANGE        max   \"max\" or a year window; oldest history row kept.
+  HISTORY_RANGE        max   Yahoo history window: max|ytd|1d|5d|1mo|3mo|6mo|1y|2y|5y|10y.
   CATEGORY             \"\"    Keep only this provider category substring.
   STORE_RAW_DOWNLOADS  false 1|true|yes|y|on writes api/franklin/raw/**.
   SEC_UA               (set) Declared User-Agent for SEC EDGAR requests.
@@ -3194,7 +3201,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
         fundPage: fund.fundPage,
         holdingsSource,
         historySource: chart ? 'Yahoo Finance public chart API' : (prevMeta?.source?.historySource || 'previous run'),
-        yahooChart: `${YAHOO_CHART_URL}/${ticker}?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true`,
+        yahooChart: yahooChartUrl(ticker, config.historyRange).replace(/period2=\d+/, 'period2=..'),
         nportDoc: nport ? `SEC EDGAR N-PORT-P ${nport.repPdDate}` : (cleanText(prevMeta?.source?.nportDoc) || null),
       },
       identifiers: {
@@ -3537,13 +3544,14 @@ export function resolveControls(
   for (const key of ['MAX_FETCHES', 'CONCURRENCY', 'HOLDINGS_PAGE_SIZE', 'HISTORY_PAGE_SIZE', 'MAX_RETRIES']) {
     const v = result[key];
     if (v === undefined || v.trim() === '') continue;
-    const min = key === 'MAX_FETCHES' || key === 'MAX_RETRIES' ? 0 : 1;
+    const min = key === 'MAX_FETCHES' ? 0 : 1;
     if (!/^\d+$/.test(v.trim()) || !Number.isSafeInteger(Number(v)) || Number(v) < min) throw new Error(`${key}: expected integer >= ${min}`);
   }
   if (result.REQUEST_SLEEP?.trim() && (!Number.isFinite(Number(result.REQUEST_SLEEP)) || Number(result.REQUEST_SLEEP) < 0)) throw new Error('REQUEST_SLEEP: expected nonnegative seconds');
   for (const key of ['STORE_RAW_DOWNLOADS', 'SKIP_YAHOO', 'SKIP_FRANKLIN', 'EDGAR_FALLBACK', 'VERBOSE']) {
     if (result[key]?.trim() && !/^(0|1|true|false|yes|no|y|n|on|off)$/i.test(result[key].trim())) throw new Error(`${key}: expected boolean`);
   }
+  if (result.HISTORY_RANGE?.trim() && !(HISTORY_RANGES as readonly string[]).includes(result.HISTORY_RANGE.trim().toLowerCase())) throw new Error(`HISTORY_RANGE: expected one of ${HISTORY_RANGES.join(', ')}`);
   parseConfig(result); // validate every min:max filter before any request or write
   return result;
 }
