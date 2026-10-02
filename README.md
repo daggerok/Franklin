@@ -23,7 +23,7 @@ bun ./scripts/update-data.ts
 
 Run `bun ./scripts/update-data.ts --help` to print every control with its default and examples.
 
-Defaults live in `scripts/update-data.config.json` (every control as a string). Explicit environment variables override the file, and a blank environment variable overrides it with an empty value. The **Update Franklin ETF data** GitHub Actions workflow uses the same `resolveControls` resolver as the CLI: individual `workflow_dispatch` inputs are blank by default and inherit the file, the `advanced` input accepts a JSON object with any control (for example `{"VERBOSE":"true","PERFORMANCE_10Y":"5:"}`), and the precedence is file defaults < advanced JSON < nonblank individual inputs < protected Actions variable/env. GitHub allows at most 25 inputs, so `HISTORY_RANGE`, `PERFORMANCE_10Y`, `TOTAL_RETURN_10Y`, `VERBOSE` and `SEC_UA` are set through `advanced`. Scheduled runs (Sundays at 00:00 UTC) have no inputs and use the file defaults. The real SEC contact belongs in the protected repository Actions variable `SEC_UA`, which wins when nonblank; the config default is a non-personal descriptor with the repository URL. The workflow always writes to `api/franklin` and commits only that directory. All supplied filters use **AND** logic.
+Defaults live in `scripts/update-data.config.json` (every control as a string). Explicit environment variables override the file, and a blank environment variable overrides it with an empty value. The **Update Franklin ETF data** GitHub Actions workflow uses the same `resolveControls` resolver as the CLI: individual `workflow_dispatch` inputs are blank by default and inherit the file, the `advanced` input accepts a JSON object with any control (for example `{"VERBOSE":"true","PERFORMANCE_10Y":"5:"}`), and the precedence is file defaults < advanced JSON < nonblank individual inputs < protected Actions variable/env. GitHub allows at most 25 inputs, so `HISTORY_RANGE`, `PERFORMANCE_10Y`, `TOTAL_RETURN_10Y`, `VERBOSE` and `SEC_UA` are set through `advanced`. Scheduled runs (Sundays at 00:00 UTC) have no inputs and use the file defaults. The real SEC contact belongs in the protected repository Actions variable `SEC_UA`, which wins when nonblank; the config default is `daggerok ETF feed daggerok@gmail.com`. The workflow always writes to `api/franklin` and commits only that directory. All supplied filters use **AND** logic.
 
 ### Data sources
 
@@ -51,7 +51,7 @@ Caveats:
 - Unavailable values are published as missing, never as `0`; a fund with a missing value for a return filter is kept rather than dropped
 - Each fund records its source and as-of metadata in `meta.json`
 - franklintempleton.com is behind a WAF that may return 403 to bare `fetch`. The updater tries a direct fetch with a browser-like `User-Agent` first, then falls back to `https://r.jina.ai/http://...` (Jina AI rendering proxy) which returns Markdown. Both paths are parsed by the same `parseFranklinCatalog` / `parseFranklinProductPage` helpers. After `ISSUER_DIRECT_DENIAL_LIMIT` consecutive direct 403s, the updater uses the proxy only
-- `HISTORY_RANGE` is accepted for compatibility but does not currently limit the history: the Yahoo request always starts at `period1=0`
+- `HISTORY_RANGE` limits the Yahoo history request window (`max` starts at `period1=0`, the others use Yahoo's `range=`); a short window also shortens the distribution history the derived yield uses
 - Output layout:
 
 ```
@@ -75,8 +75,8 @@ The table matches `scripts/update-data.config.json` exactly.
 | `MAX_FETCHES` | `0` | Batch size: with a positive value the updater continues after the committed cursor in `api/franklin/update-state.json`; `0` is a full pass over every fund |
 | `REQUEST_SLEEP` | `1.5` | Seconds between outgoing request starts (franklintempleton.com and Yahoo throttle; SEC allows 10/s; keep >= 1) |
 | `CONCURRENCY` | `3` | Parallel fund workers (keep low to stay polite) |
-| `MAX_RETRIES` | `2` | Retries after the initial request |
-| `SEC_UA` | repo-URL descriptor | Override the SEC User-Agent. SEC policy requires automated tools to declare a contact; set the real one through the protected `SEC_UA` Actions variable |
+| `MAX_RETRIES` | `2` | Retries after the initial request (integer >= 1) |
+| `SEC_UA` | `daggerok ETF feed daggerok@gmail.com` | SEC User-Agent with a declared contact; the protected `SEC_UA` Actions variable overrides it |
 | `AUM` | `:` | AUM min:max; bounds may be amounts or K/M/B/T suffixes, or nano/micro/small/mid/large preset |
 | `TER` | `:` | Net expense ratio range in percent: min:max |
 | `DIVIDEND_YIELD` | `:` | Dividend-yield percentage range |
@@ -85,7 +85,7 @@ The table matches `scripts/update-data.config.json` exactly.
 | `CATEGORY` | empty | Keep only this provider category substring |
 | `HOLDINGS_PAGE_SIZE` | `250` | Rows in each generated current-holdings JSON page |
 | `HISTORY_PAGE_SIZE` | `1000` | Rows in each generated price-history JSON page (env alias `HISTORICAL_PAGE_SIZE`) |
-| `HISTORY_RANGE` | `max` | Accepted for compatibility; history is always fetched in full (see caveats) |
+| `HISTORY_RANGE` | `max` | Yahoo history window: `max`, `ytd`, `1d`, `5d`, `1mo`, `3mo`, `6mo`, `1y`, `2y`, `5y` or `10y` |
 | `STORE_RAW_DOWNLOADS` | `false` | Store the source pages under `api/franklin/raw` |
 | `SKIP_YAHOO` | `false` | Keep previous history and distributions while refreshing catalog and holdings |
 | `SKIP_FRANKLIN` | `false` | Keep the previously published official catalog and holdings |
@@ -115,7 +115,7 @@ bun build --target=bun scripts/update-data.ts --outfile=/dev/null
 git diff --check
 ```
 
-`bun test` covers the updater parsers, the config resolver (precedence, validation, defaults), the parity of the config file, `--help` and the controls table above, the workflow shape, and the inline browser script contract (`scripts/check-index.ts`).
+`bun test` runs the single `scripts/update-data.test.ts`: parsers, the config resolver (precedence, validation, defaults), parity of the config file, `--help` and the controls table, the workflow shape, the README structure and the browser contract ids of `index.html` and `app.tsx`
 
 ## Brands table
 
@@ -140,7 +140,7 @@ git diff --check
 | **ProShares** | [proshares.com](https://www.proshares.com/our-etfs/find-proshares-etfs) \| [ProShares](https://daggerok.github.io/ProShares/) |
 | **Schwab** | [schwabassetmanagement.com](https://www.schwabassetmanagement.com/products) \| [Schwab](https://daggerok.github.io/Schwab/) |
 | **SPDR** | [ssga.com](https://www.ssga.com/us/en/intermediary/etfs/fund-finder) \| [SPDR](https://daggerok.github.io/SPDR/) |
-| **Sprott ETFs** | [sprottetfs.com](https://sprottetfs.com/) \| [Sprott](https://daggerok.github.io/Sprott/) (deployment pending) |
+| **Sprott ETFs** | [sprottetfs.com](https://sprottetfs.com/) \| [Sprott](https://daggerok.github.io/Sprott/) |
 | **Tema ETFs** | [temaetfs.com](https://temaetfs.com/funds) \| [Tema](https://daggerok.github.io/Tema/) |
 | **Themes ETFs** | [themesetfs.com/etfs](https://themesetfs.com/etfs) \| [Themes](https://daggerok.github.io/Themes/) |
 | **VanEck** | [vaneck.com](https://www.vaneck.com/us/en/etf-mutual-fund-finder/) \| [VanEck](https://daggerok.github.io/VanEck/) |
