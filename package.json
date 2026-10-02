@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "test": "NODE_USE_SYSTEM_CA=1 bun --use-system-ca test",
-    "update": "NODE_USE_SYSTEM_CA=1 bun --use-system-ca scripts/update-data.ts"
+    "test": "bun test",
+    "update": "bun scripts/update-data.ts"
   },
   "dependencies": {},
   "devDependencies": {
