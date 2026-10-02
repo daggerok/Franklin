@@ -91,6 +91,7 @@ The table matches `scripts/update-data.config.json` exactly.
 | `SKIP_FRANKLIN` | `false` | Keep the previously published official catalog and holdings |
 | `EDGAR_FALLBACK` | `true` | Use SEC EDGAR Form N-PORT-P for full holdings when the official ones are unavailable |
 | `VERBOSE` | `false` | Print per-fund retry and fallback notices |
+| `USE_SYSTEM_CA` | `auto` | TLS trust store: `auto` restarts the updater once with Bun's `--use-system-ca` when a request fails with an untrusted-certificate error; `true` always uses the system CA store; `false` never restarts. Not an individual workflow input: use `advanced`, the config file or the CLI environment |
 | `PERFORMANCE_YTD`, `PERFORMANCE_1Y`, `PERFORMANCE_3Y`, `PERFORMANCE_5Y`, `PERFORMANCE_10Y` | `:` | Annualized return range filters, one control per period |
 | `TOTAL_RETURN_YTD`, `TOTAL_RETURN_1Y`, `TOTAL_RETURN_3Y`, `TOTAL_RETURN_5Y`, `TOTAL_RETURN_10Y` | `:` | Cumulative return range filters, one control per period |
 
