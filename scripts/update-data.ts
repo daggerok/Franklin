@@ -444,6 +444,8 @@ export type CatalogFund = {
   secYield: number | null;
   asOfDate: string | null;
   returns: CatalogReturns;
+  /** ISO date the published returns are as of (the issuer performance table date), null when unknown. */
+  performanceAsOf?: string | null;
   fundPage: string;
   source: 'franklin' | 'previous index' | 'seed' | 'official sitemap';
   factSheet?: string;
@@ -503,6 +505,7 @@ export type ProductPageSummary = {
   factSheet: string | null;
   ytdReturn: number | null;
   returns: CatalogReturns;
+  performanceAsOf: string | null;
 };
 
 export type HoldingsRow = JsonRecord;
@@ -532,6 +535,65 @@ type UpdaterConfig = {
 };
 
 const EMPTY_RETURNS: CatalogReturns = { ytd: null, yr1: null, yr3: null, yr5: null, yr10: null, sinceInception: null };
+
+/** Published in metrics.returnsBasis and meta.returns.derivedFrom: how the returns are produced. */
+export const RETURNS_BASIS = 'official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance';
+
+/**
+ * Date of the issuer performance table: "Average Annual Total Returns ... As of
+ * 08/31/2026" (finder header and product page). Not the NAV or holdings date.
+ */
+export function parsePerformanceAsOf(text: string): string | null {
+  const match = /Average Annual Total Returns[^\n]*?As of\s+(\d{1,2}\/\d{1,2}\/\d{2,4})/i.exec(String(text ?? ''));
+  return match ? isoDateOrNull(toIsoDate(match[1])) : null;
+}
+
+function isoDateOrNull(value: unknown): string | null {
+  const iso = typeof value === 'string' ? value.trim() : '';
+  return /^\d{4}-\d{2}-\d{2}$/.test(iso) ? iso : null;
+}
+
+function hasAnyReturn(returns: CatalogReturns | null | undefined): boolean {
+  return !!returns && Object.values(returns).some((value) => typeof value === 'number' && Number.isFinite(value));
+}
+
+/** ISO performance date, or null when it is malformed or the fund has no returns to date. */
+export function resolvePerformanceAsOf(value: unknown, returns: CatalogReturns | null | undefined): string | null {
+  return hasAnyReturn(returns) ? isoDateOrNull(value) : null;
+}
+
+/** The hub-facing metrics object (STANDARD.md 9a); returnsBasis then performanceAsOf stay last. */
+export function buildMetrics(input: {
+  returns: CatalogReturns;
+  inception: string | null;
+  dividendYield: number | null;
+  secYield: number | null;
+  performanceAsOf: string | null;
+}): JsonRecord {
+  const { returns, dividendYield, secYield } = input;
+  const yr10 = tenYearEligible(input.inception) ? (returns.yr10 ?? null) : null;
+  const total = (cagr: number | null, years: number): number | null => {
+    const fraction = cagr === null ? null : annualizedToTotal(cagr, years);
+    return fraction === null ? null : round(fraction * 100, 2);
+  };
+  return {
+    ytd: returns.ytd ?? null,
+    tr1y: returns.yr1 ?? null,
+    tr3y: total(returns.yr3 ?? null, 3),
+    tr5y: total(returns.yr5 ?? null, 5),
+    tr10y: total(yr10, 10),
+    cagr3y: returns.yr3 ?? null,
+    cagr5y: returns.yr5 ?? null,
+    cagr10y: yr10,
+    siAnn: returns.sinceInception ?? null,
+    dividendYield,
+    dividendYieldText: dividendYield !== null ? `${dividendYield.toFixed(2)}%` : '—',
+    secYield,
+    secYieldText: secYield !== null ? `${secYield.toFixed(2)}%` : '—',
+    returnsBasis: RETURNS_BASIS,
+    performanceAsOf: resolvePerformanceAsOf(input.performanceAsOf, returns),
+  };
+}
 
 let requestSleepSeconds = 1.5;
 let directGate: () => Promise<void> = createRequestGate(1, 1500);
@@ -959,6 +1021,7 @@ export function parseFranklinCatalog(text: string): CatalogFund[] {
   const source = stripProxyPreamble(text);
   const lines = source.split('\n');
   const funds = new Map<string, CatalogFund>();
+  const catalogAsOf = parsePerformanceAsOf(source);
 
   // The finder page renders a markdown table with rows like:
   // | Checkbox | [Fund Name - **TICKER**](https://.../products/.../TICKER) | YTD | 1Y | 3Y | 5Y | Since Inception + date | Expense Ratio | Total Net Assets | Fact Sheet |
@@ -1157,6 +1220,8 @@ export function parseFranklinCatalog(text: string): CatalogFund[] {
       if (yr3 !== null) fund.returns.yr3 = yr3;
       if (yr5 !== null) fund.returns.yr5 = yr5;
       if (sinceInception !== null) fund.returns.sinceInception = sinceInception;
+
+      if (catalogAsOf) fund.performanceAsOf = catalogAsOf;
 
       funds.set(ticker, fund);
     }
@@ -1761,6 +1826,7 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
     factSheet,
     ytdReturn: null,
     returns,
+    performanceAsOf: parsePerformanceAsOf(source),
   };
 }
 
@@ -2362,6 +2428,7 @@ function parsePreviousFund(ticker: string, row: JsonRecord): CatalogFund {
       : (row.dividendYieldSource === 'official' ? plausibleDividendYield(row.metrics?.dividendYield) : null),
     secYield: plausibleSecYield(row.metrics?.secYield),
     asOfDate: row.asOfDate || null,
+    performanceAsOf: isoDateOrNull(row.metrics?.performanceAsOf),
     returns: {
       ytd: row.metrics?.ytd ?? row.returns?.monthEnd?.ytd ?? null,
       yr1: row.metrics?.tr1y ?? row.returns?.monthEnd?.yr1 ?? null,
@@ -2922,6 +2989,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
               (fund.returns as any)[k] = v;
             }
           }
+          if (summary.performanceAsOf && hasAnyReturn(summary.returns)) fund.performanceAsOf = summary.performanceAsOf;
         }
 
         // Try official holdings from product page Portfolio tab (daily, more recent than SEC quarterly)
@@ -3172,6 +3240,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     // funds; a fund younger than ten years cannot have a 10-year return.
     const yr10 = tenYearEligible(fund.inception) ? fund.returns.yr10 : null;
     const si = fund.returns.sinceInception;
+    const performanceAsOf = resolvePerformanceAsOf(fund.performanceAsOf ?? isoDateOrNull(prevMeta?.returns?.performanceAsOf), { ytd, yr1, yr3, yr5, yr10, sinceInception: si });
     const secYield = plausibleSecYield(fund.secYield);
     fund.premiumDiscount = plausiblePremiumDiscount(fund.premiumDiscount);
 
@@ -3247,9 +3316,10 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
         secYieldKind: secYield !== null ? `SEC Yield (30 Day) published on the official product page${summary?.secYieldAsOfDate ? ` as of ${formatDate(summary.secYieldAsOfDate)}` : ''}` : 'not published by franklintempleton.com for this fund',
       },
       returns: {
-        derivedFrom: 'official Franklin Templeton product finder (market price) + Yahoo Finance fallback',
+        derivedFrom: RETURNS_BASIS,
+        performanceAsOf,
         monthEnd: {
-          asOfDate: fund.asOfDate || '',
+          asOfDate: performanceAsOf ? formatDate(performanceAsOf) : '',
           ytd,
           ytdText: ytd !== null ? `${ytd.toFixed(2)}%` : '—',
           yr1,
@@ -3361,14 +3431,19 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
 
     const ytd = fund.returns.ytd ?? meta?.returns?.monthEnd?.ytd ?? null;
     const tr1y = fund.returns.yr1 ?? null;
-    const tr3y = fund.returns.yr3 ? annualizedToTotal(fund.returns.yr3, 3) : null;
-    const tr5y = fund.returns.yr5 ? annualizedToTotal(fund.returns.yr5, 5) : null;
     const yr10 = tenYearEligible(fund.inception) ? (fund.returns.yr10 ?? null) : null;
-    const tr10y = yr10 ? annualizedToTotal(yr10, 10) : null;
     const cagr3y = fund.returns.yr3 ?? null;
     const cagr5y = fund.returns.yr5 ?? null;
     const cagr10y = yr10;
     const siAnn = fund.returns.sinceInception ?? null;
+    const metrics = buildMetrics({
+      returns: { ...fund.returns, ytd },
+      inception: fund.inception,
+      dividendYield: divYield,
+      secYield,
+      performanceAsOf: fund.performanceAsOf ?? isoDateOrNull(meta?.returns?.performanceAsOf),
+    });
+    const performanceAsOf = metrics.performanceAsOf as string | null;
 
     const closePriceValue = fund.close ?? meta?.marketPrice?.value ?? null;
 
@@ -3404,7 +3479,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
       },
       returns: {
         monthEnd: {
-          asOfDate: meta?.returns?.monthEnd?.asOfDate || '',
+          asOfDate: performanceAsOf ? formatDate(performanceAsOf) : '',
           ytd,
           ytdText: ytd !== null ? `${ytd.toFixed(2)}%` : '—',
           yr1: tr1y,
@@ -3434,22 +3509,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
           sinceInceptionText: siAnn !== null ? `${siAnn.toFixed(2)}%` : '—',
         },
       },
-      metrics: {
-        ytd,
-        tr1y,
-        tr3y,
-        tr5y,
-        tr10y,
-        cagr3y,
-        cagr5y,
-        cagr10y,
-        siAnn,
-        dividendYield: divYield,
-        dividendYieldText: divYield !== null ? `${divYield.toFixed(2)}%` : '—',
-        secYield,
-        secYieldText: secYield !== null ? `${secYield.toFixed(2)}%` : '—',
-        returnsBasis: 'official Franklin Templeton product finder (market price) + Yahoo Finance fallback',
-      },
+      metrics,
       dividendYieldSource: typeof meta?.yields?.dividendYieldKind === 'string' && String(meta.yields.dividendYieldKind).startsWith('indicated')
         ? 'indicated'
         : (divYield !== null ? 'official' : null),

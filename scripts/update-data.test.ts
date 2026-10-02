@@ -38,6 +38,10 @@ import {
   plausibleBenchmark,
   annualizedToTotal,
   totalToAnnualized,
+  RETURNS_BASIS,
+  parsePerformanceAsOf,
+  resolvePerformanceAsOf,
+  buildMetrics,
   stripProxyPreamble,
   htmlToText,
   parseFranklinHoldings,
@@ -925,5 +929,64 @@ describe('system CA', () => {
     next = async () => { throw certError; };
     await fetch('https://example.invalid');
     expect(r.calls()).toBe(1);
+  });
+});
+
+describe('metrics contract (returnsBasis and performanceAsOf)', () => {
+  const finder = `
+|  | As of 10/01/2026 | Average Annual Total Returns at Market Price (%) [2](https://example.org/x#footnote_2)As of 08/31/2026 |  | As of 10/01/2026 |  |
+| --- | --- | --- | --- | --- | --- |
+| - [x] Checkbox | [Franklin Disruptive Commerce ETF - **BUYZ**](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29096/SINGLCLASS/franklin-disruptive-commerce-etf/BUYZ) | -14.\u200b53% | -14.\u200b61 | 11.\u200b85 | -7.\u200b20 | 6.\u200b05 02/25/2020 | Gross Net 0.50% 0.50% | $5.\u200b14 Million | Download Fact Sheet |
+`;
+
+  test('the performance date comes from the "Average Annual Total Returns" header, not the daily dates', () => {
+    expect(parsePerformanceAsOf(finder)).toBe('2026-08-31');
+    expect(parsePerformanceAsOf('### Average Annual Total Returns  As of 06/30/2026\nAs of 10/01/2026 (Updated Daily)')).toBe('2026-06-30');
+    expect(parsePerformanceAsOf('NAV $1\nAs of 10/01/2026')).toBeNull();
+  });
+
+  test('catalog rows and product pages carry the date', () => {
+    const [buyz] = parseCatalogText(finder);
+    expect(buyz.ticker).toBe('BUYZ');
+    expect(buyz.performanceAsOf).toBe('2026-08-31');
+    const page = '# BUYZ  Franklin Disruptive Commerce ETF\n### Average Annual Total Returns  As of 08/31/2026\n- -14.61%1 Year\n- 11.85%3 Years\n';
+    expect(parseProductPage(page, 'BUYZ').performanceAsOf).toBe('2026-08-31');
+  });
+
+  test('resolvePerformanceAsOf keeps only ISO dates of funds that have returns', () => {
+    const none = { ytd: null, yr1: null, yr3: null, yr5: null, yr10: null, sinceInception: null };
+    expect(resolvePerformanceAsOf('2026-08-31', { ...none, yr1: 1 })).toBe('2026-08-31');
+    expect(resolvePerformanceAsOf('2026-08-31', { ...none, ytd: 0 })).toBe('2026-08-31');
+    expect(resolvePerformanceAsOf('2026-08-31', none)).toBeNull();
+    expect(resolvePerformanceAsOf('Aug 31 2026', { ...none, yr1: 1 })).toBeNull();
+    expect(resolvePerformanceAsOf('', { ...none, yr1: 1 })).toBeNull();
+  });
+
+  test('buildMetrics publishes percent numbers and ends with returnsBasis, performanceAsOf', () => {
+    const metrics = buildMetrics({
+      returns: { ytd: -14.69, yr1: -14.61, yr3: 10, yr5: -7.2, yr10: 6, sinceInception: 6.05 },
+      inception: '2020-02-25',
+      dividendYield: 0.08,
+      secYield: null,
+      performanceAsOf: '2026-08-31',
+    });
+    expect(metrics.tr3y).toBeCloseTo(33.1, 2);
+    expect(metrics.tr10y).toBeNull();
+    expect(metrics.cagr10y).toBeNull();
+    expect(metrics.secYield).toBeNull();
+    expect(Object.keys(metrics).slice(-2)).toEqual(['returnsBasis', 'performanceAsOf']);
+    expect(metrics.returnsBasis).toBe(RETURNS_BASIS);
+    expect(String(metrics.returnsBasis).trim()).not.toBe('');
+    expect(metrics.returnsBasis).not.toBe('-');
+    expect(metrics.performanceAsOf).toBe('2026-08-31');
+  });
+
+  test('an unknown date stays null and a fund without returns never gets a date', () => {
+    const empty = { ytd: null, yr1: null, yr3: null, yr5: null, yr10: null, sinceInception: null };
+    expect(buildMetrics({ returns: { ...empty, yr1: 2 }, inception: null, dividendYield: null, secYield: null, performanceAsOf: null }).performanceAsOf).toBeNull();
+    const bare = buildMetrics({ returns: empty, inception: null, dividendYield: null, secYield: null, performanceAsOf: '2026-08-31' });
+    expect(bare.performanceAsOf).toBeNull();
+    expect(bare.tr3y).toBeNull();
+    expect(bare.returnsBasis).toBe(RETURNS_BASIS);
   });
 });

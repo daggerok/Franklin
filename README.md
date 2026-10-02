@@ -40,10 +40,12 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 
 - `ytd` / `tr1y` - official YTD and 1-year returns -> *YTD Return*, *TR 1Y*
 - `cagr3y` / `cagr5y` / `cagr10y` - published annualized 3Y/5Y/10Y figures -> *CAGR 3Y/5Y/10Y*
-- `tr3y` / `tr5y` / `tr10y` - cumulative 3Y/5Y/10Y figures `(1 + CAGR)^n - 1` -> *TR 3Y/5Y/10Y*
+- `tr3y` / `tr5y` / `tr10y` - cumulative 3Y/5Y/10Y figures in percent, `((1 + CAGR/100)^n - 1) * 100` -> *TR 3Y/5Y/10Y*
 - `siAnn` - since-inception annualized -> *SI Ann.*
 - `dividendYield` - 12-month trailing yield or indicated yield (latest distribution x frequency / price), an estimate derived from Yahoo distribution events and the market price
-- `secYield` - 30-day SEC yield when published; `-` otherwise
+- `secYield` - 30-day SEC yield when published; `null` otherwise
+- `returnsBasis` - always a non-empty text describing how the returns are computed: official Franklin Templeton average annual total returns at market price (finder and product page), 3Y/5Y/10Y cumulative figures compounded from the official annualized values, not derived from Yahoo Finance
+- `performanceAsOf` - ISO date (`YYYY-MM-DD`) the returns are as of: the "Average Annual Total Returns As of ..." date of the Franklin performance table (a month-end or quarter-end, not the NAV or holdings date), kept from the previous run when a page is unavailable; `null` when unknown or when the fund has no returns. The hub uses it to flag stale returns. YTD is refreshed daily by the issuer, so it can be newer than this date
 
 Caveats:
 
