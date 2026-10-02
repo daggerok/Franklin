@@ -57,9 +57,10 @@
   "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
-  "derivedFrom": "official Franklin Templeton product finder (market price) + Yahoo Finance fallback",
+  "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
+  "performanceAsOf": "2026-08-31",
   "monthEnd": {
-   "asOfDate": "May 31 2026",
+   "asOfDate": "Aug 31 2026",
    "ytd": -4.43,
    "ytdText": "-4.43%",
    "yr1": 4.67,
