@@ -40,6 +40,9 @@ import {
   htmlToText,
   parseFranklinHoldings,
   parseRanges,
+  configurePacing,
+  createRequestGate,
+  fetchText,
 } from './update-data';
 
 describe('parseRange', () => {
@@ -813,4 +816,55 @@ test('README documents the standard sections and verification commands', () => {
   }
   for (const command of ['bun install --frozen-lockfile', 'bun test', 'bun build --target=bun scripts/update-data.ts --outfile=/dev/null', 'git diff --check']) expect(doc).toContain(command);
   expect(doc).not.toMatch(/worklog|fixtures|config-docs\.test|check-index/i);
+});
+
+describe('request pacing lanes', () => {
+  const cfg = { maxRetries: 0 } as any;
+  async function run(concurrency: number, sleepSeconds: number, urls: string[], fetchMs = 60) {
+    const realFetch = globalThis.fetch;
+    let inFlight = 0;
+    let peak = 0;
+    const starts: number[] = [];
+    (globalThis as any).fetch = async () => {
+      inFlight += 1;
+      peak = Math.max(peak, inFlight);
+      starts.push(Date.now());
+      await new Promise((resolve) => setTimeout(resolve, fetchMs));
+      inFlight -= 1;
+      return new Response('ok');
+    };
+    try {
+      configurePacing(concurrency, sleepSeconds);
+      const queue = [...urls];
+      await Promise.all(Array.from({ length: concurrency }, async () => {
+        while (queue.length) await fetchText(queue.shift()!, 'test', cfg);
+      }));
+    } finally {
+      (globalThis as any).fetch = realFetch;
+    }
+    return { peak, starts };
+  }
+  const direct = Array.from({ length: 6 }, (_, i) => `https://example.test/${i}`);
+
+  test('CONCURRENCY=1 keeps a single request in flight', async () => {
+    expect((await run(1, 0.02, direct)).peak).toBe(1);
+  });
+
+  test('CONCURRENCY=3 overlaps three direct requests even with REQUEST_SLEEP > 0', async () => {
+    expect((await run(3, 0.02, direct)).peak).toBe(3);
+  });
+
+  test('each lane paces its own starts by REQUEST_SLEEP', async () => {
+    let now = 0;
+    const waits: number[] = [];
+    const gate = createRequestGate(2, 1000, () => now, async (ms) => { waits.push(ms); });
+    await gate(); await gate(); await gate(); await gate();
+    expect(waits).toEqual([1000, 1000]);
+  });
+
+  test('proxy requests stay globally serialized with a minimum 3.2s gap', async () => {
+    const { peak, starts } = await run(2, 0, ['https://r.jina.ai/https://a.test', 'https://r.jina.ai/https://b.test']);
+    expect(peak).toBe(1);
+    expect(starts[1] - starts[0]).toBeGreaterThanOrEqual(3100);
+  }, 15000);
 });

@@ -1,4 +1,4 @@
-#!/usr/bin/env -S bun --use-system-ca
+#!/usr/bin/env bun
 // Checked-in scripts/update-data.config.json is the runtime default; see resolveControls for precedence.
 /// <reference types="bun" />
 import { readFile as outputReadFile, readdir as outputReadDir } from 'node:fs/promises';
@@ -128,44 +128,6 @@ function outputCreateReporter(root: URL | string, total: number) {
 }
 
 
-// Embed system CA by default so user does NOT need to pass --use-system-ca or NODE_USE_SYSTEM_CA=1
-// Bun v1.2.23+ supports --use-system-ca flag and NODE_USE_SYSTEM_CA=1 env var.
-// When run via `bun ./scripts/update-data.ts` the shebang is ignored, so we auto-restart with flag if needed.
-// See https://bun.com/blog/bun-v1.2.23#use-system-ca and https://github.com/oven-sh/bun/issues/30313
-const _env = (typeof process !== 'undefined' ? (process as any).env : {}) as Record<string, string | undefined>;
-if (!_env.NODE_USE_SYSTEM_CA) {
-  _env.NODE_USE_SYSTEM_CA = '1';
-}
-// Only auto-restart for direct script execution, NOT for `bun test` which has different argv handling
-// In `bun test`, process.argv is [bun, testFile] without subcommand, so we must NOT spawn or we break test runner
-const _isTestRunner = typeof process !== 'undefined' && ((process as any).argv?.some((a: string) => a.includes('update-data.test.ts')) || (process as any).env?.BUN_TEST === '1' || (globalThis as any).Bun?.isMainThread === false);
-const _isDirectRun = typeof process !== 'undefined' && (process as any).argv?.some((a: string) => a.includes('update-data.ts') && !a.includes('test'));
-if (!_env.FRANKLIN_REEXEC && !_isTestRunner) {
-  // If not already re-executed and flag not present, try to re-exec with --use-system-ca
-  // This makes `bun ./scripts/update-data.ts` work without manual flag.
-  // No top-level await here – use Bun.spawnSync synchronously to keep module sync for bun:test
-  try {
-    const hasFlag = typeof process !== 'undefined' && (process as any).argv?.some((a: string) => a === '--use-system-ca');
-    if (!hasFlag) {
-      const bunGlobal = (globalThis as any).Bun;
-      if (bunGlobal && typeof bunGlobal.spawnSync === 'function') {
-        // Only re-exec if we're running as main script (not imported)
-        const isMain = typeof (globalThis as any).Bun !== 'undefined' ? (import.meta as any).main : true;
-        if (isMain) {
-          _env.FRANKLIN_REEXEC = '1';
-          const args = ['--use-system-ca', ...((process as any).argv?.slice(1) || [])];
-          const result = bunGlobal.spawnSync(['bun', ...args], { stdio: ['inherit', 'inherit', 'inherit'], env: _env as any });
-          if (typeof process !== 'undefined') {
-            (process as any).exit((result as any).status ?? 0);
-          }
-        }
-      }
-    }
-  } catch {
-    // If re-exec fails, continue with env var set (may still work for Node's fetch)
-  }
-}
-
 const FRANKLIN_SERIES_MAP: Record<string, { cik: string; seriesId: string; classId: string; acc?: string; reportDate?: string }> = {
   // Franklin Templeton ETF Trust (CIK 0001655589)
   FLAU: { cik: "0001655589", seriesId: "S000059508", classId: "C000194942", acc: "0000940400-26-035149", reportDate: "2026-06-30" },
@@ -250,27 +212,6 @@ const FRANKLIN_SERIES_MAP: Record<string, { cik: string; seriesId: string; class
 };
 
 // Franklin Templeton U.S.-listed ETF static data updater.
-// Embedded TLS fix: Bun v1.2.23+ supports --use-system-ca flag and NODE_USE_SYSTEM_CA=1 env var
-// to use OS CA store. We auto re-exec here when run as "bun scripts/update-data.ts" so that the user
-// does NOT need to pass --use-system-ca or set NODE_USE_SYSTEM_CA=1 manually.
-// See https://bun.com/blog/bun-v1.2.23#use-system-ca and https://github.com/oven-sh/bun/issues/30313
-if (typeof process !== 'undefined' && process.env) {
-  process.env.NODE_USE_SYSTEM_CA = '1';
-  if (!process.env.__BUN_SYSTEM_CA_REEXEC && typeof Bun !== 'undefined') {
-    try {
-      const { spawnSync } = require('node:child_process');
-      const argv = process.argv.slice(1);
-      const isBunRun = argv.length > 0 && argv[0].endsWith('update-data.ts');
-      if (isBunRun) {
-        const res = spawnSync(process.execPath || 'bun', ['--use-system-ca', ...argv], {
-          env: { ...process.env, NODE_USE_SYSTEM_CA: '1', __BUN_SYSTEM_CA_REEXEC: '1' },
-          stdio: 'inherit',
-        });
-        process.exit(res.status ?? 0);
-      }
-    } catch {}
-  }
-}
 //
 // The browser application is deliberately static. This script builds the feed
 // under api/franklin/** from public issuer/SEC/market-data sources:
@@ -426,7 +367,7 @@ const SEC_FUND_TICKERS_URL = `${SEC_SITE}/files/company_tickers_mf.json`;
 const SEC_COMPANY_TICKERS_URL = `${SEC_SITE}/files/company_tickers.json`;
 let SEC_UA = 'daggerok ETF feed daggerok@gmail.com';
 const BROWSER_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
-const PROXY_SLEEP_SECONDS = 0.5;
+const PROXY_SLEEP_SECONDS = 3.2;
 
 const API_ROOT = new URL('../api/franklin/', import.meta.url);
 const INDEX_FILE = new URL('index.json', API_ROOT);
@@ -555,9 +496,9 @@ type UpdaterConfig = {
 
 const EMPTY_RETURNS: CatalogReturns = { ytd: null, yr1: null, yr3: null, yr5: null, yr10: null, sinceInception: null };
 
-let requestGateAt = 0;
-let proxyGateAt = 0;
 let requestSleepSeconds = 1.5;
+let directGate: () => Promise<void> = createRequestGate(1, 1500);
+let proxyGateAt = 0;
 let fundTickerMap: Map<string, SecSeriesRef> | null = null;
 let fundTickerMapPromise: Promise<Map<string, SecSeriesRef>> | null = null;
 let companyTickerMap: Map<string, string> | null = null;
@@ -2223,17 +2164,35 @@ export function paymentsPerYearFor(frequency: unknown): number | null {
 // HTTP layer with proxy fallback
 // ---------------------------------------------------------------------------
 
+/** Per-worker request lanes: each lane paces its own starts by sleepMs, so N lanes give ~N times the throughput. */
+export function createRequestGate(concurrency: number, sleepMs: number, now = Date.now, wait = sleep): () => Promise<void> {
+  const lanes = Array.from({ length: Math.max(1, concurrency) }, () => 0);
+  return async () => {
+    const time = now();
+    let lane = 0;
+    for (let i = 1; i < lanes.length; i += 1) if (lanes[i] < lanes[lane]) lane = i;
+    const delay = Math.max(0, lanes[lane] - time);
+    lanes[lane] = Math.max(time, lanes[lane]) + Math.max(0, sleepMs);
+    if (delay) await wait(delay);
+  };
+}
+
+export function configurePacing(concurrency: number, sleepSeconds: number): void {
+  requestSleepSeconds = sleepSeconds;
+  directGate = createRequestGate(concurrency, sleepSeconds * 1000);
+  proxyGateAt = 0;
+}
+
+// Direct requests use per-worker lanes; the r.jina.ai proxy keeps one global gate (rate-limited, min PROXY_SLEEP_SECONDS)
 async function paceRequests(proxy = false): Promise<void> {
-  const now = Date.now();
   if (proxy) {
+    const now = Date.now();
     const wait = Math.max(0, proxyGateAt - now);
     proxyGateAt = Math.max(now, proxyGateAt) + Math.max(requestSleepSeconds, PROXY_SLEEP_SECONDS) * 1000;
     if (wait) await sleep(wait);
     return;
   }
-  const wait = Math.max(0, requestGateAt - now);
-  requestGateAt = Math.max(now, requestGateAt) + Math.max(0, requestSleepSeconds * 1000);
-  if (wait) await sleep(wait);
+  await directGate();
 }
 
 class HttpError extends Error {
@@ -2262,7 +2221,7 @@ function buildProxyUrls(originalUrl: string): string[] {
   return PROXY_PREFIXES.map((fn) => fn(originalUrl));
 }
 
-async function fetchText(url: string, label: string, config: UpdaterConfig, headers: Record<string, string> = {}): Promise<string> {
+export async function fetchText(url: string, label: string, config: UpdaterConfig, headers: Record<string, string> = {}): Promise<string> {
   let lastError: unknown = new Error('no request attempted');
   const proxy = isProxyUrl(url);
   for (let attempt = 0; attempt <= config.maxRetries; attempt += 1) {
@@ -2576,8 +2535,8 @@ Environment variables (all optional):
   MAX_FETCHES          0     Funds to process. 0 = full pass. A positive value
                              resumes after the committed cursor in
                              api/franklin/update-state.json.
-  REQUEST_SLEEP        1.5   Minimum seconds between request starts.
-  CONCURRENCY          3     Parallel fund workers (starts stay globally paced).
+  REQUEST_SLEEP        1.5   Minimum seconds between request starts per worker lane (r.jina.ai proxy: global, min 3.2s).
+  CONCURRENCY          3     Parallel fund workers; each paces its own direct request starts.
   MAX_RETRIES          2     Retries (>= 1) for network errors and 408/425/429/5xx.
   TICKERS              \"\"    Space/comma separated tickers. ANDed with the other
                              filters, never overriding them.
@@ -2681,7 +2640,7 @@ async function ensureApiRoot(): Promise<void> {
 }
 
 async function runUpdater(config: UpdaterConfig): Promise<void> {
-  requestSleepSeconds = config.requestSleep;
+  configurePacing(config.concurrency, config.requestSleep);
 
   outputPrintConfig('Franklin', config);
 
