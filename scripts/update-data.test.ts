@@ -1,6 +1,9 @@
 /// <reference types="bun" />
 import { afterEach, describe, expect, test } from 'bun:test';
-import { readFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import {
   CONTROL_NAMES,
   installSystemCa,
@@ -50,6 +53,8 @@ import {
   createRequestGate,
   fetchText,
   placeholderFund,
+  setApiRootForTest,
+  main,
   userAgentFor,
   FETCH_TIMEOUT_MS,
   previousTer,
@@ -1052,5 +1057,131 @@ describe('requests', () => {
     await expect(fetchText('https://example.test/slow', 'slow', { maxRetries: 1, fetchTimeoutMs: 80 } as any)).rejects.toThrow();
     expect(calls).toBe(2);
     expect(Date.now() - started).toBeLessThan(5000);
+  });
+});
+
+describe('pipeline below a temporary api root', () => {
+  const realFetch = globalThis.fetch;
+  const realLog = console.log;
+  const realWarn = console.warn;
+  let root = '';
+  let logs: string[] = [];
+  const offline = { SKIP_FRANKLIN: 'true', SKIP_YAHOO: 'true', EDGAR_FALLBACK: 'false', REQUEST_SLEEP: '0', CONCURRENCY: '2', MAX_RETRIES: '1' };
+
+  function snapshot(dir: string, base = dir): Record<string, string> {
+    const out: Record<string, string> = {};
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const path = join(dir, entry.name);
+      if (entry.isDirectory()) Object.assign(out, snapshot(path, base));
+      else out[path.slice(base.length)] = readFileSync(path, 'utf8');
+    }
+    return out;
+  }
+  const feed = () => join(root, 'franklin');
+  const index = () => JSON.parse(readFileSync(join(feed(), 'index.json'), 'utf8'));
+
+  async function run(env: Record<string, string>): Promise<void> {
+    process.exitCode = 0;
+    await main([], { ...offline, ...env });
+  }
+
+  afterEach(() => {
+    globalThis.fetch = realFetch;
+    console.log = realLog;
+    console.warn = realWarn;
+    process.exitCode = 0;
+    if (root) rmSync(root, { recursive: true, force: true });
+    root = '';
+  });
+  const start = () => {
+    root = mkdtempSync(join(tmpdir(), 'franklin-test-'));
+    setApiRootForTest(pathToFileURL(`${feed()}/`));
+    logs = [];
+    console.log = (...args: unknown[]) => { logs.push(args.join(' ')); };
+    console.warn = (...args: unknown[]) => { logs.push(args.join(' ')); };
+  };
+
+  test('a first run lists new funds, invents no fees or names and leaves dataFile null only without meta', async () => {
+    start();
+    await run({});
+    const rows = index().funds;
+    expect(rows.length).toBeGreaterThanOrEqual(81);
+    expect(logs.some((line) => line.startsWith('NEW FUNDS: '))).toBe(true);
+    expect(rows.every((row: any) => row.terValue === null && row.ter === '—')).toBe(true);
+    expect(rows.some((row: any) => row.name === `Franklin ${row.ticker} ETF`)).toBe(false);
+    expect(rows.every((row: any) => row.name === null)).toBe(true);
+    expect(rows.every((row: any) => Object.keys(row.metrics).length === 15)).toBe(true);
+    expect(rows.every((row: any) => row.returns.quarterEnd.sinceInception === null)).toBe(true);
+    expect(index().generatedAt).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/);
+  });
+
+  test('a rerun with the same upstream data changes nothing on disk', async () => {
+    start();
+    await run({});
+    const first = snapshot(feed());
+    await new Promise((resolve) => setTimeout(resolve, 1100));
+    await run({});
+    expect(snapshot(feed())).toEqual(first);
+    expect(Object.keys(first).some((name) => name.endsWith('.tmp'))).toBe(false);
+  });
+
+  test('a one-ticker run keeps every row and every other fund file, and leaves the cursor alone', async () => {
+    start();
+    await run({});
+    const before = snapshot(feed());
+    const rows = index().funds.length;
+    await run({ TICKERS: 'FLCH' });
+    expect(index().funds.length).toBe(rows);
+    expect(snapshot(feed())).toEqual(before);
+    expect(existsSync(join(feed(), 'update-state.json'))).toBe(false);
+  });
+
+  test('unknown tickers are an error', async () => {
+    start();
+    await run({});
+    await expect(run({ TICKERS: 'NOPE' })).rejects.toThrow(/NOPE/);
+  });
+
+  test('MAX_FETCHES walks the filtered list and wraps around', async () => {
+    start();
+    await run({});
+    const total = index().funds.length;
+    const seen: string[] = [];
+    for (let i = 0; i < 3; i += 1) {
+      await run({ MAX_FETCHES: String(total - 1) });
+      seen.push(JSON.parse(readFileSync(join(feed(), 'update-state.json'), 'utf8')).cursor);
+    }
+    const sorted = index().funds.map((row: any) => row.ticker);
+    expect(seen[0]).toBe(sorted[total - 2]);
+    expect(seen[1]).toBe(sorted[(total - 2 + total - 1) % total]);
+    expect(new Set(seen).size).toBe(3);
+  });
+
+  test('a fund whose product page fails keeps its published files exactly', async () => {
+    start();
+    await run({});
+    const dir = join(feed(), 'funds', 'FLCH');
+    const metaPath = join(dir, 'meta.json');
+    const meta = JSON.parse(readFileSync(metaPath, 'utf8'));
+    meta.returns.performanceAsOf = '2026-08-31';
+    meta.history = { ...meta.history, totalRows: 5 };
+    writeFileSync(metaPath, JSON.stringify(meta, null, 1) + '\n');
+    const before = snapshot(join(feed(), 'funds'));
+    (globalThis as any).fetch = async () => { throw new Error('offline'); };
+    await run({ SKIP_FRANKLIN: 'false', SKIP_YAHOO: 'true', TICKERS: 'FLCH', MAX_RETRIES: '1', REQUEST_SLEEP: '0' });
+    expect(snapshot(join(feed(), 'funds'))).toEqual(before);
+    expect(process.exitCode).toBe(1);
+    expect(logs.join('\n')).toMatch(/kept the previously published fund/);
+  }, 120000);
+
+  test('stale pages are removed only after the new meta.json exists', async () => {
+    start();
+    await run({});
+    const dir = join(feed(), 'funds', 'FLCH');
+    mkdirSync(join(dir, 'holdings'), { recursive: true });
+    writeFileSync(join(dir, 'holdings', '009.json'), '{}');
+    await run({ TICKERS: 'FLCH' });
+    expect(existsSync(join(dir, 'holdings', '009.json'))).toBe(false);
+    expect(existsSync(join(dir, 'meta.json'))).toBe(true);
   });
 });
