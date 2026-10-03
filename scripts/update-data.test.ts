@@ -50,6 +50,9 @@ import {
   resolvePerformanceAsOf,
   runtimeControls,
   setApiRootForTest,
+  setSoftDeadline,
+  publishedAsOf,
+  stalestFirst,
   stripProxyPreamble,
   tenYearEligible,
   toIsoDate,
@@ -71,6 +74,7 @@ beforeEach(() => {
 });
 afterEach(() => {
   globalThis.fetch = realFetch;
+  setSoftDeadline(25 * 60_000);
   console.log = realLog;
   console.warn = realWarn;
   process.exitCode = 0;
@@ -520,6 +524,47 @@ describe('pipeline', () => {
     expect(seen[0]).toBe(tickers[total - 2]);
     expect(seen[1]).toBe(tickers[(total - 2 + total - 1) % total]);
     expect(new Set(seen).size).toBe(3);
+  }));
+
+  test('stalest fund first: a deadline-truncated run refreshes the stalest, the next runs pick up the skipped funds', inTempRoot(async () => {
+    const tickers = ['DIVI', 'FLCH', 'LVHD'];
+    // published as-of dates: LVHD stalest, then DIVI, then FLCH (alphabetical order would be DIVI, FLCH, LVHD)
+    const published: Record<string, string> = { LVHD: '2026-01-10', DIVI: '2026-02-10', FLCH: '2026-03-01' };
+    await run({ TICKERS: tickers.join(' ') });
+    for (const ticker of tickers) {
+      const metaPath = join(feed(), 'funds', ticker, 'meta.json');
+      const meta = JSON.parse(readFileSync(metaPath, 'utf8'));
+      meta.marketPrice.asOfDate = published[ticker];
+      writeFileSync(metaPath, JSON.stringify(meta, null, 1) + '\n');
+    }
+    expect(publishedAsOf(JSON.parse(readFileSync(join(feed(), 'funds', 'DIVI', 'meta.json'), 'utf8')))).toBe('2026-02-10');
+    expect(publishedAsOf(null)).toBeNull();
+    const asOf = new Map<string, string | null>([...Object.entries(published), ['ZNEW', null]]);
+    expect(stalestFirst([...tickers, 'ZNEW'].map((ticker) => ({ ticker })), asOf).map((f) => f.ticker)).toEqual(['ZNEW', 'LVHD', 'DIVI', 'FLCH']);
+
+    // a mocked Yahoo chart stamps a fresh trading day on whatever fund is fetched, in request order
+    const order: string[] = [];
+    (globalThis as any).fetch = async (input: unknown) => {
+      const url = String(input);
+      const ticker = /finance\/chart\/([A-Z]+)/.exec(url)?.[1];
+      if (!ticker) throw new Error('offline');
+      order.push(ticker);
+      const t = Date.UTC(2026, 2, 27) / 1000;
+      return new Response(JSON.stringify({ chart: { result: [{ meta: { regularMarketPrice: 20, regularMarketTime: t }, timestamp: [t - 86_400, t], indicators: { quote: [{ close: [19, 20], volume: [1, 1] }], adjclose: [{ adjclose: [19, 20] }] }, events: {} }] } }));
+    };
+    // soft deadline 0 and one worker: every run takes exactly one fund (the first fund is always taken)
+    const summary = join(root, 'summary.md');
+    process.env.GITHUB_STEP_SUMMARY = summary;
+    setSoftDeadline(0);
+    const runs: string[][] = [];
+    for (let i = 0; i < 3; i += 1) {
+      order.length = 0;
+      await run({ TICKERS: tickers.join(' '), SKIP_YAHOO: 'false', CONCURRENCY: '1' });
+      runs.push([...order]);
+    }
+    expect(runs).toEqual([['LVHD'], ['DIVI'], ['FLCH']]);
+    expect(readFileSync(summary, 'utf8')).toContain('1 of 3 funds refreshed, 2 keep their published files, oldest remaining published as-of: 2026-02-10 (DIVI)');
+    expect(index().funds.length).toBe(81);
   }));
 
   test('a failed source keeps the published fund exactly', inTempRoot(async () => {

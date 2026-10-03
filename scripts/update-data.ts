@@ -418,6 +418,55 @@ export function setApiRootForTest(root: URL): void {
   STATE_FILE = new URL('update-state.json', API_ROOT);
 }
 
+/** The workflow times out at 30 minutes: stop taking new funds well before, and still write the index. */
+let softDeadlineMs = 25 * 60_000;
+/** Test hook: shorten (or zero) the soft run deadline. */
+export function setSoftDeadline(ms: number): void {
+  softDeadlineMs = ms;
+}
+
+/**
+ * ISO date a published fund is refreshed up to (the latest of its price, NAV, holdings and
+ * performance dates), or null when the fund has no published data yet.
+ */
+export function publishedAsOf(meta: JsonRecord | null | undefined): string | null {
+  if (!meta) return null;
+  const dates = [meta.marketPrice?.asOfDate, meta.nav?.asOfDate, meta.holdings?.asOfDate, meta.returns?.performanceAsOf]
+    .map(isoDateOrNull)
+    .filter((value): value is string => value !== null);
+  return dates.length ? dates.sort()[dates.length - 1] : null;
+}
+
+/** Published as-of per ticker, read from each fund's meta.json (null: nothing published). */
+async function readPublishedAsOf(tickers: string[]): Promise<Map<string, string | null>> {
+  const map = new Map<string, string | null>();
+  for (const ticker of tickers) {
+    try {
+      map.set(ticker, publishedAsOf(JSON.parse(await readFile(new URL(`funds/${ticker}/meta.json`, API_ROOT), 'utf8')) as JsonRecord));
+    } catch {
+      map.set(ticker, null);
+    }
+  }
+  return map;
+}
+
+/**
+ * Run order of an unbounded run: funds without published data first, then the stalest
+ * published as-of, ties alphabetical. A run cut short by the soft deadline therefore
+ * leaves the freshest funds for last, and the next run starts where this one stopped.
+ */
+export function stalestFirst<T extends { ticker: string }>(funds: T[], asOf: Map<string, string | null>): T[] {
+  const key = (fund: T): string => asOf.get(fund.ticker) ?? '';
+  return [...funds].sort((a, b) => (key(a) < key(b) ? -1 : key(a) > key(b) ? 1 : a.ticker.localeCompare(b.ticker)));
+}
+
+/** One line for the log and the step summary: what a deadline-truncated run left behind. */
+export function deadlineSummary(attempted: number, total: number, remaining: Array<{ ticker: string }>, asOf: Map<string, string | null>): string {
+  const ordered = stalestFirst(remaining, asOf);
+  const oldest = ordered.length ? `${asOf.get(ordered[0].ticker) ?? 'never published'} (${ordered[0].ticker})` : 'none';
+  return `${attempted} of ${total} funds refreshed, ${remaining.length} keep their published files, oldest remaining published as-of: ${oldest}`;
+}
+
 const HOLDINGS_HEADERS = ['Name', 'Ticker', 'Identifier', 'Weight', 'Market Value', 'Shares Held', 'Asset Category'];
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const TRUTHY = new Set(['1', 'true', 'yes', 'y', 'on']);
@@ -2932,6 +2981,9 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     toProcess = ordered.slice(0, config.maxFetches);
     console.log(`[ cursor   ] bounded run: max=${config.maxFetches} processing=${toProcess.length} cursor=${useCursor ? state.cursor || 'none' : 'untouched (TICKERS run)'}`);
   }
+  // An unbounded run goes stalest first, so a run cut short by the soft deadline rotates instead of starving the tail.
+  const publishedAsOfByTicker = await readPublishedAsOf(filtered.map((fund) => fund.ticker));
+  if (config.maxFetches === 0) toProcess = stalestFirst(filtered, publishedAsOfByTicker);
 
   // Preload ticker maps for SEC
   if (config.edgarFallback) {
@@ -2953,6 +3005,9 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
 
   // Process funds with concurrency
   const queue = [...toProcess];
+  const runStartedAt = Date.now();
+  let dispatched = 0;
+  let deadlineHit = false;
   const workers: Promise<void>[] = [];
 
   const output = outputCreateReporter(API_ROOT, totalToProcess);
@@ -3414,8 +3469,11 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     workers.push(
       (async () => {
         while (queue.length) {
+          // Every run makes progress: the first fund is always taken, whatever the deadline says.
+          if (dispatched > 0 && Date.now() - runStartedAt > softDeadlineMs) { deadlineHit = true; break; }
           const fund = queue.shift();
           if (!fund) break;
+          dispatched += 1;
           const before = await output.before(fund.ticker);
           try {
             await processFund(fund);
@@ -3430,6 +3488,11 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
   }
 
   await Promise.all(workers);
+  if (deadlineHit) {
+    const line = `soft deadline reached: ${deadlineSummary(dispatched, totalToProcess, queue, publishedAsOfByTicker)}; the next run starts with them`;
+    console.warn(`[ deadline ] ${line}`);
+    if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, `### Soft deadline\n\n${line}\n`, 'utf8');
+  }
 
   // Build index.json
   const allFunds = [...catalog.values()]
@@ -3582,7 +3645,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
   // Update state cursor
   if (useCursor) {
     if (config.maxFetches > 0) {
-      const lastTicker = toProcess.length ? toProcess[toProcess.length - 1].ticker : state.cursor || null;
+      const lastTicker = toProcess.length ? toProcess[(deadlineHit ? dispatched : toProcess.length) - 1].ticker : state.cursor || null;
       await writeJsonIfChanged(STATE_FILE, { cursor: lastTicker, savedAt: new Date().toISOString().replace(/\.\d{3}Z$/, 'Z') });
     } else if (filtered.length === catalog.size) {
       // Only an unfiltered full pass resets the rotation.
