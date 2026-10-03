@@ -42,7 +42,7 @@ function outputConfigEntries(config: Record<string, any>): [string, string][] {
 }
 function outputPrintConfig(brand: string, config: Record<string, any>): void {
   const entries: [string, string][] = [...outputConfigEntries(config), ['VERBOSE', String(outputVerbose())]];
-  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
+  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE|SEC_UA/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
 }
 function outputHasOutputFilters(config: Record<string, any>): boolean {
   return outputConfigEntries(config).some(([name, value]) =>
@@ -513,6 +513,8 @@ type SecSeriesRef = { cik: string; seriesId: string; classId: string };
 type NportAccession = { accession: string; filed: string; reportDate: string; url: string };
 
 type UpdaterConfig = {
+  /** Test-only override of the per-request deadline. */
+  fetchTimeoutMs?: number;
   maxFetches: number;
   requestSleep: number;
   aum?: Range;
@@ -2267,6 +2269,22 @@ export function paymentsPerYearFor(frequency: unknown): number | null {
 // HTTP layer with proxy fallback
 // ---------------------------------------------------------------------------
 
+/** Per-request deadline in ms (headers and body). */
+export const FETCH_TIMEOUT_MS = 45_000;
+const SEC_HOSTS = new Set(['www.sec.gov', 'data.sec.gov', 'sec.gov']);
+const GENERIC_UA = 'Mozilla/5.0 (compatible; etf-feed-updater)';
+
+/**
+ * The declared SEC contact goes only to sec.gov. Issuer pages, Yahoo and the
+ * third-party rendering proxies get a User-Agent without the contact address.
+ */
+export function userAgentFor(url: string, requested?: string): string {
+  let host = '';
+  try { host = new URL(url).hostname; } catch { /* keep the generic agent */ }
+  if (SEC_HOSTS.has(host)) return requested || SEC_UA;
+  return !requested || requested === SEC_UA ? GENERIC_UA : requested;
+}
+
 /** Per-worker request lanes: each lane paces its own starts by sleepMs, so N lanes give ~N times the throughput. */
 export function createRequestGate(concurrency: number, sleepMs: number, now = Date.now, wait = sleep): () => Promise<void> {
   const lanes = Array.from({ length: Math.max(1, concurrency) }, () => 0);
@@ -2330,12 +2348,11 @@ export async function fetchText(url: string, label: string, config: UpdaterConfi
   for (let attempt = 0; attempt <= config.maxRetries; attempt += 1) {
     try {
       await paceRequests(proxy);
-      const controller = new AbortController();
       const isFranklinDirect = url.includes('franklintempleton.com') && !proxy;
-      const timeoutMs = isFranklinDirect ? 8000 : 15000;
-      const timeout = setTimeout(() => controller.abort(), timeoutMs);
-      const response = await fetch(url, { headers: { 'User-Agent': SEC_UA, Accept: '*/*', ...headers }, redirect: 'follow', signal: controller.signal } as any);
-      clearTimeout(timeout);
+      // One deadline covers the headers AND the body, so a stalled body cannot hang a run.
+      const timeoutMs = config.fetchTimeoutMs ?? (isFranklinDirect ? 8000 : FETCH_TIMEOUT_MS);
+      const signal = AbortSignal.timeout(timeoutMs);
+      const response = await fetch(url, { headers: { Accept: '*/*', ...headers, 'User-Agent': userAgentFor(url, headers['User-Agent']) }, redirect: 'follow', signal } as any);
       if (!response.ok) {
         const snippet = cleanText((await response.text().catch(() => '')).replace(/<[^>]+>/g, ' ')).slice(0, 160);
         throw new HttpError(response.status, `${response.status} ${response.statusText}${snippet ? ` — ${snippet}` : ''}`);

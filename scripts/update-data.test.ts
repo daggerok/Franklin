@@ -50,6 +50,8 @@ import {
   createRequestGate,
   fetchText,
   placeholderFund,
+  userAgentFor,
+  FETCH_TIMEOUT_MS,
   previousTer,
 } from './update-data';
 
@@ -1012,5 +1014,43 @@ describe('nothing is invented for unseen funds', () => {
     expect(previousTer({ terValue: 0.19, navValue: 21.03, aumValue: 307030000 })).toBe(0.19);
     expect(previousTer({ terValue: 0.35, navValue: null, aumValue: null })).toBe(0.35);
     expect(previousTer({ ter: '—' })).toBeNull();
+  });
+});
+
+describe('requests', () => {
+  const realFetch = globalThis.fetch;
+  afterEach(() => { globalThis.fetch = realFetch; });
+
+  test('the SEC contact is sent to sec.gov only', () => {
+    const contact = 'daggerok ETF feed daggerok@gmail.com';
+    expect(userAgentFor('https://www.sec.gov/Archives/x', contact)).toBe(contact);
+    expect(userAgentFor('https://data.sec.gov/submissions/CIK1.json', contact)).toBe(contact);
+    for (const url of ['https://r.jina.ai/https://www.sec.gov/x', 'https://api.allorigins.win/raw?url=a', 'https://www.franklintempleton.com/x', 'https://query1.finance.yahoo.com/v8']) {
+      expect(userAgentFor(url, contact)).not.toContain('daggerok');
+      expect(userAgentFor(url, undefined)).not.toContain('daggerok');
+    }
+    expect(userAgentFor('https://query1.finance.yahoo.com/v8', 'Mozilla/5.0 browser')).toBe('Mozilla/5.0 browser');
+  });
+
+  test('config printing redacts SEC_UA', () => {
+    const source = readFileSync(new URL('./update-data.ts', import.meta.url), 'utf8');
+    expect(source).toMatch(/TOKEN\|PASSWORD\|SECRET\|COOKIE\|SEC_UA/);
+    expect(FETCH_TIMEOUT_MS).toBe(45_000);
+  });
+
+  test('a body that never finishes is cut by the deadline and retried per MAX_RETRIES', async () => {
+    let calls = 0;
+    (globalThis as any).fetch = async (_url: string, init: { signal: AbortSignal }) => {
+      calls += 1;
+      const body = new ReadableStream({
+        start(controller) { init.signal.addEventListener('abort', () => controller.error(init.signal.reason)); },
+      });
+      return new Response(body, { status: 200 });
+    };
+    configurePacing(1, 0);
+    const started = Date.now();
+    await expect(fetchText('https://example.test/slow', 'slow', { maxRetries: 1, fetchTimeoutMs: 80 } as any)).rejects.toThrow();
+    expect(calls).toBe(2);
+    expect(Date.now() - started).toBeLessThan(5000);
   });
 });
