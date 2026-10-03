@@ -2,7 +2,7 @@
  "ticker": "XDAT",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1431,
+ "totalRows": 1436,
  "headers": [
   "Date",
   "Close",
@@ -3026,6 +3026,41 @@
    "Adj Close": "28.06",
    "Volume": "300",
    "searchIndex": "2026-09-25 28.062000274658203"
+  },
+  {
+   "Date": "Sep 28 2026",
+   "Close": "27.72",
+   "Adj Close": "27.72",
+   "Volume": "200",
+   "searchIndex": "2026-09-28 27.72100067138672"
+  },
+  {
+   "Date": "Sep 29 2026",
+   "Close": "27.83",
+   "Adj Close": "27.83",
+   "Volume": "200",
+   "searchIndex": "2026-09-29 27.832000732421875"
+  },
+  {
+   "Date": "Sep 30 2026",
+   "Close": "28.02",
+   "Adj Close": "28.02",
+   "Volume": "1400",
+   "searchIndex": "2026-09-30 28.01799964904785"
+  },
+  {
+   "Date": "Oct 1 2026",
+   "Close": "28.16",
+   "Adj Close": "28.16",
+   "Volume": "100",
+   "searchIndex": "2026-10-01 28.163000106811523"
+  },
+  {
+   "Date": "Oct 2 2026",
+   "Close": "28.25",
+   "Adj Close": "28.25",
+   "Volume": "100",
+   "searchIndex": "2026-10-02 28.24799919128418"
   }
  ]
 }

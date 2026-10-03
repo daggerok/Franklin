@@ -2,7 +2,7 @@
  "ticker": "FRIZ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 269,
+ "totalRows": 274,
  "headers": [
   "Date",
   "Close",
@@ -1892,6 +1892,41 @@
    "Adj Close": "26.75",
    "Volume": "100",
    "searchIndex": "2026-09-25 26.746000289916992"
+  },
+  {
+   "Date": "Sep 28 2026",
+   "Close": "26.63",
+   "Adj Close": "26.63",
+   "Volume": "100",
+   "searchIndex": "2026-09-28 26.634000778198242"
+  },
+  {
+   "Date": "Sep 29 2026",
+   "Close": "26.60",
+   "Adj Close": "26.60",
+   "Volume": "100",
+   "searchIndex": "2026-09-29 26.597999572753906"
+  },
+  {
+   "Date": "Sep 30 2026",
+   "Close": "26.42",
+   "Adj Close": "26.42",
+   "Volume": "100",
+   "searchIndex": "2026-09-30 26.41699981689453"
+  },
+  {
+   "Date": "Oct 1 2026",
+   "Close": "26.34",
+   "Adj Close": "26.34",
+   "Volume": "100",
+   "searchIndex": "2026-10-01 26.343000411987305"
+  },
+  {
+   "Date": "Oct 2 2026",
+   "Close": "26.49",
+   "Adj Close": "26.49",
+   "Volume": "100",
+   "searchIndex": "2026-10-02 26.488000869750977"
   }
  ]
 }

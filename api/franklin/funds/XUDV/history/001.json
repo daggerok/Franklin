@@ -2,7 +2,7 @@
  "ticker": "XUDV",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 421,
+ "totalRows": 426,
  "headers": [
   "Date",
   "Close",
@@ -2956,6 +2956,41 @@
    "Adj Close": "32.14",
    "Volume": "3800",
    "searchIndex": "2026-09-25 32.13600158691406"
+  },
+  {
+   "Date": "Sep 28 2026",
+   "Close": "31.80",
+   "Adj Close": "31.80",
+   "Volume": "13700",
+   "searchIndex": "2026-09-28 31.799999237060547"
+  },
+  {
+   "Date": "Sep 29 2026",
+   "Close": "31.78",
+   "Adj Close": "31.78",
+   "Volume": "3700",
+   "searchIndex": "2026-09-29 31.783000946044922"
+  },
+  {
+   "Date": "Sep 30 2026",
+   "Close": "31.47",
+   "Adj Close": "31.47",
+   "Volume": "8200",
+   "searchIndex": "2026-09-30 31.472999572753906"
+  },
+  {
+   "Date": "Oct 1 2026",
+   "Close": "31.52",
+   "Adj Close": "31.52",
+   "Volume": "18700",
+   "searchIndex": "2026-10-01 31.520000457763672"
+  },
+  {
+   "Date": "Oct 2 2026",
+   "Close": "31.45",
+   "Adj Close": "31.45",
+   "Volume": "8900",
+   "searchIndex": "2026-10-02 31.454999923706055"
   }
  ]
 }

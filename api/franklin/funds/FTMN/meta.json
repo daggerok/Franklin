@@ -22,10 +22,10 @@
   "benchmark": "Bloomberg Municipal Bond Index"
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35,
-  "gross": 0.35,
-  "net": 0.35
+  "display": "0.36%",
+  "value": 0.36,
+  "gross": 0.36,
+  "net": 0.36
  },
  "nav": {
   "display": "—",
@@ -33,9 +33,9 @@
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
-  "display": "$8.23",
-  "value": 8.23,
-  "asOfDate": "2026-09-25",
+  "display": "$8.19",
+  "value": 8.19,
+  "asOfDate": "2026-10-02",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -43,15 +43,15 @@
   "value": null
  },
  "aum": {
-  "display": "$268.34 M",
-  "value": 268339999.99999997,
+  "display": "$265.49 M",
+  "value": 265490000,
   "asOfDate": "2026-08-31",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 2.48,
-  "dividendYieldText": "2.48%",
-  "dividendYieldKind": "indicated: latest distribution 0.0170 x 12/year / last close 8.23",
+  "dividendYield": 3.81,
+  "dividendYieldText": "3.81%",
+  "dividendYieldKind": "indicated: latest distribution 0.0260 x 12/year / last close 8.19",
   "secYield": 3.74,
   "secYieldText": "3.74%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page"
@@ -86,8 +86,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 4.29,
-   "sinceInceptionText": "4.29%"
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   }
  },
  "distributions": {
@@ -99,6 +99,11 @@
    "Dividend"
   ],
   "rows": [
+   {
+    "Ex-Date": "Oct 1 2026",
+    "Dividend": "0.0260",
+    "searchIndex": "oct 1 2026 0.026"
+   },
    {
     "Ex-Date": "Sep 1 2026",
     "Dividend": "0.0170",
@@ -150,8 +155,8 @@
     "searchIndex": "dec 1 2025 0.015"
    }
   ],
-  "latestDividend": "0.017",
-  "exDate": "Sep 1 2026"
+  "latestDividend": "0.026",
+  "exDate": "Oct 1 2026"
  },
  "holdings": {
   "totalRows": 186,
@@ -165,13 +170,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028334, report period 2026-05-31)"
  },
  "history": {
-  "totalRows": 220,
+  "totalRows": 225,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Oct 2 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -28,14 +28,14 @@
   "net": 0.19
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-09-24"
+  "display": "$20.40",
+  "value": 20.4,
+  "asOfDate": "2026-10-02"
  },
  "marketPrice": {
-  "display": "$21.07",
-  "value": 21.07,
-  "asOfDate": "2026-09-25",
+  "display": "$20.39",
+  "value": 20.39,
+  "asOfDate": "2026-10-02",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -43,15 +43,15 @@
   "value": null
  },
  "aum": {
-  "display": "$17.24 M",
-  "value": 17240000,
-  "asOfDate": "2026-09-24",
+  "display": "$17.34 M",
+  "value": 17340000,
+  "asOfDate": "2026-10-04",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 3.87,
-  "dividendYieldText": "3.87%",
-  "dividendYieldKind": "indicated: latest distribution 0.0680 x 12/year / last close 21.07",
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -61,8 +61,8 @@
   "performanceAsOf": "2026-08-31",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "ytd": -1.65,
-   "ytdText": "-1.65%",
+   "ytd": -1.07,
+   "ytdText": "-1.07%",
    "yr1": null,
    "yr1Text": "—",
    "yr3": null,
@@ -86,14 +86,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": -23.84,
-   "sinceInceptionText": "-23.84%"
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   }
  },
  "distributions": {
-  "frequency": "Monthly",
-  "frequencyCode": "01 - Monthly",
-  "paymentsPerYear": 12,
+  "frequency": "Irregular",
+  "frequencyCode": "99 - Irregular",
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -150,13 +150,13 @@
   "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-25)"
  },
  "history": {
-  "totalRows": 204,
+  "totalRows": 209,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Oct 2 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

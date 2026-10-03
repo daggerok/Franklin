@@ -2,7 +2,7 @@
  "ticker": "FLIN",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2173,
+ "totalRows": 2174,
  "headers": [
   "Date",
   "Close",
@@ -1220,6 +1220,13 @@
    "Adj Close": "33.28",
    "Volume": "201300",
    "searchIndex": "2026-10-01 33.279998779296875"
+  },
+  {
+   "Date": "Oct 2 2026",
+   "Close": "33.46",
+   "Adj Close": "33.46",
+   "Volume": "420000",
+   "searchIndex": "2026-10-02 33.459999084472656"
   }
  ]
 }

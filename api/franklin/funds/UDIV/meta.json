@@ -28,14 +28,14 @@
   "net": 0.06
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$61.70",
+  "value": 61.7,
+  "asOfDate": "2026-10-02"
  },
  "marketPrice": {
-  "display": "$61.89",
-  "value": 61.89,
-  "asOfDate": "2026-09-25",
+  "display": "$61.72",
+  "value": 61.72,
+  "asOfDate": "2026-10-02",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -43,26 +43,26 @@
   "value": null
  },
  "aum": {
-  "display": "$153.81 M",
-  "value": 153810000,
-  "asOfDate": "2026-09-24",
+  "display": "$160.41 M",
+  "value": 160410000,
+  "asOfDate": "2026-10-04",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 1.18,
   "dividendYieldText": "1.18%",
-  "dividendYieldKind": "indicated: latest distribution 0.1820 x 4/year / last close 61.89",
-  "secYield": 4,
-  "secYieldText": "4.00%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "dividendYieldKind": "indicated: latest distribution 0.1820 x 4/year / NAV 61.70",
+  "secYield": 1.52,
+  "secYieldText": "1.52%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
   "performanceAsOf": "2026-08-31",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "ytd": null,
-   "ytdText": "—",
+   "ytd": 17.5,
+   "ytdText": "17.50%",
    "yr1": 24.06,
    "yr1Text": "24.06%",
    "yr3": 23.15,
@@ -86,8 +86,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 12.07,
-   "sinceInceptionText": "12.07%"
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   }
  },
  "distributions": {
@@ -316,7 +316,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035111, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2593,
+  "totalRows": 2598,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -324,7 +324,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Oct 2 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

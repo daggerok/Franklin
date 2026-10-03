@@ -33,9 +33,9 @@
   "asOfDate": "2026-09-25"
  },
  "marketPrice": {
-  "display": "$23.02",
-  "value": 23.02,
-  "asOfDate": "2026-09-25",
+  "display": "$22.81",
+  "value": 22.81,
+  "asOfDate": "2026-10-02",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -43,15 +43,15 @@
   "value": null
  },
  "aum": {
-  "display": "$870.89 M",
-  "value": 870890000,
+  "display": "$847.01 M",
+  "value": 847010000,
   "asOfDate": "2026-08-31",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 6.67,
-  "dividendYieldText": "6.67%",
-  "dividendYieldKind": "indicated: latest distribution 0.1280 x 12/year / last close 23.02",
+  "dividendYield": 7.47,
+  "dividendYieldText": "7.47%",
+  "dividendYieldKind": "indicated: latest distribution 0.1420 x 12/year / last close 22.81",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -86,8 +86,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 4.81,
-   "sinceInceptionText": "4.81%"
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   }
  },
  "distributions": {
@@ -99,6 +99,11 @@
    "Dividend"
   ],
   "rows": [
+   {
+    "Ex-Date": "Oct 1 2026",
+    "Dividend": "0.1420",
+    "searchIndex": "oct 1 2026 0.142"
+   },
    {
     "Ex-Date": "Sep 1 2026",
     "Dividend": "0.1280",
@@ -590,8 +595,8 @@
     "searchIndex": "jun 29 2018 0.018"
    }
   ],
-  "latestDividend": "0.128",
-  "exDate": "Sep 1 2026"
+  "latestDividend": "0.142",
+  "exDate": "Oct 1 2026"
  },
  "holdings": {
   "totalRows": 282,
@@ -606,7 +611,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035132, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2091,
+  "totalRows": 2096,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -614,7 +619,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Oct 2 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -28,14 +28,14 @@
   "net": 0.35
  },
  "nav": {
-  "display": "$10.93",
-  "value": 10.93,
-  "asOfDate": null
+  "display": "$10.85",
+  "value": 10.85,
+  "asOfDate": "2026-10-02"
  },
  "marketPrice": {
-  "display": "$10.92",
-  "value": 10.92,
-  "asOfDate": "2026-09-25",
+  "display": "$10.85",
+  "value": 10.85,
+  "asOfDate": "2026-10-02",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -43,26 +43,26 @@
   "value": null
  },
  "aum": {
-  "display": "$565.58 M",
-  "value": 565580000,
-  "asOfDate": "2026-09-24",
+  "display": "$584.35 M",
+  "value": 584350000,
+  "asOfDate": "2026-10-04",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
+  "dividendYield": 4.87,
+  "dividendYieldText": "4.87%",
+  "dividendYieldKind": "indicated: latest distribution 0.0440 x 12/year / NAV 10.85",
   "secYield": 4.89,
   "secYieldText": "4.89%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
   "performanceAsOf": "2026-08-31",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "ytd": -2.75,
-   "ytdText": "-2.75%",
+   "ytd": -3.05,
+   "ytdText": "-3.05%",
    "yr1": 7.7,
    "yr1Text": "7.70%",
    "yr3": 5.58,
@@ -86,14 +86,14 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 5.28,
-   "sinceInceptionText": "5.28%"
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   }
  },
  "distributions": {
-  "frequency": "Irregular",
-  "frequencyCode": "99 - Irregular",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -166,13 +166,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-026043, report period 2026-04-30)"
  },
  "history": {
-  "totalRows": 230,
+  "totalRows": 235,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Oct 2 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

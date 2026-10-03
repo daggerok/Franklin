@@ -28,14 +28,14 @@
   "net": 0.19
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-09-24"
+  "display": "$15.94",
+  "value": 15.94,
+  "asOfDate": "2026-10-02"
  },
  "marketPrice": {
-  "display": "$17.09",
-  "value": 17.09,
-  "asOfDate": "2026-09-25",
+  "display": "$15.98",
+  "value": 15.98,
+  "asOfDate": "2026-10-02",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -43,9 +43,9 @@
   "value": null
  },
  "aum": {
-  "display": "$439.08 M",
-  "value": 439080000,
-  "asOfDate": "2026-09-24",
+  "display": "$434.43 M",
+  "value": 434430000,
+  "asOfDate": "2026-10-04",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -61,8 +61,8 @@
   "performanceAsOf": "2026-08-31",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "ytd": -15.91,
-   "ytdText": "-15.91%",
+   "ytd": -19.25,
+   "ytdText": "-19.25%",
    "yr1": null,
    "yr1Text": "—",
    "yr3": null,
@@ -86,8 +86,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": -38.72,
-   "sinceInceptionText": "-38.72%"
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   }
  },
  "distributions": {
@@ -114,13 +114,13 @@
   "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-25)"
  },
  "history": {
-  "totalRows": 210,
+  "totalRows": 215,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Oct 2 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -33,9 +33,9 @@
   "asOfDate": "2026-09-25"
  },
  "marketPrice": {
-  "display": "$9.71",
-  "value": 9.71,
-  "asOfDate": "2026-09-25",
+  "display": "$9.72",
+  "value": 9.72,
+  "asOfDate": "2026-10-02",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -43,15 +43,15 @@
   "value": null
  },
  "aum": {
-  "display": "$206.36 M",
-  "value": 206360000,
+  "display": "$210.90 M",
+  "value": 210900000,
   "asOfDate": "2026-08-31",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
+  "dividendYield": 3.21,
+  "dividendYieldText": "3.21%",
+  "dividendYieldKind": "indicated: latest distribution 0.0260 x 12/year / last close 9.72",
   "secYield": 3.16,
   "secYieldText": "3.16%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page"
@@ -86,19 +86,24 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 1.69,
-   "sinceInceptionText": "1.69%"
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   }
  },
  "distributions": {
-  "frequency": "Irregular",
-  "frequencyCode": "99 - Irregular",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"
   ],
   "rows": [
+   {
+    "Ex-Date": "Oct 1 2026",
+    "Dividend": "0.0260",
+    "searchIndex": "oct 1 2026 0.026"
+   },
    {
     "Ex-Date": "Sep 1 2026",
     "Dividend": "0.0270",
@@ -150,8 +155,8 @@
     "searchIndex": "dec 1 2025 0.028"
    }
   ],
-  "latestDividend": "0.027",
-  "exDate": "Sep 1 2026"
+  "latestDividend": "0.026",
+  "exDate": "Oct 1 2026"
  },
  "holdings": {
   "totalRows": 242,
@@ -165,13 +170,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028350, report period 2026-05-29)"
  },
  "history": {
-  "totalRows": 230,
+  "totalRows": 235,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Oct 2 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

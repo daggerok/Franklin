@@ -2,7 +2,7 @@
  "ticker": "FLCH",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2233,
+ "totalRows": 2238,
  "headers": [
   "Date",
   "Close",
@@ -1640,6 +1640,41 @@
    "Adj Close": "20.78",
    "Volume": "38600",
    "searchIndex": "2026-09-25 20.780000686645508"
+  },
+  {
+   "Date": "Sep 28 2026",
+   "Close": "20.76",
+   "Adj Close": "20.76",
+   "Volume": "42000",
+   "searchIndex": "2026-09-28 20.760000228881836"
+  },
+  {
+   "Date": "Sep 29 2026",
+   "Close": "20.60",
+   "Adj Close": "20.60",
+   "Volume": "55900",
+   "searchIndex": "2026-09-29 20.600000381469727"
+  },
+  {
+   "Date": "Sep 30 2026",
+   "Close": "20.68",
+   "Adj Close": "20.68",
+   "Volume": "54100",
+   "searchIndex": "2026-09-30 20.68000030517578"
+  },
+  {
+   "Date": "Oct 1 2026",
+   "Close": "20.62",
+   "Adj Close": "20.62",
+   "Volume": "42300",
+   "searchIndex": "2026-10-01 20.621999740600586"
+  },
+  {
+   "Date": "Oct 2 2026",
+   "Close": "20.26",
+   "Adj Close": "20.26",
+   "Volume": "56100",
+   "searchIndex": "2026-10-02 20.260000228881836"
   }
  ]
 }

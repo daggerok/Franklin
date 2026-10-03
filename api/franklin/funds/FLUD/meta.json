@@ -33,9 +33,9 @@
   "asOfDate": "2026-09-25"
  },
  "marketPrice": {
-  "display": "$24.95",
-  "value": 24.95,
-  "asOfDate": "2026-09-25",
+  "display": "$24.87",
+  "value": 24.87,
+  "asOfDate": "2026-10-02",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -43,15 +43,15 @@
   "value": null
  },
  "aum": {
-  "display": "$594.67 M",
-  "value": 594670000,
-  "asOfDate": "2026-09-24",
+  "display": "$604.33 M",
+  "value": 604330000,
+  "asOfDate": "2026-10-01",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 3.85,
-  "dividendYieldText": "3.85%",
-  "dividendYieldKind": "indicated: latest distribution 0.0800 x 12/year / last close 24.95",
+  "dividendYield": 4.25,
+  "dividendYieldText": "4.25%",
+  "dividendYieldKind": "indicated: latest distribution 0.0880 x 12/year / last close 24.87",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -86,8 +86,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 3.27,
-   "sinceInceptionText": "3.27%"
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   }
  },
  "distributions": {
@@ -99,6 +99,11 @@
    "Dividend"
   ],
   "rows": [
+   {
+    "Ex-Date": "Oct 1 2026",
+    "Dividend": "0.0880",
+    "searchIndex": "oct 1 2026 0.088"
+   },
    {
     "Ex-Date": "Sep 1 2026",
     "Dividend": "0.0800",
@@ -475,8 +480,8 @@
     "searchIndex": "jul 31 2020 0.014"
    }
   ],
-  "latestDividend": "0.08",
-  "exDate": "Sep 1 2026"
+  "latestDividend": "0.088",
+  "exDate": "Oct 1 2026"
  },
  "holdings": {
   "totalRows": 519,
@@ -492,14 +497,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035202, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 1555,
+  "totalRows": 1560,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Oct 2 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -2,7 +2,7 @@
  "ticker": "TEMD",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 171,
+ "totalRows": 176,
  "headers": [
   "Date",
   "Close",
@@ -1206,6 +1206,41 @@
    "Adj Close": "24.41",
    "Volume": "100",
    "searchIndex": "2026-09-25 24.413999557495117"
+  },
+  {
+   "Date": "Sep 28 2026",
+   "Close": "24.24",
+   "Adj Close": "24.24",
+   "Volume": "200",
+   "searchIndex": "2026-09-28 24.239999771118164"
+  },
+  {
+   "Date": "Sep 29 2026",
+   "Close": "24.10",
+   "Adj Close": "24.10",
+   "Volume": "100",
+   "searchIndex": "2026-09-29 24.100000381469727"
+  },
+  {
+   "Date": "Sep 30 2026",
+   "Close": "24.02",
+   "Adj Close": "24.02",
+   "Volume": "100",
+   "searchIndex": "2026-09-30 24.020000457763672"
+  },
+  {
+   "Date": "Oct 1 2026",
+   "Close": "23.82",
+   "Adj Close": "23.82",
+   "Volume": "100",
+   "searchIndex": "2026-10-01 23.81999969482422"
+  },
+  {
+   "Date": "Oct 2 2026",
+   "Close": "23.74",
+   "Adj Close": "23.74",
+   "Volume": "200",
+   "searchIndex": "2026-10-02 23.735000610351562"
   }
  ]
 }

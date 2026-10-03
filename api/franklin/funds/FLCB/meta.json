@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P553",
   "isin": "US35473P5531",
-  "benchmark": "Bloomberg U.S. Aggregate Index"
+  "benchmark": "outperformance mainly through security selection and sector rotation."
  },
  "expenseRatio": {
   "display": "0.15%",
@@ -28,14 +28,14 @@
   "net": 0.15
  },
  "nav": {
-  "display": "$20.55",
-  "value": 20.55,
-  "asOfDate": "2026-09-25"
+  "display": "$20.34",
+  "value": 20.34,
+  "asOfDate": "2026-10-02"
  },
  "marketPrice": {
-  "display": "$20.56",
-  "value": 20.56,
-  "asOfDate": "2026-09-25",
+  "display": "$20.33",
+  "value": 20.33,
+  "asOfDate": "2026-10-02",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -43,15 +43,15 @@
   "value": null
  },
  "aum": {
-  "display": "$3.02 B",
-  "value": 3020000000,
-  "asOfDate": "2026-08-31",
+  "display": "$3.04 B",
+  "value": 3040000000,
+  "asOfDate": "2026-10-04",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 4.2,
-  "dividendYieldText": "4.20%",
-  "dividendYieldKind": "indicated: latest distribution 0.0720 x 12/year / NAV 20.55",
+  "dividendYield": 4.78,
+  "dividendYieldText": "4.78%",
+  "dividendYieldKind": "indicated: latest distribution 0.0810 x 12/year / NAV 20.34",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -61,8 +61,8 @@
   "performanceAsOf": "2026-08-31",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "ytd": -2.17,
-   "ytdText": "-2.17%",
+   "ytd": -2.78,
+   "ytdText": "-2.78%",
    "yr1": 1.91,
    "yr1Text": "1.91%",
    "yr3": 4.09,
@@ -86,8 +86,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 0.84,
-   "sinceInceptionText": "0.84%"
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   }
  },
  "distributions": {
@@ -99,6 +99,11 @@
    "Dividend"
   ],
   "rows": [
+   {
+    "Ex-Date": "Oct 1 2026",
+    "Dividend": "0.0810",
+    "searchIndex": "oct 1 2026 0.081"
+   },
    {
     "Ex-Date": "Sep 1 2026",
     "Dividend": "0.0720",
@@ -520,8 +525,8 @@
     "searchIndex": "sep 30 2019 0.004"
    }
   ],
-  "latestDividend": "0.072",
-  "exDate": "Sep 1 2026"
+  "latestDividend": "0.081",
+  "exDate": "Oct 1 2026"
  },
  "holdings": {
   "totalRows": 599,
@@ -537,14 +542,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035108, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 1764,
+  "totalRows": 1769,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Oct 2 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

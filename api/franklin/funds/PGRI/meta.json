@@ -28,14 +28,14 @@
   "net": 0.55
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-09-25"
+  "display": "$26.33",
+  "value": 26.33,
+  "asOfDate": "2026-10-02"
  },
  "marketPrice": {
-  "display": "$26.46",
-  "value": 26.46,
-  "asOfDate": "2026-09-25",
+  "display": "$26.42",
+  "value": 26.42,
+  "asOfDate": "2026-10-02",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -43,15 +43,15 @@
   "value": null
  },
  "aum": {
-  "display": "$6.56 M",
-  "value": 6560000,
-  "asOfDate": "2026-08-31",
+  "display": "$6.58 M",
+  "value": 6580000,
+  "asOfDate": "2026-10-04",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 0.11,
   "dividendYieldText": "0.11%",
-  "dividendYieldKind": "indicated: latest distribution 0.0300 x 1/year / last close 26.46",
+  "dividendYieldKind": "indicated: latest distribution 0.0300 x 1/year / NAV 26.33",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -61,8 +61,8 @@
   "performanceAsOf": "2026-08-31",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "ytd": 6.83,
-   "ytdText": "6.83%",
+   "ytd": 6.47,
+   "ytdText": "6.47%",
    "yr1": null,
    "yr1Text": "—",
    "yr3": null,
@@ -86,8 +86,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 6.37,
-   "sinceInceptionText": "6.37%"
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   }
  },
  "distributions": {
@@ -120,13 +120,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-025233, report period 2026-04-30)"
  },
  "history": {
-  "totalRows": 232,
+  "totalRows": 237,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Oct 2 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

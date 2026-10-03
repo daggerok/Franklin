@@ -2,7 +2,7 @@
  "ticker": "SOEZ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 204,
+ "totalRows": 209,
  "headers": [
   "Date",
   "Close",
@@ -1437,6 +1437,41 @@
    "Adj Close": "21.07",
    "Volume": "14500",
    "searchIndex": "2026-09-25 21.065000534057617"
+  },
+  {
+   "Date": "Sep 28 2026",
+   "Close": "20.46",
+   "Adj Close": "20.46",
+   "Volume": "5900",
+   "searchIndex": "2026-09-28 20.459999084472656"
+  },
+  {
+   "Date": "Sep 29 2026",
+   "Close": "20.56",
+   "Adj Close": "20.56",
+   "Volume": "2400",
+   "searchIndex": "2026-09-29 20.559999465942383"
+  },
+  {
+   "Date": "Sep 30 2026",
+   "Close": "20.26",
+   "Adj Close": "20.26",
+   "Volume": "4200",
+   "searchIndex": "2026-09-30 20.261999130249023"
+  },
+  {
+   "Date": "Oct 1 2026",
+   "Close": "20.42",
+   "Adj Close": "20.42",
+   "Volume": "13600",
+   "searchIndex": "2026-10-01 20.42099952697754"
+  },
+  {
+   "Date": "Oct 2 2026",
+   "Close": "20.39",
+   "Adj Close": "20.39",
+   "Volume": "5400",
+   "searchIndex": "2026-10-02 20.38800048828125"
   }
  ]
 }

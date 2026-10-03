@@ -22,20 +22,20 @@
   "benchmark": "Geography | Fund | Benchmark"
  },
  "expenseRatio": {
-  "display": "0.71%",
-  "value": 0.71,
+  "display": "0.70%",
+  "value": 0.7,
   "gross": 0.71,
-  "net": 0.71
+  "net": 0.7
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-09-25"
+  "display": "$85.96",
+  "value": 85.96,
+  "asOfDate": "2026-10-01"
  },
  "marketPrice": {
-  "display": "$87.89",
-  "value": 87.89,
-  "asOfDate": "2026-09-25",
+  "display": "$87.74",
+  "value": 87.74,
+  "asOfDate": "2026-10-02",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -43,15 +43,15 @@
   "value": null
  },
  "aum": {
-  "display": "$32.65 M",
-  "value": 32650000,
-  "asOfDate": "2026-08-31",
+  "display": "$32.23 M",
+  "value": 32229999.999999996,
+  "asOfDate": "2026-10-01",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 5.12,
-  "dividendYieldText": "5.12%",
-  "dividendYieldKind": "indicated: latest distribution 4.5010 x 1/year / last close 87.89",
+  "dividendYield": 5.24,
+  "dividendYieldText": "5.24%",
+  "dividendYieldKind": "indicated: latest distribution 4.5010 x 1/year / NAV 85.96",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -61,8 +61,8 @@
   "performanceAsOf": "2026-08-31",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "ytd": 36.23,
-   "ytdText": "36.23%",
+   "ytd": 33.96,
+   "ytdText": "33.96%",
    "yr1": 53.62,
    "yr1Text": "53.62%",
    "yr3": 31.32,
@@ -86,8 +86,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 30.89,
-   "sinceInceptionText": "30.89%"
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   }
  },
  "distributions": {
@@ -130,13 +130,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-025234, report period 2026-04-30)"
  },
  "history": {
-  "totalRows": 834,
+  "totalRows": 839,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Oct 2 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

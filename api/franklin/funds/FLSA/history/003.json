@@ -1,0 +1,42 @@
+{
+ "ticker": "FLSA",
+ "page": 3,
+ "pageSize": 1000,
+ "totalRows": 2004,
+ "headers": [
+  "Date",
+  "Close",
+  "Adj Close",
+  "Volume"
+ ],
+ "rows": [
+  {
+   "Date": "Sep 29 2026",
+   "Close": "31.50",
+   "Adj Close": "31.50",
+   "Volume": "100",
+   "searchIndex": "2026-09-29 31.5"
+  },
+  {
+   "Date": "Sep 30 2026",
+   "Close": "31.46",
+   "Adj Close": "31.46",
+   "Volume": "100",
+   "searchIndex": "2026-09-30 31.459999084472656"
+  },
+  {
+   "Date": "Oct 1 2026",
+   "Close": "31.26",
+   "Adj Close": "31.26",
+   "Volume": "1000",
+   "searchIndex": "2026-10-01 31.260000228881836"
+  },
+  {
+   "Date": "Oct 2 2026",
+   "Close": "31.39",
+   "Adj Close": "31.39",
+   "Volume": "100",
+   "searchIndex": "2026-10-02 31.389999389648438"
+  }
+ ]
+}

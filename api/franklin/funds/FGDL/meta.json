@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/31714/SINGLCLASS/franklin-responsibly-sourced-gold-etf/FGDL",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-25)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-02)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FGDL?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -33,9 +33,9 @@
   "asOfDate": null
  },
  "marketPrice": {
-  "display": "$57.20",
-  "value": 57.2,
-  "asOfDate": "2026-09-25",
+  "display": "$55.15",
+  "value": 55.15,
+  "asOfDate": "2026-10-02",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -43,8 +43,8 @@
   "value": null
  },
  "aum": {
-  "display": "$442.81 M",
-  "value": 442810000,
+  "display": "$434.87 M",
+  "value": 434870000,
   "asOfDate": "2026-09-24",
   "source": "official product page Total Net Assets"
  },
@@ -86,8 +86,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 23.94,
-   "sinceInceptionText": "23.94%"
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   }
  },
  "distributions": {
@@ -109,19 +109,19 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-09-25",
-  "asOf": "Sep 25 2026",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-25)"
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 2 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-02)"
  },
  "history": {
-  "totalRows": 1064,
+  "totalRows": 1069,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Oct 2 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -28,14 +28,14 @@
   "net": 0.39
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-09-25"
+  "display": "$31.34",
+  "value": 31.34,
+  "asOfDate": "2026-10-02"
  },
  "marketPrice": {
-  "display": "$31.98",
-  "value": 31.98,
-  "asOfDate": "2026-09-25",
+  "display": "$31.39",
+  "value": 31.39,
+  "asOfDate": "2026-10-02",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -43,15 +43,15 @@
   "value": null
  },
  "aum": {
-  "display": "$4.79 M",
-  "value": 4790000,
-  "asOfDate": "2026-09-24",
+  "display": "$4.70 M",
+  "value": 4700000,
+  "asOfDate": "2026-10-04",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 3.68,
-  "dividendYieldText": "3.68%",
-  "dividendYieldKind": "indicated: latest distribution 0.5880 x 2/year / last close 31.98",
+  "dividendYield": 3.75,
+  "dividendYieldText": "3.75%",
+  "dividendYieldKind": "indicated: latest distribution 0.5880 x 2/year / NAV 31.34",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -61,8 +61,8 @@
   "performanceAsOf": "2026-08-31",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "ytd": 4.13,
-   "ytdText": "4.13%",
+   "ytd": 2.27,
+   "ytdText": "2.27%",
    "yr1": 8.21,
    "yr1Text": "8.21%",
    "yr3": 1.39,
@@ -86,8 +86,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 6.73,
-   "sinceInceptionText": "6.73%"
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   }
  },
  "distributions": {
@@ -195,14 +195,15 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035113, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 1999,
+  "totalRows": 2004,
   "pageSize": 1000,
-  "pageCount": 2,
+  "pageCount": 3,
   "pages": [
    "./history/001.json",
-   "./history/002.json"
+   "./history/002.json",
+   "./history/003.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Oct 2 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

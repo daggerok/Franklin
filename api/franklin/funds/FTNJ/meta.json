@@ -22,20 +22,20 @@
   "benchmark": "Bloomberg Municipal Bond Index"
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35,
-  "gross": 0.35,
-  "net": 0.35
+  "display": "0.36%",
+  "value": 0.36,
+  "gross": 0.36,
+  "net": 0.36
  },
  "nav": {
-  "display": "$8.28",
-  "value": 8.28,
-  "asOfDate": "2026-09-25"
- },
- "marketPrice": {
   "display": "$8.27",
   "value": 8.27,
-  "asOfDate": "2026-09-25",
+  "asOfDate": "2026-10-02"
+ },
+ "marketPrice": {
+  "display": "$8.26",
+  "value": 8.26,
+  "asOfDate": "2026-10-02",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
@@ -43,15 +43,15 @@
   "value": null
  },
  "aum": {
-  "display": "$169.57 M",
-  "value": 169570000,
-  "asOfDate": "2026-09-24",
+  "display": "$170.20 M",
+  "value": 170200000,
+  "asOfDate": "2026-10-04",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 3.48,
-  "dividendYieldText": "3.48%",
-  "dividendYieldKind": "indicated: latest distribution 0.0240 x 12/year / NAV 8.28",
+  "dividendYield": 3.77,
+  "dividendYieldText": "3.77%",
+  "dividendYieldKind": "indicated: latest distribution 0.0260 x 12/year / NAV 8.27",
   "secYield": 3.93,
   "secYieldText": "3.93%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
@@ -61,8 +61,8 @@
   "performanceAsOf": "2026-08-31",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "ytd": -2.98,
-   "ytdText": "-2.98%",
+   "ytd": -2.79,
+   "ytdText": "-2.79%",
    "yr1": 5.19,
    "yr1Text": "5.19%",
    "yr3": 3.76,
@@ -86,8 +86,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 4.52,
-   "sinceInceptionText": "4.52%"
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   }
  },
  "distributions": {
@@ -99,6 +99,11 @@
    "Dividend"
   ],
   "rows": [
+   {
+    "Ex-Date": "Oct 1 2026",
+    "Dividend": "0.0260",
+    "searchIndex": "oct 1 2026 0.026"
+   },
    {
     "Ex-Date": "Sep 1 2026",
     "Dividend": "0.0240",
@@ -150,8 +155,8 @@
     "searchIndex": "dec 1 2025 0.016"
    }
   ],
-  "latestDividend": "0.024",
-  "exDate": "Sep 1 2026"
+  "latestDividend": "0.026",
+  "exDate": "Oct 1 2026"
  },
  "holdings": {
   "totalRows": 153,
@@ -165,13 +170,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028342, report period 2026-05-31)"
  },
  "history": {
-  "totalRows": 220,
+  "totalRows": 225,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Sep 25 2026",
+  "asOf": "Oct 2 2026",
   "source": "Yahoo Finance public chart API"
  }
 }
