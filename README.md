@@ -50,10 +50,15 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
 Caveats:
 
 - Official figures come from franklintempleton.com product pages; history, distributions and the derived yield come from Yahoo Finance market prices and are estimates, not official NAV data
-- Unavailable values are published as missing, never as `0`; a fund with a missing value for a return filter is kept rather than dropped
+- Unavailable values are published as missing, never as `0`; a bounded return, yield or AUM filter excludes funds that have no figure for it
 - Each fund records its source and as-of metadata in `meta.json`
+- Nothing is invented: a fund the sitemap lists but no page has been read for has `null` name, `terValue` and exchange, and an index row without `meta.json` has `dataFile: null` with a full all-null `metrics` object. `terValue` is the net expense ratio and `meta.json` `expenseRatio.gross` the gross one when published
+- Funds are published whole: a fund is computed completely in memory, then written (page files, then `meta.json`, then stale page removal; every JSON file goes through a temp file and a rename). When the product page or the Yahoo chart worked for a fund before and fails now, the fund keeps its previous files and counts as failed, so a new return is never published next to stale prices. The workflow may therefore commit a partial run: every fund in it is either fully updated or fully kept. The updater exits 1 only when every selected fund failed
+- Holdings carry their own `asOfDate` and source; when no fresh holdings are available the previous ones stay under their own date
+- Every request has a 45 s deadline covering headers and body (8 s for the direct franklintempleton.com attempt before the proxy fallback), retried per `MAX_RETRIES`. The SEC contact in `SEC_UA` is sent to sec.gov only and is redacted in the config printout
+- New catalog tickers are printed as `NEW FUNDS: A, B` and appended to the GitHub step summary
 - franklintempleton.com is behind a WAF that may return 403 to bare `fetch`. The updater tries a direct fetch with a browser-like `User-Agent` first, then falls back to `https://r.jina.ai/http://...` (Jina AI rendering proxy) which returns Markdown. Both paths are parsed by the same `parseFranklinCatalog` / `parseFranklinProductPage` helpers. After `ISSUER_DIRECT_DENIAL_LIMIT` consecutive direct 403s, the updater uses the proxy only
-- `HISTORY_RANGE` limits the Yahoo history request window (`max` starts at `period1=0`, the others use Yahoo's `range=`); a short window also shortens the distribution history the derived yield uses
+- `HISTORY_RANGE` limits the Yahoo history request window (`max` starts at `period1=0`, `<N>y` sends explicit `period1`/`period2` for the last N years); a short window also shortens the distribution history the derived yield uses
 - Output layout:
 
 ```
@@ -74,7 +79,7 @@ The table matches `scripts/update-data.config.json` exactly.
 
 | Control | Default | Meaning |
 | --- | --: | --- |
-| `MAX_FETCHES` | `0` | Batch size: with a positive value the updater continues after the committed cursor in `api/franklin/update-state.json`; `0` is a full pass over every fund |
+| `MAX_FETCHES` | `0` | Batch size: with a positive value the updater continues after the committed cursor in `api/franklin/update-state.json` inside the filtered list and wraps around; `0` is a full pass. Runs with `TICKERS` never read or change the cursor |
 | `REQUEST_SLEEP` | `1.5` | Seconds between request starts per worker lane for direct requests; the r.jina.ai proxy fallback stays globally paced (min 3.2s between starts) |
 | `CONCURRENCY` | `3` | Parallel fund workers; N workers give about N times the direct request throughput |
 | `MAX_RETRIES` | `2` | Retries after the initial request (integer >= 1) |
@@ -83,11 +88,11 @@ The table matches `scripts/update-data.config.json` exactly.
 | `TER` | `:` | Net expense ratio range in percent: min:max |
 | `DIVIDEND_YIELD` | `:` | Dividend-yield percentage range |
 | `SEC_YIELD` | `:` | SEC yield percentage range |
-| `TICKERS` | empty | Only update these tickers, separated by spaces or commas |
+| `TICKERS` | empty | Only update these tickers, separated by spaces or commas; an unknown ticker is an error |
 | `CATEGORY` | empty | Keep only this provider category substring |
 | `HOLDINGS_PAGE_SIZE` | `250` | Rows in each generated current-holdings JSON page |
 | `HISTORY_PAGE_SIZE` | `1000` | Rows in each generated price-history JSON page (env alias `HISTORICAL_PAGE_SIZE`) |
-| `HISTORY_RANGE` | `max` | Yahoo history window: `max`, `ytd`, `1d`, `5d`, `1mo`, `3mo`, `6mo`, `1y`, `2y`, `5y` or `10y` |
+| `HISTORY_RANGE` | `max` | Yahoo history window: `max` or `<N>y` (for example `5y`); other values are an error |
 | `STORE_RAW_DOWNLOADS` | `false` | Store the source pages under `api/franklin/raw` |
 | `SKIP_YAHOO` | `false` | Keep previous history and distributions while refreshing catalog and holdings |
 | `SKIP_FRANKLIN` | `false` | Keep the previously published official catalog and holdings |
