@@ -1174,6 +1174,17 @@ describe('pipeline below a temporary api root', () => {
     expect(logs.join('\n')).toMatch(/kept the previously published fund/);
   }, 120000);
 
+  test('a new fund whose every source failed gets no meta.json and dataFile null', async () => {
+    start();
+    (globalThis as any).fetch = async () => { throw new Error('offline'); };
+    await run({ SKIP_FRANKLIN: 'false', SKIP_YAHOO: 'false', TICKERS: 'FLCH', MAX_RETRIES: '1' });
+    expect(existsSync(join(feed(), 'funds', 'FLCH', 'meta.json'))).toBe(false);
+    const row = index().funds.find((item: any) => item.ticker === 'FLCH');
+    expect(row.dataFile).toBeNull();
+    expect(Object.keys(row.metrics).length).toBe(15);
+    expect(process.exitCode).toBe(1);
+  }, 120000);
+
   test('stale pages are removed only after the new meta.json exists', async () => {
     start();
     await run({});

@@ -3091,6 +3091,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     const hadPageData = Boolean(prevMeta?.returns?.performanceAsOf) || String(prevMeta?.aum?.source ?? '').startsWith('official');
     const hadHistory = Number(prevMeta?.history?.totalRows ?? 0) > 0;
     const blocking = problems.filter((problem) => (problem.startsWith('product page') ? hadPageData : hadHistory));
+    if (!prevMeta && problems.length && !summary && !chart && !holdingsRows.length) throw new Error(`no source returned data (${problems.join('; ')})`);
     if (prevMeta && blocking.length) throw new Error(`kept the previously published fund (${blocking.join('; ')})`);
     for (const problem of problems) if (!blocking.includes(problem)) outputNote(`[ ${'source'.padEnd(9)}] ${ticker}: ${problem} (no earlier data from this source)`);
 
