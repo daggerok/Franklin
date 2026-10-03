@@ -2404,6 +2404,47 @@ async function fetchIssuerText(url: string, label: string, config: UpdaterConfig
 // Previous feed helpers
 // ---------------------------------------------------------------------------
 
+/**
+ * Net expense ratio carried over from a published index row. Older feeds filled
+ * a made-up 0.19 for funds whose product page was never read (no NAV and no AUM
+ * from the page); that value is not evidence and is dropped.
+ */
+export function previousTer(row: JsonRecord): number | null {
+  const value = typeof row.terValue === 'number' ? row.terValue : numberOrNull(row.ter);
+  if (value === 0.19 && numberOrNull(row.navValue) === null && numberOrNull(row.aumValue) === null) return null;
+  return value;
+}
+
+/**
+ * Catalog row for a ticker the issuer lists but nothing was published for yet.
+ * Nothing is invented: name, fees and quotes stay empty until a real source fills them.
+ */
+export function placeholderFund(ticker: string, fundPage: string, source: CatalogFund['source']): CatalogFund {
+  return {
+    ticker,
+    name: '',
+    category: 'ETF',
+    categoryPath: 'ETF',
+    inception: null,
+    exchange: '',
+    cusip: '',
+    isin: '',
+    benchmark: '',
+    ter: null,
+    grossTer: null,
+    nav: null,
+    close: null,
+    premiumDiscount: null,
+    netAssets: null,
+    dividendYield: null,
+    secYield: null,
+    asOfDate: null,
+    returns: { ...EMPTY_RETURNS },
+    fundPage,
+    source,
+  };
+}
+
 function parsePreviousFund(ticker: string, row: JsonRecord): CatalogFund {
   return {
     ticker,
@@ -2411,12 +2452,12 @@ function parsePreviousFund(ticker: string, row: JsonRecord): CatalogFund {
     category: cleanText(row.category || 'ETF'),
     categoryPath: cleanText(row.categoryPath || row.category || ''),
     inception: row.inceptionDate ? toIsoDate(row.inceptionDate) : null,
-    exchange: cleanText(row.exchange || 'NYSEArca'),
+    exchange: cleanText(row.exchange || ''),
     cusip: cleanText(row.cusip || ''),
     isin: cleanText(row.isin || ''),
     benchmark: cleanText(row.benchmark || ''),
-    ter: typeof row.terValue === 'number' ? row.terValue : numberOrNull(row.ter),
-    grossTer: typeof row.terValue === 'number' ? row.terValue : numberOrNull(row.ter),
+    ter: previousTer(row),
+    grossTer: null, // the index row carries only the net ratio; meta.json keeps the published gross
     nav: typeof row.navValue === 'number' ? row.navValue : numberOrNull(row.nav),
     close: row.closePriceSource === undefined
       ? (typeof row.closePriceValue === 'number' ? row.closePriceValue : numberOrNull(row.closePrice))
@@ -2446,10 +2487,16 @@ function parsePreviousFund(ticker: string, row: JsonRecord): CatalogFund {
 // Yahoo helpers
 // ---------------------------------------------------------------------------
 
-export const HISTORY_RANGES = ['max', 'ytd', '1d', '5d', '1mo', '3mo', '6mo', '1y', '2y', '5y', '10y'] as const;
+/** HISTORY_RANGE is `max` or `<N>y` (N >= 1). */
+export function isHistoryRange(value: string): boolean {
+  return value === 'max' || /^[1-9]\d{0,2}y$/.test(value);
+}
 
 export function yahooChartUrl(ticker: string, historyRange: string, nowSeconds: number = Math.floor(Date.now() / 1000)): string {
-  const window = historyRange === 'max' ? `period1=0&period2=${nowSeconds}` : `range=${historyRange}`;
+  // Explicit period1/period2: Yahoo ignores `range` when period1 is present and downgrades `range=max`.
+  const years = /^(\d+)y$/.exec(historyRange);
+  const period1 = years ? Math.max(0, Math.floor(nowSeconds - Number(years[1]) * 365.25 * 86_400)) : 0;
+  const window = `period1=${period1}&period2=${nowSeconds}`;
   return `${YAHOO_CHART_URL}/${encodeURIComponent(ticker)}?${window}&interval=1d&events=div%7Csplit&includeAdjustedClose=true`;
 }
 
@@ -2655,7 +2702,7 @@ Environment variables (all optional):
   HOLDINGS_PAGE_SIZE   250   Rows per holdings page file.
   HISTORY_PAGE_SIZE    1000  Rows per history page file (alias
                              HISTORICAL_PAGE_SIZE).
-  HISTORY_RANGE        max   Yahoo history window: max|ytd|1d|5d|1mo|3mo|6mo|1y|2y|5y|10y.
+  HISTORY_RANGE        max   Yahoo history window: max or <N>y (explicit period1/period2).
   CATEGORY             \"\"    Keep only this provider category substring.
   STORE_RAW_DOWNLOADS  false 1|true|yes|y|on writes api/franklin/raw/**.
   SEC_UA               (set) Declared User-Agent for SEC EDGAR requests.
@@ -2785,29 +2832,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
         const t = m[2].toUpperCase();
         const pageUrl = m[1];
         if (!catalog.has(t)) {
-          catalog.set(t, {
-            ticker: t,
-            name: `Franklin ${t} ETF`,
-            category: 'ETF',
-            categoryPath: 'ETF',
-            inception: null,
-            exchange: 'NYSEArca',
-            cusip: '',
-            isin: '',
-            benchmark: '',
-            ter: 0.19,
-            grossTer: 0.19,
-            nav: null,
-            close: null,
-            premiumDiscount: null,
-            netAssets: null,
-            dividendYield: null,
-            secYield: null,
-            asOfDate: null,
-            returns: { ...EMPTY_RETURNS },
-            fundPage: pageUrl,
-            source: 'official sitemap',
-          });
+          catalog.set(t, placeholderFund(t, pageUrl, 'official sitemap'));
         }
       }
     } catch {}
@@ -2825,29 +2850,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
   if (!catalog.size) {
     // Seed definitive 81 fixture for offline development and when issuer blocks catalog fetch
     for (const t of SEED_81) {
-      catalog.set(t, {
-        ticker: t,
-        name: `Franklin ${t} ETF`,
-        category: 'ETF',
-        categoryPath: 'ETF',
-        inception: null,
-        exchange: 'NYSEArca',
-        cusip: '',
-        isin: '',
-        benchmark: '',
-        ter: 0.19,
-        grossTer: 0.19,
-        nav: null,
-        close: null,
-        premiumDiscount: null,
-        netAssets: null,
-        dividendYield: null,
-        secYield: null,
-        asOfDate: null,
-        returns: { ...EMPTY_RETURNS },
-        fundPage: `${FRANKLIN_SITE}/investments/options/exchange-traded-funds/products/${t.toLowerCase()}/SINGLCLASS/${t.toLowerCase()}-etf/${t}`,
-        source: 'seed',
-      });
+      catalog.set(t, placeholderFund(t, `${FRANKLIN_SITE}/investments/options/exchange-traded-funds/products/${t.toLowerCase()}/SINGLCLASS/${t.toLowerCase()}-etf/${t}`, 'seed'));
     }
     console.log(`[ catalog  ] using seed fixture: ${catalog.size} funds (definitive 81)`);
     catalogSource = 'seed';
@@ -2862,29 +2865,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
         if (prev) {
           catalog.set(t, parsePreviousFund(t, prev));
         } else {
-          catalog.set(t, {
-            ticker: t,
-            name: `Franklin ${t} ETF`,
-            category: 'ETF',
-            categoryPath: 'ETF',
-            inception: null,
-            exchange: 'NYSEArca',
-            cusip: '',
-            isin: '',
-            benchmark: '',
-            ter: 0.19,
-            grossTer: 0.19,
-            nav: null,
-            close: null,
-            premiumDiscount: null,
-            netAssets: null,
-            dividendYield: null,
-            secYield: null,
-            asOfDate: null,
-            returns: { ...EMPTY_RETURNS },
-            fundPage: `${FRANKLIN_SITE}/investments/options/exchange-traded-funds/products/${t.toLowerCase()}/SINGLCLASS/${t.toLowerCase()}-etf/${t}`,
-            source: 'seed',
-          });
+          catalog.set(t, placeholderFund(t, `${FRANKLIN_SITE}/investments/options/exchange-traded-funds/products/${t.toLowerCase()}/SINGLCLASS/${t.toLowerCase()}-etf/${t}`, 'seed'));
         }
         added++;
       }
@@ -3246,7 +3227,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
 
     // Published identifiers: scraped name/category first, then the product URL
     // slug / neutral fallback so no page furniture reaches the catalog.
-    const fundName = resolveFundName(fund.name, fund.fundPage, ticker);
+    const fundName = fund.name ? resolveFundName(fund.name, fund.fundPage, ticker) : null;
     const fundCategory = resolveCategory(fund.category, fund.categoryPath, summary?.morningstarCategory, summary?.assetClass);
     fund.name = fundName;
     fund.category = fundCategory;
@@ -3279,7 +3260,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
       expenseRatio: {
         display: fund.ter !== null ? `${fund.ter.toFixed(2)}%` : '—',
         value: fund.ter,
-        gross: fund.grossTer,
+        gross: fund.grossTer ?? (fund.ter !== null ? numberOrNull(prevMeta?.expenseRatio?.gross) : null),
         net: fund.ter,
       },
       nav: {
@@ -3418,7 +3399,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     totalHoldings += holdingsCount;
     totalHistory += historyCount;
 
-    const ter = fund.ter ?? meta?.expenseRatio?.value ?? null;
+    const ter = fund.ter;
     const nav = fund.nav ?? meta?.nav?.value ?? null;
     const aum = fund.netAssets ?? meta?.aum?.value ?? null;
     const secYield = plausibleSecYield(fund.secYield ?? meta?.yields?.secYield);
@@ -3426,7 +3407,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
 
     // Only publish values that pass the plausibility checks, whatever the meta
     // or the previous index carried.
-    const fundName = resolveFundName(fund.name, fund.fundPage, ticker);
+    const fundName = fund.name ? resolveFundName(fund.name, fund.fundPage, ticker) : null;
     const fundCategory = resolveCategory(fund.category, fund.categoryPath, meta?.category);
 
     const ytd = fund.returns.ytd ?? meta?.returns?.monthEnd?.ytd ?? null;
@@ -3466,7 +3447,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
       aumValue: aum,
       asOfDate: meta?.holdings?.asOf || meta?.aum?.asOfDate || '—',
       inceptionDate: fund.inception ? formatDate(fund.inception) : (meta?.returns?.monthEnd?.inceptionDate ? formatDate(meta.returns.monthEnd.inceptionDate) : '—'),
-      exchange: fund.exchange || meta?.identifiers?.exchange || 'NYSEArca',
+      exchange: fund.exchange || meta?.identifiers?.exchange || null,
       closePrice: closePriceValue !== null ? `$${closePriceValue.toFixed(2)}` : (meta?.marketPrice?.display || '—'),
       closePriceValue,
       closePriceSource: meta?.marketPrice?.source || (fund.close !== null ? 'official product page Market Price' : null),
@@ -3614,7 +3595,7 @@ export function resolveControls(
     if (!['auto', 'true', 'false'].includes(mode)) throw new Error('USE_SYSTEM_CA: expected auto, true or false');
     result.USE_SYSTEM_CA = mode;
   }
-  if (result.HISTORY_RANGE?.trim() && !(HISTORY_RANGES as readonly string[]).includes(result.HISTORY_RANGE.trim().toLowerCase())) throw new Error(`HISTORY_RANGE: expected one of ${HISTORY_RANGES.join(', ')}`);
+  if (result.HISTORY_RANGE?.trim() && !isHistoryRange(result.HISTORY_RANGE.trim().toLowerCase())) throw new Error('HISTORY_RANGE: expected "max" or "<N>y"');
   parseConfig(result); // validate every min:max filter before any request or write
   return result;
 }

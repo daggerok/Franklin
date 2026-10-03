@@ -5,7 +5,7 @@ import {
   CONTROL_NAMES,
   installSystemCa,
   isCertError,
-  HISTORY_RANGES,
+  isHistoryRange,
   parseConfig,
   resolveControls,
   runtimeControls,
@@ -49,6 +49,8 @@ import {
   configurePacing,
   createRequestGate,
   fetchText,
+  placeholderFund,
+  previousTer,
 } from './update-data';
 
 describe('parseRange', () => {
@@ -786,11 +788,15 @@ test('updater only writes below api/franklin and exposes no output-dir control',
 });
 
 test('HISTORY_RANGE limits the Yahoo request window', () => {
-  expect(HISTORY_RANGES).toContain('max');
+  expect(isHistoryRange('max')).toBe(true);
+  expect(isHistoryRange('5y')).toBe(true);
+  expect(isHistoryRange('6mo')).toBe(false);
+  expect(isHistoryRange('ytd')).toBe(false);
   expect(yahooChartUrl('FLIN', 'max', 1700000000)).toContain('period1=0&period2=1700000000');
   const url = yahooChartUrl('FLIN', '5y', 1700000000);
-  expect(url).toContain('range=5y');
-  expect(url).not.toContain('period1');
+  expect(url).toContain(`period1=${Math.floor(1700000000 - 5 * 365.25 * 86400)}&period2=1700000000`);
+  expect(url).not.toContain('range=');
+  expect(() => resolveControls(file(), {}, {}, { HISTORY_RANGE: '6mo' })).toThrow();
   expect(parseConfig(resolveControls(file(), {}, {}, { HISTORY_RANGE: '1Y' })).historyRange).toBe('1y');
   expect(() => resolveControls(file(), {}, {}, { HISTORY_RANGE: 'forever' })).toThrow();
 });
@@ -988,5 +994,23 @@ describe('metrics contract (returnsBasis and performanceAsOf)', () => {
     expect(bare.performanceAsOf).toBeNull();
     expect(bare.tr3y).toBeNull();
     expect(bare.returnsBasis).toBe(RETURNS_BASIS);
+  });
+});
+
+describe('nothing is invented for unseen funds', () => {
+  test('placeholder rows carry no name, fees or exchange', () => {
+    const fund = placeholderFund('ZZZZ', 'https://example.test/zzzz', 'official sitemap');
+    expect(fund.name).toBe('');
+    expect(fund.ter).toBeNull();
+    expect(fund.grossTer).toBeNull();
+    expect(fund.exchange).toBe('');
+    expect(fund.nav).toBeNull();
+  });
+
+  test('a made-up 0.19 from older feeds is dropped, a read value is kept', () => {
+    expect(previousTer({ terValue: 0.19, navValue: null, aumValue: null })).toBeNull();
+    expect(previousTer({ terValue: 0.19, navValue: 21.03, aumValue: 307030000 })).toBe(0.19);
+    expect(previousTer({ terValue: 0.35, navValue: null, aumValue: null })).toBe(0.35);
+    expect(previousTer({ ter: '—' })).toBeNull();
   });
 });
