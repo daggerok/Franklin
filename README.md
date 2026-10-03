@@ -53,7 +53,7 @@ Caveats:
 - Unavailable values are published as missing, never as `0`; a fund with a missing value for a return filter is kept rather than dropped
 - Each fund records its source and as-of metadata in `meta.json`
 - franklintempleton.com is behind a WAF that may return 403 to bare `fetch`. The updater tries a direct fetch with a browser-like `User-Agent` first, then falls back to `https://r.jina.ai/http://...` (Jina AI rendering proxy) which returns Markdown. Both paths are parsed by the same `parseFranklinCatalog` / `parseFranklinProductPage` helpers. After `ISSUER_DIRECT_DENIAL_LIMIT` consecutive direct 403s, the updater uses the proxy only
-- `HISTORY_RANGE` limits the Yahoo history request window (`max` starts at `period1=0`, the others use Yahoo's `range=`); a short window also shortens the distribution history the derived yield uses
+- `HISTORY_RANGE` limits the Yahoo history request window (`max` starts at `period1=0`, `<N>y` sends explicit `period1`/`period2` for the last N years); a short window also shortens the distribution history the derived yield uses
 - Output layout:
 
 ```
@@ -87,7 +87,7 @@ The table matches `scripts/update-data.config.json` exactly.
 | `CATEGORY` | empty | Keep only this provider category substring |
 | `HOLDINGS_PAGE_SIZE` | `250` | Rows in each generated current-holdings JSON page |
 | `HISTORY_PAGE_SIZE` | `1000` | Rows in each generated price-history JSON page (env alias `HISTORICAL_PAGE_SIZE`) |
-| `HISTORY_RANGE` | `max` | Yahoo history window: `max`, `ytd`, `1d`, `5d`, `1mo`, `3mo`, `6mo`, `1y`, `2y`, `5y` or `10y` |
+| `HISTORY_RANGE` | `max` | Yahoo history window: `max` or `<N>y` (for example `5y`); other values are an error |
 | `STORE_RAW_DOWNLOADS` | `false` | Store the source pages under `api/franklin/raw` |
 | `SKIP_YAHOO` | `false` | Keep previous history and distributions while refreshing catalog and holdings |
 | `SKIP_FRANKLIN` | `false` | Keep the previously published official catalog and holdings |
