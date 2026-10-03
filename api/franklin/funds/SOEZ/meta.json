@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47315/SINGLCLASS/franklin-solana-etf/SOEZ",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-25)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-02)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SOEZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -28,8 +28,8 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$20.40",
-  "value": 20.4,
+  "display": "$17.34",
+  "value": 17.34,
   "asOfDate": "2026-10-02"
  },
  "marketPrice": {
@@ -49,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
+  "dividendYield": 4.71,
+  "dividendYieldText": "4.71%",
+  "dividendYieldKind": "indicated: latest distribution 0.0680 x 12/year / NAV 17.34",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -91,9 +91,9 @@
   }
  },
  "distributions": {
-  "frequency": "Irregular",
-  "frequencyCode": "99 - Irregular",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -145,9 +145,9 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-09-25",
-  "asOf": "Sep 25 2026",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-09-25)"
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 2 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-02)"
  },
  "history": {
   "totalRows": 209,

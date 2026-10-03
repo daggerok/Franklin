@@ -28,8 +28,8 @@
   "net": 0.3
  },
  "nav": {
-  "display": "$21.99",
-  "value": 21.99,
+  "display": "—",
+  "value": null,
   "asOfDate": "2026-10-02"
  },
  "marketPrice": {
@@ -45,16 +45,16 @@
  "aum": {
   "display": "$53.87 M",
   "value": 53870000,
-  "asOfDate": "2026-10-04",
+  "asOfDate": "2026-08-31",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 5.46,
-  "dividendYieldText": "5.46%",
-  "dividendYieldKind": "indicated: latest distribution 0.1000 x 12/year / NAV 21.99",
+  "dividendYield": 5.48,
+  "dividendYieldText": "5.48%",
+  "dividendYieldKind": "indicated: latest distribution 0.1000 x 12/year / last close 21.90",
   "secYield": 3.93,
   "secYieldText": "3.93%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",

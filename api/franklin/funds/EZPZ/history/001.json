@@ -2,7 +2,7 @@
  "ticker": "EZPZ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 400,
+ "totalRows": 405,
  "headers": [
   "Date",
   "Close",
@@ -2809,6 +2809,41 @@
    "Adj Close": "21.41",
    "Volume": "2300",
    "searchIndex": "2026-09-25 21.41200065612793"
+  },
+  {
+   "Date": "Sep 28 2026",
+   "Close": "21.18",
+   "Adj Close": "21.18",
+   "Volume": "9000",
+   "searchIndex": "2026-09-28 21.184999465942383"
+  },
+  {
+   "Date": "Sep 29 2026",
+   "Close": "21.25",
+   "Adj Close": "21.25",
+   "Volume": "800",
+   "searchIndex": "2026-09-29 21.246999740600586"
+  },
+  {
+   "Date": "Sep 30 2026",
+   "Close": "21.19",
+   "Adj Close": "21.19",
+   "Volume": "5700",
+   "searchIndex": "2026-09-30 21.19300079345703"
+  },
+  {
+   "Date": "Oct 1 2026",
+   "Close": "21.46",
+   "Adj Close": "21.46",
+   "Volume": "2500",
+   "searchIndex": "2026-10-01 21.464000701904297"
+  },
+  {
+   "Date": "Oct 2 2026",
+   "Close": "21.34",
+   "Adj Close": "21.34",
+   "Volume": "5100",
+   "searchIndex": "2026-10-02 21.336999893188477"
   }
  ]
 }

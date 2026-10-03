@@ -43,15 +43,15 @@
   "value": null
  },
  "aum": {
-  "display": "$88.14 M",
-  "value": 88140000,
-  "asOfDate": "2026-09-24",
+  "display": "$91.64 M",
+  "value": 91640000,
+  "asOfDate": "2026-10-01",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 0.16,
-  "dividendYieldText": "0.16%",
-  "dividendYieldKind": "indicated: latest distribution 0.0940 x 2/year / last close 114.74",
+  "dividendYield": 0.08,
+  "dividendYieldText": "0.08%",
+  "dividendYieldKind": "indicated: latest distribution 0.0940 x 1/year / last close 114.74",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -91,9 +91,9 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
-  "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "frequency": "Annually",
+  "frequencyCode": "12 - Annually",
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Dividend"

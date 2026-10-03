@@ -28,8 +28,8 @@
   "net": 0.48
  },
  "nav": {
-  "display": "$55.13",
-  "value": 55.13,
+  "display": "—",
+  "value": null,
   "asOfDate": "2026-09-24"
  },
  "marketPrice": {
@@ -49,12 +49,12 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 6.77,
-  "dividendYieldText": "6.77%",
-  "dividendYieldKind": "indicated: latest distribution 0.3110 x 12/year / NAV 55.13",
+  "dividendYield": 6.85,
+  "dividendYieldText": "6.85%",
+  "dividendYieldKind": "indicated: latest distribution 0.3110 x 12/year / last close 54.47",
   "secYield": 1.59,
   "secYieldText": "1.59%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",

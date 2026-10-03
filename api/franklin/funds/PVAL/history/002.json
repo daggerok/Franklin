@@ -2,7 +2,7 @@
  "ticker": "PVAL",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1340,
+ "totalRows": 1345,
  "headers": [
   "Date",
   "Close",
@@ -2389,6 +2389,41 @@
    "Adj Close": "53.48",
    "Volume": "1047200",
    "searchIndex": "2026-09-25 53.47999954223633"
+  },
+  {
+   "Date": "Sep 28 2026",
+   "Close": "53.14",
+   "Adj Close": "53.14",
+   "Volume": "1191000",
+   "searchIndex": "2026-09-28 53.13999938964844"
+  },
+  {
+   "Date": "Sep 29 2026",
+   "Close": "52.97",
+   "Adj Close": "52.97",
+   "Volume": "1327300",
+   "searchIndex": "2026-09-29 52.970001220703125"
+  },
+  {
+   "Date": "Sep 30 2026",
+   "Close": "52.62",
+   "Adj Close": "52.62",
+   "Volume": "3089700",
+   "searchIndex": "2026-09-30 52.619998931884766"
+  },
+  {
+   "Date": "Oct 1 2026",
+   "Close": "52.61",
+   "Adj Close": "52.61",
+   "Volume": "2518500",
+   "searchIndex": "2026-10-01 52.61000061035156"
+  },
+  {
+   "Date": "Oct 2 2026",
+   "Close": "52.78",
+   "Adj Close": "52.78",
+   "Volume": "1754800",
+   "searchIndex": "2026-10-02 52.779998779296875"
   }
  ]
 }

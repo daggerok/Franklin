@@ -2,7 +2,7 @@
  "ticker": "FLSP",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1698,
+ "totalRows": 1703,
  "headers": [
   "Date",
   "Close",
@@ -4895,6 +4895,41 @@
    "Adj Close": "28.77",
    "Volume": "96200",
    "searchIndex": "2026-09-25 28.770000457763672"
+  },
+  {
+   "Date": "Sep 28 2026",
+   "Close": "28.84",
+   "Adj Close": "28.84",
+   "Volume": "91600",
+   "searchIndex": "2026-09-28 28.84000015258789"
+  },
+  {
+   "Date": "Sep 29 2026",
+   "Close": "28.78",
+   "Adj Close": "28.78",
+   "Volume": "132500",
+   "searchIndex": "2026-09-29 28.780000686645508"
+  },
+  {
+   "Date": "Sep 30 2026",
+   "Close": "28.60",
+   "Adj Close": "28.60",
+   "Volume": "266100",
+   "searchIndex": "2026-09-30 28.600000381469727"
+  },
+  {
+   "Date": "Oct 1 2026",
+   "Close": "28.81",
+   "Adj Close": "28.81",
+   "Volume": "181900",
+   "searchIndex": "2026-10-01 28.809999465942383"
+  },
+  {
+   "Date": "Oct 2 2026",
+   "Close": "28.70",
+   "Adj Close": "28.70",
+   "Volume": "175000",
+   "searchIndex": "2026-10-02 28.700000762939453"
   }
  ]
 }
