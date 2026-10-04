@@ -34,6 +34,9 @@ import {
   parseNport,
   parsePerformanceAsOf,
   parseProductPage,
+  parseSharePrices,
+  stripFootnoteMarkers,
+  toTextLines,
   parseRange,
   parseRanges,
   paymentsPerYearFor,
@@ -50,6 +53,7 @@ import {
   resolvePerformanceAsOf,
   runtimeControls,
   setApiRootForTest,
+  setClockForTest,
   setSoftDeadline,
   publishedAsOf,
   stalestFirst,
@@ -75,6 +79,7 @@ beforeEach(() => {
 afterEach(() => {
   globalThis.fetch = realFetch;
   setSoftDeadline(25 * 60_000);
+  setClockForTest();
   console.log = realLog;
   console.warn = realWarn;
   process.exitCode = 0;
@@ -86,6 +91,36 @@ const read = (path: string) => readFileSync(new URL(`../${path}`, import.meta.ur
 const file = () => JSON.parse(read('scripts/update-data.config.json'));
 const noReturns = { ytd: null, yr1: null, yr3: null, yr5: null, yr10: null, sinceInception: null };
 const fundUrl = (id: number, slug: string, ticker: string) => `https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/${id}/SINGLCLASS/${slug}/${ticker}`;
+
+/** Fake clock: sleeping only advances virtual time, so retry backoff and the 3.2 s proxy gate cost nothing. */
+const fakeClock = () => {
+  let t = Date.UTC(2026, 9, 3);
+  return { now: () => t, sleep: async (ms: number) => { t += ms; } };
+};
+
+/**
+ * A product page in the rendering proxy's markdown. Sections the proxy lazy-loads (Portfolio, Pricing) come back as
+ * empty headings when `portfolio` / `pricing` are false: that is the partial page.
+ */
+const pageMd = (o: { portfolio?: boolean; pricing?: boolean; marketPrice?: boolean; secYield?: boolean; nav?: string } = {}) => {
+  const { portfolio = true, pricing = true, marketPrice = true, secYield = true, nav = '21.99' } = o;
+  const note = '[1](https://www.franklintempleton.com/x#footnote_1)';
+  return [
+    'Title: Franklin FTSE Switzerland ETF - FLCH', '', 'Markdown Content:',
+    '## Overview', '### Fund Facts', 'Benchmark FTSE Switzerland Capped Index-NR', 'Fund Inception Date 02/06/2018',
+    ...(secYield ? [`30-Day SEC Yield[5](https://www.franklintempleton.com/x#footnote_5)As of 08/31/2026 (Updated Monthly)3.93%`] : []),
+    '### Expenses & Fees', 'Gross Expense Ratio', '0.19%', 'Net Expense Ratio', '0.19%',
+    '### Identifiers', 'CUSIP Code', '35473P123', 'ISIN Code', 'US35473P1234',
+    '### Average Annual Total Returns  As of 08/31/2026', '*    10.50%1 Year', '*    4.20%3 Years', '*    —5 Years', '*    —10 Years', '*    3.00%Since Inception',
+    '## Portfolio',
+    ...(portfolio ? ['### Assets', 'As of 10/02/2026  (Updated Daily)', 'Total Net Assets $53.87 Million', '### Holdings', 'As of 10/02/2026 (Updated Daily)',
+      '| Security Name | Weight (%) | Market Value ($) | Notional Exposure | Quantity |', '| --- | --- | --- | --- | --- |',
+      '| NESTLE SA | 20.00 | 10,000 | 0.00 | 100 |', '| NOVARTIS AG | 10.00 | 5,000 | 0.00 | 50 |'] : []),
+    '## Distributions & Tax', '## Pricing',
+    ...(pricing ? ['### Share Prices', 'As of 10/02/2026', `NAV${note}(Net Asset Value)$${nav}`, `NAV Change${note}$-0.02`, ...(marketPrice ? [`Market Price${note}$21.90`] : []), `Market Price Change${note}$-0.04`] : []),
+    '## Documents', '## Important Information', 'The fund prospectus is current as of December 1, 2025.',
+  ].join('\n');
+};
 
 describe('controls', () => {
   test('precedence is file < advanced < nonblank input < env; blanks and aliases behave', () => {
@@ -289,6 +324,24 @@ SEC 30-Day Yield 2.09%
     expect(fltw.returns).toEqual({ ytd: 81.22, yr1: 96.86, yr3: 44.1, yr5: 20.96, yr10: null, sinceInception: 19.77 });
   });
 
+  test('page sections: a page is loaded fully only with identifiers, Total Net Assets and the Share Prices block', () => {
+    const full = parseProductPage(pageMd(), 'FLCH');
+    // footnote links inside labels no longer leak into the values (they read NAV as 461.09 and the market price as null)
+    expect(full).toMatchObject({ nav: 21.99, marketPrice: 21.9, totalNetAssets: 53.87e6, secYield: 3.93, holdingsAsOfDate: '2026-10-02', loadedFully: true });
+    expect(full.sections).toEqual({ facts: true, returns: true, assets: true, pricing: true, yields: true, holdings: true });
+    // the proxy's partial render: Portfolio and Pricing headings are there but empty
+    const partial = parseProductPage(pageMd({ portfolio: false, pricing: false }), 'FLCH');
+    expect(partial).toMatchObject({ marketPrice: null, totalNetAssets: null, loadedFully: false });
+    expect(partial.sections).toMatchObject({ facts: true, returns: true, assets: false, pricing: false, holdings: false });
+    expect(parseProductPage(pageMd({ pricing: false }), 'FLCH').loadedFully).toBe(false);
+    expect(parseProductPage(pageMd({ portfolio: false }), 'FLCH').loadedFully).toBe(false);
+    // a block missing one price is still a loaded page (the field is an honest null); no returns/yields/holdings is fine too
+    expect(parseProductPage(pageMd({ marketPrice: false, secYield: false }), 'FLCH')).toMatchObject({ marketPrice: null, secYield: null, loadedFully: true });
+    expect(stripFootnoteMarkers('NAV[1](https://a.test/#footnote_1)(Net Asset Value)$1.00 [5,](https://a.test/b)x')).toBe('NAV(Net Asset Value)$1.00 x');
+    expect(parseSharePrices(toTextLines('### Share Prices\nAs of 10/02/2026\nNAV Change $0.49\nMarket Price $5.00'))).toEqual({ nav: null, marketPrice: 5, asOfDate: '2026-10-02' });
+    expect(parseSharePrices(toTextLines('## Pricing\n'))).toBeNull();
+  });
+
   test('official holdings table: dollar amounts, M suffix, empty page', () => {
     const flau = `
 # Portfolio Holdings
@@ -475,6 +528,7 @@ describe('pipeline', () => {
   const inTempRoot = (body: () => Promise<void>) => async () => {
     root = mkdtempSync(join(tmpdir(), 'franklin-test-'));
     setApiRootForTest(pathToFileURL(`${feed()}/`));
+    setClockForTest(fakeClock());
     console.log = () => {};
     console.warn = () => {};
     try { await body(); }
@@ -491,7 +545,7 @@ describe('pipeline', () => {
     expect(funds.every((row: any) => JSON.stringify(Object.keys(row.metrics)) === JSON.stringify(keys))).toBe(true);
     expect(funds.every((row: any) => row.returns.quarterEnd.sinceInception === null)).toBe(true);
     expect(generatedAt).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/);
-  }));
+  }), 30_000);
 
   test('a second identical run writes nothing', inTempRoot(async () => {
     await run();
@@ -500,7 +554,7 @@ describe('pipeline', () => {
     await run();
     expect(snapshot(feed())).toEqual(first);
     expect(Object.keys(first).some((name) => name.endsWith('.tmp'))).toBe(false);
-  }));
+  }), 30_000);
 
   test('a one-ticker run keeps every row and file; unknown tickers are an error', inTempRoot(async () => {
     await run();
@@ -510,7 +564,7 @@ describe('pipeline', () => {
     expect(snapshot(feed())).toEqual(before);
     expect(existsSync(join(feed(), 'update-state.json'))).toBe(false);
     await expect(run({ TICKERS: 'NOPE' })).rejects.toThrow(/NOPE/);
-  }));
+  }), 30_000);
 
   test('MAX_FETCHES walks the filtered list and wraps around', inTempRoot(async () => {
     await run();
@@ -524,7 +578,7 @@ describe('pipeline', () => {
     expect(seen[0]).toBe(tickers[total - 2]);
     expect(seen[1]).toBe(tickers[(total - 2 + total - 1) % total]);
     expect(new Set(seen).size).toBe(3);
-  }));
+  }), 30_000);
 
   test('stalest fund first: a deadline-truncated run refreshes the stalest, the next runs pick up the skipped funds', inTempRoot(async () => {
     const tickers = ['DIVI', 'FLCH', 'LVHD'];
@@ -565,7 +619,59 @@ describe('pipeline', () => {
     expect(runs).toEqual([['LVHD'], ['DIVI'], ['FLCH']]);
     expect(readFileSync(summary, 'utf8')).toContain('1 of 3 funds refreshed, 2 keep their published files, oldest remaining published as-of: 2026-02-10 (DIVI)');
     expect(index().funds.length).toBe(81);
-  }));
+  }), 30_000);
+
+  test('a partial product page keeps the published official sections (zero diff); a full page lacking a field is an honest null', inTempRoot(async () => {
+    let page = pageMd();
+    const requests: string[] = [];
+    (globalThis as any).fetch = async (input: unknown) => {
+      const url = String(input);
+      requests.push(url);
+      if (url.includes('finance/chart')) {
+        const t = Math.floor(Date.now() / 86_400_000) * 86_400;
+        return new Response(JSON.stringify({ chart: { result: [{ meta: { regularMarketPrice: 22, regularMarketTime: t }, timestamp: [t - 86_400, t], indicators: { quote: [{ close: [21.5, 22], volume: [1, 1] }], adjclose: [{ adjclose: [21.5, 22] }] }, events: {} }] } }));
+      }
+      if (url.includes('franklintempleton.com/investments')) return new Response(page);
+      if (url.includes('sitemap')) return new Response('<urlset/>');
+      throw new Error('offline');
+    };
+    const live = { SKIP_FRANKLIN: 'false', SKIP_YAHOO: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' };
+    const logged: string[] = [];
+    const run2 = async () => { logged.length = 0; console.log = (...args: unknown[]) => { logged.push(args.join(' ')); }; await run(live); };
+    const meta = () => JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'meta.json'), 'utf8'));
+    const row = () => index().funds.find((item: any) => item.ticker === 'FLCH');
+
+    // run 1: full page
+    await run2();
+    expect(meta()).toMatchObject({
+      nav: { value: 21.99, asOfDate: '2026-10-02' },
+      marketPrice: { value: 21.9, asOfDate: '2026-10-02', source: 'official product page Market Price' },
+      aum: { value: 53.87e6, source: 'official product page Total Net Assets' },
+      yields: { secYield: 3.93, secYieldKind: 'SEC Yield (30 Day) published on the official product page as of Aug 31 2026' },
+      returns: { performanceAsOf: '2026-08-31', monthEnd: { yr1: 10.5, yr3: 4.2, yr5: null, sinceInception: 3 } },
+      holdings: { totalRows: 2, asOfDate: '2026-10-02' }, // not the "December 1, 2025" of the disclaimer text
+    });
+    expect(logged.filter((line) => line.startsWith('[ kept'))).toEqual([]);
+    const published = snapshot(feed());
+
+    // run 2: the proxy renders the page partially (Portfolio and Pricing empty): everything official stays, zero diff
+    page = pageMd({ portfolio: false, pricing: false, secYield: false });
+    requests.length = 0;
+    await run2();
+    expect(snapshot(feed())).toEqual(published);
+    expect(logged.filter((line) => line.startsWith('[ kept'))).toHaveLength(1); // one notice for the fund
+    expect(logged.find((line) => line.startsWith('[ kept'))).toContain('pricing (NAV, market price)');
+    expect(row().metrics).toMatchObject({ secYield: 3.93, tr1y: 10.5, performanceAsOf: '2026-08-31' });
+    // a partial page gets one retry through the rendering proxy (direct, then at most the proxy candidates), no more
+    expect(requests.filter((url) => url.includes('franklintempleton.com/investments') && url.startsWith('https://r.jina.ai/')).length).toBeLessThanOrEqual(2);
+
+    // run 3: a page that loaded fully but really has no market price and no SEC yield: honest nulls, the rest fresh
+    page = pageMd({ marketPrice: false, secYield: false, nav: '22.50' }).replace('4.20%3 Years', '4.30%3 Years');
+    await run2();
+    expect(logged.filter((line) => line.startsWith('[ kept'))).toHaveLength(0);
+    expect(meta()).toMatchObject({ nav: { value: 22.5 }, yields: { secYield: null }, marketPrice: { source: 'last close from the Yahoo Finance price history' }, returns: { monthEnd: { yr3: 4.3 } } });
+    expect(row().metrics.secYield).toBeNull();
+  }), 60000);
 
   test('a failed source keeps the published fund exactly', inTempRoot(async () => {
     await run();
@@ -598,7 +704,7 @@ describe('pipeline', () => {
     await run({ TICKERS: 'FLCH' });
     expect(existsSync(join(dir, 'holdings', '009.json'))).toBe(false);
     expect(existsSync(join(dir, 'meta.json'))).toBe(true);
-  }));
+  }), 30_000);
 });
 
 describe('network', () => {
