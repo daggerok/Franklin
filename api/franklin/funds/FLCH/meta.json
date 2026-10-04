@@ -39,8 +39,11 @@
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
-  "display": "—",
-  "value": null
+  "display": "-1.03%",
+  "value": -1.03,
+  "asOfDate": "2026-10-02",
+  "source": "computed from market price / official NAV, same date",
+  "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
   "display": "$290.67 M",
@@ -52,6 +55,7 @@
   "dividendYield": 1.39,
   "dividendYieldText": "1.39%",
   "dividendYieldKind": "indicated: latest distribution 0.1420 x 2/year / NAV 20.47",
+  "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"

@@ -30,17 +30,20 @@
  "nav": {
   "display": "$28.44",
   "value": 28.44,
-  "asOfDate": "2026-09-23"
+  "asOfDate": "2026-10-02"
  },
  "marketPrice": {
   "display": "$28.51",
   "value": 28.51,
   "asOfDate": "2026-10-02",
-  "source": "last close from the Yahoo Finance price history"
+  "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "—",
-  "value": null
+  "display": "0.25%",
+  "value": 0.25,
+  "asOfDate": "2026-10-02",
+  "source": "computed from market price / official NAV, same date",
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
   "display": "$1.88 B",
@@ -51,10 +54,11 @@
  "yields": {
   "dividendYield": 5.27,
   "dividendYieldText": "5.27%",
-  "dividendYieldKind": "indicated: latest distribution 0.1250 x 12/year / NAV 28.44",
-  "secYield": 5.12,
-  "secYieldText": "5.12%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page"
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 2 2026",
+  "dividendYieldAsOfDate": "2026-10-02",
+  "secYield": 5.13,
+  "secYieldText": "5.13%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",

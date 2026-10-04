@@ -40,7 +40,10 @@
  },
  "premiumDiscount": {
   "display": "—",
-  "value": null
+  "value": null,
+  "asOfDate": null,
+  "source": "not computable: NAV and market price do not share a trading date",
+  "priceSource": null
  },
  "aum": {
   "display": "—",
@@ -52,6 +55,7 @@
   "dividendYield": 5.46,
   "dividendYieldText": "5.46%",
   "dividendYieldKind": "indicated: latest distribution 0.3000 x 12/year / last close 65.88",
+  "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"

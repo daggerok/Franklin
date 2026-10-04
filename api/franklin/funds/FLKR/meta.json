@@ -39,8 +39,11 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "—",
-  "value": null
+  "display": "1.89%",
+  "value": 1.89,
+  "asOfDate": "2026-10-02",
+  "source": "computed from market price / official NAV, same date",
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
   "display": "$1.88 B",
@@ -52,6 +55,7 @@
   "dividendYield": 0.95,
   "dividendYieldText": "0.95%",
   "dividendYieldKind": "indicated: latest distribution 0.2980 x 2/year / market price 63.05",
+  "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"

@@ -28,8 +28,8 @@
   "net": 0.48
  },
  "nav": {
-  "display": "—",
-  "value": null,
+  "display": "$91.57",
+  "value": 91.57,
   "asOfDate": "2026-10-02"
  },
  "marketPrice": {
@@ -39,19 +39,23 @@
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
-  "display": "—",
-  "value": null
+  "display": "0.00%",
+  "value": 0,
+  "asOfDate": "2026-10-02",
+  "source": "computed from market price / official NAV, same date",
+  "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
   "display": "$395.01 M",
   "value": 395010000,
-  "asOfDate": "2026-08-31",
+  "asOfDate": "2026-10-02",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 0.23,
-  "dividendYieldText": "0.23%",
-  "dividendYieldKind": "indicated: latest distribution 0.1040 x 2/year / last close 91.57",
+  "dividendYield": 0.11,
+  "dividendYieldText": "0.11%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 2 2026",
+  "dividendYieldAsOfDate": "2026-10-02",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -91,9 +95,9 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
-  "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "frequency": "Annually",
+  "frequencyCode": "12 - Annually",
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Dividend"

@@ -40,7 +40,10 @@
  },
  "premiumDiscount": {
   "display": "—",
-  "value": null
+  "value": null,
+  "asOfDate": null,
+  "source": "not computable: NAV and market price do not share a trading date",
+  "priceSource": null
  },
  "aum": {
   "display": "$434.87 M",
@@ -52,6 +55,7 @@
   "dividendYield": null,
   "dividendYieldText": "—",
   "dividendYieldKind": "this fund has no distribution history",
+  "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
