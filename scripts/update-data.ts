@@ -563,6 +563,25 @@ export type ProductPageSummary = {
   ytdReturn: number | null;
   returns: CatalogReturns;
   performanceAsOf: string | null;
+  /** As-of date printed above the page's Holdings table (null when there is no table). */
+  holdingsAsOfDate: string | null;
+  /** Which parts of the page are present at all (a labelled value or table was read), whether or not later code uses them. */
+  sections: PageSections;
+  /** True only when the page carries all three anchors: identifiers/fees, Total Net Assets and the Share Prices block. */
+  loadedFully: boolean;
+};
+
+/**
+ * The rendering proxy sometimes returns the product page with its lazy sections collapsed (empty `## Pricing`,
+ * `## Portfolio`, `## Performance` headings). Each flag says that the section was really read from this page.
+ */
+export type PageSections = {
+  facts: boolean;
+  returns: boolean;
+  assets: boolean;
+  pricing: boolean;
+  yields: boolean;
+  holdings: boolean;
 };
 
 export type HoldingsRow = JsonRecord;
@@ -662,8 +681,15 @@ let fundTickerMapPromise: Promise<Map<string, SecSeriesRef>> | null = null;
 let companyTickerMap: Map<string, string> | null = null;
 let companyTickerMapPromise: Promise<Map<string, string>> | null = null;
 
+// Retry backoff and request pacing read this clock, so tests can run them on a fake one instead of waiting.
+type Clock = { now: () => number; sleep: (ms: number) => Promise<void> };
+const realClock: Clock = { now: () => Date.now(), sleep: (ms) => new Promise((resolve) => setTimeout(resolve, ms)) };
+let clock: Clock = realClock;
+/** Test-only: swap the pacing/backoff clock; call with no argument to restore the real one. */
+export function setClockForTest(next?: Clock): void { clock = next ?? realClock; }
+
 function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  return clock.sleep(ms);
 }
 
 function round(value: number, digits = 2): number {
@@ -882,7 +908,7 @@ export function htmlToText(html: string): string {
     .trim();
 }
 
-type TextLine = { text: string; cells: string[] };
+export type TextLine = { text: string; cells: string[] };
 export function toTextLines(source: string): TextLine[] {
   return String(source ?? '')
     .split('\n')
@@ -1560,11 +1586,48 @@ function extractDistributionFrequency(lines: TextLine[]): string | null {
     ?? firstCanonical(collect(/dividend frequency|frequency,?\s*if any/i));
 }
 
+/** Footnote markers rendered as links ("NAV[1](https://...#footnote_1)(Net Asset Value)$21.99") break label parsing. */
+export function stripFootnoteMarkers(text: string): string {
+  return String(text ?? '').replace(/\[[\d,\s]+\]\(https?:\/\/[^)\s]*\)/g, '');
+}
+
+/**
+ * The "Share Prices" block of the Pricing section: the only place that prints the NAV and the market price
+ * together with one as-of date. Returns null when the block is not on the page (collapsed or legacy layout).
+ */
+export function parseSharePrices(lines: TextLine[]): { nav: number | null; marketPrice: number | null; asOfDate: string | null } | null {
+  const start = lines.findIndex((line) => /^#{2,6}\s*Share Prices\b/i.test(line.text));
+  if (start < 0) return null;
+  let nav: number | null = null;
+  let marketPrice: number | null = null;
+  let asOfDate: string | null = null;
+  for (let i = start + 1; i < lines.length && i <= start + 24; i += 1) {
+    const text = lines[i].text;
+    if (/^#{1,6}\s/.test(text)) break;
+    asOfDate ??= /^As of\s+(\d{1,2}\/\d{1,2}\/\d{4})/i.exec(text)?.[1] ? firstDate(text) : null;
+    nav ??= numberOrNull(/^NAV\s*(?:\(Net Asset Value\))?\s*\$\s*(-?[\d,]+(?:\.\d+)?)/i.exec(text)?.[1] ?? null);
+    marketPrice ??= numberOrNull(/^Market Price\s*\$\s*(-?[\d,]+(?:\.\d+)?)/i.exec(text)?.[1] ?? null);
+  }
+  return nav === null && marketPrice === null ? null : { nav, marketPrice, asOfDate };
+}
+
+/** The date printed right under the "Holdings" heading of the Portfolio section ("### Holdings / As of 10/02/2026"). */
+export function parseHoldingsAsOf(lines: TextLine[]): string | null {
+  const start = lines.findIndex((line) => /^#{2,6}\s*Holdings\s*$/i.test(line.text));
+  if (start < 0) return null;
+  for (let i = start + 1; i <= start + 3 && i < lines.length; i += 1) {
+    if (/^#{1,6}\s/.test(lines[i].text)) break;
+    if (/^As of\b/i.test(lines[i].text)) return firstDate(lines[i].text);
+  }
+  return null;
+}
+
 export function parseFranklinProductPage(text: string, ticker: string): ProductPageSummary {
   const original = String(text ?? '');
-  const source = stripProxyPreamble(original);
+  const source = stripFootnoteMarkers(stripProxyPreamble(original));
   const cleaned = htmlToText(source);
   const lines = toTextLines(cleaned + '\n' + source.replace(/<[^>]+>/g, '\n'));
+  const sharePrices = parseSharePrices(lines);
 
   const name = (() => {
     // 1) Title: line from jina.ai preamble (original, not stripped)
@@ -1683,7 +1746,7 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
 
   const inception = firstDate(labelText(inceptionLabel));
   // NAV – page shows change $0.42 then actual $110.52 on next line; we need actual
-  const nav = (() => {
+  const nav = sharePrices ? sharePrices.nav : (() => {
     // Try label first
     let v = labelNumber(navLabel);
     // If v is small (<5) likely change, look ahead for larger NAV
@@ -1722,7 +1785,7 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
     }
     return null;
   })();
-  const marketPrice = labelNumber(marketPriceLabel);
+  const marketPrice = sharePrices ? sharePrices.marketPrice : labelNumber(marketPriceLabel);
   const totalNetAssets = (() => {
     const raw = labelText(totalNetAssetsLabel);
     const m = /\$([\d.,]+)\s*(Million|Billion|Thousand|M|B|K|Billion)?/i.exec(raw);
@@ -1853,6 +1916,19 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
 
   const factSheet = linkUrls(source, /fact-sheet|FactSheet/i)[0] || null;
 
+  // A page that loaded fully has all three anchors: identifiers/fees (Overview), Total Net Assets (Portfolio >
+  // Assets) and the Share Prices block (Pricing). The last two sit in lazily rendered sections, which is what
+  // goes missing on a partial render. Returns, yields and holdings are tracked too but never required: young
+  // funds have no returns, equity funds no yields.
+  const sections: PageSections = {
+    facts: Boolean(/^[A-Z0-9]{9}$/.test(cusip) || /^[A-Z0-9]{12}$/.test(isin) || netExpense !== null),
+    returns: [returns.yr1, returns.yr3, returns.yr5, returns.yr10, returns.sinceInception].some((value) => value !== null),
+    assets: totalNetAssets !== null,
+    pricing: sharePrices !== null,
+    yields: secYield !== null || distributionYield !== null || distributionRate !== null,
+    holdings: parseFranklinHoldings(source).length > 0,
+  };
+
   return {
     name: cleanFundName(name, ticker) || `${ticker} ETF`,
     cusip: /^[A-Z0-9]{9}$/.test(cusip) ? cusip : '',
@@ -1864,7 +1940,7 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
     etfType,
     inception,
     nav,
-    navAsOfDate: labelAsOf(navLabel),
+    navAsOfDate: sharePrices ? sharePrices.asOfDate : labelAsOf(navLabel),
     totalNetAssets,
     totalNetAssetsAsOfDate: labelAsOf(totalNetAssetsLabel),
     totalExpenseRatio: netExpense,
@@ -1879,13 +1955,16 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
     premiumDiscount,
     premiumDiscountAsOfDate: labelAsOf(premiumLabel),
     marketPrice,
-    marketPriceAsOfDate: labelAsOf(marketPriceLabel),
+    marketPriceAsOfDate: sharePrices ? (marketPrice !== null ? sharePrices.asOfDate : null) : labelAsOf(marketPriceLabel),
     dividendFrequencyRaw: frequencyRaw,
     distributionRate,
     factSheet,
     ytdReturn: null,
     returns,
     performanceAsOf: parsePerformanceAsOf(source),
+    holdingsAsOfDate: parseHoldingsAsOf(lines),
+    sections,
+    loadedFully: sections.facts && sections.assets && sections.pricing,
   };
 }
 
@@ -2343,7 +2422,7 @@ export function userAgentFor(url: string, requested?: string): string {
 }
 
 /** Per-worker request lanes: each lane paces its own starts by sleepMs, so N lanes give ~N times the throughput. */
-export function createRequestGate(concurrency: number, sleepMs: number, now = Date.now, wait = sleep): () => Promise<void> {
+export function createRequestGate(concurrency: number, sleepMs: number, now: () => number = () => clock.now(), wait = sleep): () => Promise<void> {
   const lanes = Array.from({ length: Math.max(1, concurrency) }, () => 0);
   return async () => {
     const time = now();
@@ -2364,7 +2443,7 @@ export function configurePacing(concurrency: number, sleepSeconds: number): void
 // Direct requests use per-worker lanes; the r.jina.ai proxy keeps one global gate (rate-limited, min PROXY_SLEEP_SECONDS)
 async function paceRequests(proxy = false): Promise<void> {
   if (proxy) {
-    const now = Date.now();
+    const now = clock.now();
     const wait = Math.max(0, proxyGateAt - now);
     proxyGateAt = Math.max(now, proxyGateAt) + Math.max(requestSleepSeconds, PROXY_SLEEP_SECONDS) * 1000;
     if (wait) await sleep(wait);
@@ -2437,7 +2516,8 @@ async function fetchJson(url: string, label: string, config: UpdaterConfig, head
 let issuerDirectDenials = 0;
 const ISSUER_DIRECT_DENIAL_LIMIT = 2;
 
-async function fetchIssuerText(url: string, label: string, config: UpdaterConfig, validate: (text: string) => boolean, accept = 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', options: { cache?: boolean; maxProxies?: number } = {}): Promise<{ text: string; via: 'direct' | 'proxy' }> {
+async function fetchIssuerText(url: string, label: string, config: UpdaterConfig, validate: (text: string) => boolean, accept = 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', options: { cache?: boolean; maxProxies?: number; prefer?: (text: string) => boolean } = {}): Promise<{ text: string; via: 'direct' | 'proxy' }> {
+  let fallback: { text: string; via: 'direct' | 'proxy' } | null = null;
   const allCandidates = buildProxyUrls(url);
   const max = options.maxProxies ?? allCandidates.length;
   const candidates = allCandidates.slice(0, max);
@@ -2460,7 +2540,12 @@ async function fetchIssuerText(url: string, label: string, config: UpdaterConfig
       const text = isDirect ? textRaw : stripProxyPreamble(textRaw);
       if (validate(text)) {
         if (isDirect) issuerDirectDenials = 0;
-        return { text, via: isDirect ? 'direct' : 'proxy' };
+        const found = { text, via: isDirect ? 'direct' as const : 'proxy' as const };
+        // A usable but unpreferred (partial) page is remembered; the next candidate gets one chance to do better.
+        if (!options.prefer || options.prefer(text)) return found;
+        fallback ??= found;
+        lastError = new Error(`${viaLabel} response came back partial`);
+        continue;
       }
       lastError = new Error(`${viaLabel} response did not contain expected content`);
     } catch (error) {
@@ -2471,6 +2556,7 @@ async function fetchIssuerText(url: string, label: string, config: UpdaterConfig
       }
     }
   }
+  if (fallback) return fallback;
   throw new Error(`${label}: ${lastError instanceof Error ? lastError.message : String(lastError)}`);
 }
 
@@ -2872,6 +2958,72 @@ async function ensureApiRoot(): Promise<void> {
   await mkdir(API_ROOT, { recursive: true });
 }
 
+/**
+ * A product page that came back partial (see `PageSections` / `loadedFully`) says nothing about the sections it
+ * lacks. Every section that was published as official before and is absent from such a page counts as a FAILED
+ * read: its previous block is restored into `summary` as one unit (value with its as-of date, basis and source),
+ * so the normal build republishes it unchanged instead of flipping to Yahoo-derived values or null. A page that
+ * loaded fully and lacks a field is an honest null and never gets here. The returns are the exception: a fund
+ * can be too young for a returns table, so a loaded page cannot vouch for them and an absent returns section is
+ * always a failed read. Returns the names of the kept sections.
+ */
+export function retainPublishedSections(summary: ProductPageSummary, previous: JsonRecord | null): string[] {
+  if (!previous) return [];
+  const kept: string[] = [];
+  const sections = summary.sections;
+  const partial = !summary.loadedFully;
+  if (partial && !sections.pricing) {
+    const parts: string[] = [];
+    const nav = numberOrNull(previous.nav?.value);
+    if (summary.nav === null && nav !== null) {
+      summary.nav = nav;
+      summary.navAsOfDate = isoDateOrNull(previous.nav?.asOfDate);
+      parts.push('NAV');
+    }
+    const price = numberOrNull(previous.marketPrice?.value);
+    if (summary.marketPrice === null && price !== null && String(previous.marketPrice?.source ?? '').startsWith('official')) {
+      summary.marketPrice = price;
+      summary.marketPriceAsOfDate = isoDateOrNull(previous.marketPrice?.asOfDate);
+      parts.push('market price');
+    }
+    const premium = numberOrNull(previous.premiumDiscount?.value);
+    if (summary.premiumDiscount === null && premium !== null) { summary.premiumDiscount = premium; parts.push('premium/discount'); }
+    if (parts.length) kept.push(`pricing (${parts.join(', ')})`);
+  }
+  if (partial && !sections.assets) {
+    const aum = numberOrNull(previous.aum?.value);
+    if (summary.totalNetAssets === null && aum !== null && String(previous.aum?.source ?? '').startsWith('official product page')) {
+      summary.totalNetAssets = aum;
+      summary.totalNetAssetsAsOfDate = isoDateOrNull(previous.aum?.asOfDate);
+      kept.push('total net assets');
+    }
+  }
+  if (partial && !sections.yields) {
+    const yields = previous.yields || {};
+    const sec = numberOrNull(yields.secYield);
+    if (summary.secYield === null && sec !== null && String(yields.secYieldKind ?? '').startsWith('SEC Yield')) {
+      summary.secYield = sec;
+      const asOf = /\bas of (.+)$/.exec(String(yields.secYieldKind));
+      summary.secYieldAsOfDate = asOf ? isoDateOrNull(toIsoDate(asOf[1])) : null;
+      kept.push('SEC yield');
+    }
+    const dividend = numberOrNull(yields.dividendYield);
+    if (summary.distributionYield === null && dividend !== null && String(yields.dividendYieldKind ?? '').startsWith('official')) {
+      summary.distributionYield = dividend;
+      kept.push('12-month yield');
+    }
+  }
+  const monthEnd = previous.returns?.monthEnd || {};
+  const periods = ['yr1', 'yr3', 'yr5', 'yr10', 'sinceInception'] as const;
+  if (!sections.returns && isoDateOrNull(previous.returns?.performanceAsOf) && periods.some((key) => numberOrNull(monthEnd[key]) !== null)) {
+    for (const key of periods) summary.returns[key] = numberOrNull(monthEnd[key]);
+    summary.returns.ytd ??= numberOrNull(monthEnd.ytd);
+    summary.performanceAsOf = isoDateOrNull(previous.returns.performanceAsOf);
+    kept.push('returns');
+  }
+  return kept;
+}
+
 async function runUpdater(config: UpdaterConfig): Promise<void> {
   configurePacing(config.concurrency, config.requestSleep);
 
@@ -3019,6 +3171,13 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     const fundDir = new URL(`funds/${ticker}/`, API_ROOT);
     const problems: string[] = [];
 
+    // The published meta.json: the fallback of every source that fails and the source of the sections a partial page lacks.
+    let prevMeta: JsonRecord | null = null;
+    try {
+      prevMeta = JSON.parse(await readFile(new URL('meta.json', fundDir), 'utf8')) as JsonRecord;
+    } catch {}
+    const keptSections: string[] = [];
+
     let summary: ProductPageSummary | null = null;
     let holdingsRows: JsonRecord[] = [];
     let holdingsHeaders = HOLDINGS_HEADERS;
@@ -3040,9 +3199,18 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
         const page = await fetchIssuerText(fund.fundPage, `[product ] ${ticker}`, config, (text) => {
           const lower = text.toLowerCase();
           return lower.includes(ticker.toLowerCase()) && (lower.includes('cusip') || lower.includes('nav') || lower.includes('expense'));
-        }, 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', { maxProxies: PRODUCT_PROXY_COUNT });
+        }, 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', { maxProxies: PRODUCT_PROXY_COUNT, prefer: (text) => parseFranklinProductPage(text, ticker).loadedFully });
         franklinPageText = page.text;
         summary = parseFranklinProductPage(page.text, ticker);
+        if (summary.loadedFully) {
+          // A fully loaded page is authoritative for pricing and yields: what it lacks is an honest null, never the previous run's value.
+          fund.nav = null; fund.close = null; fund.premiumDiscount = null; fund.secYield = null; fund.dividendYield = null;
+          if (summary.sections.returns) {
+            for (const key of ['yr1', 'yr3', 'yr5', 'yr10', 'sinceInception'] as const) fund.returns[key] = null;
+            fund.performanceAsOf = summary.performanceAsOf;
+          }
+        }
+        keptSections.push(...retainPublishedSections(summary, prevMeta));
         // Merge into catalog fund – only valid names/categories, never URL paths or JS bundles.
         // The catalog name (finder table) stays authoritative; the product page
         // only fills a name the catalog could not provide.
@@ -3080,8 +3248,10 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
           if (franklinHoldings.length) {
             const companyMap = await fetchCompanyTickerMap(config).catch(() => new Map<string, string>());
             officialDailyHoldings = fillNportTickers(franklinHoldings, companyMap);
-            const asOfMatch = /Holdings\s+As of\s+([A-Za-z]+\s+\d{1,2},\s+\d{4})/i.exec(page.text) || /As of\s+([A-Za-z]+\s+\d{1,2},\s+\d{4})/i.exec(page.text);
-            officialDailyAsOf = asOfMatch ? toIsoDate(asOfMatch[1]) : (summary.totalHoldingsAsOfDate || null);
+            // The date printed under the Holdings heading. Any other "As of <Month D, YYYY>" on the page is
+            // disclaimer text (it dated EZPZ's current table 2025-12-01).
+            const asOfMatch = /Holdings\s+As of\s+([A-Za-z]+\s+\d{1,2},\s+\d{4})/i.exec(page.text);
+            officialDailyAsOf = summary.holdingsAsOfDate || (asOfMatch ? toIsoDate(asOfMatch[1]) : (summary.totalHoldingsAsOfDate || null));
             officialDailySource = `Franklin Templeton official product page Portfolio holdings (daily${officialDailyAsOf ? `, ${officialDailyAsOf}` : ''})`;
             // If full portfolio (>25 items) is present, use it directly
             if (officialDailyHoldings.length > 25) {
@@ -3103,11 +3273,16 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
       }
     }
 
+    // A partial page has no Holdings table: what was published from the official table stays unless a newer N-PORT filing exists.
+    const previousHoldingsAsOf = toIsoDate(prevMeta?.holdings?.asOfDate);
+    const keepOfficialHoldings = Boolean(summary && !summary.loadedFully && !summary.sections.holdings && previousHoldingsAsOf
+      && Number(prevMeta?.holdings?.totalRows ?? 0) > 0 && String(prevMeta?.holdings?.source ?? '').startsWith('Franklin Templeton official product page'));
+
     // 2) Holdings via SEC N-PORT-P – comprehensive portfolio for all 81 funds via FRANKLIN_SERIES_MAP (multi-trust, 108 holdings for FLAU)
     if (!holdingsRows.length && config.edgarFallback) {
       try {
         const result = await fetchNportForFund(fund, config);
-        if (result && result.parsed.holdings.length) {
+        if (result && result.parsed.holdings.length && !(keepOfficialHoldings && result.parsed.repPdDate <= previousHoldingsAsOf)) {
           const companyMap = await fetchCompanyTickerMap(config);
           holdingsRows = fillNportTickers(result.parsed.holdings, companyMap);
           holdingsAsOf = result.parsed.repPdDate || null;
@@ -3134,12 +3309,6 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
         problems.push(`yahoo chart: ${e instanceof Error ? e.message : String(e)}`);
       }
     }
-
-    // Load previous meta for fallback
-    let prevMeta: JsonRecord | null = null;
-    try {
-      prevMeta = JSON.parse(await readFile(new URL('meta.json', fundDir), 'utf8')) as JsonRecord;
-    } catch {}
 
     // A source that worked for this fund before and failed now keeps the fund as it
     // was published: new returns never sit next to stale prices or holdings.
@@ -3203,6 +3372,8 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
       } catch {}
     }
 
+    if (keepOfficialHoldings && holdingsSource === prevMeta?.holdings?.source) keptSections.push('holdings');
+
     // Build paginated files
     const holdingsPages = chunk(holdingsRows, config.holdingsPageSize);
     const historyPages = chunk(historyRows, config.historyPageSize);
@@ -3254,7 +3425,14 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     const closePriceKind = fund.close !== null
       ? 'official product page Market Price'
       : (lastHistoryClose !== null ? 'last close from the Yahoo Finance price history' : null);
+    const pageNav = fund.nav;
     fund.nav = plausibleNav(fund.nav, fund.close ?? recentHistoryClose);
+    // A read that fails the plausibility check is a failed read, not an honest absence: the published NAV stays.
+    const publishedNav = numberOrNull(prevMeta?.nav?.value);
+    if (pageNav !== null && fund.nav === null && publishedNav !== null && plausibleNav(publishedNav, fund.close ?? recentHistoryClose) !== null) {
+      fund.nav = publishedNav;
+      keptSections.push('NAV (the page value failed the plausibility check)');
+    }
 
     // Dividend yield: the official 12-month yield when the product page
     // publishes one, otherwise the indicated yield documented in the README and
@@ -3297,6 +3475,9 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     fund.category = fundCategory;
     fund.categoryPath = fundCategory;
 
+    // One notice per fund naming what a partial page could not give.
+    if (keptSections.length) console.log(`[ ${'kept'.padEnd(9)}] ${ticker}: product page came back partial, kept the published ${keptSections.join(', ')}`);
+
     // Build meta.json
     const meta = {
       ticker,
@@ -3304,7 +3485,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
       category: fundCategory,
       categoryPath: fundCategory,
       fundPage: fund.fundPage,
-      factSheet: summary?.factSheet || null,
+      factSheet: summary?.factSheet || (summary?.loadedFully ? null : cleanText(prevMeta?.factSheet) || null),
       source: {
         provider: 'Franklin Templeton',
         market: 'us',
