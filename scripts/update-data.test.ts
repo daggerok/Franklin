@@ -6,6 +6,12 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
   CONTROL_NAMES,
+  PREMIUM_COMPUTED_SOURCE,
+  asOfFromKind,
+  computePremiumDiscount,
+  officialDividendYield,
+  parseDistributionRate,
+  retainPublishedSections,
   FETCH_TIMEOUT_MS,
   RETURNS_BASIS,
   annualizedToTotal,
@@ -102,13 +108,14 @@ const fakeClock = () => {
  * A product page in the rendering proxy's markdown. Sections the proxy lazy-loads (Portfolio, Pricing) come back as
  * empty headings when `portfolio` / `pricing` are false: that is the partial page.
  */
-const pageMd = (o: { portfolio?: boolean; pricing?: boolean; marketPrice?: boolean; secYield?: boolean; nav?: string } = {}) => {
-  const { portfolio = true, pricing = true, marketPrice = true, secYield = true, nav = '21.99' } = o;
+const pageMd = (o: { portfolio?: boolean; pricing?: boolean; marketPrice?: boolean; secYield?: boolean; rate?: boolean; nav?: string } = {}) => {
+  const { portfolio = true, pricing = true, marketPrice = true, secYield = true, rate = false, nav = '21.99' } = o;
   const note = '[1](https://www.franklintempleton.com/x#footnote_1)';
   return [
     'Title: Franklin FTSE Switzerland ETF - FLCH', '', 'Markdown Content:',
     '## Overview', '### Fund Facts', 'Benchmark FTSE Switzerland Capped Index-NR', 'Fund Inception Date 02/06/2018',
     ...(secYield ? [`30-Day SEC Yield[5](https://www.franklintempleton.com/x#footnote_5)As of 08/31/2026 (Updated Monthly)3.93%`] : []),
+    ...(rate ? ['Distribution Rate at NAV[9](https://www.franklintempleton.com/x#footnote_9)As of 10/02/2026 (Updated Daily)1.18%'] : []),
     '### Expenses & Fees', 'Gross Expense Ratio', '0.19%', 'Net Expense Ratio', '0.19%',
     '### Identifiers', 'CUSIP Code', '35473P123', 'ISIN Code', 'US35473P1234',
     '### Average Annual Total Returns  As of 08/31/2026', '*    10.50%1 Year', '*    4.20%3 Years', '*    —5 Years', '*    —10 Years', '*    3.00%Since Inception',
@@ -324,6 +331,24 @@ SEC 30-Day Yield 2.09%
     expect(fltw.returns).toEqual({ ytd: 81.22, yr1: 96.86, yr3: 44.1, yr5: 20.96, yr10: null, sinceInception: 19.77 });
   });
 
+  test('Distribution Rate: overview line, Rates and Yields block, either basis, never the footnote or a neighbouring yield', () => {
+    const overview = 'Dividend Frequency, if any Quarterly\nDistribution Rate at NAV[9](https://www.franklintempleton.com/x#footnote_9)As of 10/02/2026 (Updated Daily)1.18%\n30-Day SEC Yield 1.52%';
+    expect(parseDistributionRate(toTextLines(stripFootnoteMarkers(overview)))).toEqual({ value: 1.18, asOfDate: '2026-10-02', basis: 'NAV' });
+    const block = '### Rates and Yields\nDistribution Rate[9]\nAs of 10/02/2026 (Updated Daily)\nAt Net Asset Value (NAV) 4.78%\n30-Day SEC Yield[6]\nAs of 08/31/2026\n4.53%';
+    expect(parseDistributionRate(toTextLines(stripFootnoteMarkers(block)))).toEqual({ value: 4.78, asOfDate: '2026-10-02', basis: 'NAV' });
+    expect(parseDistributionRate(toTextLines('Distribution Rate\nAs of 10/01/2026\nAt Market Price 2.50%'))).toEqual({ value: 2.5, asOfDate: '2026-10-01', basis: 'market price' });
+    // NAV basis wins when both are printed; a rate without a basis or date is still read, with nulls
+    expect(parseDistributionRate(toTextLines('Distribution Rate at Market Price 2.50%\nDistribution Rate at NAV 2.40%'))?.value).toBe(2.4);
+    expect(parseDistributionRate(toTextLines('Distribution Rate 3.10%'))).toEqual({ value: 3.1, asOfDate: null, basis: null });
+    // the footnote sentence, a dash and a missing label are nulls, never 0 and never the SEC yield
+    expect(parseDistributionRate(toTextLines('9. Distribution Rate is calculated by annualizing the most recent distribution 5%'))).toBeNull();
+    expect(parseDistributionRate(toTextLines('Distribution Rate at NAV As of 10/02/2026 —\n30-Day SEC Yield 1.52%'))).toBeNull();
+    expect(parseDistributionRate(toTextLines('30-Day SEC Yield 1.52%'))).toBeNull();
+    const page = parseProductPage(pageMd({ rate: true }), 'FLCH');
+    expect(page).toMatchObject({ distributionRate: 1.18, distributionRateAsOfDate: '2026-10-02', distributionRateBasis: 'NAV', distributionYield: null });
+    expect(page.sections.yields).toBe(true);
+  });
+
   test('page sections: a page is loaded fully only with identifiers, Total Net Assets and the Share Prices block', () => {
     const full = parseProductPage(pageMd(), 'FLCH');
     // footnote links inside labels no longer leak into the values (they read NAV as 461.09 and the market price as null)
@@ -478,6 +503,36 @@ describe('metrics', () => {
     expect(String(metrics.returnsBasis).trim()).not.toBe('');
     expect(metrics.performanceAsOf).toBe('2026-08-31');
     expect([tenYearEligible('2015-01-02'), tenYearEligible('2020-02-25'), tenYearEligible('2017-11-02'), tenYearEligible(null)]).toEqual([true, false, false, true]);
+  });
+
+  test('dividend yield kinds: official 12-month first, then the Distribution Rate with its date, never indicated', () => {
+    const page = (over: Record<string, unknown>) => ({ distributionYield: null, distributionRate: null, distributionRateAsOfDate: null, distributionRateBasis: null, ...over }) as any;
+    expect(officialDividendYield(page({ distributionYield: 0.42, distributionRate: 1.18 }))).toEqual({ value: 0.42, kind: 'official 12-month distribution yield from the product page', asOfDate: null });
+    expect(officialDividendYield(page({ distributionRate: 1.18, distributionRateAsOfDate: '2026-10-02', distributionRateBasis: 'NAV' }))).toEqual({
+      value: 1.18, kind: 'Distribution Rate at NAV published on the official Franklin fund page as of Oct 2 2026', asOfDate: '2026-10-02',
+    });
+    expect(officialDividendYield(page({ distributionRate: 3.1 }))?.kind).toBe('Distribution Rate published on the official Franklin fund page');
+    expect(officialDividendYield(page({ distributionRate: 0 }))).toBeNull();
+    expect(officialDividendYield(page({}))).toBeNull();
+    // the published label round-trips through retention: a partial page restores the rate with its date and basis
+    const summary = parseProductPage(pageMd({ portfolio: false, pricing: false, secYield: false }), 'FLCH');
+    const kept = retainPublishedSections(summary, { yields: { dividendYield: 1.18, dividendYieldKind: 'Distribution Rate at NAV published on the official Franklin fund page as of Oct 2 2026' } });
+    expect(kept).toContain('Distribution Rate');
+    expect(officialDividendYield(summary)).toMatchObject({ value: 1.18, asOfDate: '2026-10-02' });
+    expect(asOfFromKind('SEC Yield (30 Day) published on the official product page as of Aug 31 2026')).toBe('2026-08-31');
+    expect(asOfFromKind('not published')).toBeNull();
+  });
+
+  test('premium/discount: (price / NAV - 1) * 100 only for the same date, otherwise null', () => {
+    expect(computePremiumDiscount(41.42, '2026-10-02', 42, '2026-10-02')).toBe(1.4);
+    expect(computePremiumDiscount(61.7, '2026-10-02', 61.72, '2026-10-02')).toBe(0.03);
+    expect(computePremiumDiscount(21.99, '2026-10-02', 21.9, '2026-10-02')).toBe(-0.41);
+    expect(computePremiumDiscount(41.42, '2026-10-02', 42, '2026-10-01')).toBeNull();
+    expect(computePremiumDiscount(41.42, null, 42, '2026-10-02')).toBeNull();
+    expect(computePremiumDiscount(null, '2026-10-02', 42, '2026-10-02')).toBeNull();
+    expect(computePremiumDiscount(0, '2026-10-02', 42, '2026-10-02')).toBeNull();
+    expect(computePremiumDiscount(10, '2026-10-02', 90, '2026-10-02')).toBeNull(); // a mis-read price is not a 800% premium
+    expect(PREMIUM_COMPUTED_SOURCE).toBe('computed from market price / official NAV, same date');
   });
 
   test('every row has the same key set; unknown dates stay null and a fund without returns gets no date', () => {
@@ -671,6 +726,56 @@ describe('pipeline', () => {
     expect(logged.filter((line) => line.startsWith('[ kept'))).toHaveLength(0);
     expect(meta()).toMatchObject({ nav: { value: 22.5 }, yields: { secYield: null }, marketPrice: { source: 'last close from the Yahoo Finance price history' }, returns: { monthEnd: { yr3: 4.3 } } });
     expect(row().metrics.secYield).toBeNull();
+  }), 60000);
+
+  test('Distribution Rate and computed premium: labelled, dated, zero diff on rerun, kept on a partial page, null when the dates differ', inTempRoot(async () => {
+    let page = pageMd({ rate: true });
+    let yahooDay = Date.UTC(2026, 9, 2, 20) / 1000;
+    (globalThis as any).fetch = async (input: unknown) => {
+      const url = String(input);
+      if (url.includes('finance/chart')) {
+        return new Response(JSON.stringify({ chart: { result: [{ meta: { regularMarketPrice: 22.4, regularMarketTime: yahooDay }, timestamp: [yahooDay], indicators: { quote: [{ close: [22.4], volume: [1] }], adjclose: [{ adjclose: [22.4] }] }, events: {} }] } }));
+      }
+      if (url.includes('franklintempleton.com/investments')) return new Response(page);
+      if (url.includes('sitemap')) return new Response('<urlset/>');
+      throw new Error('offline');
+    };
+    const live = { SKIP_FRANKLIN: 'false', SKIP_YAHOO: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' };
+    const logged: string[] = [];
+    const run2 = async () => { logged.length = 0; console.log = (...args: unknown[]) => { logged.push(args.join(' ')); }; await run(live); };
+    const meta = () => JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'meta.json'), 'utf8'));
+    const row = () => index().funds.find((item: any) => item.ticker === 'FLCH');
+
+    // official page figures: the Distribution Rate beats an indicated yield, the premium is computed from the page's own NAV and closing price
+    await run2();
+    expect(meta().yields).toMatchObject({ dividendYield: 1.18, dividendYieldKind: 'Distribution Rate at NAV published on the official Franklin fund page as of Oct 2 2026', dividendYieldAsOfDate: '2026-10-02' });
+    expect(meta().premiumDiscount).toMatchObject({ value: -0.41, display: '-0.41%', asOfDate: '2026-10-02', source: PREMIUM_COMPUTED_SOURCE, priceSource: 'official product page closing Market Price' });
+    expect(row()).toMatchObject({ premiumDiscountValue: -0.41, premiumDiscountAsOfDate: '2026-10-02', dividendYieldSource: 'official' });
+    expect(row().metrics.dividendYield).toBe(1.18);
+    const published = snapshot(feed());
+
+    // an identical rerun writes nothing
+    await run2();
+    expect(snapshot(feed())).toEqual(published);
+
+    // a partial page keeps the published rate and the premium exactly (zero diff), one notice
+    page = pageMd({ portfolio: false, pricing: false, secYield: false });
+    await run2();
+    expect(snapshot(feed())).toEqual(published);
+    expect(logged.filter((line) => line.startsWith('[ kept'))).toHaveLength(1);
+    expect(logged.find((line) => line.startsWith('[ kept'))).toContain('Distribution Rate');
+
+    // a full page without a market price: the Yahoo close of the NAV date; the rate is an honest null, not an indicated value
+    page = pageMd({ marketPrice: false, nav: '22.50' });
+    await run2();
+    expect(meta().yields.dividendYield).toBeNull();
+    expect(meta().premiumDiscount).toMatchObject({ value: -0.44, priceSource: 'Yahoo Finance regular-session close of the NAV date', source: PREMIUM_COMPUTED_SOURCE });
+
+    // the Yahoo close belongs to another day than the NAV: never mix the dates
+    yahooDay = Date.UTC(2026, 9, 1, 20) / 1000;
+    await run2();
+    expect(meta().premiumDiscount).toMatchObject({ value: null, display: '—', asOfDate: null });
+    expect(row()).toMatchObject({ premiumDiscountValue: null, premiumDiscountAsOfDate: null });
   }), 60000);
 
   test('a failed source keeps the published fund exactly', inTempRoot(async () => {

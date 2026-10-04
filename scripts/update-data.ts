@@ -559,6 +559,10 @@ export type ProductPageSummary = {
   marketPriceAsOfDate: string | null;
   dividendFrequencyRaw: string | null;
   distributionRate: number | null;
+  /** As-of date printed next to the Distribution Rate (ISO, null when none). */
+  distributionRateAsOfDate: string | null;
+  /** What the Distribution Rate is divided by: "NAV" or "market price" (null when the page does not say). */
+  distributionRateBasis: string | null;
   factSheet: string | null;
   ytdReturn: number | null;
   returns: CatalogReturns;
@@ -754,6 +758,13 @@ function firstDate(value: unknown): string | null {
   const raw = cleanText(value);
   const match = /(\d{1,2}\/\d{1,2}\/\d{2,4}|\d{4}-\d{2}-\d{2})/.exec(raw);
   return match ? toIsoDate(match[1]) : null;
+}
+
+/** The ISO date of a published label ending in "as of Oct 2 2026" (formatDate's output), independent of the machine time zone. */
+export function asOfFromKind(kind: unknown): string | null {
+  const match = /\bas of ([A-Z][a-z]{2}) (\d{1,2}) (\d{4})$/.exec(String(kind ?? ''));
+  const month = match ? MONTHS.indexOf(match[1]) : -1;
+  return match && month >= 0 ? `${match[3]}-${String(month + 1).padStart(2, '0')}-${match[2].padStart(2, '0')}` : null;
 }
 
 export function toIsoDate(value: unknown): string {
@@ -975,6 +986,33 @@ export function plausiblePremiumDiscount(value: unknown): number | null {
   const parsed = numberOrNull(value);
   if (parsed === null || Math.abs(parsed) > 5) return null;
   return parsed;
+}
+
+export const PREMIUM_COMPUTED_SOURCE = 'computed from market price / official NAV, same date';
+export const OFFICIAL_12M_YIELD_KIND = 'official 12-month distribution yield from the product page';
+
+/**
+ * Premium/discount in percent: (market price / NAV - 1) * 100, rounded to two decimals. Both figures must belong
+ * to the same trading date; different or unknown dates give null (a premium is never built from mixed dates).
+ */
+export function computePremiumDiscount(nav: number | null, navDate: string | null, price: number | null, priceDate: string | null): number | null {
+  if (nav === null || nav <= 0 || price === null || price <= 0 || !navDate || !priceDate || navDate !== priceDate) return null;
+  return plausiblePremiumDiscount(round((price / nav - 1) * 100, 2));
+}
+
+/**
+ * The official dividend yield of a product page: the 12-month yield when the page prints one, otherwise the
+ * Distribution Rate (most recent distribution annualized over the closing market price or NAV, with its own as-of
+ * date). Official figures always win over the Yahoo-derived indicated yield.
+ */
+export function officialDividendYield(summary: ProductPageSummary): { value: number; kind: string; asOfDate: string | null } | null {
+  const twelve = plausibleDividendYield(summary.distributionYield);
+  if (twelve !== null) return { value: twelve, kind: OFFICIAL_12M_YIELD_KIND, asOfDate: null };
+  const rate = plausibleDividendYield(summary.distributionRate);
+  if (rate === null) return null;
+  const basis = summary.distributionRateBasis ? ` at ${summary.distributionRateBasis}` : '';
+  const asOf = summary.distributionRateAsOfDate ? ` as of ${formatDate(summary.distributionRateAsOfDate)}` : '';
+  return { value: rate, kind: `Distribution Rate${basis} published on the official Franklin fund page${asOf}`, asOfDate: summary.distributionRateAsOfDate };
 }
 
 // Yield rows are published as percentages. Anchoring on the "%" sign keeps the
@@ -1611,6 +1649,34 @@ export function parseSharePrices(lines: TextLine[]): { nav: number | null; marke
   return nav === null && marketPrice === null ? null : { nav, marketPrice, asOfDate };
 }
 
+/**
+ * The official "Distribution Rate" of the product page: the most recent distribution annualized and divided by the
+ * closing market price or NAV (footnote on the page; special distributions excluded). It is printed twice, in the
+ * overview ("Distribution Rate at NAV  As of 10/02/2026 (Updated Daily) 1.18%") and in the Rates and Yields block
+ * ("Distribution Rate" / "As of ..." / "At Net Asset Value (NAV) 1.18%"). The NAV basis wins over the market price
+ * basis when both are printed; a rate without a stated basis is accepted with a null basis. The footnote line
+ * ("9. Distribution Rate is calculated ...") never matches because it does not start with the label.
+ */
+export function parseDistributionRate(lines: TextLine[]): { value: number; asOfDate: string | null; basis: string | null } | null {
+  const found: Array<{ value: number; asOfDate: string | null; basis: string | null }> = [];
+  for (let i = 0; i < lines.length; i += 1) {
+    if (!/^Distribution Rate\b/i.test(lines[i].text)) continue;
+    let block = lines[i].text;
+    for (let j = i + 1; j < lines.length && j <= i + 3; j += 1) {
+      if (/^(#|30-Day|SEC\b|Dividend|Distribution Rate\b)/i.test(lines[j].text)) break;
+      block += ` ${lines[j].text}`;
+      if (/%/.test(lines[j].text)) break;
+    }
+    const value = percentValue({ value: block.replace(/^Distribution Rate/i, '') });
+    if (value === null || value < 0) continue;
+    // no trailing \b below: once the footnote marker is stripped, "NAV" and "As of" run together ("NAVAs of 10/02/2026")
+    const basisMatch = /\bat\s+(NAV|Net Asset Value|Market Price)/i.exec(block);
+    const basis = basisMatch ? (/market/i.test(basisMatch[1]) ? 'market price' : 'NAV') : null;
+    found.push({ value, asOfDate: firstDate(block) || null, basis });
+  }
+  return found.find((entry) => entry.basis === 'NAV') ?? found[0] ?? null;
+}
+
 /** The date printed right under the "Holdings" heading of the Portfolio section ("### Holdings / As of 10/02/2026"). */
 export function parseHoldingsAsOf(lines: TextLine[]): string | null {
   const start = lines.findIndex((line) => /^#{2,6}\s*Holdings\s*$/i.test(line.text));
@@ -1700,7 +1766,6 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
   const netExpenseLabel = lookupLabel(lines, 'Net Expense Ratio') || lookupLabel(lines, 'Expense Ratio');
   const secYieldLabel = lookupLabel(lines, 'SEC 30-Day Yield') || lookupLabel(lines, /SEC.*Yield/i);
   const distributionYieldLabel = lookupLabel(lines, '12-Month Yield') || lookupLabel(lines, /12-Month Yield|Distribution Yield/i);
-  const distributionRateLabel = lookupLabel(lines, 'Distribution Rate');
   const frequencyLabel = lookupLabel(lines, /Distribution Frequency/i) || lookupLabel(lines, 'Dividend Frequency');
   const holdingsLabel = lookupLabel(lines, 'Number of Holdings') || lookupLabel(lines, /Number of Holdings|Holdings/i);
   const sharesLabel = lookupLabel(lines, 'Shares Outstanding');
@@ -1811,7 +1876,8 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
   // "SEC 30-Day Yield", so the value must be anchored on the "%" sign.
   const secYield = percentValue(secYieldLabel);
   const distributionYield = percentValue(distributionYieldLabel);
-  const distributionRate = percentValue(distributionRateLabel);
+  const rate = parseDistributionRate(lines);
+  const distributionRate = rate?.value ?? null;
   const frequencyRaw = extractDistributionFrequency(lines) || normalizeDistributionFrequency(labelText(frequencyLabel));
   const totalHoldings = labelNumber(holdingsLabel);
   const sharesOutstanding = labelNumber(sharesLabel);
@@ -1958,6 +2024,8 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
     marketPriceAsOfDate: sharePrices ? (marketPrice !== null ? sharePrices.asOfDate : null) : labelAsOf(marketPriceLabel),
     dividendFrequencyRaw: frequencyRaw,
     distributionRate,
+    distributionRateAsOfDate: rate?.asOfDate ?? null,
+    distributionRateBasis: rate?.basis ?? null,
     factSheet,
     ytdReturn: null,
     returns,
@@ -2986,8 +3054,6 @@ export function retainPublishedSections(summary: ProductPageSummary, previous: J
       summary.marketPriceAsOfDate = isoDateOrNull(previous.marketPrice?.asOfDate);
       parts.push('market price');
     }
-    const premium = numberOrNull(previous.premiumDiscount?.value);
-    if (summary.premiumDiscount === null && premium !== null) { summary.premiumDiscount = premium; parts.push('premium/discount'); }
     if (parts.length) kept.push(`pricing (${parts.join(', ')})`);
   }
   if (partial && !sections.assets) {
@@ -3003,14 +3069,21 @@ export function retainPublishedSections(summary: ProductPageSummary, previous: J
     const sec = numberOrNull(yields.secYield);
     if (summary.secYield === null && sec !== null && String(yields.secYieldKind ?? '').startsWith('SEC Yield')) {
       summary.secYield = sec;
-      const asOf = /\bas of (.+)$/.exec(String(yields.secYieldKind));
-      summary.secYieldAsOfDate = asOf ? isoDateOrNull(toIsoDate(asOf[1])) : null;
+      summary.secYieldAsOfDate = asOfFromKind(yields.secYieldKind);
       kept.push('SEC yield');
     }
     const dividend = numberOrNull(yields.dividendYield);
-    if (summary.distributionYield === null && dividend !== null && String(yields.dividendYieldKind ?? '').startsWith('official')) {
-      summary.distributionYield = dividend;
-      kept.push('12-month yield');
+    const kind = String(yields.dividendYieldKind ?? '');
+    if (summary.distributionYield === null && summary.distributionRate === null && dividend !== null) {
+      if (kind.startsWith('official')) {
+        summary.distributionYield = dividend;
+        kept.push('12-month yield');
+      } else if (kind.startsWith('Distribution Rate')) {
+        summary.distributionRate = dividend;
+        summary.distributionRateAsOfDate = asOfFromKind(kind);
+        summary.distributionRateBasis = /\bat (NAV|market price)\b/.exec(kind)?.[1] ?? null;
+        kept.push('Distribution Rate');
+      }
     }
   }
   const monthEnd = previous.returns?.monthEnd || {};
@@ -3177,6 +3250,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
       prevMeta = JSON.parse(await readFile(new URL('meta.json', fundDir), 'utf8')) as JsonRecord;
     } catch {}
     const keptSections: string[] = [];
+    let officialYield: ReturnType<typeof officialDividendYield> = null;
 
     let summary: ProductPageSummary | null = null;
     let holdingsRows: JsonRecord[] = [];
@@ -3227,7 +3301,8 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
         if (summary.nav !== null) fund.nav = summary.nav;
         if (summary.marketPrice !== null) fund.close = summary.marketPrice;
         if (summary.premiumDiscount !== null) fund.premiumDiscount = summary.premiumDiscount;
-        if (summary.distributionYield !== null) fund.dividendYield = summary.distributionYield;
+        officialYield = officialDividendYield(summary);
+        if (officialYield) fund.dividendYield = officialYield.value;
         if (summary.secYield !== null) fund.secYield = summary.secYield;
         if (summary.inception) fund.inception = summary.inception;
         // Merge returns from product page (primary, more recent than catalog)
@@ -3441,8 +3516,13 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     const yieldPriceLabel = fund.close !== null ? 'market price' : fund.nav !== null ? 'NAV' : closePrice !== null ? 'last close' : 'price from the previous run';
     let dividendYield = plausibleDividendYield(fund.dividendYield);
     let dividendYieldKind = 'not published by franklintempleton.com for this fund';
+    let dividendYieldAsOfDate: string | null = null;
     if (dividendYield !== null) {
-      dividendYieldKind = 'official 12-month distribution yield from the product page';
+      // Carried-over official yield (page not read this run) keeps the label it was published with.
+      const carriedKind = String(prevMeta?.yields?.dividendYieldKind ?? '');
+      const carried = !officialYield && /^(official|Distribution Rate)/.test(carriedKind);
+      dividendYieldKind = officialYield?.kind ?? (carried ? carriedKind : OFFICIAL_12M_YIELD_KIND);
+      dividendYieldAsOfDate = officialYield ? officialYield.asOfDate : (carried ? isoDateOrNull(prevMeta?.yields?.dividendYieldAsOfDate) : null);
     } else if (latestDividend !== null && paymentsPerYear && yieldPrice) {
       const indicated = round((latestDividend * paymentsPerYear / yieldPrice) * 100, 2);
       if (indicated > 0 && indicated <= MAX_PUBLISHED_DIVIDEND_YIELD) {
@@ -3465,7 +3545,34 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     const si = fund.returns.sinceInception;
     const performanceAsOf = resolvePerformanceAsOf(fund.performanceAsOf ?? isoDateOrNull(prevMeta?.returns?.performanceAsOf), { ytd, yr1, yr3, yr5, yr10, sinceInception: si });
     const secYield = plausibleSecYield(fund.secYield);
-    fund.premiumDiscount = plausiblePremiumDiscount(fund.premiumDiscount);
+    // Premium/discount: an official value when the page prints one, otherwise computed from the official NAV and a
+    // price of the SAME trading date (the page's closing Market Price, else the Yahoo close of the NAV date).
+    // Different or unknown dates give null; the previous value is kept only when the page could not be read.
+    const navDate = summary?.nav !== null && summary?.nav !== undefined ? summary.navAsOfDate : isoDateOrNull(prevMeta?.nav?.asOfDate);
+    const pagePriceDate = summary?.marketPrice !== null && summary?.marketPrice !== undefined ? summary.marketPriceAsOfDate : isoDateOrNull(prevMeta?.marketPrice?.asOfDate);
+    const yahooRow = navDate ? historyRows.find((row) => toIsoDate(row.Date) === navDate) : undefined;
+    let premiumDiscount = plausiblePremiumDiscount(summary?.premiumDiscount ?? null);
+    let premiumAsOfDate: string | null = premiumDiscount !== null ? (summary?.premiumDiscountAsOfDate ?? navDate) : null;
+    let premiumSource: string | null = premiumDiscount !== null ? 'official product page Premium / Discount' : null;
+    let premiumPriceSource: string | null = null;
+    if (premiumDiscount === null) {
+      premiumDiscount = computePremiumDiscount(fund.nav, navDate, fund.close, pagePriceDate);
+      if (premiumDiscount !== null) premiumPriceSource = 'official product page closing Market Price';
+      else {
+        premiumDiscount = computePremiumDiscount(fund.nav, navDate, numberOrNull(yahooRow?.Close), navDate);
+        if (premiumDiscount !== null) premiumPriceSource = 'Yahoo Finance regular-session close of the NAV date';
+      }
+      if (premiumDiscount !== null) { premiumAsOfDate = navDate; premiumSource = PREMIUM_COMPUTED_SOURCE; }
+    }
+    const previousPremium = plausiblePremiumDiscount(numberOrNull(prevMeta?.premiumDiscount?.value));
+    if (premiumDiscount === null && previousPremium !== null && (!summary || !summary.sections.pricing)) {
+      premiumDiscount = previousPremium;
+      premiumAsOfDate = isoDateOrNull(prevMeta?.premiumDiscount?.asOfDate);
+      premiumSource = cleanText(prevMeta?.premiumDiscount?.source) || PREMIUM_COMPUTED_SOURCE;
+      premiumPriceSource = cleanText(prevMeta?.premiumDiscount?.priceSource) || null;
+      if (summary && !summary.loadedFully) keptSections.push('premium/discount');
+    }
+    fund.premiumDiscount = premiumDiscount;
 
     // Published identifiers: scraped name/category first, then the product URL
     // slug / neutral fallback so no page furniture reaches the catalog.
@@ -3524,6 +3631,9 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
       premiumDiscount: {
         display: fund.premiumDiscount !== null ? `${fund.premiumDiscount.toFixed(2)}%` : '—',
         value: fund.premiumDiscount,
+        asOfDate: fund.premiumDiscount !== null ? premiumAsOfDate : null,
+        source: fund.premiumDiscount !== null ? premiumSource : 'not computable: NAV and market price do not share a trading date',
+        priceSource: fund.premiumDiscount !== null ? premiumPriceSource : null,
       },
       aum: {
         display: formatAumDisplay(fund.netAssets),
@@ -3537,6 +3647,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
         dividendYield,
         dividendYieldText: dividendYield !== null ? `${dividendYield.toFixed(2)}%` : '—',
         dividendYieldKind,
+        dividendYieldAsOfDate,
         secYield,
         secYieldText: secYield !== null ? `${secYield.toFixed(2)}%` : '—',
         secYieldKind: secYield !== null ? `SEC Yield (30 Day) published on the official product page${summary?.secYieldAsOfDate ? ` as of ${formatDate(summary.secYieldAsOfDate)}` : ''}` : 'not published by franklintempleton.com for this fund',
@@ -3756,6 +3867,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
       closePriceSource: meta?.marketPrice?.source || (fund.close !== null ? 'official product page Market Price' : null),
       premiumDiscount: fund.premiumDiscount !== null ? `${fund.premiumDiscount.toFixed(2)}%` : (meta?.premiumDiscount?.display || '—'),
       premiumDiscountValue: plausiblePremiumDiscount(fund.premiumDiscount ?? meta?.premiumDiscount?.value),
+      premiumDiscountAsOfDate: plausiblePremiumDiscount(fund.premiumDiscount ?? meta?.premiumDiscount?.value) !== null ? (isoDateOrNull(meta?.premiumDiscount?.asOfDate) ?? null) : null,
       distributions: {
         frequency: freq,
         exDate: meta?.distributions?.exDate || '—',
