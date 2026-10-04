@@ -49,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 0.11,
-  "dividendYieldText": "0.11%",
-  "dividendYieldKind": "indicated: latest distribution 0.1040 x 1/year / last close 91.57",
+  "dividendYield": 0.23,
+  "dividendYieldText": "0.23%",
+  "dividendYieldKind": "indicated: latest distribution 0.1040 x 2/year / last close 91.57",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -91,9 +91,9 @@
   }
  },
  "distributions": {
-  "frequency": "Annually",
-  "frequencyCode": "12 - Annually",
-  "paymentsPerYear": 1,
+  "frequency": "Semi-annually",
+  "frequencyCode": "06 - Semi-annually",
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"

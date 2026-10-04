@@ -28,15 +28,15 @@
   "net": 0.35
  },
  "nav": {
-  "display": "$44.95",
-  "value": 44.95,
+  "display": "$47.32",
+  "value": 47.32,
   "asOfDate": "2026-10-02"
  },
  "marketPrice": {
   "display": "$47.41",
   "value": 47.41,
   "asOfDate": "2026-10-02",
-  "source": "last close from the Yahoo Finance price history"
+  "source": "official product page Market Price"
  },
  "premiumDiscount": {
   "display": "—",
@@ -49,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 1.74,
-  "dividendYieldText": "1.74%",
-  "dividendYieldKind": "indicated: latest distribution 0.1960 x 4/year / NAV 44.95",
+  "dividendYield": 1.65,
+  "dividendYieldText": "1.65%",
+  "dividendYieldKind": "indicated: latest distribution 0.1960 x 4/year / market price 47.41",
   "secYield": 1.32,
   "secYieldText": "1.32%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"

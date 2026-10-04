@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/41786/SINGLCLASS/franklin-crypto-index-etf/EZPZ",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2025-12-01)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-02)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EZPZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -36,7 +36,7 @@
   "display": "$21.34",
   "value": 21.34,
   "asOfDate": "2026-10-02",
-  "source": "last close from the Yahoo Finance price history"
+  "source": "official product page Market Price"
  },
  "premiumDiscount": {
   "display": "—",
@@ -45,7 +45,7 @@
  "aum": {
   "display": "$17.04 M",
   "value": 17040000,
-  "asOfDate": "2026-10-04",
+  "asOfDate": "2026-10-02",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -109,9 +109,9 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2025-12-01",
-  "asOf": "Dec 1 2025",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2025-12-01)"
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 2 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-02)"
  },
  "history": {
   "totalRows": 405,

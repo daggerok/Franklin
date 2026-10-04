@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P603",
   "isin": "US35473P6034",
-  "benchmark": "Bloomberg US Corporate - Investment Grade Index"
+  "benchmark": "."
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -28,9 +28,9 @@
   "net": 0.35
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-09-25"
+  "display": "$20.24",
+  "value": 20.24,
+  "asOfDate": "2026-10-02"
  },
  "marketPrice": {
   "display": "$20.24",
@@ -45,32 +45,32 @@
  "aum": {
   "display": "$528.27 M",
   "value": 528270000,
-  "asOfDate": "2026-10-01",
+  "asOfDate": "2026-10-04",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 4.74,
   "dividendYieldText": "4.74%",
-  "dividendYieldKind": "indicated: latest distribution 0.0800 x 12/year / last close 20.24",
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "dividendYieldKind": "indicated: latest distribution 0.0800 x 12/year / NAV 20.24",
+  "secYield": 5.11,
+  "secYieldText": "5.11%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
   "performanceAsOf": "2026-08-31",
   "monthEnd": {
    "asOfDate": "Aug 31 2026",
-   "ytd": -2.44,
-   "ytdText": "-2.44%",
+   "ytd": -3.15,
+   "ytdText": "-3.15%",
    "yr1": 1.71,
    "yr1Text": "1.71%",
    "yr3": 4.71,
    "yr3Text": "4.71%",
    "yr5": -0.5,
    "yr5Text": "-0.50%",
-   "yr10": null,
-   "yr10Text": "—",
+   "yr10": 2.02,
+   "yr10Text": "2.02%",
    "sinceInception": 2.02,
    "sinceInceptionText": "2.02%"
   },

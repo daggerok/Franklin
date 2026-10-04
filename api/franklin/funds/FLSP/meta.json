@@ -36,7 +36,7 @@
   "display": "$28.70",
   "value": 28.7,
   "asOfDate": "2026-10-02",
-  "source": "last close from the Yahoo Finance price history"
+  "source": "official product page Market Price"
  },
  "premiumDiscount": {
   "display": "—",
@@ -49,9 +49,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 5,
-  "dividendYieldText": "5.00%",
-  "dividendYieldKind": "indicated: latest distribution 0.7130 x 2/year / NAV 28.51",
+  "dividendYield": 2.48,
+  "dividendYieldText": "2.48%",
+  "dividendYieldKind": "indicated: latest distribution 0.7130 x 1/year / market price 28.70",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -91,9 +91,9 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
-  "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "frequency": "Annually",
+  "frequencyCode": "12 - Annually",
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Dividend"
