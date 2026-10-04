@@ -16,6 +16,9 @@ import {
   RETURNS_BASIS,
   annualizedToTotal,
   buildMetrics,
+  dividendYieldBasisFromKind,
+  DIVIDEND_YIELD_BASES,
+  OFFICIAL_12M_YIELD_KIND,
   cleanFundName,
   configurePacing,
   createRequestGate,
@@ -523,6 +526,29 @@ describe('metrics', () => {
     expect(asOfFromKind('not published')).toBeNull();
   });
 
+  test('dividendYieldBasis: one code per yield source, null exactly when the yield is null, same key set on every row', () => {
+    const page = (over: Record<string, unknown>) => ({ distributionYield: null, distributionRate: null, distributionRateAsOfDate: null, distributionRateBasis: null, ...over }) as any;
+    const kindOf = (over: Record<string, unknown>) => officialDividendYield(page(over))!.kind;
+    expect(dividendYieldBasisFromKind(kindOf({ distributionYield: 0.42 }), true)).toBe('official-trailing-12m');
+    expect(dividendYieldBasisFromKind(OFFICIAL_12M_YIELD_KIND, true)).toBe('official-trailing-12m');
+    expect(dividendYieldBasisFromKind(kindOf({ distributionRate: 1.18, distributionRateAsOfDate: '2026-10-02', distributionRateBasis: 'NAV' }), true)).toBe('official-distribution-rate');
+    expect(dividendYieldBasisFromKind(kindOf({ distributionRate: 3.1 }), true)).toBe('official-distribution-rate');
+    expect(dividendYieldBasisFromKind('indicated: latest distribution 0.0500 x 12/year / market price 21.90', false)).toBe('indicated');
+    // unknown text: official-other for a provider-published yield, indicated otherwise
+    expect(dividendYieldBasisFromKind('official something new', true)).toBe('official-other');
+    expect(dividendYieldBasisFromKind('something else', false)).toBe('indicated');
+    expect(DIVIDEND_YIELD_BASES).toContain(dividendYieldBasisFromKind(undefined, true));
+    const withYield = (basis: any) => buildMetrics({ ...base, returns: noReturns, dividendYield: 1.2, dividendYieldBasis: basis });
+    expect(withYield('official-distribution-rate').dividendYieldBasis).toBe('official-distribution-rate');
+    expect(withYield('indicated').dividendYieldBasis).toBe('indicated');
+    expect(withYield(undefined).dividendYieldBasis).toBe('official-other');
+    // null yield: null code, even when a code is passed
+    expect(buildMetrics({ ...base, returns: noReturns, dividendYieldBasis: 'indicated' }).dividendYieldBasis).toBeNull();
+    const keys = (row: Record<string, unknown>) => Object.keys(row);
+    expect(keys(withYield('indicated'))).toEqual(keys(buildMetrics({ ...base, returns: noReturns })));
+    expect(keys(withYield('indicated'))).toContain('dividendYieldBasis');
+  });
+
   test('premium/discount: (price / NAV - 1) * 100 only for the same date, otherwise null', () => {
     expect(computePremiumDiscount(41.42, '2026-10-02', 42, '2026-10-02')).toBe(1.4);
     expect(computePremiumDiscount(61.7, '2026-10-02', 61.72, '2026-10-02')).toBe(0.03);
@@ -751,7 +777,7 @@ describe('pipeline', () => {
     expect(meta().yields).toMatchObject({ dividendYield: 1.18, dividendYieldKind: 'Distribution Rate at NAV published on the official Franklin fund page as of Oct 2 2026', dividendYieldAsOfDate: '2026-10-02' });
     expect(meta().premiumDiscount).toMatchObject({ value: -0.41, display: '-0.41%', asOfDate: '2026-10-02', source: PREMIUM_COMPUTED_SOURCE, priceSource: 'official product page closing Market Price' });
     expect(row()).toMatchObject({ premiumDiscountValue: -0.41, premiumDiscountAsOfDate: '2026-10-02', dividendYieldSource: 'official' });
-    expect(row().metrics.dividendYield).toBe(1.18);
+    expect(row().metrics).toMatchObject({ dividendYield: 1.18, dividendYieldBasis: 'official-distribution-rate' });
     const published = snapshot(feed());
 
     // an identical rerun writes nothing
@@ -764,11 +790,13 @@ describe('pipeline', () => {
     expect(snapshot(feed())).toEqual(published);
     expect(logged.filter((line) => line.startsWith('[ kept'))).toHaveLength(1);
     expect(logged.find((line) => line.startsWith('[ kept'))).toContain('Distribution Rate');
+    expect(row().metrics).toMatchObject({ dividendYield: 1.18, dividendYieldBasis: 'official-distribution-rate' });
 
     // a full page without a market price: the Yahoo close of the NAV date; the rate is an honest null, not an indicated value
     page = pageMd({ marketPrice: false, nav: '22.50' });
     await run2();
     expect(meta().yields.dividendYield).toBeNull();
+    expect(row().metrics).toMatchObject({ dividendYield: null, dividendYieldBasis: null });
     expect(meta().premiumDiscount).toMatchObject({ value: -0.44, priceSource: 'Yahoo Finance regular-session close of the NAV date', source: PREMIUM_COMPUTED_SOURCE });
 
     // the Yahoo close belongs to another day than the NAV: never mix the dates

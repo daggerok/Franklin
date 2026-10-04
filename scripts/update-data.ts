@@ -498,6 +498,8 @@ export type CatalogFund = {
   premiumDiscount: number | null;
   netAssets: number | null;
   dividendYield: number | null;
+  /** Code for the definition behind `dividendYield` (see DIVIDEND_YIELD_BASES); null when the yield is null or its origin is unknown. */
+  dividendYieldBasis?: DividendYieldBasis | null;
   secYield: number | null;
   asOfDate: string | null;
   returns: CatalogReturns;
@@ -649,6 +651,7 @@ export function buildMetrics(input: {
   returns: CatalogReturns;
   inception: string | null;
   dividendYield: number | null;
+  dividendYieldBasis?: DividendYieldBasis | null;
   secYield: number | null;
   performanceAsOf: string | null;
 }): JsonRecord {
@@ -670,6 +673,8 @@ export function buildMetrics(input: {
     siAnn: returns.sinceInception ?? null,
     dividendYield,
     dividendYieldText: dividendYield !== null ? `${dividendYield.toFixed(2)}%` : '—',
+    // the code travels with the yield it describes: null exactly when the yield is null
+    dividendYieldBasis: dividendYield === null ? null : (isDividendYieldBasis(input.dividendYieldBasis) ? input.dividendYieldBasis : 'official-other'),
     secYield,
     secYieldText: secYield !== null ? `${secYield.toFixed(2)}%` : '—',
     returnsBasis: RETURNS_BASIS,
@@ -990,6 +995,26 @@ export function plausiblePremiumDiscount(value: unknown): number | null {
 
 export const PREMIUM_COMPUTED_SOURCE = 'computed from market price / official NAV, same date';
 export const OFFICIAL_12M_YIELD_KIND = 'official 12-month distribution yield from the product page';
+
+export const DIVIDEND_YIELD_BASES = ['official-trailing-12m', 'official-distribution-rate', 'official-other', 'computed-trailing-12m', 'indicated'] as const;
+export type DividendYieldBasis = typeof DIVIDEND_YIELD_BASES[number];
+
+export function isDividendYieldBasis(value: unknown): value is DividendYieldBasis {
+  return (DIVIDEND_YIELD_BASES as readonly unknown[]).includes(value);
+}
+
+/**
+ * Maps a `meta.json` `yields.dividendYieldKind` text to its basis code. Franklin publishes two official yields
+ * (12-month yield, Distribution Rate) and the updater adds the `indicated:` estimate; any other text counts as
+ * `official-other` when the yield is provider-published and as `indicated` otherwise.
+ */
+export function dividendYieldBasisFromKind(kind: unknown, providerPublished: boolean): DividendYieldBasis {
+  const text = String(kind ?? '');
+  if (text === OFFICIAL_12M_YIELD_KIND) return 'official-trailing-12m';
+  if (text.startsWith('Distribution Rate')) return 'official-distribution-rate';
+  if (text.startsWith('indicated')) return 'indicated';
+  return providerPublished ? 'official-other' : 'indicated';
+}
 
 /**
  * Premium/discount in percent: (market price / NAV - 1) * 100, rounded to two decimals. Both figures must belong
@@ -2695,6 +2720,7 @@ function parsePreviousFund(ticker: string, row: JsonRecord): CatalogFund {
     dividendYield: row.dividendYieldSource === undefined
       ? plausibleDividendYield(row.metrics?.dividendYield)
       : (row.dividendYieldSource === 'official' ? plausibleDividendYield(row.metrics?.dividendYield) : null),
+    dividendYieldBasis: isDividendYieldBasis(row.metrics?.dividendYieldBasis) ? row.metrics.dividendYieldBasis : null,
     secYield: plausibleSecYield(row.metrics?.secYield),
     asOfDate: row.asOfDate || null,
     performanceAsOf: isoDateOrNull(row.metrics?.performanceAsOf),
@@ -3278,7 +3304,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
         summary = parseFranklinProductPage(page.text, ticker);
         if (summary.loadedFully) {
           // A fully loaded page is authoritative for pricing and yields: what it lacks is an honest null, never the previous run's value.
-          fund.nav = null; fund.close = null; fund.premiumDiscount = null; fund.secYield = null; fund.dividendYield = null;
+          fund.nav = null; fund.close = null; fund.premiumDiscount = null; fund.secYield = null; fund.dividendYield = null; fund.dividendYieldBasis = null;
           if (summary.sections.returns) {
             for (const key of ['yr1', 'yr3', 'yr5', 'yr10', 'sinceInception'] as const) fund.returns[key] = null;
             fund.performanceAsOf = summary.performanceAsOf;
@@ -3302,7 +3328,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
         if (summary.marketPrice !== null) fund.close = summary.marketPrice;
         if (summary.premiumDiscount !== null) fund.premiumDiscount = summary.premiumDiscount;
         officialYield = officialDividendYield(summary);
-        if (officialYield) fund.dividendYield = officialYield.value;
+        if (officialYield) { fund.dividendYield = officialYield.value; fund.dividendYieldBasis = dividendYieldBasisFromKind(officialYield.kind, true); }
         if (summary.secYield !== null) fund.secYield = summary.secYield;
         if (summary.inception) fund.inception = summary.inception;
         // Merge returns from product page (primary, more recent than catalog)
@@ -3817,7 +3843,14 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     const nav = fund.nav ?? meta?.nav?.value ?? null;
     const aum = fund.netAssets ?? meta?.aum?.value ?? null;
     const secYield = plausibleSecYield(fund.secYield ?? meta?.yields?.secYield);
+    const fundYield = plausibleDividendYield(fund.dividendYield);
     const divYield = plausibleDividendYield(fund.dividendYield ?? meta?.yields?.dividendYield);
+    // The code is taken from the same place as the yield: the fund's own figure with its code, else meta.json
+    // (value and kind written together); a yield that has neither is an older official figure.
+    const metaYieldMatches = divYield !== null && numberOrNull(meta?.yields?.dividendYield) === divYield;
+    const divYieldBasis: DividendYieldBasis | null = divYield === null ? null
+      : (fundYield !== null && isDividendYieldBasis(fund.dividendYieldBasis) ? fund.dividendYieldBasis
+        : (metaYieldMatches ? dividendYieldBasisFromKind(meta?.yields?.dividendYieldKind, true) : 'official-other'));
 
     // Only publish values that pass the plausibility checks, whatever the meta
     // or the previous index carried.
@@ -3835,6 +3868,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
       returns: { ...fund.returns, ytd },
       inception: fund.inception,
       dividendYield: divYield,
+      dividendYieldBasis: divYieldBasis,
       secYield,
       performanceAsOf: fund.performanceAsOf ?? isoDateOrNull(meta?.returns?.performanceAsOf),
     });
