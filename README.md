@@ -6,9 +6,19 @@ One of the app's features lets you select Franklin ETFs in the Watchlist and agg
 
 ```bash
 bunx degit daggerok/Franklin#main ./12345 && cd $_
-bunx serve . -p 1234
-open http://0:1234
+bun install
+bun run serve
+open http://localhost:1234
 ```
+
+Production build (Parcel, Tailwind v4) into `dist/` with `api/` copied to `dist/api`:
+
+```bash
+bun run build
+bun run build-github-pages
+```
+
+`build-github-pages` adds the `/Franklin/` public URL and is what the Pages workflow runs.
 
 The published application is available at <https://daggerok.github.io/Franklin/>
 
@@ -143,7 +153,7 @@ AUM=large TER=:0.40 bun ./scripts/update-data.ts
 
 ## TypeScript and verification
 
-The browser app is intentionally build-free: `index.html` carries the markup, styles and bootstrap, and `app.tsx` is TypeScript compiled in the browser with Babel standalone - no build step, no bundler, no `tsconfig.json` needed. Bun runs TypeScript out of the box.
+The browser app is built with Parcel and Tailwind v4: `src/index.html` carries the markup, `src/index.css` the styles and `src/main.tsx` is the TypeScript application. `bun run build` writes `dist/`, `.github/workflows/github-pages.yml` deploys it to GitHub Pages. No `tsconfig.json` needed, Bun runs TypeScript out of the box.
 
 Verification before every publish:
 
@@ -154,7 +164,7 @@ bun build --target=bun scripts/update-data.ts --outfile=/dev/null
 git diff --check
 ```
 
-`bun test` runs the single `scripts/update-data.test.ts`: parsers, the config resolver (precedence, validation, defaults), parity of the config file, `--help` and the controls table, the workflow shape, the README structure and the browser contract ids of `index.html` and `app.tsx`
+`bun test` runs the single `scripts/update-data.test.ts`: parsers, the config resolver (precedence, validation, defaults), parity of the config file, `--help` and the controls table, the workflow shape, the README structure and the browser contract ids of `src/index.html` and `src/main.tsx`
 
 ## Brands table
 
