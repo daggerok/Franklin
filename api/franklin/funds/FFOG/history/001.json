@@ -2,7 +2,7 @@
  "ticker": "FFOG",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 729,
+ "totalRows": 734,
  "headers": [
   "Date",
   "Close",
@@ -5112,6 +5112,41 @@
    "Adj Close": "52.86",
    "Volume": "31300",
    "searchIndex": "2026-10-02 52.86000061035156"
+  },
+  {
+   "Date": "Oct 5 2026",
+   "Close": "53.40",
+   "Adj Close": "53.40",
+   "Volume": "17100",
+   "searchIndex": "2026-10-05 53.4010009765625"
+  },
+  {
+   "Date": "Oct 6 2026",
+   "Close": "53.53",
+   "Adj Close": "53.53",
+   "Volume": "29600",
+   "searchIndex": "2026-10-06 53.529998779296875"
+  },
+  {
+   "Date": "Oct 7 2026",
+   "Close": "53.21",
+   "Adj Close": "53.21",
+   "Volume": "169500",
+   "searchIndex": "2026-10-07 53.209999084472656"
+  },
+  {
+   "Date": "Oct 8 2026",
+   "Close": "52.15",
+   "Adj Close": "52.15",
+   "Volume": "24800",
+   "searchIndex": "2026-10-08 52.150001525878906"
+  },
+  {
+   "Date": "Oct 9 2026",
+   "Close": "52.61",
+   "Adj Close": "52.61",
+   "Volume": "17300",
+   "searchIndex": "2026-10-09 52.61000061035156"
   }
  ]
 }

@@ -28,43 +28,43 @@
   "net": 0.45
  },
  "nav": {
-  "display": "$23.60",
-  "value": 23.6,
-  "asOfDate": "2026-10-02"
+  "display": "$23.95",
+  "value": 23.95,
+  "asOfDate": "2026-10-09"
  },
  "marketPrice": {
-  "display": "$23.74",
-  "value": 23.74,
-  "asOfDate": "2026-10-02",
+  "display": "$24.25",
+  "value": 24.25,
+  "asOfDate": "2026-10-09",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.59%",
-  "value": 0.59,
-  "asOfDate": "2026-10-02",
+  "display": "1.25%",
+  "value": 1.25,
+  "asOfDate": "2026-10-09",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$47.20 M",
-  "value": 47200000,
-  "asOfDate": "2026-08-31",
+  "display": "$47.88 M",
+  "value": 47880000,
+  "asOfDate": "2026-09-30",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 9.37,
-  "dividendYieldText": "9.37%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 2 2026",
-  "dividendYieldAsOfDate": "2026-10-02",
-  "secYield": 7.65,
-  "secYieldText": "7.65%",
-  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Aug 31 2026"
+  "dividendYield": 9.23,
+  "dividendYieldText": "9.23%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 9 2026",
+  "dividendYieldAsOfDate": "2026-10-09",
+  "secYield": 8.26,
+  "secYieldText": "8.26%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
-  "performanceAsOf": "2026-08-31",
+  "performanceAsOf": "2026-09-30",
   "monthEnd": {
-   "asOfDate": "Aug 31 2026",
+   "asOfDate": "Sep 30 2026",
    "ytd": null,
    "ytdText": "—",
    "yr1": null,
@@ -75,8 +75,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 2.63,
-   "sinceInceptionText": "2.63%"
+   "sinceInception": 0.2,
+   "sinceInceptionText": "0.20%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -159,13 +159,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035203, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 176,
+  "totalRows": 181,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 2 2026",
+  "asOf": "Oct 9 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

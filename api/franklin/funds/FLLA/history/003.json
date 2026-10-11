@@ -2,7 +2,7 @@
  "ticker": "FLLA",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2004,
+ "totalRows": 2009,
  "headers": [
   "Date",
   "Close",
@@ -37,6 +37,41 @@
    "Adj Close": "27.66",
    "Volume": "28400",
    "searchIndex": "2026-10-02 27.65999984741211"
+  },
+  {
+   "Date": "Oct 5 2026",
+   "Close": "29.94",
+   "Adj Close": "29.94",
+   "Volume": "88400",
+   "searchIndex": "2026-10-05 29.940000534057617"
+  },
+  {
+   "Date": "Oct 6 2026",
+   "Close": "30.05",
+   "Adj Close": "30.05",
+   "Volume": "18700",
+   "searchIndex": "2026-10-06 30.049999237060547"
+  },
+  {
+   "Date": "Oct 7 2026",
+   "Close": "29.62",
+   "Adj Close": "29.62",
+   "Volume": "13200",
+   "searchIndex": "2026-10-07 29.6200008392334"
+  },
+  {
+   "Date": "Oct 8 2026",
+   "Close": "29.74",
+   "Adj Close": "29.74",
+   "Volume": "11100",
+   "searchIndex": "2026-10-08 29.739999771118164"
+  },
+  {
+   "Date": "Oct 9 2026",
+   "Close": "30.17",
+   "Adj Close": "30.17",
+   "Volume": "11500",
+   "searchIndex": "2026-10-09 30.170000076293945"
   }
  ]
 }

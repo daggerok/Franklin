@@ -28,9 +28,9 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$15.94",
-  "value": 15.94,
-  "asOfDate": "2026-10-02"
+  "display": "$15.03",
+  "value": 15.03,
+  "asOfDate": "2026-10-09"
  },
  "marketPrice": {
   "display": "$15.98",
@@ -39,16 +39,16 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.25%",
-  "value": 0.25,
-  "asOfDate": "2026-10-02",
+  "display": "0.00%",
+  "value": 0,
+  "asOfDate": "2026-10-09",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "official product page closing Market Price"
+  "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$434.43 M",
-  "value": 434430000,
-  "asOfDate": "2026-10-04",
+  "display": "$413.96 M",
+  "value": 413960000,
+  "asOfDate": "2026-10-11",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -62,11 +62,11 @@
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
-  "performanceAsOf": "2026-08-31",
+  "performanceAsOf": "2026-09-30",
   "monthEnd": {
-   "asOfDate": "Aug 31 2026",
-   "ytd": -19.25,
-   "ytdText": "-19.25%",
+   "asOfDate": "Sep 30 2026",
+   "ytd": -23.86,
+   "ytdText": "-23.86%",
    "yr1": null,
    "yr1Text": "—",
    "yr3": null,
@@ -75,8 +75,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": -38.72,
-   "sinceInceptionText": "-38.72%"
+   "sinceInception": -34.25,
+   "sinceInceptionText": "-34.25%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -118,13 +118,13 @@
   "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-02)"
  },
  "history": {
-  "totalRows": 215,
+  "totalRows": 220,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 2 2026",
+  "asOf": "Oct 9 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -2,7 +2,7 @@
  "ticker": "FLQS",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2371,
+ "totalRows": 2376,
  "headers": [
   "Date",
   "Close",
@@ -2606,6 +2606,41 @@
    "Adj Close": "47.41",
    "Volume": "23600",
    "searchIndex": "2026-10-02 47.40999984741211"
+  },
+  {
+   "Date": "Oct 5 2026",
+   "Close": "47.56",
+   "Adj Close": "47.56",
+   "Volume": "2800",
+   "searchIndex": "2026-10-05 47.560001373291016"
+  },
+  {
+   "Date": "Oct 6 2026",
+   "Close": "47.56",
+   "Adj Close": "47.56",
+   "Volume": "1700",
+   "searchIndex": "2026-10-06 47.560001373291016"
+  },
+  {
+   "Date": "Oct 7 2026",
+   "Close": "47.20",
+   "Adj Close": "47.20",
+   "Volume": "2400",
+   "searchIndex": "2026-10-07 47.202999114990234"
+  },
+  {
+   "Date": "Oct 8 2026",
+   "Close": "47.54",
+   "Adj Close": "47.54",
+   "Volume": "3000",
+   "searchIndex": "2026-10-08 47.542999267578125"
+  },
+  {
+   "Date": "Oct 9 2026",
+   "Close": "47.67",
+   "Adj Close": "47.67",
+   "Volume": "2000",
+   "searchIndex": "2026-10-09 47.66999816894531"
   }
  ]
 }

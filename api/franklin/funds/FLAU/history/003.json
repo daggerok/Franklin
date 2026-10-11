@@ -2,7 +2,7 @@
  "ticker": "FLAU",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2238,
+ "totalRows": 2243,
  "headers": [
   "Date",
   "Close",
@@ -1675,6 +1675,41 @@
    "Adj Close": "33.80",
    "Volume": "6700",
    "searchIndex": "2026-10-02 33.79800033569336"
+  },
+  {
+   "Date": "Oct 5 2026",
+   "Close": "33.88",
+   "Adj Close": "33.88",
+   "Volume": "1900",
+   "searchIndex": "2026-10-05 33.88199996948242"
+  },
+  {
+   "Date": "Oct 6 2026",
+   "Close": "34.14",
+   "Adj Close": "34.14",
+   "Volume": "6400",
+   "searchIndex": "2026-10-06 34.13999938964844"
+  },
+  {
+   "Date": "Oct 7 2026",
+   "Close": "33.68",
+   "Adj Close": "33.68",
+   "Volume": "11100",
+   "searchIndex": "2026-10-07 33.68000030517578"
+  },
+  {
+   "Date": "Oct 8 2026",
+   "Close": "33.77",
+   "Adj Close": "33.77",
+   "Volume": "1400",
+   "searchIndex": "2026-10-08 33.77000045776367"
+  },
+  {
+   "Date": "Oct 9 2026",
+   "Close": "34.25",
+   "Adj Close": "34.25",
+   "Volume": "3100",
+   "searchIndex": "2026-10-09 34.25"
   }
  ]
 }

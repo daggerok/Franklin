@@ -28,27 +28,27 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$33.25",
-  "value": 33.25,
-  "asOfDate": "2026-10-02"
+  "display": "$33.07",
+  "value": 33.07,
+  "asOfDate": "2026-10-09"
  },
  "marketPrice": {
-  "display": "$33.46",
-  "value": 33.46,
-  "asOfDate": "2026-10-02",
+  "display": "$32.97",
+  "value": 32.97,
+  "asOfDate": "2026-10-09",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
-  "display": "0.63%",
-  "value": 0.63,
-  "asOfDate": "2026-10-02",
+  "display": "-0.30%",
+  "value": -0.3,
+  "asOfDate": "2026-10-09",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$2.48 B",
-  "value": 2480000000,
-  "asOfDate": "2026-10-01",
+  "display": "$2.47 B",
+  "value": 2470000000,
+  "asOfDate": "2026-10-11",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -62,21 +62,21 @@
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
-  "performanceAsOf": "2026-08-31",
+  "performanceAsOf": "2026-09-30",
   "monthEnd": {
-   "asOfDate": "Aug 31 2026",
-   "ytd": -13.64,
-   "ytdText": "-13.64%",
-   "yr1": -3.94,
-   "yr1Text": "-3.94%",
-   "yr3": 5.33,
-   "yr3Text": "5.33%",
-   "yr5": 3.05,
-   "yr5Text": "3.05%",
+   "asOfDate": "Sep 30 2026",
+   "ytd": -14.1,
+   "ytdText": "-14.10%",
+   "yr1": -9.84,
+   "yr1Text": "-9.84%",
+   "yr3": 2.85,
+   "yr3Text": "2.85%",
+   "yr5": 1.6,
+   "yr5Text": "1.60%",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 5.93,
-   "sinceInceptionText": "5.93%"
+   "sinceInception": 5.1,
+   "sinceInceptionText": "5.10%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -200,7 +200,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035153, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2174,
+  "totalRows": 2179,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -208,7 +208,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Oct 2 2026",
+  "asOf": "Oct 9 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

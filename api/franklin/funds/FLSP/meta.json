@@ -28,33 +28,33 @@
   "net": 0.65
  },
  "nav": {
-  "display": "$28.51",
-  "value": 28.51,
-  "asOfDate": "2026-10-02"
+  "display": "$28.74",
+  "value": 28.74,
+  "asOfDate": "2026-10-09"
  },
  "marketPrice": {
-  "display": "$28.70",
-  "value": 28.7,
-  "asOfDate": "2026-10-02",
+  "display": "$28.82",
+  "value": 28.82,
+  "asOfDate": "2026-10-09",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.67%",
-  "value": 0.67,
-  "asOfDate": "2026-10-02",
+  "display": "0.28%",
+  "value": 0.28,
+  "asOfDate": "2026-10-09",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$1.09 B",
-  "value": 1090000000,
-  "asOfDate": "2026-10-04",
+  "display": "$1.10 B",
+  "value": 1100000000,
+  "asOfDate": "2026-09-30",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 4.97,
-  "dividendYieldText": "4.97%",
-  "dividendYieldKind": "indicated: latest distribution 0.7130 x 2/year / market price 28.70",
+  "dividendYield": 2.47,
+  "dividendYieldText": "2.47%",
+  "dividendYieldKind": "indicated: latest distribution 0.7130 x 1/year / market price 28.82",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -62,21 +62,21 @@
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
-  "performanceAsOf": "2026-08-31",
+  "performanceAsOf": "2026-09-30",
   "monthEnd": {
-   "asOfDate": "Aug 31 2026",
+   "asOfDate": "Sep 30 2026",
    "ytd": 7.02,
    "ytdText": "7.02%",
-   "yr1": 15.11,
-   "yr1Text": "15.11%",
-   "yr3": 9.51,
-   "yr3Text": "9.51%",
-   "yr5": 8.16,
-   "yr5Text": "8.16%",
+   "yr1": 10.71,
+   "yr1Text": "10.71%",
+   "yr3": 10.12,
+   "yr3Text": "10.12%",
+   "yr5": 8.56,
+   "yr5Text": "8.56%",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 4.36,
-   "sinceInceptionText": "4.36%"
+   "sinceInception": 4.47,
+   "sinceInceptionText": "4.47%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -95,9 +95,9 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
-  "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "frequency": "Annually",
+  "frequencyCode": "12 - Annually",
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -160,14 +160,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035127, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 1703,
+  "totalRows": 1708,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Oct 2 2026",
+  "asOf": "Oct 9 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

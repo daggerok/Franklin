@@ -2,7 +2,7 @@
  "ticker": "WABF",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 761,
+ "totalRows": 766,
  "headers": [
   "Date",
   "Close",
@@ -5336,6 +5336,41 @@
    "Adj Close": "23.56",
    "Volume": "100",
    "searchIndex": "2026-10-02 23.55500030517578"
+  },
+  {
+   "Date": "Oct 5 2026",
+   "Close": "23.53",
+   "Adj Close": "23.53",
+   "Volume": "700",
+   "searchIndex": "2026-10-05 23.530000686645508"
+  },
+  {
+   "Date": "Oct 6 2026",
+   "Close": "23.57",
+   "Adj Close": "23.57",
+   "Volume": "5900",
+   "searchIndex": "2026-10-06 23.565000534057617"
+  },
+  {
+   "Date": "Oct 7 2026",
+   "Close": "23.58",
+   "Adj Close": "23.58",
+   "Volume": "100",
+   "searchIndex": "2026-10-07 23.575000762939453"
+  },
+  {
+   "Date": "Oct 8 2026",
+   "Close": "23.63",
+   "Adj Close": "23.63",
+   "Volume": "100",
+   "searchIndex": "2026-10-08 23.625"
+  },
+  {
+   "Date": "Oct 9 2026",
+   "Close": "23.65",
+   "Adj Close": "23.65",
+   "Volume": "5400",
+   "searchIndex": "2026-10-09 23.645000457763672"
   }
  ]
 }

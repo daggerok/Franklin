@@ -2,7 +2,7 @@
  "ticker": "FTMS",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 235,
+ "totalRows": 240,
  "headers": [
   "Date",
   "Close",
@@ -1654,6 +1654,41 @@
    "Adj Close": "9.72",
    "Volume": "141700",
    "searchIndex": "2026-10-02 9.720000267028809"
+  },
+  {
+   "Date": "Oct 5 2026",
+   "Close": "9.70",
+   "Adj Close": "9.70",
+   "Volume": "318400",
+   "searchIndex": "2026-10-05 9.699999809265137"
+  },
+  {
+   "Date": "Oct 6 2026",
+   "Close": "9.72",
+   "Adj Close": "9.72",
+   "Volume": "256400",
+   "searchIndex": "2026-10-06 9.720000267028809"
+  },
+  {
+   "Date": "Oct 7 2026",
+   "Close": "9.69",
+   "Adj Close": "9.69",
+   "Volume": "403600",
+   "searchIndex": "2026-10-07 9.6899995803833"
+  },
+  {
+   "Date": "Oct 8 2026",
+   "Close": "9.72",
+   "Adj Close": "9.72",
+   "Volume": "647400",
+   "searchIndex": "2026-10-08 9.71500015258789"
+  },
+  {
+   "Date": "Oct 9 2026",
+   "Close": "9.73",
+   "Adj Close": "9.73",
+   "Volume": "225800",
+   "searchIndex": "2026-10-09 9.729999542236328"
   }
  ]
 }

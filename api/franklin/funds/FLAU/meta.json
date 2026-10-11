@@ -28,33 +28,33 @@
   "net": 0.09
  },
  "nav": {
-  "display": "$33.72",
-  "value": 33.72,
-  "asOfDate": "2026-10-02"
+  "display": "$33.94",
+  "value": 33.94,
+  "asOfDate": "2026-10-09"
  },
  "marketPrice": {
-  "display": "$33.80",
-  "value": 33.8,
-  "asOfDate": "2026-10-02",
+  "display": "$34.25",
+  "value": 34.25,
+  "asOfDate": "2026-10-09",
   "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
-  "display": "0.24%",
-  "value": 0.24,
-  "asOfDate": "2026-10-02",
+  "display": "0.91%",
+  "value": 0.91,
+  "asOfDate": "2026-10-09",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$210.74 M",
-  "value": 210740000,
-  "asOfDate": "2026-10-04",
+  "display": "$212.13 M",
+  "value": 212130000,
+  "asOfDate": "2026-10-11",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 2.88,
-  "dividendYieldText": "2.88%",
-  "dividendYieldKind": "indicated: latest distribution 0.4850 x 2/year / NAV 33.72",
+  "dividendYield": 2.86,
+  "dividendYieldText": "2.86%",
+  "dividendYieldKind": "indicated: latest distribution 0.4850 x 2/year / NAV 33.94",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -62,21 +62,21 @@
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
-  "performanceAsOf": "2026-08-31",
+  "performanceAsOf": "2026-09-30",
   "monthEnd": {
-   "asOfDate": "Aug 31 2026",
-   "ytd": 8.47,
-   "ytdText": "8.47%",
-   "yr1": 15.17,
-   "yr1Text": "15.17%",
-   "yr3": 14.85,
-   "yr3Text": "14.85%",
-   "yr5": 7.71,
-   "yr5Text": "7.71%",
+   "asOfDate": "Sep 30 2026",
+   "ytd": 9.18,
+   "ytdText": "9.18%",
+   "yr1": 8.91,
+   "yr1Text": "8.91%",
+   "yr3": 13.97,
+   "yr3Text": "13.97%",
+   "yr5": 7.46,
+   "yr5Text": "7.46%",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 8.18,
-   "sinceInceptionText": "8.18%"
+   "sinceInception": 7.4,
+   "sinceInceptionText": "7.40%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -214,7 +214,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035149, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2238,
+  "totalRows": 2243,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -222,7 +222,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Oct 2 2026",
+  "asOf": "Oct 9 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

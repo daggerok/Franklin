@@ -2,7 +2,7 @@
  "ticker": "DVAL",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 984,
+ "totalRows": 989,
  "headers": [
   "Date",
   "Close",
@@ -6897,6 +6897,41 @@
    "Adj Close": "15.23",
    "Volume": "6900",
    "searchIndex": "2026-10-02 15.232000350952148"
+  },
+  {
+   "Date": "Oct 5 2026",
+   "Close": "15.28",
+   "Adj Close": "15.28",
+   "Volume": "8200",
+   "searchIndex": "2026-10-05 15.279999732971191"
+  },
+  {
+   "Date": "Oct 6 2026",
+   "Close": "15.39",
+   "Adj Close": "15.39",
+   "Volume": "4800",
+   "searchIndex": "2026-10-06 15.38700008392334"
+  },
+  {
+   "Date": "Oct 7 2026",
+   "Close": "15.32",
+   "Adj Close": "15.32",
+   "Volume": "300",
+   "searchIndex": "2026-10-07 15.317999839782715"
+  },
+  {
+   "Date": "Oct 8 2026",
+   "Close": "15.45",
+   "Adj Close": "15.45",
+   "Volume": "298000",
+   "searchIndex": "2026-10-08 15.446999549865723"
+  },
+  {
+   "Date": "Oct 9 2026",
+   "Close": "15.45",
+   "Adj Close": "15.45",
+   "Volume": "200",
+   "searchIndex": "2026-10-09 15.449999809265137"
   }
  ]
 }
