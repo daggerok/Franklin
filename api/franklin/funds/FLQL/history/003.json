@@ -2,7 +2,7 @@
  "ticker": "FLQL",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2376,
+ "totalRows": 2377,
  "headers": [
   "Date",
   "Close",
@@ -2641,6 +2641,13 @@
    "Adj Close": "79.87",
    "Volume": "46600",
    "searchIndex": "2026-10-09 79.87000274658203"
+  },
+  {
+   "Date": "Oct 12 2026",
+   "Close": "79.77",
+   "Adj Close": "79.77",
+   "Volume": "50500",
+   "searchIndex": "2026-10-12 79.7699966430664"
   }
  ]
 }

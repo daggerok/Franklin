@@ -2,7 +2,7 @@
  "ticker": "FLMB",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2287,
+ "totalRows": 2288,
  "headers": [
   "Date",
   "Close",
@@ -2018,6 +2018,13 @@
    "Adj Close": "21.88",
    "Volume": "9700",
    "searchIndex": "2026-10-09 21.8799991607666"
+  },
+  {
+   "Date": "Oct 12 2026",
+   "Close": "21.88",
+   "Adj Close": "21.88",
+   "Volume": "5100",
+   "searchIndex": "2026-10-12 21.8799991607666"
   }
  ]
 }

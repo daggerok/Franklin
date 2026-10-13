@@ -36,19 +36,19 @@
   "display": "$92.38",
   "value": 92.38,
   "asOfDate": "2026-10-09",
-  "source": "last close from the Yahoo Finance price history"
+  "source": "official product page Market Price"
  },
  "premiumDiscount": {
   "display": "0.00%",
   "value": 0,
   "asOfDate": "2026-10-09",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
   "display": "$398.52 M",
   "value": 398520000,
-  "asOfDate": "2026-10-09",
+  "asOfDate": "2026-09-30",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -62,21 +62,21 @@
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
-  "performanceAsOf": "2026-08-31",
+  "performanceAsOf": "2026-09-30",
   "monthEnd": {
-   "asOfDate": "Aug 31 2026",
+   "asOfDate": "Sep 30 2026",
    "ytd": 12.22,
    "ytdText": "12.22%",
-   "yr1": 11.42,
-   "yr1Text": "11.42%",
-   "yr3": 17.52,
-   "yr3Text": "17.52%",
-   "yr5": 9.34,
-   "yr5Text": "9.34%",
+   "yr1": 8.78,
+   "yr1Text": "8.78%",
+   "yr3": 20.59,
+   "yr3Text": "20.59%",
+   "yr5": 10.72,
+   "yr5Text": "10.72%",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 15.43,
-   "sinceInceptionText": "15.43%"
+   "sinceInception": 15.5,
+   "sinceInceptionText": "15.50%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -174,7 +174,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035182, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2354,
+  "totalRows": 2355,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -182,7 +182,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Oct 9 2026",
+  "asOf": "Oct 12 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

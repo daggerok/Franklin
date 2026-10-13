@@ -2,7 +2,7 @@
  "ticker": "MULT",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 276,
+ "totalRows": 282,
  "headers": [
   "Date",
   "Close",
@@ -1941,6 +1941,48 @@
    "Adj Close": "24.21",
    "Volume": "200",
    "searchIndex": "2026-10-02 24.208999633789062"
+  },
+  {
+   "Date": "Oct 5 2026",
+   "Close": "24.20",
+   "Adj Close": "24.20",
+   "Volume": "100",
+   "searchIndex": "2026-10-05 24.198999404907227"
+  },
+  {
+   "Date": "Oct 6 2026",
+   "Close": "24.36",
+   "Adj Close": "24.36",
+   "Volume": "400",
+   "searchIndex": "2026-10-06 24.360000610351562"
+  },
+  {
+   "Date": "Oct 7 2026",
+   "Close": "24.33",
+   "Adj Close": "24.33",
+   "Volume": "400",
+   "searchIndex": "2026-10-07 24.334999084472656"
+  },
+  {
+   "Date": "Oct 8 2026",
+   "Close": "24.30",
+   "Adj Close": "24.30",
+   "Volume": "700",
+   "searchIndex": "2026-10-08 24.299999237060547"
+  },
+  {
+   "Date": "Oct 9 2026",
+   "Close": "24.39",
+   "Adj Close": "24.39",
+   "Volume": "100",
+   "searchIndex": "2026-10-09 24.38800048828125"
+  },
+  {
+   "Date": "Oct 12 2026",
+   "Close": "24.31",
+   "Adj Close": "24.31",
+   "Volume": "6",
+   "searchIndex": "2026-10-12 24.31049919128418"
   }
  ]
 }

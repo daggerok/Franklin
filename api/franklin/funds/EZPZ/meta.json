@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/41786/SINGLCLASS/franklin-crypto-index-etf/EZPZ",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-02)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-12)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EZPZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -113,18 +113,18 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 2 2026",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-02)"
+  "asOfDate": "2026-10-12",
+  "asOf": "Oct 12 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-12)"
  },
  "history": {
-  "totalRows": 410,
+  "totalRows": 411,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 9 2026",
+  "asOf": "Oct 12 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

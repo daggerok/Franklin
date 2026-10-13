@@ -30,7 +30,7 @@
  "nav": {
   "display": "$23.65",
   "value": 23.65,
-  "asOfDate": "2026-10-09"
+  "asOfDate": "2026-10-12"
  },
  "marketPrice": {
   "display": "$23.61",
@@ -39,9 +39,9 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.13%",
-  "value": 0.13,
-  "asOfDate": "2026-10-09",
+  "display": "0.04%",
+  "value": 0.04,
+  "asOfDate": "2026-10-12",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
@@ -314,13 +314,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035159, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 805,
+  "totalRows": 806,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 9 2026",
+  "asOf": "Oct 12 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

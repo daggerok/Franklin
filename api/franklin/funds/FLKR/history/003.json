@@ -2,7 +2,7 @@
  "ticker": "FLKR",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2214,
+ "totalRows": 2215,
  "headers": [
   "Date",
   "Close",
@@ -1507,6 +1507,13 @@
    "Adj Close": "58.36",
    "Volume": "267600",
    "searchIndex": "2026-10-09 58.36000061035156"
+  },
+  {
+   "Date": "Oct 12 2026",
+   "Close": "56.03",
+   "Adj Close": "56.03",
+   "Volume": "725900",
+   "searchIndex": "2026-10-12 56.029998779296875"
   }
  ]
 }

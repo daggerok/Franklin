@@ -28,9 +28,9 @@
   "net": 0.09
  },
  "nav": {
-  "display": "$35.67",
-  "value": 35.67,
-  "asOfDate": "2026-10-09"
+  "display": "$36.02",
+  "value": 36.02,
+  "asOfDate": "2026-10-12"
  },
  "marketPrice": {
   "display": "$35.57",
@@ -39,9 +39,9 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.28%",
-  "value": 0.28,
-  "asOfDate": "2026-10-09",
+  "display": "-0.19%",
+  "value": -0.19,
+  "asOfDate": "2026-10-12",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
@@ -62,21 +62,21 @@
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
-  "performanceAsOf": "2026-08-31",
+  "performanceAsOf": "2026-09-30",
   "monthEnd": {
-   "asOfDate": "Aug 31 2026",
-   "ytd": 7.09,
-   "ytdText": "7.09%",
-   "yr1": 20.71,
-   "yr1Text": "20.71%",
-   "yr3": 19.83,
-   "yr3Text": "19.83%",
-   "yr5": 12.3,
-   "yr5Text": "12.30%",
+   "asOfDate": "Sep 30 2026",
+   "ytd": 8.14,
+   "ytdText": "8.14%",
+   "yr1": 14.42,
+   "yr1Text": "14.42%",
+   "yr3": 18.91,
+   "yr3Text": "18.91%",
+   "yr5": 12.07,
+   "yr5Text": "12.07%",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 8.54,
-   "sinceInceptionText": "8.54%"
+   "sinceInception": 7.99,
+   "sinceInceptionText": "7.99%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -209,7 +209,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035131, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2243,
+  "totalRows": 2244,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -217,7 +217,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Oct 9 2026",
+  "asOf": "Oct 12 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

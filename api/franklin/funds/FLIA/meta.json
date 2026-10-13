@@ -46,9 +46,9 @@
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$427.95 M",
-  "value": 427950000,
-  "asOfDate": "2026-10-04",
+  "display": "$423.87 M",
+  "value": 423870000,
+  "asOfDate": "2026-10-08",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -319,7 +319,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035116, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2101,
+  "totalRows": 2102,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -327,7 +327,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Oct 9 2026",
+  "asOf": "Oct 12 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -2,7 +2,7 @@
  "ticker": "FLEU",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2243,
+ "totalRows": 2244,
  "headers": [
   "Date",
   "Close",
@@ -1710,6 +1710,13 @@
    "Adj Close": "33.96",
    "Volume": "2400",
    "searchIndex": "2026-10-09 33.95600128173828"
+  },
+  {
+   "Date": "Oct 12 2026",
+   "Close": "33.84",
+   "Adj Close": "33.84",
+   "Volume": "700",
+   "searchIndex": "2026-10-12 33.84000015258789"
   }
  ]
 }

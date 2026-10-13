@@ -2,7 +2,7 @@
  "ticker": "PBDC",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1005,
+ "totalRows": 1011,
  "headers": [
   "Date",
   "Close",
@@ -13,37 +13,79 @@
   {
    "Date": "Sep 28 2026",
    "Close": "26.99",
-   "Adj Close": "26.99",
+   "Adj Close": "26.24",
    "Volume": "69200",
    "searchIndex": "2026-09-28 26.989999771118164"
   },
   {
    "Date": "Sep 29 2026",
    "Close": "27.17",
-   "Adj Close": "27.17",
+   "Adj Close": "26.42",
    "Volume": "62400",
    "searchIndex": "2026-09-29 27.170000076293945"
   },
   {
    "Date": "Sep 30 2026",
    "Close": "26.92",
-   "Adj Close": "26.92",
+   "Adj Close": "26.18",
    "Volume": "30700",
    "searchIndex": "2026-09-30 26.920000076293945"
   },
   {
    "Date": "Oct 1 2026",
    "Close": "27.03",
-   "Adj Close": "27.03",
+   "Adj Close": "26.28",
    "Volume": "72200",
    "searchIndex": "2026-10-01 27.030000686645508"
   },
   {
    "Date": "Oct 2 2026",
    "Close": "26.82",
-   "Adj Close": "26.82",
+   "Adj Close": "26.08",
    "Volume": "61200",
    "searchIndex": "2026-10-02 26.81999969482422"
+  },
+  {
+   "Date": "Oct 5 2026",
+   "Close": "26.55",
+   "Adj Close": "25.82",
+   "Volume": "84800",
+   "searchIndex": "2026-10-05 26.549999237060547"
+  },
+  {
+   "Date": "Oct 6 2026",
+   "Close": "25.65",
+   "Adj Close": "25.65",
+   "Volume": "83300",
+   "searchIndex": "2026-10-06 25.649999618530273"
+  },
+  {
+   "Date": "Oct 7 2026",
+   "Close": "25.32",
+   "Adj Close": "25.32",
+   "Volume": "156300",
+   "searchIndex": "2026-10-07 25.31999969482422"
+  },
+  {
+   "Date": "Oct 8 2026",
+   "Close": "25.67",
+   "Adj Close": "25.67",
+   "Volume": "114400",
+   "searchIndex": "2026-10-08 25.670000076293945"
+  },
+  {
+   "Date": "Oct 9 2026",
+   "Close": "25.48",
+   "Adj Close": "25.48",
+   "Volume": "48800",
+   "searchIndex": "2026-10-09 25.479999542236328"
+  },
+  {
+   "Date": "Oct 12 2026",
+   "Close": "25.46",
+   "Adj Close": "25.46",
+   "Volume": "453900",
+   "searchIndex": "2026-10-12 25.459999084472656"
   }
  ]
 }
