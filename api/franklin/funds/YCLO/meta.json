@@ -28,9 +28,9 @@
   "net": 0.35
  },
  "nav": {
-  "display": "$25.16",
-  "value": 25.16,
-  "asOfDate": "2026-10-09"
+  "display": "$25.17",
+  "value": 25.17,
+  "asOfDate": "2026-10-12"
  },
  "marketPrice": {
   "display": "$25.16",
@@ -39,16 +39,16 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.08%",
-  "value": 0.08,
-  "asOfDate": "2026-10-09",
+  "display": "0.04%",
+  "value": 0.04,
+  "asOfDate": "2026-10-12",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$50.31 M",
-  "value": 50310000,
-  "asOfDate": "2026-10-11",
+  "display": "$50.33 M",
+  "value": 50330000,
+  "asOfDate": "2026-10-12",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -95,9 +95,9 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "frequencyCode": "04 - Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Monthly",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"

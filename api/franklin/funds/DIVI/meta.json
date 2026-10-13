@@ -28,55 +28,55 @@
   "net": 0.09
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$42.27",
+  "value": 42.27,
+  "asOfDate": "2026-10-12"
  },
  "marketPrice": {
   "display": "$42.26",
   "value": 42.26,
   "asOfDate": "2026-10-12",
-  "source": "last close from the Yahoo Finance price history"
+  "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null,
-  "source": "not computable: NAV and market price do not share a trading date",
-  "priceSource": null
+  "display": "-0.02%",
+  "value": -0.02,
+  "asOfDate": "2026-10-12",
+  "source": "computed from market price / official NAV, same date",
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$2.67 B",
-  "value": 2670000000,
-  "asOfDate": "2026-09-23",
+  "display": "$2.63 B",
+  "value": 2630000000,
+  "asOfDate": "2026-10-11",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 2.03,
-  "dividendYieldText": "2.03%",
-  "dividendYieldKind": "indicated: latest distribution 0.2140 x 4/year / last close 42.26",
-  "dividendYieldAsOfDate": null,
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "dividendYield": 1.01,
+  "dividendYieldText": "1.01%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 9 2026",
+  "dividendYieldAsOfDate": "2026-10-09",
+  "secYield": 2.83,
+  "secYieldText": "2.83%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
-  "performanceAsOf": "2026-08-31",
+  "performanceAsOf": "2026-09-30",
   "monthEnd": {
-   "asOfDate": "Aug 31 2026",
+   "asOfDate": "Sep 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": 25.35,
-   "yr1Text": "25.35%",
-   "yr3": 19.83,
-   "yr3Text": "19.83%",
-   "yr5": 13.93,
-   "yr5Text": "13.93%",
-   "yr10": 11.45,
-   "yr10Text": "11.45%",
-   "sinceInception": 11.26,
-   "sinceInceptionText": "11.26%"
+   "yr1": 18.82,
+   "yr1Text": "18.82%",
+   "yr3": 19.72,
+   "yr3Text": "19.72%",
+   "yr5": 14.05,
+   "yr5Text": "14.05%",
+   "yr10": 10.97,
+   "yr10Text": "10.97%",
+   "sinceInception": 10.82,
+   "sinceInceptionText": "10.82%"
   },
   "quarterEnd": {
    "asOfDate": "",

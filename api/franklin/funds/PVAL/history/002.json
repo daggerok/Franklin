@@ -2,7 +2,7 @@
  "ticker": "PVAL",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1350,
+ "totalRows": 1351,
  "headers": [
   "Date",
   "Close",
@@ -2459,6 +2459,13 @@
    "Adj Close": "53.94",
    "Volume": "1849500",
    "searchIndex": "2026-10-09 53.939998626708984"
+  },
+  {
+   "Date": "Oct 12 2026",
+   "Close": "54.14",
+   "Adj Close": "54.14",
+   "Volume": "1428800",
+   "searchIndex": "2026-10-12 54.13999938964844"
   }
  ]
 }

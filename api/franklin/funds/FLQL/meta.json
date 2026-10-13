@@ -28,22 +28,22 @@
   "net": 0.15
  },
  "nav": {
-  "display": "$79.38",
-  "value": 79.38,
-  "asOfDate": "2026-10-02"
+  "display": "$79.76",
+  "value": 79.76,
+  "asOfDate": "2026-10-12"
  },
  "marketPrice": {
   "display": "$79.77",
   "value": 79.77,
   "asOfDate": "2026-10-12",
-  "source": "last close from the Yahoo Finance price history"
+  "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.06%",
-  "value": 0.06,
-  "asOfDate": "2026-10-02",
+  "display": "0.01%",
+  "value": 0.01,
+  "asOfDate": "2026-10-12",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
   "display": "$2.21 B",

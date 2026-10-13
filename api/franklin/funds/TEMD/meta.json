@@ -28,20 +28,20 @@
   "net": 0.45
  },
  "nav": {
-  "display": "$23.95",
-  "value": 23.95,
-  "asOfDate": "2026-10-09"
+  "display": "$23.99",
+  "value": 23.99,
+  "asOfDate": "2026-10-12"
  },
  "marketPrice": {
-  "display": "$24.25",
-  "value": 24.25,
-  "asOfDate": "2026-10-09",
+  "display": "$24.22",
+  "value": 24.22,
+  "asOfDate": "2026-10-12",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "1.25%",
-  "value": 1.25,
-  "asOfDate": "2026-10-09",
+  "display": "0.96%",
+  "value": 0.96,
+  "asOfDate": "2026-10-12",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },

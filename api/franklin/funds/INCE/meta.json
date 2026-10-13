@@ -17,66 +17,66 @@
   "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
  },
  "identifiers": {
-  "cusip": null,
-  "isin": null,
-  "benchmark": null
+  "cusip": "35473P504",
+  "isin": "US35473P5044",
+  "benchmark": "MSCI USA High Dividend Yield Index"
  },
  "expenseRatio": {
-  "display": "—",
-  "value": null,
-  "gross": null,
-  "net": null
+  "display": "0.29%",
+  "value": 0.29,
+  "gross": 0.29,
+  "net": 0.29
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null
+  "display": "$66.91",
+  "value": 66.91,
+  "asOfDate": "2026-10-12"
  },
  "marketPrice": {
   "display": "$66.70",
   "value": 66.7,
   "asOfDate": "2026-10-12",
-  "source": "last close from the Yahoo Finance price history"
+  "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "—",
-  "value": null,
-  "asOfDate": null,
-  "source": "not computable: NAV and market price do not share a trading date",
-  "priceSource": null
+  "display": "-0.31%",
+  "value": -0.31,
+  "asOfDate": "2026-10-12",
+  "source": "computed from market price / official NAV, same date",
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "2026-06-30",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035123, report period 2026-06-30)"
+  "display": "$357.97 M",
+  "value": 357970000,
+  "asOfDate": "2026-10-11",
+  "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 5.4,
   "dividendYieldText": "5.40%",
-  "dividendYieldKind": "indicated: latest distribution 0.3000 x 12/year / last close 66.70",
-  "dividendYieldAsOfDate": null,
-  "secYield": null,
-  "secYieldText": "—",
-  "secYieldKind": "not published by franklintempleton.com for this fund"
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 9 2026",
+  "dividendYieldAsOfDate": "2026-10-09",
+  "secYield": 4.59,
+  "secYieldText": "4.59%",
+  "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
-  "performanceAsOf": null,
+  "performanceAsOf": "2026-09-30",
   "monthEnd": {
-   "asOfDate": "",
+   "asOfDate": "Sep 30 2026",
    "ytd": null,
    "ytdText": "—",
-   "yr1": null,
-   "yr1Text": "—",
-   "yr3": null,
-   "yr3Text": "—",
-   "yr5": null,
-   "yr5Text": "—",
-   "yr10": null,
-   "yr10Text": "—",
-   "sinceInception": null,
-   "sinceInceptionText": "—"
+   "yr1": 16.59,
+   "yr1Text": "16.59%",
+   "yr3": 16.37,
+   "yr3Text": "16.37%",
+   "yr5": 10.59,
+   "yr5Text": "10.59%",
+   "yr10": 12.82,
+   "yr10Text": "12.82%",
+   "sinceInception": 12.84,
+   "sinceInceptionText": "12.84%"
   },
   "quarterEnd": {
    "asOfDate": "",

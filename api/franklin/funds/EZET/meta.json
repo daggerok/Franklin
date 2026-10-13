@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/40521/SINGLCLASS/franklin-ethereum-etf/EZET",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-02)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-12)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EZET?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -28,26 +28,26 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$18.78",
-  "value": 18.78,
-  "asOfDate": "2026-10-09"
+  "display": "$19.04",
+  "value": 19.04,
+  "asOfDate": "2026-10-12"
  },
  "marketPrice": {
   "display": "$19.08",
   "value": 19.08,
   "asOfDate": "2026-10-12",
-  "source": "last close from the Yahoo Finance price history"
+  "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "-0.11%",
-  "value": -0.11,
-  "asOfDate": "2026-10-09",
+  "display": "0.21%",
+  "value": 0.21,
+  "asOfDate": "2026-10-12",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$49.77 M",
-  "value": 49770000,
+  "display": "$50.46 M",
+  "value": 50460000,
   "asOfDate": "2026-10-11",
   "source": "official product page Total Net Assets"
  },
@@ -62,21 +62,21 @@
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
-  "performanceAsOf": "2026-08-31",
+  "performanceAsOf": "2026-09-30",
   "monthEnd": {
-   "asOfDate": "Aug 31 2026",
+   "asOfDate": "Sep 30 2026",
    "ytd": -16.5,
    "ytdText": "-16.50%",
-   "yr1": -42.95,
-   "yr1Text": "-42.95%",
+   "yr1": -36.06,
+   "yr1Text": "-36.06%",
    "yr3": null,
    "yr3Text": "—",
    "yr5": null,
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": -14.77,
-   "sinceInceptionText": "-14.77%"
+   "sinceInception": -11.42,
+   "sinceInceptionText": "-11.42%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -113,9 +113,9 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 2 2026",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-02)"
+  "asOfDate": "2026-10-12",
+  "asOf": "Oct 12 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-12)"
  },
  "history": {
   "totalRows": 558,

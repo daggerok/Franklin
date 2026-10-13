@@ -28,9 +28,9 @@
   "net": 0.35
  },
  "nav": {
-  "display": "$47.32",
-  "value": 47.32,
-  "asOfDate": "2026-10-02"
+  "display": "$47.78",
+  "value": 47.78,
+  "asOfDate": "2026-10-12"
  },
  "marketPrice": {
   "display": "$47.41",
@@ -39,16 +39,16 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.19%",
-  "value": 0.19,
-  "asOfDate": "2026-10-02",
+  "display": "0.06%",
+  "value": 0.06,
+  "asOfDate": "2026-10-12",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "official product page closing Market Price"
+  "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
   "display": "$50.17 M",
   "value": 50170000,
-  "asOfDate": "2026-10-11",
+  "asOfDate": "2026-10-12",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-09-30",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "ytd": 10.85,
-   "ytdText": "10.85%",
+   "ytd": 11.93,
+   "ytdText": "11.93%",
    "yr1": 7.9,
    "yr1Text": "7.90%",
    "yr3": 12.41,

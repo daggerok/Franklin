@@ -52,9 +52,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 2.48,
-  "dividendYieldText": "2.48%",
-  "dividendYieldKind": "indicated: latest distribution 0.7130 x 1/year / market price 28.78",
+  "dividendYield": 4.95,
+  "dividendYieldText": "4.95%",
+  "dividendYieldKind": "indicated: latest distribution 0.7130 x 2/year / market price 28.78",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -95,9 +95,9 @@
   }
  },
  "distributions": {
-  "frequency": "Annually",
-  "frequencyCode": "12 - Annually",
-  "paymentsPerYear": 1,
+  "frequency": "Semi-annually",
+  "frequencyCode": "06 - Semi-annually",
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"

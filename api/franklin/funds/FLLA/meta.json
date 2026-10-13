@@ -52,9 +52,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 2.44,
-  "dividendYieldText": "2.44%",
-  "dividendYieldKind": "indicated: latest distribution 0.3690 x 2/year / NAV 30.24",
+  "dividendYield": 4.88,
+  "dividendYieldText": "4.88%",
+  "dividendYieldKind": "indicated: latest distribution 0.3690 x 4/year / NAV 30.24",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -95,9 +95,9 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
-  "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "frequency": "Quarterly",
+  "frequencyCode": "04 - Quarterly",
+  "paymentsPerYear": 4,
   "headers": [
    "Ex-Date",
    "Dividend"
