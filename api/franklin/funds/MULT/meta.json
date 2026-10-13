@@ -36,26 +36,26 @@
   "display": "$24.31",
   "value": 24.31,
   "asOfDate": "2026-10-12",
-  "source": "last close from the Yahoo Finance price history"
+  "source": "official product page Market Price"
  },
  "premiumDiscount": {
   "display": "0.25%",
   "value": 0.25,
   "asOfDate": "2026-10-12",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
   "display": "$9.70 M",
   "value": 9700000,
-  "asOfDate": "2026-10-12",
+  "asOfDate": "2026-09-30",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 5.32,
   "dividendYieldText": "5.32%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 9 2026",
-  "dividendYieldAsOfDate": "2026-10-09",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 12 2026",
+  "dividendYieldAsOfDate": "2026-10-12",
   "secYield": 5.25,
   "secYieldText": "5.25%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
@@ -69,10 +69,10 @@
    "ytdText": "-0.47%",
    "yr1": 0.66,
    "yr1Text": "0.66%",
-   "yr3": 6.09,
-   "yr3Text": "6.09%",
-   "yr5": 22.69,
-   "yr5Text": "22.69%",
+   "yr3": null,
+   "yr3Text": "—",
+   "yr5": null,
+   "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
    "sinceInception": 1.03,

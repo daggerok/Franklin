@@ -28,33 +28,33 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$30.24",
-  "value": 30.24,
-  "asOfDate": "2026-10-09"
+  "display": "$30.37",
+  "value": 30.37,
+  "asOfDate": "2026-10-12"
  },
  "marketPrice": {
   "display": "$30.37",
   "value": 30.37,
   "asOfDate": "2026-10-12",
-  "source": "last close from the Yahoo Finance price history"
+  "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "-0.23%",
-  "value": -0.23,
-  "asOfDate": "2026-10-09",
+  "display": "0.00%",
+  "value": 0,
+  "asOfDate": "2026-10-12",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$120.96 M",
-  "value": 120960000,
+  "display": "$121.47 M",
+  "value": 121470000,
   "asOfDate": "2026-10-11",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 4.88,
-  "dividendYieldText": "4.88%",
-  "dividendYieldKind": "indicated: latest distribution 0.3690 x 4/year / NAV 30.24",
+  "dividendYield": 2.43,
+  "dividendYieldText": "2.43%",
+  "dividendYieldKind": "indicated: latest distribution 0.3690 x 2/year / market price 30.37",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -95,9 +95,9 @@
   }
  },
  "distributions": {
-  "frequency": "Quarterly",
-  "frequencyCode": "04 - Quarterly",
-  "paymentsPerYear": 4,
+  "frequency": "Semi-annually",
+  "frequencyCode": "06 - Semi-annually",
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"

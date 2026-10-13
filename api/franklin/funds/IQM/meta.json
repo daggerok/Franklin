@@ -36,14 +36,14 @@
   "display": "$108.23",
   "value": 108.23,
   "asOfDate": "2026-10-12",
-  "source": "last close from the Yahoo Finance price history"
+  "source": "official product page Market Price"
  },
  "premiumDiscount": {
   "display": "-0.06%",
   "value": -0.06,
   "asOfDate": "2026-10-12",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
   "display": "$86.64 M",
@@ -52,9 +52,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 0.17,
-  "dividendYieldText": "0.17%",
-  "dividendYieldKind": "indicated: latest distribution 0.0940 x 2/year / NAV 108.30",
+  "dividendYield": 0.09,
+  "dividendYieldText": "0.09%",
+  "dividendYieldKind": "indicated: latest distribution 0.0940 x 1/year / market price 108.23",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -95,9 +95,9 @@
   }
  },
  "distributions": {
-  "frequency": "Semi-annually",
-  "frequencyCode": "06 - Semi-annually",
-  "paymentsPerYear": 2,
+  "frequency": "Annually",
+  "frequencyCode": "12 - Annually",
+  "paymentsPerYear": 1,
   "headers": [
    "Ex-Date",
    "Dividend"

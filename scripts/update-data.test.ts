@@ -628,6 +628,19 @@ describe('pipeline', () => {
     expect(generatedAt).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/);
   }), 30_000);
 
+  test('console output: config with TICKERS=all, one catalog line, no blank lines, the two done lines last', inTempRoot(async () => {
+    const logged: string[] = [];
+    console.log = (...args: unknown[]) => { logged.push(args.join(' ')); };
+    await run({ TICKERS: '', MAX_FETCHES: '2' });
+    const lines = logged.join('\n').split('\n');
+    expect(lines).toContain('              TICKERS=all');
+    expect(lines.some((line) => line.trim() === '')).toBe(false);
+    expect(lines.filter((line) => line.startsWith('[ catalog  ]'))).toEqual(['[ catalog  ] 81 Franklin ETFs (definitive 81 seed fixture)']);
+    expect(lines.findIndex((line) => line.startsWith('[ catalog  ]'))).toBeLessThan(lines.findIndex((line) => line.startsWith('[ filter   ]')));
+    expect(lines.at(-2)).toMatch(/^\[ done     \] 2 funds: \d+ updated, \d+ unchanged, 0 kept, 0 skipped, 0 failed in \d+\.\ds$/);
+    expect(lines.at(-1)).toMatch(/^\[ done     \] counts: 81 funds \/ [\d,]+ holdings rows \/ [\d,]+ history rows$/);
+  }), 30_000);
+
   test('a second identical run writes nothing', inTempRoot(async () => {
     await run();
     const first = snapshot(feed());
@@ -753,6 +766,32 @@ describe('pipeline', () => {
     expect(meta()).toMatchObject({ nav: { value: 22.5 }, yields: { secYield: null }, marketPrice: { source: 'last close from the Yahoo Finance price history' }, returns: { monthEnd: { yr3: 4.3 } } });
     expect(row().metrics.secYield).toBeNull();
   }), 60000);
+
+  test('product pages through the rendering proxy: no cache, wait for the page load, no http:// stub, one retry after a 429', inTempRoot(async () => {
+    const seen: Array<{ url: string; headers: Record<string, string> }> = [];
+    let limited = 0;
+    (globalThis as any).fetch = async (input: unknown, init?: { headers?: Record<string, string> }) => {
+      const url = String(input);
+      if (!url.includes('franklintempleton.com/investments')) throw new Error('offline');
+      seen.push({ url, headers: init?.headers ?? {} });
+      // as live: the direct request gets the bare SPA shell, r.jina.ai/http:// the redirect stub, a burst a 429
+      if (!url.startsWith('https://r.jina.ai/')) return new Response('<html><app-root></app-root></html>');
+      if (url.startsWith('https://r.jina.ai/http://')) return new Response('Title: Franklin Templeton\n\nMarkdown Content:\nLoading...');
+      if (limited++ === 0) return new Response('{"data":null,"retryAfter":2,"code":429,"name":"RateLimitTriggeredError"}', { status: 429, statusText: 'Too Many Requests' });
+      // the proxy's markdown carries the ticker in the page body too, not only in the stripped Title preamble
+      return new Response(pageMd().replace('Markdown Content:', 'Markdown Content:\n# Franklin FTSE Switzerland ETF - FLCH'));
+    };
+    const logged: string[] = [];
+    console.log = (...args: unknown[]) => { logged.push(args.join(' ')); };
+    await run({ SKIP_FRANKLIN: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' });
+    const proxied = seen.filter((request) => request.url.startsWith('https://r.jina.ai/'));
+    expect(proxied.map((request) => request.url.slice(0, 26))).toEqual(['https://r.jina.ai/https://', 'https://r.jina.ai/https://']);
+    for (const request of proxied) expect([request.headers['X-No-Cache'], request.headers['X-Timeout']]).toEqual(['true', '30']);
+    for (const request of seen.filter((item) => !item.url.startsWith('https://r.jina.ai/'))) {
+      expect<unknown[]>([request.headers['X-No-Cache'], request.headers['X-Timeout']]).toEqual([undefined, undefined]);
+    }
+    expect(logged.filter((line) => line.includes('FLCH') && /429|product page/.test(line))).toEqual([]);
+  }), 30_000);
 
   test('Distribution Rate and computed premium: labelled, dated, zero diff on rerun, kept on a partial page, null when the dates differ', inTempRoot(async () => {
     let page = pageMd({ rate: true });

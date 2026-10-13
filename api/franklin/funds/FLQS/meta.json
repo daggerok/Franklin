@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P876",
   "isin": "US35473P8766",
-  "benchmark": null
+  "benchmark": "LibertyQ U.S. Small Cap Equity Index"
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -33,9 +33,9 @@
   "asOfDate": "2026-10-12"
  },
  "marketPrice": {
-  "display": "$47.41",
-  "value": 47.41,
-  "asOfDate": "2026-10-02",
+  "display": "$47.81",
+  "value": 47.81,
+  "asOfDate": "2026-10-12",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
@@ -43,19 +43,19 @@
   "value": 0.06,
   "asOfDate": "2026-10-12",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
   "display": "$50.17 M",
   "value": 50170000,
-  "asOfDate": "2026-10-12",
+  "asOfDate": "2026-10-11",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 1.64,
   "dividendYieldText": "1.64%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 9 2026",
-  "dividendYieldAsOfDate": "2026-10-09",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 12 2026",
+  "dividendYieldAsOfDate": "2026-10-12",
   "secYield": 1.37,
   "secYieldText": "1.37%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"

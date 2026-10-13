@@ -2,7 +2,7 @@
  "ticker": "INCM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 838,
+ "totalRows": 839,
  "headers": [
   "Date",
   "Close",
@@ -5875,6 +5875,13 @@
    "Adj Close": "28.70",
    "Volume": "455300",
    "searchIndex": "2026-10-09 28.700000762939453"
+  },
+  {
+   "Date": "Oct 12 2026",
+   "Close": "28.71",
+   "Adj Close": "28.71",
+   "Volume": "461300",
+   "searchIndex": "2026-10-12 28.709999084472656"
   }
  ]
 }
