@@ -5,7 +5,9 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
+  ADJ_CLOSE_NOISE,
   CONTROL_NAMES,
+  keptAdjClose,
   PREMIUM_COMPUTED_SOURCE,
   asOfFromKind,
   computePremiumDiscount,
@@ -648,6 +650,34 @@ describe('pipeline', () => {
     await run();
     expect(snapshot(feed())).toEqual(first);
     expect(Object.keys(first).some((name) => name.endsWith('.tmp'))).toBe(false);
+  }), 30_000);
+
+  test('two runs on the same source data write zero changes even when Yahoo adjusted closes jitter across a cent boundary', inTempRoot(async () => {
+    // Yahoo float32 noise seen live: AAM SPDV 2024-11-12 came back as 31.544998 and 31.545001 a minute apart
+    const days = [Date.UTC(2026, 8, 29, 20) / 1000, Date.UTC(2026, 8, 30, 20) / 1000, Date.UTC(2026, 9, 1, 20) / 1000];
+    let adjclose: number[] = [];
+    (globalThis as any).fetch = async (input: unknown) => {
+      if (!String(input).includes('finance/chart')) throw new Error('offline');
+      return new Response(JSON.stringify({ chart: { result: [{ meta: { regularMarketPrice: 26.5, regularMarketTime: days[2] }, timestamp: days, indicators: { quote: [{ close: [24.5, 25.5, 26.5], volume: [1, 1, 1] }], adjclose: [{ adjclose }] }, events: {} }] } }));
+    };
+    const live = { SKIP_YAHOO: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' };
+    const history = () => JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'history', '001.json'), 'utf8')).rows.map((row: any) => row['Adj Close']);
+    adjclose = [23.915001, 24.984999, 25.995001];
+    await run(live);
+    expect(history()).toEqual(['23.92', '24.98', '26.00']);
+    const first = snapshot(feed());
+    await new Promise((resolve) => setTimeout(resolve, 1100)); // generatedAt has second resolution
+    adjclose = [23.914998, 24.985002, 25.994999];
+    await run(live);
+    expect(snapshot(feed())).toEqual(first);
+    // a real change beyond the noise is still written
+    adjclose = [23.9, 24.97, 25.98];
+    await run(live);
+    expect(history()).toEqual(['23.90', '24.97', '25.98']);
+    expect(keptAdjClose(31.545001, '31.54')).toBe('31.54');
+    expect(keptAdjClose(31.5452, '31.54')).toBe('31.55');
+    expect(keptAdjClose(31.545001, undefined)).toBe('31.55');
+    expect(ADJ_CLOSE_NOISE).toBe(1e-4);
   }), 30_000);
 
   test('a one-ticker run keeps every row and file; unknown tickers are an error', inTempRoot(async () => {
