@@ -754,6 +754,27 @@ describe('pipeline', () => {
     expect(row().metrics.secYield).toBeNull();
   }), 60000);
 
+  test('product pages through the rendering proxy bypass its cache and wait for the page load', inTempRoot(async () => {
+    const seen: Array<{ url: string; headers: Record<string, string> }> = [];
+    (globalThis as any).fetch = async (input: unknown, init?: { headers?: Record<string, string> }) => {
+      const url = String(input);
+      if (url.includes('franklintempleton.com/investments')) {
+        seen.push({ url, headers: init?.headers ?? {} });
+        // the direct request gets the bare SPA shell, as live
+        return new Response(url.startsWith('https://r.jina.ai/') ? pageMd() : '<html><app-root></app-root></html>');
+      }
+      throw new Error('offline');
+    };
+    console.log = () => {};
+    await run({ SKIP_FRANKLIN: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' });
+    const proxied = seen.filter((request) => request.url.startsWith('https://r.jina.ai/'));
+    expect(proxied.length).toBeGreaterThan(0);
+    for (const request of proxied) expect([request.headers['X-No-Cache'], request.headers['X-Timeout']]).toEqual(['true', '30']);
+    for (const request of seen.filter((item) => !item.url.startsWith('https://r.jina.ai/'))) {
+      expect<unknown[]>([request.headers['X-No-Cache'], request.headers['X-Timeout']]).toEqual([undefined, undefined]);
+    }
+  }), 30_000);
+
   test('Distribution Rate and computed premium: labelled, dated, zero diff on rerun, kept on a partial page, null when the dates differ', inTempRoot(async () => {
     let page = pageMd({ rate: true });
     let yahooDay = Date.UTC(2026, 9, 2, 20) / 1000;

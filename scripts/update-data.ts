@@ -292,6 +292,9 @@ const PROXY_PREFIXES = [
 // Fast path for catalog: only first 3 proxies to avoid long hangs, product pages use first 3 (direct + r.jina.ai http/https)
 const CATALOG_PROXY_COUNT = 3;
 const PRODUCT_PROXY_COUNT = 3;
+// r.jina.ai snapshots the product page SPA before its lazy sections load and then serves that partial snapshot from
+// its cache. Product pages therefore bypass the cache and ask the renderer to wait for the page load (seconds).
+const PRODUCT_RENDER_TIMEOUT_SECONDS = 30;
 const YAHOO_CHART_URL = 'https://query1.finance.yahoo.com/v8/finance/chart';
 
 // Definitive 81 Franklin Templeton U.S.-listed ETFs from sitemap product.xml (80 + FLRU Russia)
@@ -2599,7 +2602,7 @@ async function fetchJson(url: string, label: string, config: UpdaterConfig, head
 let issuerDirectDenials = 0;
 const ISSUER_DIRECT_DENIAL_LIMIT = 2;
 
-async function fetchIssuerText(url: string, label: string, config: UpdaterConfig, validate: (text: string) => boolean, accept = 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', options: { cache?: boolean; maxProxies?: number; prefer?: (text: string) => boolean } = {}): Promise<{ text: string; via: 'direct' | 'proxy' }> {
+async function fetchIssuerText(url: string, label: string, config: UpdaterConfig, validate: (text: string) => boolean, accept = 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', options: { cache?: boolean; maxProxies?: number; prefer?: (text: string) => boolean; renderTimeoutSeconds?: number } = {}): Promise<{ text: string; via: 'direct' | 'proxy' }> {
   let fallback: { text: string; via: 'direct' | 'proxy' } | null = null;
   const allCandidates = buildProxyUrls(url);
   const max = options.maxProxies ?? allCandidates.length;
@@ -2618,6 +2621,7 @@ async function fetchIssuerText(url: string, label: string, config: UpdaterConfig
         ? { 'User-Agent': BROWSER_UA, Accept: accept, 'Accept-Language': 'en-US,en;q=0.9' }
         : { 'User-Agent': SEC_UA, Accept: 'text/plain,text/markdown;q=0.9,*/*;q=0.8' };
       if (!isDirect && options.cache === false) headers['X-No-Cache'] = 'true';
+      if (!isDirect && options.renderTimeoutSeconds && candidateUrl.startsWith(PROXY_PREFIX)) headers['X-Timeout'] = String(options.renderTimeoutSeconds);
       const maxRetriesForCandidate = 0; // fail fast for issuer, we have multiple proxies
       const textRaw = await fetchText(candidateUrl, `${label} (${viaLabel})`, { ...config, maxRetries: maxRetriesForCandidate }, headers);
       const text = isDirect ? textRaw : stripProxyPreamble(textRaw);
@@ -3289,7 +3293,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
         const page = await fetchIssuerText(fund.fundPage, `[product ] ${ticker}`, config, (text) => {
           const lower = text.toLowerCase();
           return lower.includes(ticker.toLowerCase()) && (lower.includes('cusip') || lower.includes('nav') || lower.includes('expense'));
-        }, 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', { maxProxies: PRODUCT_PROXY_COUNT, prefer: (text) => parseFranklinProductPage(text, ticker).loadedFully });
+        }, 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', { maxProxies: PRODUCT_PROXY_COUNT, cache: false, renderTimeoutSeconds: PRODUCT_RENDER_TIMEOUT_SECONDS, prefer: (text) => parseFranklinProductPage(text, ticker).loadedFully });
         franklinPageText = page.text;
         summary = parseFranklinProductPage(page.text, ticker);
         if (summary.loadedFully) {
