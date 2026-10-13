@@ -754,25 +754,30 @@ describe('pipeline', () => {
     expect(row().metrics.secYield).toBeNull();
   }), 60000);
 
-  test('product pages through the rendering proxy bypass its cache and wait for the page load', inTempRoot(async () => {
+  test('product pages through the rendering proxy: no cache, wait for the page load, no http:// stub, one retry after a 429', inTempRoot(async () => {
     const seen: Array<{ url: string; headers: Record<string, string> }> = [];
+    let limited = 0;
     (globalThis as any).fetch = async (input: unknown, init?: { headers?: Record<string, string> }) => {
       const url = String(input);
-      if (url.includes('franklintempleton.com/investments')) {
-        seen.push({ url, headers: init?.headers ?? {} });
-        // the direct request gets the bare SPA shell, as live
-        return new Response(url.startsWith('https://r.jina.ai/') ? pageMd() : '<html><app-root></app-root></html>');
-      }
-      throw new Error('offline');
+      if (!url.includes('franklintempleton.com/investments')) throw new Error('offline');
+      seen.push({ url, headers: init?.headers ?? {} });
+      // as live: the direct request gets the bare SPA shell, r.jina.ai/http:// the redirect stub, a burst a 429
+      if (!url.startsWith('https://r.jina.ai/')) return new Response('<html><app-root></app-root></html>');
+      if (url.startsWith('https://r.jina.ai/http://')) return new Response('Title: Franklin Templeton\n\nMarkdown Content:\nLoading...');
+      if (limited++ === 0) return new Response('{"data":null,"retryAfter":2,"code":429,"name":"RateLimitTriggeredError"}', { status: 429, statusText: 'Too Many Requests' });
+      // the proxy's markdown carries the ticker in the page body too, not only in the stripped Title preamble
+      return new Response(pageMd().replace('Markdown Content:', 'Markdown Content:\n# Franklin FTSE Switzerland ETF - FLCH'));
     };
-    console.log = () => {};
+    const logged: string[] = [];
+    console.log = (...args: unknown[]) => { logged.push(args.join(' ')); };
     await run({ SKIP_FRANKLIN: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' });
     const proxied = seen.filter((request) => request.url.startsWith('https://r.jina.ai/'));
-    expect(proxied.length).toBeGreaterThan(0);
+    expect(proxied.map((request) => request.url.slice(0, 26))).toEqual(['https://r.jina.ai/https://', 'https://r.jina.ai/https://']);
     for (const request of proxied) expect([request.headers['X-No-Cache'], request.headers['X-Timeout']]).toEqual(['true', '30']);
     for (const request of seen.filter((item) => !item.url.startsWith('https://r.jina.ai/'))) {
       expect<unknown[]>([request.headers['X-No-Cache'], request.headers['X-Timeout']]).toEqual([undefined, undefined]);
     }
+    expect(logged.filter((line) => line.includes('FLCH') && /429|product page/.test(line))).toEqual([]);
   }), 30_000);
 
   test('Distribution Rate and computed premium: labelled, dated, zero diff on rerun, kept on a partial page, null when the dates differ', inTempRoot(async () => {
