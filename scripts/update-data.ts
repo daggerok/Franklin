@@ -2406,6 +2406,17 @@ function fillNportTickers(rows: JsonRecord[], companyMap: Map<string, string>): 
 // Yahoo Finance chart parsing (same as Schwab)
 // ---------------------------------------------------------------------------
 
+// Yahoo's adjusted close is float32 and its last digits move with the request's period2, so a value
+// sitting on a cent boundary (31.544998 vs 31.545001) flips between runs. Within that noise the
+// published cent is kept: a rerun with the same source data changes nothing. A real change beyond
+// the noise is written.
+export const ADJ_CLOSE_NOISE = 1e-4;
+export function keptAdjClose(raw: number, published: unknown): string {
+  const fresh = raw.toFixed(2);
+  const prior = typeof published === 'string' && published.trim() !== '' ? Number(published) : NaN;
+  return Number.isFinite(prior) && fresh !== published && Math.abs(raw - prior) <= 0.005 + ADJ_CLOSE_NOISE ? (published as string) : fresh;
+}
+
 export function parseChart(payload: JsonRecord): ParsedChart {
   const result = (payload as any).chart?.result?.[0];
   if (!result) throw new Error('Yahoo chart: no result');
@@ -3487,25 +3498,32 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     const paymentsPerYear = paymentsPerYearFor(distributionFrequency);
 
     // Build history rows
+    const previousHistoryRows: JsonRecord[] = [];
+    if (prevMeta?.history?.pages?.length) {
+      try {
+        for (const pagePath of prevMeta.history.pages as string[]) {
+          const pageData = JSON.parse(await readFile(new URL(pagePath, fundDir), 'utf8')) as JsonRecord;
+          for (const row of (pageData.rows || []) as JsonRecord[]) previousHistoryRows.push(row);
+        }
+      } catch {}
+    }
     const historyRows: JsonRecord[] = [];
     if (chart?.days?.length) {
+      // History is rebuilt from the chart on every run: the published cents decide float noise.
+      const publishedAdjClose = new Map(previousHistoryRows.map((row) => [String(row.Date), row['Adj Close']]));
       for (const day of chart.days) {
+        const date = formatDate(day.date);
         historyRows.push({
-          Date: formatDate(day.date),
+          Date: date,
           Close: day.close.toFixed(2),
-          'Adj Close': day.adjClose.toFixed(2),
+          'Adj Close': keptAdjClose(day.adjClose, publishedAdjClose.get(date)),
           Volume: String(day.volume),
           searchIndex: `${day.date} ${day.close}`.toLowerCase(),
         });
       }
-    } else if (prevMeta?.history?.pages?.length) {
+    } else {
       // Keep previous history if Yahoo failed
-      try {
-        for (const pagePath of prevMeta.history.pages as string[]) {
-          const pageData = JSON.parse(await readFile(new URL(pagePath, fundDir), 'utf8')) as JsonRecord;
-          for (const row of (pageData.rows || []) as JsonRecord[]) historyRows.push(row);
-        }
-      } catch {}
+      historyRows.push(...previousHistoryRows);
     }
 
     // Holdings fallback to previous if SEC failed
