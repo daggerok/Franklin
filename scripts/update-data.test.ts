@@ -628,6 +628,19 @@ describe('pipeline', () => {
     expect(generatedAt).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/);
   }), 30_000);
 
+  test('console output: config with TICKERS=all, one catalog line, no blank lines, the two done lines last', inTempRoot(async () => {
+    const logged: string[] = [];
+    console.log = (...args: unknown[]) => { logged.push(args.join(' ')); };
+    await run({ TICKERS: '', MAX_FETCHES: '2' });
+    const lines = logged.join('\n').split('\n');
+    expect(lines).toContain('              TICKERS=all');
+    expect(lines.some((line) => line.trim() === '')).toBe(false);
+    expect(lines.filter((line) => line.startsWith('[ catalog  ]'))).toEqual(['[ catalog  ] 81 Franklin ETFs (definitive 81 seed fixture)']);
+    expect(lines.findIndex((line) => line.startsWith('[ catalog  ]'))).toBeLessThan(lines.findIndex((line) => line.startsWith('[ filter   ]')));
+    expect(lines.at(-2)).toMatch(/^\[ done     \] 2 funds: \d+ updated, \d+ unchanged, 0 kept, 0 skipped, 0 failed in \d+\.\ds$/);
+    expect(lines.at(-1)).toMatch(/^\[ done     \] counts: 81 funds \/ [\d,]+ holdings rows \/ [\d,]+ history rows$/);
+  }), 30_000);
+
   test('a second identical run writes nothing', inTempRoot(async () => {
     await run();
     const first = snapshot(feed());
