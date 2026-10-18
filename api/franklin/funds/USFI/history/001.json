@@ -2,7 +2,7 @@
  "ticker": "USFI",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 806,
+ "totalRows": 810,
  "headers": [
   "Date",
   "Close",
@@ -5651,6 +5651,34 @@
    "Adj Close": "23.66",
    "Volume": "1000",
    "searchIndex": "2026-10-12 23.660999298095703"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "23.69",
+   "Adj Close": "23.69",
+   "Volume": "4200",
+   "searchIndex": "2026-10-13 23.690000534057617"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "23.73",
+   "Adj Close": "23.73",
+   "Volume": "100",
+   "searchIndex": "2026-10-14 23.725000381469727"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "23.84",
+   "Adj Close": "23.84",
+   "Volume": "300",
+   "searchIndex": "2026-10-15 23.84000015258789"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "23.82",
+   "Adj Close": "23.82",
+   "Volume": "100",
+   "searchIndex": "2026-10-16 23.815000534057617"
   }
  ]
 }

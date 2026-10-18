@@ -28,34 +28,34 @@
   "net": 0.45
  },
  "nav": {
-  "display": "$23.99",
-  "value": 23.99,
-  "asOfDate": "2026-10-12"
+  "display": "$24.09",
+  "value": 24.09,
+  "asOfDate": "2026-10-16"
  },
  "marketPrice": {
-  "display": "$24.22",
-  "value": 24.22,
-  "asOfDate": "2026-10-12",
+  "display": "$24.36",
+  "value": 24.36,
+  "asOfDate": "2026-10-16",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.96%",
-  "value": 0.96,
-  "asOfDate": "2026-10-12",
+  "display": "1.12%",
+  "value": 1.12,
+  "asOfDate": "2026-10-16",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$47.99 M",
-  "value": 47990000,
+  "display": "$48.19 M",
+  "value": 48190000,
   "asOfDate": "2026-09-30",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 9.22,
-  "dividendYieldText": "9.22%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 12 2026",
-  "dividendYieldAsOfDate": "2026-10-12",
+  "dividendYield": 9.18,
+  "dividendYieldText": "9.18%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 16 2026",
+  "dividendYieldAsOfDate": "2026-10-16",
   "secYield": 8.26,
   "secYieldText": "8.26%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
@@ -104,6 +104,11 @@
   ],
   "rows": [
    {
+    "Ex-Date": "Oct 1 2026",
+    "Dividend": "0.1840",
+    "searchIndex": "oct 1 2026 0.184"
+   },
+   {
     "Ex-Date": "Sep 1 2026",
     "Dividend": "0.1190",
     "searchIndex": "sep 1 2026 0.119"
@@ -144,8 +149,8 @@
     "searchIndex": "feb 2 2026 0.033"
    }
   ],
-  "latestDividend": "0.119",
-  "exDate": "Sep 1 2026"
+  "latestDividend": "0.184",
+  "exDate": "Oct 1 2026"
  },
  "holdings": {
   "totalRows": 83,
@@ -159,13 +164,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035203, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 182,
+  "totalRows": 186,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 12 2026",
+  "asOf": "Oct 16 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

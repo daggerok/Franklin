@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47315/SINGLCLASS/franklin-solana-etf/SOEZ",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-12)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-16)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SOEZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -28,33 +28,33 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$18.66",
-  "value": 18.66,
-  "asOfDate": "2026-10-12"
+  "display": "$17.86",
+  "value": 17.86,
+  "asOfDate": "2026-10-16"
  },
  "marketPrice": {
-  "display": "$18.73",
-  "value": 18.73,
-  "asOfDate": "2026-10-12",
+  "display": "$17.91",
+  "value": 17.91,
+  "asOfDate": "2026-10-16",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.38%",
-  "value": 0.38,
-  "asOfDate": "2026-10-12",
+  "display": "0.28%",
+  "value": 0.28,
+  "asOfDate": "2026-10-16",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$15.86 M",
-  "value": 15860000,
-  "asOfDate": "2026-10-11",
+  "display": "$15.18 M",
+  "value": 15180000,
+  "asOfDate": "2026-10-18",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 4.36,
-  "dividendYieldText": "4.36%",
-  "dividendYieldKind": "indicated: latest distribution 0.0680 x 12/year / market price 18.73",
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-09-30",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "ytd": -8.54,
-   "ytdText": "-8.54%",
+   "ytd": -13.39,
+   "ytdText": "-13.39%",
    "yr1": null,
    "yr1Text": "—",
    "yr3": null,
@@ -95,9 +95,9 @@
   }
  },
  "distributions": {
-  "frequency": "Monthly",
-  "frequencyCode": "01 - Monthly",
-  "paymentsPerYear": 12,
+  "frequency": "Irregular",
+  "frequencyCode": "99 - Irregular",
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -149,18 +149,18 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-10-12",
-  "asOf": "Oct 12 2026",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-12)"
+  "asOfDate": "2026-10-16",
+  "asOf": "Oct 16 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-16)"
  },
  "history": {
-  "totalRows": 215,
+  "totalRows": 219,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 12 2026",
+  "asOf": "Oct 16 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39639/SINGLCLASS/franklin-bitcoin-etf/EZBC",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-12)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-16)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EZBC?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -28,26 +28,26 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$47.67",
-  "value": 47.67,
-  "asOfDate": "2026-10-12"
+  "display": "$46.95",
+  "value": 46.95,
+  "asOfDate": "2026-10-16"
  },
  "marketPrice": {
-  "display": "$47.82",
-  "value": 47.82,
-  "asOfDate": "2026-10-12",
+  "display": "$47.06",
+  "value": 47.06,
+  "asOfDate": "2026-10-16",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.31%",
-  "value": 0.31,
-  "asOfDate": "2026-10-12",
+  "display": "0.23%",
+  "value": 0.23,
+  "asOfDate": "2026-10-16",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$467.13 M",
-  "value": 467130000,
+  "display": "$460.11 M",
+  "value": 460110000,
   "asOfDate": "2026-10-11",
   "source": "official product page Total Net Assets"
  },
@@ -113,18 +113,18 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-10-12",
-  "asOf": "Oct 12 2026",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-12)"
+  "asOfDate": "2026-10-16",
+  "asOf": "Oct 16 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-16)"
  },
  "history": {
-  "totalRows": 690,
+  "totalRows": 694,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 12 2026",
+  "asOf": "Oct 16 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

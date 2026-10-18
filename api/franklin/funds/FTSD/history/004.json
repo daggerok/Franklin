@@ -2,7 +2,7 @@
  "ticker": "FTSD",
  "page": 4,
  "pageSize": 1000,
- "totalRows": 3252,
+ "totalRows": 3256,
  "headers": [
   "Date",
   "Close",
@@ -1773,6 +1773,34 @@
    "Adj Close": "88.83",
    "Volume": "125800",
    "searchIndex": "2026-10-12 88.83000183105469"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "88.95",
+   "Adj Close": "88.95",
+   "Volume": "26800",
+   "searchIndex": "2026-10-13 88.94999694824219"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "88.94",
+   "Adj Close": "88.94",
+   "Volume": "32200",
+   "searchIndex": "2026-10-14 88.94000244140625"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "89.09",
+   "Adj Close": "89.09",
+   "Volume": "40000",
+   "searchIndex": "2026-10-15 89.08999633789062"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "89.04",
+   "Adj Close": "89.04",
+   "Volume": "61900",
+   "searchIndex": "2026-10-16 89.04000091552734"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "FLIA",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2102,
+ "totalRows": 2106,
  "headers": [
   "Date",
   "Close",
@@ -723,6 +723,34 @@
    "Adj Close": "20.06",
    "Volume": "21700",
    "searchIndex": "2026-10-12 20.05500030517578"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "20.08",
+   "Adj Close": "20.08",
+   "Volume": "34900",
+   "searchIndex": "2026-10-13 20.084999084472656"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "20.07",
+   "Adj Close": "20.07",
+   "Volume": "121400",
+   "searchIndex": "2026-10-14 20.06999969482422"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "20.11",
+   "Adj Close": "20.11",
+   "Volume": "62200",
+   "searchIndex": "2026-10-15 20.114999771118164"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "20.09",
+   "Adj Close": "20.09",
+   "Volume": "165700",
+   "searchIndex": "2026-10-16 20.094999313354492"
   }
  ]
 }

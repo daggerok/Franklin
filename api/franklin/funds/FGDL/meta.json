@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/31714/SINGLCLASS/franklin-responsibly-sourced-gold-etf/FGDL",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-12)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-16)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FGDL?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -28,26 +28,26 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$55.51",
-  "value": 55.51,
-  "asOfDate": "2026-10-12"
+  "display": "$55.74",
+  "value": 55.74,
+  "asOfDate": "2026-10-16"
  },
  "marketPrice": {
-  "display": "$55.51",
-  "value": 55.51,
-  "asOfDate": "2026-10-12",
+  "display": "$55.42",
+  "value": 55.42,
+  "asOfDate": "2026-10-16",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.00%",
-  "value": 0,
-  "asOfDate": "2026-10-12",
+  "display": "-0.57%",
+  "value": -0.57,
+  "asOfDate": "2026-10-16",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$432.97 M",
-  "value": 432970000,
+  "display": "$434.76 M",
+  "value": 434760000,
   "asOfDate": "2026-10-11",
   "source": "official product page Total Net Assets"
  },
@@ -113,19 +113,19 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-10-12",
-  "asOf": "Oct 12 2026",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-12)"
+  "asOfDate": "2026-10-16",
+  "asOf": "Oct 16 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-16)"
  },
  "history": {
-  "totalRows": 1075,
+  "totalRows": 1079,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Oct 12 2026",
+  "asOf": "Oct 16 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

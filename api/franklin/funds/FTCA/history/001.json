@@ -2,7 +2,7 @@
  "ticker": "FTCA",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 241,
+ "totalRows": 245,
  "headers": [
   "Date",
   "Close",
@@ -1696,6 +1696,34 @@
    "Adj Close": "6.82",
    "Volume": "629500",
    "searchIndex": "2026-10-12 6.820000171661377"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "6.87",
+   "Adj Close": "6.87",
+   "Volume": "831800",
+   "searchIndex": "2026-10-13 6.869999885559082"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "6.86",
+   "Adj Close": "6.86",
+   "Volume": "1012100",
+   "searchIndex": "2026-10-14 6.860000133514404"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "6.94",
+   "Adj Close": "6.94",
+   "Volume": "853900",
+   "searchIndex": "2026-10-15 6.940000057220459"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "6.93",
+   "Adj Close": "6.93",
+   "Volume": "1962900",
+   "searchIndex": "2026-10-16 6.929999828338623"
   }
  ]
 }

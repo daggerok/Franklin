@@ -2,7 +2,7 @@
  "ticker": "FLGB",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2244,
+ "totalRows": 2248,
  "headers": [
   "Date",
   "Close",
@@ -1717,6 +1717,34 @@
    "Adj Close": "35.95",
    "Volume": "35300",
    "searchIndex": "2026-10-12 35.95000076293945"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "36.07",
+   "Adj Close": "36.07",
+   "Volume": "25600",
+   "searchIndex": "2026-10-13 36.06999969482422"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "36.11",
+   "Adj Close": "36.11",
+   "Volume": "19800",
+   "searchIndex": "2026-10-14 36.11000061035156"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "36.76",
+   "Adj Close": "36.76",
+   "Volume": "25700",
+   "searchIndex": "2026-10-15 36.757999420166016"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "37.00",
+   "Adj Close": "37.00",
+   "Volume": "82500",
+   "searchIndex": "2026-10-16 37"
   }
  ]
 }

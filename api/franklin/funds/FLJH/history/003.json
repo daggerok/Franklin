@@ -2,7 +2,7 @@
  "ticker": "FLJH",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2244,
+ "totalRows": 2248,
  "headers": [
   "Date",
   "Close",
@@ -1717,6 +1717,34 @@
    "Adj Close": "46.66",
    "Volume": "16000",
    "searchIndex": "2026-10-12 46.65999984741211"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "46.60",
+   "Adj Close": "46.60",
+   "Volume": "10400",
+   "searchIndex": "2026-10-13 46.599998474121094"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "45.81",
+   "Adj Close": "45.81",
+   "Volume": "9700",
+   "searchIndex": "2026-10-14 45.810001373291016"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "45.64",
+   "Adj Close": "45.64",
+   "Volume": "22500",
+   "searchIndex": "2026-10-15 45.64400100708008"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "45.41",
+   "Adj Close": "45.41",
+   "Volume": "27600",
+   "searchIndex": "2026-10-16 45.40999984741211"
   }
  ]
 }

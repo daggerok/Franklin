@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/41786/SINGLCLASS/franklin-crypto-index-etf/EZPZ",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-12)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-16)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EZPZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -28,27 +28,27 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$20.66",
-  "value": 20.66,
-  "asOfDate": "2026-10-12"
+  "display": "$20.20",
+  "value": 20.2,
+  "asOfDate": "2026-10-16"
  },
  "marketPrice": {
-  "display": "$20.75",
-  "value": 20.75,
-  "asOfDate": "2026-10-12",
+  "display": "$20.29",
+  "value": 20.29,
+  "asOfDate": "2026-10-16",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.44%",
-  "value": 0.44,
-  "asOfDate": "2026-10-12",
+  "display": "0.45%",
+  "value": 0.45,
+  "asOfDate": "2026-10-16",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$16.53 M",
-  "value": 16530000.000000002,
-  "asOfDate": "2026-10-12",
+  "display": "$16.16 M",
+  "value": 16160000,
+  "asOfDate": "2026-10-16",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -113,18 +113,18 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-10-12",
-  "asOf": "Oct 12 2026",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-12)"
+  "asOfDate": "2026-10-16",
+  "asOf": "Oct 16 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-16)"
  },
  "history": {
-  "totalRows": 411,
+  "totalRows": 415,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 12 2026",
+  "asOf": "Oct 16 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

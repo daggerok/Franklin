@@ -2,7 +2,7 @@
  "ticker": "FLIN",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2180,
+ "totalRows": 2184,
  "headers": [
   "Date",
   "Close",
@@ -1269,6 +1269,34 @@
    "Adj Close": "33.24",
    "Volume": "251100",
    "searchIndex": "2026-10-12 33.2400016784668"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "33.83",
+   "Adj Close": "33.83",
+   "Volume": "287200",
+   "searchIndex": "2026-10-13 33.83000183105469"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "33.73",
+   "Adj Close": "33.73",
+   "Volume": "411100",
+   "searchIndex": "2026-10-14 33.72999954223633"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "34.35",
+   "Adj Close": "34.35",
+   "Volume": "257300",
+   "searchIndex": "2026-10-15 34.349998474121094"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "34.15",
+   "Adj Close": "34.15",
+   "Volume": "184900",
+   "searchIndex": "2026-10-16 34.150001525878906"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "HELX",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1665,
+ "totalRows": 1669,
  "headers": [
   "Date",
   "Close",
@@ -4664,6 +4664,34 @@
    "Adj Close": "42.30",
    "Volume": "2600",
    "searchIndex": "2026-10-12 42.30099868774414"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "41.68",
+   "Adj Close": "41.68",
+   "Volume": "2300",
+   "searchIndex": "2026-10-13 41.676998138427734"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "41.94",
+   "Adj Close": "41.94",
+   "Volume": "1500",
+   "searchIndex": "2026-10-14 41.94499969482422"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "42.59",
+   "Adj Close": "42.59",
+   "Volume": "1300",
+   "searchIndex": "2026-10-15 42.5880012512207"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "41.12",
+   "Adj Close": "41.12",
+   "Volume": "2100",
+   "searchIndex": "2026-10-16 41.12200164794922"
   }
  ]
 }
