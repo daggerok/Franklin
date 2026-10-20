@@ -2,7 +2,7 @@
  "ticker": "FLQM",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2381,
+ "totalRows": 2382,
  "headers": [
   "Date",
   "Close",
@@ -2676,6 +2676,13 @@
    "Adj Close": "60.36",
    "Volume": "45600",
    "searchIndex": "2026-10-16 60.36000061035156"
+  },
+  {
+   "Date": "Oct 19 2026",
+   "Close": "60.14",
+   "Adj Close": "60.14",
+   "Volume": "56200",
+   "searchIndex": "2026-10-19 60.13999938964844"
   }
  ]
 }

@@ -28,33 +28,33 @@
   "net": 0.03
  },
  "nav": {
-  "display": "$66.73",
-  "value": 66.73,
-  "asOfDate": "2026-10-16"
+  "display": "$67.01",
+  "value": 67.01,
+  "asOfDate": "2026-10-19"
  },
  "marketPrice": {
-  "display": "$66.79",
-  "value": 66.79,
-  "asOfDate": "2026-10-16",
+  "display": "$67.04",
+  "value": 67.04,
+  "asOfDate": "2026-10-19",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.09%",
-  "value": 0.09,
-  "asOfDate": "2026-10-16",
+  "display": "0.04%",
+  "value": 0.04,
+  "asOfDate": "2026-10-19",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$2.05 B",
-  "value": 2049999999.9999998,
-  "asOfDate": "2026-10-15",
+  "display": "$2.06 B",
+  "value": 2060000000,
+  "asOfDate": "2026-10-18",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 0.86,
   "dividendYieldText": "0.86%",
-  "dividendYieldKind": "indicated: latest distribution 0.1440 x 4/year / market price 66.79",
+  "dividendYieldKind": "indicated: latest distribution 0.1440 x 4/year / market price 67.04",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -265,7 +265,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035112, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2608,
+  "totalRows": 2609,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -273,7 +273,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Oct 16 2026",
+  "asOf": "Oct 19 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

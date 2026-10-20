@@ -2,7 +2,7 @@
  "ticker": "FLCA",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2248,
+ "totalRows": 2249,
  "headers": [
   "Date",
   "Close",
@@ -1745,6 +1745,13 @@
    "Adj Close": "54.12",
    "Volume": "15900",
    "searchIndex": "2026-10-16 54.119998931884766"
+  },
+  {
+   "Date": "Oct 19 2026",
+   "Close": "53.80",
+   "Adj Close": "53.80",
+   "Volume": "16800",
+   "searchIndex": "2026-10-19 53.79999923706055"
   }
  ]
 }

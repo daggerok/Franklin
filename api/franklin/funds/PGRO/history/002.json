@@ -2,7 +2,7 @@
  "ticker": "PGRO",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1355,
+ "totalRows": 1356,
  "headers": [
   "Date",
   "Close",
@@ -2494,6 +2494,13 @@
    "Adj Close": "46.80",
    "Volume": "6500",
    "searchIndex": "2026-10-16 46.79999923706055"
+  },
+  {
+   "Date": "Oct 19 2026",
+   "Close": "47.28",
+   "Adj Close": "47.28",
+   "Volume": "38819",
+   "searchIndex": "2026-10-19 47.28499984741211"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "FTPA",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 235,
+ "totalRows": 236,
  "headers": [
   "Date",
   "Close",
@@ -1654,6 +1654,13 @@
    "Adj Close": "8.19",
    "Volume": "19500",
    "searchIndex": "2026-10-16 8.1899995803833"
+  },
+  {
+   "Date": "Oct 19 2026",
+   "Close": "8.19",
+   "Adj Close": "8.19",
+   "Volume": "163600",
+   "searchIndex": "2026-10-19 8.1899995803833"
   }
  ]
 }

@@ -46,16 +46,16 @@
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$15.00 B",
-  "value": 15000000000,
+  "display": "$15.01 B",
+  "value": 15010000000,
   "asOfDate": "2026-09-30",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 0.93,
-  "dividendYieldText": "0.93%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 15 2026",
-  "dividendYieldAsOfDate": "2026-10-15",
+  "dividendYield": 0.94,
+  "dividendYieldText": "0.94%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 16 2026",
+  "dividendYieldAsOfDate": "2026-10-16",
   "secYield": 0.89,
   "secYieldText": "0.89%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
@@ -204,14 +204,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028247, report period 2026-05-29)"
  },
  "history": {
-  "totalRows": 1355,
+  "totalRows": 1356,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Oct 16 2026",
+  "asOf": "Oct 19 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/41786/SINGLCLASS/franklin-crypto-index-etf/EZPZ",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-16)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-19)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EZPZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -28,27 +28,27 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$20.20",
-  "value": 20.2,
-  "asOfDate": "2026-10-16"
+  "display": "$20.30",
+  "value": 20.3,
+  "asOfDate": "2026-10-19"
  },
  "marketPrice": {
-  "display": "$20.29",
-  "value": 20.29,
-  "asOfDate": "2026-10-16",
+  "display": "$20.31",
+  "value": 20.31,
+  "asOfDate": "2026-10-19",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.45%",
-  "value": 0.45,
-  "asOfDate": "2026-10-16",
+  "display": "0.05%",
+  "value": 0.05,
+  "asOfDate": "2026-10-19",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$16.16 M",
-  "value": 16160000,
-  "asOfDate": "2026-10-16",
+  "display": "$16.24 M",
+  "value": 16239999.999999998,
+  "asOfDate": "2026-10-19",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -113,18 +113,18 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-10-16",
-  "asOf": "Oct 16 2026",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-16)"
+  "asOfDate": "2026-10-19",
+  "asOf": "Oct 19 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-19)"
  },
  "history": {
-  "totalRows": 415,
+  "totalRows": 416,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 16 2026",
+  "asOf": "Oct 19 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

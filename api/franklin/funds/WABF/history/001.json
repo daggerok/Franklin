@@ -2,7 +2,7 @@
  "ticker": "WABF",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 771,
+ "totalRows": 772,
  "headers": [
   "Date",
   "Close",
@@ -5406,6 +5406,13 @@
    "Adj Close": "23.81",
    "Volume": "200",
    "searchIndex": "2026-10-16 23.81399917602539"
+  },
+  {
+   "Date": "Oct 19 2026",
+   "Close": "23.77",
+   "Adj Close": "23.77",
+   "Volume": "100",
+   "searchIndex": "2026-10-19 23.770000457763672"
   }
  ]
 }

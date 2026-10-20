@@ -2,7 +2,7 @@
  "ticker": "XIDV",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 436,
+ "totalRows": 437,
  "headers": [
   "Date",
   "Close",
@@ -3061,6 +3061,13 @@
    "Adj Close": "38.12",
    "Volume": "2000",
    "searchIndex": "2026-10-16 38.11800003051758"
+  },
+  {
+   "Date": "Oct 19 2026",
+   "Close": "37.79",
+   "Adj Close": "37.79",
+   "Volume": "2500",
+   "searchIndex": "2026-10-19 37.79499816894531"
   }
  ]
 }

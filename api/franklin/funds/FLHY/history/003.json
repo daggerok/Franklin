@@ -2,7 +2,7 @@
  "ticker": "FLHY",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2097,
+ "totalRows": 2098,
  "headers": [
   "Date",
   "Close",
@@ -688,6 +688,13 @@
    "Adj Close": "23.34",
    "Volume": "257300",
    "searchIndex": "2026-10-16 23.34000015258789"
+  },
+  {
+   "Date": "Oct 19 2026",
+   "Close": "23.31",
+   "Adj Close": "23.31",
+   "Volume": "248600",
+   "searchIndex": "2026-10-19 23.309999465942383"
   }
  ]
 }

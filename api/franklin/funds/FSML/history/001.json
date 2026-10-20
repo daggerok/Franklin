@@ -2,7 +2,7 @@
  "ticker": "FSML",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 212,
+ "totalRows": 213,
  "headers": [
   "Date",
   "Close",
@@ -1493,6 +1493,13 @@
    "Adj Close": "28.29",
    "Volume": "3200",
    "searchIndex": "2026-10-16 28.292999267578125"
+  },
+  {
+   "Date": "Oct 19 2026",
+   "Close": "28.45",
+   "Adj Close": "28.45",
+   "Volume": "1100",
+   "searchIndex": "2026-10-19 28.454999923706055"
   }
  ]
 }

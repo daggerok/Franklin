@@ -2,7 +2,7 @@
  "ticker": "FLSP",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1713,
+ "totalRows": 1714,
  "headers": [
   "Date",
   "Close",
@@ -5000,6 +5000,13 @@
    "Adj Close": "29.16",
    "Volume": "126600",
    "searchIndex": "2026-10-16 29.15999984741211"
+  },
+  {
+   "Date": "Oct 19 2026",
+   "Close": "29.10",
+   "Adj Close": "29.10",
+   "Volume": "128300",
+   "searchIndex": "2026-10-19 29.100000381469727"
   }
  ]
 }

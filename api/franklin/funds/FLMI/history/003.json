@@ -2,7 +2,7 @@
  "ticker": "FLMI",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2285,
+ "totalRows": 2286,
  "headers": [
   "Date",
   "Close",
@@ -2004,6 +2004,13 @@
    "Adj Close": "23.62",
    "Volume": "2549000",
    "searchIndex": "2026-10-16 23.6200008392334"
+  },
+  {
+   "Date": "Oct 19 2026",
+   "Close": "23.62",
+   "Adj Close": "23.62",
+   "Volume": "1602000",
+   "searchIndex": "2026-10-19 23.6200008392334"
   }
  ]
 }
