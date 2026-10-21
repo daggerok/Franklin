@@ -2,7 +2,7 @@
  "ticker": "FLCO",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2523,
+ "totalRows": 2524,
  "headers": [
   "Date",
   "Close",
@@ -3670,6 +3670,13 @@
    "Adj Close": "20.44",
    "Volume": "98700",
    "searchIndex": "2026-10-19 20.43899917602539"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "20.49",
+   "Adj Close": "20.49",
+   "Volume": "173800",
+   "searchIndex": "2026-10-20 20.485000610351562"
   }
  ]
 }

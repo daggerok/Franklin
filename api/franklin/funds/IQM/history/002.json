@@ -2,7 +2,7 @@
  "ticker": "IQM",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1670,
+ "totalRows": 1671,
  "headers": [
   "Date",
   "Close",
@@ -4699,6 +4699,13 @@
    "Adj Close": "98.46",
    "Volume": "1100",
    "searchIndex": "2026-10-19 98.45800018310547"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "97.56",
+   "Adj Close": "97.56",
+   "Volume": "1700",
+   "searchIndex": "2026-10-20 97.55999755859375"
   }
  ]
 }

@@ -22,40 +22,40 @@
   "benchmark": "Bloomberg Municipal Bond Index"
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35,
+  "display": "0.36%",
+  "value": 0.36,
   "gross": 0.36,
-  "net": 0.35
+  "net": 0.36
  },
  "nav": {
-  "display": "$8.33",
-  "value": 8.33,
-  "asOfDate": "2026-10-16"
- },
- "marketPrice": {
   "display": "$8.32",
   "value": 8.32,
-  "asOfDate": "2026-10-16",
+  "asOfDate": "2026-10-20"
+ },
+ "marketPrice": {
+  "display": "$8.33",
+  "value": 8.33,
+  "asOfDate": "2026-10-20",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "-0.12%",
-  "value": -0.12,
-  "asOfDate": "2026-10-16",
+  "display": "0.12%",
+  "value": 0.12,
+  "asOfDate": "2026-10-20",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$270.01 M",
-  "value": 270010000,
-  "asOfDate": "2026-10-18",
+  "display": "$271.47 M",
+  "value": 271470000,
+  "asOfDate": "2026-09-30",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 3.76,
-  "dividendYieldText": "3.76%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 16 2026",
-  "dividendYieldAsOfDate": "2026-10-16",
+  "dividendYield": 3.77,
+  "dividendYieldText": "3.77%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 20 2026",
+  "dividendYieldAsOfDate": "2026-10-20",
   "secYield": 3.9,
   "secYieldText": "3.90%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
@@ -174,13 +174,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028334, report period 2026-05-31)"
  },
  "history": {
-  "totalRows": 236,
+  "totalRows": 237,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 19 2026",
+  "asOf": "Oct 20 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -2,7 +2,7 @@
  "ticker": "PBDC",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1016,
+ "totalRows": 1017,
  "headers": [
   "Date",
   "Close",
@@ -121,6 +121,13 @@
    "Adj Close": "24.75",
    "Volume": "134900",
    "searchIndex": "2026-10-19 24.75"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "24.82",
+   "Adj Close": "24.82",
+   "Volume": "163100",
+   "searchIndex": "2026-10-20 24.81999969482422"
   }
  ]
 }

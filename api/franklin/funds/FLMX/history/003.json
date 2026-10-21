@@ -2,7 +2,7 @@
  "ticker": "FLMX",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2249,
+ "totalRows": 2250,
  "headers": [
   "Date",
   "Close",
@@ -1752,6 +1752,13 @@
    "Adj Close": "36.58",
    "Volume": "22700",
    "searchIndex": "2026-10-19 36.57699966430664"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "36.67",
+   "Adj Close": "36.67",
+   "Volume": "11600",
+   "searchIndex": "2026-10-20 36.66699981689453"
   }
  ]
 }

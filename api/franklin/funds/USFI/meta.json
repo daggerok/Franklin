@@ -28,9 +28,9 @@
   "net": 0.39
  },
  "nav": {
-  "display": "$23.73",
-  "value": 23.73,
-  "asOfDate": "2026-10-19"
+  "display": "$23.76",
+  "value": 23.76,
+  "asOfDate": "2026-10-20"
  },
  "marketPrice": {
   "display": "$23.78",
@@ -39,23 +39,23 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.21%",
-  "value": 0.21,
-  "asOfDate": "2026-10-19",
+  "display": "0.17%",
+  "value": 0.17,
+  "asOfDate": "2026-10-20",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "official product page closing Market Price"
+  "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$9.49 M",
-  "value": 9490000,
-  "asOfDate": "2026-09-30",
+  "display": "$9.50 M",
+  "value": 9500000,
+  "asOfDate": "2026-10-20",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 0.36,
   "dividendYieldText": "0.36%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 16 2026",
-  "dividendYieldAsOfDate": "2026-10-16",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 20 2026",
+  "dividendYieldAsOfDate": "2026-10-20",
   "secYield": 4.41,
   "secYieldText": "4.41%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-09-30",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "ytd": -0.85,
-   "ytdText": "-0.85%",
+   "ytd": -0.39,
+   "ytdText": "-0.39%",
    "yr1": -0.43,
    "yr1Text": "-0.43%",
    "yr3": 4.89,
@@ -314,13 +314,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035159, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 811,
+  "totalRows": 812,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 19 2026",
+  "asOf": "Oct 20 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

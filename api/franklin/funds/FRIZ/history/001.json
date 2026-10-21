@@ -2,7 +2,7 @@
  "ticker": "FRIZ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 285,
+ "totalRows": 286,
  "headers": [
   "Date",
   "Close",
@@ -2004,6 +2004,13 @@
    "Adj Close": "27.12",
    "Volume": "100",
    "searchIndex": "2026-10-19 27.124000549316406"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "27.28",
+   "Adj Close": "27.28",
+   "Volume": "100",
+   "searchIndex": "2026-10-20 27.2810001373291"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "TINS",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 248,
+ "totalRows": 249,
  "headers": [
   "Date",
   "Close",
@@ -1745,6 +1745,13 @@
    "Adj Close": "27.71",
    "Volume": "100",
    "searchIndex": "2026-10-19 27.71299934387207"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "27.94",
+   "Adj Close": "27.94",
+   "Volume": "100",
+   "searchIndex": "2026-10-20 27.94499969482422"
   }
  ]
 }

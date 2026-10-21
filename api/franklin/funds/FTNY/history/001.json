@@ -2,7 +2,7 @@
  "ticker": "FTNY",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 246,
+ "totalRows": 247,
  "headers": [
   "Date",
   "Close",
@@ -1731,6 +1731,13 @@
    "Adj Close": "7.43",
    "Volume": "393200",
    "searchIndex": "2026-10-19 7.429999828338623"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "7.41",
+   "Adj Close": "7.41",
+   "Volume": "510200",
+   "searchIndex": "2026-10-20 7.409999847412109"
   }
  ]
 }

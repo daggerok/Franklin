@@ -2,7 +2,7 @@
  "ticker": "FLGB",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2249,
+ "totalRows": 2250,
  "headers": [
   "Date",
   "Close",
@@ -1752,6 +1752,13 @@
    "Adj Close": "36.48",
    "Volume": "31400",
    "searchIndex": "2026-10-19 36.47999954223633"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "36.73",
+   "Adj Close": "36.73",
+   "Volume": "19700",
+   "searchIndex": "2026-10-20 36.72999954223633"
   }
  ]
 }

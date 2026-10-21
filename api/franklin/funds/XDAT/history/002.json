@@ -2,7 +2,7 @@
  "ticker": "XDAT",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1447,
+ "totalRows": 1448,
  "headers": [
   "Date",
   "Close",
@@ -3138,6 +3138,13 @@
    "Adj Close": "26.36",
    "Volume": "100",
    "searchIndex": "2026-10-19 26.36199951171875"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "26.37",
+   "Adj Close": "26.37",
+   "Volume": "2400",
+   "searchIndex": "2026-10-20 26.367000579833984"
   }
  ]
 }

@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47315/SINGLCLASS/franklin-solana-etf/SOEZ",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-19)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-20)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SOEZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -28,33 +28,33 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$17.94",
-  "value": 17.94,
-  "asOfDate": "2026-10-19"
+  "display": "$18.26",
+  "value": 18.26,
+  "asOfDate": "2026-10-20"
  },
  "marketPrice": {
-  "display": "$17.90",
-  "value": 17.9,
-  "asOfDate": "2026-10-19",
+  "display": "$18.30",
+  "value": 18.3,
+  "asOfDate": "2026-10-20",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "-0.22%",
-  "value": -0.22,
-  "asOfDate": "2026-10-19",
+  "display": "0.22%",
+  "value": 0.22,
+  "asOfDate": "2026-10-20",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$15.25 M",
-  "value": 15250000,
+  "display": "$15.52 M",
+  "value": 15520000,
   "asOfDate": "2026-10-18",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 4.56,
-  "dividendYieldText": "4.56%",
-  "dividendYieldKind": "indicated: latest distribution 0.0680 x 12/year / market price 17.90",
+  "dividendYield": 4.46,
+  "dividendYieldText": "4.46%",
+  "dividendYieldKind": "indicated: latest distribution 0.0680 x 12/year / market price 18.30",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -149,18 +149,18 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-10-19",
-  "asOf": "Oct 19 2026",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-19)"
+  "asOfDate": "2026-10-20",
+  "asOf": "Oct 20 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-20)"
  },
  "history": {
-  "totalRows": 220,
+  "totalRows": 221,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 19 2026",
+  "asOf": "Oct 20 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -2,7 +2,7 @@
  "ticker": "SQLV",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2330,
+ "totalRows": 2331,
  "headers": [
   "Date",
   "Close",
@@ -2319,6 +2319,13 @@
    "Adj Close": "51.99",
    "Volume": "1700",
    "searchIndex": "2026-10-19 51.987998962402344"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "52.75",
+   "Adj Close": "52.75",
+   "Volume": "2100",
+   "searchIndex": "2026-10-20 52.750999450683594"
   }
  ]
 }

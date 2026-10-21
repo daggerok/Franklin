@@ -2,7 +2,7 @@
  "ticker": "YLDE",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2362,
+ "totalRows": 2363,
  "headers": [
   "Date",
   "Close",
@@ -2543,6 +2543,13 @@
    "Adj Close": "56.60",
    "Volume": "31600",
    "searchIndex": "2026-10-19 56.59600067138672"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "57.00",
+   "Adj Close": "57.00",
+   "Volume": "7100",
+   "searchIndex": "2026-10-20 57"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "YCLO",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 95,
+ "totalRows": 96,
  "headers": [
   "Date",
   "Close",
@@ -672,8 +672,15 @@
    "Date": "Oct 19 2026",
    "Close": "25.10",
    "Adj Close": "25.10",
-   "Volume": "6704",
-   "searchIndex": "2026-10-19 25.101600646972656"
+   "Volume": "6700",
+   "searchIndex": "2026-10-19 25.100000381469727"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "25.10",
+   "Adj Close": "25.10",
+   "Volume": "9900",
+   "searchIndex": "2026-10-20 25.100000381469727"
   }
  ]
 }

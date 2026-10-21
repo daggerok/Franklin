@@ -2,7 +2,7 @@
  "ticker": "FLGV",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1597,
+ "totalRows": 1598,
  "headers": [
   "Date",
   "Close",
@@ -4188,6 +4188,13 @@
    "Adj Close": "19.58",
    "Volume": "107400",
    "searchIndex": "2026-10-19 19.575000762939453"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "19.60",
+   "Adj Close": "19.60",
+   "Volume": "121300",
+   "searchIndex": "2026-10-20 19.604999542236328"
   }
  ]
 }

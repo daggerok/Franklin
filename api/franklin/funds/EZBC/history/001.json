@@ -2,7 +2,7 @@
  "ticker": "EZBC",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 695,
+ "totalRows": 696,
  "headers": [
   "Date",
   "Close",
@@ -4874,6 +4874,13 @@
    "Adj Close": "47.26",
    "Volume": "28300",
    "searchIndex": "2026-10-19 47.2599983215332"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "47.63",
+   "Adj Close": "47.63",
+   "Volume": "102100",
+   "searchIndex": "2026-10-20 47.630001068115234"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "FTOH",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 236,
+ "totalRows": 237,
  "headers": [
   "Date",
   "Close",
@@ -1659,8 +1659,15 @@
    "Date": "Oct 19 2026",
    "Close": "7.99",
    "Adj Close": "7.99",
-   "Volume": "36664",
+   "Volume": "36700",
    "searchIndex": "2026-10-19 7.994999885559082"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "7.98",
+   "Adj Close": "7.98",
+   "Volume": "78400",
+   "searchIndex": "2026-10-20 7.980000019073486"
   }
  ]
 }

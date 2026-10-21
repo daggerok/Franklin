@@ -2,7 +2,7 @@
  "ticker": "USPX",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2609,
+ "totalRows": 2610,
  "headers": [
   "Date",
   "Close",
@@ -4272,6 +4272,13 @@
    "Adj Close": "67.04",
    "Volume": "26700",
    "searchIndex": "2026-10-19 67.04000091552734"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "67.16",
+   "Adj Close": "67.16",
+   "Volume": "34600",
+   "searchIndex": "2026-10-20 67.16000366210938"
   }
  ]
 }

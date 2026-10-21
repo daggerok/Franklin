@@ -2,7 +2,7 @@
  "ticker": "FTNJ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 236,
+ "totalRows": 237,
  "headers": [
   "Date",
   "Close",
@@ -1661,6 +1661,13 @@
    "Adj Close": "8.37",
    "Volume": "188200",
    "searchIndex": "2026-10-19 8.369999885559082"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "8.37",
+   "Adj Close": "8.37",
+   "Volume": "76200",
+   "searchIndex": "2026-10-20 8.369999885559082"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "INCE",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2532,
+ "totalRows": 2533,
  "headers": [
   "Date",
   "Close",
@@ -3733,6 +3733,13 @@
    "Adj Close": "67.43",
    "Volume": "12200",
    "searchIndex": "2026-10-19 67.43000030517578"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "67.89",
+   "Adj Close": "67.89",
+   "Volume": "9400",
+   "searchIndex": "2026-10-20 67.88999938964844"
   }
  ]
 }
