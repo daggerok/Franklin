@@ -398,19 +398,19 @@ SEC 30-Day Yield 2.09%
     expect([b[0].name, b[0].pctVal, Number(b[0].valUSD), Number(b[0].balance)]).toEqual(['HDFC BANK LTD', '5.29', 137140000, 5200000]);
     expect(parseFranklinHoldings('no table here')).toEqual([]);
     // the crypto and gold pages put zero-width characters inside every number (EZPZ, FGDL on 2026-10-23)
-    const zw = (s: string) => s.replace(/\./g, '.​').replace(/,/g, ',⁠');
+    const zw = (s: string) => s.replace(/\./g, '.\u200b').replace(/,/g, ',\u2060');
     const ezpz = parseFranklinHoldings([
       'Title: Franklin Crypto Index ETF - EZPZ', 'Markdown Content:',
       '| Security Name | Weight (%) | Market Value ($) | Notional Exposure | Quantity |', '| --- | --- | --- | --- | --- |',
-      `| BITCOIN | ${zw('78.16')} | ${zw('13,407,461.27')} | 0.​00 | ${zw('165.06')} |`,
-      `| GOLD OZ.​ | ﻿${zw('21.84%')} | $${zw('3,746,282.10')} | 0.​00 | ${zw('1,234.5')}‍ |`,
+      `| BITCOIN | ${zw('78.16')} | ${zw('13,407,461.27')} | 0.\u200b00 | ${zw('165.06')} |`,
+      `| GOLD OZ.\u200b | \ufeff${zw('21.84%')} | $${zw('3,746,282.10')} | 0.\u200b00 | ${zw('1,234.5')}\u200d |`,
     ].join('\n'));
     expect(ezpz.map((h) => [h.name, numberOrNull(h.pctVal), numberOrNull(h.valUSD), numberOrNull(h.balance)])).toEqual([
       ['BITCOIN', 78.16, 13407461.27, 165.06],
       ['GOLD OZ.', 21.84, 3746282.1, 1234.5],
     ]);
-    expect(numberOrNull('13,​407.‍5﻿')).toBe(13407.5);
-    expect(parseProductPage(pageMd({ nav: '21.​99' }), 'FLCH').nav).toBe(21.99); // read from the raw line, not a cleaned cell
+    expect(numberOrNull('13,\u200b407.\u200d5\ufeff')).toBe(13407.5);
+    expect(parseProductPage(pageMd({ nav: '21.\u200b99' }), 'FLCH').nav).toBe(21.99); // read from the raw line, not a cleaned cell
   });
 
   test('holdings guard: header-only, renamed weight column, broken weights, a bad weight sum and a halved sheet are rejected', () => {
