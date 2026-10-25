@@ -18,6 +18,7 @@ import {
   RETURNS_BASIS,
   annualizedToTotal,
   buildMetrics,
+  checkNportFiling,
   dividendYieldBasisFromKind,
   DIVIDEND_YIELD_BASES,
   OFFICIAL_12M_YIELD_KIND,
@@ -62,6 +63,7 @@ import {
   resolveCategory,
   resolveControls,
   resolveFundName,
+  resetSecCachesForTest,
   resolvePerformanceAsOf,
   runtimeControls,
   setApiRootForTest,
@@ -450,6 +452,9 @@ SEC 30-Day Yield 2.09%
     const nport = parseNport('<edgarSubmission><genInfo><regName>Franklin Templeton ETF Trust</regName><regCik>0001655589</regCik><seriesName>Franklin FTSE India ETF</seriesName><seriesId>S000053151</seriesId><repPdDate>2026-06-30</repPdDate></genInfo><fundInfo><netAssets>2600000000</netAssets></fundInfo><invstOrSecs><invstOrSec><name>Reliance Industries Ltd</name><cusip>123456789</cusip><ticker>RELIANCE</ticker><balance>100000</balance><valUSD>1000000</valUSD><pctVal>5.48</pctVal><assetCat>EC</assetCat></invstOrSec></invstOrSecs></edgarSubmission>');
     expect(nport.seriesId).toBe('S000053151');
     expect(nport.holdings.map((h) => h.name)).toEqual(['Reliance Industries Ltd']);
+    expect(checkNportFiling(nport.seriesId, 's000053151')).toEqual({ ok: true });
+    expect(checkNportFiling('S000068596', 'S000053151').reason).toContain('filing series S000068596 is not S000053151');
+    expect(checkNportFiling('', 'S000053151').ok).toBe(false);
   });
 
   test('scalars: numbers, dates and proxy preamble; missing values are null, never 0', () => {
@@ -945,6 +950,41 @@ describe('pipeline', () => {
     await run(live);
     expect(process.exitCode).toBe(0);
     expect(JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'meta.json'), 'utf8')).nav.value).toBe(22.5);
+  }), 60000);
+
+  test('N-PORT fallback: searched by the series ID, a filing of another series in the same trust is never used', inTempRoot(async () => {
+    // FLCH is series S000059502 of Franklin Templeton ETF Trust (CIK 0001655589); S000068596 is the trust's Treasury bond ETF
+    const filing = (series: string, name: string) => `<edgarSubmission><genInfo><regCik>0001655589</regCik><seriesId>${series}</seriesId><repPdDate>2026-06-30</repPdDate></genInfo><invstOrSecs><invstOrSec><name>${name}</name><cusip>123456789</cusip><balance>10</balance><valUSD>600</valUSD><pctVal>60</pctVal></invstOrSec><invstOrSec><name>${name} 2</name><cusip>223456789</cusip><balance>5</balance><valUSD>400</valUSD><pctVal>40</pctVal></invstOrSec></invstOrSecs></edgarSubmission>`;
+    const atom = (accession: string) => `<feed><entry><content><accession-number>${accession}</accession-number><filing-date>2026-08-27</filing-date><filing-type>NPORT-P</filing-type><period>2026-06-30</period></content></entry></feed>`;
+    const own = '0000940400-26-099001';
+    const other = '0000940400-26-099002';
+    const filings: Record<string, string> = { [own]: filing('S000059502', 'NESTLE SA'), [other]: filing('S000068596', 'US TREASURY NOTE') };
+    let listed: Record<string, string> = { 'CIK=S000059502': own, 'CIK=0001655589': other }; // the trust lists another series first
+    (globalThis as any).fetch = async (input: unknown) => {
+      const url = String(input);
+      if (url.startsWith('https://r.jina.ai/')) throw new Error('offline');
+      if (url.endsWith('company_tickers_mf.json')) return new Response(JSON.stringify({ fields: ['cik', 'seriesId', 'classId', 'symbol'], data: [[1655589, 'S000059502', 'C000194936', 'FLCH']] }));
+      if (url.endsWith('company_tickers.json')) return new Response('{}');
+      if (url.includes('browse-edgar')) {
+        const key = Object.keys(listed).find((k) => url.includes(k));
+        return new Response(key ? atom(listed[key]) : '<feed/>');
+      }
+      const accession = Object.keys(filings).find((a) => url.endsWith(`/${a}.txt`));
+      return accession ? new Response(filings[accession]) : new Response('not found', { status: 404 }); // the known accession of FLCH is gone
+    };
+    const sourceOf = () => JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'meta.json'), 'utf8')).holdings.source;
+    resetSecCachesForTest();
+    try {
+      await run({ EDGAR_FALLBACK: 'true', TICKERS: 'FLCH', CONCURRENCY: '1' });
+      expect(sourceOf()).toContain(own);
+      const published = snapshot(feed());
+      // now even the series search hands back another series' filing: it is ignored and the published holdings stay
+      listed = { 'CIK=S000059502': other, 'CIK=0001655589': other };
+      await run({ EDGAR_FALLBACK: 'true', TICKERS: 'FLCH', CONCURRENCY: '1' });
+      expect(snapshot(feed())).toEqual(published);
+    } finally {
+      resetSecCachesForTest();
+    }
   }), 60000);
 
   test('a new fund whose every source failed has no meta.json and dataFile null', inTempRoot(async () => {
