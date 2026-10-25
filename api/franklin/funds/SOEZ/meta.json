@@ -48,13 +48,13 @@
  "aum": {
   "display": "$15.22 M",
   "value": 15220000,
-  "asOfDate": "2026-10-18",
+  "asOfDate": "2026-10-25",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 4.5,
-  "dividendYieldText": "4.50%",
-  "dividendYieldKind": "indicated: latest distribution 0.0670 x 12/year / market price 17.86",
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-09-30",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "ytd": -13.39,
-   "ytdText": "-13.39%",
+   "ytd": -12.82,
+   "ytdText": "-12.82%",
    "yr1": null,
    "yr1Text": "—",
    "yr3": null,
@@ -95,9 +95,9 @@
   }
  },
  "distributions": {
-  "frequency": "Monthly",
-  "frequencyCode": "01 - Monthly",
-  "paymentsPerYear": 12,
+  "frequency": "Irregular",
+  "frequencyCode": "99 - Irregular",
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
