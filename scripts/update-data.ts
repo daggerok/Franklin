@@ -749,8 +749,13 @@ export function decodeEntities(value: string): string {
     .replace(/&#x([0-9a-f]+);/gi, (_m, code) => String.fromCodePoint(parseInt(code, 16)));
 }
 
+// Zero-width space, non-joiner, joiner, word joiner and BOM: the product page puts them inside numbers
+// ("78.\u200b16", "13,\u200b407,\u200b461.\u200b27"), which made every weight of the crypto and gold funds unparseable.
+const ZERO_WIDTH = /[\u200b-\u200d\u2060\ufeff]/g;
+
 function cleanText(value: unknown): string {
   return decodeEntities(String(value ?? ''))
+    .replace(ZERO_WIDTH, '')
     .replace(/\u00a0/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
@@ -919,8 +924,9 @@ function hasConfiguredFilters(config: UpdaterConfig): boolean {
   return Boolean(config.aum || config.ter || config.dividendYield || config.secYield || config.tickers || Object.keys(config.performance).length || Object.keys(config.totalReturn).length || config.category);
 }
 
+/** The entry of every page parser (catalog, product page, holdings): the regexes that read raw lines see no zero-width characters either. */
 export function stripProxyPreamble(text: string): string {
-  const s = String(text ?? '').trim();
+  const s = String(text ?? '').replace(ZERO_WIDTH, '').trim();
   const marker = 'Markdown Content:';
   const idx = s.indexOf(marker);
   if (idx !== -1 && idx < 500) {
