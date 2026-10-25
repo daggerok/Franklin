@@ -2,7 +2,7 @@
  "ticker": "FGDL",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1081,
+ "totalRows": 1084,
  "headers": [
   "Date",
   "Close",
@@ -576,6 +576,27 @@
    "Adj Close": "54.87",
    "Volume": "9000",
    "searchIndex": "2026-10-20 54.8650016784668"
+  },
+  {
+   "Date": "Oct 21 2026",
+   "Close": "55.03",
+   "Adj Close": "55.03",
+   "Volume": "13600",
+   "searchIndex": "2026-10-21 55.03099822998047"
+  },
+  {
+   "Date": "Oct 22 2026",
+   "Close": "53.61",
+   "Adj Close": "53.61",
+   "Volume": "21700",
+   "searchIndex": "2026-10-22 53.61000061035156"
+  },
+  {
+   "Date": "Oct 23 2026",
+   "Close": "53.16",
+   "Adj Close": "53.16",
+   "Volume": "65300",
+   "searchIndex": "2026-10-23 53.15999984741211"
   }
  ]
 }

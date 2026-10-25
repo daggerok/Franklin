@@ -2,7 +2,7 @@
  "ticker": "FTNY",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 247,
+ "totalRows": 250,
  "headers": [
   "Date",
   "Close",
@@ -1738,6 +1738,27 @@
    "Adj Close": "7.41",
    "Volume": "510200",
    "searchIndex": "2026-10-20 7.409999847412109"
+  },
+  {
+   "Date": "Oct 21 2026",
+   "Close": "7.44",
+   "Adj Close": "7.44",
+   "Volume": "327300",
+   "searchIndex": "2026-10-21 7.440000057220459"
+  },
+  {
+   "Date": "Oct 22 2026",
+   "Close": "7.51",
+   "Adj Close": "7.51",
+   "Volume": "308900",
+   "searchIndex": "2026-10-22 7.510000228881836"
+  },
+  {
+   "Date": "Oct 23 2026",
+   "Close": "7.53",
+   "Adj Close": "7.53",
+   "Volume": "358800",
+   "searchIndex": "2026-10-23 7.53000020980835"
   }
  ]
 }

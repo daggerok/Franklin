@@ -2,7 +2,7 @@
  "ticker": "MULT",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 288,
+ "totalRows": 291,
  "headers": [
   "Date",
   "Close",
@@ -2025,6 +2025,27 @@
    "Adj Close": "24.42",
    "Volume": "100",
    "searchIndex": "2026-10-20 24.420000076293945"
+  },
+  {
+   "Date": "Oct 21 2026",
+   "Close": "24.43",
+   "Adj Close": "24.43",
+   "Volume": "100",
+   "searchIndex": "2026-10-21 24.434999465942383"
+  },
+  {
+   "Date": "Oct 22 2026",
+   "Close": "24.50",
+   "Adj Close": "24.50",
+   "Volume": "100",
+   "searchIndex": "2026-10-22 24.5049991607666"
+  },
+  {
+   "Date": "Oct 23 2026",
+   "Close": "24.50",
+   "Adj Close": "24.50",
+   "Volume": "100",
+   "searchIndex": "2026-10-23 24.4950008392334"
   }
  ]
 }

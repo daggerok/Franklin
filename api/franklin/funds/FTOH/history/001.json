@@ -2,7 +2,7 @@
  "ticker": "FTOH",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 237,
+ "totalRows": 240,
  "headers": [
   "Date",
   "Close",
@@ -1668,6 +1668,27 @@
    "Adj Close": "7.98",
    "Volume": "78400",
    "searchIndex": "2026-10-20 7.980000019073486"
+  },
+  {
+   "Date": "Oct 21 2026",
+   "Close": "7.98",
+   "Adj Close": "7.98",
+   "Volume": "76300",
+   "searchIndex": "2026-10-21 7.980999946594238"
+  },
+  {
+   "Date": "Oct 22 2026",
+   "Close": "8.07",
+   "Adj Close": "8.07",
+   "Volume": "38600",
+   "searchIndex": "2026-10-22 8.069999694824219"
+  },
+  {
+   "Date": "Oct 23 2026",
+   "Close": "8.07",
+   "Adj Close": "8.07",
+   "Volume": "141200",
+   "searchIndex": "2026-10-23 8.069999694824219"
   }
  ]
 }

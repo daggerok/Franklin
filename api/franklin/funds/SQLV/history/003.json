@@ -2,7 +2,7 @@
  "ticker": "SQLV",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2331,
+ "totalRows": 2334,
  "headers": [
   "Date",
   "Close",
@@ -2326,6 +2326,27 @@
    "Adj Close": "52.75",
    "Volume": "2100",
    "searchIndex": "2026-10-20 52.750999450683594"
+  },
+  {
+   "Date": "Oct 21 2026",
+   "Close": "52.69",
+   "Adj Close": "52.69",
+   "Volume": "2600",
+   "searchIndex": "2026-10-21 52.685001373291016"
+  },
+  {
+   "Date": "Oct 22 2026",
+   "Close": "53.70",
+   "Adj Close": "53.70",
+   "Volume": "3500",
+   "searchIndex": "2026-10-22 53.70199966430664"
+  },
+  {
+   "Date": "Oct 23 2026",
+   "Close": "53.40",
+   "Adj Close": "53.40",
+   "Volume": "2300",
+   "searchIndex": "2026-10-23 53.395999908447266"
   }
  ]
 }
