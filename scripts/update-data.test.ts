@@ -27,6 +27,7 @@ import {
   fetchText,
   frequencyCodeLabel,
   fundNameFromPageSlug,
+  holdingsGuard,
   inferDistributionFrequency,
   installSystemCa,
   isCertError,
@@ -127,7 +128,7 @@ const pageMd = (o: { portfolio?: boolean; pricing?: boolean; marketPrice?: boole
     '## Portfolio',
     ...(portfolio ? ['### Assets', 'As of 10/02/2026  (Updated Daily)', 'Total Net Assets $53.87 Million', '### Holdings', 'As of 10/02/2026 (Updated Daily)',
       '| Security Name | Weight (%) | Market Value ($) | Notional Exposure | Quantity |', '| --- | --- | --- | --- | --- |',
-      '| NESTLE SA | 20.00 | 10,000 | 0.00 | 100 |', '| NOVARTIS AG | 10.00 | 5,000 | 0.00 | 50 |'] : []),
+      '| NESTLE SA | 60.00 | 10,000 | 0.00 | 100 |', '| NOVARTIS AG | 40.00 | 5,000 | 0.00 | 50 |'] : []),
     '## Distributions & Tax', '## Pricing',
     ...(pricing ? ['### Share Prices', 'As of 10/02/2026', `NAV${note}(Net Asset Value)$${nav}`, `NAV Change${note}$-0.02`, ...(marketPrice ? [`Market Price${note}$21.90`] : []), `Market Price Change${note}$-0.04`] : []),
     '## Documents', '## Important Information', 'The fund prospectus is current as of December 1, 2025.',
@@ -408,6 +409,21 @@ SEC 30-Day Yield 2.09%
     ]);
     expect(numberOrNull('13,​407.‍5﻿')).toBe(13407.5);
     expect(parseProductPage(pageMd({ nav: '21.​99' }), 'FLCH').nav).toBe(21.99); // read from the raw line, not a cleaned cell
+  });
+
+  test('holdings guard: header-only, renamed weight column, broken weights, a bad weight sum and a halved sheet are rejected', () => {
+    const headers = ['Name', 'Ticker', 'Weight'];
+    const rows = [{ Name: 'A', Ticker: 'A', Weight: '60%' }, { Name: 'B', Ticker: 'B', Weight: '40%' }];
+    expect(holdingsGuard(headers, rows, 2)).toBeNull();
+    expect(holdingsGuard(headers, [['A', 'A', '60'], ['B', 'B', '40']], null)).toBeNull();
+    expect(holdingsGuard([], [], 0)).toBeNull(); // nothing published before: an empty sheet is honest
+    expect(holdingsGuard(headers, [], 505)).toContain('no holdings rows');
+    expect(holdingsGuard(['Name', 'Ticker', 'Wt'], rows, 2)).toContain('no weight column');
+    expect(holdingsGuard(headers, rows.map((row) => ({ ...row, Weight: '6\u200B0' })), 2)).toContain('numeric weight');
+    const allocation = [{ Name: 'Cash&Collateral', Ticker: '-', Weight: '100' }, { Name: 'Equities', Ticker: '-', Weight: '476' }];
+    expect(holdingsGuard(headers, allocation, 2)).toContain('outside 50..150');
+    expect(holdingsGuard(headers, allocation, 2, ['sum'])).toBeNull();
+    expect(holdingsGuard(headers, rows, 5)).toContain('less than half');
   });
 
   test('Yahoo chart and SEC payloads', () => {
@@ -902,6 +918,34 @@ describe('pipeline', () => {
     expect(snapshot(join(feed(), 'funds'))).toEqual(before);
     expect(process.exitCode).toBe(1);
   }), 120000);
+
+  test('fresh holdings that fail the guard keep the fund exactly as published and report it failed', inTempRoot(async () => {
+    let page = pageMd();
+    (globalThis as any).fetch = async (input: unknown) => {
+      const url = String(input);
+      if (url.includes('franklintempleton.com/investments')) return new Response(page);
+      if (url.includes('sitemap')) return new Response('<urlset/>');
+      throw new Error('offline');
+    };
+    const live = { SKIP_FRANKLIN: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' };
+    await run(live);
+    expect(process.exitCode).toBe(0);
+    const published = snapshot(feed());
+    expect(JSON.parse(published['/funds/FLCH/meta.json']).holdings.totalRows).toBe(2);
+    // a newer NAV next to a holdings table whose weights are dashes: nothing of the fund is written
+    page = pageMd({ nav: '22.50' }).replace('| 60.00 |', '| — |').replace('| 40.00 |', '| — |');
+    const logged: string[] = [];
+    console.log = (...args: unknown[]) => { logged.push(args.join(' ')); };
+    await run(live);
+    expect(snapshot(feed())).toEqual(published);
+    expect(process.exitCode).toBe(1);
+    expect(logged.some((line) => line.includes('holdings guard: only 0 of 2 rows have a numeric weight'))).toBe(true);
+    // the same page with sound weights is written
+    page = pageMd({ nav: '22.50' });
+    await run(live);
+    expect(process.exitCode).toBe(0);
+    expect(JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'meta.json'), 'utf8')).nav.value).toBe(22.5);
+  }), 60000);
 
   test('a new fund whose every source failed has no meta.json and dataFile null', inTempRoot(async () => {
     offlineFetch();
