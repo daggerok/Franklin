@@ -720,6 +720,10 @@ let fundTickerMap: Map<string, SecSeriesRef> | null = null;
 let fundTickerMapPromise: Promise<Map<string, SecSeriesRef>> | null = null;
 let companyTickerMap: Map<string, string> | null = null;
 let companyTickerMapPromise: Promise<Map<string, string>> | null = null;
+/** Test-only: forget the SEC ticker tables cached for the run, so a test starts from its own mocked tables. */
+export function resetSecCachesForTest(): void {
+  fundTickerMap = null; fundTickerMapPromise = null; companyTickerMap = null; companyTickerMapPromise = null;
+}
 
 // Retry backoff and request pacing read this clock, so tests can run them on a fake one instead of waiting.
 type Clock = { now: () => number; sleep: (ms: number) => Promise<void> };
@@ -2911,6 +2915,17 @@ async function fetchTextWithProxyFallback(url: string, label: string, config: Up
   throw lastErr instanceof Error ? lastErr : new Error(String(lastErr));
 }
 
+/**
+ * May this N-PORT filing be used for the fund? Identity: the filing must name the fund's own series. A trust files
+ * one N-PORT-P per series, so any filing that is not provably this fund's (another series, or none named) is ignored.
+ */
+export function checkNportFiling(filingSeriesId: unknown, expectedSeriesId: string): { ok: boolean; reason?: string } {
+  const series = String(filingSeriesId ?? '').trim().toUpperCase();
+  if (!series) return { ok: false, reason: 'filing names no series; cannot verify it is this fund, ignoring it' };
+  if (series !== expectedSeriesId.trim().toUpperCase()) return { ok: false, reason: `filing series ${series} is not ${expectedSeriesId}; ignoring it` };
+  return { ok: true };
+}
+
 async function fetchNportForFund(fund: CatalogFund, config: UpdaterConfig): Promise<{ parsed: ParsedNport; accession: NportAccession; ref: SecSeriesRef } | null> {
   const ticker = fund.ticker.toUpperCase();
   const map = await fetchFundTickerMap(config);
@@ -2927,7 +2942,9 @@ async function fetchNportForFund(fund: CatalogFund, config: UpdaterConfig): Prom
       const url = `${SEC_ARCHIVES}/${cikDigits}/${accDigits}/${acc}.txt`;
       const filingText = await fetchTextWithProxyFallback(url, `[edgar   ] ${fund.ticker} accession`, config, secHeaders());
       const parsed = parseNport(filingText);
-      if (parsed.holdings.length) {
+      const verdict = checkNportFiling(parsed.seriesId, ref.seriesId);
+      if (!verdict.ok) outputNote(`[ ${'nport'.padEnd(9)}] ${ticker}: accession ${acc}: ${verdict.reason}`);
+      if (verdict.ok && parsed.holdings.length) {
         const accession: NportAccession = { accession: acc, filed: '', reportDate: known.reportDate || parsed.repPdDate || '', url };
         return { parsed, accession, ref };
       }
@@ -2935,12 +2952,18 @@ async function fetchNportForFund(fund: CatalogFund, config: UpdaterConfig): Prom
   }
 
   try {
-    const params = new URLSearchParams({ action: 'getcompany', CIK: ref.cik, type: 'NPORT-P', owner: 'include', count: '10', output: 'atom' });
+    // Search by the fund's series ID: the trust CIK lists the filings of every series of the trust, newest first.
+    const params = new URLSearchParams({ action: 'getcompany', CIK: ref.seriesId, type: 'NPORT-P', owner: 'include', count: '10', output: 'atom' });
     const atom = await fetchTextWithProxyFallback(`${SEC_BROWSE_URL}?${params.toString()}`, `[edgar   ] ${fund.ticker} filings`, config, secHeaders());
     const [accession] = parseEdgarAtomFilings(atom);
     if (!accession) return null;
     const filingText = await fetchTextWithProxyFallback(accession.url, `[edgar   ] ${fund.ticker} accession`, config, secHeaders());
     const parsed = parseNport(filingText);
+    const verdict = checkNportFiling(parsed.seriesId, ref.seriesId);
+    if (!verdict.ok) {
+      outputNote(`[ ${'nport'.padEnd(9)}] ${ticker}: accession ${accession.accession}: ${verdict.reason}`);
+      return null;
+    }
     return { parsed, accession, ref };
   } catch {
     return null;
