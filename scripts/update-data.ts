@@ -159,87 +159,89 @@ function outputCounts(funds: number, holdings: number, history: number): string 
 }
 
 
-const FRANKLIN_SERIES_MAP: Record<string, { cik: string; seriesId: string; classId: string; acc?: string; reportDate?: string }> = {
+// SEC series of Franklin ETFs that company_tickers_mf.json does not list. Only the identity lives here: the fund's
+// newest N-PORT-P filing is looked up on EDGAR by the series id on every run, never pinned to one report period.
+const FRANKLIN_SERIES_MAP: Record<string, { cik: string; seriesId: string; classId: string }> = {
   // Franklin Templeton ETF Trust (CIK 0001655589)
-  FLAU: { cik: "0001655589", seriesId: "S000059508", classId: "C000194942", acc: "0000940400-26-035149", reportDate: "2026-06-30" },
-  FLGB: { cik: "0001655589", seriesId: "S000059499", classId: "C000194933", acc: "0000940400-26-035131", reportDate: "2026-06-30" },
-  USFI: { cik: "0001655589", seriesId: "S000080763", classId: "C000243455", acc: "0000940400-26-035159", reportDate: "2026-06-30" },
-  WABF: { cik: "0001655589", seriesId: "S000081195", classId: "C000244304", acc: "0000940400-26-035207", reportDate: "2026-06-30" },
-  TEMD: { cik: "0001655589", seriesId: "S000098522", classId: "C000268200", acc: "0000940400-26-035203", reportDate: "2026-06-30" },
-  TINS: { cik: "0001655589", seriesId: "S000095580", classId: "C000264307", acc: "0000940400-26-035196", reportDate: "2026-06-30" },
-  FRIZ: { cik: "0001655589", seriesId: "S000094832", classId: "C000262846", acc: "0000940400-26-035148", reportDate: "2026-06-30" },
-  DVAL: { cik: "0001655589", seriesId: "S000075788", classId: "C000235372", acc: "0000940400-26-035156", reportDate: "2026-06-30" },
-  FFOG: { cik: "0001655589", seriesId: "S000080151", classId: "C000242203", acc: "0000940400-26-035142", reportDate: "2026-06-30" },
-  MULT: { cik: "0001655589", seriesId: "S000094328", classId: "C000261957", acc: "0000940400-26-035119", reportDate: "2026-06-30" },
-  INCM: { cik: "0001655589", seriesId: "S000080465", classId: "C000242858", acc: "0000940400-26-035117", reportDate: "2026-06-30" },
-  YCLO: { cik: "0001655589", seriesId: "S000100939", classId: "C000271790", acc: "0000940400-26-035144", reportDate: "2026-06-30" },
-  BUYZ: { cik: "0001655589", seriesId: "S000067392", classId: "C000216664", acc: "0000940400-26-035151", reportDate: "2026-06-30" },
-  DIEM: { cik: "0001655589", seriesId: "S000053152", classId: "C000167259", acc: "0000940400-26-035158", reportDate: "2026-06-30" },
-  DIVI: { cik: "0001655589", seriesId: "S000053151", classId: "C000167258", acc: "0000940400-26-035110", reportDate: "2026-06-30" },
-  FLAX: { cik: "0001655589", seriesId: "S000059500", classId: "C000194934", acc: "0000940400-26-035146", reportDate: "2026-06-30" },
-  FLBL: { cik: "0001655589", seriesId: "S000061948", classId: "C000201383", acc: "0000940400-26-035132", reportDate: "2026-06-30" },
-  FLBR: { cik: "0001655589", seriesId: "S000059501", classId: "C000194935", acc: "0000940400-26-035164", reportDate: "2026-06-30" },
-  FLCA: { cik: "0001655589", seriesId: "S000059509", classId: "C000194943", acc: "0000940400-26-035162", reportDate: "2026-06-30" },
-  FLCB: { cik: "0001655589", seriesId: "S000066377", classId: "C000214198", acc: "0000940400-26-035108", reportDate: "2026-06-30" },
-  FLCH: { cik: "0001655589", seriesId: "S000059502", classId: "C000194936", acc: "0000940400-26-035168", reportDate: "2026-06-30" },
-  FLCO: { cik: "0001655589", seriesId: "S000053775", classId: "C000168997", acc: "0000940400-26-035139", reportDate: "2026-06-30" },
-  FLEE: { cik: "0001655589", seriesId: "S000059495", classId: "C000194929", acc: "0000940400-26-035141", reportDate: "2026-06-30" },
-  FLEU: { cik: "0001655589", seriesId: "S000059506", classId: "C000194940", acc: "0000940400-26-035165", reportDate: "2026-06-30" },
-  FLGR: { cik: "0001655589", seriesId: "S000059511", classId: "C000194945", acc: "0000940400-26-035167", reportDate: "2026-06-30" },
-  FLGV: { cik: "0001655589", seriesId: "S000068596", classId: "C000219662", acc: "0000940400-26-035205", reportDate: "2026-06-30" },
-  FLHY: { cik: "0001655589", seriesId: "S000061946", classId: "C000201381", acc: "0000940400-26-035118", reportDate: "2026-06-30" },
-  FLIA: { cik: "0001655589", seriesId: "S000061947", classId: "C000201382", acc: "0000940400-26-035116", reportDate: "2026-06-30" },
-  FLIN: { cik: "0001655589", seriesId: "S000059503", classId: "C000194937", acc: "0000940400-26-035153", reportDate: "2026-06-30" },
-  FLJH: { cik: "0001655589", seriesId: "S000059496", classId: "C000194930", acc: "0000940400-26-035143", reportDate: "2026-06-30" },
-  FLJP: { cik: "0001655589", seriesId: "S000059514", classId: "C000194948", acc: "0000940400-26-035161", reportDate: "2026-06-30" },
-  FLKR: { cik: "0001655589", seriesId: "S000059497", classId: "C000194931", acc: "0000940400-26-035109", reportDate: "2026-06-30" },
-  FLLA: { cik: "0001655589", seriesId: "S000063035", classId: "C000204739", acc: "0000940400-26-035166", reportDate: "2026-06-30" },
-  FLMB: { cik: "0001655589", seriesId: "S000057880", classId: "C000187843", acc: "0000940400-26-035115", reportDate: "2026-06-30" },
-  FLMI: { cik: "0001655589", seriesId: "S000057879", classId: "C000187842", acc: "0000940400-26-035155", reportDate: "2026-06-30" },
-  FLMX: { cik: "0001655589", seriesId: "S000059504", classId: "C000194938", acc: "0000940400-26-035104", reportDate: "2026-06-30" },
-  FLQL: { cik: "0001655589", seriesId: "S000057200", classId: "C000182607", acc: "0000940400-26-035103", reportDate: "2026-06-30" },
-  FLQM: { cik: "0001655589", seriesId: "S000057201", classId: "C000182608", acc: "0000940400-26-035114", reportDate: "2026-06-30" },
-  FLQS: { cik: "0001655589", seriesId: "S000057202", classId: "C000182609", acc: "0000940400-26-035197", reportDate: "2026-06-30" },
-  FLRU: { cik: "0001655589", seriesId: "S000059505", classId: "C000194939", acc: "0000940400-26-035102", reportDate: "2026-06-30" },
-  FLSA: { cik: "0001655589", seriesId: "S000063031", classId: "C000204735", acc: "0000940400-26-035113", reportDate: "2026-06-30" },
-  FLSP: { cik: "0001655589", seriesId: "S000066719", classId: "C000215161", acc: "0000940400-26-035127", reportDate: "2026-06-30" },
-  FLSW: { cik: "0001655589", seriesId: "S000059498", classId: "C000194932", acc: "0000940400-26-035106", reportDate: "2026-06-30" },
-  FLTW: { cik: "0001655589", seriesId: "S000059507", classId: "C000194941", acc: "0000940400-26-035107", reportDate: "2026-06-30" },
-  FLUD: { cik: "0001655589", seriesId: "S000068139", classId: "C000218765", acc: "0000940400-26-035202", reportDate: "2026-06-30" },
-  FSML: { cik: "0001655589", seriesId: "S000097279", classId: "C000266461", acc: "0000940400-26-035101", reportDate: "2026-06-30" },
-  HELX: { cik: "0001655589", seriesId: "S000067393", classId: "C000216665", acc: "0000940400-26-035124", reportDate: "2026-06-30" },
-  INCE: { cik: "0001655589", seriesId: "S000053774", classId: "C000168996", acc: "0000940400-26-035123", reportDate: "2026-06-30" },
-  IQM:  { cik: "0001655589", seriesId: "S000067394", classId: "C000216666", acc: "0000940400-26-035138", reportDate: "2026-06-30" },
-  UDIV: { cik: "0001655589", seriesId: "S000053153", classId: "C000167260", acc: "0000940400-26-035111", reportDate: "2026-06-30" },
-  USPX: { cik: "0001655589", seriesId: "S000053154", classId: "C000167261", acc: "0000940400-26-035112", reportDate: "2026-06-30" },
-  XDAT: { cik: "0001655589", seriesId: "S000070439", classId: "C000223847", acc: "0000940400-26-035145", reportDate: "2026-06-30" },
-  XIDV: { cik: "0001655589", seriesId: "S000089400", classId: "C000255866", acc: "0000940400-26-035105", reportDate: "2026-06-30" },
-  XUDV: { cik: "0001655589", seriesId: "S000089401", classId: "C000255867", acc: "0000940400-26-035136", reportDate: "2026-06-30" },
+  FLAU: { cik: "0001655589", seriesId: "S000059508", classId: "C000194942" },
+  FLGB: { cik: "0001655589", seriesId: "S000059499", classId: "C000194933" },
+  USFI: { cik: "0001655589", seriesId: "S000080763", classId: "C000243455" },
+  WABF: { cik: "0001655589", seriesId: "S000081195", classId: "C000244304" },
+  TEMD: { cik: "0001655589", seriesId: "S000098522", classId: "C000268200" },
+  TINS: { cik: "0001655589", seriesId: "S000095580", classId: "C000264307" },
+  FRIZ: { cik: "0001655589", seriesId: "S000094832", classId: "C000262846" },
+  DVAL: { cik: "0001655589", seriesId: "S000075788", classId: "C000235372" },
+  FFOG: { cik: "0001655589", seriesId: "S000080151", classId: "C000242203" },
+  MULT: { cik: "0001655589", seriesId: "S000094328", classId: "C000261957" },
+  INCM: { cik: "0001655589", seriesId: "S000080465", classId: "C000242858" },
+  YCLO: { cik: "0001655589", seriesId: "S000100939", classId: "C000271790" },
+  BUYZ: { cik: "0001655589", seriesId: "S000067392", classId: "C000216664" },
+  DIEM: { cik: "0001655589", seriesId: "S000053152", classId: "C000167259" },
+  DIVI: { cik: "0001655589", seriesId: "S000053151", classId: "C000167258" },
+  FLAX: { cik: "0001655589", seriesId: "S000059500", classId: "C000194934" },
+  FLBL: { cik: "0001655589", seriesId: "S000061948", classId: "C000201383" },
+  FLBR: { cik: "0001655589", seriesId: "S000059501", classId: "C000194935" },
+  FLCA: { cik: "0001655589", seriesId: "S000059509", classId: "C000194943" },
+  FLCB: { cik: "0001655589", seriesId: "S000066377", classId: "C000214198" },
+  FLCH: { cik: "0001655589", seriesId: "S000059502", classId: "C000194936" },
+  FLCO: { cik: "0001655589", seriesId: "S000053775", classId: "C000168997" },
+  FLEE: { cik: "0001655589", seriesId: "S000059495", classId: "C000194929" },
+  FLEU: { cik: "0001655589", seriesId: "S000059506", classId: "C000194940" },
+  FLGR: { cik: "0001655589", seriesId: "S000059511", classId: "C000194945" },
+  FLGV: { cik: "0001655589", seriesId: "S000068596", classId: "C000219662" },
+  FLHY: { cik: "0001655589", seriesId: "S000061946", classId: "C000201381" },
+  FLIA: { cik: "0001655589", seriesId: "S000061947", classId: "C000201382" },
+  FLIN: { cik: "0001655589", seriesId: "S000059503", classId: "C000194937" },
+  FLJH: { cik: "0001655589", seriesId: "S000059496", classId: "C000194930" },
+  FLJP: { cik: "0001655589", seriesId: "S000059514", classId: "C000194948" },
+  FLKR: { cik: "0001655589", seriesId: "S000059497", classId: "C000194931" },
+  FLLA: { cik: "0001655589", seriesId: "S000063035", classId: "C000204739" },
+  FLMB: { cik: "0001655589", seriesId: "S000057880", classId: "C000187843" },
+  FLMI: { cik: "0001655589", seriesId: "S000057879", classId: "C000187842" },
+  FLMX: { cik: "0001655589", seriesId: "S000059504", classId: "C000194938" },
+  FLQL: { cik: "0001655589", seriesId: "S000057200", classId: "C000182607" },
+  FLQM: { cik: "0001655589", seriesId: "S000057201", classId: "C000182608" },
+  FLQS: { cik: "0001655589", seriesId: "S000057202", classId: "C000182609" },
+  FLRU: { cik: "0001655589", seriesId: "S000059505", classId: "C000194939" },
+  FLSA: { cik: "0001655589", seriesId: "S000063031", classId: "C000204735" },
+  FLSP: { cik: "0001655589", seriesId: "S000066719", classId: "C000215161" },
+  FLSW: { cik: "0001655589", seriesId: "S000059498", classId: "C000194932" },
+  FLTW: { cik: "0001655589", seriesId: "S000059507", classId: "C000194941" },
+  FLUD: { cik: "0001655589", seriesId: "S000068139", classId: "C000218765" },
+  FSML: { cik: "0001655589", seriesId: "S000097279", classId: "C000266461" },
+  HELX: { cik: "0001655589", seriesId: "S000067393", classId: "C000216665" },
+  INCE: { cik: "0001655589", seriesId: "S000053774", classId: "C000168996" },
+  IQM:  { cik: "0001655589", seriesId: "S000067394", classId: "C000216666" },
+  UDIV: { cik: "0001655589", seriesId: "S000053153", classId: "C000167260" },
+  USPX: { cik: "0001655589", seriesId: "S000053154", classId: "C000167261" },
+  XDAT: { cik: "0001655589", seriesId: "S000070439", classId: "C000223847" },
+  XIDV: { cik: "0001655589", seriesId: "S000089400", classId: "C000255866" },
+  XUDV: { cik: "0001655589", seriesId: "S000089401", classId: "C000255867" },
 
   // Legg Mason ETF Investment Trust (CIK 0001645194)
-  LVHD: { cik: "0001645194", seriesId: "S000051686", classId: "C000162625", acc: "0000940400-26-035186", reportDate: "2026-06-30" },
-  LVHI: { cik: "0001645194", seriesId: "S000054583", classId: "C000171279", acc: "0000940400-26-035206", reportDate: "2026-06-30" },
-  LRGE: { cik: "0001645194", seriesId: "S000057700", classId: "C000186075", acc: "0000940400-26-035182", reportDate: "2026-06-30" },
-  SQLV: { cik: "0001645194", seriesId: "S000058077", classId: "C000190092", acc: "0000940400-26-035200", reportDate: "2026-06-30" },
-  YLDE: { cik: "0001645194", seriesId: "S000057702", classId: "C000186077", acc: "0000940400-26-035184", reportDate: "2026-06-30" },
+  LVHD: { cik: "0001645194", seriesId: "S000051686", classId: "C000162625" },
+  LVHI: { cik: "0001645194", seriesId: "S000054583", classId: "C000171279" },
+  LRGE: { cik: "0001645194", seriesId: "S000057700", classId: "C000186075" },
+  SQLV: { cik: "0001645194", seriesId: "S000058077", classId: "C000190092" },
+  YLDE: { cik: "0001645194", seriesId: "S000057702", classId: "C000186077" },
 
   // Putnam ETF Trust (CIK 0001845809)
-  FTCA: { cik: "0001845809", seriesId: "S000094549", classId: "C000262334", acc: "0000940400-26-035187", reportDate: "2026-06-30" },
-  FTMA: { cik: "0001845809", seriesId: "S000094555", classId: "C000262340", acc: "0000940400-26-028335", reportDate: "2026-05-31" },
-  FTMH: { cik: "0001845809", seriesId: "S000094552", classId: "C000262337", acc: "0000940400-26-026043", reportDate: "2026-04-30" },
-  FTMN: { cik: "0001845809", seriesId: "S000094556", classId: "C000262341", acc: "0000940400-26-028334", reportDate: "2026-05-31" },
-  FTMS: { cik: "0001845809", seriesId: "S000094554", classId: "C000262339", acc: "0000940400-26-028350", reportDate: "2026-05-31" },
-  FTMU: { cik: "0001845809", seriesId: "S000094551", classId: "C000262336", acc: "0000940400-26-035199", reportDate: "2026-06-30" },
-  FTNJ: { cik: "0001845809", seriesId: "S000094557", classId: "C000262342", acc: "0000940400-26-028342", reportDate: "2026-05-31" },
-  FTNY: { cik: "0001845809", seriesId: "S000094553", classId: "C000262338", acc: "0000940400-26-028338", reportDate: "2026-05-31" },
-  FTOH: { cik: "0001845809", seriesId: "S000094558", classId: "C000262343", acc: "0000940400-26-028332", reportDate: "2026-05-31" },
-  FTPA: { cik: "0001845809", seriesId: "S000094550", classId: "C000262335", acc: "0000940400-26-028344", reportDate: "2026-05-31" },
-  FTSD: { cik: "0001551895", seriesId: "S000040579", classId: "C000125740", acc: "0000940400-26-035160", reportDate: "2026-06-30" }, // Franklin ETF Trust
-  PBDC: { cik: "0001845809", seriesId: "S000077137", classId: "C000237731", acc: "0000940400-26-025235", reportDate: "2026-04-30" },
-  PEMX: { cik: "0001845809", seriesId: "S000077139", classId: "C000237733", acc: "0000940400-26-025234", reportDate: "2026-04-30" },
-  PGRI: { cik: "0001845809", seriesId: "S000077298", classId: "C000238068", acc: "0000940400-26-025233", reportDate: "2026-04-30" },
-  PGRO: { cik: "0001845809", seriesId: "S000071709", classId: "C000227195", acc: "0000940400-26-028257", reportDate: "2026-05-31" },
-  PVAL: { cik: "0001845809", seriesId: "S000071710", classId: "C000227196", acc: "0000940400-26-028247", reportDate: "2026-05-31" },
+  FTCA: { cik: "0001845809", seriesId: "S000094549", classId: "C000262334" },
+  FTMA: { cik: "0001845809", seriesId: "S000094555", classId: "C000262340" },
+  FTMH: { cik: "0001845809", seriesId: "S000094552", classId: "C000262337" },
+  FTMN: { cik: "0001845809", seriesId: "S000094556", classId: "C000262341" },
+  FTMS: { cik: "0001845809", seriesId: "S000094554", classId: "C000262339" },
+  FTMU: { cik: "0001845809", seriesId: "S000094551", classId: "C000262336" },
+  FTNJ: { cik: "0001845809", seriesId: "S000094557", classId: "C000262342" },
+  FTNY: { cik: "0001845809", seriesId: "S000094553", classId: "C000262338" },
+  FTOH: { cik: "0001845809", seriesId: "S000094558", classId: "C000262343" },
+  FTPA: { cik: "0001845809", seriesId: "S000094550", classId: "C000262335" },
+  FTSD: { cik: "0001551895", seriesId: "S000040579", classId: "C000125740" }, // Franklin ETF Trust
+  PBDC: { cik: "0001845809", seriesId: "S000077137", classId: "C000237731" },
+  PEMX: { cik: "0001845809", seriesId: "S000077139", classId: "C000237733" },
+  PGRI: { cik: "0001845809", seriesId: "S000077298", classId: "C000238068" },
+  PGRO: { cik: "0001845809", seriesId: "S000071709", classId: "C000227195" },
+  PVAL: { cik: "0001845809", seriesId: "S000071710", classId: "C000227196" },
 };
 
 // Franklin Templeton U.S.-listed ETF static data updater.
@@ -716,13 +718,25 @@ export function buildMetrics(input: {
 let requestSleepSeconds = 1.5;
 let directGate: () => Promise<void> = createRequestGate(1, 1500);
 let proxyGateAt = 0;
-let fundTickerMap: Map<string, SecSeriesRef> | null = null;
-let fundTickerMapPromise: Promise<Map<string, SecSeriesRef>> | null = null;
-let companyTickerMap: Map<string, string> | null = null;
-let companyTickerMapPromise: Promise<Map<string, string>> | null = null;
+/** A SEC ticker table loaded once per run. A failed load is not cached: a later fund asks again, up to SEC_TABLE_ATTEMPTS per run. */
+type SecTable<T> = { value: T | null; pending: Promise<T> | null; failures: number; lastError: unknown };
+const SEC_TABLE_ATTEMPTS = 2;
+const emptySecTable = <T>(): SecTable<T> => ({ value: null, pending: null, failures: 0, lastError: null });
+let fundTickerTable: SecTable<Map<string, SecSeriesRef>> = emptySecTable();
+let companyTickerTable: SecTable<Map<string, string>> = emptySecTable();
 /** Test-only: forget the SEC ticker tables cached for the run, so a test starts from its own mocked tables. */
 export function resetSecCachesForTest(): void {
-  fundTickerMap = null; fundTickerMapPromise = null; companyTickerMap = null; companyTickerMapPromise = null;
+  fundTickerTable = emptySecTable(); companyTickerTable = emptySecTable();
+}
+function loadSecTable<T>(table: SecTable<T>, load: () => Promise<T>): Promise<T> {
+  if (table.value) return Promise.resolve(table.value);
+  if (table.pending) return table.pending;
+  if (table.failures >= SEC_TABLE_ATTEMPTS) return Promise.reject(table.lastError);
+  table.pending = load().then(
+    (value) => { table.value = value; table.pending = null; return value; },
+    (error: unknown) => { table.failures += 1; table.lastError = error; table.pending = null; throw error; },
+  );
+  return table.pending;
 }
 
 // Retry backoff and request pacing read this clock, so tests can run them on a fake one instead of waiting.
@@ -2872,27 +2886,11 @@ async function fetchJsonWithProxyFallback(url: string, label: string, config: Up
 }
 
 async function fetchFundTickerMap(config: UpdaterConfig): Promise<Map<string, SecSeriesRef>> {
-  if (fundTickerMap) return fundTickerMap;
-  if (fundTickerMapPromise) return fundTickerMapPromise;
-  fundTickerMapPromise = (async () => {
-    const payload = await fetchJsonWithProxyFallback(SEC_FUND_TICKERS_URL, '[edgar   ] fund ticker table', config, secHeaders());
-    fundTickerMap = parseFundTickerMap(payload);
-    
-    return fundTickerMap;
-  })();
-  return fundTickerMapPromise;
+  return loadSecTable(fundTickerTable, async () => parseFundTickerMap(await fetchJsonWithProxyFallback(SEC_FUND_TICKERS_URL, '[edgar   ] fund ticker table', config, secHeaders())));
 }
 
 async function fetchCompanyTickerMap(config: UpdaterConfig): Promise<Map<string, string>> {
-  if (companyTickerMap) return companyTickerMap;
-  if (companyTickerMapPromise) return companyTickerMapPromise;
-  companyTickerMapPromise = (async () => {
-    const payload = await fetchJsonWithProxyFallback(SEC_COMPANY_TICKERS_URL, '[edgar   ] company ticker table', config, secHeaders());
-    companyTickerMap = parseCompanyTickerMap(payload);
-    
-    return companyTickerMap;
-  })();
-  return companyTickerMapPromise;
+  return loadSecTable(companyTickerTable, async () => parseCompanyTickerMap(await fetchJsonWithProxyFallback(SEC_COMPANY_TICKERS_URL, '[edgar   ] company ticker table', config, secHeaders())));
 }
 
 async function fetchTextWithProxyFallback(url: string, label: string, config: UpdaterConfig, headers: Record<string, string>): Promise<string> {
@@ -2926,37 +2924,33 @@ export function checkNportFiling(filingSeriesId: unknown, expectedSeriesId: stri
   return { ok: true };
 }
 
+/**
+ * May an N-PORT filing replace the published holdings? Only when its report date is strictly newer: a filing is weeks
+ * old, holdings as new or newer stay. Nothing published yet: yes. A date that cannot be read on either side: no.
+ */
+export function nportIsNewer(repPdDate: unknown, published: JsonRecord | null | undefined): boolean {
+  if (!published || !(Number(published.totalRows) > 0)) return true;
+  const iso = (value: unknown): string | null => { const text = toIsoDate(value); return /^\d{4}-\d{2}-\d{2}$/.test(text) ? text : null; };
+  const filing = iso(repPdDate);
+  const current = iso(published.asOfDate) ?? iso(published.asOf);
+  return filing !== null && current !== null && filing > current;
+}
+
 async function fetchNportForFund(fund: CatalogFund, config: UpdaterConfig): Promise<{ parsed: ParsedNport; accession: NportAccession; ref: SecSeriesRef } | null> {
   const ticker = fund.ticker.toUpperCase();
   const map = await fetchFundTickerMap(config);
   const ref = map.get(ticker);
   if (!ref) return null;
 
-  // Direct fast path: if we have known accession for this series, fetch its NPORT-P text directly
-  const known = FRANKLIN_SERIES_MAP[ticker];
-  if (known && known.acc) {
-    try {
-      const acc = known.acc;
-      const cikDigits = Number(ref.cik).toString();
-      const accDigits = acc.replace(/-/g, '');
-      const url = `${SEC_ARCHIVES}/${cikDigits}/${accDigits}/${acc}.txt`;
-      const filingText = await fetchTextWithProxyFallback(url, `[edgar   ] ${fund.ticker} accession`, config, secHeaders());
-      const parsed = parseNport(filingText);
-      const verdict = checkNportFiling(parsed.seriesId, ref.seriesId);
-      if (!verdict.ok) outputNote(`[ ${'nport'.padEnd(9)}] ${ticker}: accession ${acc}: ${verdict.reason}`);
-      if (verdict.ok && parsed.holdings.length) {
-        const accession: NportAccession = { accession: acc, filed: '', reportDate: known.reportDate || parsed.repPdDate || '', url };
-        return { parsed, accession, ref };
-      }
-    } catch {}
-  }
-
   try {
     // Search by the fund's series ID: the trust CIK lists the filings of every series of the trust, newest first.
     const params = new URLSearchParams({ action: 'getcompany', CIK: ref.seriesId, type: 'NPORT-P', owner: 'include', count: '10', output: 'atom' });
     const atom = await fetchTextWithProxyFallback(`${SEC_BROWSE_URL}?${params.toString()}`, `[edgar   ] ${fund.ticker} filings`, config, secHeaders());
-    const [accession] = parseEdgarAtomFilings(atom);
-    if (!accession) return null;
+    const [newest] = parseEdgarAtomFilings(atom);
+    if (!newest) return null;
+    // The archive folder belongs to the registrant (the series' trust CIK), not to the filer agent whose CIK starts the
+    // accession number: /data/940400/... answers 404 for Franklin's filings.
+    const accession: NportAccession = { ...newest, url: nportUrlFor(ref.cik, newest.accession) };
     const filingText = await fetchTextWithProxyFallback(accession.url, `[edgar   ] ${fund.ticker} accession`, config, secHeaders());
     const parsed = parseNport(filingText);
     const verdict = checkNportFiling(parsed.seriesId, ref.seriesId);
@@ -3471,10 +3465,15 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
       && Number(prevMeta?.holdings?.totalRows ?? 0) > 0 && String(prevMeta?.holdings?.source ?? '').startsWith('Franklin Templeton official product page'));
 
     // 2) Holdings via SEC N-PORT-P – comprehensive portfolio for all 81 funds via FRANKLIN_SERIES_MAP (multi-trust, 108 holdings for FLAU)
+    // A filing replaces the published holdings only when its report period is strictly newer (nportIsNewer).
+    let nportNotNewer = false;
     if (!holdingsRows.length && config.edgarFallback) {
       try {
         const result = await fetchNportForFund(fund, config);
-        if (result && result.parsed.holdings.length && !(keepOfficialHoldings && result.parsed.repPdDate <= previousHoldingsAsOf)) {
+        if (result && result.parsed.holdings.length && !nportIsNewer(result.parsed.repPdDate, prevMeta?.holdings)) {
+          nportNotNewer = true;
+          outputNote(`[ ${'nport'.padEnd(9)}] ${ticker}: N-PORT ${result.parsed.repPdDate || 'undated'} is not newer than the published holdings (${prevMeta?.holdings?.asOfDate || 'undated'}); kept them`);
+        } else if (result && result.parsed.holdings.length) {
           const companyMap = await fetchCompanyTickerMap(config);
           holdingsRows = fillNportTickers(result.parsed.holdings, companyMap);
           holdingsAsOf = result.parsed.repPdDate || null;
@@ -3486,8 +3485,10 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
       }
     }
 
-    // Fallback to official daily holdings table if SEC returned nothing
-    if (!holdingsRows.length && officialDailyHoldings.length) {
+    // Fallback to official daily holdings table if SEC returned nothing. Holdings published from a filing that is as new
+    // as the one SEC returns now stay: the short official table (25 rows or fewer) never replaces that full portfolio.
+    const publishedOfficial = String(prevMeta?.holdings?.source ?? '').startsWith('Franklin Templeton official product page');
+    if (!holdingsRows.length && officialDailyHoldings.length && !(nportNotNewer && !publishedOfficial)) {
       holdingsRows = officialDailyHoldings;
       holdingsAsOf = officialDailyAsOf;
       holdingsSource = officialDailySource;

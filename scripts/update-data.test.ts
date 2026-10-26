@@ -64,6 +64,7 @@ import {
   resolveControls,
   resolveFundName,
   resetSecCachesForTest,
+  nportIsNewer,
   resolvePerformanceAsOf,
   runtimeControls,
   setApiRootForTest,
@@ -982,6 +983,60 @@ describe('pipeline', () => {
       listed = { 'CIK=S000059502': other, 'CIK=0001655589': other };
       await run({ EDGAR_FALLBACK: 'true', TICKERS: 'FLCH', CONCURRENCY: '1' });
       expect(snapshot(feed())).toEqual(published);
+    } finally {
+      resetSecCachesForTest();
+    }
+  }), 60000);
+
+  test('N-PORT: the newest filing of the series, only when newer than the published holdings; a failed SEC table is asked again', inTempRoot(async () => {
+    // FLCH (series S000059502) and FLCA (S000059509) are pre-seeded series; 0000940400-26-035168 was FLCH's pinned 2026-06-30 filing
+    const filing = (series: string, period: string, name: string) => `<edgarSubmission><genInfo><regCik>0001655589</regCik><seriesId>${series}</seriesId><repPdDate>${period}</repPdDate></genInfo><invstOrSecs><invstOrSec><name>${name}</name><cusip>123456789</cusip><balance>10</balance><valUSD>600</valUSD><pctVal>60</pctVal></invstOrSec><invstOrSec><name>${name} 2</name><cusip>223456789</cusip><balance>5</balance><valUSD>400</valUSD><pctVal>40</pctVal></invstOrSec></invstOrSecs></edgarSubmission>`;
+    const atom = (accession: string, period: string) => `<feed><entry><content><accession-number>${accession}</accession-number><filing-date>${period}</filing-date><filing-type>NPORT-P</filing-type><period>${period}</period></content></entry></feed>`;
+    const filings: Record<string, string> = {
+      '0000940400-26-035168': filing('S000059502', '2026-06-30', 'PINNED JUNE'),
+      '0000940400-26-099101': filing('S000059502', '2026-09-30', 'NEWEST SEPTEMBER'),
+      '0000940400-26-099102': filing('S000059502', '2026-03-31', 'OLDER MARCH'),
+      '0000940400-26-099103': filing('S000059509', '2026-09-30', 'CANADA SEPTEMBER'),
+    };
+    let listed: Record<string, [string, string]> = { 'CIK=S000059502': ['0000940400-26-099101', '2026-09-30'], 'CIK=S000059509': ['0000940400-26-099103', '2026-09-30'] };
+    let tableCalls = 0;
+    let tableDown: 'first' | 'always' = 'always';
+    (globalThis as any).fetch = async (input: unknown) => {
+      const url = String(input);
+      if (!url.startsWith('https://www.sec.gov/')) throw new Error('offline'); // proxies
+      if (url.endsWith('company_tickers_mf.json')) return ++tableCalls === 1 || tableDown === 'always' ? new Response('busy', { status: 503 }) : new Response('{"fields":[],"data":[]}');
+      if (url.endsWith('company_tickers.json')) return new Response('{}');
+      if (url.includes('browse-edgar')) {
+        const key = Object.keys(listed).find((k) => url.includes(k));
+        return new Response(key ? atom(...listed[key]) : '<feed/>');
+      }
+      // filings live under the registrant's CIK, never under the filer agent (0000940400) that starts the accession
+      const accession = Object.keys(filings).find((a) => url === `https://www.sec.gov/Archives/edgar/data/1655589/${a.replace(/-/g, '')}/${a}.txt`);
+      return accession ? new Response(filings[accession]) : new Response('not found', { status: 404 });
+    };
+    const holdingsOf = (ticker: string) => existsSync(join(feed(), 'funds', ticker, 'meta.json')) ? JSON.parse(readFileSync(join(feed(), 'funds', ticker, 'meta.json'), 'utf8')).holdings : null;
+    resetSecCachesForTest();
+    try {
+      // a failed fund ticker table is asked once more later in the run, then no more
+      await run({ EDGAR_FALLBACK: 'true', TICKERS: 'FLCA,FLCH', CONCURRENCY: '1' });
+      expect([tableCalls, holdingsOf('FLCA')?.totalRows ?? 0, holdingsOf('FLCH')?.totalRows ?? 0]).toEqual([2, 0, 0]);
+      // the preload fails, the fund asks again; every series is looked up on EDGAR, so the newest filing wins over the
+      // once pinned June accession
+      resetSecCachesForTest();
+      tableCalls = 0;
+      tableDown = 'first';
+      await run({ EDGAR_FALLBACK: 'true', TICKERS: 'FLCH', CONCURRENCY: '1' });
+      expect(tableCalls).toBe(2);
+      expect(holdingsOf('FLCH').source).toContain('0000940400-26-099101');
+      const published = snapshot(feed());
+      // an older filing never replaces the published September holdings
+      listed = { 'CIK=S000059502': ['0000940400-26-099102', '2026-03-31'], 'CIK=S000059509': ['0000940400-26-099103', '2026-09-30'] };
+      await run({ EDGAR_FALLBACK: 'true', TICKERS: 'FLCH', CONCURRENCY: '1' });
+      expect(snapshot(feed())).toEqual(published);
+      expect(nportIsNewer('2026-09-30', { totalRows: 2, asOfDate: '2026-06-30' })).toBe(true);
+      expect(nportIsNewer('2026-06-30', { totalRows: 2, asOfDate: '2026-06-30' })).toBe(false);
+      expect(nportIsNewer('n/a', { totalRows: 2, asOfDate: '2026-06-30' })).toBe(false);
+      expect(nportIsNewer('2026-03-31', { totalRows: 0 })).toBe(true); // nothing published yet
     } finally {
       resetSecCachesForTest();
     }
