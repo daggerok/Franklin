@@ -2674,14 +2674,16 @@ async function fetchJson(url: string, label: string, config: UpdaterConfig, head
 
 /**
  * r.jina.ai answers a burst with 429 RateLimitTriggeredError and a short `retryAfter` (1-2 s). A proxy candidate
- * gets one more attempt after that wait (through the global proxy gate) instead of failing the fund.
+ * gets one more attempt after that wait (through the global proxy gate) instead of failing the fund. `retries` is the
+ * candidate's one proxy retry, shared with the content-check retry of fetchIssuerText.
  */
-async function fetchProxyCandidate(url: string, label: string, config: UpdaterConfig, headers: Record<string, string>, proxy: boolean): Promise<string> {
+async function fetchProxyCandidate(url: string, label: string, config: UpdaterConfig, headers: Record<string, string>, proxy: boolean, retries = { left: 1 }): Promise<string> {
   try {
     return await fetchText(url, label, config, headers);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    if (!proxy || !/\b429\b/.test(message)) throw error;
+    if (!proxy || !/\b429\b/.test(message) || retries.left < 1) throw error;
+    retries.left -= 1;
     const retryAfter = Number(/"retryAfter":\s*(\d+(?:\.\d+)?)/.exec(message)?.[1] ?? 0);
     await sleep((Math.min(30, Math.max(1, retryAfter)) + 1) * 1000);
     return fetchText(url, label, config, headers);
@@ -2691,7 +2693,7 @@ async function fetchProxyCandidate(url: string, label: string, config: UpdaterCo
 let issuerDirectDenials = 0;
 const ISSUER_DIRECT_DENIAL_LIMIT = 2;
 
-async function fetchIssuerText(url: string, label: string, config: UpdaterConfig, validate: (text: string) => boolean, accept = 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', options: { cache?: boolean; maxProxies?: number; prefer?: (text: string) => boolean; renderTimeoutSeconds?: number; skipPlainHttpProxy?: boolean } = {}): Promise<{ text: string; via: 'direct' | 'proxy' }> {
+async function fetchIssuerText(url: string, label: string, config: UpdaterConfig, validate: (text: string) => boolean, accept = 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', options: { cache?: boolean; maxProxies?: number; prefer?: (text: string) => boolean; renderTimeoutSeconds?: number; skipPlainHttpProxy?: boolean; retryFailedContent?: boolean } = {}): Promise<{ text: string; via: 'direct' | 'proxy' }> {
   let fallback: { text: string; via: 'direct' | 'proxy' } | null = null;
   const allCandidates = buildProxyUrls(url);
   const max = options.maxProxies ?? allCandidates.length;
@@ -2713,8 +2715,19 @@ async function fetchIssuerText(url: string, label: string, config: UpdaterConfig
       if (!isDirect && options.cache === false) headers['X-No-Cache'] = 'true';
       if (!isDirect && options.renderTimeoutSeconds && candidateUrl.startsWith(PROXY_PREFIX)) headers['X-Timeout'] = String(options.renderTimeoutSeconds);
       const maxRetriesForCandidate = 0; // fail fast for issuer, we have multiple proxies
-      const textRaw = await fetchProxyCandidate(candidateUrl, `${label} (${viaLabel})`, { ...config, maxRetries: maxRetriesForCandidate }, headers, !isDirect);
-      const text = isDirect ? textRaw : stripProxyPreamble(textRaw);
+      // One proxy retry per candidate (the contract's limit): after a 429, or with retryFailedContent after a snapshot that
+      // fails the content check (r.jina.ai sometimes renders a product page empty; XRPZ failed on one such snapshot).
+      const retries = { left: 1 };
+      const load = async (): Promise<string> => {
+        const textRaw = await fetchProxyCandidate(candidateUrl, `${label} (${viaLabel})`, { ...config, maxRetries: maxRetriesForCandidate }, headers, !isDirect, retries);
+        return isDirect ? textRaw : stripProxyPreamble(textRaw);
+      };
+      let text = await load();
+      if (!isDirect && options.retryFailedContent && retries.left > 0 && !validate(text)) {
+        retries.left -= 1;
+        outputNote(`${label}: ${viaLabel} response did not contain expected content, retrying once`);
+        text = await load();
+      }
       if (validate(text)) {
         if (isDirect) issuerDirectDenials = 0;
         const found = { text, via: isDirect ? 'direct' as const : 'proxy' as const };
@@ -3384,7 +3397,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
         const page = await fetchIssuerText(fund.fundPage, `[product ] ${ticker}`, config, (text) => {
           const lower = text.toLowerCase();
           return lower.includes(ticker.toLowerCase()) && (lower.includes('cusip') || lower.includes('nav') || lower.includes('expense'));
-        }, 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', { maxProxies: PRODUCT_PROXY_COUNT, cache: false, renderTimeoutSeconds: PRODUCT_RENDER_TIMEOUT_SECONDS, skipPlainHttpProxy: true, prefer: (text) => parseFranklinProductPage(text, ticker).loadedFully });
+        }, 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', { maxProxies: PRODUCT_PROXY_COUNT, cache: false, renderTimeoutSeconds: PRODUCT_RENDER_TIMEOUT_SECONDS, skipPlainHttpProxy: true, retryFailedContent: true, prefer: (text) => parseFranklinProductPage(text, ticker).loadedFully });
         franklinPageText = page.text;
         summary = parseFranklinProductPage(page.text, ticker);
         if (summary.loadedFully) {
