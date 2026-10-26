@@ -8,6 +8,7 @@ import {
   ADJ_CLOSE_NOISE,
   CLOSED_FUNDS,
   CONTROL_NAMES,
+  HOLDINGS_GUARD_RELAX,
   closedFund,
   keptAdjClose,
   PREMIUM_COMPUTED_SOURCE,
@@ -20,7 +21,6 @@ import {
   RETURNS_BASIS,
   annualizedToTotal,
   buildMetrics,
-  checkNportFiling,
   dividendYieldBasisFromKind,
   DIVIDEND_YIELD_BASES,
   OFFICIAL_12M_YIELD_KIND,
@@ -31,6 +31,7 @@ import {
   frequencyCodeLabel,
   fundNameFromPageSlug,
   holdingsGuard,
+  holdingsWeightCount,
   inferDistributionFrequency,
   installSystemCa,
   isCertError,
@@ -43,12 +44,14 @@ import {
   parseCatalogText,
   parseChart,
   parseConfig,
-  parseEdgarAtomFilings,
   parseFranklinHoldings,
-  parseFundTickerMap,
-  parseCompanyTickerMap,
-  fillNportTickers,
-  parseNport,
+  nportHoldingsSheet,
+  nportIsFresh,
+  nportTickers,
+  officialHoldingsRows,
+  parseNportFiling,
+  parseSecCompanyNames,
+  parseSecFundTickers,
   parsePerformanceAsOf,
   parseProductPage,
   parseSharePrices,
@@ -67,8 +70,7 @@ import {
   resolveCategory,
   resolveControls,
   resolveFundName,
-  resetSecCachesForTest,
-  nportIsNewer,
+  resetSecState,
   resolvePerformanceAsOf,
   runtimeControls,
   setApiRootForTest,
@@ -454,36 +456,33 @@ describe('parsing 2', () => {
     expect(chart.days[0].close).toBe(10);
     expect([chart.dividends.length, chart.splits.length, chart.exchangeName]).toEqual([1, 1, 'PCX']);
 
-    const map = parseFundTickerMap({ fields: ['cik', 'seriesId', 'classId', 'symbol'], data: [[1655589, 'S000053151', 'C000167258', 'FLIN'], [1655589, 'S000059504', 'C000194938', 'FLMX']] });
-    expect(map.get('FLIN')).toMatchObject({ cik: '0001655589', seriesId: 'S000053151' });
-    const atom = '<feed><entry><content><accession-number>0001752724-26-000001</accession-number><filing-date>2026-08-27</filing-date><filing-type>NPORT-P</filing-type><filing-href>https://www.sec.gov/Archives/edgar/data/1655589/000175272426000001/0001752724-26-000001-index.htm</filing-href><period>2026-06-30</period></content></entry></feed>';
-    const filings = parseEdgarAtomFilings(atom);
-    expect(filings.length).toBe(1);
-    expect(filings[0].accession).toBe('0001752724-26-000001');
-    // the SEC form: isin, ticker and SEDOL are value attributes, a foreign line is valued in its own currency, a
-    // derivative's reference index carries identifiers of its own (FLAU and FLQL filings, 2026-06-30)
-    const position = (name: string, cusip: string, ids: string, cur: string, cat: string, more = '') =>
-      `<invstOrSec><name>${name}</name><title>${name}</title><cusip>${cusip}</cusip><identifiers>${ids}</identifiers><balance>10.00000000</balance>${cur}<valUSD>100.50000000</valUSD><pctVal>1.25</pctVal><assetCat>${cat}</assetCat><invCountry>US</invCountry>${more}</invstOrSec>`;
-    const nport = parseNport(`<edgarSubmission><genInfo><regName>Franklin Templeton ETF Trust</regName><regCik>0001655589</regCik><seriesName>Franklin FTSE Australia ETF</seriesName><seriesId>S000059508</seriesId><repPdDate>2026-06-30</repPdDate></genInfo><invstOrSecs>${[
+    const map = parseSecFundTickers({ fields: ['cik', 'seriesId', 'classId', 'symbol'], data: [[1655589, 'S000053151', 'C000167258', 'FLIN'], [1655589, 'S000059504', 'C000194938', 'FLMX']] });
+    expect(map.get('FLIN')).toEqual({ cik: '0001655589', seriesId: 'S000053151', classId: 'C000167258' });
+    // the SEC form (shared nport-reader): isin, ticker and SEDOL are value attributes, a foreign line is valued in its own
+    // currency, a derivative's reference index carries identifiers of its own (FLAU and FLQL filings, 2026-06-30)
+    const position = (name: string, cusip: string, ids: string, cur: string, cat: string, more = '', pct = '<pctVal>1.25</pctVal>') =>
+      `<invstOrSec><name>${name}</name><title>${name}</title><cusip>${cusip}</cusip><identifiers>${ids}</identifiers><balance>10.00000000</balance>${cur}<valUSD>100.50000000</valUSD>${pct}<assetCat>${cat}</assetCat><invCountry>US</invCountry>${more}</invstOrSec>`;
+    const filing = parseNportFiling(`<edgarSubmission><genInfo><regName>Franklin Templeton ETF Trust</regName><regCik>0001655589</regCik><seriesName>Franklin FTSE Australia ETF</seriesName><seriesId>S000059508</seriesId><repPdDate>2026-06-30</repPdDate></genInfo><invstOrSecs>${[
       position('SIMS LTD', '000000000', '<isin value="AU000000SGM7"/><ticker value="SGM"/><other otherDesc="SEDOL" value="B0LCW75"/>', '<currencyConditional curCd="AUD" exchangeRt="1.44"/>', 'EC'),
       position('JAZZ PHARMACEUTICALS PLC', '000000000', '<isin value="IE00B4Q5ZN47"/><ticker value="JAZZ"/>', '<curCd>USD</curCd>', 'EC'),
       position('MASCO CORP', '574599106', '<isin value="US5745991068"/>', '<curCd>USD</curCd>', 'EC'),
       position('ALPHABET INC', '02079K305', '<isin value="US02079K3059"/>', '<curCd>USD</curCd>', 'EC'),
-      position('ASX 24', '000000000', '<ticker value="AP U26-SFE"/>', '<currencyConditional curCd="AUD" exchangeRt="1.44"/>', 'DE', '<derivativeInfo><futrDeriv><identifiers><cusip value="000000000"/><isin value="AU000000XJO0"/><ticker value="AS51"/></identifiers></futrDeriv></derivativeInfo>'),
-      position('US TREASURY N/B 4.25% 2030', '91282CLK5', '<isin value="US91282CLK52"/><ticker value="T"/>', '<curCd>USD</curCd>', 'DBT'),
+      position('ALPHABET INC CL C', '02079K107', '<isin value="US02079K1079"/>', '<curCd>USD</curCd>', 'EC'),
+      position('ASX 24', '000000000', '<ticker value="AP U26-SFE"/>', '<currencyConditional curCd="AUD" exchangeRt="1.44"/>', 'DE', '<derivativeInfo><futrDeriv derivCat="FUT"><identifiers><cusip value="000000000"/><isin value="AU000000XJO0"/><ticker value="AS51"/></identifiers></futrDeriv></derivativeInfo>'),
+      position('US TREASURY N/B 4.25% 2030', '91282CLK5', '<isin value="US91282CLK52"/><ticker value="T"/>', '<curCd>USD</curCd>', 'DBT', '', ''),
     ].join('')}</invstOrSecs></edgarSubmission>`);
-    expect(nport.seriesId).toBe('S000059508');
-    expect(nport.holdings.map((h) => [h.isin, h.ticker, h.sedol])).toEqual([
-      ['AU000000SGM7', 'SGM', 'B0LCW75'], ['IE00B4Q5ZN47', 'JAZZ', ''], ['US5745991068', '', ''], ['US02079K3059', '', ''], ['', 'AP U26-SFE', ''], ['US91282CLK52', 'T', ''],
+    expect([filing.seriesId, filing.repPdDate, filing.positions.length]).toEqual(['S000059508', '2026-06-30', 7]);
+    // tickers only for U.S. equities in USD (JAZZ has an Irish ISIN, SGM is the Sydney code), never one ticker on two
+    // securities (both Alphabet lines would be GOOGL); identifiers are the position's own, a missing weight is empty, never 0
+    const names = parseSecCompanyNames({ 0: { ticker: 'MAS', title: 'Masco Corporation' }, 1: { ticker: 'GOOGL', title: 'Alphabet Inc.' }, 2: { ticker: 'GOOG', title: 'Alphabet Inc.' } });
+    const rows = nportHoldingsSheet(filing, nportTickers(filing.positions, names));
+    expect(rows.map((row) => [row.Ticker, row.Identifier, row.Weight])).toEqual([
+      ['—', 'AU000000SGM7', '1.25'], ['—', 'IE00B4Q5ZN47', '1.25'], ['MAS', '574599106', '1.25'], ['—', '02079K305', '1.25'], ['—', '02079K107', '1.25'], ['—', '—', '1.25'], ['—', '91282CLK5', ''],
     ]);
-    // SEC company table: exact issuer names only, a name with two tickers (GOOG, GOOGL) is never guessed
-    const names = parseCompanyTickerMap({ 0: { ticker: 'MAS', title: 'Masco Corporation' }, 1: { ticker: 'GOOGL', title: 'Alphabet Inc.' }, 2: { ticker: 'GOOG', title: 'Alphabet Inc.' } });
-    expect(fillNportTickers(nport.holdings, names).map((h) => [h.Ticker, h.Identifier])).toEqual([
-      ['—', 'AU000000SGM7'], ['JAZZ', 'IE00B4Q5ZN47'], ['MAS', '574599106'], ['—', '02079K305'], ['—', '—'], ['—', '91282CLK5'],
-    ]);
-    expect(checkNportFiling(nport.seriesId, 's000059508')).toEqual({ ok: true });
-    expect(checkNportFiling('S000068596', 'S000053151').reason).toContain('filing series S000068596 is not S000053151');
-    expect(checkNportFiling('', 'S000053151').ok).toBe(false);
+    expect(rows[2]).toEqual({ Name: 'MASCO CORP', Ticker: 'MAS', Identifier: '574599106', Weight: '1.25', 'Market Value': '100.5', 'Shares Held': '10', 'Asset Category': 'EC' });
+    // the official product-page table names no identifier or currency: its rows never get a guessed ticker
+    expect(officialHoldingsRows(parseFranklinHoldings('| Security Name | Weight (%) | Market Value ($) | Quantity |\n| --- | --- | --- | --- |\n| MASCO CORP | 60.00 | 10,000 | 100 |'))
+      .map((row) => [row.Name, row.Ticker, row.Identifier, row.Weight, row['Market Value'], row['Shares Held']])).toEqual([['MASCO CORP', '—', '—', '60.00', '10,000.00', '100']]);
   });
 
   test('Total Net Assets date: its own block (the "As of" above it in Portfolio Assets), never the monthly block below; same value keeps the published date', () => {
@@ -523,12 +522,24 @@ describe('parsing 3', () => {
     try {
       for (const zone of [saved || 'UTC', 'UTC', 'America/New_York', 'Asia/Tokyo']) {
         process.env.TZ = zone;
-        expect([zone, ...['Oct 20 2026', 'October 20, 2026', 'Dec 4 2019', '20 Oct 2026', 'Sept 3, 2026', '2026-10-20T00:00:00Z', '10/20/2026'].map(toIsoDate)])
-          .toEqual([zone, '2026-10-20', '2026-10-20', '2019-12-04', '2026-10-20', '2026-09-03', '2026-10-20', '2026-10-20']);
+        expect([zone, ...['Oct 20 2026', 'October 20, 2026', 'Dec 4 2019', '20 Oct 2026', 'Sept 3, 2026', '2026-10-20T00:00:00Z', '10/20/2026', '10/20/26', '20-Oct-26'].map(toIsoDate)])
+          .toEqual([zone, '2026-10-20', '2026-10-20', '2019-12-04', '2026-10-20', '2026-09-03', '2026-10-20', '2026-10-20', '2026-10-20', '2026-10-20']);
+        // plain calendar text (shared calendar-dates block): a day that does not exist is no date, never rolled over
+        expect([toIsoDate('02/30/2026'), toIsoDate('not a date')]).toEqual(['02/30/2026', 'not a date']);
       }
     } finally {
       if (saved === undefined) delete process.env.TZ; else process.env.TZ = saved;
     }
+  });
+
+  test('N-PORT freshness: a report replaces published holdings only when strictly newer; nothing published accepts any report', () => {
+    expect(nportIsFresh('2026-06-30', '2026-06-30', 108)).toBe(false); // FLAU published from its 2026-06-30 filing
+    expect(nportIsFresh('2026-03-31', '2026-06-30', 108)).toBe(false);
+    expect(nportIsFresh('2026-09-30', '2026-06-30', 108)).toBe(true);
+    expect(nportIsFresh('', '2026-06-30', 108)).toBe(false);
+    expect(nportIsFresh('2026-09-30', 'Jun 30 2026', 108)).toBe(false); // a display date is converted with calendarIso first
+    expect(nportIsFresh('2026-06-30', null, 0)).toBe(true);
+    expect(nportIsFresh('2026-06-30', null, 108)).toBe(false); // published rows without a date cannot be compared: keep them
   });
 
   test('distribution frequency: inferred, labelled and normalized', () => {
@@ -1044,7 +1055,7 @@ describe('pipeline 3', () => {
     await run(live);
     expect(snapshot(feed())).toEqual(published);
     expect(process.exitCode).toBe(1);
-    expect(logged.some((line) => line.includes('holdings guard: only 0 of 2 rows have a numeric weight'))).toBe(true);
+    expect(logged.some((line) => line.includes('holdings guard: no row has a numeric weight, the published sheet had 2'))).toBe(true);
     // the same page with sound weights is written
     page = pageMd({ nav: '22.50' });
     await run(live);
@@ -1103,6 +1114,7 @@ describe('pipeline 4', () => {
     const other = '0000940400-26-099002';
     const filings: Record<string, string> = { [own]: filing('S000059502', 'NESTLE SA'), [other]: filing('S000068596', 'US TREASURY NOTE') };
     let listed: Record<string, string> = { 'CIK=S000059502': own, 'CIK=0001655589': other }; // the trust lists another series first
+    const documents: string[] = [];
     (globalThis as any).fetch = async (input: unknown) => {
       const url = String(input);
       if (url.startsWith('https://r.jina.ai/')) throw new Error('offline');
@@ -1112,75 +1124,66 @@ describe('pipeline 4', () => {
         const key = Object.keys(listed).find((k) => url.includes(k));
         return new Response(key ? atom(listed[key]) : '<feed/>');
       }
-      const accession = Object.keys(filings).find((a) => url.endsWith(`/${a}.txt`));
-      return accession ? new Response(filings[accession]) : new Response('not found', { status: 404 }); // the known accession of FLCH is gone
+      // the shared reader reads primary_doc.xml from the registrant's own folder, never the full submission .txt
+      documents.push(url);
+      const accession = Object.keys(filings).find((a) => url === `https://www.sec.gov/Archives/edgar/data/1655589/${a.replace(/-/g, '')}/primary_doc.xml`);
+      return accession ? new Response(filings[accession]) : new Response('not found', { status: 404 });
     };
-    const sourceOf = () => JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'meta.json'), 'utf8')).holdings.source;
-    resetSecCachesForTest();
-    try {
-      await run({ EDGAR_FALLBACK: 'true', TICKERS: 'FLCH', CONCURRENCY: '1' });
-      expect(sourceOf()).toContain(own);
-      const published = snapshot(feed());
-      // now even the series search hands back another series' filing: it is ignored and the published holdings stay
-      listed = { 'CIK=S000059502': other, 'CIK=0001655589': other };
-      await run({ EDGAR_FALLBACK: 'true', TICKERS: 'FLCH', CONCURRENCY: '1' });
-      expect(snapshot(feed())).toEqual(published);
-    } finally {
-      resetSecCachesForTest();
-    }
+    const holdings = () => JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'meta.json'), 'utf8')).holdings;
+    await run({ EDGAR_FALLBACK: 'true', TICKERS: 'FLCH', CONCURRENCY: '1' });
+    expect(holdings()).toMatchObject({ totalRows: 2, asOfDate: '2026-06-30' });
+    expect(holdings().source).toContain(own);
+    expect(documents.filter((url) => url.includes('/Archives/'))).toEqual([`https://www.sec.gov/Archives/edgar/data/1655589/${own.replace(/-/g, '')}/primary_doc.xml`]);
+    const published = snapshot(feed());
+    // now even the series search hands back another series' filing: it is ignored and the published holdings stay
+    listed = { 'CIK=S000059502': other, 'CIK=0001655589': other };
+    await run({ EDGAR_FALLBACK: 'true', TICKERS: 'FLCH', CONCURRENCY: '1' });
+    expect(snapshot(feed())).toEqual(published);
   }), 60000);
 
-  test('N-PORT: the newest filing of the series, only when newer than the published holdings; a failed SEC table is asked again', inTempRoot(async () => {
-    // FLCH (series S000059502) and FLCA (S000059509) are pre-seeded series; 0000940400-26-035168 was FLCH's pinned 2026-06-30 filing
+  test('N-PORT: the newest filing of the series, only when strictly newer than the published holdings; FRANKLIN_SERIES_MAP needs no SEC table, a failed table is asked again', inTempRoot(async () => {
+    // FLCH (series S000059502) is in FRANKLIN_SERIES_MAP; EZET is known only to the SEC fund ticker table (a made-up series here)
     const filing = (series: string, period: string, name: string) => `<edgarSubmission><genInfo><regCik>0001655589</regCik><seriesId>${series}</seriesId><repPdDate>${period}</repPdDate></genInfo><invstOrSecs><invstOrSec><name>${name}</name><cusip>123456789</cusip><balance>10</balance><valUSD>600</valUSD><pctVal>60</pctVal></invstOrSec><invstOrSec><name>${name} 2</name><cusip>223456789</cusip><balance>5</balance><valUSD>400</valUSD><pctVal>40</pctVal></invstOrSec></invstOrSecs></edgarSubmission>`;
     const atom = (accession: string, period: string) => `<feed><entry><content><accession-number>${accession}</accession-number><filing-date>${period}</filing-date><filing-type>NPORT-P</filing-type><period>${period}</period></content></entry></feed>`;
     const filings: Record<string, string> = {
-      '0000940400-26-035168': filing('S000059502', '2026-06-30', 'PINNED JUNE'),
       '0000940400-26-099101': filing('S000059502', '2026-09-30', 'NEWEST SEPTEMBER'),
       '0000940400-26-099102': filing('S000059502', '2026-03-31', 'OLDER MARCH'),
-      '0000940400-26-099103': filing('S000059509', '2026-09-30', 'CANADA SEPTEMBER'),
+      '0000940400-26-099103': filing('S000099999', '2026-09-30', 'EZET SEPTEMBER'),
     };
-    let listed: Record<string, [string, string]> = { 'CIK=S000059502': ['0000940400-26-099101', '2026-09-30'], 'CIK=S000059509': ['0000940400-26-099103', '2026-09-30'] };
+    let listed: Record<string, [string, string]> = { 'CIK=S000059502': ['0000940400-26-099101', '2026-09-30'], 'CIK=S000099999': ['0000940400-26-099103', '2026-09-30'] };
     let tableCalls = 0;
     let tableDown: 'first' | 'always' = 'always';
     (globalThis as any).fetch = async (input: unknown) => {
       const url = String(input);
-      if (!url.startsWith('https://www.sec.gov/')) throw new Error('offline'); // proxies
-      if (url.endsWith('company_tickers_mf.json')) return ++tableCalls === 1 || tableDown === 'always' ? new Response('busy', { status: 503 }) : new Response('{"fields":[],"data":[]}');
+      if (!url.startsWith('https://www.sec.gov/')) throw new Error('offline'); // proxies and the optional submissions JSON
+      if (url.endsWith('company_tickers_mf.json')) {
+        return ++tableCalls === 1 || tableDown === 'always' ? new Response('busy', { status: 503 }) : new Response(JSON.stringify({ fields: ['cik', 'seriesId', 'classId', 'symbol'], data: [[1655589, 'S000099999', 'C000999999', 'EZET']] }));
+      }
       if (url.endsWith('company_tickers.json')) return new Response('{}');
       if (url.includes('browse-edgar')) {
         const key = Object.keys(listed).find((k) => url.includes(k));
         return new Response(key ? atom(...listed[key]) : '<feed/>');
       }
       // filings live under the registrant's CIK, never under the filer agent (0000940400) that starts the accession
-      const accession = Object.keys(filings).find((a) => url === `https://www.sec.gov/Archives/edgar/data/1655589/${a.replace(/-/g, '')}/${a}.txt`);
+      const accession = Object.keys(filings).find((a) => url === `https://www.sec.gov/Archives/edgar/data/1655589/${a.replace(/-/g, '')}/primary_doc.xml`);
       return accession ? new Response(filings[accession]) : new Response('not found', { status: 404 });
     };
     const holdingsOf = (ticker: string) => existsSync(join(feed(), 'funds', ticker, 'meta.json')) ? JSON.parse(readFileSync(join(feed(), 'funds', ticker, 'meta.json'), 'utf8')).holdings : null;
-    resetSecCachesForTest();
-    try {
-      // a failed fund ticker table is asked once more later in the run, then no more
-      await run({ EDGAR_FALLBACK: 'true', TICKERS: 'FLCA,FLCH', CONCURRENCY: '1' });
-      expect([tableCalls, holdingsOf('FLCA')?.totalRows ?? 0, holdingsOf('FLCH')?.totalRows ?? 0]).toEqual([2, 0, 0]);
-      // the preload fails, the fund asks again; every series is looked up on EDGAR, so the newest filing wins over the
-      // once pinned June accession
-      resetSecCachesForTest();
-      tableCalls = 0;
-      tableDown = 'first';
-      await run({ EDGAR_FALLBACK: 'true', TICKERS: 'FLCH', CONCURRENCY: '1' });
-      expect(tableCalls).toBe(2);
-      expect(holdingsOf('FLCH').source).toContain('0000940400-26-099101');
-      const published = snapshot(feed());
-      // an older filing never replaces the published September holdings
-      listed = { 'CIK=S000059502': ['0000940400-26-099102', '2026-03-31'], 'CIK=S000059509': ['0000940400-26-099103', '2026-09-30'] };
+    // the SEC fund ticker table is down all run: asked once more for EZET, then no more; FLCH's mapped series needs no table
+    await run({ EDGAR_FALLBACK: 'true', TICKERS: 'EZET,FLCH', CONCURRENCY: '1' });
+    expect([tableCalls, holdingsOf('EZET')?.totalRows ?? 0, holdingsOf('FLCH')?.source]).toEqual([2, 0, 'SEC EDGAR Form N-PORT-P (accession 0000940400-26-099101, report period 2026-09-30)']);
+    // the preload fails, EZET asks again and gets its own series' newest filing
+    tableCalls = 0;
+    tableDown = 'first';
+    await run({ EDGAR_FALLBACK: 'true', TICKERS: 'EZET', CONCURRENCY: '1' });
+    expect(tableCalls).toBe(2);
+    expect(holdingsOf('EZET').source).toContain('0000940400-26-099103');
+    const published = snapshot(feed());
+    // an older filing never replaces the published September holdings, nor does the same one again
+    for (const newest of [['0000940400-26-099102', '2026-03-31'], ['0000940400-26-099101', '2026-09-30']] as Array<[string, string]>) {
+      listed['CIK=S000059502'] = newest;
       await run({ EDGAR_FALLBACK: 'true', TICKERS: 'FLCH', CONCURRENCY: '1' });
       expect(snapshot(feed())).toEqual(published);
-      expect(nportIsNewer('2026-09-30', { totalRows: 2, asOfDate: '2026-06-30' })).toBe(true);
-      expect(nportIsNewer('2026-06-30', { totalRows: 2, asOfDate: '2026-06-30' })).toBe(false);
-      expect(nportIsNewer('n/a', { totalRows: 2, asOfDate: '2026-06-30' })).toBe(false);
-      expect(nportIsNewer('2026-03-31', { totalRows: 0 })).toBe(true); // nothing published yet
-    } finally {
-      resetSecCachesForTest();
     }
   }), 60000);
 
@@ -1201,9 +1204,9 @@ describe('pipeline 4', () => {
     catalogOnly(/no source returned data/, logged);
     // only N-PORT is asked and gives nothing: no empty meta.json reported updated
     logged.length = 0;
-    resetSecCachesForTest();
+    resetSecState();
     await run({ EDGAR_FALLBACK: 'true', TICKERS: 'FLCH' });
-    resetSecCachesForTest();
+    resetSecState();
     catalogOnly(/N-PORT: no usable filing/, logged);
     // the page answers, but its holdings fail the guard
     let page = pageMd().replace('| 60.00 |', '| — |').replace('| 40.00 |', '| — |');
@@ -1260,6 +1263,109 @@ describe('pipeline 4', () => {
     page = assets('10/27/2026', '54.10');
     await run(live);
     expect(aum()).toMatchObject({ value: 54.1e6, asOfDate: '2026-10-27' });
+  }), 60_000);
+});
+
+describe('pipeline 5', () => {
+  const livePage = (page: () => string) => {
+    (globalThis as any).fetch = async (input: unknown) => {
+      const url = String(input);
+      if (url.includes('franklintempleton.com/investments')) return new Response(page());
+      if (url.includes('sitemap')) return new Response('<urlset/>');
+      throw new Error('offline');
+    };
+  };
+
+  test('a fund younger than one year publishes no 1-year, 3-year or since-inception return (index and meta)', inTempRoot(async () => {
+    livePage(() => pageMd().replace('Fund Inception Date 02/06/2018', 'Fund Inception Date 01/15/2026').replace('## Portfolio', 'YTD Total Returns At NAV 5.50%\n## Portfolio'));
+    await run({ SKIP_FRANKLIN: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' });
+    const metrics = index().funds.find((row: any) => row.ticker === 'FLCH').metrics;
+    expect([typeof metrics.ytd, metrics.tr1y, metrics.cagr3y, metrics.siAnn, metrics.performanceAsOf]).toEqual(['number', null, null, null, '2026-08-31']);
+    const monthEnd = JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'meta.json'), 'utf8')).returns.monthEnd;
+    expect([monthEnd.yr1, monthEnd.yr3, monthEnd.sinceInception]).toEqual([null, null, null]);
+  }), 30_000);
+
+  test('a relaxed guard still keeps numeric published weights from an all-dash sheet (Q24)', inTempRoot(async () => {
+    let page = pageMd();
+    livePage(() => page);
+    const live = { SKIP_FRANKLIN: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' };
+    await run(live);
+    const published = snapshot(feed());
+    page = pageMd({ nav: '22.50' }).replace('| 60.00 |', '| — |').replace('| 40.00 |', '| — |');
+    HOLDINGS_GUARD_RELAX.FLCH = ['numeric', 'sum'];
+    try {
+      await run(live);
+    } finally {
+      delete HOLDINGS_GUARD_RELAX.FLCH;
+    }
+    expect(snapshot(feed())).toEqual(published);
+    expect(process.exitCode).toBe(1);
+    expect(holdingsWeightCount(['Name', 'Weight'], [['A', '-'], ['B', '2']])).toBe(1);
+  }), 30_000);
+
+  test('a HISTORY_RANGE run after a full run keeps the older history and distributions and writes nothing (Q25)', inTempRoot(async () => {
+    const day = (i: number) => Date.UTC(2026, 8, 21 + i, 20) / 1000;
+    const all = [0, 1, 2, 3, 4, 5].map(day);
+    let days = all;
+    (globalThis as any).fetch = async (input: unknown) => {
+      if (!String(input).includes('finance/chart')) throw new Error('offline');
+      const at = all.length - days.length;
+      const close = [20, 20.5, 21.299999237060547, 21.5, 22, 22.5].slice(at); // Yahoo float32 closes as served
+      const dividends = days.indexOf(day(1)) >= 0 ? { [String(day(1))]: { amount: 0.25, date: day(1) } } : {};
+      return new Response(JSON.stringify({ chart: { result: [{ meta: { regularMarketPrice: 22.5, regularMarketTime: day(5) }, timestamp: days, indicators: { quote: [{ close, volume: close.map(() => 1) }], adjclose: [{ adjclose: close }] }, events: { dividends } }] } }));
+    };
+    const live = { SKIP_YAHOO: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' };
+    await run(live);
+    const first = snapshot(feed());
+    days = all.slice(3); // a 1y window that starts after the dividend
+    await run({ ...live, HISTORY_RANGE: '1y' });
+    expect(snapshot(feed())).toEqual(first);
+    const meta = JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'meta.json'), 'utf8'));
+    expect([meta.history.totalRows, meta.distributions.rows.length]).toEqual([6, 1]);
+  }), 30_000);
+
+  test('TICKERS outside the live catalog stops the run before any fund request; a stale catalog-only row is dropped (Q27)', inTempRoot(async () => {
+    await run({ TICKERS: 'FLCH' });
+    writeFileSync(join(feed(), 'index.json'), JSON.stringify({ ...index(), funds: [...index().funds, { ticker: 'NOPE', dataFile: null }] }));
+    const before = snapshot(feed());
+    const calls: string[] = [];
+    (globalThis as any).fetch = async (input: unknown) => {
+      const url = String(input);
+      calls.push(url);
+      if (url.includes('sitemap')) return new Response(`<urlset><url><loc>${fundUrl(26353, 'franklin-ftse-switzerland-etf', 'FLCH')}</loc></url></urlset>`);
+      throw new Error('offline');
+    };
+    await expect(run({ SKIP_FRANKLIN: 'false', TICKERS: 'NOPE' })).rejects.toThrow('TICKERS: NOPE not in the Franklin catalog or published feed; nothing was fetched or written');
+    expect(calls.filter((url) => !url.includes('sitemap'))).toEqual([]);
+    expect(snapshot(feed())).toEqual(before);
+    await run({ SKIP_FRANKLIN: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' });
+    const tickers = index().funds.map((row: any) => row.ticker);
+    expect([tickers.length, tickers.indexOf('NOPE')]).toEqual([81, -1]);
+  }), 60_000);
+
+  test('NEW FUNDS announces a fund on its first successful publish, a failed new fund as not published yet (Q28)', inTempRoot(async () => {
+    await run();
+    let failing = ['ZNEWB'];
+    (globalThis as any).fetch = async (input: unknown) => {
+      const url = String(input);
+      if (url.includes('sitemap')) return new Response(`<urlset>${['ZNEWA', 'ZNEWB'].map((t) => `<url><loc>${fundUrl(99000, `${t.toLowerCase()}-etf`, t)}</loc></url>`).join('')}</urlset>`);
+      const ticker = /\/(ZNEW[AB])$/.exec(url)?.[1];
+      if (ticker && failing.indexOf(ticker) < 0 && url.includes('franklintempleton.com/investments')) return new Response(pageMd().replace(/FLCH/g, ticker));
+      throw new Error('offline');
+    };
+    process.env.GITHUB_STEP_SUMMARY = join(root, 'summary.md');
+    const lines: string[] = [];
+    console.log = (line: unknown) => { if (/^NEW FUNDS/.test(String(line))) lines.push(String(line)); };
+    const live = { SKIP_FRANKLIN: 'false', TICKERS: 'ZNEWA ZNEWB', CONCURRENCY: '1' };
+    await run(live);
+    expect(lines).toEqual(['NEW FUNDS: ZNEWA', 'NEW FUNDS (not published yet): ZNEWB']);
+    expect(readFileSync(join(root, 'summary.md'), 'utf8')).toContain('### NEW FUNDS\n\nNEW FUNDS: ZNEWA\nNEW FUNDS (not published yet): ZNEWB\n');
+    lines.length = 0;
+    await run(live);
+    expect(lines).toEqual([]);
+    failing = [];
+    await run(live);
+    expect(lines).toEqual(['NEW FUNDS: ZNEWB']);
   }), 60_000);
 });
 
