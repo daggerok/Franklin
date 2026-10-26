@@ -1127,6 +1127,41 @@ function labelAsOf(label: JsonRecord | null): string | null {
   return firstDate(raw) || null;
 }
 
+/**
+ * The "As of" of the page block a label sits in. The header block prints it below the value ("Total Net Assets",
+ * "$224.46M", "As of 10/25/2026 (Updated Daily)"); the Portfolio "Assets" block prints it above ("### Assets",
+ * "As of 10/25/2026 (Updated Daily)", "Total Net Assets $683.13 Million"). A date after the next heading belongs to
+ * another block: reading two lines ahead dated FTMH's daily assets with the monthly "Portfolio Statistics" 09/30.
+ */
+export function blockAsOf(lines: TextLine[], label: JsonRecord | null): string | null {
+  if (!label) return null;
+  const at = typeof label.line === 'number' ? label.line : -1;
+  if (at < 0) return labelAsOf(label);
+  const isHeading = (line: TextLine | undefined) => !line || /^#/.test(line.text);
+  const own = firstDate(lines[at].text);
+  if (own) return own;
+  for (let j = at + 1; j <= at + 2 && !isHeading(lines[j]); j++) {
+    const date = firstDate(lines[j].text);
+    if (date) return date;
+  }
+  for (let j = at - 1; j >= at - 2 && !isHeading(lines[j]); j--) {
+    if (/^As of\b/i.test(lines[j].text)) return firstDate(lines[j].text);
+  }
+  return null;
+}
+
+/**
+ * AUM date of the published meta. The source's own date is used for a new value; for the value already published the
+ * published date stays: the issuer re-stamps an unchanged Total Net Assets with its daily refresh date (FLAU $224.46M
+ * read "As of 10/22/2026" on Friday night and "As of 10/25/2026" on Sunday), and a rerun must neither move the date
+ * back nor forward for the same number.
+ */
+export function stableAumAsOf(value: number | null, sourceAsOf: string | null, published: { value?: unknown; asOfDate?: unknown } | null | undefined): string | null {
+  if (!sourceAsOf) return null;
+  const publishedAsOf = isoDateOrNull(published?.asOfDate);
+  return value !== null && publishedAsOf && numberOrNull(published?.value) === value ? publishedAsOf : sourceAsOf;
+}
+
 function lookupLabel(lines: TextLine[], pattern: string | RegExp): JsonRecord | null {
   const isString = typeof pattern === 'string';
   const test = isString ? (text: string) => text.toLowerCase().includes((pattern as string).toLowerCase()) : (text: string) => (pattern as RegExp).test(text);
@@ -1199,7 +1234,7 @@ function lookupLabel(lines: TextLine[], pattern: string | RegExp): JsonRecord | 
     const score = cleaned.length + (line.text.length > 200 ? 1000 : 0);
     if (score < bestScore) {
       bestScore = score;
-      best = { value: cleaned, text: joined, asOf: firstDate(joined) || firstDate(line.text) || firstDate(lines[i + 1]?.text || '') || firstDate(lines[i + 2]?.text || '') };
+      best = { value: cleaned, text: joined, line: i, asOf: firstDate(joined) || firstDate(line.text) || firstDate(lines[i + 1]?.text || '') || firstDate(lines[i + 2]?.text || '') };
       if (cleaned.length < 80 && line.text.length < 150) return best;
     }
   }
@@ -2103,7 +2138,7 @@ export function parseFranklinProductPage(text: string, ticker: string): ProductP
     nav,
     navAsOfDate: sharePrices ? sharePrices.asOfDate : labelAsOf(navLabel),
     totalNetAssets,
-    totalNetAssetsAsOfDate: labelAsOf(totalNetAssetsLabel),
+    totalNetAssetsAsOfDate: blockAsOf(lines, totalNetAssetsLabel),
     totalExpenseRatio: netExpense,
     grossExpenseRatio: grossExpense,
     sharesOutstanding,
@@ -3856,7 +3891,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
       aum: {
         display: formatAumDisplay(fund.netAssets),
         value: fund.netAssets,
-        asOfDate: summary?.totalNetAssetsAsOfDate || cleanText(prevMeta?.aum?.asOfDate) || holdingsAsOf || null,
+        asOfDate: stableAumAsOf(fund.netAssets, summary?.totalNetAssetsAsOfDate ?? null, prevMeta?.aum) || cleanText(prevMeta?.aum?.asOfDate) || holdingsAsOf || null,
         source: summary?.totalNetAssets !== null && summary?.totalNetAssets !== undefined
           ? 'official product page Total Net Assets'
           : cleanText(prevMeta?.aum?.source) || holdingsSource,

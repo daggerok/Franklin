@@ -74,6 +74,7 @@ import {
   setApiRootForTest,
   setClockForTest,
   setSoftDeadline,
+  stableAumAsOf,
   publishedAsOf,
   stalestFirst,
   stripProxyPreamble,
@@ -483,6 +484,21 @@ describe('parsing 2', () => {
     expect(checkNportFiling(nport.seriesId, 's000059508')).toEqual({ ok: true });
     expect(checkNportFiling('S000068596', 'S000053151').reason).toContain('filing series S000068596 is not S000053151');
     expect(checkNportFiling('', 'S000053151').ok).toBe(false);
+  });
+
+  test('Total Net Assets date: its own block (the "As of" above it in Portfolio Assets), never the monthly block below; same value keeps the published date', () => {
+    // the Portfolio "Assets" block of FTMH: the daily "As of" is above the value, the monthly statistics follow
+    const assets = (date: string) => pageMd().replace('As of 10/02/2026  (Updated Daily)\nTotal Net Assets $53.87 Million',
+      `As of ${date}  (Updated Daily)\nTotal Net Assets $53.87 Million\n### Portfolio Statistics\nAs of 09/30/2026  (Updated Monthly)`);
+    expect(parseProductPage(assets('10/25/2026'), 'FLCH')).toMatchObject({ totalNetAssets: 53.87e6, totalNetAssetsAsOfDate: '2026-10-25' });
+    // the header block prints the date below the value
+    expect(parseProductPage(pageMd().replace('## Overview', 'Total Net Assets\n$53.87M\nAs of 10/22/2026 (Updated Daily)\n## Overview'), 'FLCH').totalNetAssetsAsOfDate).toBe('2026-10-22');
+    // a new value takes the source's date; the published value keeps its date, earlier or later re-stamps alike
+    const published = { value: 224.46e6, asOfDate: '2026-10-25' };
+    expect(stableAumAsOf(224.46e6, '2026-10-22', published)).toBe('2026-10-25');
+    expect(stableAumAsOf(224.46e6, '2026-10-27', published)).toBe('2026-10-25');
+    expect(stableAumAsOf(225.1e6, '2026-10-27', published)).toBe('2026-10-27');
+    expect([stableAumAsOf(224.46e6, null, published), stableAumAsOf(224.46e6, '2026-10-22', { value: 224.46e6, asOfDate: '—' }), stableAumAsOf(224.46e6, '2026-10-22', null)]).toEqual([null, '2026-10-22', '2026-10-22']);
   });
 });
 
@@ -1214,6 +1230,37 @@ describe('pipeline 4', () => {
     expect(existsSync(join(dir, 'holdings', '009.json'))).toBe(false);
     expect(existsSync(join(dir, 'meta.json'))).toBe(true);
   }), 30_000);
+
+  test('AUM date across runs: the same value never moves its published date back or forward, a new value takes the page date', inTempRoot(async () => {
+    let page = pageMd();
+    (globalThis as any).fetch = async (input: unknown) => {
+      const url = String(input);
+      if (url.includes('finance/chart')) {
+        const t = Math.floor(Date.now() / 86_400_000) * 86_400;
+        return new Response(JSON.stringify({ chart: { result: [{ meta: { regularMarketPrice: 22, regularMarketTime: t }, timestamp: [t - 86_400, t], indicators: { quote: [{ close: [21.5, 22], volume: [1, 1] }], adjclose: [{ adjclose: [21.5, 22] }] }, events: {} }] } }));
+      }
+      if (url.includes('franklintempleton.com/investments')) return new Response(page);
+      if (url.includes('sitemap')) return new Response('<urlset/>');
+      throw new Error('offline');
+    };
+    const live = { SKIP_FRANKLIN: 'false', SKIP_YAHOO: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' };
+    const aum = () => JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'meta.json'), 'utf8')).aum;
+    const assets = (date: string, value: string) => pageMd().replace('As of 10/02/2026  (Updated Daily)\nTotal Net Assets $53.87 Million',
+      `As of ${date}  (Updated Daily)\nTotal Net Assets $${value} Million\n### Portfolio Statistics\nAs of 09/30/2026  (Updated Monthly)`);
+    page = assets('10/25/2026', '53.87');
+    await run(live);
+    expect(aum()).toMatchObject({ value: 53.87e6, asOfDate: '2026-10-25', source: 'official product page Total Net Assets' });
+    const published = snapshot(feed());
+    // the issuer re-dates the unchanged value: an older and a newer stamp both write nothing
+    for (const date of ['10/22/2026', '10/27/2026']) {
+      page = assets(date, '53.87');
+      await run(live);
+      expect(snapshot(feed())).toEqual(published);
+    }
+    page = assets('10/27/2026', '54.10');
+    await run(live);
+    expect(aum()).toMatchObject({ value: 54.1e6, asOfDate: '2026-10-27' });
+  }), 60_000);
 });
 
 describe('network', () => {
