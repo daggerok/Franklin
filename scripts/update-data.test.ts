@@ -332,6 +332,9 @@ SEC 30-Day Yield 2.09%
       ['## Price\nNAV $20.00\nYTD Total Returns At NAV [1]\n[1] The fund\'s total return assumes reinvestment of distributions and does not\nreflect brokerage commissions, which would reduce returns.\n4.20%\nAs of 09/23/2026\n', 4.2, null],
       ['## Performance\nYTD Total Returns At Market Price [1]\n-7.35%\n1 Year\n12.10%\n', -7.35, 12.1],
       ['## Performance\nYTD Total Returns At NAV [1]\n-7.35%\n1 Year\n', -7.35, null],
+      // the value on the label line and a one-line period row: the whole number with its sign, never the last digit (Q34)
+      ['## Performance\nYTD Total Returns At NAV 81.22% As of 09/23/2026\n1 Year 5.10%\n', 81.22, 5.1],
+      ['## Performance\nYTD -7.35% | 1 Year | 3 Years\n', -7.35, null],
     ];
     for (const [body, ytd, yr1] of cases) {
       const { returns } = parseProductPage(`# TEST  Franklin Test ETF\n${body}`, 'TEST');
@@ -1293,6 +1296,18 @@ describe('pipeline 5', () => {
     expect([monthEnd.yr1, monthEnd.yr3, monthEnd.sinceInception]).toEqual([null, null, null]);
   }), 30_000);
 
+  test('SKIP_FRANKLIN keeps the published SEC yield with its date: a skipped run writes nothing (Q34)', inTempRoot(async () => {
+    livePage(() => pageMd());
+    await run({ SKIP_FRANKLIN: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' });
+    const kind = () => JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'meta.json'), 'utf8')).yields.secYieldKind;
+    expect(kind()).toBe('SEC Yield (30 Day) published on the official product page as of Aug 31 2026');
+    const published = snapshot(feed());
+    await new Promise((resolve) => setTimeout(resolve, 1100)); // generatedAt has second resolution
+    await run({ TICKERS: 'FLCH', CONCURRENCY: '1' });
+    expect(kind()).toBe('SEC Yield (30 Day) published on the official product page as of Aug 31 2026');
+    expect(snapshot(feed())).toEqual(published);
+  }), 30_000);
+
   test('a relaxed guard still keeps numeric published weights from an all-dash sheet (Q24)', inTempRoot(async () => {
     let page = pageMd();
     livePage(() => page);
@@ -1310,7 +1325,9 @@ describe('pipeline 5', () => {
     expect(process.exitCode).toBe(1);
     expect(holdingsWeightCount(['Name', 'Weight'], [['A', '-'], ['B', '2']])).toBe(1);
   }), 30_000);
+});
 
+describe('pipeline 6', () => {
   test('a HISTORY_RANGE run after a full run keeps the older history and distributions and writes nothing (Q25)', inTempRoot(async () => {
     const day = (i: number) => Date.UTC(2026, 8, 21 + i, 20) / 1000;
     const all = [0, 1, 2, 3, 4, 5].map(day);
