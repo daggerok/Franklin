@@ -859,6 +859,36 @@ describe('pipeline', () => {
     expect(logged.filter((line) => line.includes('FLCH') && /429|product page/.test(line))).toEqual([]);
   }), 30_000);
 
+  test('an empty proxy snapshot of a product page is asked once more: empty then valid publishes the page, empty twice fails as before', inTempRoot(async () => {
+    const empty = 'Title: Franklin Templeton\n\nMarkdown Content:\n';
+    let answers: string[] = [];
+    let proxied = 0;
+    (globalThis as any).fetch = async (input: unknown) => {
+      const url = String(input);
+      if (!url.includes('franklintempleton.com/investments')) throw new Error('offline');
+      if (!url.startsWith('https://r.jina.ai/')) return new Response('<html><app-root></app-root></html>'); // the SPA shell
+      proxied += 1;
+      return new Response(answers.shift() ?? empty);
+    };
+    const logged: string[] = [];
+    console.log = (...args: unknown[]) => { logged.push(args.join(' ')); };
+    const live = { SKIP_FRANKLIN: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' };
+    answers = [empty, pageMd().replace('Markdown Content:', 'Markdown Content:\n# Franklin FTSE Switzerland ETF - FLCH')];
+    await run(live);
+    expect(proxied).toBe(2);
+    const meta = JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'meta.json'), 'utf8'));
+    expect(meta).toMatchObject({ nav: { value: 21.99 }, aum: { source: 'official product page Total Net Assets' } });
+    expect(process.exitCode).toBe(0);
+    const published = snapshot(feed());
+    proxied = 0;
+    logged.length = 0;
+    answers = [empty, empty];
+    await run(live);
+    expect(proxied).toBe(2); // one retry, never a third request
+    expect(snapshot(feed())).toEqual(published);
+    expect(logged.some((line) => line.includes('FLCH') && line.includes('did not contain expected content'))).toBe(true);
+  }), 30_000);
+
   test('Distribution Rate and computed premium: labelled, dated, zero diff on rerun, kept on a partial page, null when the dates differ', inTempRoot(async () => {
     let page = pageMd({ rate: true });
     let yahooDay = Date.UTC(2026, 9, 2, 20) / 1000;
