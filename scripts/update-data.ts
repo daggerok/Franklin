@@ -842,8 +842,21 @@ export function toIsoDate(value: unknown): string {
     const yy = Number(short[3]);
     return `${yy <= 69 ? 2000 + yy : 1900 + yy}-${short[1].padStart(2, '0')}-${short[2].padStart(2, '0')}`;
   }
+  const pad = (n: number): string => String(n).padStart(2, '0');
+  const isoStamp = /^(\d{4})-(\d{2})-(\d{2})T/.exec(raw);
+  if (isoStamp) return `${isoStamp[1]}-${isoStamp[2]}-${isoStamp[3]}`;
+  // Month names are read directly ("Oct 20 2026", "October 20, 2026", "20 Oct 2026"): Date.parse reads them as LOCAL
+  // midnight and toISOString then gave the previous day east of UTC (a local run moved every inception back a day)
+  const monthOf = (name: string): number => MONTHS.indexOf(`${name.charAt(0).toUpperCase()}${name.slice(1, 3).toLowerCase()}`);
+  const named = /^([A-Za-z]{3,9})\.?\s+(\d{1,2}),?\s+(\d{4})$/.exec(raw);
+  if (named && monthOf(named[1]) >= 0) return `${named[3]}-${pad(monthOf(named[1]) + 1)}-${pad(Number(named[2]))}`;
+  const dayFirst = /^(\d{1,2})\s+([A-Za-z]{3,9})\.?,?\s+(\d{4})$/.exec(raw);
+  if (dayFirst && monthOf(dayFirst[2]) >= 0) return `${dayFirst[3]}-${pad(monthOf(dayFirst[2]) + 1)}-${pad(Number(dayFirst[1]))}`;
   const parsed = Date.parse(raw);
-  return Number.isNaN(parsed) ? raw : new Date(parsed).toISOString().slice(0, 10);
+  if (Number.isNaN(parsed)) return raw;
+  // Any other date-only text also parses as local midnight: the local getters give its calendar day in every zone
+  const date = new Date(parsed);
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
 }
 
 function formatDate(value: string | null | undefined): string {
@@ -2132,6 +2145,11 @@ export function parseProductPage(text: string, ticker: string): ProductPageSumma
 function parseFranklinAmount(raw: string): number | null {
   const cleaned = cleanText(raw).replace(/USD|\$/gi, '').trim();
   if (!cleaned) return null;
+  // "(1,234.00)" is a negative amount (short futures, payables)
+  if (/^\(.*\)$/.test(cleaned)) {
+    const inner = parseFranklinAmount(cleaned.slice(1, -1));
+    return inner === null ? null : -Math.abs(inner);
+  }
   // Handle "29.38M", "671.70K", "137,140,723"
   const m = /([-+]?\d[\d,]*\.?\d*)\s*([KMB])?/i.exec(cleaned);
   if (!m) return numberOrNull(cleaned);
@@ -2142,6 +2160,13 @@ function parseFranklinAmount(raw: string): number | null {
   if (suffix === 'M') return num * 1e6;
   if (suffix === 'B') return num * 1e9;
   return num;
+}
+
+/** Cells of a markdown table row, empty cells kept so every value stays under its own header. */
+function tableCells(line: string): string[] {
+  const trimmed = line.trim();
+  const inner = trimmed.replace(/^\|/, '').replace(/\|$/, '');
+  return inner.split('|').map((c) => cleanText(c));
 }
 
 export function parseFranklinHoldings(text: string): JsonRecord[] {
@@ -2157,8 +2182,8 @@ export function parseFranklinHoldings(text: string): JsonRecord[] {
     if (!line.includes('|')) continue;
     const lower = line.toLowerCase();
     if (lower.includes('security name') && lower.includes('weight')) {
-      const cells = line.split('|').map(c => cleanText(c)).filter(c => c !== '');
-      if (cells.length >= 2) {
+      const cells = tableCells(line);
+      if (cells.filter((c) => c !== '').length >= 2) {
         headerIdx = i;
         headerCells = cells;
         break;
@@ -2177,26 +2202,28 @@ export function parseFranklinHoldings(text: string): JsonRecord[] {
     if (!line.startsWith('|')) break;
     if (line.toLowerCase().includes('security name')) break;
     if (/^[\s|:-]+$/.test(line)) continue;
-    const cells = line.split('|').map(c => cleanText(c)).filter(c => c !== '');
-    if (cells.length < 2) continue;
-    const getCell = (aliases: string[]): string => {
+    // Empty cells are kept: dropping them shifted the row left (an empty weight took the market value)
+    const cells = tableCells(line);
+    if (cells.filter((c) => c !== '').length < 2) continue;
+    // The cell under the header that names the column; the position only when the header lacks that column
+    const getCell = (aliases: string[], position: number): string => {
       for (const alias of aliases) {
         const idx = headerCells.findIndex(h => h.toLowerCase().includes(alias.toLowerCase()));
-        if (idx >= 0 && idx < cells.length) return cells[idx];
+        if (idx >= 0) return cells[idx] ?? '';
       }
-      return '';
+      return cells[position] ?? '';
     };
 
-    let name = getCell(['security name', 'name']) || cells[0] || '';
-    let weight = getCell(['weight']) || cells[1] || '';
-    let marketValue = getCell(['market value']) || cells[2] || '';
-    let quantity = getCell(['quantity']) || cells[cells.length - 1] || '';
+    const name = getCell(['security name', 'name'], 0);
+    const weight = getCell(['weight'], 1);
+    const marketValue = getCell(['market value'], 2);
+    const quantity = getCell(['quantity'], cells.length - 1);
 
     const weightNum = (() => {
-      const m = /([-+]?\d+(?:\.\d+)?)\s*%/.exec(weight);
-      if (m) return m[1];
       const n = numberOrNull(weight);
-      return n !== null ? String(n) : weight;
+      if (n !== null) return String(n);
+      const m = /([-+]?\d+(?:\.\d+)?)\s*%/.exec(weight);
+      return m ? m[1] : weight;
     })();
 
     if (!name || name.toLowerCase().includes('security name')) continue;
@@ -2213,7 +2240,7 @@ export function parseFranklinHoldings(text: string): JsonRecord[] {
       isin: '',
       sedol: '',
       balance: qtyParsed !== null ? String(qtyParsed) : quantity,
-      valUSD: mvParsed !== null ? String(mvParsed) : (marketValue.replace(/[^0-9.\-]/g, '') || '0'),
+      valUSD: mvParsed !== null ? String(mvParsed) : '',
       pctVal: weightNum,
       assetCat: '',
       issuerCat: '',
@@ -2315,13 +2342,21 @@ export function parseFundTickerMap(payload: JsonRecord): Map<string, SecSeriesRe
   return map;
 }
 
-function parseCompanyTickerMap(payload: JsonRecord): Map<string, string> {
+/**
+ * SEC company_tickers.json as issuer name (normalizeIssuerName) -> ticker. A name listed under two tickers (share
+ * classes such as GOOG and GOOGL) is ambiguous and left out, so a guess never merges two securities.
+ */
+export function parseCompanyTickerMap(payload: JsonRecord): Map<string, string> {
   const map = new Map<string, string>();
-  const entries = Object.values(payload as any) as Array<{ ticker: string; title: string }>;
-  for (const entry of entries) {
-    const ticker = sanitizeTicker((entry as any).ticker);
-    const title = cleanText((entry as any).title);
-    if (ticker && title) map.set(ticker, title);
+  const ambiguous = new Set<string>();
+  for (const entry of Object.values(payload ?? {})) {
+    if (!entry || typeof entry !== 'object') continue;
+    const ticker = sanitizeTicker((entry as JsonRecord).ticker);
+    const key = normalizeIssuerName((entry as JsonRecord).title);
+    if (!ticker || !key || ambiguous.has(key)) continue;
+    const known = map.get(key);
+    if (known === undefined) map.set(key, ticker);
+    else if (known !== ticker) { map.delete(key); ambiguous.add(key); }
   }
   return map;
 }
@@ -2352,6 +2387,13 @@ function nportUrlFor(cik: string, accession: string): string {
   return `${SEC_ARCHIVES}/${digits}/${acc}/${accession}.txt`;
 }
 
+/** An N-PORT value: the attribute form (<isin value="AU000000BHP4"/>, how SEC publishes isin and ticker) or element text (<cusip>...</cusip>). */
+function nportValue(block: string, tag: string): string {
+  const attribute = new RegExp(`<${tag}\\b[^>]*\\bvalue="([^"]*)"`, 'i').exec(block);
+  if (attribute) return cleanText(attribute[1]);
+  return cleanText(new RegExp(`<${tag}>\\s*([^<]*?)\\s*</${tag}>`, 'i').exec(block)?.[1] ?? '');
+}
+
 export function parseNport(xml: string): ParsedNport {
   const text = String(xml ?? '');
   // Extract from primary_doc.xml or raw .txt that contains <NPORT-P>
@@ -2363,19 +2405,22 @@ export function parseNport(xml: string): ParsedNport {
 
   const holdings: JsonRecord[] = [];
   const invstPattern = /<invstOrSec>([\s\S]*?)<\/invstOrSec>/g;
-  for (const m of text.matchAll(invstPattern)) {
-    const block = m[1];
+  for (const m of Array.from(text.matchAll(invstPattern))) {
+    // The reference instrument of a derivative carries its own identifiers (an index ticker, the underlying's ISIN):
+    // never read them as the position's own
+    const block = m[1].replace(/<derivativeInfo>[\s\S]*?<\/derivativeInfo>/gi, '');
     const name = /<name>\s*([^<]+)\s*<\/name>/i.exec(block)?.[1]?.trim() || '';
-    const cusip = /<cusip>\s*([^<]+)\s*<\/cusip>/i.exec(block)?.[1]?.trim() || '';
-    const ticker = /<ticker>\s*([^<]+)\s*<\/ticker>/i.exec(block)?.[1]?.trim() || '';
-    const isin = /<isin>\s*([^<]+)\s*<\/isin>/i.exec(block)?.[1]?.trim() || '';
-    const sedol = /<sedol>\s*([^<]+)\s*<\/sedol>/i.exec(block)?.[1]?.trim() || '';
+    const cusip = nportValue(block, 'cusip');
+    const ticker = nportValue(block, 'ticker');
+    const isin = nportValue(block, 'isin');
+    const sedol = nportValue(block, 'sedol') || cleanText(/<other\b[^>]*\botherDesc="SEDOL"[^>]*\bvalue="([^"]*)"/i.exec(block)?.[1] ?? '');
     const balance = /<balance>\s*([^<]+)\s*<\/balance>/i.exec(block)?.[1]?.trim() || '';
     const valUSD = /<valUSD>\s*([^<]+)\s*<\/valUSD>/i.exec(block)?.[1]?.trim() || '';
     const pctVal = /<pctVal>\s*([^<]+)\s*<\/pctVal>/i.exec(block)?.[1]?.trim() || '';
     const assetCat = /<assetCat>\s*([^<]+)\s*<\/assetCat>/i.exec(block)?.[1]?.trim() || '';
     const issuerCat = /<issuerCat>\s*([^<]+)\s*<\/issuerCat>/i.exec(block)?.[1]?.trim() || '';
     const invCountry = /<invCountry>\s*([^<]+)\s*<\/invCountry>/i.exec(block)?.[1]?.trim() || '';
+    const currency = cleanText(/<currencyConditional\b[^>]*\bcurCd="([^"]*)"/i.exec(block)?.[1] ?? /<curCd>\s*([^<]*?)\s*<\/curCd>/i.exec(block)?.[1] ?? '');
 
     holdings.push({
       name,
@@ -2389,6 +2434,7 @@ export function parseNport(xml: string): ParsedNport {
       assetCat,
       issuerCat,
       invCountry,
+      currency,
       identifier: cusip || isin || sedol || '',
     });
   }
@@ -2407,15 +2453,34 @@ export function normalizeHoldingName(raw: unknown): string {
   return cleanText(raw);
 }
 
-function fillNportTickers(rows: JsonRecord[], companyMap: Map<string, string>): JsonRecord[] {
+/** Issuer name reduced to its words without legal suffixes ("Masco Corp" and "MASCO CORPORATION" -> "MASCO"). */
+export function normalizeIssuerName(raw: unknown): string {
+  return cleanText(raw).toUpperCase().replace(/[’']/g, '').replace(/&/g, ' AND ').replace(/[^A-Z0-9]+/g, ' ')
+    .replace(/\b(THE|INC|INCORPORATED|CORP|CORPORATION|CO|COMPANY|LTD|LIMITED|PLC|SA|NV|AG|SE|HOLDINGS?|COMMON|STOCK|SHS|SHARES|REG|REGISTERED)\b/g, ' ')
+    .replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Ticker, Identifier and display columns of N-PORT (and official table) rows. The hub keys a holding by its ticker
+ * first, so only a US listing's own ticker is published: a foreign row's N-PORT ticker is its local exchange code
+ * (SGM, BXB) that collides with unrelated US symbols, and a bond or derivative carries the issuer's or the reference
+ * index's code. Those rows are keyed by CUSIP, else ISIN, else SEDOL. An equity row without a ticker gets the SEC
+ * company table's ticker for its exact issuer name, never for an ambiguous one.
+ */
+export function fillNportTickers(rows: JsonRecord[], companyMap: Map<string, string>): JsonRecord[] {
   return rows.map((row) => {
-    let ticker = cleanHoldingTicker(row.ticker);
+    const assetCat = cleanText(row.assetCat).toUpperCase();
+    const isin = cleanText(row.isin);
+    // The currency names the listing: a US listing is valued in USD whatever the ISIN (JAZZ IE..., RCL LR...), a
+    // US company listed in Sydney in AUD (LNW in FLAU); the country only when the filing gives no currency
+    const currency = cleanText(row.currency).toUpperCase();
+    const usListing = currency ? currency === 'USD' : cleanText(row.invCountry).toUpperCase() === 'US';
+    const ownTicker = usListing && ['EC', 'EP', 'RF', 'STIV', ''].includes(assetCat);
+    let ticker = ownTicker ? cleanHoldingTicker(row.ticker) : '';
     const name = normalizeHoldingName(row.name);
-    const identifier = cleanText(row.cusip && row.cusip !== '000000000' ? row.cusip : (row.isin || row.sedol || ''));
-    if (!ticker && identifier && companyMap) {
-      const match = companyMap.get(identifier);
-      if (match) ticker = match;
-    }
+    const cusip = cleanText(row.cusip);
+    const identifier = cleanText(cusip && !/^0+$/.test(cusip) ? cusip : (isin || row.sedol || ''));
+    if (!ticker && usListing && ['EC', 'EP'].includes(assetCat)) ticker = companyMap.get(normalizeIssuerName(row.name)) || '';
     const val = numberOrNull(row.valUSD);
     const weightVal = numberOrNull(row.pctVal);
     return {

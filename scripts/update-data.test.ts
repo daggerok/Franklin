@@ -46,6 +46,8 @@ import {
   parseEdgarAtomFilings,
   parseFranklinHoldings,
   parseFundTickerMap,
+  parseCompanyTickerMap,
+  fillNportTickers,
   parseNport,
   parsePerformanceAsOf,
   parseProductPage,
@@ -397,6 +399,14 @@ describe('parsing 2', () => {
     expect(b.length).toBe(2);
     expect([b[0].name, b[0].pctVal, Number(b[0].valUSD), Number(b[0].balance)]).toEqual(['HDFC BANK LTD', '5.29', 137140000, 5200000]);
     expect(parseFranklinHoldings('no table here')).toEqual([]);
+    // an empty cell keeps its column (the market value was read as the weight), a parenthesised amount is negative
+    const gaps = parseFranklinHoldings([
+      '| Security Name | Weight (%) | Market Value ($) | Quantity |', '| --- | --- | --- | --- |',
+      '| APPLE INC | | $1,000 | 10 |', '| S&P 500 FUTURE | (0.52%) | ($1,234.00) | (5) |', '| CASH | 1.20% | | |',
+    ].join('\n'));
+    expect(gaps.map((h) => [h.name, h.pctVal, h.valUSD, h.balance])).toEqual([
+      ['APPLE INC', '', '1000', '10'], ['S&P 500 FUTURE', '-0.52', '-1234', '-5'], ['CASH', '1.2', '', ''],
+    ]);
     // the crypto and gold pages put zero-width characters inside every number (EZPZ, FGDL on 2026-10-23)
     const zw = (s: string) => s.replace(/\./g, '.\u200b').replace(/,/g, ',\u2060');
     const ezpz = parseFranklinHoldings([
@@ -449,10 +459,28 @@ describe('parsing 2', () => {
     const filings = parseEdgarAtomFilings(atom);
     expect(filings.length).toBe(1);
     expect(filings[0].accession).toBe('0001752724-26-000001');
-    const nport = parseNport('<edgarSubmission><genInfo><regName>Franklin Templeton ETF Trust</regName><regCik>0001655589</regCik><seriesName>Franklin FTSE India ETF</seriesName><seriesId>S000053151</seriesId><repPdDate>2026-06-30</repPdDate></genInfo><fundInfo><netAssets>2600000000</netAssets></fundInfo><invstOrSecs><invstOrSec><name>Reliance Industries Ltd</name><cusip>123456789</cusip><ticker>RELIANCE</ticker><balance>100000</balance><valUSD>1000000</valUSD><pctVal>5.48</pctVal><assetCat>EC</assetCat></invstOrSec></invstOrSecs></edgarSubmission>');
-    expect(nport.seriesId).toBe('S000053151');
-    expect(nport.holdings.map((h) => h.name)).toEqual(['Reliance Industries Ltd']);
-    expect(checkNportFiling(nport.seriesId, 's000053151')).toEqual({ ok: true });
+    // the SEC form: isin, ticker and SEDOL are value attributes, a foreign line is valued in its own currency, a
+    // derivative's reference index carries identifiers of its own (FLAU and FLQL filings, 2026-06-30)
+    const position = (name: string, cusip: string, ids: string, cur: string, cat: string, more = '') =>
+      `<invstOrSec><name>${name}</name><title>${name}</title><cusip>${cusip}</cusip><identifiers>${ids}</identifiers><balance>10.00000000</balance>${cur}<valUSD>100.50000000</valUSD><pctVal>1.25</pctVal><assetCat>${cat}</assetCat><invCountry>US</invCountry>${more}</invstOrSec>`;
+    const nport = parseNport(`<edgarSubmission><genInfo><regName>Franklin Templeton ETF Trust</regName><regCik>0001655589</regCik><seriesName>Franklin FTSE Australia ETF</seriesName><seriesId>S000059508</seriesId><repPdDate>2026-06-30</repPdDate></genInfo><invstOrSecs>${[
+      position('SIMS LTD', '000000000', '<isin value="AU000000SGM7"/><ticker value="SGM"/><other otherDesc="SEDOL" value="B0LCW75"/>', '<currencyConditional curCd="AUD" exchangeRt="1.44"/>', 'EC'),
+      position('JAZZ PHARMACEUTICALS PLC', '000000000', '<isin value="IE00B4Q5ZN47"/><ticker value="JAZZ"/>', '<curCd>USD</curCd>', 'EC'),
+      position('MASCO CORP', '574599106', '<isin value="US5745991068"/>', '<curCd>USD</curCd>', 'EC'),
+      position('ALPHABET INC', '02079K305', '<isin value="US02079K3059"/>', '<curCd>USD</curCd>', 'EC'),
+      position('ASX 24', '000000000', '<ticker value="AP U26-SFE"/>', '<currencyConditional curCd="AUD" exchangeRt="1.44"/>', 'DE', '<derivativeInfo><futrDeriv><identifiers><cusip value="000000000"/><isin value="AU000000XJO0"/><ticker value="AS51"/></identifiers></futrDeriv></derivativeInfo>'),
+      position('US TREASURY N/B 4.25% 2030', '91282CLK5', '<isin value="US91282CLK52"/><ticker value="T"/>', '<curCd>USD</curCd>', 'DBT'),
+    ].join('')}</invstOrSecs></edgarSubmission>`);
+    expect(nport.seriesId).toBe('S000059508');
+    expect(nport.holdings.map((h) => [h.isin, h.ticker, h.sedol])).toEqual([
+      ['AU000000SGM7', 'SGM', 'B0LCW75'], ['IE00B4Q5ZN47', 'JAZZ', ''], ['US5745991068', '', ''], ['US02079K3059', '', ''], ['', 'AP U26-SFE', ''], ['US91282CLK52', 'T', ''],
+    ]);
+    // SEC company table: exact issuer names only, a name with two tickers (GOOG, GOOGL) is never guessed
+    const names = parseCompanyTickerMap({ 0: { ticker: 'MAS', title: 'Masco Corporation' }, 1: { ticker: 'GOOGL', title: 'Alphabet Inc.' }, 2: { ticker: 'GOOG', title: 'Alphabet Inc.' } });
+    expect(fillNportTickers(nport.holdings, names).map((h) => [h.Ticker, h.Identifier])).toEqual([
+      ['—', 'AU000000SGM7'], ['JAZZ', 'IE00B4Q5ZN47'], ['MAS', '574599106'], ['—', '02079K305'], ['—', '—'], ['—', '91282CLK5'],
+    ]);
+    expect(checkNportFiling(nport.seriesId, 's000059508')).toEqual({ ok: true });
     expect(checkNportFiling('S000068596', 'S000053151').reason).toContain('filing series S000068596 is not S000053151');
     expect(checkNportFiling('', 'S000053151').ok).toBe(false);
   });
@@ -470,6 +498,21 @@ describe('parsing 3', () => {
     expect(normalizeNumberText('—')).toBe('—');
     expect(stripProxyPreamble('Title: Foo\nURL Source: https://example.com\nMarkdown Content:\nReal content here')).toBe('Real content here');
     expect(stripProxyPreamble('Real content')).toBe('Real content');
+  });
+
+  test('dates do not depend on the machine time zone: the same calendar day in UTC, New York and Tokyo', () => {
+    // formatDate writes "Oct 20 2026" into index.json and the next run reads it back: Date.parse took it as local
+    // midnight, so east of UTC every local run moved the inception of every kept fund back one day
+    const saved = process.env.TZ;
+    try {
+      for (const zone of [saved || 'UTC', 'UTC', 'America/New_York', 'Asia/Tokyo']) {
+        process.env.TZ = zone;
+        expect([zone, ...['Oct 20 2026', 'October 20, 2026', 'Dec 4 2019', '20 Oct 2026', 'Sept 3, 2026', '2026-10-20T00:00:00Z', '10/20/2026'].map(toIsoDate)])
+          .toEqual([zone, '2026-10-20', '2026-10-20', '2019-12-04', '2026-10-20', '2026-09-03', '2026-10-20', '2026-10-20']);
+      }
+    } finally {
+      if (saved === undefined) delete process.env.TZ; else process.env.TZ = saved;
+    }
   });
 
   test('distribution frequency: inferred, labelled and normalized', () => {
