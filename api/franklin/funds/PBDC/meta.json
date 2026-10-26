@@ -11,10 +11,10 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39500/SINGLCLASS/putnam-bdc-income-etf/PBDC",
-  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-025235, report period 2026-04-30)",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-038482, report period 2026-07-31)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PBDC?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": "SEC EDGAR N-PORT-P 2026-04-30"
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-07-31"
  },
  "identifiers": {
   "cusip": "746729508",
@@ -188,15 +188,15 @@
   "exDate": "Oct 6 2026"
  },
  "holdings": {
-  "totalRows": 24,
+  "totalRows": 23,
   "pageSize": 250,
   "pageCount": 1,
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-04-30",
-  "asOf": "Apr 30 2026",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-025235, report period 2026-04-30)"
+  "asOfDate": "2026-07-31",
+  "asOf": "Jul 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-038482, report period 2026-07-31)"
  },
  "history": {
   "totalRows": 1020,

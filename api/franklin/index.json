@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-25T04:58:05Z",
+ "generatedAt": "2026-10-26T06:33:52Z",
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
@@ -10,7 +10,7 @@
  },
  "counts": {
   "funds": 81,
-  "holdings": 18354,
+  "holdings": 18353,
   "history": 119085
  },
  "funds": [
@@ -1381,8 +1381,8 @@
      "yr3Text": "4.71%",
      "yr5": -0.8,
      "yr5Text": "-0.80%",
-     "yr10": 1.72,
-     "yr10Text": "1.72%",
+     "yr10": null,
+     "yr10Text": "—",
      "sinceInception": 1.72,
      "sinceInceptionText": "1.72%"
     },
@@ -1407,10 +1407,10 @@
     "tr1y": -2.78,
     "tr3y": 14.81,
     "tr5y": -3.94,
-    "tr10y": 18.59,
+    "tr10y": null,
     "cagr3y": 4.71,
     "cagr5y": -0.8,
-    "cagr10y": 1.72,
+    "cagr10y": null,
     "siAnn": 1.72,
     "dividendYield": 5.29,
     "dividendYieldText": "5.29%",
@@ -3541,8 +3541,8 @@
      "yr5Text": "—",
      "yr10": null,
      "yr10Text": "—",
-     "sinceInception": 15.93,
-     "sinceInceptionText": "15.93%"
+     "sinceInception": null,
+     "sinceInceptionText": "—"
     },
     "quarterEnd": {
      "asOfDate": "",
@@ -3569,7 +3569,7 @@
     "cagr3y": null,
     "cagr5y": null,
     "cagr10y": null,
-    "siAnn": 15.93,
+    "siAnn": null,
     "dividendYield": 0.4,
     "dividendYieldText": "0.40%",
     "dividendYieldBasis": "official-distribution-rate",
@@ -5174,7 +5174,7 @@
    "navValue": 25.08,
    "aum": "$267.40 M",
    "aumValue": 267399999.99999997,
-   "asOfDate": "Apr 30 2026",
+   "asOfDate": "Jul 31 2026",
    "inceptionDate": "Sep 29 2022",
    "exchange": "NYSE Arca",
    "closePrice": "$24.75",
@@ -5240,7 +5240,7 @@
    },
    "dividendYieldSource": "official",
    "distributionFrequency": "Quarterly",
-   "holdings": 24,
+   "holdings": 23,
    "history": 1020
   },
   {
@@ -5367,8 +5367,8 @@
      "yr5Text": "—",
      "yr10": null,
      "yr10Text": "—",
-     "sinceInception": 4.88,
-     "sinceInceptionText": "4.88%"
+     "sinceInception": null,
+     "sinceInceptionText": "—"
     },
     "quarterEnd": {
      "asOfDate": "",
@@ -5395,7 +5395,7 @@
     "cagr3y": null,
     "cagr5y": null,
     "cagr10y": null,
-    "siAnn": 4.88,
+    "siAnn": null,
     "dividendYield": 0.12,
     "dividendYieldText": "0.12%",
     "dividendYieldBasis": "indicated",
@@ -5616,8 +5616,8 @@
      "yr5Text": "—",
      "yr10": null,
      "yr10Text": "—",
-     "sinceInception": -13.75,
-     "sinceInceptionText": "-13.75%"
+     "sinceInception": null,
+     "sinceInceptionText": "—"
     },
     "quarterEnd": {
      "asOfDate": "",
@@ -5644,7 +5644,7 @@
     "cagr3y": null,
     "cagr5y": null,
     "cagr10y": null,
-    "siAnn": -13.75,
+    "siAnn": null,
     "dividendYield": null,
     "dividendYieldText": "—",
     "dividendYieldBasis": null,
@@ -5771,7 +5771,7 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "Sep 30 2026",
+     "asOfDate": "",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
@@ -5782,8 +5782,8 @@
      "yr5Text": "—",
      "yr10": null,
      "yr10Text": "—",
-     "sinceInception": 0.2,
-     "sinceInceptionText": "0.20%"
+     "sinceInception": null,
+     "sinceInceptionText": "—"
     },
     "quarterEnd": {
      "asOfDate": "",
@@ -5810,14 +5810,14 @@
     "cagr3y": null,
     "cagr5y": null,
     "cagr10y": null,
-    "siAnn": 0.2,
+    "siAnn": null,
     "dividendYield": 9.21,
     "dividendYieldText": "9.21%",
     "dividendYieldBasis": "official-distribution-rate",
     "secYield": 8.26,
     "secYieldText": "8.26%",
     "returnsBasis": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
-    "performanceAsOf": "2026-09-30"
+    "performanceAsOf": null
    },
    "dividendYieldSource": "official",
    "distributionFrequency": "Monthly",
@@ -5865,8 +5865,8 @@
      "yr5Text": "—",
      "yr10": null,
      "yr10Text": "—",
-     "sinceInception": 13.4,
-     "sinceInceptionText": "13.40%"
+     "sinceInception": null,
+     "sinceInceptionText": "—"
     },
     "quarterEnd": {
      "asOfDate": "",
@@ -5893,7 +5893,7 @@
     "cagr3y": null,
     "cagr5y": null,
     "cagr10y": null,
-    "siAnn": 13.4,
+    "siAnn": null,
     "dividendYield": 0.22,
     "dividendYieldText": "0.22%",
     "dividendYieldBasis": "official-distribution-rate",
@@ -6446,8 +6446,8 @@
      "yr5Text": "—",
      "yr10": null,
      "yr10Text": "—",
-     "sinceInception": -34.25,
-     "sinceInceptionText": "-34.25%"
+     "sinceInception": null,
+     "sinceInceptionText": "—"
     },
     "quarterEnd": {
      "asOfDate": "",
@@ -6474,7 +6474,7 @@
     "cagr3y": null,
     "cagr5y": null,
     "cagr10y": null,
-    "siAnn": -34.25,
+    "siAnn": null,
     "dividendYield": null,
     "dividendYieldText": "—",
     "dividendYieldBasis": null,
@@ -6601,19 +6601,19 @@
    },
    "returns": {
     "monthEnd": {
-     "asOfDate": "Sep 30 2026",
+     "asOfDate": "",
      "ytd": null,
      "ytdText": "—",
      "yr1": null,
      "yr1Text": "—",
-     "yr3": 6.55,
-     "yr3Text": "6.55%",
+     "yr3": null,
+     "yr3Text": "—",
      "yr5": null,
      "yr5Text": "—",
      "yr10": null,
      "yr10Text": "—",
-     "sinceInception": 2.13,
-     "sinceInceptionText": "2.13%"
+     "sinceInception": null,
+     "sinceInceptionText": "—"
     },
     "quarterEnd": {
      "asOfDate": "",
@@ -6634,20 +6634,20 @@
    "metrics": {
     "ytd": null,
     "tr1y": null,
-    "tr3y": 20.97,
+    "tr3y": null,
     "tr5y": null,
     "tr10y": null,
-    "cagr3y": 6.55,
+    "cagr3y": null,
     "cagr5y": null,
     "cagr10y": null,
-    "siAnn": 2.13,
+    "siAnn": null,
     "dividendYield": 4.77,
     "dividendYieldText": "4.77%",
     "dividendYieldBasis": "official-distribution-rate",
     "secYield": 4.88,
     "secYieldText": "4.88%",
     "returnsBasis": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
-    "performanceAsOf": "2026-09-30"
+    "performanceAsOf": null
    },
    "dividendYieldSource": "official",
    "distributionFrequency": "Monthly",
