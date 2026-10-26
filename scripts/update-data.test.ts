@@ -6,7 +6,9 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
   ADJ_CLOSE_NOISE,
+  CLOSED_FUNDS,
   CONTROL_NAMES,
+  closedFund,
   keptAdjClose,
   PREMIUM_COMPUTED_SOURCE,
   asOfFromKind,
@@ -232,11 +234,6 @@ Markdown Content:
 | Checkbox | [Franklin FTSE India ETF  \\- **FLIN**](${fundUrl(26348, 'franklin-ftse-india-etf', 'FLIN')}) | -10.39% | -3.94 | 5.33 | 3.05 | 5.93<br>02/06/2018 | Gross<br>Net<br>0.19% <br>0.19% | $2.60 Billion | Download |
 | Checkbox | [Franklin FTSE Japan ETF  \\- **FLJP**](${fundUrl(26357, 'franklin-ftse-japan-etf', 'FLJP')}) | 20.28% | 26.80 | 19.32 | 9.79 | 8.08<br>11/02/2017 | Gross<br>Net<br>0.09% <br>0.09% | $4.04 Billion | Download |
 `;
-  const finder = `
-|  | As of 10/01/2026 | Average Annual Total Returns at Market Price (%) [2](https://example.org/x#footnote_2)As of 08/31/2026 |  | As of 10/01/2026 |  |
-| --- | --- | --- | --- | --- | --- |
-| - [x] Checkbox | [Franklin Disruptive Commerce ETF - **BUYZ**](${fundUrl(29096, 'franklin-disruptive-commerce-etf', 'BUYZ')}) | -14.​53% | -14.​61 | 11.​85 | -7.​20 | 6.​05 02/25/2020 | Gross Net 0.50% 0.50% | $5.​14 Million | Download Fact Sheet |
-`;
   const fltwPage = `
 # FLTW  Franklin FTSE Taiwan ETF
 NAV  $0.42(0.38%)
@@ -357,7 +354,9 @@ SEC 30-Day Yield 2.09%
     expect(page).toMatchObject({ distributionRate: 1.18, distributionRateAsOfDate: '2026-10-02', distributionRateBasis: 'NAV', distributionYield: null });
     expect(page.sections.yields).toBe(true);
   });
+});
 
+describe('parsing 2', () => {
   test('page sections: a page is loaded fully only with identifiers, Total Net Assets and the Share Prices block', () => {
     const full = parseProductPage(pageMd(), 'FLCH');
     // footnote links inside labels no longer leak into the values (they read NAV as 461.09 and the market price as null)
@@ -457,7 +456,9 @@ SEC 30-Day Yield 2.09%
     expect(checkNportFiling('S000068596', 'S000053151').reason).toContain('filing series S000068596 is not S000053151');
     expect(checkNportFiling('', 'S000053151').ok).toBe(false);
   });
+});
 
+describe('parsing 3', () => {
   test('scalars: numbers, dates and proxy preamble; missing values are null, never 0', () => {
     expect(numberOrNull('$1,234.56')).toBe(1234.56);
     expect(numberOrNull('-0.40%')).toBe(-0.4);
@@ -586,6 +587,10 @@ describe('metrics', () => {
     expect(keys(withYield('indicated'))).toEqual(keys(buildMetrics({ ...base, returns: noReturns })));
     expect(keys(withYield('indicated'))).toContain('dividendYieldBasis');
   });
+});
+
+describe('metrics 2', () => {
+  const base = { inception: null, dividendYield: null, secYield: null, performanceAsOf: null };
 
   test('premium/discount: (price / NAV - 1) * 100 only for the same date, otherwise null', () => {
     expect(computePremiumDiscount(41.42, '2026-10-02', 42, '2026-10-02')).toBe(1.4);
@@ -624,37 +629,38 @@ describe('metrics', () => {
   });
 });
 
+// pipeline harness shared by the pipeline groups: one temp api root per test
+const offline = { SKIP_FRANKLIN: 'true', SKIP_YAHOO: 'true', EDGAR_FALLBACK: 'false', REQUEST_SLEEP: '0', CONCURRENCY: '2', MAX_RETRIES: '1' };
+let root = '';
+
+const feed = () => join(root, 'franklin');
+const index = () => JSON.parse(readFileSync(join(feed(), 'index.json'), 'utf8'));
+const snapshot = (dir: string, base = dir): Record<string, string> => {
+  const out: Record<string, string> = {};
+  for (const entry of readdirSync(dir, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name))) {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) Object.assign(out, snapshot(path, base));
+    else out[path.slice(base.length)] = readFileSync(path, 'utf8');
+  }
+  return out;
+};
+const run = async (env: Record<string, string> = {}) => {
+  process.exitCode = 0;
+  await main([], { ...offline, ...env });
+};
+// each test gets its own temp api root, removed afterwards even when the test fails
+const inTempRoot = (body: () => Promise<void>) => async () => {
+  root = mkdtempSync(join(tmpdir(), 'franklin-test-'));
+  setApiRootForTest(pathToFileURL(`${feed()}/`));
+  setClockForTest(fakeClock());
+  console.log = () => {};
+  console.warn = () => {};
+  try { await body(); }
+  finally { rmSync(root, { recursive: true, force: true }); root = ''; }
+};
+const offlineFetch = () => { (globalThis as any).fetch = async () => { throw new Error('offline'); }; };
+
 describe('pipeline', () => {
-  const offline = { SKIP_FRANKLIN: 'true', SKIP_YAHOO: 'true', EDGAR_FALLBACK: 'false', REQUEST_SLEEP: '0', CONCURRENCY: '2', MAX_RETRIES: '1' };
-  let root = '';
-
-  const feed = () => join(root, 'franklin');
-  const index = () => JSON.parse(readFileSync(join(feed(), 'index.json'), 'utf8'));
-  const snapshot = (dir: string, base = dir): Record<string, string> => {
-    const out: Record<string, string> = {};
-    for (const entry of readdirSync(dir, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name))) {
-      const path = join(dir, entry.name);
-      if (entry.isDirectory()) Object.assign(out, snapshot(path, base));
-      else out[path.slice(base.length)] = readFileSync(path, 'utf8');
-    }
-    return out;
-  };
-  const run = async (env: Record<string, string> = {}) => {
-    process.exitCode = 0;
-    await main([], { ...offline, ...env });
-  };
-  // each test gets its own temp api root, removed afterwards even when the test fails
-  const inTempRoot = (body: () => Promise<void>) => async () => {
-    root = mkdtempSync(join(tmpdir(), 'franklin-test-'));
-    setApiRootForTest(pathToFileURL(`${feed()}/`));
-    setClockForTest(fakeClock());
-    console.log = () => {};
-    console.warn = () => {};
-    try { await body(); }
-    finally { rmSync(root, { recursive: true, force: true }); root = ''; }
-  };
-  const offlineFetch = () => { (globalThis as any).fetch = async () => { throw new Error('offline'); }; };
-
   test('a first run invents no fees or names and every row has the same metrics keys', inTempRoot(async () => {
     await run();
     const { funds, generatedAt } = index();
@@ -725,7 +731,9 @@ describe('pipeline', () => {
     expect(existsSync(join(feed(), 'update-state.json'))).toBe(false);
     await expect(run({ TICKERS: 'NOPE' })).rejects.toThrow(/NOPE/);
   }), 30_000);
+});
 
+describe('pipeline 2', () => {
   test('MAX_FETCHES walks the filtered list and wraps around', inTempRoot(async () => {
     await run();
     const tickers: string[] = index().funds.map((row: any) => row.ticker);
@@ -888,7 +896,9 @@ describe('pipeline', () => {
     expect(snapshot(feed())).toEqual(published);
     expect(logged.some((line) => line.includes('FLCH') && line.includes('did not contain expected content'))).toBe(true);
   }), 30_000);
+});
 
+describe('pipeline 3', () => {
   test('Distribution Rate and computed premium: labelled, dated, zero diff on rerun, kept on a partial page, null when the dates differ', inTempRoot(async () => {
     let page = pageMd({ rate: true });
     let yahooDay = Date.UTC(2026, 9, 2, 20) / 1000;
@@ -983,6 +993,49 @@ describe('pipeline', () => {
     expect(JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'meta.json'), 'utf8')).nav.value).toBe(22.5);
   }), 60000);
 
+  test('a closed fund is never fetched or reported failed: its files stay as published, its index row says closed, a rerun writes nothing', inTempRoot(async () => {
+    const entry = { ticker: 'FLCH', closed: '2026-10-01', source: 'https://www.sec.gov/Archives/edgar/data/1655589/notice.htm' };
+    expect(() => closedFund([{ ...entry, closed: 'soon' }], 'FLCH')).toThrow('CLOSED_FUNDS');
+    expect(closedFund([entry], 'flch')).toEqual(entry);
+    let page = pageMd();
+    const calls: string[] = [];
+    (globalThis as any).fetch = async (input: unknown) => {
+      const url = String(input);
+      calls.push(url);
+      if (url.includes('franklintempleton.com/investments')) return new Response(page);
+      if (url.includes('sitemap')) return new Response('<urlset/>'); // the live catalog no longer lists FLCH
+      throw new Error('offline');
+    };
+    const live = { SKIP_FRANKLIN: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' };
+    await run();
+    await run(live);
+    const first = snapshot(feed());
+    expect(JSON.parse(first['/funds/FLCH/meta.json']).holdings.totalRows).toBe(2);
+    page = pageMd({ nav: '22.50' }).replace('| 60.00 |', '| — |').replace('| 40.00 |', '| — |'); // the guard would reject these holdings
+    CLOSED_FUNDS.push(entry);
+    try {
+      calls.length = 0;
+      const logged: string[] = [];
+      console.log = (...args: unknown[]) => { logged.push(args.join(' ')); };
+      await run(live);
+      expect(calls.filter((url) => /flch/i.test(url))).toEqual([]);
+      expect(process.exitCode).not.toBe(1);
+      expect(logged.some((line) => line.startsWith('[ closed   ] FLCH'))).toBe(true);
+      const closed = snapshot(feed());
+      for (const path of Object.keys(first)) if (path !== '/index.json') expect([path, closed[path]]).toEqual([path, first[path]]);
+      const rows = index().funds;
+      expect(rows).toHaveLength(JSON.parse(first['/index.json']).funds.length);
+      expect(rows.find((row: any) => row.ticker === 'FLCH')).toMatchObject({ status: 'closed', closedDate: '2026-10-01', closedSource: entry.source, dataFile: './funds/FLCH/meta.json' });
+      expect(rows.filter((row: any) => row.status === 'closed')).toHaveLength(1);
+      await run();
+      expect(snapshot(feed())).toEqual(closed);
+    } finally {
+      CLOSED_FUNDS.splice(CLOSED_FUNDS.indexOf(entry), 1);
+    }
+  }), 60000);
+});
+
+describe('pipeline 4', () => {
   test('N-PORT fallback: searched by the series ID, a filing of another series in the same trust is never used', inTempRoot(async () => {
     // FLCH is series S000059502 of Franklin Templeton ETF Trust (CIK 0001655589); S000068596 is the trust's Treasury bond ETF
     const filing = (series: string, name: string) => `<edgarSubmission><genInfo><regCik>0001655589</regCik><seriesId>${series}</seriesId><repPdDate>2026-06-30</repPdDate></genInfo><invstOrSecs><invstOrSec><name>${name}</name><cusip>123456789</cusip><balance>10</balance><valUSD>600</valUSD><pctVal>60</pctVal></invstOrSec><invstOrSec><name>${name} 2</name><cusip>223456789</cusip><balance>5</balance><valUSD>400</valUSD><pctVal>40</pctVal></invstOrSec></invstOrSecs></edgarSubmission>`;
@@ -1072,13 +1125,41 @@ describe('pipeline', () => {
     }
   }), 60000);
 
-  test('a new fund whose every source failed has no meta.json and dataFile null', inTempRoot(async () => {
+  test('a new fund that no source answered or whose holdings fail the guard is failed with a catalog-only row and no files', inTempRoot(async () => {
+    const metricsKeys = Object.keys(buildMetrics({ inception: null, dividendYield: null, secYield: null, performanceAsOf: null, returns: noReturns }));
+    const catalogOnly = (reason: RegExp, logged: string[]) => {
+      expect(existsSync(join(feed(), 'funds', 'FLCH', 'meta.json'))).toBe(false);
+      const row = index().funds.find((item: any) => item.ticker === 'FLCH');
+      expect([row.dataFile, row.holdings, Object.keys(row.metrics), row.metrics.returnsBasis]).toEqual([null, 0, metricsKeys, RETURNS_BASIS]);
+      expect(process.exitCode).toBe(1);
+      expect(logged.some((line) => /FLCH +failed/.test(line) && reason.test(line))).toBe(true);
+    };
+    const logged: string[] = [];
+    console.log = (...args: unknown[]) => { logged.push(args.join(' ')); };
+    // the product page and Yahoo fail
     offlineFetch();
     await run({ SKIP_FRANKLIN: 'false', SKIP_YAHOO: 'false', TICKERS: 'FLCH' });
-    expect(existsSync(join(feed(), 'funds', 'FLCH', 'meta.json'))).toBe(false);
-    const row = index().funds.find((item: any) => item.ticker === 'FLCH');
-    expect(row.dataFile).toBeNull();
-    expect(process.exitCode).toBe(1);
+    catalogOnly(/no source returned data/, logged);
+    // only N-PORT is asked and gives nothing: no empty meta.json reported updated
+    logged.length = 0;
+    resetSecCachesForTest();
+    await run({ EDGAR_FALLBACK: 'true', TICKERS: 'FLCH' });
+    resetSecCachesForTest();
+    catalogOnly(/N-PORT: no usable filing/, logged);
+    // the page answers, but its holdings fail the guard
+    let page = pageMd().replace('| 60.00 |', '| — |').replace('| 40.00 |', '| — |');
+    (globalThis as any).fetch = async (input: unknown) => {
+      if (String(input).includes('franklintempleton.com/investments')) return new Response(page);
+      throw new Error('offline');
+    };
+    logged.length = 0;
+    await run({ SKIP_FRANKLIN: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' });
+    catalogOnly(/holdings guard/, logged);
+    // the catalog-only row is never the published state: sound holdings are written as for any new fund
+    page = pageMd();
+    await run({ SKIP_FRANKLIN: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' });
+    expect(process.exitCode).toBe(0);
+    expect(index().funds.find((item: any) => item.ticker === 'FLCH')).toMatchObject({ dataFile: './funds/FLCH/meta.json', holdings: 2 });
   }), 120000);
 
   test('stale pages are removed only after the new meta.json exists', inTempRoot(async () => {
@@ -1149,7 +1230,9 @@ describe('network', () => {
     expect([calls, signals]).toEqual([2, 2]);
     expect(FETCH_TIMEOUT_MS).toBe(45_000);
   });
+});
 
+describe('network 2', () => {
   test('HISTORY_RANGE shrinks the Yahoo request with explicit period1/period2', () => {
     expect([isHistoryRange('max'), isHistoryRange('5y'), isHistoryRange('6mo'), isHistoryRange('ytd')]).toEqual([true, true, false, false]);
     expect(yahooChartUrl('FLIN', 'max', 1700000000)).toContain('period1=0&period2=1700000000');
