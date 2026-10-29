@@ -112,6 +112,10 @@ afterEach(() => {
 const read = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 const file = () => JSON.parse(read('scripts/update-data.config.json'));
 const noReturns = { ytd: null, yr1: null, yr3: null, yr5: null, yr10: null, sinceInception: null };
+// index rows carry the seven 52-week keys of the range-52w block in front of returnsBasis and performanceAsOf
+const RANGE_KEYS = ['week52Low', 'week52High', 'range52w', 'range52wClose', 'range52wAsOf', 'range52wSince', 'range52wBasis'];
+const TAIL_KEYS = ['returnsBasis', 'performanceAsOf'];
+const withRangeKeys = (keys: string[]) => [...keys.filter((key) => !TAIL_KEYS.includes(key)), ...RANGE_KEYS, ...TAIL_KEYS.filter((key) => keys.includes(key))];
 const fundUrl = (id: number, slug: string, ticker: string) => `https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/${id}/SINGLCLASS/${slug}/${ticker}`;
 
 /** Fake clock: sleeping only advances virtual time, so retry backoff and the 3.2 s proxy gate cost nothing. */
@@ -747,7 +751,7 @@ describe('pipeline', () => {
     const { funds, generatedAt } = index();
     expect(funds.length).toBeGreaterThanOrEqual(3);
     expect(funds.every((row: any) => row.terValue === null && row.ter === '—' && row.name === null)).toBe(true);
-    const keys = Object.keys(buildMetrics({ ...{ inception: null, dividendYield: null, secYield: null, performanceAsOf: null }, returns: noReturns }));
+    const keys = withRangeKeys(Object.keys(buildMetrics({ ...{ inception: null, dividendYield: null, secYield: null, performanceAsOf: null }, returns: noReturns })));
     expect(funds.every((row: any) => JSON.stringify(Object.keys(row.metrics)) === JSON.stringify(keys))).toBe(true);
     expect(funds.every((row: any) => row.returns.quarterEnd.sinceInception === null)).toBe(true);
     expect(generatedAt).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/);
@@ -1199,7 +1203,7 @@ describe('pipeline 4', () => {
   }), 60000);
 
   test('a new fund that no source answered or whose holdings fail the guard is failed with a catalog-only row and no files', inTempRoot(async () => {
-    const metricsKeys = Object.keys(buildMetrics({ inception: null, dividendYield: null, secYield: null, performanceAsOf: null, returns: noReturns }));
+    const metricsKeys = withRangeKeys(Object.keys(buildMetrics({ inception: null, dividendYield: null, secYield: null, performanceAsOf: null, returns: noReturns })));
     const catalogOnly = (reason: RegExp, logged: string[]) => {
       expect(existsSync(join(feed(), 'funds', 'FLCH', 'meta.json'))).toBe(false);
       const row = index().funds.find((item: any) => item.ticker === 'FLCH');
