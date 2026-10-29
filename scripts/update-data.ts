@@ -132,7 +132,7 @@ function outputFundLine(index: number, total: number, ticker: string, status: st
     field('sec', outputPercent(data.secYield ?? data.yields?.secYield ?? metrics.secYield)),
     field('wp', data.workplaceRaw),
   ].filter(part => part !== '').join(' ');
-  return `[ ${String(index).padStart(width)}/${String(total).padEnd(width)}  ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)}${detail ? ` ${detail}` : ''}${reason ? ` reason=${outputClean(reason)}` : ''}`;
+  return `[ ${`${String(index).padStart(width)}/${total}`.padEnd(8)} ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)}${detail ? ` ${detail}` : ''}${reason ? ` reason=${outputClean(reason)}` : ''}`;
 }
 function outputCreateReporter(root: URL | string, total: number) {
   let completed = 0;
@@ -2846,12 +2846,12 @@ async function fetchJsonWithProxyFallback(url: string, label: string, config: Up
 
 /** SEC's ticker -> registrant CIK + series id table (parseSecFundTickers), loaded once per run; a failed load is asked again up to SEC_TABLE_ATTEMPTS. */
 function loadFundTickerTable(config: UpdaterConfig): Promise<Map<string, NportSeriesRef>> {
-  return loadSecTable(secState.funds, async () => parseSecFundTickers(await fetchJsonWithProxyFallback(SEC_FUND_TICKERS_URL, '[edgar   ] fund ticker table', config, secHeaders())));
+  return loadSecTable(secState.funds, async () => parseSecFundTickers(await fetchJsonWithProxyFallback(SEC_FUND_TICKERS_URL, '[ edgar    ] fund ticker table', config, secHeaders())));
 }
 
 /** SEC's company name -> ticker table (parseSecCompanyNames) for the N-PORT rows, loaded once per run. */
 function loadCompanyNames(config: UpdaterConfig): Promise<Map<string, string>> {
-  return loadSecTable(secState.names, async () => parseSecCompanyNames(await fetchJsonWithProxyFallback(SEC_COMPANY_TICKERS_URL, '[edgar   ] company ticker table', config, secHeaders())));
+  return loadSecTable(secState.names, async () => parseSecCompanyNames(await fetchJsonWithProxyFallback(SEC_COMPANY_TICKERS_URL, '[ edgar    ] company ticker table', config, secHeaders())));
 }
 
 /** Nasdaq Trader symbol directories for the N-PORT rows (shared nport-reader `readUsListings`), loaded once per run: a row with a
@@ -3252,7 +3252,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
       await loadFundTickerTable(config);
       await loadCompanyNames(config);
     } catch (e) {
-      outputNote(`[ ${'edgar'.padEnd(9)}] ticker tables unavailable: ${e instanceof Error ? e.message : String(e)}`);
+      outputNote(`[ ${'edgar'.padEnd(8)} ] ticker tables unavailable: ${e instanceof Error ? e.message : String(e)}`);
     }
   }
 
@@ -3303,7 +3303,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     let franklinPageText: string | null = null;
     if (!config.skipFranklin) {
       try {
-        const page = await fetchIssuerText(fund.fundPage, `[product ] ${ticker}`, config, (text) => {
+        const page = await fetchIssuerText(fund.fundPage, `[ product  ] ${ticker}`, config, (text) => {
           const lower = text.toLowerCase();
           return lower.includes(ticker.toLowerCase()) && (lower.includes('cusip') || lower.includes('nav') || lower.includes('expense'));
         }, 'text/html,application/xhtml+xml,text/csv,text/plain;q=0.9,*/*;q=0.8', { maxProxies: PRODUCT_PROXY_COUNT, cache: false, renderTimeoutSeconds: PRODUCT_RENDER_TIMEOUT_SECONDS, skipPlainHttpProxy: true, retryFailedContent: true, prefer: (text) => parseFranklinProductPage(text, ticker).loadedFully });
@@ -3368,7 +3368,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
             }
           }
         } catch (e) {
-          outputNote(`[ ${'franklin'.padEnd(9)}] ${ticker} holdings parse failed: ${e instanceof Error ? e.message : String(e)}`);
+          outputNote(`[ ${'franklin'.padEnd(8)} ] ${ticker} holdings parse failed: ${e instanceof Error ? e.message : String(e)}`);
         }
 
         if (config.storeRawDownloads) {
@@ -3394,20 +3394,20 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
         const ref = await fundSeriesRef(ticker, config);
         const publishedAsOf = calendarIso(prevMeta?.holdings?.asOfDate) ?? calendarIso(prevMeta?.holdings?.asOf);
         const read: NportRead = ref
-          ? await readNportHoldings({ ticker, cik: ref.cik, seriesId: ref.seriesId }, { asOf: publishedAsOf, rows: Number(prevMeta?.holdings?.totalRows ?? 0) }, (url, label) => fetchTextWithProxyFallback(url, `[edgar   ] ${label}`, config, secHeaders()), { cache: secState.reader })
+          ? await readNportHoldings({ ticker, cik: ref.cik, seriesId: ref.seriesId }, { asOf: publishedAsOf, rows: Number(prevMeta?.holdings?.totalRows ?? 0) }, (url, label) => fetchTextWithProxyFallback(url, `[ edgar    ] ${label}`, config, secHeaders()), { cache: secState.reader })
           : { problem: `${ticker}: not in FRANKLIN_SERIES_MAP or the SEC fund ticker table` };
         if ('problem' in read) {
           // the fund's own filing is not newer: its published holdings stay (the short official table below never replaces them)
           nportNotNewer = /is not newer than the published holdings/.test(read.problem);
-          outputNote(`[ ${'nport'.padEnd(9)}] ${read.problem}`);
+          outputNote(`[ ${'nport'.padEnd(8)} ] ${read.problem}`);
         } else {
-          holdingsRows = nportHoldingsSheet(read.filing, nportTickers(read.filing.positions, await loadCompanyNames(config).catch(() => null), await loadUsListings((url, label) => fetchText(url, `[edgar   ] ${label}`, config, secHeaders()))));
+          holdingsRows = nportHoldingsSheet(read.filing, nportTickers(read.filing.positions, await loadCompanyNames(config).catch(() => null), await loadUsListings((url, label) => fetchText(url, `[ edgar    ] ${label}`, config, secHeaders()))));
           holdingsAsOf = read.filing.repPdDate || null;
           nport = read.filing;
           holdingsSource = `SEC EDGAR Form N-PORT-P (accession ${read.candidate.accession}, report period ${read.filing.repPdDate || 'n/a'})`;
         }
       } catch (e) {
-        outputNote(`[ ${'nport'.padEnd(9)}] ${ticker}: ${e instanceof Error ? e.message : String(e)} — holdings fall back to the previous run`);
+        outputNote(`[ ${'nport'.padEnd(8)} ] ${ticker}: ${e instanceof Error ? e.message : String(e)} — holdings fall back to the previous run`);
       }
     }
 
@@ -3439,7 +3439,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     // 3) History via Yahoo – no per-stage log
     if (!config.skipYahoo) {
       try {
-        const fetched = await fetchYahooChart(ticker, `[yahoo   ] ${ticker} chart`, config);
+        const fetched = await fetchYahooChart(ticker, `[ yahoo    ] ${ticker} chart`, config);
         // A HISTORY_RANGE window never shrinks the published history: the older published days (and distributions) stay,
         // and a window that does not join them keeps the fund as published (shared windowed-chart block)
         if (/^\d+y$/.test(config.historyRange)) {
@@ -3465,7 +3465,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     const askedAnySource = !config.skipFranklin || !config.skipYahoo || config.edgarFallback;
     if (!prevMeta && askedAnySource && !summary && !chart && !holdingsRows.length) throw new Error(`no source returned data (${problems.concat(config.edgarFallback ? ['N-PORT: no usable filing'] : []).join('; ')})`);
     if (prevMeta && blocking.length) throw new Error(`kept the previously published fund (${blocking.join('; ')})`);
-    for (const problem of problems) if (!blocking.includes(problem)) outputNote(`[ ${'source'.padEnd(9)}] ${ticker}: ${problem} (no earlier data from this source)`);
+    for (const problem of problems) if (!blocking.includes(problem)) outputNote(`[ ${'source'.padEnd(8)} ] ${ticker}: ${problem} (no earlier data from this source)`);
 
     // Determine distribution frequency. Only the canonical word is published:
     // the pages ship page furniture around it ("Monthly This fund is an
@@ -3664,7 +3664,7 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     fund.categoryPath = fundCategory;
 
     // One notice per fund naming what a partial page could not give.
-    if (keptSections.length) console.log(`[ ${'kept'.padEnd(9)}] ${ticker}: product page came back partial, kept the published ${keptSections.join(', ')}`);
+    if (keptSections.length) console.log(`[ ${'kept'.padEnd(8)} ] ${ticker}: product page came back partial, kept the published ${keptSections.join(', ')}`);
 
     // Build meta.json
     const meta = {
