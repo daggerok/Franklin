@@ -28,34 +28,34 @@
   "net": 0.39
  },
  "nav": {
-  "display": "$23.94",
-  "value": 23.94,
-  "asOfDate": "2026-10-28"
+  "display": "$23.90",
+  "value": 23.9,
+  "asOfDate": "2026-10-23"
  },
  "marketPrice": {
-  "display": "$23.97",
-  "value": 23.97,
-  "asOfDate": "2026-10-28",
+  "display": "$23.78",
+  "value": 23.78,
+  "asOfDate": "2026-10-19",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.13%",
-  "value": 0.13,
-  "asOfDate": "2026-10-28",
+  "display": "0.21%",
+  "value": 0.21,
+  "asOfDate": "2026-10-23",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "official product page closing Market Price"
+  "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$9.58 M",
-  "value": 9580000,
-  "asOfDate": "2026-10-28",
+  "display": "$9.56 M",
+  "value": 9560000,
+  "asOfDate": "2026-10-25",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 0.36,
   "dividendYieldText": "0.36%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 28 2026",
-  "dividendYieldAsOfDate": "2026-10-28",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 23 2026",
+  "dividendYieldAsOfDate": "2026-10-23",
   "secYield": 4.41,
   "secYieldText": "4.41%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
@@ -105,16 +105,201 @@
   "rows": [
    {
     "Ex-Date": "Oct 1 2026",
-    "Dividend": "0.0858",
-    "searchIndex": "oct 1 2026 0.08578"
+    "Dividend": "0.0860",
+    "searchIndex": "oct 1 2026 0.086"
+   },
+   {
+    "Ex-Date": "Sep 1 2026",
+    "Dividend": "0.0560",
+    "searchIndex": "sep 1 2026 0.056"
+   },
+   {
+    "Ex-Date": "Aug 3 2026",
+    "Dividend": "0.1100",
+    "searchIndex": "aug 3 2026 0.11"
+   },
+   {
+    "Ex-Date": "Jul 1 2026",
+    "Dividend": "0.0980",
+    "searchIndex": "jul 1 2026 0.098"
+   },
+   {
+    "Ex-Date": "Jun 1 2026",
+    "Dividend": "0.0980",
+    "searchIndex": "jun 1 2026 0.098"
+   },
+   {
+    "Ex-Date": "May 1 2026",
+    "Dividend": "0.1220",
+    "searchIndex": "may 1 2026 0.122"
+   },
+   {
+    "Ex-Date": "Apr 1 2026",
+    "Dividend": "0.0810",
+    "searchIndex": "apr 1 2026 0.081"
+   },
+   {
+    "Ex-Date": "Mar 2 2026",
+    "Dividend": "0.0730",
+    "searchIndex": "mar 2 2026 0.073"
+   },
+   {
+    "Ex-Date": "Feb 2 2026",
+    "Dividend": "0.0690",
+    "searchIndex": "feb 2 2026 0.069"
+   },
+   {
+    "Ex-Date": "Dec 19 2025",
+    "Dividend": "0.1020",
+    "searchIndex": "dec 19 2025 0.102"
+   },
+   {
+    "Ex-Date": "Dec 1 2025",
+    "Dividend": "0.0700",
+    "searchIndex": "dec 1 2025 0.07"
+   },
+   {
+    "Ex-Date": "Nov 3 2025",
+    "Dividend": "0.0960",
+    "searchIndex": "nov 3 2025 0.096"
+   },
+   {
+    "Ex-Date": "Oct 1 2025",
+    "Dividend": "0.0850",
+    "searchIndex": "oct 1 2025 0.085"
+   },
+   {
+    "Ex-Date": "Sep 2 2025",
+    "Dividend": "0.0870",
+    "searchIndex": "sep 2 2025 0.087"
+   },
+   {
+    "Ex-Date": "Aug 1 2025",
+    "Dividend": "0.1020",
+    "searchIndex": "aug 1 2025 0.102"
+   },
+   {
+    "Ex-Date": "Jul 1 2025",
+    "Dividend": "0.0900",
+    "searchIndex": "jul 1 2025 0.09"
+   },
+   {
+    "Ex-Date": "Jun 2 2025",
+    "Dividend": "0.0940",
+    "searchIndex": "jun 2 2025 0.094"
+   },
+   {
+    "Ex-Date": "May 1 2025",
+    "Dividend": "0.0980",
+    "searchIndex": "may 1 2025 0.098"
+   },
+   {
+    "Ex-Date": "Apr 1 2025",
+    "Dividend": "0.0940",
+    "searchIndex": "apr 1 2025 0.094"
+   },
+   {
+    "Ex-Date": "Mar 3 2025",
+    "Dividend": "0.0850",
+    "searchIndex": "mar 3 2025 0.085"
+   },
+   {
+    "Ex-Date": "Feb 3 2025",
+    "Dividend": "0.0920",
+    "searchIndex": "feb 3 2025 0.092"
+   },
+   {
+    "Ex-Date": "Dec 13 2024",
+    "Dividend": "0.1020",
+    "searchIndex": "dec 13 2024 0.102"
+   },
+   {
+    "Ex-Date": "Dec 2 2024",
+    "Dividend": "0.0860",
+    "searchIndex": "dec 2 2024 0.086"
+   },
+   {
+    "Ex-Date": "Nov 1 2024",
+    "Dividend": "0.0960",
+    "searchIndex": "nov 1 2024 0.096"
+   },
+   {
+    "Ex-Date": "Oct 1 2024",
+    "Dividend": "0.0890",
+    "searchIndex": "oct 1 2024 0.089"
+   },
+   {
+    "Ex-Date": "Sep 3 2024",
+    "Dividend": "0.0900",
+    "searchIndex": "sep 3 2024 0.09"
+   },
+   {
+    "Ex-Date": "Aug 1 2024",
+    "Dividend": "0.0990",
+    "searchIndex": "aug 1 2024 0.099"
+   },
+   {
+    "Ex-Date": "Jul 1 2024",
+    "Dividend": "0.0830",
+    "searchIndex": "jul 1 2024 0.083"
+   },
+   {
+    "Ex-Date": "Jun 3 2024",
+    "Dividend": "0.0920",
+    "searchIndex": "jun 3 2024 0.092"
+   },
+   {
+    "Ex-Date": "May 1 2024",
+    "Dividend": "0.1090",
+    "searchIndex": "may 1 2024 0.109"
+   },
+   {
+    "Ex-Date": "Apr 1 2024",
+    "Dividend": "0.0910",
+    "searchIndex": "apr 1 2024 0.091"
+   },
+   {
+    "Ex-Date": "Mar 1 2024",
+    "Dividend": "0.0870",
+    "searchIndex": "mar 1 2024 0.087"
+   },
+   {
+    "Ex-Date": "Feb 1 2024",
+    "Dividend": "0.0870",
+    "searchIndex": "feb 1 2024 0.087"
+   },
+   {
+    "Ex-Date": "Dec 15 2023",
+    "Dividend": "0.0980",
+    "searchIndex": "dec 15 2023 0.098"
+   },
+   {
+    "Ex-Date": "Dec 1 2023",
+    "Dividend": "0.0860",
+    "searchIndex": "dec 1 2023 0.086"
+   },
+   {
+    "Ex-Date": "Nov 1 2023",
+    "Dividend": "0.0920",
+    "searchIndex": "nov 1 2023 0.092"
+   },
+   {
+    "Ex-Date": "Oct 2 2023",
+    "Dividend": "0.0810",
+    "searchIndex": "oct 2 2023 0.081"
    },
    {
     "Ex-Date": "Sep 1 2023",
-    "Dividend": "0.0902",
-    "searchIndex": "sep 1 2023 0.090211"
+    "Dividend": "0.0900",
+    "searchIndex": "sep 1 2023 0.09"
+   },
+   {
+    "Ex-Date": "Aug 1 2023",
+    "Dividend": "0.0090",
+    "searchIndex": "aug 1 2023 0.009"
    }
   ],
-  "latestDividend": "0.0858",
+  "latestDividend": "0.086",
   "exDate": "Oct 1 2026"
  },
  "holdings": {
@@ -129,13 +314,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035159, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 1,
+  "totalRows": 815,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 28 2026",
+  "asOf": "Oct 23 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

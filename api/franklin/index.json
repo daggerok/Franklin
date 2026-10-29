@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T22:59:32Z",
+ "generatedAt": "2026-10-29T23:03:04Z",
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
@@ -11,7 +11,7 @@
  "counts": {
   "funds": 81,
   "holdings": 18441,
-  "history": 117577
+  "history": 119389
  },
  "funds": [
   {
@@ -306,11 +306,11 @@
    "closePriceSource": "official product page Market Price",
    "premiumDiscount": "0.00%",
    "premiumDiscountValue": 0,
-   "premiumDiscountAsOfDate": "2026-10-28",
+   "premiumDiscountAsOfDate": "2026-10-23",
    "distributions": {
-    "frequency": "Annually",
+    "frequency": "Semi-annually",
     "exDate": "Oct 1 2026",
-    "dividend": "0.5222"
+    "dividend": "0.522"
    },
    "returns": {
     "monthEnd": {
@@ -354,25 +354,25 @@
     "cagr5y": 7.53,
     "cagr10y": 10.85,
     "siAnn": 9.76,
-    "dividendYield": 3.32,
-    "dividendYieldText": "3.32%",
+    "dividendYield": 6.62,
+    "dividendYieldText": "6.62%",
     "dividendYieldBasis": "indicated",
     "secYield": null,
     "secYieldText": "—",
-    "week52Low": null,
-    "week52High": null,
-    "range52w": null,
-    "range52wClose": null,
-    "range52wAsOf": null,
+    "week52Low": 14.05,
+    "week52High": 16.74,
+    "range52w": 63.94,
+    "range52wClose": 15.77,
+    "range52wAsOf": "2026-10-23",
     "range52wSince": null,
-    "range52wBasis": null,
+    "range52wBasis": "Close",
     "returnsBasis": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
     "performanceAsOf": "2026-09-30"
    },
    "dividendYieldSource": "indicated",
-   "distributionFrequency": "Annually",
+   "distributionFrequency": "Semi-annually",
    "holdings": 113,
-   "history": 1
+   "history": 999
   },
   {
    "ticker": "EZBC",
@@ -6519,11 +6519,11 @@
    "closePriceSource": "official product page Market Price",
    "premiumDiscount": "0.13%",
    "premiumDiscountValue": 0.13,
-   "premiumDiscountAsOfDate": "2026-10-28",
+   "premiumDiscountAsOfDate": "2026-10-23",
    "distributions": {
     "frequency": "Monthly",
     "exDate": "Oct 1 2026",
-    "dividend": "0.0858"
+    "dividend": "0.086"
    },
    "returns": {
     "monthEnd": {
@@ -6572,20 +6572,20 @@
     "dividendYieldBasis": "official-distribution-rate",
     "secYield": 4.41,
     "secYieldText": "4.41%",
-    "week52Low": null,
-    "week52High": null,
-    "range52w": null,
-    "range52wClose": null,
-    "range52wAsOf": null,
+    "week52Low": 23.59,
+    "week52High": 25.05,
+    "range52w": 24.66,
+    "range52wClose": 23.95,
+    "range52wAsOf": "2026-10-23",
     "range52wSince": null,
-    "range52wBasis": null,
+    "range52wBasis": "Close",
     "returnsBasis": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
     "performanceAsOf": "2026-09-30"
    },
    "dividendYieldSource": "official",
    "distributionFrequency": "Monthly",
    "holdings": 58,
-   "history": 1
+   "history": 815
   },
   {
    "ticker": "USPX",
