@@ -2,7 +2,7 @@
  "ticker": "FLJP",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2253,
+ "totalRows": 2257,
  "headers": [
   "Date",
   "Close",
@@ -1780,6 +1780,34 @@
    "Adj Close": "40.10",
    "Volume": "3604300",
    "searchIndex": "2026-10-23 40.099998474121094"
+  },
+  {
+   "Date": "Oct 26 2026",
+   "Close": "40.18",
+   "Adj Close": "40.18",
+   "Volume": "883500",
+   "searchIndex": "2026-10-26 40.18000030517578"
+  },
+  {
+   "Date": "Oct 27 2026",
+   "Close": "40.55",
+   "Adj Close": "40.55",
+   "Volume": "782200",
+   "searchIndex": "2026-10-27 40.54999923706055"
+  },
+  {
+   "Date": "Oct 28 2026",
+   "Close": "40.43",
+   "Adj Close": "40.43",
+   "Volume": "983000",
+   "searchIndex": "2026-10-28 40.43000030517578"
+  },
+  {
+   "Date": "Oct 29 2026",
+   "Close": "40.35",
+   "Adj Close": "40.35",
+   "Volume": "823707",
+   "searchIndex": "2026-10-29 40.35499954223633"
   }
  ]
 }

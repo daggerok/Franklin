@@ -28,34 +28,34 @@
   "net": 0.35
  },
  "nav": {
-  "display": "$7.00",
-  "value": 7,
-  "asOfDate": "2026-10-23"
+  "display": "$7.02",
+  "value": 7.02,
+  "asOfDate": "2026-10-28"
  },
  "marketPrice": {
-  "display": "$6.93",
-  "value": 6.93,
-  "asOfDate": "2026-10-20",
+  "display": "$7.02",
+  "value": 7.02,
+  "asOfDate": "2026-10-28",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.14%",
-  "value": 0.14,
-  "asOfDate": "2026-10-23",
+  "display": "0.00%",
+  "value": 0,
+  "asOfDate": "2026-10-28",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$723.36 M",
-  "value": 723360000,
-  "asOfDate": "2026-10-25",
+  "display": "$726.96 M",
+  "value": 726960000,
+  "asOfDate": "2026-10-28",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 4.31,
-  "dividendYieldText": "4.31%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 23 2026",
-  "dividendYieldAsOfDate": "2026-10-23",
+  "dividendYield": 4.3,
+  "dividendYieldText": "4.30%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 28 2026",
+  "dividendYieldAsOfDate": "2026-10-28",
   "secYield": 4.64,
   "secYieldText": "4.64%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
@@ -175,13 +175,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035187, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 250,
+  "totalRows": 254,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 23 2026",
+  "asOf": "Oct 29 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

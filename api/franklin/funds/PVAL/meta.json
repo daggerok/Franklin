@@ -11,10 +11,10 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39434/SINGLCLASS/putnam-focused-large-cap-value-etf/PVAL",
-  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028247, report period 2026-05-29)",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-041672, report period 2026-08-31)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PVAL?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": "SEC EDGAR N-PORT-P 2026-05-29"
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-08-31"
  },
  "identifiers": {
   "cusip": "746729300",
@@ -28,34 +28,34 @@
   "net": 0.56
  },
  "nav": {
-  "display": "$53.88",
-  "value": 53.88,
-  "asOfDate": "2026-10-23"
+  "display": "$54.31",
+  "value": 54.31,
+  "asOfDate": "2026-10-28"
  },
  "marketPrice": {
-  "display": "$53.91",
-  "value": 53.91,
-  "asOfDate": "2026-10-23",
-  "source": "last close from the Yahoo Finance price history"
+  "display": "$54.31",
+  "value": 54.31,
+  "asOfDate": "2026-10-28",
+  "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.06%",
-  "value": 0.06,
-  "asOfDate": "2026-10-23",
+  "display": "0.00%",
+  "value": 0,
+  "asOfDate": "2026-10-28",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$15.17 B",
-  "value": 15170000000,
-  "asOfDate": "2026-10-22",
+  "display": "$15.34 B",
+  "value": 15340000000,
+  "asOfDate": "2026-10-28",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 0.94,
-  "dividendYieldText": "0.94%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 23 2026",
-  "dividendYieldAsOfDate": "2026-10-23",
+  "dividendYield": 0.93,
+  "dividendYieldText": "0.93%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 28 2026",
+  "dividendYieldAsOfDate": "2026-10-28",
   "secYield": 0.89,
   "secYieldText": "0.89%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
@@ -193,25 +193,25 @@
   "exDate": "Oct 6 2026"
  },
  "holdings": {
-  "totalRows": 46,
+  "totalRows": 45,
   "pageSize": 250,
   "pageCount": 1,
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-05-29",
-  "asOf": "May 29 2026",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028247, report period 2026-05-29)"
+  "asOfDate": "2026-08-31",
+  "asOf": "Aug 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-041672, report period 2026-08-31)"
  },
  "history": {
-  "totalRows": 1360,
+  "totalRows": 1364,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Oct 23 2026",
+  "asOf": "Oct 29 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

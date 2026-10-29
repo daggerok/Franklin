@@ -28,34 +28,34 @@
   "net": 0.48
  },
  "nav": {
-  "display": "$87.19",
-  "value": 87.19,
-  "asOfDate": "2026-10-23"
+  "display": "$89.09",
+  "value": 89.09,
+  "asOfDate": "2026-10-28"
  },
  "marketPrice": {
-  "display": "$87.18",
-  "value": 87.18,
-  "asOfDate": "2026-10-23",
+  "display": "$89.06",
+  "value": 89.06,
+  "asOfDate": "2026-10-28",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "-0.01%",
-  "value": -0.01,
-  "asOfDate": "2026-10-23",
+  "display": "-0.03%",
+  "value": -0.03,
+  "asOfDate": "2026-10-28",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$371.74 M",
-  "value": 371740000,
-  "asOfDate": "2026-10-23",
+  "display": "$379.87 M",
+  "value": 379870000,
+  "asOfDate": "2026-10-28",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 0.12,
   "dividendYieldText": "0.12%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 23 2026",
-  "dividendYieldAsOfDate": "2026-10-23",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 28 2026",
+  "dividendYieldAsOfDate": "2026-10-28",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"
@@ -174,7 +174,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035182, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2364,
+  "totalRows": 2368,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -182,7 +182,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Oct 23 2026",
+  "asOf": "Oct 29 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -1,0 +1,62 @@
+{
+ "ticker": "FTMS",
+ "page": 2,
+ "pageSize": 250,
+ "totalRows": 255,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "Asset Category"
+ ],
+ "rows": [
+  {
+   "Name": "CHESTER COUNTY INDUSTRIAL DEVELOPMENT AUTHORITY (PA)",
+   "Ticker": "—",
+   "Identifier": "165588FP4",
+   "Weight": "0.41987928",
+   "Market Value": "800491.04",
+   "Shares Held": "800000",
+   "Asset Category": "DBT"
+  },
+  {
+   "Name": "FONTANA (CA), CITY OF",
+   "Ticker": "—",
+   "Identifier": "344630M62",
+   "Weight": "0.22246249",
+   "Market Value": "424120.08",
+   "Shares Held": "400000",
+   "Asset Category": "DBT"
+  },
+  {
+   "Name": "ILLINOIS FINANCE AUTHORITY (IL)",
+   "Ticker": "—",
+   "Identifier": "45203EAG4",
+   "Weight": "1.19606064",
+   "Market Value": "2280264.53",
+   "Shares Held": "2250000",
+   "Asset Category": "DBT"
+  },
+  {
+   "Name": "PUBLIC FIN AUTH WIS",
+   "Ticker": "—",
+   "Identifier": "74442PV69",
+   "Weight": "0.41383347",
+   "Market Value": "788964.83",
+   "Shares Held": "750000",
+   "Asset Category": "DBT"
+  },
+  {
+   "Name": "NEW JERSEY TRANSPORTATION TRUST FUND AUTHORITY (NJ)",
+   "Ticker": "—",
+   "Identifier": "64613CEN4",
+   "Weight": "0.28696261",
+   "Market Value": "547088.2",
+   "Shares Held": "500000",
+   "Asset Category": "DBT"
+  }
+ ]
+}

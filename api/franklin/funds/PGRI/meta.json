@@ -28,9 +28,9 @@
   "net": 0.55
  },
  "nav": {
-  "display": "$25.63",
-  "value": 25.63,
-  "asOfDate": "2026-10-23"
+  "display": "$25.84",
+  "value": 25.84,
+  "asOfDate": "2026-10-28"
  },
  "marketPrice": {
   "display": "$25.54",
@@ -39,16 +39,16 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "-0.35%",
-  "value": -0.35,
-  "asOfDate": "2026-10-23",
+  "display": "0.31%",
+  "value": 0.31,
+  "asOfDate": "2026-10-28",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "official product page closing Market Price"
+  "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$6.41 M",
-  "value": 6410000,
-  "asOfDate": "2026-09-30",
+  "display": "$6.46 M",
+  "value": 6460000,
+  "asOfDate": "2026-10-28",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-09-30",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "ytd": 5.62,
-   "ytdText": "5.62%",
+   "ytd": 4.49,
+   "ytdText": "4.49%",
    "yr1": null,
    "yr1Text": "—",
    "yr3": null,
@@ -75,8 +75,8 @@
    "yr5Text": "—",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 4.88,
-   "sinceInceptionText": "4.88%"
+   "sinceInception": null,
+   "sinceInceptionText": "—"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -124,13 +124,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-025233, report period 2026-04-30)"
  },
  "history": {
-  "totalRows": 252,
+  "totalRows": 256,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 23 2026",
+  "asOf": "Oct 29 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

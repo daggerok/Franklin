@@ -28,9 +28,9 @@
   "net": 0.6
  },
  "nav": {
-  "display": "$53.44",
-  "value": 53.44,
-  "asOfDate": "2026-10-23"
+  "display": "$53.31",
+  "value": 53.31,
+  "asOfDate": "2026-10-28"
  },
  "marketPrice": {
   "display": "$53.40",
@@ -39,23 +39,23 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "-0.07%",
-  "value": -0.07,
-  "asOfDate": "2026-10-23",
+  "display": "-0.09%",
+  "value": -0.09,
+  "asOfDate": "2026-10-28",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "official product page closing Market Price"
+  "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$40.08 M",
-  "value": 40080000,
-  "asOfDate": "2026-10-23",
+  "display": "$39.98 M",
+  "value": 39980000,
+  "asOfDate": "2026-10-28",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 1.14,
   "dividendYieldText": "1.14%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 23 2026",
-  "dividendYieldAsOfDate": "2026-10-23",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 28 2026",
+  "dividendYieldAsOfDate": "2026-10-28",
   "secYield": 1.27,
   "secYieldText": "1.27%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-09-30",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "ytd": 24.78,
-   "ytdText": "24.78%",
+   "ytd": 24.47,
+   "ytdText": "24.47%",
    "yr1": 20.38,
    "yr1Text": "20.38%",
    "yr3": 13.54,
@@ -285,7 +285,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035200, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2334,
+  "totalRows": 2338,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -293,7 +293,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Oct 23 2026",
+  "asOf": "Oct 29 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

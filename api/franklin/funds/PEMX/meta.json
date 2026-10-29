@@ -11,10 +11,10 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39499/SINGLCLASS/putnam-emerging-markets-ex-china-etf/PEMX",
-  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-025234, report period 2026-04-30)",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-038479, report period 2026-07-31)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/PEMX?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": "SEC EDGAR N-PORT-P 2026-04-30"
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-07-31"
  },
  "identifiers": {
   "cusip": "746729847",
@@ -28,33 +28,33 @@
   "net": 0.7
  },
  "nav": {
-  "display": "$79.11",
-  "value": 79.11,
-  "asOfDate": "2026-10-23"
+  "display": "$80.72",
+  "value": 80.72,
+  "asOfDate": "2026-10-28"
  },
  "marketPrice": {
-  "display": "$79.86",
-  "value": 79.86,
-  "asOfDate": "2026-10-16",
+  "display": "$81.35",
+  "value": 81.35,
+  "asOfDate": "2026-10-28",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.06%",
-  "value": 0.06,
-  "asOfDate": "2026-10-23",
+  "display": "0.78%",
+  "value": 0.78,
+  "asOfDate": "2026-10-28",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$29.68 M",
-  "value": 29680000,
-  "asOfDate": "2026-10-22",
+  "display": "$30.27 M",
+  "value": 30270000,
+  "asOfDate": "2026-10-28",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 5.64,
-  "dividendYieldText": "5.64%",
-  "dividendYieldKind": "indicated: latest distribution 4.5010 x 1/year / market price 79.86",
+  "dividendYield": 5.53,
+  "dividendYieldText": "5.53%",
+  "dividendYieldKind": "indicated: latest distribution 4.5010 x 1/year / market price 81.35",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -123,24 +123,24 @@
   "exDate": "Dec 19 2025"
  },
  "holdings": {
-  "totalRows": 54,
+  "totalRows": 48,
   "pageSize": 250,
   "pageCount": 1,
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-04-30",
-  "asOf": "Apr 30 2026",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-025234, report period 2026-04-30)"
+  "asOfDate": "2026-07-31",
+  "asOf": "Jul 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-038479, report period 2026-07-31)"
  },
  "history": {
-  "totalRows": 854,
+  "totalRows": 858,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 23 2026",
+  "asOf": "Oct 29 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

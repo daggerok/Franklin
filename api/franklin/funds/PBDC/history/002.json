@@ -2,7 +2,7 @@
  "ticker": "PBDC",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1020,
+ "totalRows": 1024,
  "headers": [
   "Date",
   "Close",
@@ -149,6 +149,34 @@
    "Adj Close": "25.11",
    "Volume": "96500",
    "searchIndex": "2026-10-23 25.110000610351562"
+  },
+  {
+   "Date": "Oct 26 2026",
+   "Close": "25.02",
+   "Adj Close": "25.02",
+   "Volume": "70500",
+   "searchIndex": "2026-10-26 25.020000457763672"
+  },
+  {
+   "Date": "Oct 27 2026",
+   "Close": "25.48",
+   "Adj Close": "25.48",
+   "Volume": "155300",
+   "searchIndex": "2026-10-27 25.479999542236328"
+  },
+  {
+   "Date": "Oct 28 2026",
+   "Close": "25.63",
+   "Adj Close": "25.63",
+   "Volume": "49600",
+   "searchIndex": "2026-10-28 25.6299991607666"
+  },
+  {
+   "Date": "Oct 29 2026",
+   "Close": "26.10",
+   "Adj Close": "26.10",
+   "Volume": "61257",
+   "searchIndex": "2026-10-29 26.100000381469727"
   }
  ]
 }

@@ -11,10 +11,10 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/48361/SINGLCLASS/franklin-new-york-municipal-income-etf/FTNY",
-  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028338, report period 2026-05-29)",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-041665, report period 2026-08-31)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FTNY?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": "SEC EDGAR N-PORT-P 2026-05-29"
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-08-31"
  },
  "identifiers": {
   "cusip": "746729763",
@@ -22,10 +22,10 @@
   "benchmark": "Bloomberg Municipal Bond Index"
  },
  "expenseRatio": {
-  "display": "0.37%",
-  "value": 0.37,
+  "display": "0.36%",
+  "value": 0.36,
   "gross": 0.37,
-  "net": 0.37
+  "net": 0.36
  },
  "nav": {
   "display": "$7.52",
@@ -52,10 +52,10 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 4.14,
-  "dividendYieldText": "4.14%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 23 2026",
-  "dividendYieldAsOfDate": "2026-10-23",
+  "dividendYield": 4.13,
+  "dividendYieldText": "4.13%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 28 2026",
+  "dividendYieldAsOfDate": "2026-10-28",
   "secYield": 4.5,
   "secYieldText": "4.50%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
@@ -163,25 +163,25 @@
   "exDate": "Oct 1 2026"
  },
  "holdings": {
-  "totalRows": 270,
+  "totalRows": 257,
   "pageSize": 250,
   "pageCount": 2,
   "pages": [
    "./holdings/001.json",
    "./holdings/002.json"
   ],
-  "asOfDate": "2026-05-29",
-  "asOf": "May 29 2026",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-028338, report period 2026-05-29)"
+  "asOfDate": "2026-08-31",
+  "asOf": "Aug 31 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-041665, report period 2026-08-31)"
  },
  "history": {
-  "totalRows": 250,
+  "totalRows": 254,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 23 2026",
+  "asOf": "Oct 29 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -1,0 +1,53 @@
+{
+ "ticker": "FTMH",
+ "page": 3,
+ "pageSize": 250,
+ "totalRows": 504,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "Asset Category"
+ ],
+ "rows": [
+  {
+   "Name": "PILOT POINT TEX",
+   "Ticker": "—",
+   "Identifier": "721614AW5",
+   "Weight": "0.01824654",
+   "Market Value": "103189.03",
+   "Shares Held": "100000",
+   "Asset Category": "DBT"
+  },
+  {
+   "Name": "WOODLAND PRESV CMNTY DEV DIST FLA",
+   "Ticker": "—",
+   "Identifier": "97966AAC9",
+   "Weight": "0.08605657",
+   "Market Value": "486672.8",
+   "Shares Held": "500000",
+   "Asset Category": "DBT"
+  },
+  {
+   "Name": "EAST WALLER CNTY MGMT DIST TEX",
+   "Ticker": "—",
+   "Identifier": "275737AA2",
+   "Weight": "0.02070027",
+   "Market Value": "117065.56",
+   "Shares Held": "115000",
+   "Asset Category": "DBT"
+  },
+  {
+   "Name": "PUBLIC FINANCE AUTHORITY (WI)",
+   "Ticker": "—",
+   "Identifier": "74445GAR3",
+   "Weight": "0.16381821",
+   "Market Value": "926435.6",
+   "Shares Held": "1000000",
+   "Asset Category": "DBT"
+  }
+ ]
+}

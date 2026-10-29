@@ -2,7 +2,7 @@
  "ticker": "FLCA",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2253,
+ "totalRows": 2257,
  "headers": [
   "Date",
   "Close",
@@ -1780,6 +1780,34 @@
    "Adj Close": "54.17",
    "Volume": "14300",
    "searchIndex": "2026-10-23 54.16999816894531"
+  },
+  {
+   "Date": "Oct 26 2026",
+   "Close": "54.43",
+   "Adj Close": "54.43",
+   "Volume": "56500",
+   "searchIndex": "2026-10-26 54.43000030517578"
+  },
+  {
+   "Date": "Oct 27 2026",
+   "Close": "54.63",
+   "Adj Close": "54.63",
+   "Volume": "23000",
+   "searchIndex": "2026-10-27 54.630001068115234"
+  },
+  {
+   "Date": "Oct 28 2026",
+   "Close": "55.02",
+   "Adj Close": "55.02",
+   "Volume": "18700",
+   "searchIndex": "2026-10-28 55.02000045776367"
+  },
+  {
+   "Date": "Oct 29 2026",
+   "Close": "54.92",
+   "Adj Close": "54.92",
+   "Volume": "19163",
+   "searchIndex": "2026-10-29 54.91999816894531"
   }
  ]
 }

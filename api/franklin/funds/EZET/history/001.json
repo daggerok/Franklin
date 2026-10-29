@@ -2,7 +2,7 @@
  "ticker": "EZET",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 567,
+ "totalRows": 571,
  "headers": [
   "Date",
   "Close",
@@ -3978,6 +3978,34 @@
    "Adj Close": "18.10",
    "Volume": "18500",
    "searchIndex": "2026-10-23 18.100000381469727"
+  },
+  {
+   "Date": "Oct 26 2026",
+   "Close": "17.53",
+   "Adj Close": "17.53",
+   "Volume": "51900",
+   "searchIndex": "2026-10-26 17.530000686645508"
+  },
+  {
+   "Date": "Oct 27 2026",
+   "Close": "17.75",
+   "Adj Close": "17.75",
+   "Volume": "26400",
+   "searchIndex": "2026-10-27 17.75"
+  },
+  {
+   "Date": "Oct 28 2026",
+   "Close": "17.94",
+   "Adj Close": "17.94",
+   "Volume": "17200",
+   "searchIndex": "2026-10-28 17.940000534057617"
+  },
+  {
+   "Date": "Oct 29 2026",
+   "Close": "17.61",
+   "Adj Close": "17.61",
+   "Volume": "37136",
+   "searchIndex": "2026-10-29 17.610000610351562"
   }
  ]
 }

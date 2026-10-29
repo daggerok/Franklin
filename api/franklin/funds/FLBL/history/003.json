@@ -2,7 +2,7 @@
  "ticker": "FLBL",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2111,
+ "totalRows": 2115,
  "headers": [
   "Date",
   "Close",
@@ -786,6 +786,34 @@
    "Adj Close": "22.69",
    "Volume": "271800",
    "searchIndex": "2026-10-23 22.690000534057617"
+  },
+  {
+   "Date": "Oct 26 2026",
+   "Close": "22.73",
+   "Adj Close": "22.73",
+   "Volume": "417800",
+   "searchIndex": "2026-10-26 22.729999542236328"
+  },
+  {
+   "Date": "Oct 27 2026",
+   "Close": "22.79",
+   "Adj Close": "22.79",
+   "Volume": "179800",
+   "searchIndex": "2026-10-27 22.790000915527344"
+  },
+  {
+   "Date": "Oct 28 2026",
+   "Close": "22.84",
+   "Adj Close": "22.84",
+   "Volume": "142500",
+   "searchIndex": "2026-10-28 22.84000015258789"
+  },
+  {
+   "Date": "Oct 29 2026",
+   "Close": "22.86",
+   "Adj Close": "22.86",
+   "Volume": "77375",
+   "searchIndex": "2026-10-29 22.864999771118164"
   }
  ]
 }

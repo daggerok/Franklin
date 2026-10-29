@@ -2,7 +2,7 @@
  "ticker": "PEMX",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 854,
+ "totalRows": 858,
  "headers": [
   "Date",
   "Close",
@@ -5987,6 +5987,34 @@
    "Adj Close": "79.16",
    "Volume": "400",
    "searchIndex": "2026-10-23 79.15799713134766"
+  },
+  {
+   "Date": "Oct 26 2026",
+   "Close": "78.56",
+   "Adj Close": "78.56",
+   "Volume": "800",
+   "searchIndex": "2026-10-26 78.55899810791016"
+  },
+  {
+   "Date": "Oct 27 2026",
+   "Close": "79.89",
+   "Adj Close": "79.89",
+   "Volume": "1100",
+   "searchIndex": "2026-10-27 79.88700103759766"
+  },
+  {
+   "Date": "Oct 28 2026",
+   "Close": "81.35",
+   "Adj Close": "81.35",
+   "Volume": "200",
+   "searchIndex": "2026-10-28 81.35199737548828"
+  },
+  {
+   "Date": "Oct 29 2026",
+   "Close": "79.99",
+   "Adj Close": "79.99",
+   "Volume": "907",
+   "searchIndex": "2026-10-29 79.98999786376953"
   }
  ]
 }
