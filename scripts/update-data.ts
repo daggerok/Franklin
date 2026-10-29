@@ -3443,16 +3443,14 @@ async function runUpdater(config: UpdaterConfig): Promise<void> {
     if (!config.skipYahoo) {
       try {
         const fetched = await fetchYahooChart(ticker, `[ yahoo    ] ${ticker} chart`, config);
-        // A HISTORY_RANGE window never shrinks the published history: the older published days (and distributions) stay,
-        // and a window that does not join them keeps the fund as published (shared windowed-chart block)
-        if (/^\d+y$/.test(config.historyRange)) {
-          const merged = mergeWindowedChart(fetched, previousHistoryRows, previousDistributionRows.map((row) => [row['Ex-Date'], row.Dividend]));
-          if (!merged) throw new Error(`chart window does not join the published history (${config.historyRange})`);
-          windowJoined = merged.days.length > fetched.days.length;
-          chart = merged;
-        } else {
-          chart = fetched;
-        }
+        // A fresh chart never shrinks the published history: the older published days (and distributions) stay, and a
+        // chart that does not join them keeps the fund as published (shared windowed-chart block). This covers a
+        // HISTORY_RANGE window and also a truncated `max` answer (2026-10-29: Yahoo returned 2 bars for DVAL and USFI and
+        // their 999-row histories were replaced by one row). A full `max` answer starts at inception: nothing older, unchanged
+        const merged = mergeWindowedChart(fetched, previousHistoryRows, previousDistributionRows.map((row) => [row['Ex-Date'], row.Dividend]));
+        if (!merged) throw new Error(`chart does not join the published history (${config.historyRange}, ${fetched.days.length} days)`);
+        windowJoined = merged.days.length > fetched.days.length;
+        chart = merged;
       } catch (e) {
         problems.push(`yahoo chart: ${e instanceof Error ? e.message : String(e)}`);
       }

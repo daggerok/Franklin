@@ -1351,6 +1351,14 @@ describe('pipeline 6', () => {
     expect(snapshot(feed())).toEqual(first);
     const meta = JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'meta.json'), 'utf8'));
     expect([meta.history.totalRows, meta.distributions.rows.length]).toEqual([6, 1]);
+    // a truncated `max` answer (Yahoo served 2 bars for DVAL and USFI on 2026-10-29) never shrinks the history either:
+    // one that joins the published days keeps them all, one that does not join keeps the fund as published
+    days = all.slice(5);
+    await run(live);
+    expect(snapshot(feed())).toEqual(first);
+    days = [Date.UTC(2026, 8, 30, 20) / 1000];
+    await run(live);
+    expect(JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'meta.json'), 'utf8')).history.totalRows).toBe(6);
   }), 30_000);
 
   test('TICKERS outside the live catalog stops the run before any fund request; a stale catalog-only row is dropped (Q27)', inTempRoot(async () => {
