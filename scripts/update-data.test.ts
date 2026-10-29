@@ -821,7 +821,7 @@ describe('pipeline', () => {
 describe('pipeline 2', () => {
   test('MAX_FETCHES walks the filtered list and wraps around', inTempRoot(async () => {
     await run();
-    const tickers: string[] = index().funds.map((row: any) => row.ticker);
+    const tickers: string[] = index().funds.filter((row: any) => row.status !== 'closed').map((row: any) => row.ticker); // closed funds are not in the queue
     const total = tickers.length;
     const seen: string[] = [];
     for (let i = 0; i < 3; i += 1) {
@@ -1111,7 +1111,7 @@ describe('pipeline 3', () => {
       const rows = index().funds;
       expect(rows).toHaveLength(JSON.parse(first['/index.json']).funds.length);
       expect(rows.find((row: any) => row.ticker === 'FLCH')).toMatchObject({ status: 'closed', closedDate: '2026-10-01', closedSource: entry.source, dataFile: './funds/FLCH/meta.json' });
-      expect(rows.filter((row: any) => row.status === 'closed')).toHaveLength(1);
+      expect(rows.filter((row: any) => row.status === 'closed').map((row: any) => row.ticker).sort()).toEqual(['FLCH', ...CLOSED_FUNDS.filter((fund) => fund !== entry).map((fund) => fund.ticker)].sort());
       await run();
       expect(snapshot(feed())).toEqual(closed);
     } finally {

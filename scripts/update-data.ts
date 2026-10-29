@@ -501,7 +501,10 @@ export const HOLDINGS_GUARD_RELAX: Record<string, string[]> = {
   FLRU: ['sum'], // Russia fund: its sanctioned holdings are valued at 0, so its weights add up to 0
 };
 /** Funds the issuer closed, each confirmed from an SEC filing or the issuer notice (`source`): never fetched or guarded, last published data kept, index row marked closed. */
-export const CLOSED_FUNDS: ClosedFund[] = [];
+export const CLOSED_FUNDS: ClosedFund[] = [
+  // liquidated: last trading day 2022-03-03 (trading halted by NYSE Arca before the open on 2022-03-04; 497 supplement of 2022-12-23: board voted to close and liquidate, redemptions suspended; Form 25-NSE filed 2022-12-28, delisted 2023-01-09)
+  { ticker: 'FLRU', closed: '2022-03-03', source: 'https://www.sec.gov/Archives/edgar/data/1655589/000174177322004359/c497.htm' },
+];
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const TRUTHY = new Set(['1', 'true', 'yes', 'y', 'on']);
 const AUM_BOUNDS = { nano: [0, 10_000_000], micro: [10_000_000, 300_000_000], small: [300_000_000, 2_000_000_000], mid: [2_000_000_000, 10_000_000_000], large: [10_000_000_000, undefined] } as const;
