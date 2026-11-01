@@ -2,7 +2,7 @@
  "ticker": "FLEE",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2228,
+ "totalRows": 2229,
  "headers": [
   "Date",
   "Close",
@@ -1601,10 +1601,17 @@
   },
   {
    "Date": "Oct 29 2026",
-   "Close": "38.37",
-   "Adj Close": "38.37",
-   "Volume": "4428",
-   "searchIndex": "2026-10-29 38.3650016784668"
+   "Close": "38.36",
+   "Adj Close": "38.36",
+   "Volume": "4500",
+   "searchIndex": "2026-10-29 38.36000061035156"
+  },
+  {
+   "Date": "Oct 30 2026",
+   "Close": "38.08",
+   "Adj Close": "38.08",
+   "Volume": "15200",
+   "searchIndex": "2026-10-30 38.08000183105469"
   }
  ]
 }

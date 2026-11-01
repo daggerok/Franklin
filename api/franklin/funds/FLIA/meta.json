@@ -54,8 +54,8 @@
  "yields": {
   "dividendYield": 0.33,
   "dividendYieldText": "0.33%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 28 2026",
-  "dividendYieldAsOfDate": "2026-10-28",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 30 2026",
+  "dividendYieldAsOfDate": "2026-10-30",
   "secYield": 3.47,
   "secYieldText": "3.47%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
@@ -319,7 +319,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035116, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2115,
+  "totalRows": 2116,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -327,7 +327,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Oct 29 2026",
+  "asOf": "Oct 30 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

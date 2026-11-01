@@ -2,7 +2,7 @@
  "ticker": "FTMN",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 244,
+ "totalRows": 245,
  "headers": [
   "Date",
   "Close",
@@ -1715,8 +1715,15 @@
    "Date": "Oct 29 2026",
    "Close": "8.48",
    "Adj Close": "8.48",
-   "Volume": "281543",
-   "searchIndex": "2026-10-29 8.475000381469727"
+   "Volume": "328700",
+   "searchIndex": "2026-10-29 8.479999542236328"
+  },
+  {
+   "Date": "Oct 30 2026",
+   "Close": "8.51",
+   "Adj Close": "8.51",
+   "Volume": "280100",
+   "searchIndex": "2026-10-30 8.510000228881836"
   }
  ]
 }

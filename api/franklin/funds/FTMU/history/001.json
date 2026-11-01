@@ -2,7 +2,7 @@
  "ticker": "FTMU",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 254,
+ "totalRows": 255,
  "headers": [
   "Date",
   "Close",
@@ -1783,10 +1783,17 @@
   },
   {
    "Date": "Oct 29 2026",
-   "Close": "7.55",
-   "Adj Close": "7.55",
-   "Volume": "172460",
-   "searchIndex": "2026-10-29 7.545000076293945"
+   "Close": "7.54",
+   "Adj Close": "7.54",
+   "Volume": "194500",
+   "searchIndex": "2026-10-29 7.539999961853027"
+  },
+  {
+   "Date": "Oct 30 2026",
+   "Close": "7.57",
+   "Adj Close": "7.57",
+   "Volume": "288900",
+   "searchIndex": "2026-10-30 7.570000171661377"
   }
  ]
 }

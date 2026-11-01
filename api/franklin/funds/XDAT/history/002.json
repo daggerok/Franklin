@@ -2,7 +2,7 @@
  "ticker": "XDAT",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1455,
+ "totalRows": 1456,
  "headers": [
   "Date",
   "Close",
@@ -3190,10 +3190,17 @@
   },
   {
    "Date": "Oct 29 2026",
-   "Close": "26.11",
-   "Adj Close": "26.11",
-   "Volume": "21399",
-   "searchIndex": "2026-10-29 26.111000061035156"
+   "Close": "26.35",
+   "Adj Close": "26.35",
+   "Volume": "21400",
+   "searchIndex": "2026-10-29 26.347000122070312"
+  },
+  {
+   "Date": "Oct 30 2026",
+   "Close": "24.98",
+   "Adj Close": "24.98",
+   "Volume": "700",
+   "searchIndex": "2026-10-30 24.98200035095215"
   }
  ]
 }

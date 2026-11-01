@@ -2,7 +2,7 @@
  "ticker": "IQM",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1678,
+ "totalRows": 1679,
  "headers": [
   "Date",
   "Close",
@@ -4751,10 +4751,17 @@
   },
   {
    "Date": "Oct 29 2026",
-   "Close": "98.77",
-   "Adj Close": "98.77",
-   "Volume": "1185",
-   "searchIndex": "2026-10-29 98.7699966430664"
+   "Close": "98.81",
+   "Adj Close": "98.81",
+   "Volume": "1200",
+   "searchIndex": "2026-10-29 98.81099700927734"
+  },
+  {
+   "Date": "Oct 30 2026",
+   "Close": "93.13",
+   "Adj Close": "93.13",
+   "Volume": "2700",
+   "searchIndex": "2026-10-30 93.12699890136719"
   }
  ]
 }

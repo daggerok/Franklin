@@ -22,10 +22,10 @@
   "benchmark": "Bloomberg Municipal Bond Index"
  },
  "expenseRatio": {
-  "display": "0.36%",
-  "value": 0.36,
+  "display": "0.35%",
+  "value": 0.35,
   "gross": 0.36,
-  "net": 0.36
+  "net": 0.35
  },
  "nav": {
   "display": "$8.31",
@@ -52,10 +52,10 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 3.65,
-  "dividendYieldText": "3.65%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 28 2026",
-  "dividendYieldAsOfDate": "2026-10-28",
+  "dividendYield": 3.63,
+  "dividendYieldText": "3.63%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 30 2026",
+  "dividendYieldAsOfDate": "2026-10-30",
   "secYield": 4.36,
   "secYieldText": "4.36%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
@@ -174,13 +174,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-041674, report period 2026-08-31)"
  },
  "history": {
-  "totalRows": 244,
+  "totalRows": 245,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 29 2026",
+  "asOf": "Oct 30 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

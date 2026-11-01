@@ -30,7 +30,7 @@
  "nav": {
   "display": "$28.91",
   "value": 28.91,
-  "asOfDate": "2026-10-28"
+  "asOfDate": "2026-10-30"
  },
  "marketPrice": {
   "display": "$29.03",
@@ -39,11 +39,11 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.42%",
-  "value": 0.42,
-  "asOfDate": "2026-10-28",
+  "display": "0.55%",
+  "value": 0.55,
+  "asOfDate": "2026-10-30",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "official product page closing Market Price"
+  "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
   "display": "$1.10 B",
@@ -52,9 +52,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 2.46,
-  "dividendYieldText": "2.46%",
-  "dividendYieldKind": "indicated: latest distribution 0.7130 x 1/year / market price 29.03",
+  "dividendYield": 4.91,
+  "dividendYieldText": "4.91%",
+  "dividendYieldKind": "indicated: latest distribution 0.7130 x 2/year / market price 29.03",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-09-30",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "ytd": 7.92,
-   "ytdText": "7.92%",
+   "ytd": 8.52,
+   "ytdText": "8.52%",
    "yr1": 10.71,
    "yr1Text": "10.71%",
    "yr3": 10.12,
@@ -95,9 +95,9 @@
   }
  },
  "distributions": {
-  "frequency": "Annually",
-  "frequencyCode": "12 - Annually",
-  "paymentsPerYear": 1,
+  "frequency": "Semi-annually",
+  "frequencyCode": "06 - Semi-annually",
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -160,14 +160,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035127, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 1722,
+  "totalRows": 1723,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Oct 29 2026",
+  "asOf": "Oct 30 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

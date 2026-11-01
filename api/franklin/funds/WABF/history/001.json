@@ -2,7 +2,7 @@
  "ticker": "WABF",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 780,
+ "totalRows": 781,
  "headers": [
   "Date",
   "Close",
@@ -5465,10 +5465,17 @@
   },
   {
    "Date": "Oct 29 2026",
-   "Close": "24.02",
-   "Adj Close": "24.02",
-   "Volume": "1376",
-   "searchIndex": "2026-10-29 24.020000457763672"
+   "Close": "23.99",
+   "Adj Close": "23.99",
+   "Volume": "1400",
+   "searchIndex": "2026-10-29 23.989999771118164"
+  },
+  {
+   "Date": "Oct 30 2026",
+   "Close": "24.05",
+   "Adj Close": "24.05",
+   "Volume": "500",
+   "searchIndex": "2026-10-30 24.047000885009766"
   }
  ]
 }

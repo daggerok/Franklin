@@ -2,7 +2,7 @@
  "ticker": "FLCB",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1788,
+ "totalRows": 1789,
  "headers": [
   "Date",
   "Close",
@@ -5521,10 +5521,17 @@
   },
   {
    "Date": "Oct 29 2026",
-   "Close": "20.76",
-   "Adj Close": "20.76",
-   "Volume": "553168",
-   "searchIndex": "2026-10-29 20.75830078125"
+   "Close": "20.75",
+   "Adj Close": "20.75",
+   "Volume": "584200",
+   "searchIndex": "2026-10-29 20.75"
+  },
+  {
+   "Date": "Oct 30 2026",
+   "Close": "20.82",
+   "Adj Close": "20.82",
+   "Volume": "1405900",
+   "searchIndex": "2026-10-30 20.81999969482422"
   }
  ]
 }

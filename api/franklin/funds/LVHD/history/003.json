@@ -2,7 +2,7 @@
  "ticker": "LVHD",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2725,
+ "totalRows": 2726,
  "headers": [
   "Date",
   "Close",
@@ -5080,10 +5080,17 @@
   },
   {
    "Date": "Oct 29 2026",
-   "Close": "45.02",
-   "Adj Close": "45.02",
-   "Volume": "47352",
-   "searchIndex": "2026-10-29 45.01940155029297"
+   "Close": "45.01",
+   "Adj Close": "45.01",
+   "Volume": "61400",
+   "searchIndex": "2026-10-29 45.0099983215332"
+  },
+  {
+   "Date": "Oct 30 2026",
+   "Close": "45.25",
+   "Adj Close": "45.25",
+   "Volume": "113900",
+   "searchIndex": "2026-10-30 45.250999450683594"
   }
  ]
 }

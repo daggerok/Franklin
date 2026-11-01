@@ -104,6 +104,11 @@
   ],
   "rows": [
    {
+    "Ex-Date": "Oct 30 2026",
+    "Dividend": "0.3000",
+    "searchIndex": "oct 30 2026 0.3"
+   },
+   {
     "Ex-Date": "Sep 30 2026",
     "Dividend": "0.3000",
     "searchIndex": "sep 30 2026 0.3"
@@ -390,7 +395,7 @@
    }
   ],
   "latestDividend": "0.3",
-  "exDate": "Sep 30 2026"
+  "exDate": "Oct 30 2026"
  },
  "holdings": {
   "totalRows": 96,
@@ -404,7 +409,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035123, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2540,
+  "totalRows": 2541,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -412,7 +417,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Oct 29 2026",
+  "asOf": "Oct 30 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

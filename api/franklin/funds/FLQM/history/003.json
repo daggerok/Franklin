@@ -2,7 +2,7 @@
  "ticker": "FLQM",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2390,
+ "totalRows": 2391,
  "headers": [
   "Date",
   "Close",
@@ -2735,10 +2735,17 @@
   },
   {
    "Date": "Oct 29 2026",
-   "Close": "61.53",
-   "Adj Close": "61.53",
-   "Volume": "70227",
-   "searchIndex": "2026-10-29 61.5265998840332"
+   "Close": "61.61",
+   "Adj Close": "61.61",
+   "Volume": "80500",
+   "searchIndex": "2026-10-29 61.61000061035156"
+  },
+  {
+   "Date": "Oct 30 2026",
+   "Close": "61.42",
+   "Adj Close": "61.42",
+   "Volume": "67300",
+   "searchIndex": "2026-10-30 61.41999816894531"
   }
  ]
 }

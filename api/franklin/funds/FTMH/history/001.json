@@ -2,7 +2,7 @@
  "ticker": "FTMH",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 254,
+ "totalRows": 255,
  "headers": [
   "Date",
   "Close",
@@ -1783,10 +1783,17 @@
   },
   {
    "Date": "Oct 29 2026",
-   "Close": "11.13",
-   "Adj Close": "11.13",
-   "Volume": "384691",
-   "searchIndex": "2026-10-29 11.130000114440918"
+   "Close": "11.12",
+   "Adj Close": "11.12",
+   "Volume": "465500",
+   "searchIndex": "2026-10-29 11.119999885559082"
+  },
+  {
+   "Date": "Oct 30 2026",
+   "Close": "11.19",
+   "Adj Close": "11.19",
+   "Volume": "1730300",
+   "searchIndex": "2026-10-30 11.1899995803833"
   }
  ]
 }

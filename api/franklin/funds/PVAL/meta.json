@@ -28,34 +28,34 @@
   "net": 0.56
  },
  "nav": {
-  "display": "$54.31",
-  "value": 54.31,
-  "asOfDate": "2026-10-28"
+  "display": "$54.68",
+  "value": 54.68,
+  "asOfDate": "2026-10-30"
  },
  "marketPrice": {
-  "display": "$54.31",
-  "value": 54.31,
-  "asOfDate": "2026-10-28",
-  "source": "official product page Market Price"
+  "display": "$54.72",
+  "value": 54.72,
+  "asOfDate": "2026-10-30",
+  "source": "last close from the Yahoo Finance price history"
  },
  "premiumDiscount": {
-  "display": "0.00%",
-  "value": 0,
-  "asOfDate": "2026-10-28",
+  "display": "0.07%",
+  "value": 0.07,
+  "asOfDate": "2026-10-30",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "official product page closing Market Price"
+  "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$15.34 B",
-  "value": 15340000000,
-  "asOfDate": "2026-10-28",
+  "display": "$15.50 B",
+  "value": 15500000000,
+  "asOfDate": "2026-10-29",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 0.93,
-  "dividendYieldText": "0.93%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 28 2026",
-  "dividendYieldAsOfDate": "2026-10-28",
+  "dividendYield": 0.92,
+  "dividendYieldText": "0.92%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 29 2026",
+  "dividendYieldAsOfDate": "2026-10-29",
   "secYield": 0.89,
   "secYieldText": "0.89%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
@@ -204,14 +204,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-041672, report period 2026-08-31)"
  },
  "history": {
-  "totalRows": 1364,
+  "totalRows": 1365,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Oct 29 2026",
+  "asOf": "Oct 30 2026",
   "source": "Yahoo Finance public chart API"
  }
 }
