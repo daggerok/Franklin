@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P553",
   "isin": "US35473P5531",
-  "benchmark": "Bloomberg U.S. Aggregate Index"
+  "benchmark": "outperformance mainly through security selection and sector rotation."
  },
  "expenseRatio": {
   "display": "0.15%",
@@ -28,9 +28,9 @@
   "net": 0.15
  },
  "nav": {
-  "display": "$20.70",
-  "value": 20.7,
-  "asOfDate": "2026-10-28"
+  "display": "$20.82",
+  "value": 20.82,
+  "asOfDate": "2026-11-06"
  },
  "marketPrice": {
   "display": "$20.71",
@@ -41,21 +41,21 @@
  "premiumDiscount": {
   "display": "0.05%",
   "value": 0.05,
-  "asOfDate": "2026-10-28",
+  "asOfDate": "2026-11-06",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "official product page closing Market Price"
+  "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$3.17 B",
-  "value": 3170000000,
-  "asOfDate": "2026-10-28",
+  "display": "$3.21 B",
+  "value": 3210000000,
+  "asOfDate": "2026-11-08",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 4.67,
-  "dividendYieldText": "4.67%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 30 2026",
-  "dividendYieldAsOfDate": "2026-10-30",
+  "dividendYield": 4.29,
+  "dividendYieldText": "4.29%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 6 2026",
+  "dividendYieldAsOfDate": "2026-11-06",
   "secYield": 4.96,
   "secYieldText": "4.96%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-09-30",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "ytd": -2.45,
-   "ytdText": "-2.45%",
+   "ytd": -0.13,
+   "ytdText": "-0.13%",
    "yr1": -1.83,
    "yr1Text": "-1.83%",
    "yr3": 4.11,
@@ -546,14 +546,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035108, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 1789,
+  "totalRows": 1794,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Oct 30 2026",
+  "asOf": "Nov 6 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

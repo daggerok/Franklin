@@ -2,7 +2,7 @@
  "ticker": "XIDV",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 446,
+ "totalRows": 451,
  "headers": [
   "Date",
   "Close",
@@ -3131,6 +3131,41 @@
    "Adj Close": "38.04",
    "Volume": "1700",
    "searchIndex": "2026-10-30 38.0369987487793"
+  },
+  {
+   "Date": "Nov 2 2026",
+   "Close": "38.15",
+   "Adj Close": "38.15",
+   "Volume": "4300",
+   "searchIndex": "2026-11-02 38.154998779296875"
+  },
+  {
+   "Date": "Nov 3 2026",
+   "Close": "37.95",
+   "Adj Close": "37.95",
+   "Volume": "1800",
+   "searchIndex": "2026-11-03 37.948001861572266"
+  },
+  {
+   "Date": "Nov 4 2026",
+   "Close": "39.04",
+   "Adj Close": "39.04",
+   "Volume": "600",
+   "searchIndex": "2026-11-04 39.0359992980957"
+  },
+  {
+   "Date": "Nov 5 2026",
+   "Close": "38.55",
+   "Adj Close": "38.55",
+   "Volume": "3200",
+   "searchIndex": "2026-11-05 38.551998138427734"
+  },
+  {
+   "Date": "Nov 6 2026",
+   "Close": "37.95",
+   "Adj Close": "37.95",
+   "Volume": "1000",
+   "searchIndex": "2026-11-06 37.952999114990234"
   }
  ]
 }

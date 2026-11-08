@@ -2,7 +2,7 @@
  "ticker": "FTNJ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 245,
+ "totalRows": 250,
  "headers": [
   "Date",
   "Close",
@@ -1724,6 +1724,41 @@
    "Adj Close": "8.51",
    "Volume": "211800",
    "searchIndex": "2026-10-30 8.510000228881836"
+  },
+  {
+   "Date": "Nov 2 2026",
+   "Close": "8.49",
+   "Adj Close": "8.49",
+   "Volume": "226900",
+   "searchIndex": "2026-11-02 8.489999771118164"
+  },
+  {
+   "Date": "Nov 3 2026",
+   "Close": "8.50",
+   "Adj Close": "8.50",
+   "Volume": "237600",
+   "searchIndex": "2026-11-03 8.5"
+  },
+  {
+   "Date": "Nov 4 2026",
+   "Close": "8.52",
+   "Adj Close": "8.52",
+   "Volume": "139100",
+   "searchIndex": "2026-11-04 8.520000457763672"
+  },
+  {
+   "Date": "Nov 5 2026",
+   "Close": "8.55",
+   "Adj Close": "8.55",
+   "Volume": "251400",
+   "searchIndex": "2026-11-05 8.550000190734863"
+  },
+  {
+   "Date": "Nov 6 2026",
+   "Close": "8.58",
+   "Adj Close": "8.58",
+   "Volume": "419100",
+   "searchIndex": "2026-11-06 8.579999923706055"
   }
  ]
 }

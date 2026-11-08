@@ -2,7 +2,7 @@
  "ticker": "SQLV",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2339,
+ "totalRows": 2344,
  "headers": [
   "Date",
   "Close",
@@ -2382,6 +2382,41 @@
    "Adj Close": "53.21",
    "Volume": "2800",
    "searchIndex": "2026-10-30 53.20899963378906"
+  },
+  {
+   "Date": "Nov 2 2026",
+   "Close": "53.65",
+   "Adj Close": "53.65",
+   "Volume": "10200",
+   "searchIndex": "2026-11-02 53.65299987792969"
+  },
+  {
+   "Date": "Nov 3 2026",
+   "Close": "53.11",
+   "Adj Close": "53.11",
+   "Volume": "2700",
+   "searchIndex": "2026-11-03 53.10900115966797"
+  },
+  {
+   "Date": "Nov 4 2026",
+   "Close": "54.71",
+   "Adj Close": "54.71",
+   "Volume": "4900",
+   "searchIndex": "2026-11-04 54.7130012512207"
+  },
+  {
+   "Date": "Nov 5 2026",
+   "Close": "52.51",
+   "Adj Close": "52.51",
+   "Volume": "7400",
+   "searchIndex": "2026-11-05 52.5099983215332"
+  },
+  {
+   "Date": "Nov 6 2026",
+   "Close": "51.87",
+   "Adj Close": "51.87",
+   "Volume": "2600",
+   "searchIndex": "2026-11-06 51.869998931884766"
   }
  ]
 }

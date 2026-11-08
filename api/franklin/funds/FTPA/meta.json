@@ -22,40 +22,40 @@
   "benchmark": "Bloomberg Municipal Bond Index"
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35,
+  "display": "0.36%",
+  "value": 0.36,
   "gross": 0.36,
-  "net": 0.35
+  "net": 0.36
  },
  "nav": {
-  "display": "$8.31",
-  "value": 8.31,
-  "asOfDate": "2026-10-28"
+  "display": "$8.44",
+  "value": 8.44,
+  "asOfDate": "2026-11-06"
  },
  "marketPrice": {
-  "display": "$8.32",
-  "value": 8.32,
-  "asOfDate": "2026-10-28",
+  "display": "$8.44",
+  "value": 8.44,
+  "asOfDate": "2026-11-06",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.12%",
-  "value": 0.12,
-  "asOfDate": "2026-10-28",
+  "display": "0.00%",
+  "value": 0,
+  "asOfDate": "2026-11-06",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$126.64 M",
-  "value": 126640000,
-  "asOfDate": "2026-10-28",
+  "display": "$128.55 M",
+  "value": 128550000.00000001,
+  "asOfDate": "2026-11-08",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 3.63,
-  "dividendYieldText": "3.63%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 30 2026",
-  "dividendYieldAsOfDate": "2026-10-30",
+  "dividendYield": 4.54,
+  "dividendYieldText": "4.54%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 6 2026",
+  "dividendYieldAsOfDate": "2026-11-06",
   "secYield": 4.36,
   "secYieldText": "4.36%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
@@ -174,13 +174,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-041674, report period 2026-08-31)"
  },
  "history": {
-  "totalRows": 245,
+  "totalRows": 250,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 30 2026",
+  "asOf": "Nov 6 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

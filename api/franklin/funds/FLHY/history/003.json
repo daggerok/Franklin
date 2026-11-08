@@ -2,7 +2,7 @@
  "ticker": "FLHY",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2107,
+ "totalRows": 2112,
  "headers": [
   "Date",
   "Close",
@@ -758,6 +758,41 @@
    "Adj Close": "23.53",
    "Volume": "335500",
    "searchIndex": "2026-10-30 23.530000686645508"
+  },
+  {
+   "Date": "Nov 2 2026",
+   "Close": "23.35",
+   "Adj Close": "23.35",
+   "Volume": "315200",
+   "searchIndex": "2026-11-02 23.350000381469727"
+  },
+  {
+   "Date": "Nov 3 2026",
+   "Close": "23.36",
+   "Adj Close": "23.36",
+   "Volume": "201300",
+   "searchIndex": "2026-11-03 23.360000610351562"
+  },
+  {
+   "Date": "Nov 4 2026",
+   "Close": "23.51",
+   "Adj Close": "23.51",
+   "Volume": "308800",
+   "searchIndex": "2026-11-04 23.510000228881836"
+  },
+  {
+   "Date": "Nov 5 2026",
+   "Close": "23.44",
+   "Adj Close": "23.44",
+   "Volume": "366400",
+   "searchIndex": "2026-11-05 23.440000534057617"
+  },
+  {
+   "Date": "Nov 6 2026",
+   "Close": "23.44",
+   "Adj Close": "23.44",
+   "Volume": "173000",
+   "searchIndex": "2026-11-06 23.440000534057617"
   }
  ]
 }

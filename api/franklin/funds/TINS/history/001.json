@@ -2,7 +2,7 @@
  "ticker": "TINS",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 257,
+ "totalRows": 262,
  "headers": [
   "Date",
   "Close",
@@ -1808,6 +1808,41 @@
    "Adj Close": "28.12",
    "Volume": "100",
    "searchIndex": "2026-10-30 28.121000289916992"
+  },
+  {
+   "Date": "Nov 2 2026",
+   "Close": "28.35",
+   "Adj Close": "28.35",
+   "Volume": "100",
+   "searchIndex": "2026-11-02 28.35300064086914"
+  },
+  {
+   "Date": "Nov 3 2026",
+   "Close": "28.16",
+   "Adj Close": "28.16",
+   "Volume": "100",
+   "searchIndex": "2026-11-03 28.1560001373291"
+  },
+  {
+   "Date": "Nov 4 2026",
+   "Close": "28.89",
+   "Adj Close": "28.89",
+   "Volume": "100",
+   "searchIndex": "2026-11-04 28.893999099731445"
+  },
+  {
+   "Date": "Nov 5 2026",
+   "Close": "28.04",
+   "Adj Close": "28.04",
+   "Volume": "100",
+   "searchIndex": "2026-11-05 28.04400062561035"
+  },
+  {
+   "Date": "Nov 6 2026",
+   "Close": "27.97",
+   "Adj Close": "27.97",
+   "Volume": "100",
+   "searchIndex": "2026-11-06 27.974000930786133"
   }
  ]
 }

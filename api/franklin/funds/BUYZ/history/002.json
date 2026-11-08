@@ -2,7 +2,7 @@
  "ticker": "BUYZ",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1679,
+ "totalRows": 1684,
  "headers": [
   "Date",
   "Close",
@@ -4762,6 +4762,41 @@
    "Adj Close": "35.29",
    "Volume": "100",
    "searchIndex": "2026-10-30 35.28799819946289"
+  },
+  {
+   "Date": "Nov 2 2026",
+   "Close": "35.84",
+   "Adj Close": "35.84",
+   "Volume": "100",
+   "searchIndex": "2026-11-02 35.84000015258789"
+  },
+  {
+   "Date": "Nov 3 2026",
+   "Close": "35.40",
+   "Adj Close": "35.40",
+   "Volume": "200",
+   "searchIndex": "2026-11-03 35.402000427246094"
+  },
+  {
+   "Date": "Nov 4 2026",
+   "Close": "37.22",
+   "Adj Close": "37.22",
+   "Volume": "400",
+   "searchIndex": "2026-11-04 37.21799850463867"
+  },
+  {
+   "Date": "Nov 5 2026",
+   "Close": "35.90",
+   "Adj Close": "35.90",
+   "Volume": "700",
+   "searchIndex": "2026-11-05 35.900001525878906"
+  },
+  {
+   "Date": "Nov 6 2026",
+   "Close": "35.94",
+   "Adj Close": "35.94",
+   "Volume": "100",
+   "searchIndex": "2026-11-06 35.93600082397461"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "IQM",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1679,
+ "totalRows": 1684,
  "headers": [
   "Date",
   "Close",
@@ -4762,6 +4762,41 @@
    "Adj Close": "93.13",
    "Volume": "2700",
    "searchIndex": "2026-10-30 93.12699890136719"
+  },
+  {
+   "Date": "Nov 2 2026",
+   "Close": "90.38",
+   "Adj Close": "90.38",
+   "Volume": "2000",
+   "searchIndex": "2026-11-02 90.38400268554688"
+  },
+  {
+   "Date": "Nov 3 2026",
+   "Close": "92.74",
+   "Adj Close": "92.74",
+   "Volume": "5400",
+   "searchIndex": "2026-11-03 92.74299621582031"
+  },
+  {
+   "Date": "Nov 4 2026",
+   "Close": "89.05",
+   "Adj Close": "89.05",
+   "Volume": "43700",
+   "searchIndex": "2026-11-04 89.05000305175781"
+  },
+  {
+   "Date": "Nov 5 2026",
+   "Close": "79.17",
+   "Adj Close": "79.17",
+   "Volume": "6900",
+   "searchIndex": "2026-11-05 79.16999816894531"
+  },
+  {
+   "Date": "Nov 6 2026",
+   "Close": "82.06",
+   "Adj Close": "82.06",
+   "Volume": "5000",
+   "searchIndex": "2026-11-06 82.05999755859375"
   }
  ]
 }

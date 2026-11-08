@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P330",
   "isin": "US35473P3304",
-  "benchmark": "MSCI All Country World ex-US Growth Index-NR"
+  "benchmark": "MSCI EAFE Index-NR"
  },
  "expenseRatio": {
   "display": "0.55%",
@@ -28,9 +28,9 @@
   "net": 0.55
  },
  "nav": {
-  "display": "$25.81",
-  "value": 25.81,
-  "asOfDate": "2026-10-30"
+  "display": "$25.09",
+  "value": 25.09,
+  "asOfDate": "2026-11-06"
  },
  "marketPrice": {
   "display": "$25.54",
@@ -39,16 +39,16 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "-1.12%",
-  "value": -1.12,
-  "asOfDate": "2026-10-30",
+  "display": "0.04%",
+  "value": 0.04,
+  "asOfDate": "2026-11-06",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$6.45 M",
-  "value": 6450000,
-  "asOfDate": "2026-11-01",
+  "display": "$6.27 M",
+  "value": 6270000,
+  "asOfDate": "2026-11-08",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-09-30",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "ytd": 4.37,
-   "ytdText": "4.37%",
+   "ytd": 1.46,
+   "ytdText": "1.46%",
    "yr1": null,
    "yr1Text": "—",
    "yr3": null,
@@ -124,13 +124,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-025233, report period 2026-04-30)"
  },
  "history": {
-  "totalRows": 257,
+  "totalRows": 262,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Oct 30 2026",
+  "asOf": "Nov 6 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -2,7 +2,7 @@
  "ticker": "PGRO",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1365,
+ "totalRows": 1370,
  "headers": [
   "Date",
   "Close",
@@ -2564,6 +2564,41 @@
    "Adj Close": "45.47",
    "Volume": "15700",
    "searchIndex": "2026-10-30 45.46500015258789"
+  },
+  {
+   "Date": "Nov 2 2026",
+   "Close": "45.02",
+   "Adj Close": "45.02",
+   "Volume": "9100",
+   "searchIndex": "2026-11-02 45.02000045776367"
+  },
+  {
+   "Date": "Nov 3 2026",
+   "Close": "45.36",
+   "Adj Close": "45.36",
+   "Volume": "8400",
+   "searchIndex": "2026-11-03 45.36000061035156"
+  },
+  {
+   "Date": "Nov 4 2026",
+   "Close": "45.70",
+   "Adj Close": "45.70",
+   "Volume": "15400",
+   "searchIndex": "2026-11-04 45.70399856567383"
+  },
+  {
+   "Date": "Nov 5 2026",
+   "Close": "42.97",
+   "Adj Close": "42.97",
+   "Volume": "22800",
+   "searchIndex": "2026-11-05 42.970001220703125"
+  },
+  {
+   "Date": "Nov 6 2026",
+   "Close": "43.52",
+   "Adj Close": "43.52",
+   "Volume": "21700",
+   "searchIndex": "2026-11-06 43.52000045776367"
   }
  ]
 }

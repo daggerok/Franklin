@@ -2,7 +2,7 @@
  "ticker": "HELX",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1679,
+ "totalRows": 1684,
  "headers": [
   "Date",
   "Close",
@@ -4762,6 +4762,41 @@
    "Adj Close": "45.25",
    "Volume": "1600",
    "searchIndex": "2026-10-30 45.249000549316406"
+  },
+  {
+   "Date": "Nov 2 2026",
+   "Close": "43.58",
+   "Adj Close": "43.58",
+   "Volume": "600",
+   "searchIndex": "2026-11-02 43.57699966430664"
+  },
+  {
+   "Date": "Nov 3 2026",
+   "Close": "44.45",
+   "Adj Close": "44.45",
+   "Volume": "5200",
+   "searchIndex": "2026-11-03 44.45000076293945"
+  },
+  {
+   "Date": "Nov 4 2026",
+   "Close": "44.86",
+   "Adj Close": "44.86",
+   "Volume": "1300",
+   "searchIndex": "2026-11-04 44.86399841308594"
+  },
+  {
+   "Date": "Nov 5 2026",
+   "Close": "42.04",
+   "Adj Close": "42.04",
+   "Volume": "11600",
+   "searchIndex": "2026-11-05 42.040000915527344"
+  },
+  {
+   "Date": "Nov 6 2026",
+   "Close": "42.19",
+   "Adj Close": "42.19",
+   "Volume": "6200",
+   "searchIndex": "2026-11-06 42.194000244140625"
   }
  ]
 }

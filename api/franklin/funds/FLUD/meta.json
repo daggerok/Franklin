@@ -28,9 +28,9 @@
   "net": 0.15
  },
  "nav": {
-  "display": "$24.99",
-  "value": 24.99,
-  "asOfDate": "2026-10-30"
+  "display": "$24.92",
+  "value": 24.92,
+  "asOfDate": "2026-11-06"
  },
  "marketPrice": {
   "display": "$24.99",
@@ -39,23 +39,23 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.20%",
-  "value": 0.2,
-  "asOfDate": "2026-10-30",
+  "display": "0.08%",
+  "value": 0.08,
+  "asOfDate": "2026-11-06",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$642.12 M",
-  "value": 642120000,
-  "asOfDate": "2026-11-01",
+  "display": "$648.01 M",
+  "value": 648010000,
+  "asOfDate": "2026-11-08",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 4.25,
-  "dividendYieldText": "4.25%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Oct 30 2026",
-  "dividendYieldAsOfDate": "2026-10-30",
+  "dividendYield": 4.17,
+  "dividendYieldText": "4.17%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 6 2026",
+  "dividendYieldAsOfDate": "2026-11-06",
   "secYield": 4.32,
   "secYieldText": "4.32%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Sep 30 2026"
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-09-30",
   "monthEnd": {
    "asOfDate": "Sep 30 2026",
-   "ytd": 3,
-   "ytdText": "3.00%",
+   "ytd": 3.07,
+   "ytdText": "3.07%",
    "yr1": 3.71,
    "yr1Text": "3.71%",
    "yr3": 5.08,
@@ -501,14 +501,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035202, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 1580,
+  "totalRows": 1585,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Oct 30 2026",
+  "asOf": "Nov 6 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

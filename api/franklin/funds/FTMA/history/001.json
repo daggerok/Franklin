@@ -2,7 +2,7 @@
  "ticker": "FTMA",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 244,
+ "totalRows": 249,
  "headers": [
   "Date",
   "Close",
@@ -1717,6 +1717,41 @@
    "Adj Close": "8.74",
    "Volume": "80000",
    "searchIndex": "2026-10-30 8.739999771118164"
+  },
+  {
+   "Date": "Nov 2 2026",
+   "Close": "8.75",
+   "Adj Close": "8.75",
+   "Volume": "189500",
+   "searchIndex": "2026-11-02 8.75"
+  },
+  {
+   "Date": "Nov 3 2026",
+   "Close": "8.75",
+   "Adj Close": "8.75",
+   "Volume": "196400",
+   "searchIndex": "2026-11-03 8.75"
+  },
+  {
+   "Date": "Nov 4 2026",
+   "Close": "8.78",
+   "Adj Close": "8.78",
+   "Volume": "222000",
+   "searchIndex": "2026-11-04 8.779999732971191"
+  },
+  {
+   "Date": "Nov 5 2026",
+   "Close": "8.80",
+   "Adj Close": "8.80",
+   "Volume": "130300",
+   "searchIndex": "2026-11-05 8.800000190734863"
+  },
+  {
+   "Date": "Nov 6 2026",
+   "Close": "8.83",
+   "Adj Close": "8.83",
+   "Volume": "170800",
+   "searchIndex": "2026-11-06 8.829999923706055"
   }
  ]
 }

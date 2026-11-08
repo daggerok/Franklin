@@ -2,7 +2,7 @@
  "ticker": "YCLO",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 104,
+ "totalRows": 109,
  "headers": [
   "Date",
   "Close",
@@ -737,6 +737,41 @@
    "Adj Close": "25.15",
    "Volume": "300",
    "searchIndex": "2026-10-30 25.149999618530273"
+  },
+  {
+   "Date": "Nov 2 2026",
+   "Close": "25.05",
+   "Adj Close": "25.05",
+   "Volume": "400",
+   "searchIndex": "2026-11-02 25.049999237060547"
+  },
+  {
+   "Date": "Nov 3 2026",
+   "Close": "25.07",
+   "Adj Close": "25.07",
+   "Volume": "100",
+   "searchIndex": "2026-11-03 25.06999969482422"
+  },
+  {
+   "Date": "Nov 4 2026",
+   "Close": "25.06",
+   "Adj Close": "25.06",
+   "Volume": "800",
+   "searchIndex": "2026-11-04 25.059999465942383"
+  },
+  {
+   "Date": "Nov 5 2026",
+   "Close": "25.05",
+   "Adj Close": "25.05",
+   "Volume": "200",
+   "searchIndex": "2026-11-05 25.049999237060547"
+  },
+  {
+   "Date": "Nov 6 2026",
+   "Close": "25.05",
+   "Adj Close": "25.05",
+   "Volume": "2500",
+   "searchIndex": "2026-11-06 25.049999237060547"
   }
  ]
 }
