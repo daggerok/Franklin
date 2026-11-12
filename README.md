@@ -83,6 +83,13 @@ Each fund carries a derived `metrics` object that powers the catalog columns sha
   `official-other` (a provider yield of unclear definition) is only the fallback for an unrecognised published label; `computed-trailing-12m` is not used by Franklin
 - `premiumDiscount` (index row `premiumDiscountValue`, with `premiumDiscountAsOfDate`) - computed as `(price / NAV - 1) * 100`, rounded to two decimals, from the official NAV and a price of the same trading date: the closing Market Price of the page's own `Share Prices` block (one as-of date for both; the page defines it as the official closing price), else the Yahoo regular-session close of the NAV date. `meta.json` `premiumDiscount.source` is `computed from market price / official NAV, same date` and `priceSource` names the price used. When the dates differ or either figure is missing the value is `null`, never a mix of dates. The page's own "Avg. of Market Price vs. NAV at Close" matches this figure on the pages checked; the since-inception average is not used. Funds that hold foreign stocks can show more than 1% on days when their NAV was struck before the local close
 - `secYield` - 30-day SEC yield when published; `null` otherwise
+- Swing metrics (shared `swing` block, the formulas of the Stocks feed) from the split-adjusted, not dividend-adjusted daily `Close` column of the published history, with the last close as the price; `null` (never `0`) when the history is too short:
+  - `pctFrom52wHigh` - last close against the highest close of the last 52 weeks, in percent
+  - `athPrice`, `athDate`, `athBasis` - highest close of the whole history, its date and the history it covers (`daily closes since <first date>`)
+  - `pctFromAth` - last close against `athPrice`, in percent
+  - `volatility1y` - annualized volatility of the last 252 daily log returns, in percent (needs 253 closes)
+  - `sigmaFromMean60d` - distance of the last close from the mean of the last 60 closes, in sample standard deviations
+  - `high60d`, `low60d` - highest and lowest of the last 60 closes
 - `returnsBasis` - always a non-empty text describing how the returns are computed: official Franklin Templeton average annual total returns at market price (finder and product page), 3Y/5Y/10Y cumulative figures compounded from the official annualized values, not derived from Yahoo Finance
 - `performanceAsOf` - ISO date (`YYYY-MM-DD`) the returns are as of: the "Average Annual Total Returns As of ..." date of the Franklin performance table (a month-end or quarter-end, not the NAV or holdings date), kept from the previous run when a page is unavailable; `null` when unknown or when the fund has no returns. The hub uses it to flag stale returns. YTD is refreshed daily by the issuer, so it can be newer than this date
 

@@ -112,10 +112,11 @@ afterEach(() => {
 const read = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 const file = () => JSON.parse(read('scripts/update-data.config.json'));
 const noReturns = { ytd: null, yr1: null, yr3: null, yr5: null, yr10: null, sinceInception: null };
-// index rows carry the seven 52-week keys of the range-52w block in front of returnsBasis and performanceAsOf
+// index rows carry the seven 52-week keys of the range-52w block and the nine swing keys of the swing block in front of returnsBasis and performanceAsOf
 const RANGE_KEYS = ['week52Low', 'week52High', 'range52w', 'range52wClose', 'range52wAsOf', 'range52wSince', 'range52wBasis'];
+const SWING_KEYS = ['pctFrom52wHigh', 'athPrice', 'athDate', 'athBasis', 'pctFromAth', 'volatility1y', 'sigmaFromMean60d', 'high60d', 'low60d'];
 const TAIL_KEYS = ['returnsBasis', 'performanceAsOf'];
-const withRangeKeys = (keys: string[]) => [...keys.filter((key) => !TAIL_KEYS.includes(key)), ...RANGE_KEYS, ...TAIL_KEYS.filter((key) => keys.includes(key))];
+const withRangeKeys = (keys: string[]) => [...keys.filter((key) => !TAIL_KEYS.includes(key)), ...RANGE_KEYS, ...SWING_KEYS, ...TAIL_KEYS.filter((key) => keys.includes(key))];
 const fundUrl = (id: number, slug: string, ticker: string) => `https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/${id}/SINGLCLASS/${slug}/${ticker}`;
 
 /** Fake clock: sleeping only advances virtual time, so retry backoff and the 3.2 s proxy gate cost nothing. */
@@ -792,6 +793,9 @@ describe('pipeline', () => {
     adjclose = [23.915001, 24.984999, 25.995001];
     await run(live);
     expect(history()).toEqual(['23.92', '24.98', '26.00']);
+    // the swing block reads the Close column of these pages: ATH and its basis from the first close
+    const swingRow = JSON.parse(readFileSync(join(feed(), 'index.json'), 'utf8')).funds.find((item: any) => item.ticker === 'FLCH').metrics;
+    expect([swingRow.athPrice, swingRow.athBasis]).toEqual([26.5, expect.stringMatching(/^daily closes since \d{4}-\d{2}-\d{2}$/)]);
     const first = snapshot(feed());
     await new Promise((resolve) => setTimeout(resolve, 1100)); // generatedAt has second resolution
     adjclose = [23.914998, 24.985002, 25.994999];
@@ -1237,6 +1241,9 @@ describe('pipeline 4', () => {
     await run({ SKIP_FRANKLIN: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' });
     expect(process.exitCode).toBe(0);
     expect(index().funds.find((item: any) => item.ticker === 'FLCH')).toMatchObject({ dataFile: './funds/FLCH/meta.json', holdings: 2 });
+    // the swing keys from the Close column of the history pages (shared swing block), in front of returnsBasis and performanceAsOf
+    const swing = index().funds.find((item: any) => item.ticker === 'FLCH').metrics;
+    expect(Object.keys(swing).slice(-11, -2)).toEqual(SWING_KEYS);
   }), 120000);
 
   test('stale pages are removed only after the new meta.json exists', inTempRoot(async () => {
