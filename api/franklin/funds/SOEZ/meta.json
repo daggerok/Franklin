@@ -28,9 +28,9 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$15.57",
-  "value": 15.57,
-  "asOfDate": "2026-11-06"
+  "display": "$13.89",
+  "value": 13.89,
+  "asOfDate": "2026-11-13"
  },
  "marketPrice": {
   "display": "$15.52",
@@ -39,22 +39,22 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "-0.32%",
-  "value": -0.32,
-  "asOfDate": "2026-11-06",
+  "display": "-0.22%",
+  "value": -0.22,
+  "asOfDate": "2026-11-13",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "official product page closing Market Price"
+  "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$13.23 M",
-  "value": 13230000,
-  "asOfDate": "2026-11-08",
+  "display": "$11.11 M",
+  "value": 11110000,
+  "asOfDate": "2026-11-15",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 5.18,
-  "dividendYieldText": "5.18%",
-  "dividendYieldKind": "indicated: latest distribution 0.0670 x 12/year / market price 15.52",
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -62,11 +62,11 @@
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
-  "performanceAsOf": "2026-09-30",
+  "performanceAsOf": "2026-10-31",
   "monthEnd": {
-   "asOfDate": "Sep 30 2026",
-   "ytd": -20.66,
-   "ytdText": "-20.66%",
+   "asOfDate": "Oct 31 2026",
+   "ytd": -32.39,
+   "ytdText": "-32.39%",
    "yr1": null,
    "yr1Text": "—",
    "yr3": null,
@@ -95,9 +95,9 @@
   }
  },
  "distributions": {
-  "frequency": "Monthly",
-  "frequencyCode": "01 - Monthly",
-  "paymentsPerYear": 12,
+  "frequency": "Irregular",
+  "frequencyCode": "99 - Irregular",
+  "paymentsPerYear": null,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -159,13 +159,13 @@
   "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-11-06)"
  },
  "history": {
-  "totalRows": 234,
+  "totalRows": 239,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Nov 6 2026",
+  "asOf": "Nov 13 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -2,7 +2,7 @@
  "ticker": "XRPZ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 240,
+ "totalRows": 245,
  "headers": [
   "Date",
   "Close",
@@ -1689,6 +1689,41 @@
    "Adj Close": "12.72",
    "Volume": "341600",
    "searchIndex": "2026-11-06 12.720000267028809"
+  },
+  {
+   "Date": "Nov 9 2026",
+   "Close": "11.85",
+   "Adj Close": "11.85",
+   "Volume": "514000",
+   "searchIndex": "2026-11-09 11.850000381469727"
+  },
+  {
+   "Date": "Nov 10 2026",
+   "Close": "11.50",
+   "Adj Close": "11.50",
+   "Volume": "602400",
+   "searchIndex": "2026-11-10 11.5"
+  },
+  {
+   "Date": "Nov 11 2026",
+   "Close": "11.56",
+   "Adj Close": "11.56",
+   "Volume": "711600",
+   "searchIndex": "2026-11-11 11.5600004196167"
+  },
+  {
+   "Date": "Nov 12 2026",
+   "Close": "11.25",
+   "Adj Close": "11.25",
+   "Volume": "539800",
+   "searchIndex": "2026-11-12 11.25"
+  },
+  {
+   "Date": "Nov 13 2026",
+   "Close": "11.09",
+   "Adj Close": "11.09",
+   "Volume": "450800",
+   "searchIndex": "2026-11-13 11.085000038146973"
   }
  ]
 }

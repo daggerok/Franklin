@@ -2,7 +2,7 @@
  "ticker": "USPX",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2623,
+ "totalRows": 2628,
  "headers": [
   "Date",
   "Close",
@@ -4370,6 +4370,41 @@
    "Adj Close": "64.24",
    "Volume": "51400",
    "searchIndex": "2026-11-06 64.23999786376953"
+  },
+  {
+   "Date": "Nov 9 2026",
+   "Close": "65.80",
+   "Adj Close": "65.80",
+   "Volume": "28700",
+   "searchIndex": "2026-11-09 65.7959976196289"
+  },
+  {
+   "Date": "Nov 10 2026",
+   "Close": "65.51",
+   "Adj Close": "65.51",
+   "Volume": "64800",
+   "searchIndex": "2026-11-10 65.51499938964844"
+  },
+  {
+   "Date": "Nov 11 2026",
+   "Close": "66.36",
+   "Adj Close": "66.36",
+   "Volume": "27100",
+   "searchIndex": "2026-11-11 66.36100006103516"
+  },
+  {
+   "Date": "Nov 12 2026",
+   "Close": "66.15",
+   "Adj Close": "66.15",
+   "Volume": "40000",
+   "searchIndex": "2026-11-12 66.1500015258789"
+  },
+  {
+   "Date": "Nov 13 2026",
+   "Close": "65.82",
+   "Adj Close": "65.82",
+   "Volume": "1205700",
+   "searchIndex": "2026-11-13 65.8239974975586"
   }
  ]
 }

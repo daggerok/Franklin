@@ -2,7 +2,7 @@
  "ticker": "DIVI",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2623,
+ "totalRows": 2628,
  "headers": [
   "Date",
   "Close",
@@ -4370,6 +4370,41 @@
    "Adj Close": "41.75",
    "Volume": "172700",
    "searchIndex": "2026-11-06 41.75"
+  },
+  {
+   "Date": "Nov 9 2026",
+   "Close": "43.01",
+   "Adj Close": "43.01",
+   "Volume": "185000",
+   "searchIndex": "2026-11-09 43.0099983215332"
+  },
+  {
+   "Date": "Nov 10 2026",
+   "Close": "42.70",
+   "Adj Close": "42.70",
+   "Volume": "230400",
+   "searchIndex": "2026-11-10 42.70000076293945"
+  },
+  {
+   "Date": "Nov 11 2026",
+   "Close": "42.79",
+   "Adj Close": "42.79",
+   "Volume": "126000",
+   "searchIndex": "2026-11-11 42.790000915527344"
+  },
+  {
+   "Date": "Nov 12 2026",
+   "Close": "42.57",
+   "Adj Close": "42.57",
+   "Volume": "170400",
+   "searchIndex": "2026-11-12 42.56999969482422"
+  },
+  {
+   "Date": "Nov 13 2026",
+   "Close": "42.66",
+   "Adj Close": "42.66",
+   "Volume": "173000",
+   "searchIndex": "2026-11-13 42.65999984741211"
   }
  ]
 }

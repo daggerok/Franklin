@@ -62,21 +62,21 @@
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
-  "performanceAsOf": "2026-09-30",
+  "performanceAsOf": "2026-10-31",
   "monthEnd": {
-   "asOfDate": "Sep 30 2026",
+   "asOfDate": "Oct 31 2026",
    "ytd": 0.17,
    "ytdText": "0.17%",
-   "yr1": 0.94,
-   "yr1Text": "0.94%",
-   "yr3": 19.22,
-   "yr3Text": "19.22%",
-   "yr5": 7.74,
-   "yr5Text": "7.74%",
+   "yr1": 4.97,
+   "yr1Text": "4.97%",
+   "yr3": 21.28,
+   "yr3Text": "21.28%",
+   "yr5": 7.38,
+   "yr5Text": "7.38%",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 5.48,
-   "sinceInceptionText": "5.48%"
+   "sinceInception": 5.59,
+   "sinceInceptionText": "5.59%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -189,7 +189,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035167, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2263,
+  "totalRows": 2268,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -197,7 +197,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Nov 6 2026",
+  "asOf": "Nov 13 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

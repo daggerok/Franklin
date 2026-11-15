@@ -2,7 +2,7 @@
  "ticker": "FLTW",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2234,
+ "totalRows": 2239,
  "headers": [
   "Date",
   "Close",
@@ -1647,6 +1647,41 @@
    "Adj Close": "85.12",
    "Volume": "291400",
    "searchIndex": "2026-11-06 85.12000274658203"
+  },
+  {
+   "Date": "Nov 9 2026",
+   "Close": "91.55",
+   "Adj Close": "91.55",
+   "Volume": "404100",
+   "searchIndex": "2026-11-09 91.55000305175781"
+  },
+  {
+   "Date": "Nov 10 2026",
+   "Close": "90.58",
+   "Adj Close": "90.58",
+   "Volume": "198800",
+   "searchIndex": "2026-11-10 90.58000183105469"
+  },
+  {
+   "Date": "Nov 11 2026",
+   "Close": "95.67",
+   "Adj Close": "95.67",
+   "Volume": "789400",
+   "searchIndex": "2026-11-11 95.66999816894531"
+  },
+  {
+   "Date": "Nov 12 2026",
+   "Close": "93.00",
+   "Adj Close": "93.00",
+   "Volume": "686300",
+   "searchIndex": "2026-11-12 93"
+  },
+  {
+   "Date": "Nov 13 2026",
+   "Close": "93.22",
+   "Adj Close": "93.22",
+   "Volume": "481900",
+   "searchIndex": "2026-11-13 93.22000122070312"
   }
  ]
 }

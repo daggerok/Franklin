@@ -2,7 +2,7 @@
  "ticker": "FLGR",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2263,
+ "totalRows": 2268,
  "headers": [
   "Date",
   "Close",
@@ -1850,6 +1850,41 @@
    "Adj Close": "32.41",
    "Volume": "5400",
    "searchIndex": "2026-11-06 32.409000396728516"
+  },
+  {
+   "Date": "Nov 9 2026",
+   "Close": "33.44",
+   "Adj Close": "33.44",
+   "Volume": "9400",
+   "searchIndex": "2026-11-09 33.435001373291016"
+  },
+  {
+   "Date": "Nov 10 2026",
+   "Close": "33.41",
+   "Adj Close": "33.41",
+   "Volume": "2700",
+   "searchIndex": "2026-11-10 33.4109992980957"
+  },
+  {
+   "Date": "Nov 11 2026",
+   "Close": "33.52",
+   "Adj Close": "33.52",
+   "Volume": "6700",
+   "searchIndex": "2026-11-11 33.51900100708008"
+  },
+  {
+   "Date": "Nov 12 2026",
+   "Close": "33.30",
+   "Adj Close": "33.30",
+   "Volume": "1000",
+   "searchIndex": "2026-11-12 33.29999923706055"
+  },
+  {
+   "Date": "Nov 13 2026",
+   "Close": "33.40",
+   "Adj Close": "33.40",
+   "Volume": "3700",
+   "searchIndex": "2026-11-13 33.39500045776367"
   }
  ]
 }

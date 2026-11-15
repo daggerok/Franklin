@@ -28,9 +28,9 @@
   "net": 0.09
  },
  "nav": {
-  "display": "$51.47",
-  "value": 51.47,
-  "asOfDate": "2026-11-06"
+  "display": "$47.60",
+  "value": 47.6,
+  "asOfDate": "2026-11-13"
  },
  "marketPrice": {
   "display": "$54.59",
@@ -39,16 +39,16 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "-2.04%",
-  "value": -2.04,
-  "asOfDate": "2026-10-30",
+  "display": "-0.50%",
+  "value": -0.5,
+  "asOfDate": "2026-11-13",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$1.57 B",
-  "value": 1570000000,
-  "asOfDate": "2026-11-08",
+  "display": "$1.70 B",
+  "value": 1700000000,
+  "asOfDate": "2026-11-15",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -62,21 +62,21 @@
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
-  "performanceAsOf": "2026-09-30",
+  "performanceAsOf": "2026-10-31",
   "monthEnd": {
-   "asOfDate": "Sep 30 2026",
-   "ytd": 40.88,
-   "ytdText": "40.88%",
-   "yr1": 132.55,
-   "yr1Text": "132.55%",
-   "yr3": 49.31,
-   "yr3Text": "49.31%",
-   "yr5": 19.9,
-   "yr5Text": "19.90%",
+   "asOfDate": "Oct 31 2026",
+   "ytd": 48.56,
+   "ytdText": "48.56%",
+   "yr1": 62.49,
+   "yr1Text": "62.49%",
+   "yr3": 44.57,
+   "yr3Text": "44.57%",
+   "yr5": 16.1,
+   "yr5Text": "16.10%",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 12.96,
-   "sinceInceptionText": "12.96%"
+   "sinceInception": 10.65,
+   "sinceInceptionText": "10.65%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -209,7 +209,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035109, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2234,
+  "totalRows": 2239,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -217,7 +217,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Nov 6 2026",
+  "asOf": "Nov 13 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -28,9 +28,9 @@
   "net": 0.5
  },
  "nav": {
-  "display": "$100.16",
-  "value": 100.16,
-  "asOfDate": "2026-11-06"
+  "display": "$87.76",
+  "value": 87.76,
+  "asOfDate": "2026-11-13"
  },
  "marketPrice": {
   "display": "$100.08",
@@ -39,16 +39,16 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "-0.08%",
-  "value": -0.08,
-  "asOfDate": "2026-10-28",
+  "display": "0.03%",
+  "value": 0.03,
+  "asOfDate": "2026-11-13",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "official product page closing Market Price"
+  "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$65.75 M",
-  "value": 65750000,
-  "asOfDate": "2026-11-08",
+  "display": "$70.21 M",
+  "value": 70210000,
+  "asOfDate": "2026-11-15",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -62,21 +62,21 @@
  },
  "returns": {
   "derivedFrom": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
-  "performanceAsOf": "2026-09-30",
+  "performanceAsOf": "2026-10-31",
   "monthEnd": {
-   "asOfDate": "Sep 30 2026",
-   "ytd": -5.88,
-   "ytdText": "-5.88%",
-   "yr1": 26.85,
-   "yr1Text": "26.85%",
-   "yr3": 35.79,
-   "yr3Text": "35.79%",
-   "yr5": 18,
-   "yr5Text": "18.00%",
+   "asOfDate": "Oct 31 2026",
+   "ytd": 0.5,
+   "ytdText": "0.50%",
+   "yr1": -2.12,
+   "yr1Text": "-2.12%",
+   "yr3": 30.51,
+   "yr3Text": "30.51%",
+   "yr5": 11.39,
+   "yr5Text": "11.39%",
    "yr10": null,
    "yr10Text": "—",
-   "sinceInception": 25.34,
-   "sinceInceptionText": "25.34%"
+   "sinceInception": 21.79,
+   "sinceInceptionText": "21.79%"
   },
   "quarterEnd": {
    "asOfDate": "",
@@ -129,14 +129,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035138, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 1684,
+  "totalRows": 1689,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Nov 6 2026",
+  "asOf": "Nov 13 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

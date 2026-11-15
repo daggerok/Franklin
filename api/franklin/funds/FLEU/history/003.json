@@ -2,7 +2,7 @@
  "ticker": "FLEU",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2263,
+ "totalRows": 2268,
  "headers": [
   "Date",
   "Close",
@@ -1850,6 +1850,41 @@
    "Adj Close": "33.87",
    "Volume": "8800",
    "searchIndex": "2026-11-06 33.8650016784668"
+  },
+  {
+   "Date": "Nov 9 2026",
+   "Close": "35.03",
+   "Adj Close": "35.03",
+   "Volume": "4000",
+   "searchIndex": "2026-11-09 35.034000396728516"
+  },
+  {
+   "Date": "Nov 10 2026",
+   "Close": "35.05",
+   "Adj Close": "35.05",
+   "Volume": "1800",
+   "searchIndex": "2026-11-10 35.053001403808594"
+  },
+  {
+   "Date": "Nov 11 2026",
+   "Close": "35.05",
+   "Adj Close": "35.05",
+   "Volume": "9700",
+   "searchIndex": "2026-11-11 35.04800033569336"
+  },
+  {
+   "Date": "Nov 12 2026",
+   "Close": "34.76",
+   "Adj Close": "34.76",
+   "Volume": "9600",
+   "searchIndex": "2026-11-12 34.75699996948242"
+  },
+  {
+   "Date": "Nov 13 2026",
+   "Close": "34.91",
+   "Adj Close": "34.91",
+   "Volume": "5600",
+   "searchIndex": "2026-11-13 34.90999984741211"
   }
  ]
 }
