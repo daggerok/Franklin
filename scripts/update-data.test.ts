@@ -618,12 +618,12 @@ describe('metrics', () => {
     const metrics = buildMetrics({
       ...base,
       returns: { ytd: -14.69, yr1: -14.61, yr3: 10, yr5: -7.2, yr10: 6, sinceInception: 6.05 },
-      inception: '2020-02-25',
+      inception: new Date(Date.now() - 6 * 365.25 * 86_400_000).toISOString().slice(0, 10),
       dividendYield: 0.08,
       performanceAsOf: '2026-08-31',
     });
     expect(metrics.tr3y).toBeCloseTo(33.1, 2);
-    // a fund incepted in 2020 has no 10-year figure, even when a value was scraped
+    // a fund incepted six years ago has no 10-year figure, even when a value was scraped
     expect(metrics.tr10y).toBeNull();
     expect(metrics.cagr10y).toBeNull();
     expect(metrics.secYield).toBeNull();
@@ -631,7 +631,8 @@ describe('metrics', () => {
     expect(metrics.returnsBasis).toBe(RETURNS_BASIS);
     expect(String(metrics.returnsBasis).trim()).not.toBe('');
     expect(metrics.performanceAsOf).toBe('2026-08-31');
-    expect([tenYearEligible('2015-01-02'), tenYearEligible('2020-02-25'), tenYearEligible('2017-11-02'), tenYearEligible(null)]).toEqual([true, false, false, true]);
+    const now = Date.parse('2026-11-15T00:00:00Z'); // pinned: eligibility moves with the clock
+    expect([tenYearEligible('2015-01-02', now), tenYearEligible('2020-02-25', now), tenYearEligible('2017-11-02', now), tenYearEligible(null, now)]).toEqual([true, false, false, true]);
   });
 
   test('dividend yield kinds: official 12-month first, then the Distribution Rate with its date, never indicated', () => {
