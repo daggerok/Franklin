@@ -112,11 +112,12 @@ afterEach(() => {
 const read = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 const file = () => JSON.parse(read('scripts/update-data.config.json'));
 const noReturns = { ytd: null, yr1: null, yr3: null, yr5: null, yr10: null, sinceInception: null };
-// index rows carry the seven 52-week keys of the range-52w block and the nine swing keys of the swing block in front of returnsBasis and performanceAsOf
+// index rows carry the seven 52-week keys of the range-52w block, the nine swing keys of the swing block and the six dividend keys of the dividends block in front of returnsBasis and performanceAsOf
 const RANGE_KEYS = ['week52Low', 'week52High', 'range52w', 'range52wClose', 'range52wAsOf', 'range52wSince', 'range52wBasis'];
 const SWING_KEYS = ['pctFrom52wHigh', 'athPrice', 'athDate', 'athBasis', 'pctFromAth', 'volatility1y', 'sigmaFromMean60d', 'high60d', 'low60d'];
+const DIVIDEND_KEYS = ['dividendRate', 'dividendGrowth', 'dividendGrowth3y', 'dividendGrowth5y', 'dividendStreak', 'dividendCut10y'];
 const TAIL_KEYS = ['returnsBasis', 'performanceAsOf'];
-const withRangeKeys = (keys: string[]) => [...keys.filter((key) => !TAIL_KEYS.includes(key)), ...RANGE_KEYS, ...SWING_KEYS, ...TAIL_KEYS.filter((key) => keys.includes(key))];
+const withRangeKeys = (keys: string[]) => [...keys.filter((key) => !TAIL_KEYS.includes(key)), ...RANGE_KEYS, ...SWING_KEYS, ...DIVIDEND_KEYS, ...TAIL_KEYS.filter((key) => keys.includes(key))];
 const fundUrl = (id: number, slug: string, ticker: string) => `https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/${id}/SINGLCLASS/${slug}/${ticker}`;
 
 /** Fake clock: sleeping only advances virtual time, so retry backoff and the 3.2 s proxy gate cost nothing. */
@@ -784,9 +785,11 @@ describe('pipeline', () => {
     // Yahoo float32 noise seen live: AAM SPDV 2024-11-12 came back as 31.544998 and 31.545001 a minute apart
     const days = [Date.UTC(2026, 8, 29, 20) / 1000, Date.UTC(2026, 8, 30, 20) / 1000, Date.UTC(2026, 9, 1, 20) / 1000];
     let adjclose: number[] = [];
+    const chartRequests: string[] = [];
     (globalThis as any).fetch = async (input: unknown) => {
       if (!String(input).includes('finance/chart')) throw new Error('offline');
-      return new Response(JSON.stringify({ chart: { result: [{ meta: { regularMarketPrice: 26.5, regularMarketTime: days[2] }, timestamp: days, indicators: { quote: [{ close: [24.5, 25.5, 26.5], volume: [1, 1, 1] }], adjclose: [{ adjclose }] }, events: {} }] } }));
+      chartRequests.push(String(input));
+      return new Response(JSON.stringify({ chart: { result: [{ meta: { regularMarketPrice: 26.5, regularMarketTime: days[2], dataGranularity: '1d', firstTradeDate: days[0] }, timestamp: days, indicators: { quote: [{ close: [24.5, 25.5, 26.5], volume: [1, 1, 1] }], adjclose: [{ adjclose }] }, events: { dividends: { [String(days[2])]: { amount: 0.25, date: days[2] } } } }] } }));
     };
     const live = { SKIP_YAHOO: 'false', TICKERS: 'FLCH', CONCURRENCY: '1' };
     const history = () => JSON.parse(readFileSync(join(feed(), 'funds', 'FLCH', 'history', '001.json'), 'utf8')).rows.map((row: any) => row['Adj Close']);
@@ -796,6 +799,10 @@ describe('pipeline', () => {
     // the swing block reads the Close column of these pages: ATH and its basis from the first close
     const swingRow = JSON.parse(readFileSync(join(feed(), 'index.json'), 'utf8')).funds.find((item: any) => item.ticker === 'FLCH').metrics;
     expect([swingRow.athPrice, swingRow.athBasis]).toEqual([26.5, expect.stringMatching(/^daily closes since \d{4}-\d{2}-\d{2}$/)]);
+    // the dividends block read the dividend events of the updated fund from its own daily chart request: dividendRate 0.25, the five growth keys null (never 0)
+    expect(DIVIDEND_KEYS.map((key) => swingRow[key])).toEqual([0.25, null, null, null, null, null]);
+    expect(chartRequests.filter((url) => /chart\/FLCH\?period1=0&.*includePrePost=false/.test(url))).toHaveLength(1);
+    expect(chartRequests.some((url) => /chart\/(LVHD|DIVI)\?period1=0&.*includePrePost=false/.test(url))).toBe(false);
     const first = snapshot(feed());
     await new Promise((resolve) => setTimeout(resolve, 1100)); // generatedAt has second resolution
     adjclose = [23.914998, 24.985002, 25.994999];
@@ -859,7 +866,8 @@ describe('pipeline 2', () => {
       const url = String(input);
       const ticker = /finance\/chart\/([A-Z]+)/.exec(url)?.[1];
       if (!ticker) throw new Error('offline');
-      order.push(ticker);
+      // the dividends block's own chart request (includePrePost=false) is not the fund's history request
+      if (!/includePrePost=false/.test(url)) order.push(ticker);
       const t = Date.UTC(2026, 2, 27) / 1000;
       return new Response(JSON.stringify({ chart: { result: [{ meta: { regularMarketPrice: 20, regularMarketTime: t }, timestamp: [t - 86_400, t], indicators: { quote: [{ close: [19, 20], volume: [1, 1] }], adjclose: [{ adjclose: [19, 20] }] }, events: {} }] } }));
     };
@@ -1243,7 +1251,8 @@ describe('pipeline 4', () => {
     expect(index().funds.find((item: any) => item.ticker === 'FLCH')).toMatchObject({ dataFile: './funds/FLCH/meta.json', holdings: 2 });
     // the swing keys from the Close column of the history pages (shared swing block), in front of returnsBasis and performanceAsOf
     const swing = index().funds.find((item: any) => item.ticker === 'FLCH').metrics;
-    expect(Object.keys(swing).slice(-11, -2)).toEqual(SWING_KEYS);
+    expect(Object.keys(swing).slice(-17, -8)).toEqual(SWING_KEYS);
+    expect(Object.keys(swing).slice(-8, -2)).toEqual(DIVIDEND_KEYS);
   }), 120000);
 
   test('stale pages are removed only after the new meta.json exists', inTempRoot(async () => {
