@@ -112,12 +112,15 @@ afterEach(() => {
 const read = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 const file = () => JSON.parse(read('scripts/update-data.config.json'));
 const noReturns = { ytd: null, yr1: null, yr3: null, yr5: null, yr10: null, sinceInception: null };
-// index rows carry the seven 52-week keys of the range-52w block, the nine swing keys of the swing block and the six dividend keys of the dividends block in front of returnsBasis and performanceAsOf
+// index rows carry the seven 52-week keys of the range-52w block, the nine swing keys of the swing block and the eight dividend keys of the dividends block and the 32 benchmark keys of the benchmark block in front of returnsBasis and performanceAsOf
 const RANGE_KEYS = ['week52Low', 'week52High', 'range52w', 'range52wClose', 'range52wAsOf', 'range52wSince', 'range52wBasis'];
 const SWING_KEYS = ['pctFrom52wHigh', 'athPrice', 'athDate', 'athBasis', 'pctFromAth', 'volatility1y', 'sigmaFromMean60d', 'high60d', 'low60d'];
-const DIVIDEND_KEYS = ['dividendRate', 'dividendGrowth', 'dividendGrowth3y', 'dividendGrowth5y', 'dividendStreak', 'dividendCut10y'];
+const DIVIDEND_KEYS = ['dividendRate', 'dividendGrowth', 'dividendGrowth3y', 'dividendGrowth5y', 'dividendStreak', 'dividendCut10y', 'paymentsPerYear', 'payFrequency'];
+const BENCHMARK_KEYS = ['perf1y', 'perf3y', 'perf5y', 'perf10y', 'perfSi', 'maxDrawdown1y', 'maxDrawdown3y', 'maxDrawdown5y', 'maxDrawdown10y',
+  'vsSpy1y', 'vsSpy3y', 'vsSpy5y', 'vsSpy10y', 'beta1ySpy', 'corr1ySpy', 'upCapture3ySpy', 'downCapture3ySpy', 'relStrength3mSpy', 'stressReturnSpy', 'stressBasisSpy',
+  'vsQqq1y', 'vsQqq3y', 'vsQqq5y', 'vsQqq10y', 'beta1yQqq', 'corr1yQqq', 'upCapture3yQqq', 'downCapture3yQqq', 'relStrength3mQqq', 'stressReturnQqq', 'stressBasisQqq', 'benchmarkAsOf'];
 const TAIL_KEYS = ['returnsBasis', 'performanceAsOf'];
-const withRangeKeys = (keys: string[]) => [...keys.filter((key) => !TAIL_KEYS.includes(key)), ...RANGE_KEYS, ...SWING_KEYS, ...DIVIDEND_KEYS, ...TAIL_KEYS.filter((key) => keys.includes(key))];
+const withRangeKeys = (keys: string[]) => [...keys.filter((key) => !TAIL_KEYS.includes(key)), ...RANGE_KEYS, ...SWING_KEYS, ...DIVIDEND_KEYS, ...BENCHMARK_KEYS, ...TAIL_KEYS.filter((key) => keys.includes(key))];
 const fundUrl = (id: number, slug: string, ticker: string) => `https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/${id}/SINGLCLASS/${slug}/${ticker}`;
 
 /** Fake clock: sleeping only advances virtual time, so retry backoff and the 3.2 s proxy gate cost nothing. */
@@ -801,8 +804,12 @@ describe('pipeline', () => {
     const swingRow = JSON.parse(readFileSync(join(feed(), 'index.json'), 'utf8')).funds.find((item: any) => item.ticker === 'FLCH').metrics;
     expect([swingRow.athPrice, swingRow.athBasis]).toEqual([26.5, expect.stringMatching(/^daily closes since \d{4}-\d{2}-\d{2}$/)]);
     // the dividends block read the dividend events of the updated fund from its own daily chart request: dividendRate 0.25, the five growth keys null (never 0)
-    expect(DIVIDEND_KEYS.map((key) => swingRow[key])).toEqual([0.25, null, null, null, null, null]);
+    expect(DIVIDEND_KEYS.map((key) => swingRow[key])).toEqual([0.25, null, null, null, null, null, 1, null]);
     expect(chartRequests.filter((url) => /chart\/FLCH\?period1=0&.*includePrePost=false/.test(url))).toHaveLength(1);
+    // the benchmark block shares that request (no extra one per fund) and reads SPY and QQQ once; the mock's 3 bars give every statistic null and only benchmarkAsOf
+    expect(chartRequests.filter((url) => /period1=0&.*includePrePost=false/.test(url)).map((url) => /chart\/([^?]+)/.exec(url)?.[1]).sort()).toEqual(['FLCH', 'QQQ', 'SPY']);
+    expect(BENCHMARK_KEYS.filter((key) => swingRow[key] !== null)).toEqual(['benchmarkAsOf']);
+    expect(swingRow.benchmarkAsOf).toBe('2026-10-01');
     expect(chartRequests.some((url) => /chart\/(LVHD|DIVI)\?period1=0&.*includePrePost=false/.test(url))).toBe(false);
     const first = snapshot(feed());
     await new Promise((resolve) => setTimeout(resolve, 1100)); // generatedAt has second resolution
@@ -1252,8 +1259,9 @@ describe('pipeline 4', () => {
     expect(index().funds.find((item: any) => item.ticker === 'FLCH')).toMatchObject({ dataFile: './funds/FLCH/meta.json', holdings: 2 });
     // the swing keys from the Close column of the history pages (shared swing block), in front of returnsBasis and performanceAsOf
     const swing = index().funds.find((item: any) => item.ticker === 'FLCH').metrics;
-    expect(Object.keys(swing).slice(-17, -8)).toEqual(SWING_KEYS);
-    expect(Object.keys(swing).slice(-8, -2)).toEqual(DIVIDEND_KEYS);
+    expect(Object.keys(swing).slice(-51, -42)).toEqual(SWING_KEYS);
+    expect(Object.keys(swing).slice(-42, -34)).toEqual(DIVIDEND_KEYS);
+    expect(Object.keys(swing).slice(-34, -2)).toEqual(BENCHMARK_KEYS);
   }), 120000);
 
   test('stale pages are removed only after the new meta.json exists', inTempRoot(async () => {
