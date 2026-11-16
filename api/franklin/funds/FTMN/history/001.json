@@ -2,7 +2,7 @@
  "ticker": "FTMN",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 255,
+ "totalRows": 256,
  "headers": [
   "Date",
   "Close",
@@ -1794,6 +1794,13 @@
    "Adj Close": "8.48",
    "Volume": "281600",
    "searchIndex": "2026-11-13 8.479999542236328"
+  },
+  {
+   "Date": "Nov 16 2026",
+   "Close": "8.48",
+   "Adj Close": "8.48",
+   "Volume": "52098",
+   "searchIndex": "2026-11-16 8.475000381469727"
   }
  ]
 }

@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39639/SINGLCLASS/franklin-bitcoin-etf/EZBC",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-28)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-11-13)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EZBC?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -30,7 +30,7 @@
  "nav": {
   "display": "$43.75",
   "value": 43.75,
-  "asOfDate": "2026-11-06"
+  "asOfDate": "2026-11-13"
  },
  "marketPrice": {
   "display": "$47.06",
@@ -46,9 +46,9 @@
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$402.47 M",
-  "value": 402470000,
-  "asOfDate": "2026-11-08",
+  "display": "$366.14 M",
+  "value": 366140000,
+  "asOfDate": "2026-11-15",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-10-31",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "ytd": -13.38,
-   "ytdText": "-13.38%",
+   "ytd": -21.2,
+   "ytdText": "-21.20%",
    "yr1": -30.3,
    "yr1Text": "-30.30%",
    "yr3": null,
@@ -113,18 +113,18 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-10-28",
-  "asOf": "Oct 28 2026",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-28)"
+  "asOfDate": "2026-11-13",
+  "asOf": "Nov 13 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-11-13)"
  },
  "history": {
-  "totalRows": 714,
+  "totalRows": 715,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Nov 13 2026",
+  "asOf": "Nov 16 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

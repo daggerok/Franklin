@@ -2,7 +2,7 @@
  "ticker": "FLBR",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2268,
+ "totalRows": 2269,
  "headers": [
   "Date",
   "Close",
@@ -1885,6 +1885,13 @@
    "Adj Close": "19.97",
    "Volume": "171900",
    "searchIndex": "2026-11-13 19.969999313354492"
+  },
+  {
+   "Date": "Nov 16 2026",
+   "Close": "19.16",
+   "Adj Close": "19.16",
+   "Volume": "125225",
+   "searchIndex": "2026-11-16 19.164600372314453"
   }
  ]
 }

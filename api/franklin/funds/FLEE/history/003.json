@@ -2,7 +2,7 @@
  "ticker": "FLEE",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2239,
+ "totalRows": 2240,
  "headers": [
   "Date",
   "Close",
@@ -1682,6 +1682,13 @@
    "Adj Close": "38.81",
    "Volume": "13800",
    "searchIndex": "2026-11-13 38.810001373291016"
+  },
+  {
+   "Date": "Nov 16 2026",
+   "Close": "38.70",
+   "Adj Close": "38.70",
+   "Volume": "1091",
+   "searchIndex": "2026-11-16 38.70000076293945"
   }
  ]
 }

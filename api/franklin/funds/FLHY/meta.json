@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-10-31",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "ytd": 1.31,
-   "ytdText": "1.31%",
+   "ytd": 1.14,
+   "ytdText": "1.14%",
    "yr1": 2.69,
    "yr1Text": "2.69%",
    "yr3": 9.05,
@@ -615,7 +615,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035118, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2117,
+  "totalRows": 2118,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -623,7 +623,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Nov 13 2026",
+  "asOf": "Nov 16 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

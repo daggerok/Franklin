@@ -2,7 +2,7 @@
  "ticker": "LRGE",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2379,
+ "totalRows": 2380,
  "headers": [
   "Date",
   "Close",
@@ -2662,6 +2662,13 @@
    "Adj Close": "82.99",
    "Volume": "4500",
    "searchIndex": "2026-11-13 82.99400329589844"
+  },
+  {
+   "Date": "Nov 16 2026",
+   "Close": "81.52",
+   "Adj Close": "81.52",
+   "Volume": "3574",
+   "searchIndex": "2026-11-16 81.5199966430664"
   }
  ]
 }
