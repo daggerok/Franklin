@@ -2,7 +2,7 @@
  "ticker": "FLUD",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1591,
+ "totalRows": 1593,
  "headers": [
   "Date",
   "Close",
@@ -4142,10 +4142,24 @@
   },
   {
    "Date": "Nov 16 2026",
-   "Close": "24.91",
-   "Adj Close": "24.91",
-   "Volume": "79886",
-   "searchIndex": "2026-11-16 24.91010093688965"
+   "Close": "24.93",
+   "Adj Close": "24.93",
+   "Volume": "119700",
+   "searchIndex": "2026-11-16 24.93000030517578"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "24.95",
+   "Adj Close": "24.95",
+   "Volume": "127100",
+   "searchIndex": "2026-11-17 24.950000762939453"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "24.98",
+   "Adj Close": "24.98",
+   "Volume": "283600",
+   "searchIndex": "2026-11-18 24.979999542236328"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "FSML",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 233,
+ "totalRows": 235,
  "headers": [
   "Date",
   "Close",
@@ -1636,10 +1636,24 @@
   },
   {
    "Date": "Nov 16 2026",
-   "Close": "28.96",
-   "Adj Close": "28.96",
-   "Volume": "75",
-   "searchIndex": "2026-11-16 28.962299346923828"
+   "Close": "28.42",
+   "Adj Close": "28.42",
+   "Volume": "900",
+   "searchIndex": "2026-11-16 28.423999786376953"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "28.04",
+   "Adj Close": "28.04",
+   "Volume": "1300",
+   "searchIndex": "2026-11-17 28.035999298095703"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "28.14",
+   "Adj Close": "28.14",
+   "Volume": "14600",
+   "searchIndex": "2026-11-18 28.136999130249023"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "LVHI",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2590,
+ "totalRows": 2593,
  "headers": [
   "Date",
   "Close",
@@ -4139,6 +4139,27 @@
    "Adj Close": "44.18",
    "Volume": "1669600",
    "searchIndex": "2026-11-13 44.18000030517578"
+  },
+  {
+   "Date": "Nov 16 2026",
+   "Close": "43.83",
+   "Adj Close": "43.83",
+   "Volume": "1043200",
+   "searchIndex": "2026-11-16 43.83000183105469"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "43.30",
+   "Adj Close": "43.30",
+   "Volume": "1661700",
+   "searchIndex": "2026-11-17 43.29999923706055"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "42.66",
+   "Adj Close": "42.66",
+   "Volume": "2057000",
+   "searchIndex": "2026-11-18 42.65999984741211"
   }
  ]
 }

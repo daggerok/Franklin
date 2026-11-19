@@ -2,7 +2,7 @@
  "ticker": "FLCH",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2269,
+ "totalRows": 2271,
  "headers": [
   "Date",
   "Close",
@@ -1888,10 +1888,24 @@
   },
   {
    "Date": "Nov 16 2026",
-   "Close": "19.55",
-   "Adj Close": "19.55",
-   "Volume": "38733",
-   "searchIndex": "2026-11-16 19.549999237060547"
+   "Close": "19.43",
+   "Adj Close": "19.43",
+   "Volume": "121600",
+   "searchIndex": "2026-11-16 19.43000030517578"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "19.21",
+   "Adj Close": "19.21",
+   "Volume": "183200",
+   "searchIndex": "2026-11-17 19.209999084472656"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "19.00",
+   "Adj Close": "19.00",
+   "Volume": "104100",
+   "searchIndex": "2026-11-18 19"
   }
  ]
 }

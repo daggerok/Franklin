@@ -2,7 +2,7 @@
  "ticker": "EZBC",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 715,
+ "totalRows": 717,
  "headers": [
   "Date",
   "Close",
@@ -5010,10 +5010,24 @@
   },
   {
    "Date": "Nov 16 2026",
-   "Close": "37.52",
-   "Adj Close": "37.52",
-   "Volume": "119287",
-   "searchIndex": "2026-11-16 37.52000045776367"
+   "Close": "37.57",
+   "Adj Close": "37.57",
+   "Volume": "367300",
+   "searchIndex": "2026-11-16 37.56999969482422"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "36.90",
+   "Adj Close": "36.90",
+   "Volume": "77200",
+   "searchIndex": "2026-11-17 36.900001525878906"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "36.12",
+   "Adj Close": "36.12",
+   "Volume": "154800",
+   "searchIndex": "2026-11-18 36.119998931884766"
   }
  ]
 }

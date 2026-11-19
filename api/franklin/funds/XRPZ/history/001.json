@@ -2,7 +2,7 @@
  "ticker": "XRPZ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 246,
+ "totalRows": 248,
  "headers": [
   "Date",
   "Close",
@@ -1727,10 +1727,24 @@
   },
   {
    "Date": "Nov 16 2026",
-   "Close": "10.45",
-   "Adj Close": "10.45",
-   "Volume": "435267",
-   "searchIndex": "2026-11-16 10.454999923706055"
+   "Close": "10.38",
+   "Adj Close": "10.38",
+   "Volume": "709200",
+   "searchIndex": "2026-11-16 10.380000114440918"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "10.51",
+   "Adj Close": "10.51",
+   "Volume": "547900",
+   "searchIndex": "2026-11-17 10.510000228881836"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "10.50",
+   "Adj Close": "10.50",
+   "Volume": "330000",
+   "searchIndex": "2026-11-18 10.5"
   }
  ]
 }

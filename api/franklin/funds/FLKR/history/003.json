@@ -2,7 +2,7 @@
  "ticker": "FLKR",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2240,
+ "totalRows": 2242,
  "headers": [
   "Date",
   "Close",
@@ -1685,10 +1685,24 @@
   },
   {
    "Date": "Nov 16 2026",
-   "Close": "45.93",
-   "Adj Close": "45.93",
-   "Volume": "165013",
-   "searchIndex": "2026-11-16 45.93000030517578"
+   "Close": "45.38",
+   "Adj Close": "45.38",
+   "Volume": "362300",
+   "searchIndex": "2026-11-16 45.380001068115234"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "44.82",
+   "Adj Close": "44.82",
+   "Volume": "575200",
+   "searchIndex": "2026-11-17 44.81999969482422"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "45.43",
+   "Adj Close": "45.43",
+   "Volume": "254600",
+   "searchIndex": "2026-11-18 45.43000030517578"
   }
  ]
 }

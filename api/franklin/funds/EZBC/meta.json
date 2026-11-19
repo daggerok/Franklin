@@ -30,7 +30,7 @@
  "nav": {
   "display": "$43.75",
   "value": 43.75,
-  "asOfDate": "2026-11-13"
+  "asOfDate": "2026-11-18"
  },
  "marketPrice": {
   "display": "$47.06",
@@ -46,9 +46,9 @@
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$366.14 M",
-  "value": 366140000,
-  "asOfDate": "2026-11-15",
+  "display": "$328.67 M",
+  "value": 328670000,
+  "asOfDate": "2026-11-18",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-10-31",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "ytd": -21.2,
-   "ytdText": "-21.20%",
+   "ytd": -28.49,
+   "ytdText": "-28.49%",
    "yr1": -30.3,
    "yr1Text": "-30.30%",
    "yr3": null,
@@ -118,13 +118,13 @@
   "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-11-13)"
  },
  "history": {
-  "totalRows": 715,
+  "totalRows": 717,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Nov 16 2026",
+  "asOf": "Nov 18 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

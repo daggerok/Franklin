@@ -2,7 +2,7 @@
  "ticker": "FLGV",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1617,
+ "totalRows": 1619,
  "headers": [
   "Date",
   "Close",
@@ -4324,10 +4324,24 @@
   },
   {
    "Date": "Nov 16 2026",
-   "Close": "19.56",
-   "Adj Close": "19.56",
-   "Volume": "26277",
-   "searchIndex": "2026-11-16 19.559999465942383"
+   "Close": "19.58",
+   "Adj Close": "19.58",
+   "Volume": "123800",
+   "searchIndex": "2026-11-16 19.579999923706055"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "19.60",
+   "Adj Close": "19.60",
+   "Volume": "210200",
+   "searchIndex": "2026-11-17 19.600000381469727"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "19.64",
+   "Adj Close": "19.64",
+   "Volume": "128400",
+   "searchIndex": "2026-11-18 19.639999389648438"
   }
  ]
 }

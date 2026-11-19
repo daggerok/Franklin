@@ -2,7 +2,7 @@
  "ticker": "EZPZ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 436,
+ "totalRows": 438,
  "headers": [
   "Date",
   "Close",
@@ -3057,10 +3057,24 @@
   },
   {
    "Date": "Nov 16 2026",
-   "Close": "15.77",
-   "Adj Close": "15.77",
-   "Volume": "11135",
-   "searchIndex": "2026-11-16 15.770000457763672"
+   "Close": "15.93",
+   "Adj Close": "15.93",
+   "Volume": "20200",
+   "searchIndex": "2026-11-16 15.930000305175781"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "15.72",
+   "Adj Close": "15.72",
+   "Volume": "24200",
+   "searchIndex": "2026-11-17 15.720000267028809"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "15.36",
+   "Adj Close": "15.36",
+   "Volume": "10900",
+   "searchIndex": "2026-11-18 15.357000350952148"
   }
  ]
 }

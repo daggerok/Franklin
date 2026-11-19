@@ -2,7 +2,7 @@
  "ticker": "FLMB",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2313,
+ "totalRows": 2315,
  "headers": [
   "Date",
   "Close",
@@ -2196,10 +2196,24 @@
   },
   {
    "Date": "Nov 16 2026",
-   "Close": "22.71",
-   "Adj Close": "22.71",
-   "Volume": "134",
-   "searchIndex": "2026-11-16 22.709999084472656"
+   "Close": "22.69",
+   "Adj Close": "22.69",
+   "Volume": "2300",
+   "searchIndex": "2026-11-16 22.69300079345703"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "22.57",
+   "Adj Close": "22.57",
+   "Volume": "14900",
+   "searchIndex": "2026-11-17 22.569000244140625"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "22.62",
+   "Adj Close": "22.62",
+   "Volume": "17500",
+   "searchIndex": "2026-11-18 22.6200008392334"
   }
  ]
 }

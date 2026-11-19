@@ -2,7 +2,7 @@
  "ticker": "FTMN",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 256,
+ "totalRows": 258,
  "headers": [
   "Date",
   "Close",
@@ -1797,10 +1797,24 @@
   },
   {
    "Date": "Nov 16 2026",
-   "Close": "8.48",
-   "Adj Close": "8.48",
-   "Volume": "52098",
-   "searchIndex": "2026-11-16 8.475000381469727"
+   "Close": "8.47",
+   "Adj Close": "8.47",
+   "Volume": "147500",
+   "searchIndex": "2026-11-16 8.470000267028809"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "8.42",
+   "Adj Close": "8.42",
+   "Volume": "233800",
+   "searchIndex": "2026-11-17 8.420000076293945"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "8.43",
+   "Adj Close": "8.43",
+   "Volume": "268600",
+   "searchIndex": "2026-11-18 8.430000305175781"
   }
  ]
 }

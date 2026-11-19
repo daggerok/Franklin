@@ -2,7 +2,7 @@
  "ticker": "FLAX",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2204,
+ "totalRows": 2207,
  "headers": [
   "Date",
   "Close",
@@ -1437,6 +1437,27 @@
    "Adj Close": "33.14",
    "Volume": "26900",
    "searchIndex": "2026-11-13 33.14099884033203"
+  },
+  {
+   "Date": "Nov 16 2026",
+   "Close": "32.04",
+   "Adj Close": "32.04",
+   "Volume": "25400",
+   "searchIndex": "2026-11-16 32.040000915527344"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "31.53",
+   "Adj Close": "31.53",
+   "Volume": "110000",
+   "searchIndex": "2026-11-17 31.52899932861328"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "31.50",
+   "Adj Close": "31.50",
+   "Volume": "7500",
+   "searchIndex": "2026-11-18 31.499000549316406"
   }
  ]
 }

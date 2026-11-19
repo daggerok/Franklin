@@ -104,6 +104,11 @@
   ],
   "rows": [
    {
+    "Ex-Date": "Nov 16 2026",
+    "Dividend": "0.0560",
+    "searchIndex": "nov 16 2026 0.056"
+   },
+   {
     "Ex-Date": "Oct 19 2026",
     "Dividend": "0.0670",
     "searchIndex": "oct 19 2026 0.067"
@@ -144,8 +149,8 @@
     "searchIndex": "mar 23 2026 0.014"
    }
   ],
-  "latestDividend": "0.067",
-  "exDate": "Oct 19 2026"
+  "latestDividend": "0.056",
+  "exDate": "Nov 16 2026"
  },
  "holdings": {
   "totalRows": 2,
@@ -159,13 +164,13 @@
   "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-11-06)"
  },
  "history": {
-  "totalRows": 239,
+  "totalRows": 242,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Nov 13 2026",
+  "asOf": "Nov 18 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

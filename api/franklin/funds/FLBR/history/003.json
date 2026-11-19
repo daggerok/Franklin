@@ -2,7 +2,7 @@
  "ticker": "FLBR",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2269,
+ "totalRows": 2271,
  "headers": [
   "Date",
   "Close",
@@ -1888,10 +1888,24 @@
   },
   {
    "Date": "Nov 16 2026",
-   "Close": "19.16",
-   "Adj Close": "19.16",
-   "Volume": "125225",
-   "searchIndex": "2026-11-16 19.164600372314453"
+   "Close": "19.10",
+   "Adj Close": "19.10",
+   "Volume": "179000",
+   "searchIndex": "2026-11-16 19.100000381469727"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "19.20",
+   "Adj Close": "19.20",
+   "Volume": "124300",
+   "searchIndex": "2026-11-17 19.200000762939453"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "18.58",
+   "Adj Close": "18.58",
+   "Volume": "170500",
+   "searchIndex": "2026-11-18 18.579999923706055"
   }
  ]
 }
