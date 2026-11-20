@@ -2,7 +2,7 @@
  "ticker": "FLBL",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2129,
+ "totalRows": 2131,
  "headers": [
   "Date",
   "Close",
@@ -912,6 +912,20 @@
    "Adj Close": "22.69",
    "Volume": "290400",
    "searchIndex": "2026-11-18 22.690000534057617"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "Close": "22.69",
+   "Adj Close": "22.69",
+   "Volume": "140700",
+   "searchIndex": "2026-11-19 22.690000534057617"
+  },
+  {
+   "Date": "Nov 20 2026",
+   "Close": "22.62",
+   "Adj Close": "22.62",
+   "Volume": "332531",
+   "searchIndex": "2026-11-20 22.6200008392334"
   }
  ]
 }

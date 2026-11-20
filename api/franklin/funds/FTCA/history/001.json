@@ -2,7 +2,7 @@
  "ticker": "FTCA",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 268,
+ "totalRows": 270,
  "headers": [
   "Date",
   "Close",
@@ -1885,6 +1885,20 @@
    "Adj Close": "7.00",
    "Volume": "1185100",
    "searchIndex": "2026-11-18 7"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "Close": "6.98",
+   "Adj Close": "6.98",
+   "Volume": "1084800",
+   "searchIndex": "2026-11-19 6.980000019073486"
+  },
+  {
+   "Date": "Nov 20 2026",
+   "Close": "7.03",
+   "Adj Close": "7.03",
+   "Volume": "718789",
+   "searchIndex": "2026-11-20 7.03000020980835"
   }
  ]
 }

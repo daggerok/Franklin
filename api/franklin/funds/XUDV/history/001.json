@@ -2,7 +2,7 @@
  "ticker": "XUDV",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 459,
+ "totalRows": 461,
  "headers": [
   "Date",
   "Close",
@@ -3222,6 +3222,20 @@
    "Adj Close": "32.09",
    "Volume": "10200",
    "searchIndex": "2026-11-18 32.08700180053711"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "Close": "31.54",
+   "Adj Close": "31.54",
+   "Volume": "9700",
+   "searchIndex": "2026-11-19 31.540000915527344"
+  },
+  {
+   "Date": "Nov 20 2026",
+   "Close": "31.00",
+   "Adj Close": "31.00",
+   "Volume": "11100",
+   "searchIndex": "2026-11-20 30.996400833129883"
   }
  ]
 }

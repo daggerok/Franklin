@@ -2,7 +2,7 @@
  "ticker": "FFOG",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 762,
+ "totalRows": 764,
  "headers": [
   "Date",
   "Close",
@@ -5343,6 +5343,20 @@
    "Adj Close": "44.25",
    "Volume": "25600",
    "searchIndex": "2026-11-18 44.25"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "Close": "43.14",
+   "Adj Close": "43.14",
+   "Volume": "22100",
+   "searchIndex": "2026-11-19 43.13999938964844"
+  },
+  {
+   "Date": "Nov 20 2026",
+   "Close": "40.15",
+   "Adj Close": "40.15",
+   "Volume": "367431",
+   "searchIndex": "2026-11-20 40.14609909057617"
   }
  ]
 }

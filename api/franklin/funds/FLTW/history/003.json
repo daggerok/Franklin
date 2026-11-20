@@ -2,7 +2,7 @@
  "ticker": "FLTW",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2242,
+ "totalRows": 2244,
  "headers": [
   "Date",
   "Close",
@@ -1703,6 +1703,20 @@
    "Adj Close": "85.00",
    "Volume": "497100",
    "searchIndex": "2026-11-18 85"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "Close": "80.53",
+   "Adj Close": "80.53",
+   "Volume": "329900",
+   "searchIndex": "2026-11-19 80.52999877929688"
+  },
+  {
+   "Date": "Nov 20 2026",
+   "Close": "71.48",
+   "Adj Close": "71.48",
+   "Volume": "1177230",
+   "searchIndex": "2026-11-20 71.4800033569336"
   }
  ]
 }

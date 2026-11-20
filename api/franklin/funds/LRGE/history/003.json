@@ -2,7 +2,7 @@
  "ticker": "LRGE",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2382,
+ "totalRows": 2384,
  "headers": [
   "Date",
   "Close",
@@ -2683,6 +2683,20 @@
    "Adj Close": "80.18",
    "Volume": "11600",
    "searchIndex": "2026-11-18 80.1780014038086"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "Close": "78.54",
+   "Adj Close": "78.54",
+   "Volume": "8100",
+   "searchIndex": "2026-11-19 78.54299926757812"
+  },
+  {
+   "Date": "Nov 20 2026",
+   "Close": "74.02",
+   "Adj Close": "74.02",
+   "Volume": "17454",
+   "searchIndex": "2026-11-20 74.02349853515625"
   }
  ]
 }

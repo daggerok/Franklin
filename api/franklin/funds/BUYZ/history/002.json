@@ -2,7 +2,7 @@
  "ticker": "BUYZ",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1692,
+ "totalRows": 1693,
  "headers": [
   "Date",
   "Close",
@@ -4853,6 +4853,13 @@
    "Adj Close": "35.26",
    "Volume": "100",
    "searchIndex": "2026-11-18 35.257999420166016"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "Close": "33.82",
+   "Adj Close": "33.82",
+   "Volume": "1100",
+   "searchIndex": "2026-11-19 33.816001892089844"
   }
  ]
 }

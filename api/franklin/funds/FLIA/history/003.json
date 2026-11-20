@@ -2,7 +2,7 @@
  "ticker": "FLIA",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2129,
+ "totalRows": 2131,
  "headers": [
   "Date",
   "Close",
@@ -912,6 +912,20 @@
    "Adj Close": "20.16",
    "Volume": "47700",
    "searchIndex": "2026-11-18 20.155000686645508"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "Close": "20.13",
+   "Adj Close": "20.13",
+   "Volume": "32100",
+   "searchIndex": "2026-11-19 20.125"
+  },
+  {
+   "Date": "Nov 20 2026",
+   "Close": "20.17",
+   "Adj Close": "20.17",
+   "Volume": "69163",
+   "searchIndex": "2026-11-20 20.170000076293945"
   }
  ]
 }
