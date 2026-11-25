@@ -2,7 +2,7 @@
  "ticker": "FLGR",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2275,
+ "totalRows": 2276,
  "headers": [
   "Date",
   "Close",
@@ -1934,6 +1934,13 @@
    "Adj Close": "31.28",
    "Volume": "8100",
    "searchIndex": "2026-11-24 31.280000686645508"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "31.29",
+   "Adj Close": "31.29",
+   "Volume": "2301",
+   "searchIndex": "2026-11-25 31.289899826049805"
   }
  ]
 }

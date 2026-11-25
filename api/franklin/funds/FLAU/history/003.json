@@ -2,7 +2,7 @@
  "ticker": "FLAU",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2275,
+ "totalRows": 2276,
  "headers": [
   "Date",
   "Close",
@@ -1934,6 +1934,13 @@
    "Adj Close": "32.45",
    "Volume": "57600",
    "searchIndex": "2026-11-24 32.45000076293945"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "32.65",
+   "Adj Close": "32.65",
+   "Volume": "6624",
+   "searchIndex": "2026-11-25 32.650001525878906"
   }
  ]
 }

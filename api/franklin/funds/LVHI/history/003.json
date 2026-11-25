@@ -2,7 +2,7 @@
  "ticker": "LVHI",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2597,
+ "totalRows": 2598,
  "headers": [
   "Date",
   "Close",
@@ -4188,6 +4188,13 @@
    "Adj Close": "42.20",
    "Volume": "1436500",
    "searchIndex": "2026-11-24 42.20000076293945"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "42.48",
+   "Adj Close": "42.48",
+   "Volume": "2717214",
+   "searchIndex": "2026-11-25 42.47999954223633"
   }
  ]
 }

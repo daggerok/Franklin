@@ -2,7 +2,7 @@
  "ticker": "FGDL",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1106,
+ "totalRows": 1107,
  "headers": [
   "Date",
   "Close",
@@ -751,6 +751,13 @@
    "Adj Close": "47.21",
    "Volume": "20500",
    "searchIndex": "2026-11-24 47.209999084472656"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "47.50",
+   "Adj Close": "47.50",
+   "Volume": "36670",
+   "searchIndex": "2026-11-25 47.5"
   }
  ]
 }

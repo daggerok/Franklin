@@ -2,7 +2,7 @@
  "ticker": "FLCH",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2275,
+ "totalRows": 2276,
  "headers": [
   "Date",
   "Close",
@@ -1934,6 +1934,13 @@
    "Adj Close": "18.52",
    "Volume": "83700",
    "searchIndex": "2026-11-24 18.520000457763672"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "18.39",
+   "Adj Close": "18.39",
+   "Volume": "338659",
+   "searchIndex": "2026-11-25 18.389999389648438"
   }
  ]
 }

@@ -11,10 +11,10 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29097/SINGLCLASS/franklin-genomic-advancements-etf/HELX",
-  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035124, report period 2026-06-30)",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-047350, report period 2026-09-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/HELX?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-09-30"
  },
  "identifiers": {
   "cusip": "35473P520",
@@ -128,15 +128,15 @@
   "exDate": "Dec 30 2025"
  },
  "holdings": {
-  "totalRows": 63,
+  "totalRows": 68,
   "pageSize": 250,
   "pageCount": 1,
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-06-30",
-  "asOf": "Jun 30 2026",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035124, report period 2026-06-30)"
+  "asOfDate": "2026-09-30",
+  "asOf": "Sep 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-047350, report period 2026-09-30)"
  },
  "history": {
   "totalRows": 1696,

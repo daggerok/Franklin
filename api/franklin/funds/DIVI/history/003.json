@@ -2,7 +2,7 @@
  "ticker": "DIVI",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2635,
+ "totalRows": 2636,
  "headers": [
   "Date",
   "Close",
@@ -4454,6 +4454,13 @@
    "Adj Close": "40.53",
    "Volume": "258400",
    "searchIndex": "2026-11-24 40.529998779296875"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "40.69",
+   "Adj Close": "40.69",
+   "Volume": "383932",
+   "searchIndex": "2026-11-25 40.689998626708984"
   }
  ]
 }

@@ -11,15 +11,15 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/28565/SINGLCLASS/franklin-u-s-core-bond-etf/FLCB",
-  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035108, report period 2026-06-30)",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-047339, report period 2026-09-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLCB?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-09-30"
  },
  "identifiers": {
   "cusip": "35473P553",
   "isin": "US35473P5531",
-  "benchmark": "outperformance mainly through security selection and sector rotation."
+  "benchmark": "Bloomberg U.S. Aggregate Index"
  },
  "expenseRatio": {
   "display": "0.15%",
@@ -538,7 +538,7 @@
   "exDate": "Nov 2 2026"
  },
  "holdings": {
-  "totalRows": 599,
+  "totalRows": 655,
   "pageSize": 250,
   "pageCount": 3,
   "pages": [
@@ -546,19 +546,19 @@
    "./holdings/002.json",
    "./holdings/003.json"
   ],
-  "asOfDate": "2026-06-30",
-  "asOf": "Jun 30 2026",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035108, report period 2026-06-30)"
+  "asOfDate": "2026-09-30",
+  "asOf": "Sep 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-047339, report period 2026-09-30)"
  },
  "history": {
-  "totalRows": 1806,
+  "totalRows": 1807,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Nov 24 2026",
+  "asOf": "Nov 25 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

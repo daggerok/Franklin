@@ -2,7 +2,7 @@
  "ticker": "SOEZ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 246,
+ "totalRows": 247,
  "headers": [
   "Date",
   "Close",
@@ -1731,6 +1731,13 @@
    "Adj Close": "11.97",
    "Volume": "10400",
    "searchIndex": "2026-11-24 11.972000122070312"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "12.18",
+   "Adj Close": "12.18",
+   "Volume": "6983",
+   "searchIndex": "2026-11-25 12.18179988861084"
   }
  ]
 }

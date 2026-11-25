@@ -2,7 +2,7 @@
  "ticker": "FLJH",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2275,
+ "totalRows": 2276,
  "headers": [
   "Date",
   "Close",
@@ -1934,6 +1934,13 @@
    "Adj Close": "42.22",
    "Volume": "14000",
    "searchIndex": "2026-11-24 42.21500015258789"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "42.51",
+   "Adj Close": "42.51",
+   "Volume": "24298",
+   "searchIndex": "2026-11-25 42.50870132446289"
   }
  ]
 }

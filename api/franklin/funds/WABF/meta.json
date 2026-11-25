@@ -11,10 +11,10 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36353/SINGLCLASS/western-asset-bond-etf/WABF",
-  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035207, report period 2026-06-30)",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-047365, report period 2026-09-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/WABF?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-09-30"
  },
  "identifiers": {
   "cusip": "35473P397",
@@ -298,25 +298,25 @@
   "exDate": "Nov 2 2026"
  },
  "holdings": {
-  "totalRows": 466,
+  "totalRows": 401,
   "pageSize": 250,
   "pageCount": 2,
   "pages": [
    "./holdings/001.json",
    "./holdings/002.json"
   ],
-  "asOfDate": "2026-06-30",
-  "asOf": "Jun 30 2026",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035207, report period 2026-06-30)"
+  "asOfDate": "2026-09-30",
+  "asOf": "Sep 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-047365, report period 2026-09-30)"
  },
  "history": {
-  "totalRows": 798,
+  "totalRows": 799,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Nov 24 2026",
+  "asOf": "Nov 25 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

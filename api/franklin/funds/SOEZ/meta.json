@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47315/SINGLCLASS/franklin-solana-etf/SOEZ",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-11-06)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-11-24)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SOEZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -159,18 +159,18 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-11-06",
-  "asOf": "Nov 6 2026",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-11-06)"
+  "asOfDate": "2026-11-24",
+  "asOf": "Nov 24 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-11-24)"
  },
  "history": {
-  "totalRows": 246,
+  "totalRows": 247,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Nov 24 2026",
+  "asOf": "Nov 25 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

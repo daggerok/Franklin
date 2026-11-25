@@ -11,10 +11,10 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/29430/SINGLCLASS/franklin-ultra-short-bond-etf/FLUD",
-  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035202, report period 2026-06-30)",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-047360, report period 2026-09-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLUD?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-09-30"
  },
  "identifiers": {
   "cusip": "35473P496",
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-10-31",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "ytd": 3.11,
-   "ytdText": "3.11%",
+   "ytd": 3.2,
+   "ytdText": "3.20%",
    "yr1": 3.95,
    "yr1Text": "3.95%",
    "yr3": 5.09,
@@ -493,27 +493,26 @@
   "exDate": "Nov 2 2026"
  },
  "holdings": {
-  "totalRows": 519,
+  "totalRows": 491,
   "pageSize": 250,
-  "pageCount": 3,
+  "pageCount": 2,
   "pages": [
    "./holdings/001.json",
-   "./holdings/002.json",
-   "./holdings/003.json"
+   "./holdings/002.json"
   ],
-  "asOfDate": "2026-06-30",
-  "asOf": "Jun 30 2026",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035202, report period 2026-06-30)"
+  "asOfDate": "2026-09-30",
+  "asOf": "Sep 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-047360, report period 2026-09-30)"
  },
  "history": {
-  "totalRows": 1597,
+  "totalRows": 1598,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Nov 24 2026",
+  "asOf": "Nov 25 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

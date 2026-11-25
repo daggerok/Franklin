@@ -11,10 +11,10 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN",
-  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035153, report period 2026-06-30)",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-047382, report period 2026-09-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLIN?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-09-30"
  },
  "identifiers": {
   "cusip": "35473P769",
@@ -33,9 +33,9 @@
   "asOfDate": "2026-11-24"
  },
  "marketPrice": {
-  "display": "$33.48",
-  "value": 33.48,
-  "asOfDate": "2026-10-28",
+  "display": "$37.72",
+  "value": 37.72,
+  "asOfDate": "2026-11-24",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
@@ -43,7 +43,7 @@
   "value": 1.53,
   "asOfDate": "2026-11-24",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
   "display": "$2.85 B",
@@ -52,9 +52,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 0.91,
-  "dividendYieldText": "0.91%",
-  "dividendYieldKind": "indicated: latest distribution 0.1520 x 2/year / market price 33.48",
+  "dividendYield": 0.81,
+  "dividendYieldText": "0.81%",
+  "dividendYieldKind": "indicated: latest distribution 0.1520 x 2/year / market price 37.72",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -188,19 +188,19 @@
   "exDate": "Dec 19 2025"
  },
  "holdings": {
-  "totalRows": 280,
+  "totalRows": 277,
   "pageSize": 250,
   "pageCount": 2,
   "pages": [
    "./holdings/001.json",
    "./holdings/002.json"
   ],
-  "asOfDate": "2026-06-30",
-  "asOf": "Jun 30 2026",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035153, report period 2026-06-30)"
+  "asOfDate": "2026-09-30",
+  "asOf": "Sep 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-047382, report period 2026-09-30)"
  },
  "history": {
-  "totalRows": 2211,
+  "totalRows": 2212,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -208,7 +208,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Nov 24 2026",
+  "asOf": "Nov 25 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

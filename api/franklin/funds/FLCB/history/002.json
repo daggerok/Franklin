@@ -2,7 +2,7 @@
  "ticker": "FLCB",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1806,
+ "totalRows": 1807,
  "headers": [
   "Date",
   "Close",
@@ -5651,6 +5651,13 @@
    "Adj Close": "20.76",
    "Volume": "782200",
    "searchIndex": "2026-11-24 20.764999389648438"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "20.84",
+   "Adj Close": "20.84",
+   "Volume": "503472",
+   "searchIndex": "2026-11-25 20.84000015258789"
   }
  ]
 }

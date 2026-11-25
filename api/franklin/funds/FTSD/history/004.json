@@ -2,7 +2,7 @@
  "ticker": "FTSD",
  "page": 4,
  "pageSize": 1000,
- "totalRows": 3283,
+ "totalRows": 3284,
  "headers": [
   "Date",
   "Close",
@@ -1990,6 +1990,13 @@
    "Adj Close": "89.31",
    "Volume": "33900",
    "searchIndex": "2026-11-24 89.30999755859375"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "89.44",
+   "Adj Close": "89.44",
+   "Volume": "99326",
+   "searchIndex": "2026-11-25 89.44000244140625"
   }
  ]
 }

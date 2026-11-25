@@ -33,9 +33,9 @@
   "asOfDate": "2026-11-24"
  },
  "marketPrice": {
-  "display": "$51.87",
-  "value": 51.87,
-  "asOfDate": "2026-11-06",
+  "display": "$51.27",
+  "value": 51.27,
+  "asOfDate": "2026-11-24",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
@@ -43,7 +43,7 @@
   "value": 0.1,
   "asOfDate": "2026-11-24",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
   "display": "$38.41 M",
@@ -285,7 +285,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-046513, report period 2026-09-30)"
  },
  "history": {
-  "totalRows": 2356,
+  "totalRows": 2357,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -293,7 +293,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Nov 24 2026",
+  "asOf": "Nov 25 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

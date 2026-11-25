@@ -11,10 +11,10 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26175/SINGLCLASS/franklin-dynamic-municipal-bond-etf/FLMI",
-  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035155, report period 2026-06-30)",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-047366, report period 2026-09-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/FLMI?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-09-30"
  },
  "identifiers": {
   "cusip": "35473P868",
@@ -33,9 +33,9 @@
   "asOfDate": "2026-11-24"
  },
  "marketPrice": {
-  "display": "$24.03",
-  "value": 24.03,
-  "asOfDate": "2026-11-13",
+  "display": "$24.10",
+  "value": 24.1,
+  "asOfDate": "2026-11-24",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
@@ -43,7 +43,7 @@
   "value": 0,
   "asOfDate": "2026-11-24",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
   "display": "$2.49 B",
@@ -648,7 +648,7 @@
   "exDate": "Nov 2 2026"
  },
  "holdings": {
-  "totalRows": 1337,
+  "totalRows": 1430,
   "pageSize": 250,
   "pageCount": 6,
   "pages": [
@@ -659,12 +659,12 @@
    "./holdings/005.json",
    "./holdings/006.json"
   ],
-  "asOfDate": "2026-06-30",
-  "asOf": "Jun 30 2026",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035155, report period 2026-06-30)"
+  "asOfDate": "2026-09-30",
+  "asOf": "Sep 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-047366, report period 2026-09-30)"
  },
  "history": {
-  "totalRows": 2312,
+  "totalRows": 2313,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -672,7 +672,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Nov 24 2026",
+  "asOf": "Nov 25 2026",
   "source": "Yahoo Finance public chart API"
  }
 }
