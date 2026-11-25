@@ -2,7 +2,7 @@
  "ticker": "FLSW",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2209,
+ "totalRows": 2211,
  "headers": [
   "Date",
   "Close",
@@ -1470,8 +1470,22 @@
    "Date": "Nov 20 2026",
    "Close": "42.52",
    "Adj Close": "42.52",
-   "Volume": "12309",
-   "searchIndex": "2026-11-20 42.52190017700195"
+   "Volume": "12300",
+   "searchIndex": "2026-11-20 42.52199935913086"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "Close": "43.20",
+   "Adj Close": "43.20",
+   "Volume": "17900",
+   "searchIndex": "2026-11-23 43.20000076293945"
+  },
+  {
+   "Date": "Nov 24 2026",
+   "Close": "43.79",
+   "Adj Close": "43.79",
+   "Volume": "19300",
+   "searchIndex": "2026-11-24 43.790000915527344"
   }
  ]
 }

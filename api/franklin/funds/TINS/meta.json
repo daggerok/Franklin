@@ -28,9 +28,9 @@
   "net": 0.55
  },
  "nav": {
-  "display": "$27.00",
-  "value": 27,
-  "asOfDate": "2026-11-19"
+  "display": "$26.90",
+  "value": 26.9,
+  "asOfDate": "2026-11-24"
  },
  "marketPrice": {
   "display": "$28.48",
@@ -39,23 +39,23 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "-0.52%",
-  "value": -0.52,
-  "asOfDate": "2026-11-19",
+  "display": "0.26%",
+  "value": 0.26,
+  "asOfDate": "2026-11-24",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$5.40 M",
-  "value": 5400000,
-  "asOfDate": "2026-11-19",
+  "display": "$5.38 M",
+  "value": 5380000,
+  "asOfDate": "2026-11-24",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 0.22,
-  "dividendYieldText": "0.22%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 19 2026",
-  "dividendYieldAsOfDate": "2026-11-19",
+  "dividendYield": 0.23,
+  "dividendYieldText": "0.23%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 23 2026",
+  "dividendYieldAsOfDate": "2026-11-23",
   "secYield": 1.93,
   "secYieldText": "1.93%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Oct 31 2026"
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-10-31",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "ytd": 4.37,
-   "ytdText": "4.37%",
+   "ytd": 3.98,
+   "ytdText": "3.98%",
    "yr1": 12.93,
    "yr1Text": "12.93%",
    "yr3": null,
@@ -124,13 +124,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035196, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 271,
+  "totalRows": 274,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Nov 19 2026",
+  "asOf": "Nov 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -2,7 +2,7 @@
  "ticker": "FLQS",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2406,
+ "totalRows": 2408,
  "headers": [
   "Date",
   "Close",
@@ -2849,8 +2849,22 @@
    "Date": "Nov 20 2026",
    "Close": "46.78",
    "Adj Close": "46.78",
-   "Volume": "1872",
+   "Volume": "1900",
    "searchIndex": "2026-11-20 46.78099822998047"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "Close": "47.97",
+   "Adj Close": "47.97",
+   "Volume": "15700",
+   "searchIndex": "2026-11-23 47.974998474121094"
+  },
+  {
+   "Date": "Nov 24 2026",
+   "Close": "48.36",
+   "Adj Close": "48.36",
+   "Volume": "1181",
+   "searchIndex": "2026-11-24 48.35689926147461"
   }
  ]
 }

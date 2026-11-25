@@ -2,7 +2,7 @@
  "ticker": "FLMX",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2273,
+ "totalRows": 2275,
  "headers": [
   "Date",
   "Close",
@@ -1918,8 +1918,22 @@
    "Date": "Nov 20 2026",
    "Close": "35.26",
    "Adj Close": "35.26",
-   "Volume": "6866",
-   "searchIndex": "2026-11-20 35.26219940185547"
+   "Volume": "6900",
+   "searchIndex": "2026-11-20 35.262001037597656"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "Close": "35.59",
+   "Adj Close": "35.59",
+   "Volume": "12000",
+   "searchIndex": "2026-11-23 35.59000015258789"
+  },
+  {
+   "Date": "Nov 24 2026",
+   "Close": "35.19",
+   "Adj Close": "35.19",
+   "Volume": "1600",
+   "searchIndex": "2026-11-24 35.1879997253418"
   }
  ]
 }

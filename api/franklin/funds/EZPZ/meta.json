@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/41786/SINGLCLASS/franklin-crypto-index-etf/EZPZ",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-28)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-11-24)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EZPZ?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -28,27 +28,27 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$18.73",
-  "value": 18.73,
-  "asOfDate": "2026-11-19"
+  "display": "$14.62",
+  "value": 14.62,
+  "asOfDate": "2026-11-24"
  },
  "marketPrice": {
-  "display": "$20.22",
-  "value": 20.22,
-  "asOfDate": "2026-10-28",
+  "display": "$14.67",
+  "value": 14.67,
+  "asOfDate": "2026-11-24",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.16%",
-  "value": 0.16,
-  "asOfDate": "2026-11-06",
+  "display": "0.34%",
+  "value": 0.34,
+  "asOfDate": "2026-11-24",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$12.98 M",
-  "value": 12980000,
-  "asOfDate": "2026-11-19",
+  "display": "$12.43 M",
+  "value": 12430000,
+  "asOfDate": "2026-11-24",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -113,18 +113,18 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-10-28",
-  "asOf": "Oct 28 2026",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-10-28)"
+  "asOfDate": "2026-11-24",
+  "asOf": "Nov 24 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-11-24)"
  },
  "history": {
-  "totalRows": 440,
+  "totalRows": 442,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Nov 20 2026",
+  "asOf": "Nov 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

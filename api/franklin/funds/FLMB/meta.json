@@ -28,9 +28,9 @@
   "net": 0.3
  },
  "nav": {
-  "display": "$22.57",
-  "value": 22.57,
-  "asOfDate": "2026-11-18"
+  "display": "$22.75",
+  "value": 22.75,
+  "asOfDate": "2026-11-24"
  },
  "marketPrice": {
   "display": "$22.66",
@@ -39,23 +39,23 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.22%",
-  "value": 0.22,
-  "asOfDate": "2026-11-18",
+  "display": "-0.18%",
+  "value": -0.18,
+  "asOfDate": "2026-11-24",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$49.66 M",
-  "value": 49660000,
-  "asOfDate": "2026-11-18",
+  "display": "$50.06 M",
+  "value": 50060000,
+  "asOfDate": "2026-11-24",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 4.6,
-  "dividendYieldText": "4.60%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 19 2026",
-  "dividendYieldAsOfDate": "2026-11-19",
+  "dividendYield": 4.57,
+  "dividendYieldText": "4.57%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 23 2026",
+  "dividendYieldAsOfDate": "2026-11-23",
   "secYield": 4.08,
   "secYieldText": "4.08%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Oct 31 2026"
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-10-31",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "ytd": -1.59,
-   "ytdText": "-1.59%",
+   "ytd": -0.81,
+   "ytdText": "-0.81%",
    "yr1": -0.98,
    "yr1Text": "-0.98%",
    "yr3": 5.24,
@@ -654,7 +654,7 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035115, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 2317,
+  "totalRows": 2319,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -662,7 +662,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Nov 20 2026",
+  "asOf": "Nov 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

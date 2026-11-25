@@ -2,7 +2,7 @@
  "ticker": "FLMI",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2310,
+ "totalRows": 2312,
  "headers": [
   "Date",
   "Close",
@@ -2177,8 +2177,22 @@
    "Date": "Nov 20 2026",
    "Close": "24.01",
    "Adj Close": "24.01",
-   "Volume": "2058383",
+   "Volume": "2059000",
    "searchIndex": "2026-11-20 24.010000228881836"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "Close": "24.05",
+   "Adj Close": "24.05",
+   "Volume": "2339000",
+   "searchIndex": "2026-11-23 24.049999237060547"
+  },
+  {
+   "Date": "Nov 24 2026",
+   "Close": "24.10",
+   "Adj Close": "24.10",
+   "Volume": "1453800",
+   "searchIndex": "2026-11-24 24.100000381469727"
   }
  ]
 }

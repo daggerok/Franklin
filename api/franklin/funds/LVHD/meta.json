@@ -11,10 +11,10 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/91415/SINGLCLASS/franklin-u-s-low-volatility-high-dividend-index-etf/LVHD",
-  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035186, report period 2026-06-30)",
+  "holdingsSource": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-046512, report period 2026-09-30)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/LVHD?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
-  "nportDoc": "SEC EDGAR N-PORT-P 2026-06-30"
+  "nportDoc": "SEC EDGAR N-PORT-P 2026-09-30"
  },
  "identifiers": {
   "cusip": "52468L406",
@@ -28,9 +28,9 @@
   "net": 0.27
  },
  "nav": {
-  "display": "$44.42",
-  "value": 44.42,
-  "asOfDate": "2026-11-19"
+  "display": "$45.26",
+  "value": 45.26,
+  "asOfDate": "2026-11-24"
  },
  "marketPrice": {
   "display": "$45.07",
@@ -39,23 +39,23 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.05%",
-  "value": 0.05,
-  "asOfDate": "2026-11-19",
+  "display": "0.00%",
+  "value": 0,
+  "asOfDate": "2026-11-24",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$644.13 M",
-  "value": 644130000,
-  "asOfDate": "2026-11-19",
+  "display": "$658.56 M",
+  "value": 658560000,
+  "asOfDate": "2026-11-24",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 3.49,
-  "dividendYieldText": "3.49%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 19 2026",
-  "dividendYieldAsOfDate": "2026-11-19",
+  "dividendYield": 3.46,
+  "dividendYieldText": "3.46%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 23 2026",
+  "dividendYieldAsOfDate": "2026-11-23",
   "secYield": 3.4,
   "secYieldText": "3.40%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Oct 31 2026"
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-10-31",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "ytd": 14.45,
-   "ytdText": "14.45%",
+   "ytd": 16.61,
+   "ytdText": "16.61%",
    "yr1": 16.61,
    "yr1Text": "16.61%",
    "yr3": 15.04,
@@ -358,18 +358,18 @@
   "exDate": "Nov 5 2026"
  },
  "holdings": {
-  "totalRows": 115,
+  "totalRows": 116,
   "pageSize": 250,
   "pageCount": 1,
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-06-30",
-  "asOf": "Jun 30 2026",
-  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035186, report period 2026-06-30)"
+  "asOfDate": "2026-09-30",
+  "asOf": "Sep 30 2026",
+  "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-046512, report period 2026-09-30)"
  },
  "history": {
-  "totalRows": 2741,
+  "totalRows": 2743,
   "pageSize": 1000,
   "pageCount": 3,
   "pages": [
@@ -377,7 +377,7 @@
    "./history/002.json",
    "./history/003.json"
   ],
-  "asOf": "Nov 20 2026",
+  "asOf": "Nov 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

@@ -2,7 +2,7 @@
  "ticker": "FLGR",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2273,
+ "totalRows": 2275,
  "headers": [
   "Date",
   "Close",
@@ -1918,8 +1918,22 @@
    "Date": "Nov 20 2026",
    "Close": "30.50",
    "Adj Close": "30.50",
-   "Volume": "5679",
+   "Volume": "5700",
    "searchIndex": "2026-11-20 30.496999740600586"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "Close": "31.24",
+   "Adj Close": "31.24",
+   "Volume": "14200",
+   "searchIndex": "2026-11-23 31.240999221801758"
+  },
+  {
+   "Date": "Nov 24 2026",
+   "Close": "31.28",
+   "Adj Close": "31.28",
+   "Volume": "8100",
+   "searchIndex": "2026-11-24 31.280000686645508"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "PGRI",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 272,
+ "totalRows": 274,
  "headers": [
   "Date",
   "Close",
@@ -1911,8 +1911,22 @@
    "Date": "Nov 20 2026",
    "Close": "23.73",
    "Adj Close": "23.73",
-   "Volume": "188",
-   "searchIndex": "2026-11-20 23.732500076293945"
+   "Volume": "200",
+   "searchIndex": "2026-11-20 23.732999801635742"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "Close": "24.58",
+   "Adj Close": "24.58",
+   "Volume": "100",
+   "searchIndex": "2026-11-23 24.57900047302246"
+  },
+  {
+   "Date": "Nov 24 2026",
+   "Close": "24.69",
+   "Adj Close": "24.69",
+   "Volume": "100",
+   "searchIndex": "2026-11-24 24.68600082397461"
   }
  ]
 }

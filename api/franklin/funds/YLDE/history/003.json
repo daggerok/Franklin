@@ -2,7 +2,7 @@
  "ticker": "YLDE",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2386,
+ "totalRows": 2388,
  "headers": [
   "Date",
   "Close",
@@ -2709,8 +2709,22 @@
    "Date": "Nov 20 2026",
    "Close": "54.28",
    "Adj Close": "54.28",
-   "Volume": "38330",
+   "Volume": "38300",
    "searchIndex": "2026-11-20 54.279998779296875"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "Close": "55.69",
+   "Adj Close": "55.69",
+   "Volume": "22200",
+   "searchIndex": "2026-11-23 55.69499969482422"
+  },
+  {
+   "Date": "Nov 24 2026",
+   "Close": "56.07",
+   "Adj Close": "56.07",
+   "Volume": "6700",
+   "searchIndex": "2026-11-24 56.06800079345703"
   }
  ]
 }

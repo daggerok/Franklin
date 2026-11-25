@@ -2,7 +2,7 @@
  "ticker": "UDIV",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2633,
+ "totalRows": 2635,
  "headers": [
   "Date",
   "Close",
@@ -4438,8 +4438,22 @@
    "Date": "Nov 20 2026",
    "Close": "55.09",
    "Adj Close": "55.09",
-   "Volume": "6860",
-   "searchIndex": "2026-11-20 55.09130096435547"
+   "Volume": "6900",
+   "searchIndex": "2026-11-20 55.090999603271484"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "Close": "57.84",
+   "Adj Close": "57.84",
+   "Volume": "168500",
+   "searchIndex": "2026-11-23 57.84000015258789"
+  },
+  {
+   "Date": "Nov 24 2026",
+   "Close": "57.45",
+   "Adj Close": "57.45",
+   "Volume": "12800",
+   "searchIndex": "2026-11-24 57.45199966430664"
   }
  ]
 }

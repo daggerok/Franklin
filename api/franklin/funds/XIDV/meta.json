@@ -28,9 +28,9 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$37.04",
-  "value": 37.04,
-  "asOfDate": "2026-11-19"
+  "display": "$36.87",
+  "value": 36.87,
+  "asOfDate": "2026-11-24"
  },
  "marketPrice": {
   "display": "$37.38",
@@ -39,23 +39,23 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "-0.38%",
-  "value": -0.38,
-  "asOfDate": "2026-11-19",
+  "display": "0.52%",
+  "value": 0.52,
+  "asOfDate": "2026-11-24",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$44.45 M",
-  "value": 44450000,
-  "asOfDate": "2026-11-19",
+  "display": "$44.24 M",
+  "value": 44240000,
+  "asOfDate": "2026-11-24",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 3.44,
-  "dividendYieldText": "3.44%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 19 2026",
-  "dividendYieldAsOfDate": "2026-11-19",
+  "dividendYield": 3.49,
+  "dividendYieldText": "3.49%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 23 2026",
+  "dividendYieldAsOfDate": "2026-11-23",
   "secYield": 5.11,
   "secYieldText": "5.11%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Oct 31 2026"
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-10-31",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "ytd": 14.52,
-   "ytdText": "14.52%",
+   "ytd": 13.99,
+   "ytdText": "13.99%",
    "yr1": 25.62,
    "yr1Text": "25.62%",
    "yr3": null,
@@ -154,13 +154,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035105, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 461,
+  "totalRows": 463,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Nov 20 2026",
+  "asOf": "Nov 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

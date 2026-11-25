@@ -22,15 +22,15 @@
   "benchmark": null
  },
  "expenseRatio": {
-  "display": "0.49%",
-  "value": 0.49,
+  "display": "0.50%",
+  "value": 0.5,
   "gross": 0.5,
-  "net": 0.49
+  "net": 0.5
  },
  "nav": {
-  "display": "$43.17",
-  "value": 43.17,
-  "asOfDate": "2026-11-17"
+  "display": "$42.87",
+  "value": 42.87,
+  "asOfDate": "2026-11-23"
  },
  "marketPrice": {
   "display": "$43.23",
@@ -39,16 +39,16 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.14%",
-  "value": 0.14,
-  "asOfDate": "2026-11-17",
+  "display": "0.00%",
+  "value": 0,
+  "asOfDate": "2026-11-23",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "official product page closing Market Price"
+  "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$193.88 M",
-  "value": 193880000,
-  "asOfDate": "2026-11-18",
+  "display": "$192.93 M",
+  "value": 192930000,
+  "asOfDate": "2026-11-23",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-10-31",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "ytd": 0.16,
-   "ytdText": "0.16%",
+   "ytd": -3.88,
+   "ytdText": "-3.88%",
    "yr1": -0.91,
    "yr1Text": "-0.91%",
    "yr3": 22.31,
@@ -139,14 +139,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-041671, report period 2026-08-31)"
  },
  "history": {
-  "totalRows": 1380,
+  "totalRows": 1382,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Nov 20 2026",
+  "asOf": "Nov 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

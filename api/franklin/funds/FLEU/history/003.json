@@ -2,7 +2,7 @@
  "ticker": "FLEU",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2273,
+ "totalRows": 2275,
  "headers": [
   "Date",
   "Close",
@@ -1918,8 +1918,22 @@
    "Date": "Nov 20 2026",
    "Close": "31.99",
    "Adj Close": "31.99",
-   "Volume": "14640",
-   "searchIndex": "2026-11-20 31.98550033569336"
+   "Volume": "14600",
+   "searchIndex": "2026-11-20 31.986000061035156"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "Close": "32.66",
+   "Adj Close": "32.66",
+   "Volume": "8600",
+   "searchIndex": "2026-11-23 32.65999984741211"
+  },
+  {
+   "Date": "Nov 24 2026",
+   "Close": "32.79",
+   "Adj Close": "32.79",
+   "Volume": "4200",
+   "searchIndex": "2026-11-24 32.78799819946289"
   }
  ]
 }

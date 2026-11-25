@@ -28,9 +28,9 @@
   "net": 0.5
  },
  "nav": {
-  "display": "$82.51",
-  "value": 82.51,
-  "asOfDate": "2026-11-19"
+  "display": "$78.64",
+  "value": 78.64,
+  "asOfDate": "2026-11-24"
  },
  "marketPrice": {
   "display": "$82.14",
@@ -39,22 +39,22 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "-0.45%",
-  "value": -0.45,
-  "asOfDate": "2026-11-19",
+  "display": "-0.22%",
+  "value": -0.22,
+  "asOfDate": "2026-11-24",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "official product page closing Market Price"
+  "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$66.01 M",
-  "value": 66010000.00000001,
-  "asOfDate": "2026-11-19",
+  "display": "$62.91 M",
+  "value": 62910000,
+  "asOfDate": "2026-11-24",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 0.11,
-  "dividendYieldText": "0.11%",
-  "dividendYieldKind": "indicated: latest distribution 0.0940 x 1/year / market price 82.14",
+  "dividendYield": 0.23,
+  "dividendYieldText": "0.23%",
+  "dividendYieldKind": "indicated: latest distribution 0.0940 x 2/year / market price 82.14",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-10-31",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "ytd": -3.55,
-   "ytdText": "-3.55%",
+   "ytd": -9.94,
+   "ytdText": "-9.94%",
    "yr1": -2.12,
    "yr1Text": "-2.12%",
    "yr3": 30.51,
@@ -95,9 +95,9 @@
   }
  },
  "distributions": {
-  "frequency": "Annually",
-  "frequencyCode": "12 - Annually",
-  "paymentsPerYear": 1,
+  "frequency": "Semi-annually",
+  "frequencyCode": "06 - Semi-annually",
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -129,14 +129,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035138, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 1694,
+  "totalRows": 1696,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Nov 20 2026",
+  "asOf": "Nov 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

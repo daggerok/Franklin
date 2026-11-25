@@ -28,9 +28,9 @@
   "net": 0.35
  },
  "nav": {
-  "display": "$6.99",
-  "value": 6.99,
-  "asOfDate": "2026-11-19"
+  "display": "$7.05",
+  "value": 7.05,
+  "asOfDate": "2026-11-24"
  },
  "marketPrice": {
   "display": "$7.00",
@@ -39,23 +39,23 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "-0.14%",
-  "value": -0.14,
-  "asOfDate": "2026-11-19",
+  "display": "0.00%",
+  "value": 0,
+  "asOfDate": "2026-11-24",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$799.76 M",
-  "value": 799760000,
-  "asOfDate": "2026-11-19",
+  "display": "$812.74 M",
+  "value": 812740000,
+  "asOfDate": "2026-11-24",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 4.09,
-  "dividendYieldText": "4.09%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 19 2026",
-  "dividendYieldAsOfDate": "2026-11-19",
+  "dividendYield": 4.07,
+  "dividendYieldText": "4.07%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 23 2026",
+  "dividendYieldAsOfDate": "2026-11-23",
   "secYield": 4.43,
   "secYieldText": "4.43%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Oct 31 2026"
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-10-31",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "ytd": -1.23,
-   "ytdText": "-1.23%",
+   "ytd": -0.38,
+   "ytdText": "-0.38%",
    "yr1": -0.11,
    "yr1Text": "-0.11%",
    "yr3": 5.35,
@@ -180,13 +180,13 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-035187, report period 2026-06-30)"
  },
  "history": {
-  "totalRows": 270,
+  "totalRows": 272,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Nov 20 2026",
+  "asOf": "Nov 24 2026",
   "source": "Yahoo Finance public chart API"
  }
 }
