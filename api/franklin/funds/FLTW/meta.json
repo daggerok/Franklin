@@ -33,9 +33,9 @@
   "asOfDate": "2026-11-25"
  },
  "marketPrice": {
-  "display": "$81.02",
-  "value": 81.02,
-  "asOfDate": "2026-11-24",
+  "display": "$79.78",
+  "value": 79.78,
+  "asOfDate": "2026-11-25",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
@@ -43,7 +43,7 @@
   "value": -0.24,
   "asOfDate": "2026-11-25",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
   "display": "$3.72 B",
@@ -52,9 +52,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 0.45,
-  "dividendYieldText": "0.45%",
-  "dividendYieldKind": "indicated: latest distribution 0.1840 x 2/year / market price 81.02",
+  "dividendYield": 0.46,
+  "dividendYieldText": "0.46%",
+  "dividendYieldKind": "indicated: latest distribution 0.1840 x 2/year / market price 79.78",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
