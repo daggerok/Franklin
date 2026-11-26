@@ -28,34 +28,34 @@
   "net": 0.45
  },
  "nav": {
-  "display": "$27.76",
-  "value": 27.76,
-  "asOfDate": "2026-11-24"
+  "display": "$27.97",
+  "value": 27.97,
+  "asOfDate": "2026-11-25"
  },
  "marketPrice": {
-  "display": "$28.17",
-  "value": 28.17,
-  "asOfDate": "2026-11-06",
+  "display": "$27.98",
+  "value": 27.98,
+  "asOfDate": "2026-11-25",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.11%",
-  "value": 0.11,
-  "asOfDate": "2026-11-24",
+  "display": "0.04%",
+  "value": 0.04,
+  "asOfDate": "2026-11-25",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$142.99 M",
-  "value": 142990000,
-  "asOfDate": "2026-11-24",
+  "display": "$144.02 M",
+  "value": 144020000,
+  "asOfDate": "2026-11-26",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 0.42,
-  "dividendYieldText": "0.42%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 24 2026",
-  "dividendYieldAsOfDate": "2026-11-24",
+  "dividendYield": 0.41,
+  "dividendYieldText": "0.41%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 25 2026",
+  "dividendYieldAsOfDate": "2026-11-25",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published by franklintempleton.com for this fund"

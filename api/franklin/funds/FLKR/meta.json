@@ -28,33 +28,33 @@
   "net": 0.09
  },
  "nav": {
-  "display": "$45.08",
-  "value": 45.08,
-  "asOfDate": "2026-11-24"
+  "display": "$42.55",
+  "value": 42.55,
+  "asOfDate": "2026-11-25"
  },
  "marketPrice": {
-  "display": "$43.28",
-  "value": 43.28,
-  "asOfDate": "2026-11-24",
+  "display": "$42.77",
+  "value": 42.77,
+  "asOfDate": "2026-11-25",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "-3.99%",
-  "value": -3.99,
-  "asOfDate": "2026-11-24",
+  "display": "0.52%",
+  "value": 0.52,
+  "asOfDate": "2026-11-25",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$1.61 B",
-  "value": 1610000000,
-  "asOfDate": "2026-11-24",
+  "display": "$1.52 B",
+  "value": 1520000000,
+  "asOfDate": "2026-11-26",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 1.38,
-  "dividendYieldText": "1.38%",
-  "dividendYieldKind": "indicated: latest distribution 0.2980 x 2/year / market price 43.28",
+  "dividendYield": 1.39,
+  "dividendYieldText": "1.39%",
+  "dividendYieldKind": "indicated: latest distribution 0.2980 x 2/year / market price 42.77",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",

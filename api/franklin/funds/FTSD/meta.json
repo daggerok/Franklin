@@ -28,9 +28,9 @@
   "net": 0.25
  },
  "nav": {
-  "display": "$89.29",
-  "value": 89.29,
-  "asOfDate": "2026-11-24"
+  "display": "$89.37",
+  "value": 89.37,
+  "asOfDate": "2026-11-25"
  },
  "marketPrice": {
   "display": "$89.16",
@@ -39,23 +39,23 @@
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.02%",
-  "value": 0.02,
-  "asOfDate": "2026-11-24",
+  "display": "0.08%",
+  "value": 0.08,
+  "asOfDate": "2026-11-25",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$379.56 M",
-  "value": 379560000,
-  "asOfDate": "2026-11-24",
+  "display": "$379.93 M",
+  "value": 379930000,
+  "asOfDate": "2026-11-26",
   "source": "official product page Total Net Assets"
  },
  "yields": {
   "dividendYield": 4.33,
   "dividendYieldText": "4.33%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 24 2026",
-  "dividendYieldAsOfDate": "2026-11-24",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 25 2026",
+  "dividendYieldAsOfDate": "2026-11-25",
   "secYield": 4.45,
   "secYieldText": "4.45%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Oct 31 2026"
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-10-31",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "ytd": 1.79,
-   "ytdText": "1.79%",
+   "ytd": 1.88,
+   "ytdText": "1.88%",
    "yr1": 2.55,
    "yr1Text": "2.55%",
    "yr3": 4.8,

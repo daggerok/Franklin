@@ -2,7 +2,7 @@
  "ticker": "HELX",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1696,
+ "totalRows": 1697,
  "headers": [
   "Date",
   "Close",
@@ -4881,6 +4881,13 @@
    "Adj Close": "43.04",
    "Volume": "200",
    "searchIndex": "2026-11-24 43.0369987487793"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "42.97",
+   "Adj Close": "42.97",
+   "Volume": "300",
+   "searchIndex": "2026-11-25 42.9739990234375"
   }
  ]
 }

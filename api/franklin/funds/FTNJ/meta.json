@@ -22,15 +22,15 @@
   "benchmark": "Bloomberg Municipal Bond Index"
  },
  "expenseRatio": {
-  "display": "0.35%",
-  "value": 0.35,
+  "display": "0.36%",
+  "value": 0.36,
   "gross": 0.36,
-  "net": 0.35
+  "net": 0.36
  },
  "nav": {
-  "display": "$8.50",
-  "value": 8.5,
-  "asOfDate": "2026-11-24"
+  "display": "$8.52",
+  "value": 8.52,
+  "asOfDate": "2026-11-25"
  },
  "marketPrice": {
   "display": "$8.49",
@@ -41,21 +41,21 @@
  "premiumDiscount": {
   "display": "0.00%",
   "value": 0,
-  "asOfDate": "2026-11-24",
+  "asOfDate": "2026-11-25",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "Yahoo Finance regular-session close of the NAV date"
  },
  "aum": {
-  "display": "$205.53 M",
-  "value": 205530000,
-  "asOfDate": "2026-11-24",
+  "display": "$206.14 M",
+  "value": 206140000,
+  "asOfDate": "2026-11-26",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 3.89,
-  "dividendYieldText": "3.89%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 24 2026",
-  "dividendYieldAsOfDate": "2026-11-24",
+  "dividendYield": 3.88,
+  "dividendYieldText": "3.88%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 25 2026",
+  "dividendYieldAsOfDate": "2026-11-25",
   "secYield": 4.19,
   "secYieldText": "4.19%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Oct 31 2026"
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-10-31",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "ytd": 0.24,
-   "ytdText": "0.24%",
+   "ytd": 0.47,
+   "ytdText": "0.47%",
    "yr1": 0.39,
    "yr1Text": "0.39%",
    "yr3": 4.9,
