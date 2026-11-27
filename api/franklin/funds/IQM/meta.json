@@ -52,9 +52,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 0.12,
-  "dividendYieldText": "0.12%",
-  "dividendYieldKind": "indicated: latest distribution 0.0940 x 1/year / market price 77.28",
+  "dividendYield": 0.24,
+  "dividendYieldText": "0.24%",
+  "dividendYieldKind": "indicated: latest distribution 0.0940 x 2/year / market price 77.28",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -95,9 +95,9 @@
   }
  },
  "distributions": {
-  "frequency": "Annually",
-  "frequencyCode": "12 - Annually",
-  "paymentsPerYear": 1,
+  "frequency": "Semi-annually",
+  "frequencyCode": "06 - Semi-annually",
+  "paymentsPerYear": 2,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -129,14 +129,14 @@
   "source": "SEC EDGAR Form N-PORT-P (accession 0000940400-26-047372, report period 2026-09-30)"
  },
  "history": {
-  "totalRows": 1697,
+  "totalRows": 1698,
   "pageSize": 1000,
   "pageCount": 2,
   "pages": [
    "./history/001.json",
    "./history/002.json"
   ],
-  "asOf": "Nov 25 2026",
+  "asOf": "Nov 27 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

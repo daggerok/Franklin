@@ -52,9 +52,9 @@
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": null,
-  "dividendYieldText": "—",
-  "dividendYieldKind": "not computable: irregular or unknown distribution frequency",
+  "dividendYield": 5.52,
+  "dividendYieldText": "5.52%",
+  "dividendYieldKind": "indicated: latest distribution 0.0560 x 12/year / market price 12.18",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",
@@ -95,9 +95,9 @@
   }
  },
  "distributions": {
-  "frequency": "Irregular",
-  "frequencyCode": "99 - Irregular",
-  "paymentsPerYear": null,
+  "frequency": "Monthly",
+  "frequencyCode": "01 - Monthly",
+  "paymentsPerYear": 12,
   "headers": [
    "Ex-Date",
    "Dividend"
@@ -164,13 +164,13 @@
   "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-11-25)"
  },
  "history": {
-  "totalRows": 247,
+  "totalRows": 248,
   "pageSize": 1000,
   "pageCount": 1,
   "pages": [
    "./history/001.json"
   ],
-  "asOf": "Nov 25 2026",
+  "asOf": "Nov 27 2026",
   "source": "Yahoo Finance public chart API"
  }
 }

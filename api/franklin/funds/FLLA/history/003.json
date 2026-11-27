@@ -2,7 +2,7 @@
  "ticker": "FLLA",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2042,
+ "totalRows": 2043,
  "headers": [
   "Date",
   "Close",
@@ -303,6 +303,13 @@
    "Adj Close": "23.93",
    "Volume": "119200",
    "searchIndex": "2026-11-25 23.93000030517578"
+  },
+  {
+   "Date": "Nov 27 2026",
+   "Close": "25.53",
+   "Adj Close": "25.53",
+   "Volume": "26384",
+   "searchIndex": "2026-11-27 25.530000686645508"
   }
  ]
 }

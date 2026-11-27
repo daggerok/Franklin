@@ -2,7 +2,7 @@
  "ticker": "EZET",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 590,
+ "totalRows": 591,
  "headers": [
   "Date",
   "Close",
@@ -4139,6 +4139,13 @@
    "Adj Close": "12.79",
    "Volume": "57700",
    "searchIndex": "2026-11-25 12.789999961853027"
+  },
+  {
+   "Date": "Nov 27 2026",
+   "Close": "12.64",
+   "Adj Close": "12.64",
+   "Volume": "14501",
+   "searchIndex": "2026-11-27 12.635000228881836"
   }
  ]
 }

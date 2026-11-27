@@ -2,7 +2,7 @@
  "ticker": "XRPZ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 253,
+ "totalRows": 254,
  "headers": [
   "Date",
   "Close",
@@ -1780,6 +1780,13 @@
    "Adj Close": "10.23",
    "Volume": "1131600",
    "searchIndex": "2026-11-25 10.229999542236328"
+  },
+  {
+   "Date": "Nov 27 2026",
+   "Close": "10.30",
+   "Adj Close": "10.30",
+   "Volume": "300546",
+   "searchIndex": "2026-11-27 10.300000190734863"
   }
  ]
 }

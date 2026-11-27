@@ -2,7 +2,7 @@
  "ticker": "DIEM",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2636,
+ "totalRows": 2637,
  "headers": [
   "Date",
   "Close",
@@ -4461,6 +4461,13 @@
    "Adj Close": "36.98",
    "Volume": "31300",
    "searchIndex": "2026-11-25 36.97999954223633"
+  },
+  {
+   "Date": "Nov 27 2026",
+   "Close": "38.02",
+   "Adj Close": "38.02",
+   "Volume": "4271",
+   "searchIndex": "2026-11-27 38.0171012878418"
   }
  ]
 }
