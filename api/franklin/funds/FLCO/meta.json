@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P603",
   "isin": "US35473P6034",
-  "benchmark": "Bloomberg US Corporate - Investment Grade Index"
+  "benchmark": "."
  },
  "expenseRatio": {
   "display": "0.35%",
@@ -65,8 +65,8 @@
   "performanceAsOf": "2026-10-31",
   "monthEnd": {
    "asOfDate": "Oct 31 2026",
-   "ytd": -1.16,
-   "ytdText": "-1.16%",
+   "ytd": -0.78,
+   "ytdText": "-0.78%",
    "yr1": -0.78,
    "yr1Text": "-0.78%",
    "yr3": 6.12,
