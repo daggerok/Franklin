@@ -33,9 +33,9 @@
   "asOfDate": "2026-11-27"
  },
  "marketPrice": {
-  "display": "$42.48",
-  "value": 42.48,
-  "asOfDate": "2026-11-25",
+  "display": "$43.03",
+  "value": 43.03,
+  "asOfDate": "2026-11-27",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
@@ -43,7 +43,7 @@
   "value": 0.51,
   "asOfDate": "2026-11-27",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
   "display": "$6.64 B",

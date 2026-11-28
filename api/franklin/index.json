@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-28T09:03:02Z",
+ "generatedAt": "2026-11-28T12:34:48Z",
  "source": {
   "provider": "Franklin Templeton",
   "market": "us",
@@ -584,11 +584,11 @@
    "navValue": 34.49,
    "aum": "$319.02 M",
    "aumValue": 319020000,
-   "asOfDate": "Nov 24 2026",
+   "asOfDate": "Nov 27 2026",
    "inceptionDate": "Jan 11 2024",
    "exchange": "Cboe",
-   "closePrice": "$34.46",
-   "closePriceValue": 34.46,
+   "closePrice": "$34.56",
+   "closePriceValue": 34.56,
    "closePriceSource": "official product page Market Price",
    "premiumDiscount": "0.20%",
    "premiumDiscountValue": 0.2,
@@ -740,8 +740,8 @@
    "returns": {
     "monthEnd": {
      "asOfDate": "Oct 31 2026",
-     "ytd": -43.35,
-     "ytdText": "-43.35%",
+     "ytd": -43.93,
+     "ytdText": "-43.93%",
      "yr1": -42.62,
      "yr1Text": "-42.62%",
      "yr3": null,
@@ -770,7 +770,7 @@
     }
    },
    "metrics": {
-    "ytd": -43.35,
+    "ytd": -43.93,
     "tr1y": -42.62,
     "tr3y": null,
     "tr5y": null,
@@ -1699,8 +1699,8 @@
    "asOfDate": "Sep 30 2026",
    "inceptionDate": "Nov 3 2017",
    "exchange": "NYSE Arca",
-   "closePrice": "$18.65",
-   "closePriceValue": 18.65,
+   "closePrice": "$20.59",
+   "closePriceValue": 20.59,
    "closePriceSource": "official product page Market Price",
    "premiumDiscount": "0.10%",
    "premiumDiscountValue": 0.1,
@@ -1752,8 +1752,8 @@
     "cagr5y": 11.5,
     "cagr10y": null,
     "siAnn": 4.26,
-    "dividendYield": 2.8,
-    "dividendYieldText": "2.80%",
+    "dividendYield": 2.54,
+    "dividendYieldText": "2.54%",
     "dividendYieldBasis": "indicated",
     "secYield": null,
     "secYieldText": "—",
@@ -1977,8 +1977,8 @@
    "asOfDate": "Sep 30 2026",
    "inceptionDate": "Sep 17 2019",
    "exchange": "NYSE Arca",
-   "closePrice": "$20.84",
-   "closePriceValue": 20.84,
+   "closePrice": "$20.78",
+   "closePriceValue": 20.78,
    "closePriceSource": "official product page Market Price",
    "premiumDiscount": "0.05%",
    "premiumDiscountValue": 0.05,
@@ -2130,8 +2130,8 @@
    "returns": {
     "monthEnd": {
      "asOfDate": "Oct 31 2026",
-     "ytd": -23.36,
-     "ytdText": "-23.36%",
+     "ytd": -19.98,
+     "ytdText": "-19.98%",
      "yr1": -20.92,
      "yr1Text": "-20.92%",
      "yr3": 8.76,
@@ -2160,7 +2160,7 @@
     }
    },
    "metrics": {
-    "ytd": -23.36,
+    "ytd": -19.98,
     "tr1y": -20.92,
     "tr3y": 28.65,
     "tr5y": -18.67,
@@ -3367,8 +3367,8 @@
    "asOfDate": "Sep 30 2026",
    "inceptionDate": "Feb 6 2018",
    "exchange": "NYSE Arca",
-   "closePrice": "$37.95",
-   "closePriceValue": 37.95,
+   "closePrice": "$37.76",
+   "closePriceValue": 37.76,
    "closePriceSource": "official product page Market Price",
    "premiumDiscount": "1.07%",
    "premiumDiscountValue": 1.07,
@@ -3420,8 +3420,8 @@
     "cagr5y": 2.01,
     "cagr10y": null,
     "siAnn": 5.25,
-    "dividendYield": 0.8,
-    "dividendYieldText": "0.80%",
+    "dividendYield": 0.81,
+    "dividendYieldText": "0.81%",
     "dividendYieldBasis": "indicated",
     "secYield": null,
     "secYieldText": "—",
@@ -3615,7 +3615,7 @@
     "beta1yQqq": 0.66,
     "corr1yQqq": 0.74,
     "upCapture3yQqq": 65.5,
-    "downCapture3yQqq": 22.35,
+    "downCapture3yQqq": 22.34,
     "relStrength3mQqq": 2.82,
     "stressReturnQqq": -14.47,
     "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
@@ -3893,7 +3893,7 @@
     "beta1yQqq": 2.03,
     "corr1yQqq": 0.79,
     "upCapture3yQqq": 151.17,
-    "downCapture3yQqq": 131.98,
+    "downCapture3yQqq": 131.97,
     "relStrength3mQqq": -14.95,
     "stressReturnQqq": -33.15,
     "stressBasisQqq": "QQQ -20% 2026-10-06 to 2026-11-20",
@@ -5593,7 +5593,7 @@
    "aumValue": 665170000,
    "asOfDate": "Sep 30 2026",
    "inceptionDate": "Jul 14 2020",
-   "exchange": "NYSEArca",
+   "exchange": "NYSE Arca",
    "closePrice": "$24.97",
    "closePriceValue": 24.97,
    "closePriceSource": "official product page Market Price",
@@ -5650,8 +5650,8 @@
     "dividendYield": 4.16,
     "dividendYieldText": "4.16%",
     "dividendYieldBasis": "official-distribution-rate",
-    "secYield": 5.28,
-    "secYieldText": "5.28%",
+    "secYield": 4.42,
+    "secYieldText": "4.42%",
     "week52Low": 24.86,
     "week52High": 25.1,
     "range52w": 45.83,
@@ -6558,8 +6558,8 @@
    "dataFile": "./funds/FTMS/meta.json",
    "cusip": "746729730",
    "isin": "US7467297302",
-   "ter": "0.22%",
-   "terValue": 0.22,
+   "ter": "0.21%",
+   "terValue": 0.21,
    "nav": "$9.84",
    "navValue": 9.84,
    "aum": "$288.29 M",
@@ -7137,8 +7137,8 @@
    "returns": {
     "monthEnd": {
      "asOfDate": "Oct 31 2026",
-     "ytd": 0.79,
-     "ytdText": "0.79%",
+     "ytd": 0.8,
+     "ytdText": "0.80%",
      "yr1": 0.39,
      "yr1Text": "0.39%",
      "yr3": 5.06,
@@ -7167,7 +7167,7 @@
     }
    },
    "metrics": {
-    "ytd": 0.79,
+    "ytd": 0.8,
     "tr1y": 0.39,
     "tr3y": 15.96,
     "tr5y": 3.29,
@@ -7964,7 +7964,7 @@
    "premiumDiscountValue": -0.04,
    "premiumDiscountAsOfDate": "2026-11-27",
    "distributions": {
-    "frequency": "Annually",
+    "frequency": "Semi-annually",
     "exDate": "Dec 13 2021",
     "dividend": "0.094"
    },
@@ -8010,8 +8010,8 @@
     "cagr5y": 11.39,
     "cagr10y": null,
     "siAnn": 21.79,
-    "dividendYield": 0.12,
-    "dividendYieldText": "0.12%",
+    "dividendYield": 0.24,
+    "dividendYieldText": "0.24%",
     "dividendYieldBasis": "indicated",
     "secYield": null,
     "secYieldText": "—",
@@ -8075,7 +8075,7 @@
     "performanceAsOf": "2026-10-31"
    },
    "dividendYieldSource": "indicated",
-   "distributionFrequency": "Annually",
+   "distributionFrequency": "Semi-annually",
    "holdings": 81,
    "history": 1698
   },
@@ -8110,8 +8110,8 @@
    "returns": {
     "monthEnd": {
      "asOfDate": "Oct 31 2026",
-     "ytd": -5.31,
-     "ytdText": "-5.31%",
+     "ytd": -3.11,
+     "ytdText": "-3.11%",
      "yr1": -0.66,
      "yr1Text": "-0.66%",
      "yr3": 18.42,
@@ -8140,7 +8140,7 @@
     }
    },
    "metrics": {
-    "ytd": -5.31,
+    "ytd": -3.11,
     "tr1y": -0.66,
     "tr3y": 66.06,
     "tr5y": 46.05,
@@ -8249,8 +8249,8 @@
    "returns": {
     "monthEnd": {
      "asOfDate": "Oct 31 2026",
-     "ytd": 17.62,
-     "ytdText": "17.62%",
+     "ytd": 18.03,
+     "ytdText": "18.03%",
      "yr1": 16.61,
      "yr1Text": "16.61%",
      "yr3": 15.04,
@@ -8279,7 +8279,7 @@
     }
    },
    "metrics": {
-    "ytd": 17.62,
+    "ytd": 18.03,
     "tr1y": 16.61,
     "tr3y": 52.25,
     "tr5y": 44.43,
@@ -8374,8 +8374,8 @@
    "asOfDate": "Sep 30 2026",
    "inceptionDate": "Jul 27 2016",
    "exchange": "Cboe",
-   "closePrice": "$42.48",
-   "closePriceValue": 42.48,
+   "closePrice": "$43.03",
+   "closePriceValue": 43.03,
    "closePriceSource": "official product page Market Price",
    "premiumDiscount": "0.51%",
    "premiumDiscountValue": 0.51,
@@ -8805,8 +8805,8 @@
    "returns": {
     "monthEnd": {
      "asOfDate": "Oct 31 2026",
-     "ytd": 9.69,
-     "ytdText": "9.69%",
+     "ytd": 12.81,
+     "ytdText": "12.81%",
      "yr1": 23.21,
      "yr1Text": "23.21%",
      "yr3": 30.08,
@@ -8835,7 +8835,7 @@
     }
    },
    "metrics": {
-    "ytd": 9.69,
+    "ytd": 12.81,
     "tr1y": 23.21,
     "tr3y": 120.11,
     "tr5y": null,
@@ -9060,10 +9060,10 @@
    "dataFile": "./funds/PGRO/meta.json",
    "cusip": "746729409",
    "isin": "US7467294093",
-   "ter": "0.49%",
-   "terValue": 0.49,
-   "nav": "$41.89",
-   "navValue": 41.89,
+   "ter": "0.50%",
+   "terValue": 0.5,
+   "nav": "$42.79",
+   "navValue": 42.79,
    "aum": "$188.51 M",
    "aumValue": 188510000,
    "asOfDate": "Aug 31 2026",
@@ -9072,9 +9072,9 @@
    "closePrice": "$41.91",
    "closePriceValue": 41.91,
    "closePriceSource": "official product page Market Price",
-   "premiumDiscount": "0.05%",
-   "premiumDiscountValue": 0.05,
-   "premiumDiscountAsOfDate": "2026-11-25",
+   "premiumDiscount": "0.19%",
+   "premiumDiscountValue": 0.19,
+   "premiumDiscountAsOfDate": "2026-11-27",
    "distributions": {
     "frequency": "Annually",
     "exDate": "Dec 19 2025",
@@ -9083,8 +9083,8 @@
    "returns": {
     "monthEnd": {
      "asOfDate": "Oct 31 2026",
-     "ytd": -6.08,
-     "ytdText": "-6.08%",
+     "ytd": -4.06,
+     "ytdText": "-4.06%",
      "yr1": -0.91,
      "yr1Text": "-0.91%",
      "yr3": 22.31,
@@ -9113,7 +9113,7 @@
     }
    },
    "metrics": {
-    "ytd": -6.08,
+    "ytd": -4.06,
     "tr1y": -0.91,
     "tr3y": 82.97,
     "tr5y": 57.78,
@@ -9354,7 +9354,7 @@
    "premiumDiscountValue": -0.32,
    "premiumDiscountAsOfDate": "2026-11-27",
    "distributions": {
-    "frequency": "Monthly",
+    "frequency": "Irregular",
     "exDate": "Nov 16 2026",
     "dividend": "0.056"
    },
@@ -9400,9 +9400,9 @@
     "cagr5y": null,
     "cagr10y": null,
     "siAnn": null,
-    "dividendYield": 5.42,
-    "dividendYieldText": "5.42%",
-    "dividendYieldBasis": "indicated",
+    "dividendYield": null,
+    "dividendYieldText": "—",
+    "dividendYieldBasis": null,
     "secYield": null,
     "secYieldText": "—",
     "week52Low": 11.01,
@@ -9464,8 +9464,8 @@
     "returnsBasis": "official Franklin Templeton average annual total returns at market price (finder and product page, as of the month-end shown in performanceAsOf; YTD is refreshed daily); 3Y/5Y/10Y cumulative figures are compounded from the official annualized values; not derived from Yahoo Finance",
     "performanceAsOf": "2026-10-31"
    },
-   "dividendYieldSource": "indicated",
-   "distributionFrequency": "Monthly",
+   "dividendYieldSource": null,
+   "distributionFrequency": "Irregular",
    "holdings": 2,
    "history": 248
   },
@@ -9500,8 +9500,8 @@
    "returns": {
     "monthEnd": {
      "asOfDate": "Oct 31 2026",
-     "ytd": 20.2,
-     "ytdText": "20.20%",
+     "ytd": 22,
+     "ytdText": "22.00%",
      "yr1": 28.9,
      "yr1Text": "28.90%",
      "yr3": 17.36,
@@ -9530,7 +9530,7 @@
     }
    },
    "metrics": {
-    "ytd": 20.2,
+    "ytd": 22,
     "tr1y": 28.9,
     "tr3y": 61.64,
     "tr5y": 45.04,
@@ -9625,8 +9625,8 @@
    "asOfDate": "Sep 30 2026",
    "inceptionDate": "Jan 20 2026",
    "exchange": "NYSE Arca",
-   "closePrice": "$23.73",
-   "closePriceValue": 23.73,
+   "closePrice": "$23.98",
+   "closePriceValue": 23.98,
    "closePriceSource": "official product page Market Price",
    "premiumDiscount": "1.01%",
    "premiumDiscountValue": 1.01,
@@ -10612,8 +10612,8 @@
    "returns": {
     "monthEnd": {
      "asOfDate": "Oct 31 2026",
-     "ytd": 13.84,
-     "ytdText": "13.84%",
+     "ytd": 16.74,
+     "ytdText": "16.74%",
      "yr1": 25.62,
      "yr1Text": "25.62%",
      "yr3": null,
@@ -10642,7 +10642,7 @@
     }
    },
    "metrics": {
-    "ytd": 13.84,
+    "ytd": 16.74,
     "tr1y": 25.62,
     "tr3y": null,
     "tr5y": null,
@@ -10734,11 +10734,11 @@
    "navValue": 10.29,
    "aum": "$302.54 M",
    "aumValue": 302540000,
-   "asOfDate": "Nov 25 2026",
+   "asOfDate": "Nov 27 2026",
    "inceptionDate": "Nov 24 2025",
    "exchange": "Nyse Arca",
-   "closePrice": "$9.98",
-   "closePriceValue": 9.98,
+   "closePrice": "$10.30",
+   "closePriceValue": 10.3,
    "closePriceSource": "official product page Market Price",
    "premiumDiscount": "0.10%",
    "premiumDiscountValue": 0.1,
@@ -10890,8 +10890,8 @@
    "returns": {
     "monthEnd": {
      "asOfDate": "Oct 31 2026",
-     "ytd": 25.69,
-     "ytdText": "25.69%",
+     "ytd": 27.35,
+     "ytdText": "27.35%",
      "yr1": 30.91,
      "yr1Text": "30.91%",
      "yr3": null,
@@ -10920,7 +10920,7 @@
     }
    },
    "metrics": {
-    "ytd": 25.69,
+    "ytd": 27.35,
     "tr1y": 30.91,
     "tr3y": null,
     "tr5y": null,
@@ -11015,8 +11015,8 @@
    "asOfDate": "Sep 30 2026",
    "inceptionDate": "Jun 2 2026",
    "exchange": "NYSE Arca",
-   "closePrice": "$25.15",
-   "closePriceValue": 25.15,
+   "closePrice": "$25.17",
+   "closePriceValue": 25.17,
    "closePriceSource": "official product page Market Price",
    "premiumDiscount": "-0.20%",
    "premiumDiscountValue": -0.2,

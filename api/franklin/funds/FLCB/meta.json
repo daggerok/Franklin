@@ -19,7 +19,7 @@
  "identifiers": {
   "cusip": "35473P553",
   "isin": "US35473P5531",
-  "benchmark": "outperformance mainly through security selection and sector rotation."
+  "benchmark": "Bloomberg U.S. Aggregate Index"
  },
  "expenseRatio": {
   "display": "0.15%",
@@ -33,9 +33,9 @@
   "asOfDate": "2026-11-27"
  },
  "marketPrice": {
-  "display": "$20.84",
-  "value": 20.84,
-  "asOfDate": "2026-11-25",
+  "display": "$20.78",
+  "value": 20.78,
+  "asOfDate": "2026-11-27",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
@@ -43,7 +43,7 @@
   "value": 0.05,
   "asOfDate": "2026-11-27",
   "source": "computed from market price / official NAV, same date",
-  "priceSource": "Yahoo Finance regular-session close of the NAV date"
+  "priceSource": "official product page closing Market Price"
  },
  "aum": {
   "display": "$3.21 B",
