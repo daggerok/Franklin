@@ -28,20 +28,20 @@
   "net": 0.56
  },
  "nav": {
-  "display": "$52.96",
-  "value": 52.96,
-  "asOfDate": "2026-11-25"
+  "display": "$53.49",
+  "value": 53.49,
+  "asOfDate": "2026-11-27"
  },
  "marketPrice": {
-  "display": "$53.01",
-  "value": 53.01,
-  "asOfDate": "2026-11-25",
+  "display": "$53.57",
+  "value": 53.57,
+  "asOfDate": "2026-11-27",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.09%",
-  "value": 0.09,
-  "asOfDate": "2026-11-25",
+  "display": "0.15%",
+  "value": 0.15,
+  "asOfDate": "2026-11-27",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
@@ -54,7 +54,7 @@
  "yields": {
   "dividendYield": 0.72,
   "dividendYieldText": "0.72%",
-  "dividendYieldKind": "indicated: latest distribution 0.0960 x 4/year / market price 53.01",
+  "dividendYieldKind": "indicated: latest distribution 0.0960 x 4/year / market price 53.57",
   "dividendYieldAsOfDate": null,
   "secYield": null,
   "secYieldText": "—",

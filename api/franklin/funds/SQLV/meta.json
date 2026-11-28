@@ -28,34 +28,34 @@
   "net": 0.6
  },
  "nav": {
-  "display": "$51.48",
-  "value": 51.48,
-  "asOfDate": "2026-11-25"
+  "display": "$52.25",
+  "value": 52.25,
+  "asOfDate": "2026-11-27"
  },
  "marketPrice": {
-  "display": "$51.52",
-  "value": 51.52,
-  "asOfDate": "2026-11-25",
+  "display": "$52.20",
+  "value": 52.2,
+  "asOfDate": "2026-11-27",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.08%",
-  "value": 0.08,
-  "asOfDate": "2026-11-25",
+  "display": "-0.10%",
+  "value": -0.1,
+  "asOfDate": "2026-11-27",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$38.61 M",
-  "value": 38610000,
-  "asOfDate": "2026-11-25",
+  "display": "$41.80 M",
+  "value": 41800000,
+  "asOfDate": "2026-11-27",
   "source": "official product page Total Net Assets"
  },
  "yields": {
-  "dividendYield": 1.18,
-  "dividendYieldText": "1.18%",
-  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 25 2026",
-  "dividendYieldAsOfDate": "2026-11-25",
+  "dividendYield": 1.16,
+  "dividendYieldText": "1.16%",
+  "dividendYieldKind": "Distribution Rate at NAV published on the official Franklin fund page as of Nov 27 2026",
+  "dividendYieldAsOfDate": "2026-11-27",
   "secYield": 0.75,
   "secYieldText": "0.75%",
   "secYieldKind": "SEC Yield (30 Day) published on the official product page as of Oct 31 2026"
