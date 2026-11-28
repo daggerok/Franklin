@@ -2,7 +2,7 @@
  "ticker": "PGRI",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 275,
+ "totalRows": 276,
  "headers": [
   "Date",
   "Close",
@@ -1934,6 +1934,13 @@
    "Adj Close": "24.72",
    "Volume": "100",
    "searchIndex": "2026-11-25 24.722999572753906"
+  },
+  {
+   "Date": "Nov 27 2026",
+   "Close": "25.12",
+   "Adj Close": "25.12",
+   "Volume": "100",
+   "searchIndex": "2026-11-27 25.124000549316406"
   }
  ]
 }

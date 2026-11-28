@@ -2,7 +2,7 @@
  "ticker": "FLSA",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2042,
+ "totalRows": 2043,
  "headers": [
   "Date",
   "Close",
@@ -303,6 +303,13 @@
    "Adj Close": "30.33",
    "Volume": "100",
    "searchIndex": "2026-11-25 30.329999923706055"
+  },
+  {
+   "Date": "Nov 27 2026",
+   "Close": "30.21",
+   "Adj Close": "30.21",
+   "Volume": "100",
+   "searchIndex": "2026-11-27 30.209999084472656"
   }
  ]
 }

@@ -30,25 +30,25 @@
  "nav": {
   "display": "$24.96",
   "value": 24.96,
-  "asOfDate": "2026-11-25"
+  "asOfDate": "2026-11-27"
  },
  "marketPrice": {
-  "display": "$24.98",
-  "value": 24.98,
-  "asOfDate": "2026-11-25",
+  "display": "$24.97",
+  "value": 24.97,
+  "asOfDate": "2026-11-27",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.08%",
-  "value": 0.08,
-  "asOfDate": "2026-11-25",
+  "display": "0.04%",
+  "value": 0.04,
+  "asOfDate": "2026-11-27",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$657.67 M",
-  "value": 657670000,
-  "asOfDate": "2026-11-26",
+  "display": "$665.17 M",
+  "value": 665170000,
+  "asOfDate": "2026-11-29",
   "source": "official product page Total Net Assets"
  },
  "yields": {

@@ -11,7 +11,7 @@
   "site": "https://www.franklintempleton.com",
   "catalog": "https://www.franklintempleton.com/investments/options/exchange-traded-funds",
   "fundPage": "https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/40521/SINGLCLASS/franklin-ethereum-etf/EZET",
-  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-11-25)",
+  "holdingsSource": "Franklin Templeton official product page Portfolio holdings (daily, 2026-11-27)",
   "historySource": "Yahoo Finance public chart API",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EZET?period1=0&period2=..&interval=1d&events=div%7Csplit&includeAdjustedClose=true",
   "nportDoc": null
@@ -28,27 +28,27 @@
   "net": 0.19
  },
  "nav": {
-  "display": "$12.74",
-  "value": 12.74,
-  "asOfDate": "2026-11-25"
+  "display": "$12.61",
+  "value": 12.61,
+  "asOfDate": "2026-11-27"
  },
  "marketPrice": {
-  "display": "$12.79",
-  "value": 12.79,
-  "asOfDate": "2026-11-25",
+  "display": "$12.63",
+  "value": 12.63,
+  "asOfDate": "2026-11-27",
   "source": "official product page Market Price"
  },
  "premiumDiscount": {
-  "display": "0.39%",
-  "value": 0.39,
-  "asOfDate": "2026-11-25",
+  "display": "0.16%",
+  "value": 0.16,
+  "asOfDate": "2026-11-27",
   "source": "computed from market price / official NAV, same date",
   "priceSource": "official product page closing Market Price"
  },
  "aum": {
-  "display": "$33.13 M",
-  "value": 33130000.000000004,
-  "asOfDate": "2026-11-26",
+  "display": "$32.80 M",
+  "value": 32799999.999999996,
+  "asOfDate": "2026-11-29",
   "source": "official product page Total Net Assets"
  },
  "yields": {
@@ -113,9 +113,9 @@
   "pages": [
    "./holdings/001.json"
   ],
-  "asOfDate": "2026-11-25",
-  "asOf": "Nov 25 2026",
-  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-11-25)"
+  "asOfDate": "2026-11-27",
+  "asOf": "Nov 27 2026",
+  "source": "Franklin Templeton official product page Portfolio holdings (daily, 2026-11-27)"
  },
  "history": {
   "totalRows": 591,
